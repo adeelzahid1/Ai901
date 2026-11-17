@@ -1,5 +1,5 @@
 {
-  "name": "az-901",
+  "name": "ai-901",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:Az-901": "node dist/Az-901/server/server.mjs"
+    "serve:ssr:Ai-901": "node dist/Ai-901/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,

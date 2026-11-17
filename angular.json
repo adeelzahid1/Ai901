@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Az-901": {
+    "Ai-901": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Az-901:build:production"
+              "buildTarget": "Ai-901:build:production"
             },
             "development": {
-              "buildTarget": "Az-901:build:development"
+              "buildTarget": "Ai-901:build:development"
             }
           },
           "defaultConfiguration": "development"
