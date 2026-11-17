@@ -1,0 +1,343 @@
+[
+  {
+    "id": "D2-170", "sub": "agent-portal", "diff": 1, "type": "mcq",
+    "q": "Which kind of agent tool lets an agent take an action in another system, such as creating a support ticket through your own code?",
+    "opts": ["File search", "Grounding with Bing Search", "Azure AI Search", "Function calling"],
+    "ans": 3,
+    "exp": "Function calling lets the model ask your application to run a function, such as creating a ticket, and then use the result; it is an action tool. File search, Bing grounding and Azure AI Search are knowledge tools that find information but do not change anything in other systems.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-171", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "q": "An agent must use tools that a partner exposes through a remote Model Context Protocol (MCP) server. Which tool should you add to the agent?",
+    "opts": ["Code interpreter", "File search", "The MCP tool", "The Speech SDK"],
+    "ans": 2,
+    "exp": "The MCP tool connects an agent to a remote Model Context Protocol server so the agent can discover and call the tools that the server exposes, optionally with approval before each call. Code interpreter runs Python, file search searches uploaded files, and the Speech SDK is for speech apps, not agent tools.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-172", "sub": "agent-portal", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about agent tools, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "File search stores uploaded documents in a vector store so the agent can search them.",
+      "Grounding with Bing Search searches only your private SharePoint files.",
+      "Code interpreter runs code in a sandboxed environment."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: uploaded files are chunked and embedded into a vector store that file search queries. No for the second: Bing grounding searches the public web, not private files. Yes for the third: code interpreter runs the Python it writes in an isolated sandbox.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-173", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "q": "While testing an agent, you want to see which tools it called, in what order and with what inputs, to understand a wrong answer. What should you look at?",
+    "opts": ["The trace or run details of the conversation", "The subscription bill", "The model card", "The deployment's quota"],
+    "ans": 0,
+    "exp": "Traces and run details show each step the agent took, including tool calls with their inputs and outputs, which is how you debug agent behavior. The bill shows cost, the model card describes the base model, and quota limits throughput; none of them show the agent's steps.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-174", "sub": "agent-portal", "diff": 2, "type": "match",
+    "q": "Match each part of a Foundry agent solution to its role. Each role can be used once or not at all.",
+    "items": ["The deployed model", "The instructions", "The tools", "The conversation"],
+    "targets": [
+      "Holds the messages exchanged with a user",
+      "Let the agent search data or take actions",
+      "Define the agent's goals, rules and tone",
+      "Does the reasoning and writes the responses",
+      "Bills the subscription"
+    ],
+    "ans": [3, 2, 1, 0],
+    "exp": "The model reasons and generates text, the instructions define how the agent should behave, the tools give it knowledge and actions, and the conversation stores the exchange with the user. Billing is handled by Azure and is not a part of the agent's design.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-175", "sub": "agent-portal", "diff": 3, "type": "multi",
+    "q": "Which TWO practices help keep an agent's actions safe? Each correct answer presents a complete solution.",
+    "opts": [
+      "Give the agent administrator rights on all systems",
+      "Require human approval before sensitive tool calls",
+      "Turn off content filters for the agent's model",
+      "Give the agent only the tools and permissions it needs",
+      "Hide tool calls from logs"
+    ],
+    "ans": [1, 3],
+    "exp": "Human approval for sensitive actions and least-privilege access limit the harm an agent can cause if it misunderstands a request or is manipulated. Broad admin rights, disabled content filters and hidden tool calls all increase risk and make problems harder to detect.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-176", "sub": "agent-portal", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentence about agents in Microsoft Foundry.",
+    "tpl": "An agent combines a {0} that reasons, {1} that define its behavior, and tools that give it knowledge and actions.",
+    "opts": [
+      ["database", "model", "network"],
+      ["invoices", "regions", "instructions"]
+    ],
+    "ans": [1, 2],
+    "exp": "A Foundry agent is built from a deployed model, instructions and optional tools. The model does the reasoning and writing, and the instructions tell it its role and rules. Databases, networks, invoices and regions can exist around a solution, but they are not the core parts of an agent.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-177", "sub": "agent-client", "diff": 1, "type": "mcq",
+    "q": "In Python, which client do you use to create and manage Foundry agents?",
+    "opts": ["BlobServiceClient from azure-storage-blob", "The agents operations of AIProjectClient from azure-ai-projects", "TextAnalyticsClient", "SpeechRecognizer"],
+    "ans": 1,
+    "exp": "AIProjectClient in azure-ai-projects has agents operations, such as create_version(), to create and manage agents in the project. BlobServiceClient works with storage, TextAnalyticsClient with Azure Language and SpeechRecognizer with Azure Speech.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-178", "sub": "agent-client", "diff": 2, "type": "mcq",
+    "q": "Which class describes a prompt-based agent's model and instructions when you call project.agents.create_version()?",
+    "opts": ["SpeechConfig", "ImageAnalysisClient", "PromptAgentDefinition", "AzureKeyCredential"],
+    "ans": 2,
+    "exp": "PromptAgentDefinition, from azure.ai.projects.models, holds the agent's model deployment name and instructions, and it is passed as the definition to create_version(). SpeechConfig configures Speech, ImageAnalysisClient analyzes images, and AzureKeyCredential holds an API key.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-179", "sub": "agent-client", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code so that both questions are answered in the same conversation with the agent.",
+    "tpl": "conversation = openai.conversations.create()\nfor question in [\"Where is order 1042?\", \"When will it arrive?\"]:\n    response = openai.responses.create(\n        conversation={0},\n        input=question,\n    )\n    print(response.{1})",
+    "opts": [
+      ["question", "openai", "conversation.id"],
+      ["id", "output_text", "model"]
+    ],
+    "ans": [2, 1],
+    "exp": "Passing conversation.id on every call keeps both questions in one conversation, so 'When will it arrive?' is understood as referring to order 1042. The answer text is in output_text. The question and the client object are not conversation identifiers, and id and model are response metadata, not the answer.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-180", "sub": "agent-client", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about agent client apps, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A client must upload the model weights before it can chat with an agent.",
+      "A client app can use an existing agent without creating it again.",
+      "Calling create_version() with an existing agent name creates a new version of that agent."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: the agent and its model run in Foundry, so the client only sends requests. Yes for the second: the client can get a client bound to an existing agent by name and start chatting. Yes for the third: create_version() creates the agent if it is new or a new version if it already exists.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-181", "sub": "agent-client", "diff": 3, "type": "mcq",
+    "q": "When a user ends a chat session, the client app must remove the stored conversation history. What should it do?",
+    "opts": [
+      "Delete the model deployment",
+      "Change the agent's instructions",
+      "Lower the temperature",
+      "Delete the conversation by using its ID"
+    ],
+    "ans": 3,
+    "exp": "Conversations are stored objects, so the client can delete a conversation by its ID when the session ends, which removes its history. Deleting the deployment would break the agent for everyone, changing instructions alters future behavior, and temperature only affects randomness.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-182", "sub": "agent-client", "diff": 3, "type": "match",
+    "q": "Match each SDK call to its purpose. Each purpose can be used once or not at all.",
+    "items": [
+      "project.agents.create_version()",
+      "project.get_openai_client(agent_name=...)",
+      "openai.conversations.create()",
+      "openai.responses.create(conversation=...)"
+    ],
+    "targets": [
+      "Sends the user's input to the agent within a conversation",
+      "Creates a conversation that keeps the history",
+      "Returns a client that is bound to the agent",
+      "Creates or updates the agent's definition",
+      "Deploys a new model"
+    ],
+    "ans": [3, 2, 1, 0],
+    "exp": "create_version() creates the agent or a new version of it, get_openai_client(agent_name=...) returns a client bound to that agent, conversations.create() starts a conversation that stores history, and responses.create() with the conversation ID sends each user turn. Deploying models is done separately.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-183", "sub": "agent-client", "diff": 2, "type": "multi",
+    "q": "A client app uses DefaultAzureCredential to chat with a Foundry agent. Which TWO conditions must be true? Each correct answer presents part of the solution.",
+    "opts": [
+      "The client machine has a GPU",
+      "The signed-in identity has a role on the Foundry project that allows the call",
+      "The agent's tools are written in C#",
+      "The agent exists in the project",
+      "The client stores a copy of the model weights"
+    ],
+    "ans": [1, 3],
+    "exp": "The identity needs permission on the project, such as the Azure AI User role, and the agent must exist so the client can reference it by name. The model runs in Azure, so no GPU or local weights are needed, and agent tools are not tied to a programming language in the client.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry"
+  },
+  {
+    "id": "D2-184", "sub": "text-app", "diff": 1, "type": "mcq",
+    "q": "Besides the endpoint, what do you pass to TextAnalyticsClient when you use key authentication?",
+    "opts": ["A model deployment name", "An agent name", "An AzureKeyCredential that holds the resource key", "A storage SAS token"],
+    "ans": 2,
+    "exp": "TextAnalyticsClient takes the Language resource endpoint and a credential, which for key authentication is AzureKeyCredential with the key; Microsoft Entra credentials are also supported. Language features are not called through a model deployment or agent name, and a storage SAS token is for Blob Storage.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/quickstart"
+  },
+  {
+    "id": "D2-185", "sub": "text-app", "diff": 2, "type": "mcq",
+    "q": "In a Python app, how do you get opinion mining results, such as the sentiment about each product feature?",
+    "opts": [
+      "Call analyze_sentiment() with show_opinion_mining=True",
+      "Call extract_key_phrases()",
+      "Call detect_language()",
+      "Call recognize_entities()"
+    ],
+    "ans": 0,
+    "exp": "Opinion mining is an option of sentiment analysis: passing show_opinion_mining=True to analyze_sentiment() adds targets, such as 'battery', with the opinions about them to each sentence. Key phrases, language detection and entity recognition do not return opinions about features.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview"
+  },
+  {
+    "id": "D2-186", "sub": "text-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code so that it skips failed documents and prints each review's sentiment and positive score.",
+    "tpl": "results = client.analyze_sentiment(documents=reviews)\nfor doc in results:\n    if not doc.{0}:\n        print(doc.{1}, doc.confidence_scores.positive)",
+    "opts": [
+      ["valid", "has_text", "is_error"],
+      ["key_phrases", "sentiment", "entities"]
+    ],
+    "ans": [2, 1],
+    "exp": "Each result has is_error, which is true when that document failed, so the code only reads successful results. A successful sentiment result has a sentiment label, such as positive or mixed, and confidence_scores for each label. valid and has_text are not properties, and key_phrases and entities belong to other operations.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/quickstart"
+  },
+  {
+    "id": "D2-187", "sub": "text-app", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about building text analysis apps, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A deployed chat model can extract entities if you describe the output format in the prompt.",
+      "A text analysis app must run on a GPU that you manage.",
+      "The Language service returns confidence scores with sentiment results."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: generative models can perform extraction tasks when the prompt defines what to return. No for the second: both the Language service and Foundry models are cloud services, so your app only sends requests. Yes for the third: sentiment results include scores for positive, neutral and negative.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D2-188", "sub": "text-app", "diff": 3, "type": "mcq",
+    "q": "Document summarization in the Language SDK runs as a long-running operation. How does Python code get the summaries?",
+    "opts": [
+      "Call detect_language() and read the summary",
+      "Read the summary from the HTTP status code",
+      "Call begin_extract_summary() and then wait for the poller's result",
+      "Call analyze_sentiment() with a summary option"
+    ],
+    "ans": 2,
+    "exp": "Summarization methods start with begin_, such as begin_extract_summary() or begin_abstract_summary(), and return a poller; calling result() waits for the operation to finish and returns the summaries. detect_language and analyze_sentiment are different features, and a status code does not contain text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/summarization/overview"
+  },
+  {
+    "id": "D2-189", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
+    "q": "Before you build a spoken-prompt feature, how can you confirm that a model accepts audio input?",
+    "opts": ["Look only at its price", "Check the model card in the catalog for supported input types", "Check the Azure region", "Check the deployment name"],
+    "ans": 1,
+    "exp": "The model card lists the model's capabilities, including which input and output types it supports, such as text, images or audio. Price, region and deployment name do not tell you whether a model can process audio.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+  },
+  {
+    "id": "D2-190", "sub": "spoken-prompts", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Audio must be converted to an image before a multimodal model can use it.",
+      "A spoken question can be sent together with a text instruction in the same request.",
+      "If a model returns only text, the app can turn the answer into speech with Azure Speech."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: audio-capable models accept audio directly as an audio content part. Yes for the second: a message can contain both a text part and an audio part. Yes for the third: combining a model with text to speech is a common way to give spoken answers.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-191", "sub": "spoken-prompts", "diff": 2, "type": "dropdown",
+    "q": "Complete the content part that adds a recorded WAV question to a Chat Completions message.",
+    "tpl": "{\"type\": \"{0}\", \"input_audio\": {\"data\": audio_b64, \"format\": \"{1}\"}}",
+    "opts": [
+      ["image_url", "text", "input_audio"],
+      ["jpeg", "wav", "csv"]
+    ],
+    "ans": [2, 1],
+    "exp": "Audio input uses a content part of type input_audio, with the base64 data and the audio format, here wav. image_url is for images and text is for written text. jpeg is an image format and csv is a data format, so neither describes the recording.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-192", "sub": "spoken-prompts", "diff": 3, "type": "mcq",
+    "q": "A voice assistant must hold a natural spoken conversation with very low delay, where the user can interrupt the reply. Which option fits best?",
+    "opts": [
+      "Batch transcription",
+      "A Global Batch deployment",
+      "Image Analysis",
+      "The Realtime API with an audio-capable realtime model"
+    ],
+    "ans": 3,
+    "exp": "The Realtime API streams audio in and out over a persistent connection, so a realtime model can respond with low latency and handle interruptions, which suits live voice conversations. Batch transcription and Global Batch are asynchronous and slow by design, and Image Analysis works on pictures.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/realtime-audio-quickstart"
+  },
+  {
+    "id": "D2-193", "sub": "speech-app", "diff": 1, "type": "mcq",
+    "q": "A Python speech app must recognize Spanish speech. Which line sets this?",
+    "opts": [
+      "speech_config.speech_recognition_language = \"es-ES\"",
+      "speech_config.temperature = \"es\"",
+      "speech_config.region = \"spain\"",
+      "speech_config.voice = \"Spanish\""
+    ],
+    "ans": 0,
+    "exp": "speech_recognition_language tells the recognizer which language and locale to expect, such as es-ES. Speech has no temperature setting, the region is the Azure location of the resource, and voices are chosen with speech_synthesis_voice_name for text to speech.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"
+  },
+  {
+    "id": "D2-194", "sub": "speech-app", "diff": 2, "type": "mcq",
+    "q": "A Python app must save synthesized speech to a file named greeting.wav instead of playing it. What should it create?",
+    "opts": [
+      "AudioConfig(use_default_microphone=True)",
+      "A SpeechRecognizer",
+      "A TextAnalyticsClient",
+      "speechsdk.audio.AudioOutputConfig(filename=\"greeting.wav\")"
+    ],
+    "ans": 3,
+    "exp": "AudioOutputConfig with a filename sends the synthesizer's audio to a file, and it is passed to SpeechSynthesizer as its audio config. A microphone config is for input, SpeechRecognizer converts speech to text, and TextAnalyticsClient analyzes text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech"
+  },
+  {
+    "id": "D2-195", "sub": "speech-app", "diff": 2, "type": "match",
+    "q": "Match each Speech SDK result reason to its meaning. Each meaning can be used once or not at all.",
+    "items": [
+      "ResultReason.RecognizedSpeech",
+      "ResultReason.NoMatch",
+      "ResultReason.Canceled",
+      "ResultReason.SynthesizingAudioCompleted"
+    ],
+    "targets": [
+      "Synthesized audio is ready",
+      "The operation failed or was stopped, for example because of a wrong key",
+      "Speech was recognized and the text is available",
+      "The rate limit was reached",
+      "Audio was received but no speech could be recognized"
+    ],
+    "ans": [2, 4, 1, 0],
+    "exp": "RecognizedSpeech means text is available, NoMatch means speech could not be recognized in the audio, Canceled means the operation stopped, with details such as an authentication error, and SynthesizingAudioCompleted means text to speech finished. There is no separate result reason named for rate limits.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"
+  },
+  {
+    "id": "D2-196", "sub": "speech-app", "diff": 3, "type": "multi",
+    "q": "An app must transcribe a 20-minute lecture from a microphone as it happens. Which TWO statements are correct? Each correct answer presents part of the solution.",
+    "opts": [
+      "recognize_once_async() returns the whole 20 minutes in one result",
+      "Use start_continuous_recognition() instead of recognize_once_async()",
+      "Use SpeechSynthesizer",
+      "Handle the recognized event to collect each result as it arrives",
+      "Use TextAnalyticsClient to capture the audio"
+    ],
+    "ans": [1, 3],
+    "exp": "recognize_once_async() stops after a single utterance, so long audio needs continuous recognition, which raises a recognized event for each phrase that the app collects. SpeechSynthesizer creates audio, and TextAnalyticsClient analyzes text; neither captures speech.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-recognize-speech"
+  },
+  {
+    "id": "D2-197", "sub": "speech-app", "diff": 2, "type": "order",
+    "q": "You are writing Python code that speaks a sentence with a chosen neural voice. Put the steps in the correct order. Not every step is used.",
+    "items": [
+      "Check that the result reason is SynthesizingAudioCompleted",
+      "Create a TextAnalyticsClient",
+      "Create a SpeechConfig with the key and region",
+      "Create a SpeechSynthesizer and call speak_text_async()",
+      "Set speech_synthesis_voice_name on the SpeechConfig"
+    ],
+    "ans": [2, 4, 3, 0],
+    "exp": "The SpeechConfig must exist before you can set the voice on it, the synthesizer is created from that config and then speaks the text, and finally the code checks the result reason to confirm that audio was produced. TextAnalyticsClient is for Azure Language and is not needed for speech.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech"
+  }
+]
