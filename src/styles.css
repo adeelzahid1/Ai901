@@ -330,3 +330,8 @@ legend {
   flex-wrap: wrap;
   gap: 4px 16px;
 }
+
+/* Long URLs and code names in questions wrap instead of widening the page. */
+main {
+  overflow-wrap: anywhere;
+}

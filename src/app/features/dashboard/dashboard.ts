@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { RouterLink } from '@angular/router';
 import { ProgressService } from '../../core/progress';
 import { areaStats } from '../../core/stats';
+import { StudyProgress } from '../../core/study-progress';
 import { QuestionBank } from '../../data/question-bank';
 import { DOMAINS, EXAM, SECTIONS } from '../../data/schema';
 
@@ -16,6 +17,7 @@ import { DOMAINS, EXAM, SECTIONS } from '../../data/schema';
 export class Dashboard {
   private readonly bank = inject(QuestionBank);
   private readonly progress = inject(ProgressService);
+  private readonly study = inject(StudyProgress);
 
   protected readonly exam = EXAM;
   protected readonly planned = SECTIONS.reduce((sum, s) => sum + s.target, 0);
@@ -29,6 +31,16 @@ export class Dashboard {
   protected readonly mistakes = computed(() => this.progress.mistakeIds().size);
   protected readonly history = computed(() => this.progress.history().slice(0, 5));
   protected readonly lastExam = computed(() => this.progress.history().find((h) => h.mode === 'exam') ?? null);
+
+  protected readonly studyRow = computed(() => {
+    const ids = new Set(this.bank.questions().map((q) => q.id));
+    const count = (set: ReadonlySet<string>) => [...set].filter((id) => ids.has(id)).length;
+    return {
+      understood: count(this.study.understood()),
+      due: count(this.study.dueIds()),
+      bookmarked: count(this.study.bookmarked()),
+    };
+  });
 
   protected readonly domains = computed(() => {
     const byDomain = areaStats(this.bank.questions(), this.progress.stats(), 'domain');

@@ -1,0 +1,98 @@
+@let q = question();
+<div class="chips">
+  @if (number() !== null) {
+    <span class="chip strong">#{{ number() }}</span>
+  }
+  <span class="chip">{{ meta().diff }}</span>
+  <span class="chip">{{ meta().type }}</span>
+  <span class="chip">{{ q.id }}</span>
+  <ng-content select="[card-actions]" />
+</div>
+
+@if (q.ctx) {
+  @if (ctxIsCode()) {
+    <pre class="code">{{ q.ctx }}</pre>
+  } @else {
+    <p class="muted">{{ q.ctx }}</p>
+  }
+}
+<p class="stem">{{ q.q }}</p>
+
+@let b = body();
+@switch (b.kind) {
+  @case ('choices') {
+    <ol class="opts" type="A">
+      @for (o of b.items; track $index) {
+        <li [class.right]="showAnswer() && o.answer">{{ o.text }}</li>
+      }
+    </ol>
+  }
+  @case ('statements') {
+    <ol class="opts">
+      @for (o of b.items; track $index) {
+        <li [class.right]="showAnswer()">
+          {{ o.text }}
+          @if (showAnswer()) {
+            <strong class="yn">{{ o.answer ? 'Yes' : 'No' }}</strong>
+          }
+        </li>
+      }
+    </ol>
+  }
+  @case ('list') {
+    <ul class="opts">
+      @for (o of b.items; track $index) {
+        <li>{{ o }}</li>
+      }
+    </ul>
+  }
+  @case ('match') {
+    <div class="two">
+      <div>
+        <h4>Items</h4>
+        <ul class="opts">
+          @for (o of b.items; track $index) {
+            <li>{{ o }}</li>
+          }
+        </ul>
+      </div>
+      <div>
+        <h4>Choices</h4>
+        <ul class="opts">
+          @for (o of b.targets; track $index) {
+            <li>{{ o }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  }
+  @case ('template') {
+    <div class="tpl" [class.code]="b.code">
+      @for (p of b.parts; track $index) {
+        @if (p.kind === 'text') {
+          <span>{{ p.text }}</span>
+        }
+        @if (p.kind === 'blank') {
+          <span class="blank">[ {{ p.index + 1 }} ]</span>
+        }
+      }
+    </div>
+    <ul class="opts">
+      @for (blank of b.blanks; track blank.n) {
+        <li>Blank {{ blank.n }}: {{ blank.opts.join(' · ') }}</li>
+      }
+    </ul>
+  }
+}
+
+@if (showAnswer()) {
+  <div class="answer">
+    <h4>Answer</h4>
+    @for (line of correct(); track $index) {
+      <p class="line">{{ line }}</p>
+    }
+    <h4>Why</h4>
+    <p>{{ q.exp }}</p>
+    <a [href]="q.ref" target="_blank" rel="noopener">Read more on Microsoft Learn ↗</a>
+  </div>
+}

@@ -1,0 +1,135 @@
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.sidebar {
+  position: sticky;
+  top: 72px;
+  max-height: calc(100vh - 88px);
+  overflow-y: auto;
+  display: grid;
+  gap: 8px;
+  padding-right: 4px;
+}
+.btn.block {
+  width: 100%;
+}
+.sidebar h2 {
+  margin: 12px 0 2px;
+  font-size: 0.95rem;
+}
+.sidebar h2 .muted {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+.sidebar a:not(.btn) {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+.sidebar a:not(.btn):hover {
+  background: var(--surface-2);
+}
+.sidebar a.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.badge {
+  flex: none;
+  align-self: center;
+  padding: 0 8px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.badge.done {
+  background: var(--ok-soft);
+  border-color: var(--ok);
+  color: var(--ok);
+}
+.mobile-select {
+  display: none;
+}
+.lead {
+  margin: 0;
+}
+.how summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.how ol {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+}
+.grow {
+  flex: 1 1 220px;
+}
+.toolbar input[type='search'] {
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+.segmented {
+  display: flex;
+  gap: 4px;
+}
+.list-head,
+.card-actions,
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.list-head .btn + .btn {
+  margin-left: 6px;
+}
+.card-actions {
+  margin-top: 12px;
+}
+.row {
+  justify-content: flex-start;
+}
+.star {
+  margin-left: auto;
+  border: 0;
+  background: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+.star.on {
+  color: var(--warn);
+}
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sidebar {
+    display: none;
+  }
+  .mobile-select {
+    display: grid;
+  }
+}

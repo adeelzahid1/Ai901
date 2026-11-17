@@ -1,0 +1,77 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+:host > * {
+  min-width: 0;
+}
+.tpl.code {
+  white-space: pre-wrap;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.chip.strong {
+  background: var(--accent);
+  color: #fff;
+}
+.stem {
+  margin: 0;
+  font-weight: 600;
+}
+.muted {
+  margin: 0;
+}
+.opts {
+  margin: 0;
+  padding-left: 22px;
+}
+.opts li {
+  margin: 2px 0;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.opts li.right {
+  background: var(--ok-soft);
+}
+.yn {
+  margin-left: 6px;
+  color: var(--ok);
+}
+.two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+}
+h4 {
+  margin: 0 0 4px;
+}
+.blank {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+.tpl:not(.code) {
+  line-height: 1.8;
+}
+.answer {
+  padding: 12px 14px;
+  border-left: 4px solid var(--ok);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+.answer h4 + p,
+.line {
+  margin: 0 0 4px;
+  white-space: pre-wrap;
+}
+.answer h4:not(:first-child) {
+  margin-top: 10px;
+}

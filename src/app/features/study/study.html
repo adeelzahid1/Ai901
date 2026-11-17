@@ -1,0 +1,157 @@
+<div class="layout">
+  <aside class="sidebar" aria-label="Study sections">
+    <a class="btn primary block" routerLink="/exam">Mock exam · {{ exam.examQuestions }} questions</a>
+    <a class="btn block" routerLink="/weak-areas">Weak areas</a>
+    @for (d of nav(); track d.id) {
+      <h2>
+        {{ d.id }} · {{ d.short }}
+        <span class="muted">{{ d.weight[0] }}-{{ d.weight[1] }}%</span>
+      </h2>
+      <ul class="plain">
+        @for (s of d.sections; track s.id) {
+          <li>
+            <a
+              routerLink="/study"
+              [queryParams]="{ s: s.id }"
+              [class.active]="s.id === section().id"
+              [attr.aria-current]="s.id === section().id ? 'page' : null"
+            >
+              <span><strong>{{ s.id }}</strong> {{ s.en }}</span>
+              <span class="badge" [class.done]="s.total > 0 && s.understood === s.total" [attr.aria-label]="s.understood + ' of ' + s.total + ' understood'">
+                {{ s.understood }}/{{ s.total }}
+              </span>
+            </a>
+          </li>
+        }
+      </ul>
+    }
+  </aside>
+
+  <section class="content stack">
+    <label class="field mobile-select">
+      <span>Section</span>
+      <select #pick (change)="goTo(pick.value)">
+        @for (d of nav(); track d.id) {
+          <optgroup [label]="d.id + ' · ' + d.short + ' (' + d.weight[0] + '-' + d.weight[1] + '%)'">
+            @for (s of d.sections; track s.id) {
+              <option [value]="s.id" [selected]="s.id === section().id">{{ s.id }} {{ s.en }} ({{ s.understood }}/{{ s.total }})</option>
+            }
+          </optgroup>
+        }
+      </select>
+    </label>
+
+    <div>
+      <h1>{{ section().id }} {{ section().en }}</h1>
+      <p class="lead">
+        {{ sectionStats().total }} questions · {{ sectionStats().understood }} understood ·
+        {{ sectionStats().bookmarked }} bookmarked · {{ sectionStats().due }} due for review
+      </p>
+    </div>
+
+    <details class="card how">
+      <summary>How to study</summary>
+      <ol>
+        <li>Read each question in <strong>Study list</strong>, try to answer it in your head, then select <em>Show answer</em> and read why.</li>
+        <li>Tick <strong>I understand this</strong> when you can explain the answer. The sidebar counts them per section.</li>
+        <li>Star the tricky ones with the <strong>bookmark</strong> so you can filter them later.</li>
+        <li>Switch to <strong>Flashcards</strong> every day. <em>Again</em> repeats a card in 10 minutes, <em>Hard</em> and <em>Good</em> schedule it days ahead.</li>
+        <li>When a section feels solid, test it in <a routerLink="/practice" [queryParams]="{ section: section().id }">Practice</a>, then take the exam.</li>
+      </ol>
+    </details>
+
+    <form class="card toolbar" [formGroup]="form" (submit)="$event.preventDefault()">
+      <label class="field grow">
+        <span>Search</span>
+        <input type="search" formControlName="search" placeholder="Search this section" />
+      </label>
+      <label class="field">
+        <span>Level</span>
+        <select formControlName="level">
+          <option value="all">All</option>
+          <option value="1">Basic</option>
+          <option value="2">Intermediate</option>
+          <option value="3">Advanced</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Show</span>
+        <select formControlName="filter">
+          <option value="all">All</option>
+          <option value="not-understood">Not understood</option>
+          <option value="bookmarked">Bookmarked</option>
+          <option value="due">Due for review</option>
+          <option value="mistakes">Mistakes</option>
+        </select>
+      </label>
+      <div class="field">
+        <span>Mode</span>
+        <div class="segmented" role="group" aria-label="Mode">
+          <button type="button" class="btn small" [class.primary]="mode() === 'list'" [attr.aria-pressed]="mode() === 'list'" (click)="mode.set('list')">Study list</button>
+          <button type="button" class="btn small" [class.primary]="mode() === 'cards'" [attr.aria-pressed]="mode() === 'cards'" (click)="mode.set('cards')">Flashcards</button>
+        </div>
+      </div>
+    </form>
+
+    @if (mode() === 'list') {
+      <div class="list-head">
+        <span class="muted">Showing {{ shown().length }} of {{ filtered().length }}</span>
+        <span>
+          <button type="button" class="btn small" (click)="showAll(true)">Show all answers</button>
+          <button type="button" class="btn small" (click)="showAll(false)">Hide all</button>
+        </span>
+      </div>
+      @for (q of shown(); track q.id; let i = $index) {
+        @let opened = open().has(q.id);
+        <article class="card">
+          <app-study-card [question]="q" [showAnswer]="opened" [number]="i + 1">
+            <button
+              card-actions
+              type="button"
+              class="star"
+              [class.on]="study.bookmarked().has(q.id)"
+              [attr.aria-pressed]="study.bookmarked().has(q.id)"
+              [attr.aria-label]="'Bookmark ' + q.id"
+              (click)="study.toggleBookmark(q.id)"
+            >
+              {{ study.bookmarked().has(q.id) ? '★' : '☆' }}
+            </button>
+          </app-study-card>
+          <div class="card-actions">
+            <button type="button" class="btn small" [attr.aria-expanded]="opened" (click)="toggleOpen(q.id)">
+              {{ opened ? 'Hide answer' : 'Show answer' }}
+            </button>
+            <label class="check">
+              <input type="checkbox" [checked]="study.understood().has(q.id)" (change)="study.toggleUnderstood(q.id)" />
+              I understand this
+            </label>
+          </div>
+        </article>
+      } @empty {
+        <p class="card muted">No questions match. Try another filter or search.</p>
+      }
+      @if (shown().length < filtered().length) {
+        <button type="button" class="btn" (click)="loadMore()">Load more ({{ filtered().length - shown().length }} left)</button>
+      }
+    } @else {
+      @if (deck(); as cards) {
+        <app-flashcards [deck]="cards" (restart)="deck.set(null)" />
+      } @else {
+        <div class="card stack">
+          <p>
+            <strong>{{ cardsReady().length }}</strong> cards are new or due for review with these filters
+            ({{ filtered().length }} in total).
+          </p>
+          <div class="row">
+            <button type="button" class="btn primary" [disabled]="cardsReady().length === 0" (click)="startCards()">
+              Start flashcards ({{ cardsReady().length }})
+            </button>
+            @if (cardsReady().length < filtered().length) {
+              <button type="button" class="btn" [disabled]="filtered().length === 0" (click)="startCards(true)">Review all {{ filtered().length }} anyway</button>
+            }
+          </div>
+        </div>
+      }
+    }
+  </section>
+</div>

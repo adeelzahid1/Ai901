@@ -33,6 +33,13 @@
     </div>
   </div>
 
+  <div class="card study-row">
+    <span><strong>{{ studyRow().understood }}</strong> of {{ bankSize() }} understood</span>
+    <span><strong>{{ studyRow().due }}</strong> flashcards due</span>
+    <span><strong>{{ studyRow().bookmarked }}</strong> bookmarked</span>
+    <a class="btn" routerLink="/study">Open Study</a>
+  </div>
+
   <div class="actions">
     <a class="btn primary" routerLink="/exam">Start exam ({{ exam.examQuestions }} Q · {{ exam.minutes }} min)</a>
     <a class="btn" routerLink="/mock">Build a mock test</a>
