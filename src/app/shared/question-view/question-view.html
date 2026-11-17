@@ -1,0 +1,171 @@
+@let q = question();
+<article class="qv" [attr.aria-labelledby]="q.id + '-stem'">
+  <div class="chips">
+    @if (number() !== null) {
+      <span class="chip strong">Question {{ number() }}</span>
+    }
+    @if (section(); as s) {
+      <span class="chip">{{ s.id }} {{ s.en }}</span>
+    }
+    <span class="chip">{{ meta().diff }}</span>
+    <span class="chip">{{ meta().type }}</span>
+    <span class="chip id">{{ q.id }}</span>
+  </div>
+
+  @if (q.ctx) {
+    @if (ctxIsCode()) {
+      <pre class="code">{{ q.ctx }}</pre>
+    } @else {
+      <p class="ctx">{{ q.ctx }}</p>
+    }
+  }
+  <p class="stem" [id]="q.id + '-stem'">{{ q.q }}</p>
+
+  @if (mcq(); as v) {
+    <div class="choices" role="radiogroup" [attr.aria-labelledby]="q.id + '-stem'">
+      @for (opt of v.q.opts; track $index; let i = $index) {
+        <label class="choice" [class]="choiceState(i === v.q.ans, v.a.choice === i)">
+          <input type="radio" [name]="q.id + '-mcq'" [checked]="v.a.choice === i" [disabled]="revealed()" (change)="pickMcq(i)" />
+          <span class="letter">{{ 'ABCDEFG'[i] }}</span>
+          <span>{{ opt }}</span>
+        </label>
+      }
+    </div>
+  }
+
+  @if (multi(); as v) {
+    <p class="hint">Select {{ v.q.ans.length }}. ({{ v.a.choices.length }} selected)</p>
+    <div class="choices">
+      @for (opt of v.q.opts; track $index; let i = $index) {
+        @let chosen = v.a.choices.includes(i);
+        <label class="choice" [class]="choiceState(v.q.ans.includes(i), chosen)">
+          <input
+            type="checkbox"
+            [checked]="chosen"
+            [disabled]="revealed() || (!chosen && v.a.choices.length >= v.q.ans.length)"
+            (change)="toggleMulti(v.a, i, v.q.ans.length)"
+          />
+          <span class="letter">{{ 'ABCDEFG'[i] }}</span>
+          <span>{{ opt }}</span>
+        </label>
+      }
+    </div>
+  }
+
+  @if (yesno(); as v) {
+    <div class="yn">
+      <div class="yn-head" aria-hidden="true"><span>Statement</span><span>Yes</span><span>No</span></div>
+      @for (s of v.q.stmts; track $index; let i = $index) {
+        <div class="yn-row" role="radiogroup" [attr.aria-label]="s" [class]="revealed() ? (v.a.values[i] === v.q.ans[i] ? 'right' : 'wrong') : ''">
+          <span class="yn-text">{{ s }}</span>
+          <label><input type="radio" [name]="q.id + '-yn-' + i" [checked]="v.a.values[i] === true" [disabled]="revealed()" (change)="setYesNo(v.a, i, true)" /><span class="sr">Yes</span></label>
+          <label><input type="radio" [name]="q.id + '-yn-' + i" [checked]="v.a.values[i] === false" [disabled]="revealed()" (change)="setYesNo(v.a, i, false)" /><span class="sr">No</span></label>
+        </div>
+      }
+    </div>
+  }
+
+  @if (dropdown(); as v) {
+    <div class="tpl" [class.code]="v.code">
+      @for (part of v.parts; track $index) {
+        @if (part.kind === 'text') {
+          <span class="tpl-text">{{ part.text }}</span>
+        }
+        @if (part.kind === 'blank') {
+          <select
+            #sel
+            [attr.aria-label]="'Blank ' + (part.index + 1)"
+            [disabled]="revealed()"
+            [class]="revealed() ? (v.a.picks[part.index] === v.q.ans[part.index] ? 'right' : 'wrong') : ''"
+            (change)="setPick(v.a, part.index, sel.value)"
+          >
+            <option value="" [selected]="v.a.picks[part.index] === null">Select…</option>
+            @for (opt of v.q.opts[part.index]; track $index; let k = $index) {
+              <option [value]="k" [selected]="v.a.picks[part.index] === k">{{ opt }}</option>
+            }
+          </select>
+        }
+      }
+    </div>
+  }
+
+  @if (match(); as v) {
+    <div class="match">
+      @for (item of v.q.items; track $index; let i = $index) {
+        <label class="match-row" [class]="revealed() ? (v.a.picks[i] === v.q.ans[i] ? 'right' : 'wrong') : ''">
+          <span>{{ item }}</span>
+          <select #msel [disabled]="revealed()" (change)="setPick(v.a, i, msel.value)">
+            <option value="" [selected]="v.a.picks[i] === null">Select…</option>
+            @for (t of v.q.targets; track $index; let k = $index) {
+              <option [value]="k" [selected]="v.a.picks[i] === k">{{ t }}</option>
+            }
+          </select>
+        </label>
+      }
+    </div>
+  }
+
+  @if (order(); as v) {
+    <div class="order">
+      <div>
+        <h4>Actions</h4>
+        <ul class="plain">
+          @for (i of v.left; track i) {
+            <li>
+              <button type="button" class="btn small" [disabled]="revealed()" (click)="addToOrder(v.a, i)">Add</button>
+              <span>{{ v.q.items[i] }}</span>
+            </li>
+          } @empty {
+            <li class="muted">All actions are in your list.</li>
+          }
+        </ul>
+      </div>
+      <div>
+        <h4>Your order ({{ v.a.seq.length }} of {{ v.q.ans.length }} steps)</h4>
+        <ol>
+          @for (i of v.a.seq; track i; let pos = $index; let first = $first; let last = $last) {
+            <li [class]="revealed() ? (v.q.ans[pos] === i ? 'right' : 'wrong') : ''">
+              <span>{{ v.q.items[i] }}</span>
+              <span class="row-actions">
+                <button type="button" class="btn small" [disabled]="revealed() || first" (click)="moveInOrder(v.a, pos, -1)" [attr.aria-label]="'Move up: ' + v.q.items[i]">↑</button>
+                <button type="button" class="btn small" [disabled]="revealed() || last" (click)="moveInOrder(v.a, pos, 1)" [attr.aria-label]="'Move down: ' + v.q.items[i]">↓</button>
+                <button type="button" class="btn small" [disabled]="revealed()" (click)="removeFromOrder(v.a, pos)" [attr.aria-label]="'Remove: ' + v.q.items[i]">✕</button>
+              </span>
+            </li>
+          }
+        </ol>
+      </div>
+    </div>
+  }
+
+  @if (revealed()) {
+    <section class="feedback" [class]="score() === 1 ? 'ok' : score() > 0 ? 'part' : 'bad'" aria-live="polite">
+      <p class="verdict">
+        @if (score() === 1) {
+          Correct
+        } @else if (score() > 0) {
+          Partly correct ({{ (score() * 100).toFixed(0) }}%)
+        } @else {
+          Incorrect
+        }
+      </p>
+      <div class="answers">
+        <div>
+          <h4>Correct answer</h4>
+          @for (line of correct(); track $index) {
+            <p class="line">{{ line }}</p>
+          }
+        </div>
+        <div>
+          <h4>Your answer</h4>
+          @for (line of given(); track $index) {
+            <p class="line">{{ line }}</p>
+          }
+        </div>
+      </div>
+      <h4>Why this is the answer</h4>
+      <p>{{ q.exp }}</p>
+      <a [href]="q.ref" target="_blank" rel="noopener">Read more on Microsoft Learn ↗</a>
+    </section>
+  }
+</article>

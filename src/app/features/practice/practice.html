@@ -1,0 +1,66 @@
+<h1>Practice</h1>
+@if (session(); as list) {
+  <p class="lead">
+    Instant feedback after every question.
+    <button type="button" class="btn small" (click)="stop()">Change filters</button>
+  </p>
+  <app-quiz-runner [questions]="list" mode="practice" [title]="sessionTitle()" feedback="instant" (finished)="finish($event)" />
+} @else {
+  <p class="lead">Pick a topic and level, then answer one question at a time with the explanation right after you check it.</p>
+  <form class="card stack" [formGroup]="form" (ngSubmit)="start()">
+    <div class="form-grid">
+      <label class="field">
+        <span>Domain</span>
+        <select formControlName="domain">
+          <option value="all">All domains</option>
+          @for (d of domains; track d.id) {
+            <option [value]="d.id">{{ d.id }} · {{ d.name }}</option>
+          }
+        </select>
+      </label>
+      <label class="field">
+        <span>Section</span>
+        <select formControlName="section">
+          <option value="all">All sections</option>
+          @for (s of sectionOptions(); track s.id) {
+            <option [value]="s.id">{{ s.id }} {{ s.en }}</option>
+          }
+        </select>
+      </label>
+      <label class="field">
+        <span>Level</span>
+        <select formControlName="level">
+          <option value="all">All levels</option>
+          <option value="1">Basic</option>
+          <option value="2">Intermediate</option>
+          <option value="3">Advanced</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Question type</span>
+        <select formControlName="type">
+          <option value="all">All types</option>
+          @for (t of types; track t[0]) {
+            <option [value]="t[0]">{{ t[1] }}</option>
+          }
+        </select>
+      </label>
+      <label class="field">
+        <span>Questions</span>
+        <select formControlName="source">
+          <option value="all">All questions</option>
+          <option value="new">Only new (never answered)</option>
+          <option value="mistakes">Only my mistakes</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <button type="submit" class="btn primary" [disabled]="matching().length === 0">
+        Start practice ({{ matching().length }} questions)
+      </button>
+      @if (matching().length === 0) {
+        <span class="muted"> No questions match these filters.</span>
+      }
+    </div>
+  </form>
+}

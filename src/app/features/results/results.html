@@ -1,0 +1,101 @@
+@if (report(); as r) {
+  <h1>Results</h1>
+  <p class="lead">{{ r.title }} · {{ minutes() }} min</p>
+
+  <div class="stack">
+    <div class="tiles">
+      <div class="card tile score" [class.pass]="r.passed" [class.fail]="!r.passed">
+        <span class="value">{{ r.score }} / {{ exam.maxScore }}</span>
+        <span class="label">{{ r.passed ? 'Pass' : 'Not yet' }} (pass mark {{ exam.passScore }})</span>
+      </div>
+      <div class="card tile">
+        <span class="value">{{ r.correct }} / {{ r.total }}</span>
+        <span class="label">Fully correct questions</span>
+      </div>
+      <div class="card tile">
+        <span class="value">{{ wrongCount() }}</span>
+        <span class="label">Wrong or partly correct</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn primary" [routerLink]="againLink()">Try again</a>
+      <a class="btn" routerLink="/weak-areas">See weak areas</a>
+      <a class="btn" routerLink="/practice" [queryParams]="{ source: 'mistakes' }">Practice mistakes</a>
+    </div>
+
+    <section>
+      <h2>By domain</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Domain</th>
+              <th scope="col" class="num">Questions</th>
+              <th scope="col" class="num">Score</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (b of r.byDomain; track b.id) {
+              <tr>
+                <td>{{ b.id }} · {{ b.label }}</td>
+                <td class="num">{{ b.total }}</td>
+                <td class="num">{{ b.percent }}%</td>
+                <td><div class="meter" [class.ok]="b.percent >= 70" [class.bad]="b.percent < 70"><span [style.width.%]="b.percent"></span></div></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>By section</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Section</th>
+              <th scope="col" class="num">Questions</th>
+              <th scope="col" class="num">Score</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (b of r.bySection; track b.id) {
+              <tr>
+                <td>{{ b.id }} {{ b.label }}</td>
+                <td class="num">{{ b.total }}</td>
+                <td class="num">{{ b.percent }}%</td>
+                <td><div class="meter" [class.ok]="b.percent >= 70" [class.bad]="b.percent < 70"><span [style.width.%]="b.percent"></span></div></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="stack">
+      <h2>Review</h2>
+      <div class="filters" role="group" aria-label="Show questions">
+        <button type="button" class="btn small" [class.primary]="filter() === 'wrong'" [attr.aria-pressed]="filter() === 'wrong'" (click)="filter.set('wrong')">Wrong ({{ wrongCount() }})</button>
+        <button type="button" class="btn small" [class.primary]="filter() === 'marked'" [attr.aria-pressed]="filter() === 'marked'" (click)="filter.set('marked')">Marked ({{ markedCount() }})</button>
+        <button type="button" class="btn small" [class.primary]="filter() === 'all'" [attr.aria-pressed]="filter() === 'all'" (click)="filter.set('all')">All ({{ r.total }})</button>
+      </div>
+      @for (row of reviewList(); track row.it.prepared.q.id) {
+        <div class="card">
+          <app-question-view [question]="row.it.prepared.q" [answer]="row.it.answer" [revealed]="true" [number]="row.n" />
+        </div>
+      } @empty {
+        <p class="muted">Nothing to show for this filter.</p>
+      }
+    </section>
+  </div>
+} @else {
+  <h1>Results</h1>
+  <div class="card">
+    <p>There is no finished test in this browser session yet.</p>
+    <a class="btn primary" routerLink="/exam">Take the exam</a>
+  </div>
+}

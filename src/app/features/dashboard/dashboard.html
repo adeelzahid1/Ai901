@@ -1,0 +1,123 @@
+<h1>{{ exam.code }}: {{ exam.title }}</h1>
+<p class="lead">
+  Skills outline {{ exam.outlineDate }} · {{ exam.minutes }} minutes · about {{ exam.examQuestions }} questions ·
+  pass {{ exam.passScore }}/{{ exam.maxScore }}
+</p>
+
+<div class="stack">
+  <div class="tiles">
+    <div class="card tile">
+      <span class="value">{{ bankSize() }}</span>
+      <span class="label">Questions in bank (of {{ planned }} planned){{ loaded() ? '' : ' · loading…' }}</span>
+    </div>
+    <div class="card tile">
+      <span class="value">{{ answered() }}</span>
+      <span class="label">Questions answered</span>
+    </div>
+    <div class="card tile">
+      <span class="value">{{ accuracy() === null ? '–' : accuracy() + '%' }}</span>
+      <span class="label">Accuracy (all attempts)</span>
+    </div>
+    <div class="card tile">
+      <span class="value">{{ mistakes() }}</span>
+      <span class="label">Open mistakes</span>
+    </div>
+    <div class="card tile">
+      @if (lastExam(); as e) {
+        <span class="value" [class.pass]="e.score >= exam.passScore" [class.fail]="e.score < exam.passScore">{{ e.score }}</span>
+        <span class="label">Last exam score ({{ e.at | date: 'mediumDate' }})</span>
+      } @else {
+        <span class="value">–</span>
+        <span class="label">No exam taken yet</span>
+      }
+    </div>
+  </div>
+
+  <div class="actions">
+    <a class="btn primary" routerLink="/exam">Start exam ({{ exam.examQuestions }} Q · {{ exam.minutes }} min)</a>
+    <a class="btn" routerLink="/mock">Build a mock test</a>
+    <a class="btn" routerLink="/practice">Practice</a>
+    @if (mistakes() > 0) {
+      <a class="btn" routerLink="/practice" [queryParams]="{ source: 'mistakes' }">Practice my {{ mistakes() }} mistakes</a>
+    }
+    <a class="btn" routerLink="/weak-areas">Weak areas</a>
+  </div>
+
+  <div class="domains">
+    @for (d of domains(); track d.id) {
+      <section class="card">
+        <h2>{{ d.id }} · {{ d.name }}</h2>
+        <p class="muted">Exam weight {{ d.weight }}</p>
+        @if (d.stats; as s) {
+          <p>
+            {{ s.total }} questions in bank · {{ s.seen }} answered ({{ s.coverage }}%) · accuracy
+            {{ s.accuracy === null ? '–' : s.accuracy + '%' }}
+          </p>
+          <div class="meter" role="progressbar" [attr.aria-valuenow]="s.coverage" aria-valuemin="0" aria-valuemax="100" [attr.aria-label]="d.id + ' coverage'">
+            <span [style.width.%]="s.coverage"></span>
+          </div>
+        }
+      </section>
+    }
+  </div>
+
+  @if (history().length) {
+    <section>
+      <h2>Recent exams and mock tests</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Type</th>
+              <th scope="col" class="num">Score</th>
+              <th scope="col" class="num">Correct</th>
+              <th scope="col" class="num">Minutes</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (h of history(); track h.at) {
+              <tr>
+                <td>{{ h.at | date: 'medium' }}</td>
+                <td>{{ h.title }}</td>
+                <td class="num" [class.pass]="h.score >= exam.passScore" [class.fail]="h.score < exam.passScore">{{ h.score }}</td>
+                <td class="num">{{ h.correct }} / {{ h.total }}</td>
+                <td class="num">{{ h.minutes }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  }
+
+  <section>
+    <h2>Question bank coverage</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Section</th>
+            <th scope="col">Topic</th>
+            <th scope="col" class="num">Questions</th>
+            <th scope="col">Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (s of sections(); track s.id) {
+            <tr>
+              <td>{{ s.id }}</td>
+              <td>{{ s.en }}</td>
+              <td class="num">{{ s.count }} / {{ s.target }}</td>
+              <td>
+                <div class="meter" role="progressbar" [attr.aria-valuenow]="s.percent" aria-valuemin="0" aria-valuemax="100" [attr.aria-label]="s.en + ' bank size'">
+                  <span [style.width.%]="s.percent"></span>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

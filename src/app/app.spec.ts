@@ -16,10 +16,12 @@ describe('App', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should render the exam brand in the top bar', () => {
+  it('shows the brand and every main tab in the top bar', async () => {
     const fixture = TestBed.createComponent(App);
-    fixture.detectChanges();
-    const brand = (fixture.nativeElement as HTMLElement).querySelector('.brand');
-    expect(brand?.textContent).toContain('AI-901');
+    await fixture.whenStable();
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('.brand')?.textContent).toContain('AI-901');
+    const tabs = [...el.querySelectorAll('nav a')].map((a) => a.textContent?.trim());
+    expect(tabs).toEqual(['Dashboard', 'Study', 'Practice', 'Mock Test', 'Exam', 'Weak areas']);
   });
 });

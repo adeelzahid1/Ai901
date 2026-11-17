@@ -1,0 +1,38 @@
+.domains {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 12px;
+}
+.domains p {
+  margin: 0 0 6px;
+}
+.focus li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.focus li:last-child {
+  border-bottom: 0;
+}
+.acc {
+  font-weight: 700;
+}
+.acc.ok {
+  color: var(--ok);
+}
+.acc.mid {
+  color: var(--warn);
+}
+.acc.bad {
+  color: var(--bad);
+}
+.acc.none {
+  color: var(--muted);
+}
+.card .btn + .btn {
+  margin-left: 8px;
+}

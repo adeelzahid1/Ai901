@@ -1,0 +1,86 @@
+.runner {
+  display: grid;
+  gap: 14px;
+}
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.clock {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: var(--accent-soft);
+}
+.clock.low {
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.spacer {
+  flex: 1;
+}
+.btn.active {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+.confirm p {
+  margin-top: 0;
+}
+.confirm .btn {
+  margin-right: 8px;
+}
+.grid-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 6px;
+}
+.cell {
+  position: relative;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+.cell.answered {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.cell.right {
+  background: var(--ok-soft);
+  border-color: var(--ok);
+}
+.cell.wrong {
+  background: var(--bad-soft);
+  border-color: var(--bad);
+}
+.cell.current {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  font-weight: 700;
+}
+.cell.marked::after {
+  content: '★';
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  font-size: 0.75rem;
+  color: var(--warn);
+}

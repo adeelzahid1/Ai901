@@ -1,0 +1,113 @@
+<h1>Mock Test</h1>
+@if (running(); as r) {
+  <app-quiz-runner
+    [questions]="r.questions"
+    mode="mock"
+    [title]="r.title"
+    [feedback]="r.feedback"
+    [timeLimitSec]="r.seconds"
+    (finished)="finish($event)"
+  />
+} @else {
+  <p class="lead">Build your own test: choose the topics, question types, levels, size and timer.</p>
+  <form class="stack" [formGroup]="form" (ngSubmit)="start()">
+    <fieldset class="card" formGroupName="sections">
+      <legend>Topics ({{ selectedSections() }} of 14 sections)</legend>
+      <div class="quick">
+        <button type="button" class="btn small" (click)="setSections(null, true)">All</button>
+        <button type="button" class="btn small" (click)="setSections(null, false)">None</button>
+      </div>
+      <div class="domains">
+        @for (d of domains; track d.id) {
+          <div>
+            <h3>
+              {{ d.id }} · {{ d.short }} <span class="muted">({{ d.weight[0] }}-{{ d.weight[1] }}%)</span>
+              <button type="button" class="btn small" (click)="setSections(d.id, true)">All</button>
+              <button type="button" class="btn small" (click)="setSections(d.id, false)">None</button>
+            </h3>
+            @for (s of d.sections; track s.id) {
+              <label class="check">
+                <input type="checkbox" [formControlName]="key(s.id)" />
+                <span>{{ s.id }} {{ s.en }}</span>
+              </label>
+            }
+          </div>
+        }
+      </div>
+    </fieldset>
+
+    <div class="form-grid">
+      <fieldset class="card" formGroupName="types">
+        <legend>Question types</legend>
+        @for (t of typeList; track t[0]) {
+          <label class="check"><input type="checkbox" [formControlName]="t[0]" /> {{ t[1] }}</label>
+        }
+      </fieldset>
+
+      <fieldset class="card" formGroupName="levels">
+        <legend>Levels</legend>
+        @for (l of levelList; track l[0]) {
+          <label class="check"><input type="checkbox" [formControlName]="l[0]" /> {{ l[1] }}</label>
+        }
+      </fieldset>
+
+      <fieldset class="card">
+        <legend>Questions</legend>
+        <label class="check"><input type="radio" formControlName="source" value="all" /> All questions</label>
+        <label class="check"><input type="radio" formControlName="source" value="new" /> Only new (never answered)</label>
+        <label class="check"><input type="radio" formControlName="source" value="mistakes" /> Only my mistakes</label>
+      </fieldset>
+    </div>
+
+    <div class="form-grid">
+      <fieldset class="card">
+        <legend>Number of questions</legend>
+        <div class="inline-options">
+          @for (n of counts; track n) {
+            <label class="check"><input type="radio" formControlName="count" [value]="n" /> {{ n }}</label>
+          }
+        </div>
+        <label class="field">
+          <span>Or type a number</span>
+          <input type="number" formControlName="count" min="1" max="500" />
+        </label>
+      </fieldset>
+
+      <fieldset class="card">
+        <legend>Timer</legend>
+        <label class="check"><input type="radio" formControlName="timer" value="off" /> No timer</label>
+        <label class="check">
+          <input type="radio" formControlName="timer" value="exam" /> Exam pace ({{ secondsPerQuestion }} seconds per question)
+        </label>
+        <label class="check"><input type="radio" formControlName="timer" value="custom" /> Custom</label>
+        @if (form.controls.timer.value === 'custom') {
+          <label class="field">
+            <span>Minutes</span>
+            <input type="number" formControlName="minutes" min="1" max="300" />
+          </label>
+        }
+      </fieldset>
+
+      <fieldset class="card">
+        <legend>Feedback</legend>
+        <label class="check"><input type="radio" formControlName="feedback" value="end" /> At the end, like the real exam</label>
+        <label class="check"><input type="radio" formControlName="feedback" value="instant" /> After each question</label>
+      </fieldset>
+    </div>
+
+    <div class="card summary">
+      <p>
+        <strong>{{ available() }}</strong> questions match.
+        @if (available() > 0) {
+          Your test: <strong>{{ finalCount() }}</strong> questions · {{ minutesLabel(seconds()) }}.
+          @if (finalCount() < form.controls.count.value) {
+            <span class="muted">(Only {{ available() }} available for these settings.)</span>
+          }
+        } @else {
+          <span class="muted">Select at least one topic, type and level that have questions.</span>
+        }
+      </p>
+      <button type="submit" class="btn primary" [disabled]="form.invalid || finalCount() === 0">Start mock test</button>
+    </div>
+  </form>
+}

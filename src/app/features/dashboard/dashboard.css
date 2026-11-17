@@ -1,0 +1,19 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.domains {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 12px;
+}
+.domains p {
+  margin: 0 0 8px;
+}
+.pass {
+  color: var(--ok);
+}
+.fail {
+  color: var(--bad);
+}

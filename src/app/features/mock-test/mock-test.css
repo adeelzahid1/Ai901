@@ -1,0 +1,28 @@
+.quick {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.domains {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 8px 24px;
+}
+h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+  font-size: 1rem;
+}
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.summary p {
+  margin: 0;
+}

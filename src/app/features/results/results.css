@@ -1,0 +1,18 @@
+.actions,
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.score.pass {
+  border-left: 5px solid var(--ok);
+}
+.score.fail {
+  border-left: 5px solid var(--bad);
+}
+.score.pass .value {
+  color: var(--ok);
+}
+.score.fail .value {
+  color: var(--bad);
+}

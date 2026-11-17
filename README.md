@@ -13,6 +13,16 @@ Built with Angular 20 (standalone, signals, zoneless, SSR with only the landing 
 Domains, official sub-skills, study sections and per-section question targets live in
 [`src/app/data/blueprint.json`](src/app/data/blueprint.json).
 
+## Features
+
+- **Dashboard**: bank size, answered, accuracy, open mistakes, last exam score, domain coverage, recent tests.
+- **Practice**: filter by domain, section, level, type, new questions or mistakes; instant feedback.
+- **Mock Test**: choose sections, question types, levels, size, timer (off, exam pace or custom) and feedback mode.
+- **Exam**: 50 questions in 45 minutes, weighted 21/29 by domain, every section, real-exam type and level mix, mark for review, auto-submit.
+- **Results**: score out of 1000 (pass 700), domain and section breakdown, review with explanations.
+- **Weak areas**: accuracy per domain, section and official sub-skill.
+- Options are shuffled per session (`optOrder` is kept for translations). Progress is stored in `localStorage` (`ai901-progress`, `ai901-history`).
+
 ## Question bank
 
 - Questions are JSON files in `src/app/data/bank/` (`d1-core.json`, `d1-ext1.json`, ...), listed in

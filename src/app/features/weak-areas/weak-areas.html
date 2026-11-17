@@ -1,0 +1,112 @@
+<h1>Weak areas</h1>
+<p class="lead">
+  Accuracy from all your practice, mock test and exam answers in this browser. An area needs at least
+  {{ minAttempts }} answers before it is rated.
+</p>
+
+<div class="stack">
+  @if (attempts() === 0) {
+    <div class="card">
+      <p>You have not answered any questions yet.</p>
+      <a class="btn primary" routerLink="/practice">Start practicing</a>
+    </div>
+  } @else {
+    @if (focus().length) {
+      <div class="card focus">
+        <h2>Focus next</h2>
+        <ul class="plain">
+          @for (r of focus(); track r.id) {
+            <li>
+              <span><strong>{{ r.id }}</strong> {{ r.label }} · {{ r.stats.accuracy }}% correct</span>
+              <a class="btn small" routerLink="/practice" [queryParams]="{ section: r.sectionId }">Practice</a>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+
+    <div class="domains">
+      @for (d of domains(); track d.id) {
+        <div class="card">
+          <h2>{{ d.id }} · {{ d.label }}</h2>
+          <p class="muted">Exam weight {{ d.weight[0] }}-{{ d.weight[1] }}%</p>
+          <p>
+            <strong class="acc" [class]="level(d.stats)">{{ d.stats.accuracy === null ? '–' : d.stats.accuracy + '%' }}</strong>
+            correct · {{ d.stats.attempts }} answers · {{ d.stats.seen }} of {{ d.stats.total }} questions seen ·
+            {{ d.stats.mistakes }} open mistakes
+          </p>
+        </div>
+      }
+    </div>
+  }
+
+  <section>
+    <h2>Sections (weakest first)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Section</th>
+            <th scope="col" class="num">Accuracy</th>
+            <th scope="col" class="num">Answers</th>
+            <th scope="col" class="num">Seen</th>
+            <th scope="col" class="num">Mistakes</th>
+            <th scope="col"><span class="sr">Action</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (r of sections(); track r.id) {
+            <tr>
+              <td><strong>{{ r.id }}</strong> {{ r.label }}</td>
+              <td class="num"><span class="acc" [class]="level(r.stats)">{{ r.stats.accuracy === null ? '–' : r.stats.accuracy + '%' }}</span></td>
+              <td class="num">{{ r.stats.attempts }}</td>
+              <td class="num">{{ r.stats.seen }} / {{ r.stats.total }}</td>
+              <td class="num">{{ r.stats.mistakes }}</td>
+              <td class="num"><a class="btn small" routerLink="/practice" [queryParams]="{ section: r.sectionId }">Practice</a></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Official sub-skills (weakest first)</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Sub-skill</th>
+            <th scope="col">Section</th>
+            <th scope="col" class="num">Accuracy</th>
+            <th scope="col" class="num">Answers</th>
+            <th scope="col" class="num">Seen</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (r of subs(); track r.id) {
+            <tr>
+              <td>{{ r.label }}</td>
+              <td>{{ r.sectionId }}</td>
+              <td class="num"><span class="acc" [class]="level(r.stats)">{{ r.stats.accuracy === null ? '–' : r.stats.accuracy + '%' }}</span></td>
+              <td class="num">{{ r.stats.attempts }}</td>
+              <td class="num">{{ r.stats.seen }} / {{ r.stats.total }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  @if (attempts() > 0) {
+    <div class="card">
+      @if (confirmReset()) {
+        <p>This deletes all saved answers and exam history in this browser. It cannot be undone.</p>
+        <button type="button" class="btn primary" (click)="reset()">Yes, reset my progress</button>
+        <button type="button" class="btn" (click)="confirmReset.set(false)">Cancel</button>
+      } @else {
+        <button type="button" class="btn" (click)="confirmReset.set(true)">Reset progress…</button>
+      }
+    </div>
+  }
+</div>
