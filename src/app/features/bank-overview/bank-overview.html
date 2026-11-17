@@ -1,0 +1,55 @@
+<section class="intro">
+  <h1>{{ exam.code }}: {{ exam.title }}</h1>
+  <p class="facts">
+    Skills outline {{ exam.outlineDate }} · {{ exam.minutes }} minutes · about
+    {{ exam.examQuestions }} questions · pass {{ exam.passScore }}/{{ exam.maxScore }}
+  </p>
+  <p class="total">
+    Question bank: <strong>{{ total() }}</strong> of {{ target }} planned
+    @if (!loaded()) {
+      <span class="muted">(loading…)</span>
+    }
+  </p>
+</section>
+
+@for (domain of domains(); track domain.id) {
+  <section class="domain">
+    <h2>
+      {{ domain.id }} · {{ domain.name }}
+      <span class="weight">{{ domain.weight }} · {{ domain.count }} questions</span>
+    </h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Section</th>
+            <th scope="col">Topic</th>
+            <th scope="col" class="num">Questions</th>
+            <th scope="col">Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of domain.rows; track row.id) {
+            <tr>
+              <td>{{ row.id }}</td>
+              <td>{{ row.title }}</td>
+              <td class="num">{{ row.count }} / {{ row.target }}</td>
+              <td>
+                <div
+                  class="bar"
+                  role="progressbar"
+                  [attr.aria-valuenow]="row.percent"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  [attr.aria-label]="row.title + ' coverage'"
+                >
+                  <span [style.width.%]="row.percent"></span>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+}

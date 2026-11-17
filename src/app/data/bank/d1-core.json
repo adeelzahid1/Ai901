@@ -1,0 +1,553 @@
+[
+  {
+    "id": "D1-001",
+    "sub": "fairness",
+    "diff": 1,
+    "type": "mcq",
+    "q": "A bank's loan-approval model approves applicants from one neighborhood far less often than applicants from other neighborhoods who have the same income and credit history. Which responsible AI principle is the model failing?",
+    "opts": [
+      "Transparency",
+      "Fairness",
+      "Reliability and safety",
+      "Inclusiveness"
+    ],
+    "ans": 1,
+    "exp": "Fairness means an AI system should treat all people fairly and should not give different outcomes, such as loans, to groups of people who have the same qualifications. Here similar applicants get different results, so fairness is the problem. Transparency is about people understanding how the system works, reliability and safety is about consistent and safe behavior, and inclusiveness is about designing for people of all abilities, so none of those describe unequal outcomes.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-002",
+    "sub": "reliability-safety",
+    "diff": 1,
+    "type": "mcq",
+    "q": "Before release, a team tests the vision model of a delivery robot in rain, fog, low light and crowded streets to make sure it behaves as expected. Which responsible AI principle does this testing support?",
+    "opts": [
+      "Accountability",
+      "Privacy and security",
+      "Inclusiveness",
+      "Reliability and safety"
+    ],
+    "ans": 3,
+    "exp": "Reliability and safety means an AI system should perform consistently and safely, including in unusual or unexpected conditions. Testing the robot in bad weather and crowds checks exactly that. Accountability is about people being answerable for the system, privacy and security is about protecting data, and inclusiveness is about empowering everyone, so these are not the main goal of condition testing.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-003",
+    "sub": "privacy-security",
+    "diff": 2,
+    "type": "mcq",
+    "q": "A support chatbot stores conversations for quality review. The team removes names, phone numbers and card numbers from transcripts before saving them and lets only two reviewers read the logs. Which principle are they applying?",
+    "opts": [
+      "Privacy and security",
+      "Fairness",
+      "Transparency",
+      "Accountability"
+    ],
+    "ans": 0,
+    "exp": "Privacy and security means AI systems must protect personal data and resist misuse. Removing personal information before storage and limiting access to the logs both protect customer data, so this is privacy and security. Fairness is about equal treatment of groups, transparency is about explaining how the system works, and accountability is about who is answerable for the system, so they do not describe data protection.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-004",
+    "sub": "inclusiveness",
+    "diff": 1,
+    "type": "mcq",
+    "q": "A learning app adds voice input, live captions and full screen-reader support so that students with hearing or vision impairments can use every feature. Which responsible AI principle does this design follow?",
+    "opts": [
+      "Fairness",
+      "Inclusiveness",
+      "Reliability and safety",
+      "Transparency"
+    ],
+    "ans": 1,
+    "exp": "Inclusiveness means AI systems should empower everyone and engage people of all abilities. Adding voice input, captions and screen-reader support lets people with disabilities use the app, which is inclusive design. Fairness is about not giving different outcomes to similar groups, reliability and safety is about consistent and safe behavior, and transparency is about understanding the system, so they are not the focus here.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-005",
+    "sub": "transparency",
+    "diff": 2,
+    "type": "mcq",
+    "q": "A company publishes a short document that explains what its AI assistant is designed to do, the data it was built with and its known limitations. The app also tells users that they are talking to an AI. Which principle does this support?",
+    "opts": [
+      "Accountability",
+      "Fairness",
+      "Transparency",
+      "Privacy and security"
+    ],
+    "ans": 2,
+    "exp": "Transparency means people should understand how an AI system works, what it is for and what its limitations are, and should know when they are interacting with AI. Publishing the purpose and limitations and disclosing AI use is transparency. Accountability is about people being responsible for the system, fairness is about equal outcomes, and privacy and security is about protecting data, so they are not what the document provides.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-006",
+    "sub": "accountability",
+    "diff": 2,
+    "type": "mcq",
+    "q": "An organization creates an AI review board, names an owner for each AI system and requires sign-off against internal standards before any model goes to production. Which principle does this governance support?",
+    "opts": [
+      "Inclusiveness",
+      "Reliability and safety",
+      "Transparency",
+      "Accountability"
+    ],
+    "ans": 3,
+    "exp": "Accountability means the people who design and deploy AI systems are answerable for how those systems operate, usually through governance, named owners and review processes. A review board with owners and sign-off is accountability. Inclusiveness is about designing for everyone, reliability and safety is about consistent and safe behavior, and transparency is about explaining the system, so they are not mainly about governance and ownership.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-007",
+    "sub": "transparency",
+    "diff": 2,
+    "type": "match",
+    "q": "Match each action to the responsible AI principle it supports most directly. Each principle can be used once, more than once, or not at all.",
+    "items": [
+      "Comparing the model's error rate for different age groups and genders so that no group gets worse results",
+      "Showing a message in the app that answers are generated by AI and can contain mistakes",
+      "Encrypting stored prompts and limiting who can read chat logs",
+      "Keeping a human reviewer who can override the model's decisions and is answerable for them"
+    ],
+    "targets": [
+      "Accountability",
+      "Fairness",
+      "Reliability and safety",
+      "Privacy and security",
+      "Inclusiveness",
+      "Transparency"
+    ],
+    "ans": [
+      1,
+      5,
+      3,
+      0
+    ],
+    "exp": "Checking error rates across groups is fairness, because the goal is that no group receives worse quality of service. Telling users that answers come from AI and can be wrong is transparency, because users understand what they are using and its limits. Encrypting prompts and limiting log access is privacy and security. A human who can override decisions and is answerable for them is accountability. Reliability and safety and inclusiveness are not the best match for any of these actions.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-008",
+    "sub": "reliability-safety",
+    "diff": 2,
+    "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "If a model scores well on its training data, it automatically meets the reliability and safety principle.",
+      "Testing an AI system with unusual or unexpected inputs supports the reliability and safety principle.",
+      "Content filters that block harmful output from a generative model are a reliability and safety measure."
+    ],
+    "ans": [
+      false,
+      true,
+      true
+    ],
+    "exp": "No for the first: a good score on training data does not prove the system is reliable in real conditions; it must also be tested on new data, edge cases and misuse, and monitored after release. Yes for the second: reliability and safety asks that a system behaves as intended even with unexpected inputs, so edge-case testing supports it. Yes for the third: filtering harmful output reduces the chance of the system causing harm, which is a safety measure.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-009",
+    "sub": "privacy-security",
+    "diff": 2,
+    "type": "multi",
+    "q": "A company builds a generative AI chat app that uses customer records as grounding data. Which TWO actions support the privacy and security principle? Each correct answer presents a complete solution.",
+    "opts": [
+      "Increase the model's temperature",
+      "Detect and redact personal data before chat logs are stored",
+      "Use role-based access control so only approved identities can query the customer data",
+      "Add a notice that answers are generated by AI",
+      "Translate the user interface into more languages"
+    ],
+    "ans": [
+      1,
+      2
+    ],
+    "exp": "Redacting personal data before storage and limiting access with role-based access control both protect customer data, which is the goal of privacy and security. An AI notice supports transparency, not data protection. Translating the interface supports inclusiveness. Temperature only changes how varied the model's wording is and has nothing to do with protecting data.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-010",
+    "sub": "transparency",
+    "diff": 3,
+    "type": "mcq",
+    "q": "Customers whose insurance claims are rejected by an AI model ask why. The company starts giving each customer a summary of the main factors that influenced the decision. Which principle does this MOST directly support?",
+    "opts": [
+      "Transparency",
+      "Accountability",
+      "Fairness",
+      "Reliability and safety"
+    ],
+    "ans": 0,
+    "exp": "Explaining which factors influenced a decision, also called interpretability, helps people understand how the system reached its result, which is transparency. Accountability is about people and processes being answerable for the system, not about explaining individual results. Fairness would be checking that similar customers get similar outcomes. Reliability and safety is about consistent and safe operation. The explanation itself is a transparency measure, even though it can also help find fairness problems.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-011",
+    "sub": "genai-how",
+    "diff": 1,
+    "type": "mcq",
+    "q": "How does a generative AI language model produce a response to a prompt?",
+    "opts": [
+      "It looks up a complete stored answer in a database of past replies",
+      "It repeatedly predicts the most likely next token based on the tokens that came before",
+      "It runs a fixed set of if-then rules written by developers",
+      "It copies the web page that is most similar to the prompt"
+    ],
+    "ans": 1,
+    "exp": "A large language model generates text one token at a time: based on the prompt and the tokens it has already produced, it predicts a likely next token, adds it, and repeats until the response is complete. It does not retrieve stored answers or copy web pages, and it is not a rule-based system with hand-written if-then logic; its behavior comes from patterns learned during training on large amounts of text.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-012",
+    "sub": "genai-how",
+    "diff": 1,
+    "type": "mcq",
+    "q": "In the context of large language models, what is a token?",
+    "opts": [
+      "A security key that is used to call the model endpoint",
+      "A complete document that is sent to the model",
+      "A unit of text, such as a word or part of a word, that the model reads and generates",
+      "A saved conversation history"
+    ],
+    "ans": 2,
+    "exp": "Language models split text into tokens, which are words, parts of words or punctuation, and they read and generate text as sequences of tokens. Usage, limits and cost are counted in tokens. A key used to call an endpoint is an API key or access token in the security sense, not a language token. A whole document and a conversation history are made of many tokens, so they are not tokens themselves.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-013",
+    "sub": "genai-how",
+    "diff": 2,
+    "type": "mcq",
+    "q": "What are embeddings in a generative AI solution?",
+    "opts": [
+      "Images that are inserted into a chat response",
+      "Instructions that are hidden inside the system message",
+      "Encrypted copies of the training data",
+      "Numeric vectors that capture the meaning of text, so that similar text has vectors that are close together"
+    ],
+    "ans": 3,
+    "exp": "An embedding is a vector of numbers that represents the meaning of a piece of text. Text with similar meaning produces vectors that are close together, which is why embeddings are used for semantic search and for retrieving relevant content in RAG solutions. Embeddings are not images, they are not prompt instructions, and they are not encrypted copies of training data.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-014",
+    "sub": "genai-how",
+    "diff": 2,
+    "type": "mcq",
+    "q": "Which part of the transformer architecture lets a language model weigh how relevant each token is to the other tokens in the input?",
+    "opts": [
+      "Tokenization",
+      "Attention layers",
+      "Content filtering",
+      "Model quota"
+    ],
+    "ans": 1,
+    "exp": "Transformer models use attention to calculate how strongly each token relates to the other tokens, so the model understands context, for example which noun a pronoun refers to. Tokenization only splits text into tokens before processing. Content filtering is a safety system around the model, not part of how it understands context. Quota is a deployment limit on how many tokens can be processed per minute.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-015",
+    "sub": "genai-how",
+    "diff": 2,
+    "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A generative model always returns exactly the same response to the same prompt, whatever its settings.",
+      "A generative model can produce a response that sounds confident but is factually wrong.",
+      "A large language model learns statistical relationships between tokens by training on large amounts of text."
+    ],
+    "ans": [
+      false,
+      true,
+      true
+    ],
+    "exp": "No for the first: generation is based on probabilities, so with settings such as temperature above zero the same prompt can give different responses. Yes for the second: models can produce fluent but incorrect content, often called hallucination, which is why grounding and human review are recommended. Yes for the third: language models are trained on very large text collections and learn how tokens relate to each other.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-016",
+    "sub": "genai-how",
+    "diff": 2,
+    "type": "mcq",
+    "q": "A company wants a chat model to answer employee questions by using the content of its internal policy documents, which change every month. The company does not want to retrain the model. Which technique should it use?",
+    "opts": [
+      "Increase the maximum response tokens",
+      "Switch to a smaller model",
+      "Fine-tune the model on the policy documents every month",
+      "Retrieval augmented generation (RAG), which adds relevant document content to each prompt"
+    ],
+    "ans": 3,
+    "exp": "Retrieval augmented generation finds the document passages that are relevant to a question and adds them to the prompt, so the model grounds its answer in current company data without retraining. When the documents change, only the search index needs updating. Fine-tuning every month is costly and is meant to change model behavior, not to keep facts current. More response tokens and a smaller model do not give the model access to the policies.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-017",
+    "sub": "genai-how",
+    "diff": 3,
+    "type": "mcq",
+    "q": "In which situation is fine-tuning a model a better choice than retrieval augmented generation (RAG)?",
+    "opts": [
+      "The source data changes every day",
+      "The model must consistently follow a specialized style or task format that prompt engineering alone cannot achieve",
+      "Answers must quote the latest version of company documents",
+      "The team wants to avoid preparing any training data"
+    ],
+    "ans": 1,
+    "exp": "Fine-tuning further trains a model on example data so that it learns a behavior, such as a consistent tone, output format or specialized task, when prompts and examples are not enough. RAG is better when facts change often or answers must use the latest documents, because new content can be retrieved without retraining. Fine-tuning always needs prepared training examples, so it does not help a team that wants to avoid preparing data.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-018",
+    "sub": "genai-how",
+    "diff": 1,
+    "type": "dropdown",
+    "q": "Complete the sentences by selecting the correct option for each blank.",
+    "tpl": "A model that accepts both text and images as input is called {0} model. The maximum number of tokens that a model can consider for the prompt and response together is its {1}.",
+    "opts": [
+      [
+        "an embedding",
+        "a multimodal",
+        "a regression"
+      ],
+      [
+        "temperature",
+        "quota",
+        "context window"
+      ]
+    ],
+    "ans": [
+      1,
+      2
+    ],
+    "exp": "A multimodal model accepts more than one kind of input, such as text and images, in the same request. An embedding model returns vectors, not responses, and regression predicts numbers. The context window is the total number of tokens a model can handle for the input and output in one request. Temperature controls randomness, and quota limits how many tokens a deployment can process per minute, so neither describes this limit.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-019",
+    "sub": "genai-how",
+    "diff": 2,
+    "type": "match",
+    "q": "Match each description to the correct generative AI term. Each term can be used once or not at all.",
+    "items": [
+      "A word or part of a word that a language model processes",
+      "A vector of numbers that represents the meaning of text",
+      "The maximum amount of text, in tokens, that a model can consider in one request",
+      "A confident response that is not supported by facts"
+    ],
+    "targets": [
+      "Hallucination",
+      "Temperature",
+      "Token",
+      "Embedding",
+      "Context window"
+    ],
+    "ans": [
+      2,
+      3,
+      4,
+      0
+    ],
+    "exp": "A token is the unit of text a model reads and writes. An embedding is a numeric vector that captures meaning and lets you compare texts by similarity. The context window is the limit on how many tokens the model can handle in one request. A hallucination is a fluent answer that is not supported by facts or grounding data. Temperature is a sampling setting that controls randomness, so it does not match any of the descriptions.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-020",
+    "sub": "genai-how",
+    "diff": 3,
+    "type": "order",
+    "q": "A user sends a prompt to a transformer-based language model. Put the steps the model performs in the correct order. Not every step is used.",
+    "items": [
+      "Transformer layers use attention to process the token vectors in context",
+      "The model predicts the next token, appends it and repeats until the response is complete",
+      "The prompt text is split into tokens",
+      "Each token is converted into an embedding vector",
+      "The model copies the closest matching answer from its training data"
+    ],
+    "ans": [
+      2,
+      3,
+      0,
+      1
+    ],
+    "exp": "First the text is split into tokens. Next each token is turned into an embedding vector that the network can work with. Then the transformer layers use attention to understand each token in the context of the others. Finally the model predicts the next token, adds it to the sequence and repeats this until the response is done. A language model does not copy stored answers from its training data, so that step is a distractor.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-021",
+    "sub": "model-choice",
+    "diff": 1,
+    "type": "mcq",
+    "q": "You need to compare the meaning of customer questions with thousands of help articles to find the most similar article. Which type of model should you use?",
+    "opts": [
+      "An image-generation model",
+      "A chat completion model",
+      "An embedding model, such as text-embedding-3-small",
+      "A speech-to-text model"
+    ],
+    "ans": 2,
+    "exp": "An embedding model turns text into vectors, and vectors for texts with similar meaning are close together, so you can measure similarity between a question and each article. A chat completion model generates responses but is not designed to produce comparable vectors. Image-generation models create pictures, and speech-to-text models transcribe audio, so neither helps compare text meaning.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+  },
+  {
+    "id": "D1-022",
+    "sub": "model-choice",
+    "diff": 2,
+    "type": "mcq",
+    "q": "A marketing team wants to create new product images from text descriptions. Which model should they deploy?",
+    "opts": [
+      "whisper",
+      "text-embedding-3-large",
+      "gpt-image-1",
+      "gpt-4.1-mini"
+    ],
+    "ans": 2,
+    "exp": "gpt-image-1 is an image-generation model that creates images from a text prompt. whisper is a speech-to-text model that transcribes audio. text-embedding-3-large returns embedding vectors for search and similarity. gpt-4.1-mini can read text and images but returns text, so it cannot create a new picture.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D1-023",
+    "sub": "model-choice",
+    "diff": 2,
+    "type": "mcq",
+    "q": "You want to compare several models in Microsoft Foundry by quality, cost and speed before you choose one. Which feature should you use?",
+    "opts": [
+      "Model leaderboards and benchmarks in the Foundry model catalog",
+      "Azure Monitor alerts",
+      "The content filter of an existing deployment",
+      "Azure Advisor recommendations"
+    ],
+    "ans": 0,
+    "exp": "The Foundry model catalog includes model leaderboards and benchmark results that compare models on quality, cost and throughput, and you can also compare models side by side. Azure Monitor alerts notify you about metrics of resources you already run. A content filter blocks harmful content in a deployment, and Azure Advisor gives general Azure best-practice recommendations, so neither compares candidate models.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/benchmark-model-in-catalog"
+  },
+  {
+    "id": "D1-024",
+    "sub": "model-choice",
+    "diff": 2,
+    "type": "multi",
+    "q": "A mobile support app must answer simple FAQ questions quickly and at low cost. Which TWO statements are correct when you choose a model? Each correct answer presents a complete solution.",
+    "opts": [
+      "Every model must be fine-tuned before it can be deployed",
+      "A reasoning model is always the best choice for simple FAQ answers",
+      "A smaller model, such as a mini or nano variant, is usually faster and cheaper per token",
+      "Larger models always have lower latency",
+      "You should evaluate candidate models on your own test prompts before you choose"
+    ],
+    "ans": [
+      2,
+      4
+    ],
+    "exp": "Smaller model variants are usually faster and cheaper, which suits short and simple answers. Testing candidate models with your own prompts shows whether a smaller model is good enough. Larger models are usually slower, not faster. Most models can be deployed and used without fine-tuning. Reasoning models spend extra tokens thinking through problems, which adds cost and latency that simple FAQ answers do not need.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+  },
+  {
+    "id": "D1-025",
+    "sub": "deploy-config",
+    "diff": 1,
+    "type": "mcq",
+    "q": "A chat model gives different wording every time the same question is asked. You want more consistent and predictable answers. Which parameter should you change?",
+    "opts": [
+      "Increase the temperature",
+      "Lower the temperature",
+      "Increase the maximum response tokens",
+      "Add more stop sequences"
+    ],
+    "ans": 1,
+    "exp": "Temperature controls randomness when the model chooses the next token. A lower value makes the model pick the most likely tokens, so answers are more focused and consistent, while a higher value makes them more varied and creative. Maximum response tokens only limits length, and stop sequences only tell the model where to stop writing, so neither makes answers more consistent.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D1-026",
+    "sub": "deploy-config",
+    "diff": 2,
+    "type": "mcq",
+    "q": "Users report that a model's answers stop in the middle of a sentence. Which parameter is the most likely cause?",
+    "opts": [
+      "Temperature",
+      "Top P",
+      "Frequency penalty",
+      "Maximum response tokens"
+    ],
+    "ans": 3,
+    "exp": "The maximum response tokens setting limits how many tokens the model may generate. When the limit is reached the output stops, even in the middle of a sentence, and the finish reason is reported as length. Temperature and top P change how tokens are chosen, and frequency penalty reduces repeated words; none of them cuts the response short.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D1-027",
+    "sub": "deploy-config",
+    "diff": 2,
+    "type": "mcq",
+    "q": "A European company must keep model processing inside the EU, but it wants higher throughput than a single-region deployment offers. Which deployment type should it choose?",
+    "opts": [
+      "Global Standard",
+      "Data Zone Standard",
+      "Standard (regional)",
+      "Global Batch"
+    ],
+    "ans": 1,
+    "exp": "Data Zone Standard routes requests across Azure regions inside a defined data zone, such as the EU, so processing stays in that geography while capacity is higher than a single region. Global Standard can process requests in any Azure region worldwide, which breaks the EU requirement. Standard is limited to one region and its quota. Global Batch is for asynchronous bulk jobs and is also global.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-028",
+    "sub": "deploy-config",
+    "diff": 3,
+    "type": "mcq",
+    "q": "Every night you must summarize 100,000 documents. The results are not needed until the next day, and cost must be as low as possible. Which deployment type fits best?",
+    "opts": [
+      "Provisioned throughput",
+      "Global Standard",
+      "Global Batch",
+      "Data Zone Standard"
+    ],
+    "ans": 2,
+    "exp": "Global Batch processes large groups of requests asynchronously, with a target turnaround of 24 hours, at a lower price than standard deployments, which fits non-urgent bulk work. Provisioned throughput reserves capacity for steady real-time traffic and is billed for that capacity whether or not you use it. Global Standard and Data Zone Standard are pay-per-token real-time deployments that cost more than batch for the same tokens.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-029",
+    "sub": "deploy-config",
+    "diff": 3,
+    "type": "mcq",
+    "q": "A call center app sends a steady, high volume of requests all day and needs predictable latency with reserved model capacity. Which deployment type should you recommend?",
+    "opts": [
+      "Global Batch",
+      "Standard",
+      "Data Zone Standard",
+      "Global Provisioned"
+    ],
+    "ans": 3,
+    "exp": "Provisioned deployments, such as Global Provisioned, reserve model processing capacity measured in provisioned throughput units, which gives predictable latency and throughput for steady high-volume workloads. Standard and Data Zone Standard are pay-per-token deployments that share capacity, so latency can vary under load. Global Batch is asynchronous and returns results within hours, which does not suit live calls.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-030",
+    "sub": "deploy-config",
+    "diff": 2,
+    "type": "dropdown",
+    "q": "Complete the sentences by selecting the correct option for each blank.",
+    "tpl": "To get more varied and creative wording, increase {0}. To make the model choose only from the most likely tokens whose combined probability reaches a threshold, adjust {1}. The quota of a standard deployment is measured in {2}.",
+    "opts": [
+      [
+        "max tokens",
+        "temperature",
+        "stop sequences"
+      ],
+      [
+        "stop sequences",
+        "frequency penalty",
+        "top P"
+      ],
+      [
+        "GB of storage",
+        "tokens per minute (TPM)",
+        "vCPUs"
+      ]
+    ],
+    "ans": [
+      1,
+      2,
+      1
+    ],
+    "exp": "Temperature controls randomness, so a higher value gives more varied wording. Top P, also called nucleus sampling, limits choices to the smallest set of tokens whose combined probability reaches the threshold. Standard deployments get quota in tokens per minute, with a related requests-per-minute limit. Max tokens and stop sequences only control length and where output ends, frequency penalty reduces repetition, and storage or vCPUs are not how model quota is measured.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+  }
+]

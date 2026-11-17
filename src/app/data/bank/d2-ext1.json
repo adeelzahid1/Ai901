@@ -1,0 +1,796 @@
+[
+  {
+    "id": "D2-031",
+    "sub": "agent-portal",
+    "diff": 1,
+    "type": "mcq",
+    "q": "When you create an agent in Microsoft Foundry, which three things define what the agent is and what it can do?",
+    "opts": [
+      "A storage account, a virtual machine and a queue",
+      "A model, instructions and tools",
+      "A dataset, a training job and a schedule",
+      "A key vault, a firewall and a DNS zone"
+    ],
+    "ans": 1,
+    "exp": "A Foundry agent combines a deployed model that does the reasoning, instructions that define its goals and behavior, and tools that let it find information or take actions. Storage accounts, virtual machines, training jobs, key vaults and firewalls can be part of a wider solution, but they are not the parts that define an agent.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-032",
+    "sub": "agent-portal",
+    "diff": 1,
+    "type": "mcq",
+    "q": "An agent must answer employee questions by using a set of uploaded product manuals in PDF format. Which tool should you add to the agent?",
+    "opts": [
+      "Code interpreter",
+      "Function calling",
+      "File search",
+      "Grounding with Bing Search"
+    ],
+    "ans": 2,
+    "exp": "File search indexes uploaded files in a vector store and lets the agent retrieve relevant passages to ground its answers, which fits questions about PDF manuals. Code interpreter runs Python for calculations and data analysis. Function calling invokes your own code. Grounding with Bing Search looks for information on the public web, not in your files.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-033",
+    "sub": "agent-portal",
+    "diff": 2,
+    "type": "mcq",
+    "q": "An agent must calculate statistics from an uploaded CSV file and return a chart. Which tool should it use?",
+    "opts": [
+      "File search",
+      "Code interpreter",
+      "Grounding with Bing Search",
+      "Azure AI Search"
+    ],
+    "ans": 1,
+    "exp": "Code interpreter lets the agent write and run Python in a sandbox, so it can read the CSV, calculate statistics and create a chart image. File search retrieves text passages but does not run calculations. Grounding with Bing Search and Azure AI Search look up information; neither runs code or draws charts.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-034",
+    "sub": "agent-portal",
+    "diff": 2,
+    "type": "mcq",
+    "q": "A travel agent built in Foundry must include today's flight disruptions and news from the public web in its answers. Which tool should you add?",
+    "opts": [
+      "File search",
+      "Code interpreter",
+      "Function calling with a local file",
+      "Grounding with Bing Search"
+    ],
+    "ans": 3,
+    "exp": "Grounding with Bing Search lets an agent search the public web for current information and cite the sources in its answer. File search only uses files you uploaded, code interpreter runs Python, and a function that reads a local file cannot provide live web news. The model alone only knows what it learned during training.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-035",
+    "sub": "agent-portal",
+    "diff": 2,
+    "type": "match",
+    "q": "Match each requirement to the agent tool that meets it. Each tool can be used once or not at all.",
+    "items": [
+      "Answer questions from a set of uploaded HR policy documents",
+      "Run Python to analyze an uploaded spreadsheet",
+      "Call the company's order-status API that is described in an OpenAPI specification",
+      "Find recent information on the public web"
+    ],
+    "targets": [
+      "Code interpreter",
+      "OpenAPI tool",
+      "Grounding with Bing Search",
+      "Image generation",
+      "File search"
+    ],
+    "ans": [
+      4,
+      0,
+      1,
+      2
+    ],
+    "exp": "File search retrieves passages from uploaded documents. Code interpreter runs Python on uploaded data. The OpenAPI tool lets an agent call an external API that is described by an OpenAPI specification. Grounding with Bing Search brings in current web results. Image generation creates pictures and does not meet any of these requirements.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-036",
+    "sub": "agent-portal",
+    "diff": 1,
+    "type": "yesno",
+    "q": "For each of the following statements about agents in the Foundry portal, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Every agent must use at least three tools.",
+      "You can create an agent and chat with it in the Foundry portal without writing code.",
+      "An agent's instructions play a similar role to a system message."
+    ],
+    "ans": [
+      false,
+      true,
+      true
+    ],
+    "exp": "No for the first: tools are optional; an agent can use only a model and instructions, and you add tools when the task needs them. Yes for the second: the portal lets you create an agent, give it instructions and test it in a chat window without code. Yes for the third: instructions define the agent's role, rules and style, like a system message for a chat model.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-037",
+    "sub": "agent-client",
+    "diff": 2,
+    "type": "dropdown",
+    "q": "Complete the Python code that creates an agent by using the Foundry SDK.",
+    "tpl": "agent = project.agents.{0}(\n    agent_name=\"order-helper\",\n    definition=PromptAgentDefinition(\n        model=\"gpt-5-mini\",\n        {1}=\"You help customers check the status of their orders.\",\n    ),\n)",
+    "opts": [
+      [
+        "deploy_model",
+        "create_version",
+        "start_run"
+      ],
+      [
+        "temperature",
+        "system_prompt",
+        "instructions"
+      ]
+    ],
+    "ans": [
+      1,
+      2
+    ],
+    "exp": "In the current Foundry SDK, project.agents.create_version() creates an agent, or a new version of an existing agent, from a definition. A PromptAgentDefinition takes the model deployment name and instructions that describe the agent's behavior. deploy_model and start_run are not methods of the agents client, and the definition has no system_prompt parameter; temperature would change randomness, not define behavior.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-038",
+    "sub": "agent-client",
+    "diff": 3,
+    "type": "dropdown",
+    "q": "Complete the Python code so that a client app can hold a multi-turn conversation with an existing agent.",
+    "tpl": "openai = project.get_openai_client(agent_name=\"order-helper\")\nconversation = openai.{0}.create()\nresponse = openai.responses.create(\n    {1}=conversation.id,\n    input=\"Where is order 1042?\",\n)\nprint(response.output_text)",
+    "opts": [
+      [
+        "threads",
+        "deployments",
+        "conversations"
+      ],
+      [
+        "session",
+        "conversation",
+        "thread_id"
+      ]
+    ],
+    "ans": [
+      2,
+      1
+    ],
+    "exp": "openai.conversations.create() creates a conversation that stores the history of the chat. Passing conversation=conversation.id to responses.create() adds the new input to that conversation, so follow-up questions keep their context. Threads and thread_id belong to the older classic agents API, deployments is not part of the client, and session is not a parameter of responses.create.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-039",
+    "sub": "agent-client",
+    "diff": 1,
+    "type": "mcq",
+    "q": "Why does a client app create a conversation before it sends several messages to an agent?",
+    "opts": [
+      "So the agent keeps the history of earlier turns and can answer follow-up questions",
+      "To deploy a new version of the model",
+      "To increase the deployment's quota",
+      "To store API keys securely"
+    ],
+    "ans": 0,
+    "exp": "A conversation holds the messages and responses of a chat, so when the app sends a follow-up such as 'And what about order 1043?' the agent sees the earlier context. Creating a conversation does not deploy models, change quota or store keys; those are handled by deployments, quota settings and services such as Key Vault.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-040",
+    "sub": "agent-client",
+    "diff": 3,
+    "type": "order",
+    "q": "You are building a lightweight Python client that chats with a Foundry agent. Put the steps in the correct order. Not every step is used.",
+    "items": [
+      "Create a conversation",
+      "Create the agent, or a new version of it, with a model and instructions",
+      "Send the user's input by calling responses.create() with the conversation ID",
+      "Get an OpenAI client that is bound to the agent from the project client",
+      "Read response.output_text and show it to the user",
+      "Fine-tune the model with the conversation"
+    ],
+    "ans": [
+      1,
+      3,
+      0,
+      2,
+      4
+    ],
+    "exp": "The agent must exist first, so you create it or a new version. Then you get an OpenAI client bound to that agent, create a conversation to hold history, send the user's input with the conversation ID, and finally show output_text. Fine-tuning trains a model on example data and is not needed to chat with an agent.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-041",
+    "sub": "text-app",
+    "diff": 1,
+    "type": "mcq",
+    "q": "A Python app must find the sentiment of customer reviews by using Azure Language in Foundry Tools. Which client class should it use?",
+    "opts": [
+      "SpeechRecognizer",
+      "BlobServiceClient",
+      "TextAnalyticsClient from azure-ai-textanalytics",
+      "ImageAnalysisClient"
+    ],
+    "ans": 2,
+    "exp": "TextAnalyticsClient in the azure-ai-textanalytics package calls Azure Language features such as sentiment analysis, key phrase extraction, entity recognition and PII detection. SpeechRecognizer belongs to the Speech SDK, BlobServiceClient works with Blob Storage, and ImageAnalysisClient analyzes images, so none of them analyze review text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/quickstart"
+  },
+  {
+    "id": "D2-042",
+    "sub": "text-app",
+    "diff": 2,
+    "type": "dropdown",
+    "q": "Complete the Python code that prints the main topics mentioned in each review.",
+    "tpl": "client = TextAnalyticsClient(endpoint=endpoint, credential=credential)\nresults = client.{0}(documents=reviews)\nfor doc in results:\n    print(doc.{1})",
+    "opts": [
+      [
+        "analyze_sentiment",
+        "extract_key_phrases",
+        "recognize_entities"
+      ],
+      [
+        "sentiment",
+        "key_phrases",
+        "entities"
+      ]
+    ],
+    "ans": [
+      1,
+      1
+    ],
+    "exp": "Main topics are key phrases, so the app calls extract_key_phrases(), and each result document exposes the list in its key_phrases property. analyze_sentiment returns sentiment labels and scores, and recognize_entities returns named entities with categories, so their properties do not list the main topics.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/quickstart"
+  },
+  {
+    "id": "D2-043",
+    "sub": "text-app",
+    "diff": 2,
+    "type": "mcq",
+    "q": "A developer wants a deployed GPT model, rather than the Language service, to classify the sentiment of short messages. Which statement is correct?",
+    "opts": [
+      "You can prompt the model to return the sentiment in a defined format, such as a JSON object with a label",
+      "Generative models cannot analyze text",
+      "Only speech models can detect sentiment",
+      "Sentiment analysis with a generative model needs image input"
+    ],
+    "ans": 0,
+    "exp": "Generative language models can perform text analysis tasks, such as sentiment, key topics or summaries, when you describe the task and the output format in the prompt, for example JSON with a label field. The Language service gives fixed, well-defined outputs and scores, while a model offers more flexibility. Generative models do analyze text, sentiment does not need speech or image input.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-044",
+    "sub": "spoken-prompts",
+    "diff": 1,
+    "type": "mcq",
+    "q": "Users of a help app ask questions by voice, and one deployed model must understand the audio directly. What should you deploy?",
+    "opts": [
+      "An embedding model",
+      "An image-generation model",
+      "A text-only chat model",
+      "A multimodal model that accepts audio input"
+    ],
+    "ans": 3,
+    "exp": "A multimodal model with audio support can take spoken audio as input and respond, so no separate speech service is needed to understand the question. Embedding models return vectors, image-generation models create pictures, and a text-only chat model cannot accept audio input.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-045",
+    "sub": "spoken-prompts",
+    "diff": 2,
+    "type": "yesno",
+    "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Audio input is usually sent to the model in the request as base64-encoded data.",
+      "Any text-only chat model can accept audio input if you raise the maximum response tokens.",
+      "A multimodal model that accepts audio can respond to a spoken question without a separate speech-to-text step."
+    ],
+    "ans": [
+      true,
+      false,
+      true
+    ],
+    "exp": "Yes for the first: the app reads the audio file, encodes it as base64 and adds it to the message content together with its format, such as wav. No for the second: input types are fixed by the model; changing max tokens only limits output length and cannot add audio support. Yes for the third: an audio-capable model processes the spoken question itself.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-046",
+    "sub": "spoken-prompts",
+    "diff": 3,
+    "type": "mcq",
+    "q": "Design A for a voice assistant chains speech to text, a text model and text to speech. Design B uses one multimodal model that accepts audio. What is the main advantage of design B?",
+    "opts": [
+      "It needs no deployment at all",
+      "The model handles the audio directly, so there are fewer services to chain and usually less delay",
+      "It is always free of charge",
+      "It works without any authentication"
+    ],
+    "ans": 1,
+    "exp": "One audio-capable multimodal model removes the separate transcription and synthesis steps, which simplifies the app and usually reduces latency; the model can also use information in the audio itself. The model still has to be deployed, it is billed by usage, and calls still need authentication, so the other statements are wrong.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-047",
+    "sub": "speech-app",
+    "diff": 1,
+    "type": "mcq",
+    "q": "Which Python package do you install to use the Azure Speech SDK?",
+    "opts": [
+      "azure-cognitiveservices-speech",
+      "azure-ai-projects",
+      "azure-ai-textanalytics",
+      "azure-storage-blob"
+    ],
+    "ans": 0,
+    "exp": "The Speech SDK for Python is published as azure-cognitiveservices-speech and is usually imported as speechsdk. azure-ai-projects is the Foundry project SDK, azure-ai-textanalytics is for Azure Language, and azure-storage-blob is for Blob Storage, so none of them provide speech recognition or synthesis classes.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"
+  },
+  {
+    "id": "D2-048",
+    "sub": "speech-app",
+    "diff": 2,
+    "type": "dropdown",
+    "q": "Complete the Python code that recognizes one spoken sentence from the default microphone and prints the text.",
+    "tpl": "speech_config = speechsdk.SpeechConfig(subscription=key, region=region)\nrecognizer = speechsdk.{0}(speech_config=speech_config)\nresult = recognizer.recognize_once_async().get()\nif result.reason == speechsdk.ResultReason.{1}:\n    print(result.text)",
+    "opts": [
+      [
+        "SpeechRecognizer",
+        "SpeechSynthesizer",
+        "TranslationRecognizer"
+      ],
+      [
+        "RecognizedSpeech",
+        "SynthesizingAudioCompleted",
+        "Canceled"
+      ]
+    ],
+    "ans": [
+      0,
+      0
+    ],
+    "exp": "SpeechRecognizer turns speech into text, and without an audio config it listens to the default microphone. recognize_once_async() recognizes one utterance, and the result reason RecognizedSpeech means text was recognized. SpeechSynthesizer produces audio, TranslationRecognizer also translates, SynthesizingAudioCompleted is a synthesis result, and Canceled means recognition failed.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"
+  },
+  {
+    "id": "D2-049",
+    "sub": "speech-app",
+    "diff": 2,
+    "type": "dropdown",
+    "q": "Complete the Python code that speaks a message aloud with a neural voice.",
+    "tpl": "speech_config.speech_synthesis_voice_name = \"en-US-AvaMultilingualNeural\"\nsynthesizer = speechsdk.{0}(speech_config=speech_config)\nresult = synthesizer.{1}(\"Your order has shipped.\").get()",
+    "opts": [
+      [
+        "SpeechRecognizer",
+        "SpeechSynthesizer",
+        "IntentRecognizer"
+      ],
+      [
+        "recognize_once_async",
+        "speak_text_async",
+        "start_continuous_recognition"
+      ]
+    ],
+    "ans": [
+      1,
+      1
+    ],
+    "exp": "SpeechSynthesizer converts text to speech using the voice set in speech_synthesis_voice_name, and speak_text_async() synthesizes the given text; by default the audio plays on the default speaker. SpeechRecognizer and IntentRecognizer, and the recognize methods, work on audio input to produce text, so they cannot speak a message.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech"
+  },
+  {
+    "id": "D2-050",
+    "sub": "speech-app",
+    "diff": 2,
+    "type": "multi",
+    "q": "Which TWO values do you need to create a SpeechConfig object that uses key authentication? Each correct answer presents part of the solution.",
+    "opts": [
+      "The deployment name of a GPT model",
+      "The Foundry project name",
+      "The URL of a storage container",
+      "The resource key",
+      "The region of the resource"
+    ],
+    "ans": [
+      3,
+      4
+    ],
+    "exp": "With key authentication, SpeechConfig needs the resource key and the region where the resource is located; you can also pass an endpoint instead of a region. Speech recognition and synthesis do not use a GPT deployment name, the project name or a storage container URL to create the configuration.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"
+  },
+  {
+    "id": "D2-051",
+    "sub": "visual-input",
+    "diff": 1,
+    "type": "mcq",
+    "q": "How do you include a photo in a chat request to a vision-capable model so that the model can answer questions about it?",
+    "opts": [
+      "Put the image in the deployment name",
+      "Add an image item, with a URL or a base64 data URL, to the content of the user message",
+      "Set the image as the maximum response tokens value",
+      "Images cannot be sent to chat models"
+    ],
+    "ans": 1,
+    "exp": "Vision-capable chat models accept a user message whose content is a list of parts: a text part for the question and an image part that points to an image URL or contains a base64 data URL. The deployment name only selects the model and max tokens limits output length, so neither carries an image, and vision models do accept images.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-052",
+    "sub": "visual-input",
+    "diff": 2,
+    "type": "dropdown",
+    "q": "Complete the Chat Completions message that asks a vision-capable model about a photo.",
+    "tpl": "messages = [{\n    \"role\": \"{0}\",\n    \"content\": [\n        {\"type\": \"text\", \"text\": \"What is damaged in this photo?\"},\n        {\"type\": \"{1}\", \"image_url\": {\"url\": photo_url}},\n    ],\n}]",
+    "opts": [
+      [
+        "system",
+        "user",
+        "tool"
+      ],
+      [
+        "image_url",
+        "input_audio",
+        "text"
+      ]
+    ],
+    "ans": [
+      1,
+      0
+    ],
+    "exp": "The question and the photo come from the person using the app, so the message role is user. An image part in Chat Completions has the type image_url with an image_url object that holds the URL or a base64 data URL. The system role is for instructions, the tool role is for tool results, input_audio is for audio, and text is used for the question part.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-053",
+    "sub": "visual-input",
+    "diff": 2,
+    "type": "yesno",
+    "q": "For each of the following statements about visual input to a multimodal model, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A multimodal model can compare two images that are sent in the same prompt.",
+      "You can send an image as a base64-encoded data URL instead of a public URL.",
+      "A vision-capable chat model returns pixel-level segmentation masks by default."
+    ],
+    "ans": [
+      true,
+      true,
+      false
+    ],
+    "exp": "Yes for the first: a message can contain several image parts, and the model can reason across them, for example to spot differences. Yes for the second: if the image is not publicly reachable, you encode it as a base64 data URL. No for the third: the model returns text, or structured text if you ask for it; it does not return segmentation masks.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-054",
+    "sub": "image-generation",
+    "diff": 1,
+    "type": "mcq",
+    "q": "A marketing team needs square images of exactly 1024 by 1024 pixels from an image-generation model. Which request parameter controls this?",
+    "opts": [
+      "temperature",
+      "top_p",
+      "size",
+      "stop"
+    ],
+    "ans": 2,
+    "exp": "The size parameter of an image-generation request sets the output dimensions, such as 1024x1024. temperature and top_p control randomness in text generation, and stop sets strings where text output ends, so none of them change the dimensions of a generated image.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-055",
+    "sub": "image-generation",
+    "diff": 2,
+    "type": "mcq",
+    "q": "An image-generation request fails, and the error says that the prompt violated the content policy. What should you do?",
+    "opts": [
+      "Increase the deployment's quota",
+      "Request a larger image size",
+      "Rephrase the prompt, because the content filter blocked it",
+      "Change the project endpoint"
+    ],
+    "ans": 2,
+    "exp": "Image-generation deployments use content filters, and when a prompt is classified as harmful the request is rejected with a content policy error. Rewording the prompt to remove the problematic content fixes it. Quota errors return 429, image size does not affect content filtering, and a wrong endpoint would make every call fail regardless of the prompt.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-056",
+    "sub": "image-generation",
+    "diff": 3,
+    "type": "mcq",
+    "q": "You want to replace only the background of an existing product photo while keeping the product unchanged. Which approach should you use?",
+    "opts": [
+      "Generate a completely new image from a text prompt only",
+      "Run OCR on the photo",
+      "Run object detection on the photo",
+      "Use image editing with the original image, a mask that marks the area to change, and a text prompt"
+    ],
+    "ans": 3,
+    "exp": "Image editing, sometimes called inpainting, takes the original image, a mask that marks the region to change and a prompt that describes the new content, so only the masked background is regenerated. A new image from text only would not keep the exact product. OCR reads text and object detection finds objects; neither changes the image.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-057",
+    "sub": "vision-app",
+    "diff": 1,
+    "type": "mcq",
+    "q": "A Python app needs captions and tags for uploaded images from Azure Vision in Foundry Tools. Which client class should it use?",
+    "opts": [
+      "ImageAnalysisClient",
+      "TextAnalyticsClient",
+      "SpeechSynthesizer",
+      "BlobServiceClient"
+    ],
+    "ans": 0,
+    "exp": "ImageAnalysisClient in the azure-ai-vision-imageanalysis package calls Image Analysis, which returns features such as captions, tags, objects, people and OCR text. TextAnalyticsClient works on text, SpeechSynthesizer produces audio and BlobServiceClient stores files, so none of them analyze images.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-058",
+    "sub": "vision-app",
+    "diff": 2,
+    "type": "dropdown",
+    "q": "Complete the Python code so that it prints a caption for the image and every line of printed text in it.",
+    "tpl": "result = client.analyze(\n    image_data=image_bytes,\n    visual_features=[VisualFeatures.{0}, VisualFeatures.{1}],\n)\nprint(result.caption.text)\nfor line in result.read.blocks[0].lines:\n    print(line.text)",
+    "opts": [
+      [
+        "CAPTION",
+        "PEOPLE",
+        "SMART_CROPS"
+      ],
+      [
+        "TAGS",
+        "READ",
+        "OBJECTS"
+      ]
+    ],
+    "ans": [
+      0,
+      1
+    ],
+    "exp": "The code reads result.caption and result.read, so it must request the CAPTION feature, which describes the image in a sentence, and the READ feature, which runs OCR and returns text blocks and lines. PEOPLE and OBJECTS return bounding boxes, SMART_CROPS suggests thumbnail areas, and TAGS returns keywords, so none of them fill the caption or read results.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-059",
+    "sub": "vision-app",
+    "diff": 2,
+    "type": "match",
+    "q": "Match each requirement to the Image Analysis visual feature that provides it. Each feature can be used once or not at all.",
+    "items": [
+      "A one-sentence description of the image",
+      "The printed text on a poster",
+      "Bounding boxes around each bicycle",
+      "A suggested thumbnail area around the main subject"
+    ],
+    "targets": [
+      "Tags",
+      "Caption",
+      "Read (OCR)",
+      "Objects",
+      "Smart crops"
+    ],
+    "ans": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "exp": "Caption returns a human-readable sentence about the image. Read extracts printed and handwritten text. Objects returns detected objects with bounding boxes. Smart crops suggests crop regions that keep the important area for thumbnails. Tags returns keywords for the content but no sentence, text, boxes or crop areas, so it matches none of the requirements.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-060",
+    "sub": "vision-app",
+    "diff": 3,
+    "type": "multi",
+    "q": "You are choosing between Azure Vision Image Analysis and a multimodal GPT model for an app. Which TWO statements are correct? Each correct answer presents a complete solution.",
+    "opts": [
+      "Image Analysis returns structured results, such as tags, objects with bounding boxes and OCR lines",
+      "A multimodal model can answer open-ended questions about an image in natural language",
+      "Image Analysis can generate new images",
+      "A multimodal model cannot accept images",
+      "Only Image Analysis can be called from Python"
+    ],
+    "ans": [
+      0,
+      1
+    ],
+    "exp": "Image Analysis is best when you need predictable structured outputs such as tags, bounding boxes and OCR text, while a multimodal model is best for flexible questions and explanations about an image. Image Analysis analyzes images but does not generate them, multimodal models do accept images, and both can be called from Python.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-061",
+    "sub": "cu-documents",
+    "diff": 1,
+    "type": "mcq",
+    "q": "In Azure Content Understanding in Foundry Tools, what does an analyzer define?",
+    "opts": [
+      "The virtual machine size that processes the files",
+      "How content is processed, including content extraction settings, the field schema and model deployments",
+      "The firewall rules of the resource",
+      "The billing plan of the subscription"
+    ],
+    "ans": 1,
+    "exp": "An analyzer is the core component of Content Understanding: it configures how content is extracted, which fields are produced through the field schema, and which model deployments are used, and it applies these settings the same way to every file. Content Understanding is a managed service, so you do not pick virtual machines, and firewalls and billing plans are set elsewhere.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-062",
+    "sub": "cu-documents",
+    "diff": 1,
+    "type": "mcq",
+    "q": "You need the invoice number, vendor name and total exactly as they appear on PDF invoices. Which field method should the analyzer use for these fields?",
+    "opts": [
+      "Generate",
+      "Classify",
+      "Extract",
+      "Translate"
+    ],
+    "ans": 2,
+    "exp": "The extract method returns values directly as they appear in the content and is supported for documents, so it fits invoice numbers, vendor names and totals. Generate creates values freely, such as summaries. Classify picks a value from a set of categories. Translate is not a Content Understanding field method.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-063",
+    "sub": "cu-audio-video",
+    "diff": 2,
+    "type": "mcq",
+    "q": "An analyzer for recorded support calls needs a field named call_summary that contains a short summary of each call. Which field method should you use?",
+    "opts": [
+      "Extract",
+      "Generate",
+      "Classify",
+      "Optical character recognition"
+    ],
+    "ans": 1,
+    "exp": "The generate method creates values from the input, such as summarizing an audio conversation, so it fits a call summary. Extract returns values exactly as they appear and is supported only for documents. Classify chooses from predefined categories. OCR is a content extraction step for text in images and documents, not a field method.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-064",
+    "sub": "cu-images",
+    "diff": 2,
+    "type": "mcq",
+    "q": "An analyzer for chart images needs a field named chart_type whose value must be bar, line or pie. Which field method should you use?",
+    "opts": [
+      "Extract",
+      "Generate",
+      "Redact",
+      "Classify, with the list of allowed categories"
+    ],
+    "ans": 3,
+    "exp": "The classify method assigns a value from a predefined set of categories, such as bar, line or pie, which guarantees one of the allowed values. Extract returns text exactly as it appears and is supported for documents only, and generate produces free-form values that are not limited to a list. Redact is not a Content Understanding field method.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-065",
+    "sub": "cu-documents",
+    "diff": 2,
+    "type": "yesno",
+    "q": "For each of the following statements about Content Understanding field extraction, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "The extract method can pull values directly from audio files.",
+      "Content Understanding can return a confidence score between 0 and 1 for an extracted field value.",
+      "Grounding shows the region of the source content where a field value came from."
+    ],
+    "ans": [
+      false,
+      true,
+      true
+    ],
+    "exp": "No for the first: extract is supported for documents only; for audio you use generate or classify. Yes for the second: document analyzers can estimate a confidence score from 0 to 1 for each field, which helps decide when human review is needed. Yes for the third: grounding points to the part of the source where the value was found, so people can verify it quickly.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-066",
+    "sub": "cu-audio-video",
+    "diff": 2,
+    "type": "match",
+    "q": "Match each input to the Content Understanding analysis that fits it. Each analysis type can be used once or not at all.",
+    "items": [
+      "Spoken words in a sales call recording",
+      "Scenes and key moments in a product video",
+      "Text and tables in a scanned contract",
+      "A description of what a product photo shows"
+    ],
+    "targets": [
+      "Image analysis with a generated description field",
+      "Speech synthesis",
+      "Audio analysis with a transcript",
+      "Video analysis with segments and keyframes",
+      "Document analysis with OCR and layout"
+    ],
+    "ans": [
+      2,
+      3,
+      4,
+      0
+    ],
+    "exp": "Content Understanding handles each modality differently: audio is transcribed, video is split into segments with keyframes and transcripts, documents are read with OCR and layout analysis that finds tables, and for images you define fields, such as a generated description. Speech synthesis creates audio from text and is not part of Content Understanding analysis.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-067",
+    "sub": "cu-app",
+    "diff": 1,
+    "type": "multi",
+    "q": "Which TWO output formats can an application receive from Content Understanding? Each correct answer presents a complete solution.",
+    "opts": [
+      "An MP3 recording of the content",
+      "An Excel macro",
+      "A Markdown representation of the content",
+      "Structured JSON that matches the analyzer's field schema",
+      "A trained ONNX model"
+    ],
+    "ans": [
+      2,
+      3
+    ],
+    "exp": "Content Understanding returns content as Markdown, which suits search and RAG scenarios, and structured JSON with the fields defined in your schema, which suits automation and analytics. It does not produce trained models, audio files or Excel macros.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-068",
+    "sub": "cu-app",
+    "diff": 3,
+    "type": "mcq",
+    "q": "Your app sends a file to a Content Understanding analyzer by using the REST API. The analyze operation runs asynchronously. What should the app do next?",
+    "opts": [
+      "Read the final fields immediately from the body of the first response",
+      "Call the Speech SDK to synthesize the result",
+      "Poll the operation URL returned in the response until the status is succeeded, and then read the result",
+      "Delete and recreate the analyzer"
+    ],
+    "ans": 2,
+    "exp": "The analyze request starts a long-running operation and returns an Operation-Location URL. The app polls that URL until the status shows that analysis succeeded, and then reads the result that contains the content and fields. The first response does not contain the final fields, speech synthesis is unrelated, and recreating the analyzer would not return results.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  },
+  {
+    "id": "D2-069",
+    "sub": "cu-app",
+    "diff": 2,
+    "type": "dropdown",
+    "q": "Complete the sentences about building an information extraction app with Content Understanding.",
+    "tpl": "For generative features such as field extraction, Content Understanding uses {0} in your Foundry resource. To sort a mixed batch of documents by type before extracting fields, use {1}.",
+    "opts": [
+      [
+        "a Kubernetes cluster",
+        "deployments of supported generative and embedding models",
+        "a GPU virtual machine"
+      ],
+      [
+        "speech translation",
+        "key phrase extraction",
+        "classification and segmentation"
+      ]
+    ],
+    "ans": [
+      1,
+      2
+    ],
+    "exp": "Content Understanding uses your own deployments of supported generative models and embedding models to power field extraction and related features. Its classification and segmentation features split and categorize content, such as by document type, so each part can be routed to the right analyzer. It is a managed service, so no clusters or GPU machines are needed, and speech translation and key phrase extraction do not sort documents.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-070",
+    "sub": "cu-documents",
+    "diff": 3,
+    "type": "order",
+    "q": "You are building a custom Content Understanding analyzer for purchase orders. Put the steps in the correct order. Not every step is used.",
+    "items": [
+      "Define a field schema with field names, types, descriptions and methods",
+      "Upload a sample document and test the analyzer's results",
+      "Build the analyzer and call it from your app with new files",
+      "Create or open a Foundry resource with the required model deployments",
+      "Train a custom speech model"
+    ],
+    "ans": [
+      3,
+      0,
+      1,
+      2
+    ],
+    "exp": "You start with a Foundry resource that has the required model deployments, then define the field schema that describes what to extract, test it on sample documents and refine it, and finally build the analyzer and call it from your application. A custom speech model is for speech recognition and is not part of building a document analyzer.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/tutorial/create-custom-analyzer"
+  }
+]

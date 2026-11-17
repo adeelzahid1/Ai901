@@ -1,59 +1,45 @@
-# Ai901
+# AI-901 Prep
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.43.
+Study portal for Microsoft exam **AI-901: Microsoft Azure AI Fundamentals** (skills outline of April 15, 2026).
+Built with Angular 20 (standalone, signals, zoneless, SSR with only the landing page prerendered).
 
-## Development server
+## Exam blueprint
 
-To start a local development server, run:
+| Domain | Weight | Study sections |
+| --- | --- | --- |
+| D1 Identify AI concepts and capabilities | 40-45% | 1.1-1.7 |
+| D2 Implement AI solutions by using Microsoft Foundry | 55-60% | 2.1-2.7 |
 
-```bash
-ng serve
-```
+Domains, official sub-skills, study sections and per-section question targets live in
+[`src/app/data/blueprint.json`](src/app/data/blueprint.json).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Question bank
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+- Questions are JSON files in `src/app/data/bank/` (`d1-core.json`, `d1-ext1.json`, ...), listed in
+  `blueprint.json` under `bankFiles` and registered in `question-bank.ts`. Each file is a lazy chunk.
+- Types: `mcq`, `multi`, `yesno`, `order`, `dropdown`, `match` (see `src/app/data/schema.ts`).
+- Every question is original, scenario-based, explains why the answer is right and why the other
+  choices are wrong, and links to Microsoft Learn.
 
 ```bash
-ng build
+npm run validate:bank
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+checks ids, answers for every type, explanation length, Learn links, section mapping, duplicates and
+answer-position balance, and prints coverage per section.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Development
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+serves the app on http://localhost:4300.
 
 ```bash
-ng e2e
+npx ng test --watch=false --browsers=ChromeHeadless
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run build
+```
