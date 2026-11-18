@@ -1,0 +1,340 @@
+[
+  {
+    "id": "D1-248", "sub": "fairness", "diff": 2, "type": "mcq",
+    "ctx": "A university's admissions model rates applicants from rural schools as lower potential. Very few rural students were in the training data.",
+    "q": "What should the team do?",
+    "opts": [
+      "Add representative data from rural schools and compare the model's results across groups",
+      "Hide the model's scores from the admissions staff",
+      "Only increase the size of the model",
+      "Stop accepting applications from rural schools"
+    ],
+    "ans": 0,
+    "exp": "The model is unfair because one group is under-represented in the training data. Adding representative data and measuring results per group addresses the cause and shows whether the gap closes. Hiding scores, enlarging the model or excluding rural applicants does not fix the bias and the last option makes the harm worse.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml"
+  },
+  {
+    "id": "D1-249", "sub": "fairness", "diff": 3, "type": "match",
+    "q": "Match each example to the type of harm it shows. Each harm type can be used once or not at all.",
+    "items": [
+      "A loan model approves fewer applicants from one group who have the same qualifications",
+      "A speech app makes many more errors for speakers with certain accents",
+      "A chatbot reveals another customer's home address"
+    ],
+    "targets": ["Quality-of-service harm", "Allocation harm", "Privacy breach", "A transparency feature"],
+    "ans": [1, 0, 2],
+    "exp": "Allocation harm happens when a system unfairly gives or withholds opportunities or resources, such as loans. Quality-of-service harm happens when a system works worse for one group than another, such as higher error rates for some accents. Revealing someone's address is a privacy breach. None of these is a transparency feature.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml"
+  },
+  {
+    "id": "D1-250", "sub": "reliability-safety", "diff": 1, "type": "mcq",
+    "q": "Which of the following is an example of a safety measure in a generative AI app?",
+    "opts": ["A bigger company logo", "A faster developer laptop", "Content filters that block instructions for self-harm", "A new color theme"],
+    "ans": 2,
+    "exp": "Blocking harmful content, such as instructions for self-harm, reduces the risk that the app causes harm, which is part of reliability and safety. A logo, a laptop and a color theme do not change how safely the AI system behaves.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+  },
+  {
+    "id": "D1-251", "sub": "reliability-safety", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about reliability and safety, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A system that works in testing will always behave the same way in production.",
+      "Monitoring an AI system after release is part of reliability and safety.",
+      "Defining a fallback, such as handing the user over to a person, improves safety."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: real users bring new inputs, data changes over time and models are updated, so behavior can differ from testing. Yes for the second: monitoring catches failures and drift after release. Yes for the third: a safe fallback limits harm when the system cannot handle a situation.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/responsible-ai-studio/"
+  },
+  {
+    "id": "D1-252", "sub": "privacy-security", "diff": 2, "type": "mcq",
+    "ctx": "An HR chatbot is grounded on all employee records. Any employee can ask it about other employees' salaries and get an answer.",
+    "q": "Which principle is at risk, and what should be done?",
+    "opts": [
+      "Inclusiveness: add more languages",
+      "Transparency: add a label that says the answers come from AI",
+      "Fairness: retrain the model on more data",
+      "Privacy and security: limit what data each user can retrieve, based on their permissions"
+    ],
+    "ans": 3,
+    "exp": "Exposing other people's salaries is a privacy and security failure. Retrieval should respect each user's permissions so the chatbot can only use data that the person is allowed to see. More languages, AI labels or retraining do not stop the leak of confidential records.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-253", "sub": "privacy-security", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences by selecting the correct option for each blank.",
+    "tpl": "Masking phone numbers before chat logs are stored protects {0}. Requiring users to sign in before they can see their own records is a {1} control.",
+    "opts": [
+      ["inclusiveness", "privacy", "transparency"],
+      ["fairness", "inclusiveness", "security"]
+    ],
+    "ans": [1, 2],
+    "exp": "Masking personal data protects people's privacy, and requiring authentication before access is a security control. Both fall under the privacy and security principle. Inclusiveness, transparency and fairness address other concerns: accessibility, understanding and equal treatment.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-254", "sub": "inclusiveness", "diff": 1, "type": "mcq",
+    "q": "Which design choice best supports inclusiveness in an AI app?",
+    "opts": [
+      "Show information only in images, without text",
+      "Support keyboard navigation and screen readers",
+      "Require users to type quickly",
+      "Support only one language"
+    ],
+    "ans": 1,
+    "exp": "Keyboard navigation and screen reader support let people with visual or motor impairments use the app, which is inclusive design. Image-only content excludes blind users, speed requirements exclude people with motor impairments, and a single language excludes speakers of other languages.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-255", "sub": "inclusiveness", "diff": 2, "type": "multi",
+    "q": "Which TWO actions make a voice assistant more inclusive? Each correct answer presents a complete solution.",
+    "opts": [
+      "Support only one accent",
+      "Test the assistant with people who have speech impairments",
+      "Remove captions from responses",
+      "Offer a text alternative to voice input",
+      "Require users to speak quickly"
+    ],
+    "ans": [1, 3],
+    "exp": "Testing with people who have speech impairments finds barriers early, and a text alternative lets people who cannot or prefer not to speak use the assistant. Supporting one accent, removing captions and requiring fast speech all exclude groups of users.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-256", "sub": "transparency", "diff": 3, "type": "mcq",
+    "ctx": "A recruiting tool ranks job candidates. Rejected candidates ask why they ranked low, and the company cannot explain the results.",
+    "q": "What should the company do to address the responsible AI concern?",
+    "opts": [
+      "Remove the rankings from the logs",
+      "Increase the number of candidates per role",
+      "Explain the main factors behind each ranking and document how the system works and its limits",
+      "Change the font of the results page"
+    ],
+    "ans": 2,
+    "exp": "People affected by AI decisions should be able to understand them, which is transparency. Explaining the factors behind rankings and documenting the system's purpose and limits addresses this, and also helps detect unfair patterns. Removing logs reduces accountability, and candidate numbers or fonts do not explain anything.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-257", "sub": "transparency", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about transparency, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Transparency helps people decide how much to trust an AI system.",
+      "Disclosing that content was generated by AI is a transparency practice.",
+      "Explaining a system's limitations reduces transparency."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: understanding how a system works and where it can fail helps people rely on it appropriately. Yes for the second: labeling AI-generated content tells people what they are looking at. No for the third: describing limitations is a core part of transparency, not a reduction of it.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-258", "sub": "accountability", "diff": 2, "type": "mcq",
+    "q": "At Microsoft, which group sets and governs the company's responsible AI policies?",
+    "opts": ["The Office of Responsible AI", "The marketing team", "Each end user", "The AI model itself"],
+    "ans": 0,
+    "exp": "Microsoft's Office of Responsible AI sets the company's responsible AI rules and governance, which is an example of accountability through clear ownership. Marketing teams, individual users and the models themselves are not responsible for governing how AI is built and deployed.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/embrace-responsible-ai-principles-practices/"
+  },
+  {
+    "id": "D1-259", "sub": "accountability", "diff": 2, "type": "match",
+    "q": "Match each practice to the responsible AI principle it supports most directly. Each principle can be used once or not at all.",
+    "items": [
+      "Name an owner who is answerable for each AI system",
+      "Measure error rates for each demographic group",
+      "Explain to users what data the system uses",
+      "Encrypt stored prompts and responses"
+    ],
+    "targets": ["Privacy and security", "Transparency", "Accountability", "Fairness", "Inclusiveness"],
+    "ans": [2, 3, 1, 0],
+    "exp": "A named, answerable owner is accountability. Comparing error rates across groups checks fairness. Telling users what data the system uses is transparency. Encrypting stored data is privacy and security. Inclusiveness is about designing for people of all abilities and backgrounds, which none of these practices targets.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-260", "sub": "genai-how", "diff": 1, "type": "mcq",
+    "q": "How is generative AI different from a traditional classification model?",
+    "opts": [
+      "It can only do arithmetic",
+      "It never needs training data",
+      "It runs only on mobile phones",
+      "It creates new content, such as text or images, instead of only assigning a label"
+    ],
+    "ans": 3,
+    "exp": "A classification model predicts a label, such as spam or not spam, while a generative model produces new content, such as a written answer, code or an image. Generative models are trained on large datasets, are not limited to arithmetic and usually run in the cloud.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-261", "sub": "genai-how", "diff": 1, "type": "mcq",
+    "q": "Why can the same prompt sent twice to a chat model produce different answers?",
+    "opts": [
+      "The model forgets its training between requests",
+      "Token choices are sampled with some randomness when the temperature is above 0",
+      "The deployment moves to a different region each time",
+      "The quota resets after each request"
+    ],
+    "ans": 1,
+    "exp": "Generation picks each next token from a probability distribution, and with a temperature above 0 that choice includes some randomness, so wording can differ between runs. The model does not forget its training, deployments do not move between requests, and quota does not affect content.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D1-262", "sub": "genai-how", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about how language models work, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Language models understand meaning only through exact keyword matches.",
+      "The order and wording of instructions in a prompt can change the response.",
+      "Embeddings place text with similar meaning close together in vector space."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: models learn relationships between words and context, so they handle synonyms and paraphrases rather than relying on exact keywords. Yes for the second: models are sensitive to how prompts are written and ordered. Yes for the third: that is what makes embeddings useful for semantic search.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-263", "sub": "genai-how", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about embeddings.",
+    "tpl": "The embedding vectors for 'dog' and 'puppy' are {0} together than the vectors for 'dog' and 'invoice'. A common way to compare two vectors is {1}.",
+    "opts": [
+      ["further", "no different", "closer"],
+      ["temperature", "cosine similarity", "top P"]
+    ],
+    "ans": [2, 1],
+    "exp": "Words with related meanings, such as dog and puppy, get vectors that point in similar directions, so they are closer than unrelated words. Cosine similarity measures how closely two vectors point in the same direction. Temperature and top P are generation settings, not similarity measures.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-264", "sub": "genai-how", "diff": 3, "type": "multi",
+    "q": "Which TWO limitations of generative models should you plan for when you design a solution? Each correct answer presents a complete solution.",
+    "opts": [
+      "They always cite their sources",
+      "They can state incorrect information with confidence",
+      "They never need monitoring",
+      "Their built-in knowledge ends at a training cutoff",
+      "They cannot write code"
+    ],
+    "ans": [1, 3],
+    "exp": "Models can hallucinate, and they know nothing after their training cutoff, so solutions need grounding, review and current data. Models do not cite sources unless the solution provides them, they need monitoring like any system, and many models write code well.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-265", "sub": "genai-how", "diff": 3, "type": "mcq",
+    "ctx": "A model is asked to summarize regulations that changed in 2026, but it describes the old rules.",
+    "q": "What is the most likely cause and the best fix?",
+    "opts": [
+      "The temperature is too low; raise it",
+      "The deployment name is wrong; rename it",
+      "The model's training data ends before the change; ground the prompt with the current regulation documents",
+      "The quota is too high; lower it"
+    ],
+    "ans": 2,
+    "exp": "A model only knows what was in its training data, so changes after its cutoff are unknown to it. Supplying the current documents in the prompt, for example through retrieval, grounds the summary in up-to-date content. Temperature, deployment names and quota do not give the model new knowledge.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-266", "sub": "model-choice", "diff": 1, "type": "mcq",
+    "q": "You must sort one million short support tickets into five simple categories at the lowest cost. Which model fits best?",
+    "opts": [
+      "A small, low-cost model such as a mini or nano variant",
+      "The largest reasoning model available",
+      "An image-generation model",
+      "A speech-synthesis model"
+    ],
+    "ans": 0,
+    "exp": "Simple classification at high volume suits a small model, which is fast and cheap per token while still accurate enough for clear categories. A large reasoning model adds cost and latency that the task does not need, and image or speech models cannot classify text tickets.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+  },
+  {
+    "id": "D1-267", "sub": "model-choice", "diff": 1, "type": "mcq",
+    "q": "A law firm needs a chat model that answers questions in Arabic and Japanese. Which model property should you verify first?",
+    "opts": ["The color of its logo", "The month it was released", "The number of downloads last week", "How well it supports Arabic and Japanese"],
+    "ans": 3,
+    "exp": "Language support and quality vary between models, so you check the model card and test with Arabic and Japanese prompts. A logo, release month or download count says nothing about whether the model handles those languages well.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+  },
+  {
+    "id": "D1-268", "sub": "deploy-config", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about deployment types, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Global Batch is designed for interactive chat with live users.",
+      "Data Zone deployments keep processing within a geographic zone, such as the EU.",
+      "Standard (regional) deployments process requests in a single Azure region."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: Global Batch is asynchronous with a target turnaround of up to 24 hours, so it suits bulk jobs, not live chat. Yes for the second: Data Zone types keep processing inside a zone such as the EU or US. Yes for the third: Standard deployments are regional.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-269", "sub": "model-choice", "diff": 3, "type": "match",
+    "q": "Match each requirement to the type of model that fits it best. Each model type can be used once or not at all.",
+    "items": [
+      "Rank documents by meaning for a search box",
+      "Answer a complex multi-step tax question accurately",
+      "Answer simple FAQ questions with low latency",
+      "Describe what is in a photo"
+    ],
+    "targets": ["Small chat model", "Reasoning model", "Embedding model", "Multimodal chat model", "Text-to-speech model"],
+    "ans": [2, 1, 0, 3],
+    "exp": "Semantic ranking uses embeddings, complex multi-step problems benefit from a reasoning model, simple fast answers suit a small chat model, and describing photos needs a multimodal model. A text-to-speech model produces audio and does not fit any of these requirements.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+  },
+  {
+    "id": "D1-270", "sub": "deploy-config", "diff": 3, "type": "mcq",
+    "q": "A model has a 128,000-token context window. Your prompt already uses 126,000 tokens, and you ask for up to 4,000 output tokens. What happens?",
+    "opts": [
+      "The request fails, because the prompt plus the requested output exceed the context window",
+      "The model adds more context automatically",
+      "The quota increases to fit the request",
+      "The output tokens are free"
+    ],
+    "ans": 0,
+    "exp": "The context window covers input and output together, so 126,000 plus 4,000 tokens is more than the 128,000 limit and the service rejects the request. You need a shorter prompt, fewer output tokens or a model with a larger window. Context does not grow automatically, quota is unrelated, and output tokens are billed.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models"
+  },
+  {
+    "id": "D1-271", "sub": "deploy-config", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about request parameters.",
+    "tpl": "To make the model stop when it reaches a marker such as END, use a {0}. To allow longer answers, increase {1}.",
+    "opts": [
+      ["seed", "temperature", "stop sequence"],
+      ["frequency penalty", "max tokens", "top P"]
+    ],
+    "ans": [2, 1],
+    "exp": "A stop sequence ends generation at a given string. Max tokens sets the upper limit for the response length, so raising it allows longer answers. Seed affects repeatability, temperature and top P affect randomness, and frequency penalty reduces repetition.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+  },
+  {
+    "id": "D1-272", "sub": "deploy-config", "diff": 2, "type": "multi",
+    "q": "Which TWO are request parameters that an app sets on each call, rather than settings of the deployment? Each correct answer presents a complete solution.",
+    "opts": [
+      "Deployment type",
+      "Temperature",
+      "Tokens-per-minute quota",
+      "Maximum output tokens",
+      "Content filter configuration"
+    ],
+    "ans": [1, 3],
+    "exp": "Temperature and maximum output tokens are sent with each request and can differ from call to call. The deployment type, the tokens-per-minute quota and the content filter configuration are set on the deployment and apply to all requests that use it.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+  },
+  {
+    "id": "D1-273", "sub": "deploy-config", "diff": 2, "type": "mcq",
+    "q": "What does setting top P to 0.1 do?",
+    "opts": [
+      "It makes the response 10% shorter",
+      "It filters 10% of requests",
+      "It limits choices to the most likely tokens that together make up 10% of the probability",
+      "It uses 10% of the available GPUs"
+    ],
+    "ans": 2,
+    "exp": "Top P, or nucleus sampling, considers only the smallest set of most likely tokens whose combined probability reaches the value, here 10%, so output becomes more focused. It does not change length, filter requests or control hardware.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+  },
+  {
+    "id": "D1-274", "sub": "model-choice", "diff": 2, "type": "mcq",
+    "q": "You fine-tuned a model in Microsoft Foundry. What must happen before your apps can use the fine-tuned model?",
+    "opts": [
+      "Nothing; it becomes available to apps automatically",
+      "Delete the base model",
+      "Move the resource to another region",
+      "Deploy the fine-tuned model"
+    ],
+    "ans": 3,
+    "exp": "A fine-tuning job produces a new custom model, which you then deploy so that apps can call it by its deployment name. It is not live automatically, the base model is not deleted, and moving regions is not part of the process.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/fine-tuning-deploy"
+  }
+]
