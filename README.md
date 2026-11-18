@@ -3,6 +3,8 @@
 Study portal for Microsoft exam **AI-901: Microsoft Azure AI Fundamentals** (skills outline of April 15, 2026).
 Built with Angular 20 (standalone, signals, zoneless, SSR with only the landing page prerendered).
 
+**Live:** https://ai901.surge.sh
+
 ## Exam blueprint
 
 | Domain | Weight | Study sections |
