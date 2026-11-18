@@ -24,7 +24,7 @@
     ],
     "ans": 1,
     "exp": "When users only need answers from documents, a grounded chat app, such as a RAG solution, is enough. An agent with tools that can change records adds complexity and risk without benefit here, and image generation and speech translation do not answer handbook questions.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D1-332", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
@@ -216,7 +216,7 @@
       "Detecting a wake word"
     ],
     "ans": [1, 3],
-    "exp": "Text to speech lets you pick from many neural voices and fine-tune how they speak with SSML, including pronunciation and pauses. Transcription, speaker identification and wake word detection all analyze incoming audio, so they are speech recognition capabilities.",
+    "exp": "Text to speech lets you pick from many neural voices and fine-tune how they speak with SSML, including pronunciation and pauses. Transcription, telling speakers apart (diarization) and wake word detection all analyze incoming audio, so they are speech recognition capabilities.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech"
   },
   {
@@ -250,7 +250,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: generation involves randomness, so repeated prompts give different results. No for the second: generated images can still resemble protected content or brands, so they should be reviewed before commercial use. Yes for the third: style words, such as watercolor or photorealistic, guide the output.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D1-351", "sub": "vision-imagegen", "diff": 1, "type": "match",

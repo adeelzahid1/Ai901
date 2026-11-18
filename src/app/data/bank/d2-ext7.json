@@ -10,7 +10,7 @@
     ],
     "ans": 0,
     "exp": "A good prompt states the task, the format, the audience and the focus, as the first option does with three bullet points, a busy manager and decisions needed. The other prompts are vague, so the model has to guess what length, format and emphasis you want.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-227", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -24,7 +24,7 @@
     ],
     "ans": 2,
     "exp": "Scope rules belong in the system message: stating which topics are allowed and how to handle others keeps the assistant on task. Output tokens and quota do not change what the model talks about, and removing the system message would make the assistant even less restricted.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-228", "sub": "prompts", "diff": 2, "type": "yesno",
@@ -36,7 +36,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: prompts are sent with each request, so a change applies to the next call without redeploying. Yes for the second: few-shot examples show the pattern to follow. Yes for the third: system messages commonly list restrictions, such as topics to avoid or information never to reveal.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-229", "sub": "prompts", "diff": 2, "type": "match",
@@ -56,7 +56,7 @@
     ],
     "ans": [3, 2, 1, 0],
     "exp": "A CSV row needs an explicit output format, a writing style is best taught with examples, a logic puzzle benefits from step-by-step reasoning, and answering only from a policy needs the document as grounding plus an instruction to use only it. Raising the temperature makes output more random and helps none of these goals.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-230", "sub": "prompts", "diff": 3, "type": "mcq",
@@ -69,7 +69,7 @@
     ],
     "ans": 1,
     "exp": "Structured outputs, or JSON mode, constrain the response format so the model returns valid JSON, which is more reliable than instructions alone. A higher temperature adds randomness, free-text examples encourage the wrong format, and a five-token limit would cut the JSON off.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/structured-outputs"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
   },
   {
     "id": "D2-231", "sub": "prompts", "diff": 1, "type": "dropdown",
@@ -81,7 +81,7 @@
     ],
     "ans": [1, 2],
     "exp": "Describing a friendly teacher shapes the tone and style of the answer, while asking for a numbered list defines the output format. Quota, region and deployment type are deployment settings, and temperature is a request parameter, so none of them are set by these instructions.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-232", "sub": "prompts", "diff": 2, "type": "multi",
@@ -95,7 +95,7 @@
     ],
     "ans": [1, 3],
     "exp": "Relevant context gives the model the facts it needs, and a clear task and audience tell it what to produce and for whom. Unrelated text distracts the model, removing the question leaves nothing to answer, and capital letters add no information.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-233", "sub": "prompts", "diff": 3, "type": "order",
@@ -109,7 +109,7 @@
     ],
     "ans": [3, 4, 0, 2],
     "exp": "Start by building a test set, get a baseline score with the current prompt, change one thing at a time, and re-run the evaluation to see whether the change helped. Deleting the test set would remove the way to measure improvement, so it is not part of the process.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-234", "sub": "prompts", "diff": 1, "type": "mcq",
@@ -117,7 +117,7 @@
     "opts": ["The model's weights", "The deployment's quota", "The billing account", "The message that the end user sends"],
     "ans": 3,
     "exp": "The user prompt, or user message, is what the person using the app types or says, such as a question. The model's weights, the deployment's quota and the billing account are not part of the conversation.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-235", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -125,7 +125,7 @@
     "opts": ["A SQL Server", "A Microsoft Foundry resource with a project", "A VPN gateway", "A CDN profile"],
     "ans": 1,
     "exp": "Model deployments live in a Microsoft Foundry resource, and you work with them through a project in that resource. A SQL Server, VPN gateway or CDN profile might be used by other parts of a solution but is not needed to deploy a model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/create-projects"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/create-projects"
   },
   {
     "id": "D2-236", "sub": "portal-deploy", "diff": 2, "type": "mcq",
@@ -138,7 +138,7 @@
     ],
     "ans": 2,
     "exp": "Model availability differs by region and deployment type, so you choose a deployment type, such as Global Standard, or a region where the model is offered. Temperature, deployment names and context windows do not make a model available in a region.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D2-237", "sub": "portal-deploy", "diff": 1, "type": "yesno",
@@ -150,7 +150,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: the playground is part of the Foundry portal; you pay only for the model usage. Yes for the second: it is designed for quick, no-code experiments. Yes for the third: you select the deployment to test, so you can compare models.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-238", "sub": "portal-deploy", "diff": 2, "type": "match",
@@ -164,15 +164,15 @@
     "targets": ["Guardrails and content filter settings", "Evaluations", "Chat playground", "Deployment settings", "Azure Advisor"],
     "ans": [3, 2, 0, 1],
     "exp": "The deployment type is chosen in the deployment settings, system messages are tried in the chat playground, severity thresholds are set in guardrail and content filter settings, and test scores come from evaluations. Azure Advisor gives general Azure recommendations and does none of these.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-239", "sub": "portal-deploy", "diff": 3, "type": "mcq",
     "q": "With the default content filter configuration, at which severity levels is hate, sexual, violent and self-harm content blocked?",
     "opts": ["Medium and high", "Only high", "Every level, including safe", "No level; the default blocks nothing"],
     "ans": 0,
-    "exp": "The default configuration filters content rated medium or high severity in the four harm categories, for both prompts and completions, and lets safe and low-severity content through. You can create a custom configuration to make filtering stricter, and approved customers can change it further.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "exp": "The default configuration filters content rated medium or high severity in the four harm categories, for both prompts and completions, and lets safe and low-severity content through. You can create a custom configuration to make filtering stricter, and approved customers can change it further. In the new Foundry portal this default is the Medium blocking level of the Microsoft.DefaultV2 guardrail.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/default-safety-policies"
   },
   {
     "id": "D2-240", "sub": "portal-deploy", "diff": 2, "type": "multi",
@@ -186,7 +186,7 @@
     ],
     "ans": [1, 3],
     "exp": "An evaluation runs your model or app over a test dataset and scores the outputs with evaluators that measure qualities such as groundedness, relevance or safety. Networking components and GPU drivers are not part of setting up an evaluation in Foundry.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-241", "sub": "portal-deploy", "diff": 2, "type": "dropdown",
@@ -198,7 +198,7 @@
     ],
     "ans": [2, 1],
     "exp": "Model versions have published deprecation and retirement dates; after retirement, deployments must move to a newer model or version to keep working. Renaming or scaling a deployment does not help, and the creation or billing dates do not tell you when a model will stop being available.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements"
   },
   {
     "id": "D2-242", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -206,7 +206,7 @@
     "opts": ["The model card", "The system message", "The SDK release notes", "The deployment's usage metrics in Azure Monitor or the Foundry portal"],
     "ans": 3,
     "exp": "Usage metrics, such as processed prompt and generated tokens, are collected for deployments and shown in Azure Monitor and in Foundry's monitoring views. The model card describes the model, the system message is part of requests, and release notes describe SDK changes.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/monitor-openai"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/monitor-models"
   },
   {
     "id": "D2-243", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -219,7 +219,7 @@
     ],
     "ans": 0,
     "exp": "Deployment types, such as Standard, Global Standard, Data Zone Standard, Provisioned and Global Batch, define processing location, capacity model and billing. They do not depend on your programming language, the model's training or the portal's appearance.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D2-244", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
@@ -256,7 +256,7 @@
       "Increase the deployment's quota"
     ],
     "ans": 1,
-    "exp": "In Azure, the app should use its own managed identity, which DefaultAzureCredential detects automatically; the identity also needs a role, such as Azure AI User, on the project. Signing in with a personal account on a server or hard-coding a password is insecure, and quota does not affect authentication.",
+    "exp": "In Azure, the app should use its own managed identity, which DefaultAzureCredential detects automatically; the identity also needs a role, such as Foundry User (formerly Azure AI User), on the project. Signing in with a personal account on a server or hard-coding a password is insecure, and quota does not affect authentication.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/authentication"
   },
   {
@@ -284,7 +284,7 @@
     ],
     "ans": [2, 1, 3, 0],
     "exp": "output_text holds the generated text of a Responses API result, usage holds the token counts, and id identifies the response so you can continue from it with previous_response_id. In chat completions, finish_reason explains why output stopped. Responses never contain your API key.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
     "id": "D2-249", "sub": "sdk-chat-client", "diff": 3, "type": "multi",
@@ -298,7 +298,7 @@
     ],
     "ans": [1, 3],
     "exp": "Backoff retries handle temporary 429 throttling, and handling filtered responses gracefully gives users a clear message instead of a broken experience. Logging keys leaks secrets, removing timeouts can hang the app, and silently showing empty replies hides problems.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-250", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
@@ -332,7 +332,7 @@
     ],
     "ans": [2, 1],
     "exp": "A low temperature such as 0.2 makes answers focused and consistent, and stream=True returns the response as a series of chunks that the loop can display. seed_value, verbose and chunks are not parameters of chat.completions.create().",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-253", "sub": "sdk-chat-client", "diff": 3, "type": "mcq",
@@ -345,7 +345,7 @@
     ],
     "ans": 3,
     "exp": "Conversation history must be kept per session, for example keyed by user or session ID, so each request includes only that user's messages. A shared list mixes conversations and leaks information between users. Temperature does not separate users, and a deployment per user is unnecessary.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-254", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
@@ -358,6 +358,6 @@
     ],
     "ans": 0,
     "exp": "SDKs wrap the REST APIs with typed methods, built-in authentication through credentials and retry handling, so code is shorter and less error-prone. REST calls remain possible, usage is still billed, and content filtering still applies no matter how you call the model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/sdk-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview"
   }
 ]

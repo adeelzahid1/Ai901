@@ -5,7 +5,7 @@
     "opts": ["A new image", "A text answer about the image", "Only an audio file", "Always a JSON list of bounding boxes"],
     "ans": 1,
     "exp": "Vision-capable chat models take images as input and respond in text, such as a description or an answer to a question. Creating images needs an image-generation model, audio output needs an audio-capable model, and structured boxes come from vision services such as object detection.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-541", "sub": "visual-input", "diff": 2, "type": "mcq",
@@ -19,7 +19,7 @@
     ],
     "ans": 3,
     "exp": "A vision-capable model can read the text in the screenshot and, guided by instructions, explain the error and suggest steps. File names do not contain the error, speech synthesis creates audio, and image generation creates pictures instead of reading them.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-542", "sub": "visual-input", "diff": 2, "type": "yesno",
@@ -31,7 +31,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: several images can be sent together and compared. No for the second: vision-capable models read images directly. Yes for the third: images are converted into tokens, which affects usage and cost.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-543", "sub": "visual-input", "diff": 1, "type": "dropdown",
@@ -43,7 +43,7 @@
     ],
     "ans": [0, 0],
     "exp": "Images are referenced by URL or embedded as base64 data in the request, and the model replies with text. Phone calls and faxes are not ways to send images to an API, and these models do not answer in video or Morse code.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-544", "sub": "image-generation", "diff": 1, "type": "mcq",
@@ -56,7 +56,7 @@
     ],
     "ans": 1,
     "exp": "Specific prompts that describe what to show, in what style and how it is arranged guide the model toward the intended image. Vague prompts give unpredictable results, and there are no rules limiting prompts to three words or forbidding colors.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-545", "sub": "image-generation", "diff": 2, "type": "mcq",
@@ -69,7 +69,7 @@
     ],
     "ans": 3,
     "exp": "Image editing can add content to an existing photo, and labeling the result as virtually staged keeps buyers informed, which supports transparency. OCR reads text, classification labels images, and speech to text works on audio, so none of them add furniture.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-546", "sub": "image-generation", "diff": 1, "type": "match",
@@ -82,7 +82,7 @@
     "targets": ["High quality setting", "Speech synthesis", "Transparent background setting", "Low quality setting with several images"],
     "ans": [3, 0, 2],
     "exp": "Quick drafts suit a low quality setting with several images per request, a final hero image suits high quality, and a logo without background needs the transparent background option. Speech synthesis creates audio and has nothing to do with image generation.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-547", "sub": "image-generation", "diff": 3, "type": "multi",
@@ -96,7 +96,7 @@
     ],
     "ans": [1, 3],
     "exp": "Content filters block harmful requests, and Content Credentials let viewers see that images were AI-generated. Fake realistic images of real people, hiding AI generation and ignoring abuse all increase the risk of harm.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-credentials"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/content-credentials"
   },
   {
     "id": "D2-548", "sub": "vision-app", "diff": 1, "type": "mcq",
@@ -122,7 +122,7 @@
     ],
     "ans": 1,
     "exp": "A multimodal model can judge the material, and a structured output schema that lists only the four allowed values keeps every answer in the expected set. OCR reads text, speech to text works on audio, and smart crops only suggests thumbnails.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/structured-outputs"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
   },
   {
     "id": "D2-550", "sub": "vision-app", "diff": 2, "type": "yesno",

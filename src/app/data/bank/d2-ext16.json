@@ -5,7 +5,7 @@
     "opts": ["Raising the deployment quota", "Describing the tone in the system message", "Using a longer deployment name", "Changing the Azure region"],
     "ans": 1,
     "exp": "The system message applies to every conversation, so describing the tone there, such as friendly and professional, keeps answers consistent. Quota, deployment names and regions do not influence how the model writes.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-483", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -19,7 +19,7 @@
     ],
     "ans": 3,
     "exp": "A clear rule in the system message makes respecting allergies part of every answer and tells the model to ask when it lacks information, which reduces a real safety risk. Temperature and output length do not enforce the rule, and removing the user's message would lose the allergy information.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-484", "sub": "prompts", "diff": 2, "type": "yesno",
@@ -31,7 +31,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: for example, telling the model to ask a clarifying question or say it does not know. No for the second: a clear task is one of the most important parts of a prompt. Yes for the third: writing for children or experts produces very different answers.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-485", "sub": "prompts", "diff": 1, "type": "match",
@@ -46,7 +46,7 @@
     ],
     "ans": [2, 4, 0, 3],
     "exp": "The task says what to produce, the context gives the facts to use, the output format describes the shape of the answer, and a constraint states what to avoid. The deployment name is a setting in code, not part of the prompt.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-486", "sub": "prompts", "diff": 1, "type": "dropdown",
@@ -58,7 +58,7 @@
     ],
     "ans": [0, 0],
     "exp": "Describing who the assistant is gives it a persona that shapes expertise and tone, and a word limit sets the answer length. Quota, region, deployment type and data zone are deployment settings that prompts cannot change.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-487", "sub": "prompts", "diff": 3, "type": "multi",
@@ -72,7 +72,7 @@
     ],
     "ans": [1, 3],
     "exp": "Numbered steps make each part of the request explicit, and asking for step-by-step work improves accuracy on multi-part problems. Run-on instructions, missing context and maximum temperature all make it harder for the model to respond correctly.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-488", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -85,7 +85,7 @@
     ],
     "ans": 0,
     "exp": "Scope rules keep an assistant focused on its purpose and define a polite fallback for other questions, which improves reliability and reduces misuse. Such rules do not change speed, price or the model version.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-489", "sub": "prompts", "diff": 2, "type": "order",
@@ -99,7 +99,7 @@
     ],
     "ans": [2, 4, 0, 3],
     "exp": "The prompt starts with the instruction and allowed labels, then shows labeled examples, then adds the new ticket, and the app finally reads the predicted label. The deployment region does not affect how the prompt is built.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-490", "sub": "prompts", "diff": 3, "type": "mcq",
@@ -112,7 +112,7 @@
     ],
     "ans": 1,
     "exp": "Examples teach the pattern, so they should cover every label the model must produce; showing only Positive biases the model toward that label. More one-sided examples make it worse, removing the instruction removes guidance, and output length is unrelated.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-491", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -125,7 +125,7 @@
     ],
     "ans": 0,
     "exp": "The playground lets you edit the system message and parameters such as temperature and try them immediately. Training data is fixed by the model provider, and the region and subscription belong to the resource, not to the playground session.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-492", "sub": "portal-deploy", "diff": 2, "type": "mcq",
@@ -150,7 +150,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: evaluations run inputs from a dataset and score the outputs. No for the second: automated scores support but do not replace human oversight where decisions have serious impact. Yes for the third: there are quality evaluators and risk and safety evaluators.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-494", "sub": "portal-deploy", "diff": 2, "type": "match",
@@ -165,7 +165,7 @@
     ],
     "ans": [2, 4, 0, 3],
     "exp": "Coherence checks logical flow, groundedness checks support in the provided context, relevance checks whether the question is answered, and hate and unfairness is a risk and safety evaluator. Response time is a performance metric, not one of these evaluators.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-495", "sub": "portal-deploy", "diff": 2, "type": "dropdown",
@@ -177,7 +177,7 @@
     ],
     "ans": [0, 0],
     "exp": "Throughput is governed by the tokens-per-minute allocation, and blocking rules come from the content filter configuration assigned to the deployment. The context window is a model limit, temperature is a request setting, and the system message and region do not set filtering thresholds.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D2-496", "sub": "portal-deploy", "diff": 2, "type": "multi",
@@ -191,7 +191,7 @@
     ],
     "ans": [0, 3],
     "exp": "A deployment's details include which model and version it runs and its deployment type, along with settings such as quota. Training data and source code belong to the model provider, and other customers' prompts are never visible to you.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
     "id": "D2-497", "sub": "portal-deploy", "diff": 3, "type": "mcq",
@@ -204,7 +204,7 @@
     ],
     "ans": 1,
     "exp": "Separate deployments let each environment be configured and changed independently, so testing new settings never disrupts production. A model can be deployed several times, separate deployments do not change accuracy, and sharing keys is not a goal.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
     "id": "D2-498", "sub": "portal-deploy", "diff": 2, "type": "order",
@@ -218,7 +218,7 @@
     ],
     "ans": [2, 4, 0, 3],
     "exp": "First look at the metrics, then compare usage with the allocation to confirm a rate limit problem, then raise the allocation or spread traffic, and finally confirm the fix. Deleting the project destroys everything and solves nothing.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D2-499", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -226,7 +226,7 @@
     "opts": ["In the system message", "When you create the deployment", "In the chat input box", "In Azure Advisor"],
     "ans": 1,
     "exp": "The deployment type is selected when you deploy the model from the catalog, along with the deployment name and other settings. Messages and chat input are sent to the model, and Azure Advisor only gives recommendations.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D2-500", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
@@ -234,7 +234,7 @@
     "opts": ["openai.images.generate()", "speechsdk.SpeechRecognizer()", "project.agents.delete_version()", "project.deployments.list()"],
     "ans": 3,
     "exp": "The project client's deployments operations, such as list(), return the deployments in the project, which helps an app check or choose deployment names. Generating images, creating a speech recognizer and deleting an agent version do not list deployments.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/sdk-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview"
   },
   {
     "id": "D2-501", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
@@ -247,7 +247,7 @@
     ],
     "ans": 1,
     "exp": "For a short FAQ, adding its text to the instructions or prompt grounds the model, and an explicit rule limits answers to that text; larger collections would use retrieval. Fine-tuning per question is impractical, and temperature or region do not provide the FAQ content.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D2-502", "sub": "sdk-chat-client", "diff": 1, "type": "yesno",
@@ -286,7 +286,7 @@
     ],
     "ans": [0, 0],
     "exp": "Passing the whole messages list sends the system message and all earlier turns, so the model has the context. The reply is stored with the assistant role so the next request includes it as history. Sending only the question or the text would lose context, and system or user roles would mislabel the reply.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-505", "sub": "sdk-chat-client", "diff": 2, "type": "multi",
@@ -313,7 +313,7 @@
     ],
     "ans": 3,
     "exp": "When input filtering blocks a prompt, the service returns a 400 error that refers to the content filter, so the app should handle it and explain politely that the request cannot be processed. Quota problems return 429, a wrong endpoint fails differently, and a retired model would fail for every prompt.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-507", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
@@ -335,7 +335,7 @@
     ],
     "ans": 3,
     "exp": "Each request must fit in the model's context window, so the client should retrieve only relevant chunks of the PDF and shorten the history. Temperature and examples do not reduce size, and quota limits tokens per minute rather than the size of one request.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D2-509", "sub": "sdk-chat-client", "diff": 1, "type": "dropdown",
@@ -347,6 +347,6 @@
     ],
     "ans": [0, 0],
     "exp": "The Responses API exposes the text in output_text, while Chat Completions returns choices with a message whose content holds the text. role only says who wrote the message, and the property names are not interchangeable between the two APIs.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   }
 ]

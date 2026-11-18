@@ -10,7 +10,7 @@
     ],
     "ans": 0,
     "exp": "A user message can contain both an image part and a text part, so the model sees the floor plan and the requirements together and can compare them. Text to speech produces audio, a file name contains no image content, and an embedding model returns vectors rather than an assessment.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-369", "sub": "visual-input", "diff": 3, "type": "mcq",
@@ -24,7 +24,7 @@
     ],
     "ans": 3,
     "exp": "Specific instructions and a defined output format, for example a JSON list of out-of-stock product names, focus the model, and high image detail helps it read small labels. Very few output tokens cut answers off, removing the image removes the evidence, and speech synthesis does not analyze photos.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-370", "sub": "visual-input", "diff": 2, "type": "yesno",
@@ -36,7 +36,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: Microsoft states that customer prompts, including images, are not used to train the foundation models. Yes for the second: high detail processes the image at higher resolution, which uses more tokens. Yes for the third: these models can often read clear handwriting, although accuracy varies.",
-    "ref": "https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy"
   },
   {
     "id": "D2-371", "sub": "visual-input", "diff": 2, "type": "dropdown",
@@ -48,7 +48,7 @@
     ],
     "ans": [2, 1],
     "exp": "Each image is a separate image_url content part, so two photos means two parts in the same message. Vision-capable chat models answer with text; producing images requires an image-generation model, and audio output needs an audio-capable model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-372", "sub": "image-generation", "diff": 1, "type": "mcq",
@@ -56,7 +56,7 @@
     "opts": ["A transcript", "A list of tags", "One or more generated images, as base64 data or URLs", "A sentiment score"],
     "ans": 2,
     "exp": "Image-generation APIs return the created images, either as base64-encoded data or as URLs, depending on the model and options. Transcripts come from speech to text, tags from image analysis and sentiment scores from text analysis.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-373", "sub": "image-generation", "diff": 2, "type": "mcq",
@@ -69,7 +69,7 @@
     ],
     "ans": 0,
     "exp": "Realistic fake images of real people can mislead and cause harm, so responsible apps block or decline such requests, and content policies and filters are designed to help. Higher quality, larger sizes or removing provenance information would make the potential harm worse.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-374", "sub": "image-generation", "diff": 2, "type": "match",
@@ -84,7 +84,7 @@
     ],
     "ans": [1, 2, 0, 3],
     "exp": "size sets the image dimensions, quality trades detail against speed and cost, n sets how many images to create, and background chooses transparent or opaque output for models that support it. Randomness of generated text is controlled by temperature in text models, not by these parameters.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-375", "sub": "image-generation", "diff": 3, "type": "multi",
@@ -98,7 +98,7 @@
     ],
     "ans": [1, 3],
     "exp": "Repeating the same style description and keeping settings constant gives the model the same guidance each time, which produces a more consistent look. Changing styles or sizes makes images inconsistent, and leaving out the product removes the main subject.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-376", "sub": "vision-app", "diff": 1, "type": "mcq",

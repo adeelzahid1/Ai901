@@ -186,7 +186,7 @@
     ],
     "ans": 2,
     "exp": "Grounding supplies the model with relevant, trusted information, such as retrieved documents, so its answers are based on that data instead of only on what it learned in training. It has nothing to do with electrical grounding, temperature settings or deleting deployments.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D1-318", "sub": "genai-how", "diff": 2, "type": "match",
@@ -201,7 +201,7 @@
     ],
     "ans": [1, 2, 3, 0],
     "exp": "A system message sets the role, grounding data supplies trusted content such as a policy paragraph, a few-shot example shows a sample question and answer, and the generated output is the model's reply. Quota is a deployment setting, not part of the request or response content.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D1-319", "sub": "genai-how", "diff": 1, "type": "yesno",
@@ -227,7 +227,7 @@
     ],
     "ans": [2, 4],
     "exp": "The model can only use current company facts that you give it at request time, either by retrieving relevant documents automatically or by including the information directly in the prompt. Temperature, region and deployment names do not provide new knowledge.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D1-321", "sub": "model-choice", "diff": 1, "type": "mcq",
@@ -235,7 +235,7 @@
     "opts": ["An embedding model", "An image-generation model", "A text-only small model", "An audio-capable multimodal model"],
     "ans": 3,
     "exp": "Audio-capable multimodal models accept speech as input and respond to it. Embedding models return vectors, image-generation models create pictures, and text-only models need the audio to be transcribed first.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D1-322", "sub": "model-choice", "diff": 2, "type": "mcq",
@@ -249,7 +249,7 @@
     ],
     "ans": 0,
     "exp": "A small model keeps cost and latency low for a prototype, evaluation shows whether quality is good enough, and configuration makes switching models easy. Reserving large capacity up front is expensive, fine-tuning before testing base models is premature, and image models cannot run a chat.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D1-323", "sub": "model-choice", "diff": 2, "type": "yesno",
@@ -261,7 +261,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: context windows vary a lot between models. Yes for the second: benchmarks use general datasets, so your own tests show how a model handles your task. Yes for the third: models differ in strengths, including coding, reasoning and languages.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/benchmark-model-in-catalog"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/benchmark-model-in-catalog"
   },
   {
     "id": "D1-324", "sub": "deploy-config", "diff": 2, "type": "dropdown",
@@ -273,7 +273,7 @@
     ],
     "ans": [1, 1],
     "exp": "A low temperature makes the model choose the most likely tokens, so answers vary less between runs. Asking for multiple completions, for example with the n parameter, returns several alternative answers in one request. A high or random temperature would reduce repeatability, and zero or negative counts are not valid.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
   },
   {
     "id": "D1-325", "sub": "deploy-config", "diff": 3, "type": "match",
@@ -287,7 +287,7 @@
     "targets": ["Global Standard", "Data Zone Standard", "Global Batch", "Provisioned"],
     "ans": [1, 2, 3, 0],
     "exp": "Data Zone Standard keeps processing in a zone such as the EU with pay-per-token pricing, Global Batch handles large asynchronous jobs at a discount, Provisioned reserves capacity for steady traffic, and Global Standard is pay-per-token with global processing and no commitment.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-326", "sub": "deploy-config", "diff": 3, "type": "mcq",
@@ -301,7 +301,7 @@
     ],
     "ans": 1,
     "exp": "Provisioned throughput reserves capacity for predictable traffic and gives more consistent latency than shared pay-per-token deployments. Global Batch is asynchronous and unsuitable for live chat, and temperature or output length settings do not reserve capacity.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-327", "sub": "deploy-config", "diff": 2, "type": "multi",
@@ -315,7 +315,7 @@
     ],
     "ans": [0, 3],
     "exp": "Pay-per-token deployments bill input tokens and output tokens, often at different rates, so long prompts and long answers cost more. Temperature changes randomness, not billing, and the app's font and the deployment's name have no effect on cost.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-328", "sub": "deploy-config", "diff": 1, "type": "mcq",
@@ -323,7 +323,7 @@
     "opts": ["Standard", "Provisioned", "Global Batch", "Data Zone Standard"],
     "ans": 2,
     "exp": "Global Batch processes large sets of requests asynchronously with a target turnaround of 24 hours at a lower price. Standard and Data Zone Standard are for real-time pay-per-token requests, and Provisioned reserves capacity for steady real-time traffic.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-329", "sub": "model-choice", "diff": 2, "type": "mcq",
@@ -336,6 +336,6 @@
     ],
     "ans": 3,
     "exp": "After retirement, a model can no longer be used, so you should evaluate a replacement on your own test data and switch before the date. Ignoring the notice leads to failures, and quota or temperature changes do not extend a model's life.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements"
   }
 ]

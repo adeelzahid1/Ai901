@@ -276,7 +276,7 @@
     ],
     "ans": 3,
     "exp": "Retrieval augmented generation finds the document passages that are relevant to a question and adds them to the prompt, so the model grounds its answer in current company data without retraining. When the documents change, only the search index needs updating. Fine-tuning every month is costly and is meant to change model behavior, not to keep facts current. More response tokens and a smaller model do not give the model access to the policies.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D1-017",
@@ -292,7 +292,7 @@
     ],
     "ans": 1,
     "exp": "Fine-tuning further trains a model on example data so that it learns a behavior, such as a consistent tone, output format or specialized task, when prompts and examples are not enough. RAG is better when facts change often or answers must use the latest documents, because new content can be retrieved without retraining. Fine-tuning always needs prepared training examples, so it does not help a team that wants to avoid preparing data.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D1-018",
@@ -384,7 +384,7 @@
     ],
     "ans": 2,
     "exp": "An embedding model turns text into vectors, and vectors for texts with similar meaning are close together, so you can measure similarity between a question and each article. A chat completion model generates responses but is not designed to produce comparable vectors. Image-generation models create pictures, and speech-to-text models transcribe audio, so neither helps compare text meaning.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D1-022",
@@ -400,7 +400,7 @@
     ],
     "ans": 2,
     "exp": "gpt-image-1 is an image-generation model that creates images from a text prompt. whisper is a speech-to-text model that transcribes audio. text-embedding-3-large returns embedding vectors for search and similarity. gpt-4.1-mini can read text and images but returns text, so it cannot create a new picture.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D1-023",
@@ -416,7 +416,7 @@
     ],
     "ans": 0,
     "exp": "The Foundry model catalog includes model leaderboards and benchmark results that compare models on quality, cost and throughput, and you can also compare models side by side. Azure Monitor alerts notify you about metrics of resources you already run. A content filter blocks harmful content in a deployment, and Azure Advisor gives general Azure best-practice recommendations, so neither compares candidate models.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/benchmark-model-in-catalog"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/benchmark-model-in-catalog"
   },
   {
     "id": "D1-024",
@@ -436,7 +436,7 @@
       4
     ],
     "exp": "Smaller model variants are usually faster and cheaper, which suits short and simple answers. Testing candidate models with your own prompts shows whether a smaller model is good enough. Larger models are usually slower, not faster. Most models can be deployed and used without fine-tuning. Reasoning models spend extra tokens thinking through problems, which adds cost and latency that simple FAQ answers do not need.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D1-025",
@@ -452,7 +452,7 @@
     ],
     "ans": 1,
     "exp": "Temperature controls randomness when the model chooses the next token. A lower value makes the model pick the most likely tokens, so answers are more focused and consistent, while a higher value makes them more varied and creative. Maximum response tokens only limits length, and stop sequences only tell the model where to stop writing, so neither makes answers more consistent.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D1-026",
@@ -468,7 +468,7 @@
     ],
     "ans": 3,
     "exp": "The maximum response tokens setting limits how many tokens the model may generate. When the limit is reached the output stops, even in the middle of a sentence, and the finish reason is reported as length. Temperature and top P change how tokens are chosen, and frequency penalty reduces repeated words; none of them cuts the response short.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D1-027",
@@ -484,7 +484,7 @@
     ],
     "ans": 1,
     "exp": "Data Zone Standard routes requests across Azure regions inside a defined data zone, such as the EU, so processing stays in that geography while capacity is higher than a single region. Global Standard can process requests in any Azure region worldwide, which breaks the EU requirement. Standard is limited to one region and its quota. Global Batch is for asynchronous bulk jobs and is also global.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-028",
@@ -500,7 +500,7 @@
     ],
     "ans": 2,
     "exp": "Global Batch processes large groups of requests asynchronously, with a target turnaround of 24 hours, at a lower price than standard deployments, which fits non-urgent bulk work. Provisioned throughput reserves capacity for steady real-time traffic and is billed for that capacity whether or not you use it. Global Standard and Data Zone Standard are pay-per-token real-time deployments that cost more than batch for the same tokens.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-029",
@@ -516,7 +516,7 @@
     ],
     "ans": 3,
     "exp": "Provisioned deployments, such as Global Provisioned, reserve model processing capacity measured in provisioned throughput units, which gives predictable latency and throughput for steady high-volume workloads. Standard and Data Zone Standard are pay-per-token deployments that share capacity, so latency can vary under load. Global Batch is asynchronous and returns results within hours, which does not suit live calls.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-030",
@@ -548,6 +548,6 @@
       1
     ],
     "exp": "Temperature controls randomness, so a higher value gives more varied wording. Top P, also called nucleus sampling, limits choices to the smallest set of tokens whose combined probability reaches the threshold. Standard deployments get quota in tokens per minute, with a related requests-per-minute limit. Max tokens and stop sequences only control length and where output ends, frequency penalty reduces repetition, and storage or vCPUs are not how model quota is measured.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   }
 ]

@@ -43,7 +43,7 @@
     ],
     "ans": 1,
     "exp": "Evaluating first, releasing gradually and monitoring let you catch problems before they affect everyone, and a rollback path limits the damage if something goes wrong. Switching blindly, deleting the old version or turning off monitoring removes these safeguards.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-versions"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/model-versions"
   },
   {
     "id": "D1-361", "sub": "privacy-security", "diff": 1, "type": "mcq",
@@ -114,7 +114,7 @@
     ],
     "ans": [1, 3],
     "exp": "Transparency documentation, such as a Transparency Note, explains what the system is for and where it can fail, so people use it appropriately. Personal addresses and passwords must never be published, and a menu has nothing to do with the AI system.",
-    "ref": "https://learn.microsoft.com/en-us/legal/cognitive-services/openai/transparency-note"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/transparency-note"
   },
   {
     "id": "D1-367", "sub": "accountability", "diff": 2, "type": "mcq",
@@ -223,7 +223,7 @@
     ],
     "ans": 0,
     "exp": "Data Zone deployments keep processing inside a defined zone such as the EU, which meets the policy while still providing managed capacity. Global Standard can process requests in any region, image models cannot summarize text, and unapproved personal devices break security policy.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-376", "sub": "deploy-config", "diff": 1, "type": "yesno",
@@ -235,7 +235,7 @@
     ],
     "ans": [true, true, false],
     "exp": "Yes for the first: lower temperature gives focused answers, and higher gives more varied ones. Yes for the second: generation stops when the token limit is reached. No for the third: the deployment name is just an identifier for calling the model; it does not change its behavior.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
   },
   {
     "id": "D1-377", "sub": "deploy-config", "diff": 3, "type": "match",
@@ -249,15 +249,15 @@
     "targets": ["Higher max tokens", "Change the region", "Frequency penalty", "Lower temperature", "Stop sequence"],
     "ans": [2, 4, 3, 0],
     "exp": "A frequency penalty reduces repetition, a stop sequence ends output at a chosen word, a lower temperature makes answers less random, and a higher max tokens value prevents cut-off answers. Changing the region does not affect the content of answers.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
   },
   {
     "id": "D1-378", "sub": "deploy-config", "diff": 2, "type": "mcq",
     "q": "When you call a reasoning model, which parameter controls how much effort it spends thinking before it answers?",
     "opts": ["Temperature", "Presence penalty", "Stop sequence", "Reasoning effort"],
     "ans": 3,
-    "exp": "Reasoning models accept a reasoning effort setting, such as low, medium or high, that trades answer quality on hard problems against time and token cost; many of them do not support sampling settings such as temperature. Presence penalty and stop sequences do not control reasoning depth.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/reasoning"
+    "exp": "Reasoning models accept a reasoning effort setting, such as low, medium or high, that trades answer quality on hard problems against time and token cost; some reasoning models, mainly older ones, do not support sampling settings such as temperature. Presence penalty and stop sequences do not control reasoning depth.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning"
   },
   {
     "id": "D1-379", "sub": "model-choice", "diff": 2, "type": "dropdown",
@@ -269,7 +269,7 @@
     ],
     "ans": [0, 0],
     "exp": "Embedding models turn text into vectors for meaning-based search, and multimodal models accept images such as screenshots along with text. Image-generation and speech models create pictures or audio, and embedding models cannot read screenshots or hold a conversation.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D1-380", "sub": "deploy-config", "diff": 2, "type": "multi",
@@ -283,7 +283,7 @@
     ],
     "ans": [0, 3],
     "exp": "Global Standard routes requests across Azure's worldwide capacity and charges per token used. It does not keep processing inside one country, which is what Data Zone or regional types address, reserved hourly capacity describes Provisioned, and the 24-hour window describes Global Batch.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-381", "sub": "model-choice", "diff": 3, "type": "order",
@@ -297,7 +297,7 @@
     ],
     "ans": [2, 4, 0, 3],
     "exp": "Start from the requirements, use model cards and benchmarks to build a shortlist, test the shortlist on your own data, and then deploy and monitor the winner. A model's name says nothing about whether it fits your requirements.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/benchmark-model-in-catalog"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/benchmark-model-in-catalog"
   },
   {
     "id": "D1-382", "sub": "deploy-config", "diff": 1, "type": "mcq",
@@ -310,6 +310,6 @@
     ],
     "ans": 2,
     "exp": "TPM quota is a rate limit on how many tokens a deployment can handle each minute; requests beyond it are throttled. It is not a price, a user count or the context window, which limits the tokens in a single request.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   }
 ]

@@ -125,7 +125,7 @@
     ],
     "ans": [0, 0],
     "exp": "Temperature reshapes the probability distribution, so higher values give less likely tokens a better chance. Top P restricts sampling to the smallest set of tokens whose combined probability reaches a threshold. Max tokens and quota limit length and throughput, a stop sequence ends output, and a seed affects repeatability.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
   },
   {
     "id": "D1-422", "sub": "genai-how", "diff": 2, "type": "mcq",
@@ -138,7 +138,7 @@
     ],
     "ans": 3,
     "exp": "Smaller chunks let the search find the specific passages that answer a question, and only those passages are added to the prompt, which keeps it within the context window. Chunking does not change appearance, language or quota.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D1-423", "sub": "model-choice", "diff": 1, "type": "mcq",
@@ -146,7 +146,7 @@
     "opts": ["A multimodal chat model", "An embedding model", "A text-to-speech model", "A speech-to-text model such as whisper"],
     "ans": 0,
     "exp": "A multimodal chat model accepts images together with text and can answer questions about them. Embedding models return vectors, text-to-speech models create audio, and whisper transcribes speech.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D1-424", "sub": "model-choice", "diff": 2, "type": "yesno",
@@ -158,7 +158,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: Microsoft, OpenAI and other providers publish models in the catalog. No for the second: available deployment types differ by model and region. Yes for the third: model cards explain what a model is for and where it falls short.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D1-425", "sub": "deploy-config", "diff": 2, "type": "mcq",
@@ -167,7 +167,7 @@
     "opts": ["Provisioned", "Standard", "Data Zone Standard", "Global Batch"],
     "ans": 3,
     "exp": "Global Batch processes large asynchronous workloads within a 24-hour target at a lower price, which fits an overnight job. Provisioned reserves capacity for real-time traffic, and Standard and Data Zone Standard are real-time pay-per-token options that cost more for the same tokens.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-426", "sub": "deploy-config", "diff": 1, "type": "dropdown",
@@ -179,7 +179,7 @@
     ],
     "ans": [0, 0],
     "exp": "Temperature controls randomness and max tokens caps the response length. A stop sequence ends output at a marker, the region is a deployment property, frequency penalty reduces repetition, and seed helps make outputs repeatable.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
   },
   {
     "id": "D1-427", "sub": "deploy-config", "diff": 3, "type": "multi",
@@ -193,7 +193,7 @@
     ],
     "ans": [1, 3],
     "exp": "More allocated tokens per minute raises the limit, and backoff retries let requests succeed after short waits. Temperature and the deployment name do not affect throttling, and a one-token output would make answers useless.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D1-428", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
@@ -314,11 +314,11 @@
     "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "Speech to text can produce text in real time while someone is speaking.",
-      "Custom neural voice can be used without any approval or consent from the voice talent.",
+      "Custom voice can be used without any approval or consent from the voice talent.",
       "SSML can control how a specific word is pronounced."
     ],
     "ans": [true, false, true],
-    "exp": "Yes for the first: real-time recognition returns text as people speak. No for the second: custom neural voice is a Limited Access feature that requires approval and recorded consent. Yes for the third: SSML elements such as phoneme control pronunciation.",
+    "exp": "Yes for the first: real-time recognition returns text as people speak. No for the second: custom voice (previously called custom neural voice) is a Limited Access feature that requires approval and recorded consent. Yes for the third: SSML elements such as phoneme control pronunciation.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup"
   },
   {
@@ -365,7 +365,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: detection only locates faces; identification is a separate Limited Access capability. No for the second: OCR returns text and its position; people detection returns boxes around people. Yes for the third: generated images can contain errors or deceptive content.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-identity"
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/face/overview-identity"
   },
   {
     "id": "D1-443", "sub": "vision-imagegen", "diff": 3, "type": "match",

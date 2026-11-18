@@ -13,7 +13,7 @@
     "opts": ["A deployed model for the agent to use", "A virtual machine", "A SQL database", "A custom domain name"],
     "ans": 0,
     "exp": "An agent uses a deployed model for its reasoning and responses, so a model deployment, or another model option your project supports, must be available when you create the agent. Agents in Foundry are a managed service, so you do not need a virtual machine, and a database or custom domain is only needed if your solution specifically uses one.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-103", "sub": "agent-portal", "diff": 2, "type": "mcq",
@@ -26,7 +26,7 @@
     ],
     "ans": 2,
     "exp": "An agent can only search your documents when the file search tool is enabled and the files are attached to it, for example in its vector store. Otherwise it answers from the model's general knowledge. Temperature affects randomness, and the agent's name and the model's age do not stop it from using files.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search"
   },
   {
     "id": "D2-104", "sub": "agent-portal", "diff": 1, "type": "yesno",
@@ -39,7 +39,7 @@
     ],
     "ans": [true, false, true, true],
     "exp": "Yes for the first: an agent can combine several tools. No for the second: instructions define the agent's role and rules, and the model follows them for every conversation. Yes for the third: web grounding brings in current public information. Yes for the fourth: you can edit an agent, which creates a new version, and test it again.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-105", "sub": "agent-portal", "diff": 2, "type": "match",
@@ -53,7 +53,7 @@
     "targets": ["Function calling", "Grounding with Bing Search", "Azure AI Search tool", "Code interpreter", "File search"],
     "ans": [3, 2, 1, 0],
     "exp": "Code interpreter runs Python to calculate values from data files. The Azure AI Search tool connects the agent to an existing search index. Grounding with Bing Search finds current web information. Function calling lets the agent ask your code to perform an action, such as creating a ticket. File search is for files uploaded to the agent and is not needed here.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-106", "sub": "agent-client", "diff": 2, "type": "mcq",
@@ -113,7 +113,7 @@
     "opts": ["Code interpreter", "File search", "OpenAPI tool", "Image generation"],
     "ans": 2,
     "exp": "The OpenAPI tool reads an OpenAPI specification that describes an API's operations, so the agent can decide when and how to call them. Code interpreter runs Python in a sandbox, file search retrieves passages from uploaded files, and image generation creates pictures.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/openapi"
   },
   {
     "id": "D2-111", "sub": "text-app", "diff": 1, "type": "mcq",
@@ -171,7 +171,7 @@
     ],
     "ans": 1,
     "exp": "Audio-capable models accept an audio content part in the user message: the app reads the recording, encodes it as base64 and states its format, such as wav or mp3. Links to video sites and pictures of waveforms are not audio input, and a printed transcript is text, which would not need an audio model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-116", "sub": "spoken-prompts", "diff": 2, "type": "mcq",
@@ -184,7 +184,7 @@
     ],
     "ans": 2,
     "exp": "Audio-capable chat models let you request output modalities such as text and audio, together with a voice and an audio format, so the response includes speech. Temperature and top P change randomness, and a stop sequence ends output at a marker; none of them make the model speak.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-117", "sub": "spoken-prompts", "diff": 3, "type": "multi",
@@ -198,7 +198,7 @@
     ],
     "ans": [1, 3],
     "exp": "An audio-capable model processes speech itself, so no separate transcription service is needed, and details in the audio such as tone are not lost in a transcript. Audio input is billed, usually as audio tokens, only models that support audio can accept it, and responsible AI safeguards still apply.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-118", "sub": "speech-app", "diff": 1, "type": "mcq",
@@ -246,7 +246,7 @@
     ],
     "ans": 2,
     "exp": "A vision-capable chat model can look at the image and the question in the same request and explain what it sees. Speech synthesis only reads text aloud, an embedding returns a vector, and key phrase extraction lists topics in text; none of them interpret the photo.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-122", "sub": "visual-input", "diff": 2, "type": "dropdown",
@@ -258,7 +258,7 @@
     ],
     "ans": [1, 2],
     "exp": "The image bytes are encoded with base64.b64encode and decoded to a string, and the data URL format is data:<media type>;base64,<data>. b64decode would reverse the encoding and hexlify produces hex, not base64. The data URL must say base64 so the service knows how to read the data.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-123", "sub": "visual-input", "diff": 2, "type": "mcq",
@@ -266,7 +266,7 @@
     "opts": ["Set temperature to 0", "Increase max tokens", "Add a stop sequence", "Set the image detail level to low"],
     "ans": 3,
     "exp": "The detail setting on an image input controls how the model processes it: low detail uses a small, fixed number of tokens, while high detail processes the image at higher resolution and costs more. Temperature, max tokens and stop sequences change the text output, not how many tokens the image consumes.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-124", "sub": "image-generation", "diff": 2, "type": "yesno",
@@ -278,7 +278,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: you can call an image-generation deployment directly from code or try it in the image playground. Yes for the second: describing subject, style, setting and composition guides the model. Yes for the third: gpt-image-1 returns images as base64 data that your app decodes and saves.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-125", "sub": "image-generation", "diff": 2, "type": "mcq",
@@ -286,7 +286,7 @@
     "opts": ["temperature", "quality, set to low", "top_p", "max_tokens"],
     "ans": 1,
     "exp": "The quality parameter of gpt-image-1, with values such as low, medium and high, trades detail for speed and cost, so low quality suits quick drafts. temperature, top_p and max_tokens are text-generation settings and do not control image quality.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-126", "sub": "image-generation", "diff": 3, "type": "mcq",
@@ -299,7 +299,7 @@
     ],
     "ans": 1,
     "exp": "Generated images can contain small errors, especially in text, so outputs should be reviewed and exact brand elements such as logos added or corrected in an editing step. Publishing without review risks mistakes, OCR only reads text from images, and speech synthesis produces audio.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-127", "sub": "vision-app", "diff": 1, "type": "mcq",

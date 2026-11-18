@@ -99,7 +99,7 @@
     "opts": ["A service level agreement", "A Transparency Note", "The pricing page", "The SDK release notes"],
     "ans": 1,
     "exp": "Microsoft publishes Transparency Notes for its AI services; they explain how the system works, what it is designed for, its limitations and best practices for responsible use. A service level agreement covers availability commitments, the pricing page covers cost, and release notes list changes to a library.",
-    "ref": "https://learn.microsoft.com/en-us/legal/cognitive-services/openai/transparency-note"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/transparency-note"
   },
   {
     "id": "D1-150", "sub": "transparency", "diff": 2, "type": "yesno",
@@ -198,7 +198,7 @@
     ],
     "ans": 3,
     "exp": "Embeddings turn text into vectors that capture meaning, so a search system can compare the question's vector with document vectors and return the closest matches, even when they use different words. Speech to text, image generation and temperature settings do not rely on embeddings.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D1-158", "sub": "deploy-config", "diff": 3, "type": "mcq",
@@ -206,7 +206,7 @@
     "opts": ["Managed compute", "Global Batch", "Data Zone Standard", "Global Provisioned"],
     "ans": 0,
     "exp": "Managed compute deploys a model to dedicated virtual machines that you choose and pay for, which suits open-weight models and gives you control over the compute. Global Batch, Data Zone Standard and Global Provisioned are deployment types for models hosted and scaled by Microsoft, where you do not pick the virtual machines.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/deploy-models-managed"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/deploy-models-managed"
   },
   {
     "id": "D1-159", "sub": "model-choice", "diff": 1, "type": "mcq",
@@ -219,7 +219,7 @@
     ],
     "ans": 1,
     "exp": "The Foundry model catalog brings together models from Microsoft, OpenAI and many other providers, covering language, vision, speech and embedding tasks, and you can filter and compare them by task, provider and benchmarks. It is not limited to one provider or one modality.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D1-160", "sub": "model-choice", "diff": 2, "type": "yesno",
@@ -232,7 +232,7 @@
     ],
     "ans": [true, true, false, true],
     "exp": "Yes for the first: benchmarks and leaderboards give a starting comparison. Yes for the second: your own prompts and data show how a model performs on your task. No for the third: smaller, cheaper models are often good enough and faster for simple tasks. Yes for the fourth: multimodal models accept images together with text.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/benchmark-model-in-catalog"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/benchmark-model-in-catalog"
   },
   {
     "id": "D1-161", "sub": "model-choice", "diff": 1, "type": "match",
@@ -246,7 +246,7 @@
     "targets": ["Image-generation model", "Multimodal chat model", "Speech-to-text model", "Embedding model", "Text-to-speech model"],
     "ans": [3, 2, 0, 1],
     "exp": "Embedding models create vectors for search. Speech-to-text models, such as whisper, transcribe recordings. Image-generation models create pictures from text. Multimodal chat models read images and answer questions about them. Text-to-speech models produce audio, which none of these requirements ask for.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D1-162", "sub": "deploy-config", "diff": 2, "type": "mcq",
@@ -259,7 +259,7 @@
     ],
     "ans": 2,
     "exp": "Temperature and top P both control how the next token is sampled, so the recommended approach is to adjust one of them rather than both, which makes the effect easier to understand. Maximum values increase randomness, max tokens only limits length, and top P applies to text generation.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
   },
   {
     "id": "D1-163", "sub": "deploy-config", "diff": 2, "type": "dropdown",
@@ -271,7 +271,7 @@
     ],
     "ans": [0, 2],
     "exp": "Temperature 0 makes the model choose the most likely tokens, so output is the most consistent. Higher values, such as around 1, spread the choice over more tokens and give more varied, creative wording. Very low values such as 0.1 are still close to deterministic, while very high values can make answers incoherent.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
   },
   {
     "id": "D1-164", "sub": "deploy-config", "diff": 2, "type": "multi",
@@ -285,7 +285,7 @@
     ],
     "ans": [1, 3],
     "exp": "Deployment types differ in where data is processed, such as global or within a data zone, and in how capacity is provided, such as pay per token, reserved provisioned throughput or batch. So data residency and traffic and latency needs drive the choice. Portal colors, laptops and the number of system messages are unrelated.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
     "id": "D1-165", "sub": "deploy-config", "diff": 3, "type": "mcq",
@@ -298,7 +298,7 @@
     ],
     "ans": 1,
     "exp": "Deployments can be set to a specific model version instead of upgrading automatically, so behavior stays stable until you have evaluated a newer version and decided to move. Recreating deployments weekly does not control the version, temperature adds randomness, and Global Batch changes how requests are processed, not which version is used.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-versions"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/model-versions"
   },
   {
     "id": "D1-166", "sub": "deploy-config", "diff": 1, "type": "mcq",
@@ -311,6 +311,6 @@
     ],
     "ans": 3,
     "exp": "Deploying a model makes it available to your applications under a deployment name, with settings such as deployment type, content filter and tokens-per-minute quota. It does not give you the training data, usage is billed, and for Foundry-hosted deployment types you do not manage or patch virtual machines.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   }
 ]

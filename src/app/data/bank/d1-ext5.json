@@ -39,7 +39,7 @@
     "targets": ["Agentic AI", "Speech", "Computer vision", "Generative AI", "Text analysis"],
     "ans": [3, 2, 1, 0],
     "exp": "Writing a narrative from figures is generative AI. Reading values from meter photos is computer vision. Creating audio from a blog post is speech synthesis. Checking calendars and sending invites requires planning and tool use, which is agentic AI. Text analysis, such as sentiment or key phrases, is not needed here.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D1-171", "sub": "workload-scenarios", "diff": 3, "type": "mcq",
@@ -52,7 +52,7 @@
     ],
     "ans": 3,
     "exp": "Generative AI creates content in response to a prompt. Agentic AI adds goal-directed behavior: the model plans steps, chooses tools such as APIs or search, and takes actions, often across several turns. Producing text, running in the cloud and using a large model are true of many non-agentic apps too.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D1-172", "sub": "workload-scenarios", "diff": 2, "type": "multi",
@@ -213,7 +213,7 @@
     "opts": ["Optical character recognition", "Face detection", "Image generation", "Speech recognition"],
     "ans": 1,
     "exp": "Face detection finds human faces in an image and returns their locations, so the app can count them. It does not identify who the people are; identification is a separate Limited Access feature. OCR reads text, image generation creates pictures, and speech recognition works on audio.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-identity"
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/face/overview-identity"
   },
   {
     "id": "D1-186", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
@@ -308,6 +308,6 @@
     "opts": ["A text prompt that describes the image", "A voice recording", "A CSV file", "An embedding vector"],
     "ans": 0,
     "exp": "Image-generation models create pictures from a text prompt that describes the subject, style and setting; some can also take an existing image to edit. They do not need a voice recording, a CSV file or an embedding to produce an image.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   }
 ]

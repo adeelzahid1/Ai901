@@ -5,7 +5,7 @@
     "opts": ["The output format instruction", "The deployment name", "The API version", "The Azure region"],
     "ans": 0,
     "exp": "An output format instruction, such as 'Return a table with these columns', defines the structure of the answer. The deployment name, API version and region are technical settings that do not shape the content of the response.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-569", "sub": "prompts", "diff": 2, "type": "yesno",
@@ -17,7 +17,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: restrictions are a normal part of system messages. No for the second: safety instructions in the system message are one of the mitigation layers, alongside content filters. Yes for the third: grounding the model in relevant facts reduces hallucinations.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/safety-system-message-templates"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/safety-system-message-templates"
   },
   {
     "id": "D2-570", "sub": "prompts", "diff": 2, "type": "match",
@@ -32,7 +32,7 @@
     ],
     "ans": [2, 4, 3, 0],
     "exp": "A sentence limit keeps answers short, a scope rule keeps the assistant on topic, permission to say 'I don't know' discourages guessing, and a tone instruction sets the style. Deployment and region settings are configured in code and do not belong in a prompt.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-571", "sub": "prompts", "diff": 3, "type": "dropdown",
@@ -44,7 +44,7 @@
     ],
     "ans": [0, 0],
     "exp": "Delimiters mark exactly where untrusted content begins and ends, and telling the model to treat it as data, not instructions, reduces prompt injection risk. Emojis and capital letters do not separate content, and treating the text as instructions or code is exactly what attackers want.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-572", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -57,7 +57,7 @@
     ],
     "ans": 2,
     "exp": "Naming the allowed labels and requiring exactly one keeps outputs within the expected set, which makes them easy for code to use. A higher temperature adds randomness, removing examples removes guidance, and unrelated text distracts the model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-573", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -65,7 +65,7 @@
     "opts": ["The portal's color theme", "The browser's font size", "Your computer's time zone", "That you opened the correct project"],
     "ans": 3,
     "exp": "Deployments belong to a resource and are used through its projects, so the most common reason is being in a different project. Theme, font size and time zone do not affect which deployments are listed.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/create-projects"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/create-projects"
   },
   {
     "id": "D2-574", "sub": "portal-deploy", "diff": 2, "type": "yesno",
@@ -77,7 +77,7 @@
     ],
     "ans": [true, true, false],
     "exp": "Yes for the first: the deployment name identifies it when apps call it. Yes for the second: a project can use several models, for example a chat model and an embedding model. No for the third: agents are created separately and then use a deployment.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
     "id": "D2-575", "sub": "portal-deploy", "diff": 2, "type": "mcq",
@@ -90,7 +90,7 @@
     ],
     "ans": 1,
     "exp": "Content filter configurations set the severity threshold per harm category and are assigned to deployments, so a stricter configuration can apply to just this one. Temperature, region and model size do not change what the safety system blocks.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-576", "sub": "portal-deploy", "diff": 1, "type": "dropdown",
@@ -102,7 +102,7 @@
     ],
     "ans": [0, 0],
     "exp": "The chat playground is for quick manual tests, and evaluations measure quality on a test dataset. The activity log and billing page do not send prompts, and Azure Policy and DNS records are governance and networking features.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-577", "sub": "portal-deploy", "diff": 3, "type": "multi",
@@ -116,7 +116,7 @@
     ],
     "ans": [1, 4],
     "exp": "Evaluations score quality, such as relevance and groundedness, and safety, such as harmful content, before real users are affected. They do not change quota, weights or regions.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-578", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
@@ -136,7 +136,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: previous_response_id links a new request to earlier context. No for the second: Chat Completions is stateless, so the app sends the history itself. Yes for the third: both return a usage object with token counts.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
     "id": "D2-580", "sub": "sdk-chat-client", "diff": 3, "type": "match",
@@ -176,7 +176,7 @@
     ],
     "ans": 3,
     "exp": "Requests that exceed the context window fail, so the client should handle the error and reduce the input, for example by asking the user, trimming, chunking or summarizing. Retrying the same request will fail again, and temperature or deployment names do not change the limit.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-583", "sub": "sdk-chat-client", "diff": 2, "type": "multi",
@@ -184,7 +184,7 @@
     "opts": ["region", "tenant_id", "model, set to the deployment name", "input, set to the prompt or messages", "quota"],
     "ans": [2, 3],
     "exp": "A Responses API call needs the model, which is your deployment name, and the input to respond to; optional settings such as instructions can be added. Region, tenant and quota are not request parameters.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
     "id": "D2-584", "sub": "sdk-chat-client", "diff": 3, "type": "mcq",
@@ -197,7 +197,7 @@
     ],
     "ans": 0,
     "exp": "Occasional server errors are usually transient, so retries with backoff often succeed, and a clear message helps users if the problem persists. Deleting the deployment or turning off logging makes things worse, and endless refreshing adds load without fixing anything.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D2-585", "sub": "agent-portal", "diff": 1, "type": "mcq",
@@ -205,7 +205,7 @@
     "opts": ["A larger font", "A new Azure region", "The file search tool", "A stop sequence"],
     "ans": 2,
     "exp": "The file search tool indexes uploaded documents in a vector store and lets the agent retrieve relevant passages. Fonts, regions and stop sequences have nothing to do with searching documents.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search"
   },
   {
     "id": "D2-586", "sub": "agent-portal", "diff": 2, "type": "yesno",
@@ -217,7 +217,7 @@
     ],
     "ans": [true, true, false],
     "exp": "Yes for the first: for example, file search for answers and function calling for actions. Yes for the second: the model and instructions alone support conversations. No for the third: unnecessary tools can confuse tool selection, so add only what the agent needs.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-587", "sub": "agent-portal", "diff": 1, "type": "match",
@@ -230,7 +230,7 @@
     "targets": ["Image generation", "An OpenAPI tool or a function", "Code interpreter", "File search"],
     "ans": [2, 3, 1],
     "exp": "Calculations on file data need code interpreter, answers from a manual need file search, and live stock levels need a call to the inventory API through an OpenAPI tool or function. Image generation creates pictures and fits none of these needs.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-588", "sub": "agent-portal", "diff": 3, "type": "mcq",
@@ -244,7 +244,7 @@
     ],
     "ans": 3,
     "exp": "A confirmation step before a sensitive action, stated in the instructions or enforced as an approval, prevents mistakes that are hard to undo. Removing instructions, adding randomness or adding unrelated tools would make wrong emails more likely.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-589", "sub": "agent-client", "diff": 1, "type": "mcq",

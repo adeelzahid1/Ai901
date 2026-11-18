@@ -13,7 +13,7 @@
     ],
     "ans": 1,
     "exp": "The system message, also called system instructions, sets the model's role, tone, rules and output style for the whole conversation, so it is the right place for 'act as a polite banking assistant'. Repeating it in each user message is unreliable and wasteful. Max response tokens only limits length, and the deployment name only identifies the model, so neither carries instructions.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-002",
@@ -29,7 +29,7 @@
     ],
     "ans": 2,
     "exp": "Effective prompts are specific: they state the task, the subject, the audience, the length, the tone and the key points to include. The third prompt gives all of these, so the model knows exactly what to produce. The other prompts are vague or have no clear task, so the model has to guess, which usually leads to generic or off-target output.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-003",
@@ -45,7 +45,7 @@
     ],
     "ans": 3,
     "exp": "Few-shot prompting includes a small number of input and output examples in the prompt so the model copies the pattern and format. Zero-shot prompting gives instructions without examples. Fine-tuning changes the model by training it on many examples, rather than adding examples to a prompt. Retrieval augmented generation adds relevant source content for facts, not format examples.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-004",
@@ -61,7 +61,7 @@
     ],
     "ans": 0,
     "exp": "Telling the model in the system message to use only the supplied content, and what to say when the answer is missing, is a standard grounding technique that reduces made-up answers. A higher temperature makes output more random and can increase invented content. Removing the system message removes the guardrail you need. More response tokens only allows longer answers.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-005",
@@ -81,7 +81,7 @@
       4
     ],
     "exp": "Clear output format instructions and breaking a complex task into steps are both recommended prompt engineering practices that make answers more accurate and easier to use. A vague goal leads to off-target answers. One long unstructured sentence makes instructions hard for the model to follow. The highest temperature makes output more random, which usually lowers accuracy for business tasks.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-006",
@@ -100,7 +100,7 @@
       false
     ],
     "exp": "Yes for the first: delimiters show the model where instructions end and content begins. Yes for the second: chat requests are stateless, so the app sends the system message along with the conversation history on every call. No for the third: a system message strongly guides the model but cannot guarantee behavior, which is why content filters, testing and monitoring are also needed.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-007",
@@ -126,7 +126,7 @@
       1
     ],
     "exp": "Messages with the system role carry instructions that set the assistant's behavior, so the first message uses system. The customer's question comes from the end user, so it uses the user role. The assistant role is for the model's own earlier replies, which the app sends back as conversation history; it is not used for instructions or for the customer's question.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-008",
@@ -148,7 +148,7 @@
       2
     ],
     "exp": "Prompt engineering is iterative: write a first version of the system message, test it with realistic prompts, review what goes wrong, then refine the instructions or add examples and test again. Increasing the deployment quota only changes how many tokens per minute you can use; it does not improve the quality of the instructions, so it is not part of this loop.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-009",
@@ -164,7 +164,7 @@
     ],
     "ans": 2,
     "exp": "Asking the model to reason step by step, often called chain-of-thought prompting, makes it write out the intermediate steps, which improves accuracy on multi-step problems. Asking for the number only removes that reasoning. A 20-token limit can cut off the working. Removing the system message takes away guidance and does nothing for reasoning quality.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-010",
@@ -192,7 +192,7 @@
       1
     ],
     "exp": "Instructions about role and length belong in the system message. The traveler's question is the user message. A sample question with its answer placed before the real question is a few-shot example. Policy text added so the model can answer from it is grounding data. A stop sequence is a parameter that ends generation at a given string, so it matches none of these.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-011",
@@ -208,7 +208,7 @@
     ],
     "ans": 0,
     "exp": "The Foundry model catalog lists models from Microsoft, OpenAI and other providers with model cards, benchmarks and deploy options, so you choose and deploy models there. The billing page shows costs, Azure Monitor shows metrics and logs, and Microsoft Entra ID manages identities; none of them is used to find and deploy models.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D2-012",
@@ -224,7 +224,7 @@
     ],
     "ans": 1,
     "exp": "The chat playground in the Foundry portal lets you send prompts to a deployed model, change the system message and adjust parameters, all without code. Cloud Shell is a command-line environment, Storage Explorer manages storage accounts, and the pricing calculator estimates cost, so none of them provide an interactive chat with the model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-013",
@@ -256,7 +256,7 @@
     ],
     "ans": 3,
     "exp": "A 429 response means the deployment's rate limit, based on the tokens-per-minute quota and the matching requests-per-minute limit, was exceeded. You can raise the deployment's quota allocation, spread traffic or retry with backoff. A content filter block returns a different error that mentions content filtering, a wrong key returns 401, and a retired model fails on every request, not only at peak times.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D2-015",
@@ -275,7 +275,7 @@
       true
     ],
     "exp": "Yes for the first: parameters such as temperature and max response tokens can be changed in the playground. No for the second: the playground is a no-code test environment; you write code later when you build an application. Yes for the third: the playground lets you change the instructions and send new prompts right away to see the effect.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-016",
@@ -304,14 +304,14 @@
     "type": "mcq",
     "q": "A deployment must block hateful and violent content in both prompts and responses at a stricter level than the default. What should you configure?",
     "opts": [
-      "A content filter (guardrail) configuration with lower severity thresholds",
+      "A content filter (guardrail) configuration that also blocks lower-severity content",
       "A lower temperature",
       "A newer model version",
       "A different deployment type"
     ],
     "ans": 0,
-    "exp": "Content filters check prompts and completions for harm categories such as hate, sexual, violence and self-harm, and you can set the severity level that is blocked for each category, then apply the configuration to the deployment. Temperature only changes randomness. A newer model version and a different deployment type change the model and its hosting, not the filtering rules.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "exp": "Content filters check prompts and completions for harm categories such as hate, sexual, violence and self-harm, and you can set the severity level that is blocked for each category, then apply the configuration to the deployment. Temperature only changes randomness. A newer model version and a different deployment type change the model and its hosting, not the filtering rules. In the new Foundry portal these settings are called guardrails, and the strictest blocking level blocks low, medium and high severity content.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-018",
@@ -359,7 +359,7 @@
       0
     ],
     "exp": "The model catalog is where you discover, compare and deploy models. The chat playground is the no-code place to send prompts to a deployment. Evaluations run your model or app against a test dataset and score qualities such as relevance and groundedness. Azure Monitor, Key Vault, the CLI, Cost Management, the agents list and Azure Policy each serve other purposes.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-020",
@@ -481,7 +481,7 @@
     ],
     "ans": 3,
     "exp": "The Chat Completions API returns a list of choices; the first choice contains a message, and its content property holds the reply text, so the expression is response.choices[0].message.content. output_text is a property of the Responses API, not of chat completions, and messages.last and text() do not exist on the chat completion response.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-026",
@@ -497,7 +497,7 @@
     ],
     "ans": 1,
     "exp": "Chat Completions requests are stateless: the model sees only the messages included in the current request. To keep context, the app appends each user message and assistant reply to a list and sends the whole list each time, within the context window. Temperature affects randomness, not memory, and a wrong endpoint would make every call fail.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-027",
@@ -526,13 +526,13 @@
     "q": "A chat client uses DefaultAzureCredential and a correct project endpoint, but every call fails with a permission denied (403) error. What should you do?",
     "opts": [
       "Increase the tokens-per-minute quota of the deployment",
-      "Assign the signed-in identity a role such as Azure AI User on the Foundry project",
+      "Assign the signed-in identity a role such as Foundry User (formerly Azure AI User) on the Foundry project",
       "Lower the temperature",
       "Change the deployment type to Global Batch"
     ],
     "ans": 1,
-    "exp": "A 403 error means the identity was authenticated but is not authorized. Giving the identity a suitable Azure role, such as Azure AI User, on the Foundry resource or project allows it to call models. Quota problems return 429 errors, temperature affects only the output, and changing the deployment type does not grant permissions.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry"
+    "exp": "A 403 error means the identity was authenticated but is not authorized. Giving the identity a suitable Azure role, such as Foundry User (formerly Azure AI User), on the Foundry resource or project allows it to call models. Quota problems return 429 errors, temperature affects only the output, and changing the deployment type does not grant permissions.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry"
   },
   {
     "id": "D2-029",

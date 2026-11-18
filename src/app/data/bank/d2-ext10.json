@@ -5,7 +5,7 @@
     "opts": ["The temperature setting", "The deployment name", "### or triple quotes placed around a block of text", "The API version"],
     "ans": 2,
     "exp": "Delimiters are markers, such as ###, triple quotes or XML-style tags, that show where a block of content starts and ends inside a prompt. Temperature, deployment names and API versions are request or deployment settings, not part of the prompt text.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-313", "sub": "prompts", "diff": 3, "type": "mcq",
@@ -19,7 +19,7 @@
     ],
     "ans": 1,
     "exp": "Telling the model that user content is data to translate, and clearly separating it with delimiters, makes it much less likely to follow instructions hidden in that content; Prompt Shields add another layer of protection. Temperature and quota do not change instruction following, and removing the system message makes the problem worse.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-314", "sub": "prompts", "diff": 2, "type": "yesno",
@@ -31,7 +31,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: zero-shot means instructions without examples; examples make it few-shot. Yes for the second: examples are part of the prompt, so they are counted and billed every time. Yes for the third: system messages commonly define who the assistant is, what it may do and how it should format answers.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-315", "sub": "prompts", "diff": 2, "type": "match",
@@ -45,7 +45,7 @@
     "targets": ["Chain-of-thought prompting", "Persona", "Few-shot prompting", "Zero-shot prompting", "Fine-tuning"],
     "ans": [3, 2, 1, 0],
     "exp": "Instructions without examples are zero-shot, labeled examples before the real input are few-shot, defining who the assistant is sets a persona, and asking for step-by-step reasoning is chain-of-thought. Fine-tuning trains the model and is not something you write in a prompt.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-316", "sub": "prompts", "diff": 1, "type": "dropdown",
@@ -57,7 +57,7 @@
     ],
     "ans": [2, 1],
     "exp": "Rules in the system message apply to every request, so all users get the same format. Few-shot examples are sent with every call, so short, relevant examples keep token costs down. User and assistant messages change per conversation, and examples cannot be stored in a separate deployment.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-317", "sub": "prompts", "diff": 3, "type": "mcq",
@@ -70,7 +70,7 @@
     ],
     "ans": 3,
     "exp": "Restricting the model to the provided sources, requiring citations and giving it permission to say it does not know all reduce hallucinations and make answers checkable. A bare instruction gives no grounding rules, and asking for creativity or maximum detail encourages the model to add unsupported content.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-318", "sub": "prompts", "diff": 2, "type": "multi",
@@ -84,7 +84,7 @@
     ],
     "ans": [1, 3],
     "exp": "Clear boundaries and a defined output format make responses more predictable and useful. Contradictory instructions confuse the model, an empty system message gives no guidance, and secrets must never be placed in prompts because they can be revealed.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-319", "sub": "prompts", "diff": 1, "type": "mcq",
@@ -97,7 +97,7 @@
     ],
     "ans": 0,
     "exp": "A few-shot example shows the model a sample input together with the output you want, so it can follow the same pattern for the real input. It is not a deployment, a key or a model size.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-320", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -110,7 +110,7 @@
     ],
     "ans": 0,
     "exp": "Citations link each statement to the passage it came from, so people can verify answers, and statements without a source stand out as possibly made up. Citations do not affect quota, are not meant to lengthen answers and do not change the model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D2-321", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -123,7 +123,7 @@
     ],
     "ans": 1,
     "exp": "Deploying a model creates a deployment, with a name, deployment type and settings, that applications call through your project. It does not train a new model, and networks and billing accounts are separate Azure resources.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
     "id": "D2-322", "sub": "portal-deploy", "diff": 2, "type": "mcq",
@@ -137,7 +137,7 @@
     ],
     "ans": 3,
     "exp": "The same deployment behaves the same way for the same messages and settings, so differences usually mean the app sends a different system message, history or parameters such as temperature. View code shows exactly what the playground sends. Network, per-user model changes and quota do not alter answer content.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-323", "sub": "portal-deploy", "diff": 2, "type": "yesno",
@@ -148,8 +148,8 @@
       "Evaluations can use AI-assisted evaluators to score responses."
     ],
     "ans": [true, false, true],
-    "exp": "Yes for the first: content filter configurations are assigned per deployment. No for the second: users with suitable roles on the project, such as Azure AI User, can test models in the playground. Yes for the third: AI-assisted evaluators use a model to judge qualities such as relevance and groundedness.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "exp": "Yes for the first: content filter configurations are assigned per deployment. No for the second: users with suitable roles on the project, such as Foundry User (formerly Azure AI User), can test models in the playground. Yes for the third: AI-assisted evaluators use a model to judge qualities such as relevance and groundedness.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-324", "sub": "portal-deploy", "diff": 2, "type": "match",
@@ -169,15 +169,15 @@
     ],
     "ans": [3, 4, 0, 1],
     "exp": "Over-blocking is handled by adjusting the content filter configuration, rate limit errors by allocating more tokens per minute, grounding checks by a groundedness evaluation, and sample code by View code. The portal's display language does not affect any of these problems.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-325", "sub": "portal-deploy", "diff": 3, "type": "mcq",
     "q": "Which built-in role lets a developer build with and call models in a Foundry project without being able to manage the resource itself?",
-    "opts": ["Owner", "Billing Reader", "Azure AI User", "Network Contributor"],
+    "opts": ["Owner", "Billing Reader", "Foundry User (formerly Azure AI User)", "Network Contributor"],
     "ans": 2,
-    "exp": "Azure AI User grants the data actions needed to work with a Foundry project, such as calling models and building agents, following least privilege. Owner gives full control including access management, Billing Reader only reads billing data, and Network Contributor manages networking.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry"
+    "exp": "Foundry User, previously named Azure AI User, gives reader access plus the data actions needed to work in a Foundry project, such as calling models and building agents, so it is the least-privilege role for developers. Owner gives full control including access management, Billing Reader only reads billing data, and Network Contributor manages networking.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry"
   },
   {
     "id": "D2-326", "sub": "portal-deploy", "diff": 1, "type": "dropdown",
@@ -189,7 +189,7 @@
     ],
     "ans": [1, 2],
     "exp": "The playground's instructions box sets the system message, which guides behavior for the whole chat. What you type in the chat box is sent as a user message. API keys and deployment names are configuration values, and tool messages carry results from tools.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-327", "sub": "portal-deploy", "diff": 3, "type": "multi",
@@ -203,20 +203,20 @@
     ],
     "ans": [1, 3],
     "exp": "Evaluating both models on the same data compares quality fairly, and measuring cost and latency on your real prompts shows the practical trade-offs. Names, release dates and global popularity do not show which model works best for your use case.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-328", "sub": "portal-deploy", "diff": 2, "type": "mcq",
     "q": "Can every customer turn content filtering completely off for a model deployment?",
     "opts": [
-      "Yes, anyone can do it with one click",
-      "No; turning filtering off or switching it to annotate-only requires approval from Microsoft",
-      "Only on weekends",
-      "Only inside the playground"
+      "Yes; any project member can switch every filter off in the deployment settings",
+      "No; turning filtering off for model output requires approval from Microsoft",
+      "Yes, but only for deployments that use the Global Batch type",
+      "Only inside the playground, where filters never apply"
     ],
     "ans": 1,
-    "exp": "Customers can make filters stricter or choose among available settings, but fully disabling filtering or using annotate-only mode requires an approved request to Microsoft. This is a responsible AI safeguard, and it does not depend on the day of the week or on the tool you use.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "exp": "All customers can make filters stricter, and they can turn off harm filtering for user input, but turning off filtering for model output (or switching it to annotate-only) requires an approved Limited Access request to Microsoft. This responsible AI safeguard does not depend on the deployment type, and the playground uses the same filters as the deployment.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-329", "sub": "portal-deploy", "diff": 2, "type": "order",
@@ -230,7 +230,7 @@
     ],
     "ans": [2, 4, 3, 0],
     "exp": "Draft the change in the playground, try it with typical and tricky prompts, confirm it with an evaluation against the current version, and only then update the app. Deleting earlier evaluation results removes the baseline that you need for comparison.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-330", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
@@ -263,7 +263,7 @@
     ],
     "ans": [2, 2],
     "exp": "The model's reply is added to the history with the assistant role, and the person's next question is added with the user role, so the next request contains the whole conversation. The system role is for instructions, and the tool role carries results from tool calls.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-333", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
@@ -295,7 +295,7 @@
     ],
     "ans": [2, 4, 0, 3],
     "exp": "Cut-off answers need a higher output token limit, lost context needs the history or previous_response_id, too much variation needs a lower temperature, and 429 errors need backoff retries or more quota. Renaming the deployment fixes none of these symptoms.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-335", "sub": "sdk-chat-client", "diff": 1, "type": "multi",
@@ -317,7 +317,7 @@
     "opts": ["The whole answer, repeated each time", "A small piece of the generated text", "The API key", "The model's weights"],
     "ans": 1,
     "exp": "With streaming, the service sends the response as a series of small pieces, often called deltas, which the app appends to the screen as they arrive. Chunks do not repeat the full answer, and they never contain keys or model weights.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-337", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
@@ -325,7 +325,7 @@
     "opts": ["The user's prompt or messages", "The deployment type", "The Azure region", "The deployment quota"],
     "ans": 0,
     "exp": "input carries what you want the model to respond to, such as the user's question or a list of messages. The deployment type, region and quota are properties of the deployment, not request content.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
     "id": "D2-338", "sub": "sdk-chat-client", "diff": 3, "type": "order",
@@ -339,7 +339,7 @@
     ],
     "ans": [2, 4, 0, 3],
     "exp": "The client sends the request, retries after a delay if it is throttled, then checks whether the content was filtered and shows a helpful message if so, and otherwise displays the answer. Deleting the project would break the app and is never part of handling a turn.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-339", "sub": "sdk-chat-client", "diff": 1, "type": "dropdown",

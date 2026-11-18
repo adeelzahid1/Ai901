@@ -13,7 +13,7 @@
     ],
     "ans": 1,
     "exp": "A Foundry agent combines a deployed model that does the reasoning, instructions that define its goals and behavior, and tools that let it find information or take actions. Storage accounts, virtual machines, training jobs, key vaults and firewalls can be part of a wider solution, but they are not the parts that define an agent.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-032",
@@ -29,7 +29,7 @@
     ],
     "ans": 2,
     "exp": "File search indexes uploaded files in a vector store and lets the agent retrieve relevant passages to ground its answers, which fits questions about PDF manuals. Code interpreter runs Python for calculations and data analysis. Function calling invokes your own code. Grounding with Bing Search looks for information on the public web, not in your files.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search"
   },
   {
     "id": "D2-033",
@@ -45,7 +45,7 @@
     ],
     "ans": 1,
     "exp": "Code interpreter lets the agent write and run Python in a sandbox, so it can read the CSV, calculate statistics and create a chart image. File search retrieves text passages but does not run calculations. Grounding with Bing Search and Azure AI Search look up information; neither runs code or draws charts.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/code-interpreter"
   },
   {
     "id": "D2-034",
@@ -61,7 +61,7 @@
     ],
     "ans": 3,
     "exp": "Grounding with Bing Search lets an agent search the public web for current information and cite the sources in its answer. File search only uses files you uploaded, code interpreter runs Python, and a function that reads a local file cannot provide live web news. The model alone only knows what it learned during training.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/bing-tools"
   },
   {
     "id": "D2-035",
@@ -89,7 +89,7 @@
       2
     ],
     "exp": "File search retrieves passages from uploaded documents. Code interpreter runs Python on uploaded data. The OpenAPI tool lets an agent call an external API that is described by an OpenAPI specification. Grounding with Bing Search brings in current web results. Image generation creates pictures and does not meet any of these requirements.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-036",
@@ -258,7 +258,7 @@
     ],
     "ans": 0,
     "exp": "Generative language models can perform text analysis tasks, such as sentiment, key topics or summaries, when you describe the task and the output format in the prompt, for example JSON with a label field. The Language service gives fixed, well-defined outputs and scores, while a model offers more flexibility. Generative models do analyze text, sentiment does not need speech or image input.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-044",
@@ -274,7 +274,7 @@
     ],
     "ans": 3,
     "exp": "A multimodal model with audio support can take spoken audio as input and respond, so no separate speech service is needed to understand the question. Embedding models return vectors, image-generation models create pictures, and a text-only chat model cannot accept audio input.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-045",
@@ -293,7 +293,7 @@
       true
     ],
     "exp": "Yes for the first: the app reads the audio file, encodes it as base64 and adds it to the message content together with its format, such as wav. No for the second: input types are fixed by the model; changing max tokens only limits output length and cannot add audio support. Yes for the third: an audio-capable model processes the spoken question itself.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-046",
@@ -309,7 +309,7 @@
     ],
     "ans": 1,
     "exp": "One audio-capable multimodal model removes the separate transcription and synthesis steps, which simplifies the app and usually reduces latency; the model can also use information in the audio itself. The model still has to be deployed, it is billed by usage, and calls still need authentication, so the other statements are wrong.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-047",
@@ -413,7 +413,7 @@
     ],
     "ans": 1,
     "exp": "Vision-capable chat models accept a user message whose content is a list of parts: a text part for the question and an image part that points to an image URL or contains a base64 data URL. The deployment name only selects the model and max tokens limits output length, so neither carries an image, and vision models do accept images.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-052",
@@ -439,7 +439,7 @@
       0
     ],
     "exp": "The question and the photo come from the person using the app, so the message role is user. An image part in Chat Completions has the type image_url with an image_url object that holds the URL or a base64 data URL. The system role is for instructions, the tool role is for tool results, input_audio is for audio, and text is used for the question part.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-053",
@@ -458,7 +458,7 @@
       false
     ],
     "exp": "Yes for the first: a message can contain several image parts, and the model can reason across them, for example to spot differences. Yes for the second: if the image is not publicly reachable, you encode it as a base64 data URL. No for the third: the model returns text, or structured text if you ask for it; it does not return segmentation masks.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-054",
@@ -474,7 +474,7 @@
     ],
     "ans": 2,
     "exp": "The size parameter of an image-generation request sets the output dimensions, such as 1024x1024. temperature and top_p control randomness in text generation, and stop sets strings where text output ends, so none of them change the dimensions of a generated image.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-055",
@@ -490,7 +490,7 @@
     ],
     "ans": 2,
     "exp": "Image-generation deployments use content filters, and when a prompt is classified as harmful the request is rejected with a content policy error. Rewording the prompt to remove the problematic content fixes it. Quota errors return 429, image size does not affect content filtering, and a wrong endpoint would make every call fail regardless of the prompt.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-056",
@@ -506,7 +506,7 @@
     ],
     "ans": 3,
     "exp": "Image editing, sometimes called inpainting, takes the original image, a mask that marks the region to change and a prompt that describes the new content, so only the masked background is regenerated. A new image from text only would not keep the exact product. OCR reads text and object detection finds objects; neither changes the image.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-057",
@@ -596,7 +596,7 @@
       1
     ],
     "exp": "Image Analysis is best when you need predictable structured outputs such as tags, bounding boxes and OCR text, while a multimodal model is best for flexible questions and explanations about an image. Image Analysis analyzes images but does not generate them, multimodal models do accept images, and both can be called from Python.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-061",

@@ -5,7 +5,7 @@
     "opts": ["A vision-capable chat model", "A text-embedding model", "A speech-to-text model such as whisper", "A text-to-speech model"],
     "ans": 0,
     "exp": "A vision-capable chat model accepts images in the prompt, can read text in the image and explain its meaning in natural language. Embedding models return vectors, whisper transcribes audio, and text-to-speech models create audio, so none of them interpret a photo.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-199", "sub": "visual-input", "diff": 2, "type": "mcq",
@@ -18,7 +18,7 @@
     ],
     "ans": 3,
     "exp": "The service must be able to fetch an image URL, so a private container URL fails. Sending the image bytes as a base64 data URL puts the image in the request itself; a URL with temporary access, such as a SAS link, also works. Temperature, stop sequences and max tokens only change the generated text.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-200", "sub": "visual-input", "diff": 2, "type": "yesno",
@@ -30,7 +30,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: vision-capable models can read and reason about text in images, such as signs or screenshots. No for the second: common formats such as JPEG, PNG, GIF and WebP are supported. Yes for the third: images are converted into tokens, so they count toward usage and cost.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-201", "sub": "visual-input", "diff": 3, "type": "multi",
@@ -44,7 +44,7 @@
     ],
     "ans": [1, 3],
     "exp": "Multimodal chat models are strong at understanding and explaining images in language, such as interpreting a chart or comparing photos. They return text, so they are not the right tool for segmentation masks or guaranteed precise coordinates, which come from specialized vision models, and sending a prompt does not train a new model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-202", "sub": "image-generation", "diff": 1, "type": "mcq",
@@ -52,7 +52,7 @@
     "opts": ["The Speech SDK", "Azure Monitor", "The images playground", "The activity log"],
     "ans": 2,
     "exp": "The images playground lets you enter prompts, choose settings such as size and quality, and view the generated images from your deployment. The Speech SDK is a code library for audio, Azure Monitor shows metrics, and the activity log records management operations.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-203", "sub": "image-generation", "diff": 2, "type": "dropdown",
@@ -64,7 +64,7 @@
     ],
     "ans": [2, 1],
     "exp": "images.generate() sends a prompt to an image-generation deployment, and size sets the output dimensions, such as 1024x1024. The image comes back in data[0].b64_json. analyze and create_chat are not image-generation methods, and temperature and top_p are text sampling settings.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-204", "sub": "image-generation", "diff": 2, "type": "match",
@@ -78,7 +78,7 @@
     "targets": ["Size parameter", "Style described in the prompt", "Subject described in the prompt", "Quality parameter", "Temperature"],
     "ans": [1, 0, 2, 3],
     "exp": "Phrases about artistic style and about the subject belong in the prompt text, a value like 1024x1536 is passed as the size parameter, and 'high' is a value of the quality parameter for gpt-image-1. Temperature is a text-generation setting and is not part of this request.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-205", "sub": "image-generation", "diff": 1, "type": "yesno",
@@ -91,7 +91,7 @@
     ],
     "ans": [false, true, true, true],
     "exp": "No for the first: image deployments apply content filters to prompts and generated images. Yes for the second: images can contain errors or unintended content, so human review is good practice. Yes for the third: image editing with a mask regenerates only the masked area. Yes for the fourth: detailed prompts guide the model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-206", "sub": "vision-app", "diff": 1, "type": "mcq",

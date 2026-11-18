@@ -5,7 +5,7 @@
     "opts": ["Speech synthesis", "Multimodal generative AI", "Key phrase extraction", "Batch transcription"],
     "ans": 1,
     "exp": "The app reads an image and writes new text, recipe ideas, in response, which is multimodal generative AI: a model that accepts images and generates language. Speech synthesis produces audio, key phrase extraction lists topics in text, and batch transcription converts recordings to text.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D1-222", "sub": "workload-scenarios", "diff": 2, "type": "mcq",
@@ -85,7 +85,7 @@
     ],
     "ans": 2,
     "exp": "A model does not know live, customer-specific facts such as an order's current status; the solution must look them up, for example through retrieval or a tool that calls the order system. Poems, brainstorming and rewriting rely on general language skills that the model already has.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D1-228", "sub": "text-techniques", "diff": 1, "type": "mcq",
@@ -159,12 +159,12 @@
     "q": "A company wants to create a synthetic voice that sounds like a well-known actor, based on the actor's recordings. What is required?",
     "opts": [
       "Nothing; any recordings can be used",
-      "A recorded consent statement from the voice talent and approved access to custom neural voice",
+      "A recorded consent statement from the voice talent and approved access to custom voice",
       "Only a higher quota",
       "Only a stop sequence"
     ],
     "ans": 1,
-    "exp": "Custom neural voice is a Limited Access feature: Microsoft requires an application and approval, and the voice talent must give recorded consent, to prevent misuse such as impersonation. Using recordings without consent is not allowed, and quota or stop sequences have nothing to do with voice creation.",
+    "exp": "Custom voice (previously called custom neural voice) is a Limited Access feature: Microsoft requires an application and approval, and the voice talent must give recorded consent, to prevent misuse such as impersonation. Using recordings without consent is not allowed, and quota or stop sequences have nothing to do with voice creation.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/custom-neural-voice"
   },
   {
@@ -239,7 +239,7 @@
       "Many image-generation models create a picture by gradually turning random noise into an image."
     ],
     "ans": [false, true, true],
-    "exp": "No for the first: these models create new images rather than retrieving existing ones. Yes for the second: training on image and text pairs teaches the model how descriptions relate to visual content. Yes for the third: diffusion models, such as DALL-E, start from noise and refine it step by step toward an image that matches the prompt.",
+    "exp": "No for the first: these models create new images rather than retrieving existing ones. Yes for the second: training on image and text pairs teaches the model how descriptions relate to visual content. Yes for the third: diffusion models start from noise and refine it step by step toward an image that matches the prompt.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
   },
   {
@@ -267,7 +267,7 @@
     ],
     "ans": 2,
     "exp": "A multimodal chat model can look at the photo and write a natural-language explanation, such as noting a worker without a harness at height. Specialized detectors return structured labels but not explanations, OCR reads text, smart crops suggests thumbnails, and text to speech produces audio.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D1-244", "sub": "extraction-techniques", "diff": 2, "type": "match",

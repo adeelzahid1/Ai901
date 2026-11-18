@@ -23,7 +23,7 @@
     ],
     "ans": 2,
     "exp": "File search returns the passages it used along with references to their files, and an instruction to cite sources makes the agent show them in its answers. A higher temperature adds randomness, removing file search removes the policies altogether, and speech synthesis only reads text aloud.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search"
   },
   {
     "id": "D2-257", "sub": "agent-portal", "diff": 1, "type": "yesno",
@@ -35,7 +35,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: tools are optional and you add only those the agent needs. Yes for the second: a prompt agent with just a model and instructions can already hold conversations. Yes for the third: the portal lets you upload files that file search indexes for the agent.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-258", "sub": "agent-portal", "diff": 2, "type": "match",
@@ -49,7 +49,7 @@
     "targets": ["Function calling or an OpenAPI tool", "Grounding with Bing Search", "Code interpreter", "File search", "No tool needed"],
     "ans": [3, 2, 1, 0],
     "exp": "Questions about uploaded documents need file search, plotting data needs code interpreter, live weather needs web grounding, and creating a ticket means calling another system through function calling or an OpenAPI tool. Each request depends on information or actions the model alone does not have.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-259", "sub": "agent-portal", "diff": 3, "type": "multi",
@@ -63,7 +63,7 @@
     ],
     "ans": [1, 3],
     "exp": "Trusted grounding data gives the agent correct facts, and clear instructions, including saying it does not know when information is missing, reduce made-up answers. Extra tools can confuse tool selection, removing instructions removes guidance, and a maximum temperature makes answers less consistent.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-260", "sub": "agent-portal", "diff": 2, "type": "dropdown",
@@ -75,7 +75,7 @@
     ],
     "ans": [2, 1],
     "exp": "The Azure AI Search tool connects an agent to an index you already maintain, and Grounding with Bing Search brings in current information from the public web. Code interpreter runs Python, image generation creates pictures, file search covers files uploaded to the agent, and function calling runs your own code.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-261", "sub": "agent-portal", "diff": 3, "type": "mcq",
@@ -89,7 +89,7 @@
     ],
     "ans": 3,
     "exp": "Company-specific facts must come from company sources, so the agent needs a knowledge tool over the internal documents and an instruction to prefer them for policy questions. Removing instructions, allowing longer output or using a smaller model would not give the agent the internal information.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search"
   },
   {
     "id": "D2-262", "sub": "agent-client", "diff": 1, "type": "mcq",
@@ -168,7 +168,7 @@
     ],
     "ans": [1, 3],
     "exp": "Instructions and tools define how the agent behaves, so they are stored with the agent in Foundry and shared by every client. The user's question and session ID change per request and are handled by the client, and button colors are part of the user interface.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D2-268", "sub": "agent-client", "diff": 2, "type": "mcq",
@@ -248,7 +248,7 @@
     "opts": ["A prompt written in capital letters", "A system message", "A JSON schema", "A question or instruction given as audio instead of typed text"],
     "ans": 3,
     "exp": "A spoken prompt is audio of a person asking or instructing, which an audio-capable model can process directly or which an app can transcribe first. Capital letters, system messages and JSON schemas are all text-based parts of a request.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-275", "sub": "spoken-prompts", "diff": 2, "type": "mcq",
@@ -256,7 +256,7 @@
     "opts": ["wav and mp3", "docx and xlsx", "png and jpeg", "csv and json"],
     "ans": 0,
     "exp": "Audio content parts take base64-encoded audio with a format such as wav or mp3. docx and xlsx are documents, png and jpeg are images, and csv and json are data formats, so none of them can be sent as audio input.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-276", "sub": "spoken-prompts", "diff": 3, "type": "match",
@@ -274,7 +274,7 @@
     ],
     "ans": [1, 2, 0],
     "exp": "Chaining speech to text, a text model and text to speech uses three services that you can configure separately. An audio-capable chat model handles audio in a single request. The Realtime API streams audio over a live connection for the lowest latency and natural interruptions. None of these designs is limited to images.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/realtime-audio-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/realtime-audio"
   },
   {
     "id": "D2-277", "sub": "spoken-prompts", "diff": 2, "type": "yesno",
@@ -286,7 +286,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: audio is converted into tokens that are counted and billed. Yes for the second: responsible AI protections of the deployment still apply to audio requests. Yes for the third: audio output arrives as base64 data that the app decodes and writes to a file such as a WAV file.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
     "id": "D2-278", "sub": "speech-app", "diff": 1, "type": "mcq",

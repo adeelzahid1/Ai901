@@ -10,7 +10,7 @@
     ],
     "ans": 0,
     "exp": "A user message typically combines the image with a text part that says what you want, such as 'List the damaged parts'. Voices are for text to speech, storage keys must never be sent to a model, and the deployment type is a setting of the deployment, not part of a message.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-284", "sub": "visual-input", "diff": 3, "type": "mcq",
@@ -24,7 +24,7 @@
     ],
     "ans": 2,
     "exp": "A vision-capable model can interpret the damage, and structured outputs with a JSON schema make it return exactly the fields the claims system expects. Text to speech and key phrase extraction do not look at images, and an embedding model returns vectors, not damage reports.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/structured-outputs"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
   },
   {
     "id": "D2-285", "sub": "visual-input", "diff": 2, "type": "yesno",
@@ -36,7 +36,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: vision-capable chat models return text; creating images needs an image-generation model. Yes for the second: a message can contain several image parts. Yes for the third: the model can read the error text in a screenshot and explain it.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-286", "sub": "visual-input", "diff": 1, "type": "dropdown",
@@ -48,7 +48,7 @@
     ],
     "ans": [2, 1],
     "exp": "Multimodal models work with more than one type of input, such as text and images. Images can be referenced by URL or embedded in the request as base64-encoded data in a data URL. Monolingual and serverless describe other things, and zip files or encryption alone are not accepted image formats.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-287", "sub": "image-generation", "diff": 1, "type": "mcq",
@@ -61,7 +61,7 @@
     ],
     "ans": 3,
     "exp": "Good image prompts describe the subject, setting, lighting and style, which gives the model clear guidance. Short, vague prompts leave almost everything to chance, so results are unpredictable and rarely match what you had in mind.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-288", "sub": "image-generation", "diff": 3, "type": "mcq",
@@ -69,7 +69,7 @@
     "opts": ["temperature set to 0", "background set to transparent", "top_p set to 1", "stop set to ###"],
     "ans": 1,
     "exp": "gpt-image-1 supports a background parameter; setting it to transparent, with an output format that supports transparency such as PNG, produces an image without a solid background. temperature, top_p and stop are text-generation settings and do not affect image backgrounds.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-289", "sub": "image-generation", "diff": 1, "type": "match",
@@ -89,7 +89,7 @@
     ],
     "ans": [3, 1, 4, 0],
     "exp": "A new poster comes from image generation, changing only part of a photo uses editing with a mask, describing a photo uses captioning or a multimodal model, and reading words on a sign uses OCR. Speech synthesis creates audio and fits none of these requirements.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-290", "sub": "image-generation", "diff": 2, "type": "multi",
@@ -103,7 +103,7 @@
     ],
     "ans": [1, 3],
     "exp": "Keeping Content Credentials supports transparency about AI-generated content, and human review catches errors and inappropriate output. Removing provenance, presenting generated images as real photos and turning off content filters all undermine responsible AI.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-credentials"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/content-credentials"
   },
   {
     "id": "D2-291", "sub": "vision-app", "diff": 1, "type": "mcq",

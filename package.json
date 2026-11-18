@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --port 4300",
     "validate:bank": "node scripts/validate-bank.mjs",
+    "check:links": "node scripts/check-links.mjs",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

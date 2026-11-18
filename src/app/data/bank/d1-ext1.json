@@ -29,7 +29,7 @@
     ],
     "ans": 2,
     "exp": "An AI agent uses a generative model to reason about a goal, decide which steps to take and call tools, such as APIs, to complete a task with little human direction. Checking flights, booking a hotel and sending email by choosing tools is agentic AI. Text analysis only finds information in text, speech synthesis creates audio from text, and OCR reads text from images, so none of them plan and act.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D1-033",
@@ -92,7 +92,7 @@
       true
     ],
     "exp": "Yes for the first: agents combine a model, instructions and tools, and they call tools such as APIs or search to complete tasks. No for the second: generative AI can create text, images, audio and code; image models and text-to-speech capable models are examples. Yes for the third: pulling specific fields from documents is information extraction, which services such as Content Understanding perform.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D1-036",
@@ -112,7 +112,7 @@
       4
     ],
     "exp": "Agents use a language model to reason about a goal, choose tools and take actions, such as updating data or sending messages, which a simple question-and-answer chat app does not do. Agents do not need approval for every word, although human approval can be added for sensitive actions. Agents are built on language models, and they generate responses rather than return a fixed list of answers.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D1-037",
@@ -433,12 +433,12 @@
     "q": "During a live meeting, a speaker talks in English and attendees must see the words in Spanish almost in real time. Which capability should you use?",
     "opts": [
       "Text to speech",
-      "Custom neural voice",
+      "Custom voice",
       "Language detection",
       "Speech translation"
     ],
     "ans": 3,
-    "exp": "Speech translation recognizes spoken audio and translates it into text or speech in other languages in real time, which suits live meetings. Text to speech only reads text aloud, custom neural voice creates a branded synthetic voice, and language detection only identifies the language, so none of them translate what is spoken.",
+    "exp": "Speech translation recognizes spoken audio and translates it into text or speech in other languages in real time, which suits live meetings. Text to speech only reads text aloud, custom voice (previously called custom neural voice) creates a branded synthetic voice, and language detection only identifies the language, so none of them translate what is spoken.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-translation"
   },
   {
@@ -529,7 +529,7 @@
       "Speech to text",
       "Text to speech",
       "Speech translation",
-      "Custom neural voice"
+      "Custom voice"
     ],
     "ans": [
       1,
@@ -537,7 +537,7 @@
       3,
       4
     ],
-    "exp": "Live captions come from speech to text. Reading directions aloud is text to speech. Turning French speech into English text is speech translation, because it both recognizes and translates. A unique brand voice built from an actor's recordings is custom neural voice, which requires approval. Language detection only identifies the language, so it does not fit any scenario.",
+    "exp": "Live captions come from speech to text. Reading directions aloud is text to speech. Turning French speech into English text is speech translation, because it both recognizes and translates. A unique brand voice built from an actor's recordings is custom voice (previously called custom neural voice), which requires approval. Language detection only identifies the language, so it does not fit any scenario.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
   },
   {
@@ -645,7 +645,7 @@
       false
     ],
     "exp": "Yes for the first: image-generation models create images from a text prompt. Yes for the second: gpt-image-1 supports image editing, where you provide an image and an instruction to change it. No for the third: bounding boxes come from object detection, an image analysis task; generation models create pictures and do not return coordinates of objects.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D1-066",
@@ -709,7 +709,7 @@
     ],
     "ans": 3,
     "exp": "A multimodal model, such as a vision-capable GPT model, accepts images together with text in the prompt and can reason about what the image shows, so it can answer questions about a chart. Image classification only returns labels for the image, speech to text transcribes audio, and an embedding model returns vectors, so none of them answer questions in language.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D1-069",
@@ -751,6 +751,6 @@
     ],
     "ans": 2,
     "exp": "To support responsible AI, Microsoft made face identification and verification Limited Access features, so customers must apply and be approved before they can use them. The Face service analyzes existing faces and does not generate new ones. Microsoft retired emotion recognition from the Face service because inferring emotions from faces is not reliable, so that statement is incorrect.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-identity"
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/face/overview-identity"
   }
 ]

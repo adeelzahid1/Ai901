@@ -5,7 +5,7 @@
     "opts": ["Delete the deployment", "Increase the deployment quota", "Refine the prompt with clearer instructions and try again", "Stop using generative AI"],
     "ans": 2,
     "exp": "Prompt engineering is iterative: you adjust instructions, context, examples or format requirements and test again until the output fits. Deleting the deployment or raising quota does not improve answers, and giving up skips the normal refinement process.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-397", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -18,7 +18,7 @@
     ],
     "ans": 0,
     "exp": "An explicit language rule in the system message tells the model how to choose the reply language for every request. Output length, region and few-shot examples do not control which language the model answers in.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-398", "sub": "prompts", "diff": 2, "type": "yesno",
@@ -30,7 +30,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: examples normally come before the real input so the model learns the pattern first. Yes for the second: clear, specific instructions reduce guessing. Yes for the third: models can follow requested output formats such as Markdown, JSON and tables.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-399", "sub": "prompts", "diff": 2, "type": "match",
@@ -45,7 +45,7 @@
     ],
     "ans": [2, 4, 3, 0],
     "exp": "Each improved prompt adds the task details, the audience, the format or the length that the vague prompt was missing. 'Make it better.' is just as vague as the originals, so it improves none of them.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-400", "sub": "prompts", "diff": 1, "type": "dropdown",
@@ -57,7 +57,7 @@
     ],
     "ans": [0, 1],
     "exp": "Zero-shot prompts rely only on instructions, while few-shot prompts add a handful of examples so the model can copy the pattern. Fine-tuning is a training process that changes the model, not a style of prompt.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-401", "sub": "prompts", "diff": 3, "type": "multi",
@@ -71,7 +71,7 @@
     ],
     "ans": [1, 3],
     "exp": "Stating the chatbot's limits and directing urgent cases to professionals reduce the risk of harm in a sensitive domain. Emojis and random languages do not help safety, and giving definite diagnoses is exactly what a general information bot must avoid.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/safety-system-message-templates"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/safety-system-message-templates"
   },
   {
     "id": "D2-402", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -84,7 +84,7 @@
     ],
     "ans": 3,
     "exp": "Retrieval augmented generation finds the relevant sections and adds only those to the prompt, which cuts tokens, cost and latency while keeping answers grounded. Temperature and extra examples do not reduce prompt size, and removing the question makes the request pointless.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
   },
   {
     "id": "D2-403", "sub": "prompts", "diff": 3, "type": "mcq",
@@ -97,7 +97,7 @@
     ],
     "ans": 1,
     "exp": "Naming the format, every key and the type and range of each value leaves little room for guessing, so the output is easy to parse. The other prompts do not say which fields or types are needed; for strict guarantees you can also use structured outputs with a schema.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/structured-outputs"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
   },
   {
     "id": "D2-404", "sub": "prompts", "diff": 1, "type": "mcq",
@@ -105,7 +105,7 @@
     "opts": ["Instructions that set the model's behavior", "The user's newest question", "The model's earlier replies in the conversation", "The results of tool calls"],
     "ans": 2,
     "exp": "Assistant messages hold the model's previous answers, which the app sends back as history. Behavior instructions use the system role, questions use the user role, and tool results use the tool role.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-405", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -118,7 +118,7 @@
     ],
     "ans": 0,
     "exp": "The model version, along with the deployment type and other options, is part of the deployment's settings. Prompts cannot change which model version runs, and Azure Advisor only gives recommendations.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-versions"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/model-versions"
   },
   {
     "id": "D2-406", "sub": "portal-deploy", "diff": 2, "type": "mcq",
@@ -131,7 +131,7 @@
     ],
     "ans": 3,
     "exp": "Running the same prompts or test dataset against each deployment shows how each model handles your actual task, and evaluations make the comparison measurable. Catalog order, general benchmarks alone and a model's opinion of itself do not reflect your use case.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-407", "sub": "portal-deploy", "diff": 1, "type": "yesno",
@@ -143,7 +143,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: apps call a model by its deployment name. No for the second: the playground is for testing; it can show sample code, but you build the application yourself. Yes for the third: deleting unused deployments frees quota and avoids confusion.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
     "id": "D2-408", "sub": "portal-deploy", "diff": 1, "type": "match",
@@ -158,7 +158,7 @@
     ],
     "ans": [3, 2, 1, 0],
     "exp": "The model catalog lists available models, a deployment is a callable instance with its own name and settings, the playground lets you try prompts without code, and an evaluation measures quality on test data. None of these terms refers to an invoice.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
     "id": "D2-409", "sub": "portal-deploy", "diff": 2, "type": "dropdown",
@@ -170,7 +170,7 @@
     ],
     "ans": [2, 2],
     "exp": "Tokens per minute caps how fast a deployment can process tokens, which makes it a rate limit. Requests beyond the limit are throttled with HTTP 429 Too Many Requests. Storage and security are unrelated, 200 means success and 301 is a redirect.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D2-410", "sub": "portal-deploy", "diff": 2, "type": "multi",
@@ -184,7 +184,7 @@
     ],
     "ans": [1, 3],
     "exp": "You can edit a deployment to change its throughput allocation and to assign a different content filter configuration. The model's training data and parameter count are fixed by the model provider, and the tenant is not a deployment setting.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D2-411", "sub": "portal-deploy", "diff": 3, "type": "mcq",
@@ -247,7 +247,7 @@
     ],
     "ans": [2, 2],
     "exp": "The input can be a list of messages: the instruction that sets behavior uses the system role, and the visitor's question uses the user role. The assistant role is for the model's earlier replies, and the tool role is for tool results.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
     "id": "D2-417", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
@@ -258,8 +258,8 @@
       "You can set temperature on responses.create() for models that support it."
     ],
     "ans": [false, true, true],
-    "exp": "No for the first: the client is reusable for many requests. Yes for the second: a single string works for simple prompts, and a list of messages supports roles and history. Yes for the third: temperature is an optional request parameter, although some models, such as reasoning models, do not support it.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "exp": "No for the first: the client is reusable for many requests. Yes for the second: a single string works for simple prompts, and a list of messages supports roles and history. Yes for the third: temperature is an optional request parameter, although some models, such as several reasoning models, do not support it.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
     "id": "D2-418", "sub": "sdk-chat-client", "diff": 2, "type": "match",
@@ -288,7 +288,7 @@
     ],
     "ans": [1, 3],
     "exp": "Cost depends on input and output tokens, so shorter history and a reasonable output limit reduce spending. Sending all history, always using the biggest model and asking for many completions per message all increase tokens and cost.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-420", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
@@ -296,7 +296,7 @@
     "opts": ["The API key", "Users' passwords", "Full credit card numbers that users type", "Request IDs, token usage and error codes"],
     "ans": 3,
     "exp": "Request IDs, token counts and error codes help diagnose problems and track cost without exposing sensitive data. Keys, passwords and card numbers must never be written to logs, because logs are often widely accessible.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/monitor-openai"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/monitor-models"
   },
   {
     "id": "D2-421", "sub": "sdk-chat-client", "diff": 2, "type": "order",
@@ -309,7 +309,7 @@
       "Enable a managed identity for the app"
     ],
     "ans": [2, 4, 0, 3],
-    "exp": "The app is deployed first, then its managed identity is turned on, then that identity gets a role such as Azure AI User on the project, and finally a test request confirms that DefaultAzureCredential works. Storing a personal password defeats the purpose of managed identities.",
+    "exp": "The app is deployed first, then its managed identity is turned on, then that identity gets a role such as Foundry User (formerly Azure AI User) on the project, and finally a test request confirms that DefaultAzureCredential works. Storing a personal password defeats the purpose of managed identities.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/authentication"
   },
   {
@@ -323,7 +323,7 @@
     ],
     "ans": 0,
     "exp": "Streaming shows the first words within moments, which greatly improves perceived speed, and a smaller or faster model can reduce total time. More output tokens and more examples make responses slower, and Global Batch is asynchronous, so it is unsuitable for chat.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-423", "sub": "sdk-chat-client", "diff": 1, "type": "dropdown",

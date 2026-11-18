@@ -41,6 +41,20 @@ npm run validate:bank
 checks ids, answers for every type, explanation length, Learn links, section mapping, duplicates and
 answer-position balance, and prints coverage per section.
 
+```bash
+npm run check:links
+```
+
+opens every Microsoft Learn reference and reports links that are broken or redirect (needs network
+access, so it is not part of CI). `npm run check:links -- --write` replaces redirected links with
+their final address, except redirects to the classic Foundry docs, which need a current page chosen
+by hand.
+
+The bank was last checked against Microsoft Learn in November 2026: deployment types, default
+guardrails (content filters), Foundry role names (Foundry User, formerly Azure AI User), agent
+tools, Responses API, audio and image-generation APIs, Speech and Language features, Image
+Analysis retirement notes, Content Understanding REST flow and reasoning-model parameters.
+
 ## Development
 
 ```bash

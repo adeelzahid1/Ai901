@@ -10,7 +10,7 @@
     ],
     "ans": 0,
     "exp": "A vision-capable chat model can read the receipt image and answer questions about it in text, such as the total and the store name. Speaking aloud needs text to speech, and creating or editing images needs an image-generation model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-454", "sub": "visual-input", "diff": 2, "type": "mcq",
@@ -18,7 +18,7 @@
     "opts": ["In the image file name", "In the deployment name", "In the system message", "In the deployment quota"],
     "ans": 2,
     "exp": "The system message sets rules that apply to every request, such as describing images briefly and factually for blind users. File names, deployment names and quota do not instruct the model how to respond.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-455", "sub": "visual-input", "diff": 1, "type": "yesno",
@@ -30,7 +30,7 @@
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: these models understand many kinds of images. No for the second: there is no per-account image limit like this; each request can contain images, within request size limits. Yes for the third: a message can combine text and image parts.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-456", "sub": "visual-input", "diff": 3, "type": "multi",
@@ -45,7 +45,7 @@
     ],
     "ans": [1, 3],
     "exp": "High detail lets the model see small handwriting better, and a defined output with human review of doubtful values catches the remaining errors. Lower resolution and removing instructions make results worse, and a higher temperature adds randomness to the values.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
     "id": "D2-457", "sub": "image-generation", "diff": 1, "type": "mcq",
@@ -58,7 +58,7 @@
     ],
     "ans": 3,
     "exp": "Images are created by an image-generation model, so you need a deployment of one, such as gpt-image-1, to call from your app or the images playground. Embedding models, Speech and Language do not create images.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-458", "sub": "image-generation", "diff": 2, "type": "mcq",
@@ -72,7 +72,7 @@
     ],
     "ans": 0,
     "exp": "Layered safety works best: strict content filters block harmful images, style rules in prompts steer the look, and human review catches anything that slips through. Turning off filters or skipping checks increases risk, and quality settings do not affect content safety.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-459", "sub": "image-generation", "diff": 2, "type": "dropdown",
@@ -84,7 +84,7 @@
     ],
     "ans": [2, 1],
     "exp": "Image editing regenerates only part of an image, and the mask marks which area to change while the rest stays the same. Classification and OCR analyze images rather than change them, and voices and schemas are unrelated to image editing.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-460", "sub": "image-generation", "diff": 3, "type": "match",
@@ -104,7 +104,7 @@
     ],
     "ans": [2, 4, 3, 0],
     "exp": "Consistent style descriptions and settings give a consistent series, exact text is best added in an editing step, lower quality makes drafts faster and cheaper, and a transparent background suits logos. Temperature is a text-generation setting and is not used to fix image problems.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-461", "sub": "vision-app", "diff": 1, "type": "mcq",

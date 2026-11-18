@@ -10,7 +10,7 @@
     ],
     "ans": 1,
     "exp": "A system message sets the assistant's role, tone and rules, such as being a cheerful bike shop assistant that only discusses bikes. The opening-hours question is a user message, the JSON is a parameter setting, and gpt-5-mini is a model name.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-142", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -18,7 +18,7 @@
     "opts": ["A higher temperature", "Stop sequences", "Structured outputs with a JSON schema", "The image detail setting"],
     "ans": 2,
     "exp": "Structured outputs let you pass a JSON schema with the request so that the model's response follows that schema, which is more reliable than instructions alone. A higher temperature makes output more random, stop sequences only end output at a marker, and image detail applies to image input.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/structured-outputs"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
   },
   {
     "id": "D2-143", "sub": "prompts", "diff": 1, "type": "yesno",
@@ -30,7 +30,7 @@
     ],
     "ans": [false, true, true],
     "exp": "No for the first: the system message is part of each request, not something stored in the deployment. Yes for the second: prompts often combine instructions, background content and examples. Yes for the third: modern language models follow instructions such as 'answer in French' well.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-144", "sub": "prompts", "diff": 2, "type": "match",
@@ -50,7 +50,7 @@
     ],
     "ans": [1, 3, 0, 2],
     "exp": "A length limit controls long answers, an example of the format fixes formatting, restricting answers to the provided documents reduces unsupported facts, and a persona with a defined tone keeps the style consistent. Quota controls throughput and does not change the content of answers.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-145", "sub": "prompts", "diff": 2, "type": "mcq",
@@ -63,7 +63,7 @@
     ],
     "ans": 3,
     "exp": "Delimiters clearly mark where the content starts and ends, so the model treats it as material to work on rather than as instructions, which improves accuracy and helps against prompt injection. Delimiters do not encrypt text or remove token costs, and they are a best practice, not mandatory syntax.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-146", "sub": "prompts", "diff": 2, "type": "dropdown",
@@ -75,7 +75,7 @@
     ],
     "ans": [1, 2],
     "exp": "Allowing the model to admit uncertainty reduces hallucinations, because it no longer feels it must invent an answer. A word limit controls the length of the response. Latency and cost per token are not changed by these instructions, and data residency depends on the deployment type, not the prompt.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-147", "sub": "prompts", "diff": 3, "type": "multi",
@@ -89,7 +89,7 @@
     ],
     "ans": [1, 3],
     "exp": "The system message holds instructions that apply to the whole conversation, such as allowed topics and the assistant's persona and tone. The customer's question, the order number they typed and their greeting are part of the conversation, so they belong in user messages.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-148", "sub": "prompts", "diff": 3, "type": "mcq",
@@ -102,7 +102,7 @@
     ],
     "ans": 2,
     "exp": "Safety system message instructions tell the model how to handle harmful requests, for example by refusing politely, and they work together with content filters. Tone, language and formatting instructions shape the style of answers but do not address safety.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/safety-system-message-templates"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/safety-system-message-templates"
   },
   {
     "id": "D2-149", "sub": "prompts", "diff": 1, "type": "mcq",
@@ -115,7 +115,7 @@
     ],
     "ans": 0,
     "exp": "Prompt engineering is the practice of writing and improving prompts, with clear instructions, context, examples and output formats, so a model produces more accurate and useful responses. It does not involve hardware, training a new model or writing database queries.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
     "id": "D2-150", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -123,7 +123,7 @@
     "opts": ["Azure Marketplace", "The list of model deployments in the project", "Microsoft Entra ID", "Azure DevOps"],
     "ans": 1,
     "exp": "The project's list of model deployments shows each deployment with its name, model, version and deployment type, and you can open it to test or edit it. Azure Marketplace sells offerings, Entra ID manages identities, and Azure DevOps manages code and pipelines.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
     "id": "D2-151", "sub": "portal-deploy", "diff": 2, "type": "mcq",
@@ -144,7 +144,7 @@
     ],
     "ans": [false, true, true, true],
     "exp": "No for the first: the model runs in Azure, and your app calls its endpoint. Yes for the second: content filter configurations are assigned per deployment. Yes for the third: deployment names are unique, so the same model can be deployed several times with different settings. Yes for the fourth: apps that call a deleted deployment get errors.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
     "id": "D2-153", "sub": "portal-deploy", "diff": 2, "type": "mcq",
@@ -157,7 +157,7 @@
     ],
     "ans": 3,
     "exp": "Evaluations score responses on a test dataset with metrics such as relevance and groundedness, so running both versions against the same data gives an objective comparison. A single opinion is anecdotal, cost does not measure quality, and quota only affects throughput.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-154", "sub": "portal-deploy", "diff": 2, "type": "match",
@@ -171,7 +171,7 @@
     "targets": ["Fluency", "Relevance", "Groundedness", "Violence (risk and safety)", "Latency"],
     "ans": [2, 1, 0, 3],
     "exp": "Groundedness checks support in the context, relevance checks whether the question is answered, fluency checks language quality, and risk and safety evaluators such as violence detect harmful content. Latency measures speed and is not a quality or safety evaluator for answer content.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
     "id": "D2-155", "sub": "portal-deploy", "diff": 2, "type": "multi",
@@ -185,7 +185,7 @@
     ],
     "ans": [1, 3],
     "exp": "The playground lets you change the instructions and request parameters and immediately see the effect on responses. It does not retrain models, change their weights or move resources between regions; those require fine-tuning or redeploying resources.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-156", "sub": "portal-deploy", "diff": 1, "type": "dropdown",
@@ -197,7 +197,7 @@
     ],
     "ans": [2, 1],
     "exp": "Models are chosen and deployed from the model catalog. Standard deployments receive a tokens-per-minute quota, which limits throughput. The activity log and Azure Advisor do not deploy models, and storage tiers and virtual machine sizes do not apply to Foundry-hosted standard deployments.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D2-157", "sub": "portal-deploy", "diff": 3, "type": "mcq",
@@ -210,7 +210,7 @@
     ],
     "ans": 1,
     "exp": "A finish reason of content_filter means the generated content was flagged by the content filtering system and was cut off or omitted. Hitting the token limit gives the finish reason length, exhausted quota returns a 429 error, and a deleted deployment returns an error rather than a partial response.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
     "id": "D2-158", "sub": "portal-deploy", "diff": 1, "type": "mcq",
@@ -218,7 +218,7 @@
     "opts": ["The chat playground with the photo attached", "Azure Monitor", "Cost analysis", "Azure Key Vault"],
     "ans": 0,
     "exp": "The chat playground lets you attach an image to a message and send it to a vision-capable deployment to see how the model describes it. Azure Monitor shows metrics, cost analysis shows spending and Key Vault stores secrets; none of them send prompts to a model.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
     "id": "D2-159", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
@@ -256,7 +256,7 @@
     ],
     "ans": [2, 1],
     "exp": "The Responses API accepts an instructions parameter that works like a system message, and the generated text is in output_text. There is no system or role parameter on responses.create(), and content and text_output are not properties of the response object.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
     "id": "D2-162", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
@@ -297,7 +297,7 @@
     ],
     "ans": [1, 3, 2, 0],
     "exp": "401 means the caller could not be authenticated, often because of a missing or invalid credential. 403 means the identity is known but lacks permission, such as a missing role. 404 usually means the deployment or endpoint path does not exist. 429 means the rate limit was reached. An oversized image would return a different validation error.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"
   },
   {
     "id": "D2-165", "sub": "sdk-chat-client", "diff": 2, "type": "multi",
@@ -311,7 +311,7 @@
     ],
     "ans": [1, 3],
     "exp": "Summarizing older turns or dropping the oldest messages, while keeping the system message, reduces the tokens sent and keeps the conversation inside the context window. Sending everything will eventually exceed the limit, temperature does not change length, and extra examples add more tokens.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {
     "id": "D2-166", "sub": "sdk-chat-client", "diff": 3, "type": "mcq",
@@ -319,7 +319,7 @@
     "opts": ["In the deployment name", "In the HTTP status code", "In the system message", "In the usage property of the response"],
     "ans": 3,
     "exp": "Model responses include a usage object with the number of input and output tokens, plus a total, which the app can log for cost tracking. The deployment name identifies the model, the status code reports success or failure, and the system message is part of the request.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
   },
   {
     "id": "D2-167", "sub": "sdk-chat-client", "diff": 3, "type": "order",
@@ -333,7 +333,7 @@
     ],
     "ans": [1, 0, 2, 3],
     "exp": "The clients are created once at the start. Each turn then reads the input, calls responses.create() with previous_response_id so the conversation continues, prints the answer and saves the new response ID for the next turn. Deleting the deployment would break the app.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
     "id": "D2-168", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",

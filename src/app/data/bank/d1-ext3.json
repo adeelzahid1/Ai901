@@ -61,7 +61,7 @@
     ],
     "ans": 2,
     "exp": "An agent fits tasks that need several steps, decisions and actions through tools, such as calling an inventory API, placing an order and sending a notification. Summarizing, translating or classifying a single piece of text is a one-step task that a single model call handles well, so an agent adds no value there.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
     "id": "D1-107", "sub": "workload-scenarios", "diff": 2, "type": "multi",
@@ -250,9 +250,9 @@
   {
     "id": "D1-123", "sub": "speech-features", "diff": 2, "type": "mcq",
     "q": "A language-learning app must score how accurately and fluently students pronounce practice sentences. Which Speech feature should it use?",
-    "opts": ["Speech translation", "Custom neural voice", "Pronunciation assessment", "Batch transcription"],
+    "opts": ["Speech translation", "Custom voice", "Pronunciation assessment", "Batch transcription"],
     "ans": 2,
-    "exp": "Pronunciation assessment compares a learner's speech with the expected text and returns scores such as accuracy, fluency and completeness. Speech translation translates speech, custom neural voice builds a synthetic voice, and batch transcription converts stored audio to text without scoring pronunciation.",
+    "exp": "Pronunciation assessment compares a learner's speech with the expected text and returns scores such as accuracy, fluency and completeness. Speech translation translates speech, custom voice (previously called custom neural voice) builds a synthetic voice, and batch transcription converts stored audio to text without scoring pronunciation.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-pronunciation-assessment"
   },
   {
@@ -371,7 +371,7 @@
     ],
     "ans": [true, true, false, true],
     "exp": "Yes for the first: detailed prompts guide the model toward the intended image. Yes for the second: these models can produce many styles, from photos to drawings. No for the third: generated images can contain errors such as garbled text or wrong anatomy, so they should be reviewed. Yes for the fourth: image deployments apply content filters to prompts and outputs.",
-    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D1-135", "sub": "extraction-techniques", "diff": 3, "type": "match",
