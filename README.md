@@ -81,11 +81,15 @@ to `master`: `npm ci`, `validate:bank`, unit tests in headless Chrome, productio
 
 One-time setup:
 
-1. On your computer run `npx surge login`, then `npx surge token` and copy the token.
-2. In GitHub open **Settings > Secrets and variables > Actions** and add three repository secrets:
-   - `SURGE_LOGIN`: the email of your Surge account
-   - `SURGE_TOKEN`: the token from step 1
-   - `SURGE_DOMAIN`: the address to publish to, for example `ai901-prep.surge.sh`
-3. Open **Actions > Build and deploy > Run workflow**, or push to `master`.
+1. Pick the address to publish to, for example `ai901-prep.surge.sh`.
+2. On your computer run `npx surge login`, then create a token for CI that can only publish to
+   that address: `npx surge tokens add --domain ai901-prep.surge.sh -m github-actions`.
+   The token is shown once, so copy it. (`npx surge token` also works, but it prints the token
+   for your whole account.)
+3. In GitHub open **Settings > Secrets and variables > Actions** and add two repository secrets:
+   - `SURGE_TOKEN`: the token from step 2
+   - `SURGE_DOMAIN`: the address from step 1
+4. Open **Actions > Build and deploy > Run workflow**, or push to `master`.
 
-If a secret is missing, the deploy step stops and names the missing secret.
+If a secret is missing, the deploy step stops and names the missing secret. `SURGE_LOGIN` (your
+Surge email) is optional and only needed for older setups.

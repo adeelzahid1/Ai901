@@ -33,8 +33,9 @@ jobs:
         run: npm run validate:bank
 
       # Ubuntu 24.04 blocks the user namespaces that headless Chrome's sandbox needs.
+      # Images without this setting don't need the change.
       - name: Allow headless Chrome to start
-        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || echo "Setting not present; nothing to change."
 
       - name: Unit tests
         run: npx ng test --watch=false --browsers=ChromeHeadless
@@ -67,6 +68,8 @@ jobs:
         with:
           node-version: 24
 
+      # The surge CLI signs in with SURGE_TOKEN. SURGE_LOGIN is optional and only passed on
+      # for older tokens that were set up with an email.
       - name: Deploy to Surge
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
@@ -74,7 +77,6 @@ jobs:
           SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
         run: |
           missing=""
-          [ -z "$SURGE_LOGIN" ] && missing="$missing SURGE_LOGIN"
           [ -z "$SURGE_TOKEN" ] && missing="$missing SURGE_TOKEN"
           [ -z "$SURGE_DOMAIN" ] && missing="$missing SURGE_DOMAIN"
           if [ -n "$missing" ]; then
