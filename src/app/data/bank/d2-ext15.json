@@ -1,0 +1,362 @@
+[
+  {
+    "id": "D2-453", "sub": "visual-input", "diff": 1, "type": "mcq",
+    "q": "Which request can a vision-capable chat model handle when it is given a photo of a shop receipt?",
+    "opts": [
+      "What is the total, and which store issued this receipt?",
+      "Read the receipt aloud in a new synthetic voice",
+      "Generate a new receipt image",
+      "Change the color of the receipt paper"
+    ],
+    "ans": 0,
+    "exp": "A vision-capable chat model can read the receipt image and answer questions about it in text, such as the total and the store name. Speaking aloud needs text to speech, and creating or editing images needs an image-generation model.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-454", "sub": "visual-input", "diff": 2, "type": "mcq",
+    "q": "An accessibility app describes photos for blind users and must always use short, factual descriptions. Where should you put this guidance?",
+    "opts": ["In the image file name", "In the deployment name", "In the system message", "In the deployment quota"],
+    "ans": 2,
+    "exp": "The system message sets rules that apply to every request, such as describing images briefly and factually for blind users. File names, deployment names and quota do not instruct the model how to respond.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+  },
+  {
+    "id": "D2-455", "sub": "visual-input", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about vision-capable chat models, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "You can ask a vision-capable model questions about charts, photos or screenshots.",
+      "A vision-capable model can accept only one image per Azure account.",
+      "An image can be sent together with a text question in the same message."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: these models understand many kinds of images. No for the second: there is no per-account image limit like this; each request can contain images, within request size limits. Yes for the third: a message can combine text and image parts.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-456", "sub": "visual-input", "diff": 3, "type": "multi",
+    "ctx": "An app sends photos of handwritten forms to a vision-capable model and asks for the field values. Some values come back wrong.",
+    "q": "Which TWO changes help most? Each correct answer presents a complete solution.",
+    "opts": [
+      "Lower the resolution of the photos",
+      "Use the high image detail setting",
+      "Remove the instructions from the prompt",
+      "Ask for a defined JSON output and send empty or doubtful values to a person for review",
+      "Increase the temperature"
+    ],
+    "ans": [1, 3],
+    "exp": "High detail lets the model see small handwriting better, and a defined output with human review of doubtful values catches the remaining errors. Lower resolution and removing instructions make results worse, and a higher temperature adds randomness to the values.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-457", "sub": "image-generation", "diff": 1, "type": "mcq",
+    "q": "What do you need in Microsoft Foundry before your app can generate images?",
+    "opts": [
+      "A deployment of an embedding model",
+      "Only a Speech resource",
+      "Only a Language resource",
+      "A deployment of an image-generation model, such as gpt-image-1"
+    ],
+    "ans": 3,
+    "exp": "Images are created by an image-generation model, so you need a deployment of one, such as gpt-image-1, to call from your app or the images playground. Embedding models, Speech and Language do not create images.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-458", "sub": "image-generation", "diff": 2, "type": "mcq",
+    "ctx": "A children's storybook app generates illustrations from short story descriptions. Images must never be scary or violent.",
+    "q": "Which approach fits best?",
+    "opts": [
+      "Keep content filters on with strict settings, add style rules to every prompt and review images before publishing",
+      "Turn off content filters to allow more creativity",
+      "Always use the highest quality setting",
+      "Let children send any prompt with no checks"
+    ],
+    "ans": 0,
+    "exp": "Layered safety works best: strict content filters block harmful images, style rules in prompts steer the look, and human review catches anything that slips through. Turning off filters or skipping checks increases risk, and quality settings do not affect content safety.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+  },
+  {
+    "id": "D2-459", "sub": "image-generation", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentence about changing part of an image.",
+    "tpl": "Changing only the sky in a photo uses image {0}, which needs the original image and a {1} that marks the area to change.",
+    "opts": [
+      ["classification", "OCR", "editing"],
+      ["voice", "mask", "schema"]
+    ],
+    "ans": [2, 1],
+    "exp": "Image editing regenerates only part of an image, and the mask marks which area to change while the rest stays the same. Classification and OCR analyze images rather than change them, and voices and schemas are unrelated to image editing.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-460", "sub": "image-generation", "diff": 3, "type": "match",
+    "q": "Match each image-generation problem to the fix. Each fix can be used once or not at all.",
+    "items": [
+      "Images in a series look different from one another",
+      "Words inside the images are misspelled",
+      "Drafts take too long and cost too much",
+      "A logo needs no background"
+    ],
+    "targets": [
+      "Set the background to transparent",
+      "Raise the temperature",
+      "Reuse the same style description and settings",
+      "Use a lower quality setting for drafts",
+      "Add the exact text afterward in an editing step"
+    ],
+    "ans": [2, 4, 3, 0],
+    "exp": "Consistent style descriptions and settings give a consistent series, exact text is best added in an editing step, lower quality makes drafts faster and cheaper, and a transparent background suits logos. Temperature is a text-generation setting and is not used to fix image problems.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-461", "sub": "vision-app", "diff": 1, "type": "mcq",
+    "q": "Which Image Analysis feature returns one sentence that describes the whole image?",
+    "opts": ["Tags", "Objects", "Caption", "Read"],
+    "ans": 2,
+    "exp": "The Caption feature returns a single human-readable sentence about the image with a confidence score. Tags return keywords, Objects return bounding boxes, and Read returns text found in the image.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-462", "sub": "vision-app", "diff": 2, "type": "mcq",
+    "q": "An app must analyze images stored in a private Azure Blob Storage container. Which approach is safe and works?",
+    "opts": [
+      "Make the container public permanently",
+      "Put the storage account key in the image URL",
+      "Use speech to text",
+      "Read the image bytes in the app and call analyze() with image_data"
+    ],
+    "ans": 3,
+    "exp": "The app can download the blob with its own identity and pass the bytes to analyze(), so the container stays private; a short-lived SAS URL is another option. Making the container public or putting the account key in a URL exposes the data, and speech to text does not analyze images.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-463", "sub": "vision-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about Image Analysis, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "ImageAnalysisClient creates a vector search index automatically.",
+      "Image Analysis results include bounding boxes for detected objects.",
+      "One call can analyze the same image for several visual features."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: Image Analysis returns analysis results; building a search index is a separate step. Yes for the second: object and people detection return boxes. Yes for the third: you pass a list of visual features, and the service returns all of them in one result.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-464", "sub": "vision-app", "diff": 1, "type": "match",
+    "q": "Match each requirement to the visual feature to request. Each feature can be used once or not at all.",
+    "items": [
+      "Thumbnails that keep the main subject",
+      "Keywords for search filters",
+      "The exact text on a product label",
+      "Boxes around each person"
+    ],
+    "targets": ["READ", "CAPTION", "SMART_CROPS", "PEOPLE", "TAGS"],
+    "ans": [2, 4, 0, 3],
+    "exp": "SMART_CROPS suggests thumbnail regions, TAGS returns keywords, READ extracts exact text, and PEOPLE returns boxes around people. CAPTION gives a one-sentence description, which none of these requirements ask for.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-465", "sub": "vision-app", "diff": 2, "type": "order",
+    "q": "Put the steps of an automatic photo-check feature in the correct order. Not every step is used.",
+    "items": [
+      "Approve or reject the photo",
+      "Generate a replacement photo",
+      "Receive the uploaded photo",
+      "Check the results against your rules, such as required tags",
+      "Analyze the photo with the visual features you need"
+    ],
+    "ans": [2, 4, 3, 0],
+    "exp": "The app receives the photo, analyzes it, compares the analysis results with its rules and then approves or rejects it. Generating a replacement photo is not part of checking uploads and would create new content instead of evaluating the user's photo.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-466", "sub": "cu-documents", "diff": 1, "type": "mcq",
+    "q": "Which inputs can a Content Understanding document analyzer process?",
+    "opts": ["PDF files and scanned images of documents", "Only plain text", "Only spreadsheets", "Only audio recordings"],
+    "ans": 0,
+    "exp": "Document analyzers handle files such as PDFs and scanned or photographed pages, using OCR and layout analysis to read them. They are not limited to plain text or spreadsheets, and audio recordings go to audio analyzers.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview"
+  },
+  {
+    "id": "D2-467", "sub": "cu-documents", "diff": 3, "type": "mcq",
+    "ctx": "A bank receives loan applications with about 30 fields each. Staff spend hours typing the values into the loan system.",
+    "q": "How can Content Understanding reduce this work while keeping quality high?",
+    "opts": [
+      "It deletes the application forms",
+      "It writes new application forms",
+      "A custom analyzer extracts the fields automatically, and staff review only the values with low confidence",
+      "It reads the forms aloud to staff"
+    ],
+    "ans": 2,
+    "exp": "A custom analyzer with the 30 fields extracts them automatically, and confidence scores let staff focus only on uncertain values, often with grounding to see the source. Deleting or writing forms does not capture data, and reading forms aloud does not reduce typing.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-468", "sub": "cu-documents", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about document analyzers, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Every document must have exactly the same layout for extraction to work.",
+      "If a prebuilt analyzer does not return a field you need, you can create a custom analyzer with that field.",
+      "Field names in the schema should be meaningful, such as invoice_total."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: generative field extraction handles different layouts and wording, guided by field descriptions. Yes for the second: custom analyzers let you define exactly the fields you need. Yes for the third: clear names, together with descriptions, make the schema easier to use and maintain.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-469", "sub": "cu-documents", "diff": 3, "type": "dropdown",
+    "q": "Complete the sentences about a contract analyzer schema.",
+    "tpl": "A field named parties that lists every company that signed the contract should be an {0} of strings. A field named contract_summary should use the {1} method.",
+    "opts": [
+      ["boolean", "date", "array"],
+      ["classify", "translate", "generate"]
+    ],
+    "ans": [2, 2],
+    "exp": "A list of signing companies is several values, so it is an array of strings. A summary is newly written text based on the contract, so it uses generate. Boolean and date types hold single simple values, classify chooses from fixed categories, and translate is not a field method.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview"
+  },
+  {
+    "id": "D2-470", "sub": "cu-images", "diff": 1, "type": "mcq",
+    "q": "What kind of output does a Content Understanding image analyzer return?",
+    "opts": ["A new photo", "A song", "A model deployment", "Named fields that you define, such as a description or a category"],
+    "ans": 3,
+    "exp": "Image analyzers return the fields defined in the schema, such as a generated description or a classified category, as structured output. They do not create photos or music, and they do not create deployments.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-471", "sub": "cu-images", "diff": 2, "type": "mcq",
+    "q": "Which description is best for a defect_type field in an analyzer for product inspection photos?",
+    "opts": [
+      "defect",
+      "The main visible defect on the product surface: Scratch, Dent, Crack, or None if no defect is visible",
+      "thing",
+      "x"
+    ],
+    "ans": 1,
+    "exp": "A good description says what to look at, lists the allowed values and explains the edge case of no defect, which guides the models toward consistent results. One-word or placeholder descriptions leave the meaning unclear and lead to unreliable values.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-472", "sub": "cu-images", "diff": 2, "type": "multi",
+    "q": "Which TWO image scenarios are good fits for Content Understanding? Each correct answer presents a complete solution.",
+    "opts": [
+      "Create cartoon avatars of employees",
+      "Extract the reading and ID number from photos of utility meters",
+      "Compose music inspired by images",
+      "Describe the condition of rental cars from their return photos",
+      "Increase the resolution of photos"
+    ],
+    "ans": [1, 3],
+    "exp": "Content Understanding extracts and generates structured information from images, such as meter readings or descriptions of vehicle condition. Creating avatars, composing music and upscaling photos are generation or editing tasks, not information extraction.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-473", "sub": "cu-images", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about Content Understanding, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Content Understanding can analyze photos as well as documents.",
+      "Image fields must always use the extract method.",
+      "One image analyzer can define several fields."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: images are one of the supported modalities. No for the second: extract is for documents; image fields use generate or classify. Yes for the third: a schema can hold many fields, such as a description, a category and a count.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-474", "sub": "cu-audio-video", "diff": 1, "type": "mcq",
+    "q": "A podcast company wants show notes with a summary and the main topics of each episode. Which approach fits?",
+    "opts": [
+      "An image analyzer",
+      "Speech synthesis",
+      "An audio analyzer that generates a summary and topics for each episode",
+      "A text-embedding model on its own"
+    ],
+    "ans": 2,
+    "exp": "An audio analyzer transcribes each episode and generates fields such as a summary and topics, which become the show notes. Image analyzers work on pictures, speech synthesis creates audio, and an embedding model alone returns vectors, not readable notes.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-475", "sub": "cu-audio-video", "diff": 2, "type": "mcq",
+    "q": "A sports broadcaster wants to find the moments in match videos where goals happen. Which approach fits?",
+    "opts": [
+      "A video analyzer with a per-segment field that classifies events as Goal, Foul or Other",
+      "OCR on the video title",
+      "Text to speech",
+      "An image-generation model"
+    ],
+    "ans": 0,
+    "exp": "A video analyzer splits the match into segments, and a classify field labels each segment's event, so goals can be found by filtering. The title says nothing about when goals happen, and text to speech and image generation create content instead of analyzing it.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-476", "sub": "cu-audio-video", "diff": 2, "type": "match",
+    "q": "Match each field to the method it should use. Each method can be used once, more than once, or not at all.",
+    "items": [
+      "call_language: English, Spanish or French",
+      "action_items: tasks that were promised during the call",
+      "scene_description for each video segment",
+      "contains_logo: Yes or No for each video segment"
+    ],
+    "targets": ["Classify", "Generate", "Extract"],
+    "ans": [0, 1, 1, 0],
+    "exp": "Fields with fixed answers, such as the call language or Yes or No, use classify. Free-form values, such as action items or scene descriptions, use generate. Extract is only supported for documents, so it is not used for audio or video fields.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-477", "sub": "cu-audio-video", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about how Content Understanding analyzes audio and video.",
+    "tpl": "For audio, the service first creates a {0}, and the generated fields are based on it. For video, it also uses {1} taken from the frames.",
+    "opts": [
+      ["poster", "chart", "transcript"],
+      ["fonts", "keyframes", "invoices"]
+    ],
+    "ans": [2, 1],
+    "exp": "Audio content extraction produces a transcript, which the generative models use for fields such as summaries. Video analysis adds visual information from keyframes. Posters, charts, fonts and invoices are not part of audio or video analysis.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-478", "sub": "cu-app", "diff": 1, "type": "mcq",
+    "q": "How can an application call Content Understanding?",
+    "opts": ["Only by email", "Only from Excel macros", "Through the REST API or an SDK", "Only by phone"],
+    "ans": 2,
+    "exp": "Content Understanding exposes a REST API, with SDKs and a CLI available, so any application that can make HTTPS calls can use it. Email, spreadsheet macros and phone calls are not ways to call the service.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  },
+  {
+    "id": "D2-479", "sub": "cu-app", "diff": 2, "type": "mcq",
+    "q": "Your app calls the analyze operation and receives HTTP 202 Accepted. What does this mean?",
+    "opts": [
+      "The analysis failed",
+      "The final fields are already in the response body",
+      "The analyzer was deleted",
+      "The analysis has started; poll the Operation-Location URL to get the result"
+    ],
+    "ans": 3,
+    "exp": "202 Accepted means the long-running analysis was accepted and is in progress. The response includes an Operation-Location URL that the app polls until the status is Succeeded and the result is available. It does not indicate failure, deletion or a finished result.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  },
+  {
+    "id": "D2-480", "sub": "cu-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about calling Content Understanding, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "An app can send the URL of a file instead of uploading the file's bytes.",
+      "Each call to analyze creates a new analyzer automatically.",
+      "One analyzer can be reused for many files."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: the analyze request can reference content by URL. No for the second: you create an analyzer once, or use a prebuilt one, and then call it for each file. Yes for the third: reusing the same analyzer gives consistent fields across all files.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  },
+  {
+    "id": "D2-481", "sub": "cu-app", "diff": 3, "type": "multi",
+    "q": "Which TWO practices help an information extraction app handle a large volume of files reliably? Each correct answer presents a complete solution.",
+    "opts": [
+      "Analyze the same file several times to be sure",
+      "Process files asynchronously and poll for results instead of making users wait",
+      "Create a new analyzer for every file",
+      "Handle 429 responses with retries and backoff",
+      "Turn off error handling"
+    ],
+    "ans": [1, 3],
+    "exp": "Asynchronous processing fits the long-running analyze operation and keeps the app responsive, and backoff retries handle throttling at high volume. Repeating analysis wastes cost, a new analyzer per file is unnecessary, and removing error handling hides failures.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  }
+]

@@ -1,0 +1,334 @@
+[
+  {
+    "id": "D1-330", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
+    "ctx": "A museum app lets visitors point their phone at a painting and then hear a description of it in their own language.",
+    "q": "Which combination of AI workloads does the app use?",
+    "opts": [
+      "Only optical character recognition",
+      "Only sentiment analysis",
+      "Computer vision to recognize the painting, generative AI to write the description, and speech synthesis to read it aloud",
+      "Only key phrase extraction"
+    ],
+    "ans": 2,
+    "exp": "The app must recognize the painting from the camera image, which is computer vision, write a description in the visitor's language, which is generative AI, and read it aloud, which is speech synthesis. OCR, sentiment analysis and key phrase extraction alone cannot deliver this experience.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-331", "sub": "workload-scenarios", "diff": 2, "type": "mcq",
+    "q": "Employees only need answers to questions about the staff handbook. The solution never needs to take actions in other systems. What is the simplest suitable solution?",
+    "opts": [
+      "A multi-tool agent that can change HR records",
+      "A chat app grounded in the handbook content",
+      "An image-generation model",
+      "Speech translation"
+    ],
+    "ans": 1,
+    "exp": "When users only need answers from documents, a grounded chat app, such as a RAG solution, is enough. An agent with tools that can change records adds complexity and risk without benefit here, and image generation and speech translation do not answer handbook questions.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-332", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Translating the text of a document is a computer vision workload.",
+      "A single solution can combine several AI workloads.",
+      "Agentic AI can include steps that wait for a person's approval."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: translating text is a language task; computer vision is only needed if the text must first be read from an image. Yes for the second: many apps combine vision, speech, language and generative AI. Yes for the third: agents can pause for human approval before sensitive actions.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-333", "sub": "workload-scenarios", "diff": 2, "type": "match",
+    "q": "Match each scenario to the AI workload it uses. Each workload can be used once or not at all.",
+    "items": [
+      "Detect when a machine in a factory video stops moving",
+      "Look up a customer's order in the order system and reply with its status",
+      "Turn a recorded lecture into searchable text",
+      "Write a short story for a children's app"
+    ],
+    "targets": ["Generative AI", "Sentiment analysis", "Computer vision", "Speech to text", "Agentic AI"],
+    "ans": [2, 4, 3, 0],
+    "exp": "Watching video frames for a stopped machine is computer vision. Looking up an order and replying uses a tool and takes action, which is agentic AI. Turning a lecture into text is speech to text. Writing a new story is generative AI. Sentiment analysis is not needed in these scenarios.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-334", "sub": "workload-scenarios", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences by selecting the correct option for each blank.",
+    "tpl": "A system that sorts emails into Complaint, Question or Praise uses {0}. A system that writes a reply to each email uses {1}.",
+    "opts": [
+      ["image generation", "speech synthesis", "text classification"],
+      ["optical character recognition", "generative AI", "object detection"]
+    ],
+    "ans": [2, 1],
+    "exp": "Sorting text into categories is text classification, a text analysis task. Writing a new reply is generative AI. Image generation and speech synthesis create pictures and audio, and OCR and object detection analyze images rather than writing emails.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-335", "sub": "workload-scenarios", "diff": 3, "type": "multi",
+    "q": "Which TWO scenarios call for information extraction rather than content generation? Each correct answer presents a complete solution.",
+    "opts": [
+      "Write a new advertising slogan",
+      "Read the policy number and expiry date from scanned insurance cards",
+      "Create a product image",
+      "Capture the order ID and items from emailed purchase orders",
+      "Compose a poem for a greeting card"
+    ],
+    "ans": [1, 3],
+    "exp": "Pulling specific values from insurance cards and purchase orders is information extraction: the data already exists and must be captured accurately. Slogans, product images and poems are new content, which is generative AI.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-336", "sub": "workload-scenarios", "diff": 2, "type": "order",
+    "q": "Put the steps of a classic voice-assistant pipeline in the correct order. Not every step is used.",
+    "items": [
+      "Convert the answer to speech",
+      "Run OCR on the answer",
+      "Convert the user's speech to text",
+      "Play the audio to the user",
+      "Send the text to a language model to get an answer"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "The pipeline first transcribes what the user said, then asks a language model for an answer, then synthesizes the answer as speech and plays it. OCR reads text in images and has no role when the answer is already text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
+  },
+  {
+    "id": "D1-337", "sub": "text-techniques", "diff": 1, "type": "mcq",
+    "q": "Which technique tells you that 'Paris' is a Location and 'Air France' is an Organization?",
+    "opts": ["Sentiment analysis", "Language detection", "Summarization", "Named entity recognition"],
+    "ans": 3,
+    "exp": "Named entity recognition finds entities in text and labels their categories, such as Location and Organization. Sentiment analysis judges opinion, language detection identifies the language, and summarization shortens text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/named-entity-recognition/overview"
+  },
+  {
+    "id": "D1-338", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "q": "A review starts with a very positive sentence and ends with a very negative one. How can you see both opinions in the sentiment analysis results?",
+    "opts": [
+      "Read the sentence-level sentiment results",
+      "Run language detection",
+      "Use key phrase extraction only",
+      "Run OCR on the review"
+    ],
+    "ans": 0,
+    "exp": "Sentiment analysis returns a label and scores for each sentence as well as for the whole document, so you can see the positive and negative parts separately; the document may be labeled mixed. Language detection, key phrases and OCR do not report sentiment.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview"
+  },
+  {
+    "id": "D1-339", "sub": "text-techniques", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Text analysis can help route support tickets automatically.",
+      "Language detection tells you the main topics of a text.",
+      "Summarization can be extractive or abstractive."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: language, topics and sentiment can drive automatic routing. No for the second: language detection only identifies the language; topics come from key phrase extraction. Yes for the third: extractive summaries reuse original sentences, while abstractive summaries write new ones.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-340", "sub": "text-techniques", "diff": 2, "type": "match",
+    "q": "Match each input to the most useful text analysis technique. Each technique can be used once or not at all.",
+    "items": [
+      "10,000 survey answers: which themes come up?",
+      "Chat logs that must be stored without personal data",
+      "A 40-page report that a manager must understand quickly",
+      "Posts about a product launch: how do people feel?"
+    ],
+    "targets": ["Sentiment analysis", "Speech synthesis", "Key phrase extraction", "Summarization", "PII detection"],
+    "ans": [2, 4, 3, 0],
+    "exp": "Themes come from key phrase extraction, removing personal data needs PII detection, a long report is shortened with summarization, and feelings about a launch come from sentiment analysis. Speech synthesis produces audio and does not analyze text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-341", "sub": "text-techniques", "diff": 3, "type": "dropdown",
+    "q": "The text is 'I'm Maria and my number is 555-0100.' Complete the sentence.",
+    "tpl": "PII detection returns the categories {0} and {1}.",
+    "opts": [
+      ["Location", "Organization", "Person"],
+      ["DateTime", "PhoneNumber", "URL"]
+    ],
+    "ans": [2, 1],
+    "exp": "Maria is a person's name, so PII detection labels it Person, and 555-0100 is labeled PhoneNumber. Both can then be redacted. Location, Organization, DateTime and URL are other categories that do not apply to this sentence.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview"
+  },
+  {
+    "id": "D1-342", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "q": "A hospital wants to find medications, dosages and diagnoses mentioned in clinical notes. Which Azure Language feature is designed for this?",
+    "opts": ["Key phrase extraction only", "Language detection", "Text Analytics for health", "Speech synthesis"],
+    "ans": 2,
+    "exp": "Text Analytics for health extracts medical entities such as medications, dosages and diagnoses from clinical text and links related information. General key phrases do not identify medical concepts precisely, language detection only finds the language, and speech synthesis creates audio.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/text-analytics-for-health/overview"
+  },
+  {
+    "id": "D1-343", "sub": "speech-features", "diff": 1, "type": "mcq",
+    "q": "What is a main benefit of neural text-to-speech voices?",
+    "opts": [
+      "They do not need any text",
+      "They sound natural and human-like",
+      "They can speak only English",
+      "They remove the need for audio output"
+    ],
+    "ans": 1,
+    "exp": "Neural voices use deep learning to produce natural intonation and rhythm, so speech sounds more like a person. They still need text to speak, they are available in many languages, and they produce audio output.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech"
+  },
+  {
+    "id": "D1-344", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "ctx": "A bank stores thousands of call recordings. For quality reviews, transcripts must show which parts were said by the agent and which by the customer.",
+    "q": "Which Speech capabilities fit?",
+    "opts": ["Text to speech", "Keyword recognition only", "Pronunciation assessment", "Batch transcription with speaker diarization"],
+    "ans": 3,
+    "exp": "Batch transcription handles large numbers of stored recordings, and diarization separates the speakers so the transcript shows who said what. Text to speech creates audio, keyword recognition only listens for a wake word, and pronunciation assessment scores language learners.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription"
+  },
+  {
+    "id": "D1-345", "sub": "speech-features", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Text-to-speech voices can speak at only one fixed speed.",
+      "Speech to text can transcribe audio files as well as live audio.",
+      "Speech translation can produce translated text and translated speech."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: SSML prosody settings can make voices speak faster or slower. Yes for the second: real-time and batch transcription cover live audio and recordings. Yes for the third: speech translation returns translated text and can also synthesize it as audio.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
+  },
+  {
+    "id": "D1-346", "sub": "speech-features", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences by selecting the correct option for each blank.",
+    "tpl": "Turning the message 'Your table is ready' into audio uses {0}. Turning a customer's spoken order into text uses {1}.",
+    "opts": [
+      ["text to speech", "speech to text", "translation"],
+      ["text to speech", "speech to text", "translation"]
+    ],
+    "ans": [0, 1],
+    "exp": "Text to speech creates audio from text, and speech to text creates text from audio. Translation changes the language and is not needed when both the message and the order are in the same language.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
+  },
+  {
+    "id": "D1-347", "sub": "speech-features", "diff": 2, "type": "multi",
+    "q": "Which TWO are capabilities of text to speech? Each correct answer presents a complete solution.",
+    "opts": [
+      "Transcribing meetings",
+      "Choosing from many neural voices",
+      "Identifying which speaker is talking",
+      "Adjusting pronunciation and pauses with SSML",
+      "Detecting a wake word"
+    ],
+    "ans": [1, 3],
+    "exp": "Text to speech lets you pick from many neural voices and fine-tune how they speak with SSML, including pronunciation and pauses. Transcription, speaker identification and wake word detection all analyze incoming audio, so they are speech recognition capabilities.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech"
+  },
+  {
+    "id": "D1-348", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
+    "q": "Which of the following tasks is image classification?",
+    "opts": [
+      "Draw a box around each tooth in a dental X-ray",
+      "Read the patient's name printed on the X-ray",
+      "Label each X-ray image as normal or abnormal",
+      "Generate a new X-ray image"
+    ],
+    "ans": 2,
+    "exp": "Image classification assigns a label to the whole image, such as normal or abnormal. Drawing boxes around teeth is object detection, reading the name is OCR, and creating a new image is image generation.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-349", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
+    "q": "A farmer uses drone photos and needs to know where each weed is in every field image. Which technique locates each weed?",
+    "opts": ["Object detection", "Image classification", "Optical character recognition", "Speech recognition"],
+    "ans": 0,
+    "exp": "Object detection finds each instance of an object, here each weed, and returns its location as a bounding box. Image classification would only say whether weeds are present, OCR reads text, and speech recognition works on audio.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-350", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about image generation, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "An image-generation model can produce different images for the same prompt.",
+      "An AI-generated image is always free of copyright or brand concerns.",
+      "You can describe the art style you want in the prompt."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: generation involves randomness, so repeated prompts give different results. No for the second: generated images can still resemble protected content or brands, so they should be reviewed before commercial use. Yes for the third: style words, such as watercolor or photorealistic, guide the output.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D1-351", "sub": "vision-imagegen", "diff": 1, "type": "match",
+    "q": "Match each question about a photo of a bird to the computer vision technique that answers it. Each technique can be used once or not at all.",
+    "items": [
+      "Is there a bird in this photo?",
+      "Where is each bird in this photo?",
+      "Which pixels belong to the bird?",
+      "What does the sign below the bird say?"
+    ],
+    "targets": ["Optical character recognition", "Image generation", "Image classification", "Semantic segmentation", "Object detection"],
+    "ans": [2, 4, 3, 0],
+    "exp": "Whether a bird is present is image classification, where each bird is located is object detection, which pixels belong to it is semantic segmentation, and reading the sign is OCR. Image generation creates new pictures and answers none of these questions.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-352", "sub": "vision-imagegen", "diff": 3, "type": "dropdown",
+    "q": "Complete the sentences about vision-related models.",
+    "tpl": "A model that reads an image and writes a detailed answer about it is a {0} model. A model that creates a picture from a description is an {1} model.",
+    "opts": [
+      ["speech", "embedding", "multimodal"],
+      ["OCR", "image-generation", "classification"]
+    ],
+    "ans": [2, 1],
+    "exp": "Multimodal models take images and text as input and respond in language. Image-generation models create new pictures from text prompts. Speech and embedding models handle audio and vectors, while OCR and classification analyze existing images instead of creating new ones.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-353", "sub": "extraction-techniques", "diff": 1, "type": "mcq",
+    "q": "Why is information extraction valuable for businesses?",
+    "opts": [
+      "It makes documents longer",
+      "It creates new marketing images",
+      "It removes the need to store files",
+      "It turns documents and media into structured data that systems can use automatically"
+    ],
+    "ans": 3,
+    "exp": "Information extraction converts invoices, forms, recordings and other content into structured data, so systems can process it without manual typing. It does not lengthen documents, create images or replace storage.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-354", "sub": "extraction-techniques", "diff": 3, "type": "mcq",
+    "ctx": "Insurance claims arrive as PDF forms, photos of damage and voicemails. Adjusters need the claim number, the incident date and a short summary from each item.",
+    "q": "Which approach fits best?",
+    "opts": [
+      "A multimodal information extraction service that handles documents, images and audio with defined fields",
+      "Image classification only",
+      "Speech synthesis only",
+      "Key phrase extraction on the file names"
+    ],
+    "ans": 0,
+    "exp": "The inputs mix documents, images and audio, and the adjusters need the same fields from each, so a multimodal extraction service, such as Content Understanding with analyzers for each type, fits. Image classification alone ignores text and audio, speech synthesis creates audio, and file names contain no claim details.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-355", "sub": "extraction-techniques", "diff": 2, "type": "multi",
+    "q": "Which TWO are typical outputs when you extract information from a recorded meeting video? Each correct answer presents a complete solution.",
+    "opts": [
+      "A new soundtrack",
+      "A transcript of what was said",
+      "A 3D model of the room",
+      "Key moments or segments with descriptions",
+      "A new video with actors"
+    ],
+    "ans": [1, 3],
+    "exp": "Extraction from a meeting video produces a transcript of the speech and descriptions of key moments or segments based on the frames. Soundtracks, 3D models and new videos are generated content, not information extracted from the recording.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-356", "sub": "extraction-techniques", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about information extraction, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "OCR is often the first step when extracting fields from scanned documents.",
+      "Information extraction always requires users to type the values again.",
+      "Extracting information from audio usually starts by transcribing the speech."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: scanned pages must be read as text before fields can be found. No for the second: the purpose of extraction is to avoid manual re-typing. Yes for the third: a transcript turns speech into text that fields such as summaries can be generated from.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  }
+]

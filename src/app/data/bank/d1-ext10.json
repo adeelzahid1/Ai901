@@ -1,0 +1,341 @@
+[
+  {
+    "id": "D1-303", "sub": "fairness", "diff": 1, "type": "mcq",
+    "ctx": "An insurer's pricing model charges higher premiums to people from certain neighborhoods, even when their risk profiles are the same as other customers'.",
+    "q": "Which responsible AI principle is affected?",
+    "opts": ["Transparency", "Inclusiveness", "Fairness", "Reliability and safety"],
+    "ans": 2,
+    "exp": "Charging people with the same risk different prices because of where they live is unequal treatment of similar people, which is a fairness problem. Transparency is about explaining the system, inclusiveness about designing for everyone, and reliability and safety about consistent, safe behavior.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-304", "sub": "fairness", "diff": 3, "type": "multi",
+    "q": "Which TWO actions help reduce unfairness in a machine learning model? Each correct answer presents a complete solution.",
+    "opts": [
+      "Report only the model's overall accuracy",
+      "Measure performance separately for each group of people",
+      "Skip the evaluation step to release sooner",
+      "Collect more representative training data",
+      "Use the model on more people without further testing"
+    ],
+    "ans": [1, 3],
+    "exp": "Per-group metrics reveal where the model performs worse, and more representative data helps it learn patterns for under-served groups. An overall score can hide large gaps, and skipping evaluation or expanding use without testing lets unfair outcomes reach more people.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml"
+  },
+  {
+    "id": "D1-305", "sub": "reliability-safety", "diff": 2, "type": "mcq",
+    "ctx": "A self-checkout camera recognizes products well in the daytime but often misidentifies them in dim evening lighting.",
+    "q": "Which responsible AI principle should the team focus on?",
+    "opts": ["Accountability", "Privacy and security", "Inclusiveness", "Reliability and safety"],
+    "ans": 3,
+    "exp": "A system that fails under conditions it will meet in real use, such as dim lighting, is not reliable. Reliability and safety calls for testing in realistic and unusual conditions and improving the system before it causes errors. Accountability, privacy and inclusiveness address other concerns.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-306", "sub": "reliability-safety", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about reliability and safety.",
+    "tpl": "Before release, a generative AI app should be tested with {0} prompts. After release, its quality and safety should be {1}.",
+    "opts": [
+      ["only friendly, expected", "adversarial and unusual", "no"],
+      ["checked once and then ignored", "never measured", "monitored continuously"]
+    ],
+    "ans": [1, 2],
+    "exp": "Testing with adversarial and unusual prompts exposes weaknesses that friendly test prompts miss. Because user behavior, data and models change over time, quality and safety must be monitored continuously after release rather than checked once.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/responsible-ai-studio/"
+  },
+  {
+    "id": "D1-307", "sub": "privacy-security", "diff": 1, "type": "mcq",
+    "q": "Users upload photos of their ID documents to an AI app for verification. Which practice protects their privacy?",
+    "opts": [
+      "Keep the files forever in a shared public folder",
+      "Delete the files when they are no longer needed and restrict who can access them",
+      "Email the files to all staff",
+      "Reuse the files for marketing without asking"
+    ],
+    "ans": 1,
+    "exp": "Keeping personal data only as long as needed and limiting access protect people's privacy and reduce the damage if something goes wrong. Public storage, wide sharing and reuse without consent all expose sensitive data.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-308", "sub": "privacy-security", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about privacy and security, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Consent matters when an AI system uses people's data.",
+      "Security is not part of the privacy and security principle.",
+      "Anonymized data can sometimes still be linked back to individuals."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: people should know and agree to how their data is used. No for the second: the principle covers both protecting privacy and keeping systems secure against attacks and misuse. Yes for the third: combining anonymized data with other information can re-identify people, so extra care is needed.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-309", "sub": "inclusiveness", "diff": 2, "type": "mcq",
+    "ctx": "A job-search assistant can be used only with a mouse, and its text cannot be enlarged.",
+    "q": "Which responsible AI principle does this design fail, and what helps?",
+    "opts": [
+      "Inclusiveness: add keyboard support and scalable text",
+      "Fairness: retrain the model",
+      "Transparency: add an AI disclaimer",
+      "Accountability: name a new owner"
+    ],
+    "ans": 0,
+    "exp": "Mouse-only controls and fixed small text exclude people with motor or visual impairments, which is an inclusiveness failure; keyboard support and scalable text fix it. Retraining, AI disclaimers and new owners do not remove these accessibility barriers.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-310", "sub": "inclusiveness", "diff": 1, "type": "match",
+    "q": "Match each user need to an inclusive design feature. Each feature can be used once or not at all.",
+    "items": ["Low vision", "Hearing loss", "Limited mobility", "Learning a new language"],
+    "targets": [
+      "Voice and keyboard control",
+      "A higher deployment quota",
+      "Captions",
+      "Simple language and translation",
+      "Adjustable text size and high contrast"
+    ],
+    "ans": [4, 2, 0, 3],
+    "exp": "Adjustable text and contrast help people with low vision, captions help people with hearing loss, voice and keyboard control help people with limited mobility, and simple language with translation helps language learners. Deployment quota affects throughput, not accessibility.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-311", "sub": "transparency", "diff": 2, "type": "mcq",
+    "ctx": "A news website shows AI-written summaries next to its articles. It does not say they were written by AI, and readers assume journalists wrote them.",
+    "q": "What should the website do?",
+    "opts": [
+      "Make the summaries longer",
+      "Remove the journalists' names from the articles",
+      "Label the summaries as AI-generated and explain how they are produced",
+      "Use a different font for the summaries"
+    ],
+    "ans": 2,
+    "exp": "Readers should know when content comes from AI so they can judge it appropriately, which is transparency. Labeling the summaries and explaining the process fixes the misunderstanding. Length, author names and fonts do not tell readers that AI wrote the text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-312", "sub": "transparency", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about transparency.",
+    "tpl": "Letting users know {0} content was produced by AI supports transparency. Documenting a system's {1} helps people use it appropriately.",
+    "opts": [
+      ["no", "which", "secret"],
+      ["color scheme", "server names", "limitations"]
+    ],
+    "ans": [1, 2],
+    "exp": "Transparency means people can tell which content comes from AI and understand what the system can and cannot do. Documenting limitations helps them decide when to rely on it. Color schemes and server names do not help people understand an AI system's behavior.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-313", "sub": "accountability", "diff": 1, "type": "mcq",
+    "q": "Which statement reflects the accountability principle?",
+    "opts": [
+      "AI systems are responsible for their own decisions",
+      "Responsibility ends once the system is deployed",
+      "Only the cloud provider is responsible",
+      "People remain responsible for decisions made with AI systems"
+    ],
+    "ans": 3,
+    "exp": "Accountability means that humans, the people and organizations who design, deploy and use AI systems, stay responsible for their outcomes throughout the system's life. Machines cannot be held accountable, responsibility continues after deployment, and it is not shifted entirely to a provider.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-314", "sub": "accountability", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about accountability, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Accountability means the model must explain every token it generates.",
+      "Organizations should define who is allowed to change an AI system after release.",
+      "Keeping records of which model versions were used supports accountability."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: accountability is about people and processes being answerable, not about token-level explanations. Yes for the second: clear change control shows who is responsible for updates. Yes for the third: version records let you trace and investigate outcomes later.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-315", "sub": "accountability", "diff": 3, "type": "order",
+    "q": "Put the steps for introducing an AI system with clear accountability in the correct order. Not every step is used.",
+    "items": [
+      "Review and approve the system before release",
+      "Let the model approve its own release",
+      "Assign an owner and a review process",
+      "Audit how the system is used after release",
+      "Document the intended uses and limitations"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "Accountability starts with a named owner and a review process, then the intended uses and limitations are documented, the system is reviewed and approved against that documentation, and its use is audited after release. A model cannot approve itself, because people must remain responsible.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-316", "sub": "genai-how", "diff": 1, "type": "mcq",
+    "q": "Which statement about large language models is true?",
+    "opts": [
+      "They generate text based on patterns and probabilities learned from training data",
+      "They always know today's news",
+      "They never make mistakes",
+      "They are programmed with fixed answers for every question"
+    ],
+    "ans": 0,
+    "exp": "Language models generate text by predicting likely tokens based on patterns learned during training. They do not know events after their training cutoff unless given that information, they can make mistakes, and they do not store fixed answers.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-317", "sub": "genai-how", "diff": 2, "type": "mcq",
+    "q": "In generative AI, what does grounding mean?",
+    "opts": [
+      "Connecting the server to electrical ground",
+      "Setting the temperature to 0",
+      "Providing relevant, trusted data in the prompt so that the answer is based on it",
+      "Deleting old deployments"
+    ],
+    "ans": 2,
+    "exp": "Grounding supplies the model with relevant, trusted information, such as retrieved documents, so its answers are based on that data instead of only on what it learned in training. It has nothing to do with electrical grounding, temperature settings or deleting deployments.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-318", "sub": "genai-how", "diff": 2, "type": "match",
+    "q": "Match each part of a request or response to an example of it. Each example can be used once or not at all.",
+    "items": ["System message", "Grounding data", "Few-shot example", "Generated output"],
+    "targets": [
+      "The model's answer to the user",
+      "'You are a helpful travel agent.'",
+      "A paragraph from the hotel policy added to the prompt",
+      "'Q: ... A: ...' sample placed in the prompt",
+      "The deployment's quota"
+    ],
+    "ans": [1, 2, 3, 0],
+    "exp": "A system message sets the role, grounding data supplies trusted content such as a policy paragraph, a few-shot example shows a sample question and answer, and the generated output is the model's reply. Quota is a deployment setting, not part of the request or response content.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D1-319", "sub": "genai-how", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A token can be a part of a word.",
+      "Large language models are trained only on images.",
+      "A prompt can contain both instructions and context."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: tokenizers split many words into smaller pieces. No for the second: language models are trained mainly on large amounts of text. Yes for the third: prompts commonly combine instructions with background information or documents.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-320", "sub": "genai-how", "diff": 2, "type": "multi",
+    "q": "Which TWO are ways to give a model up-to-date company information? Each correct answer presents a complete solution.",
+    "opts": [
+      "Raise the temperature",
+      "Change the deployment's region",
+      "Retrieve relevant company documents and add them to the prompt (RAG)",
+      "Use a longer deployment name",
+      "Paste the current information directly into the prompt"
+    ],
+    "ans": [2, 4],
+    "exp": "The model can only use current company facts that you give it at request time, either by retrieving relevant documents automatically or by including the information directly in the prompt. Temperature, region and deployment names do not provide new knowledge.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-321", "sub": "model-choice", "diff": 1, "type": "mcq",
+    "q": "Which type of model can answer a spoken question directly, without a separate transcription step?",
+    "opts": ["An embedding model", "An image-generation model", "A text-only small model", "An audio-capable multimodal model"],
+    "ans": 3,
+    "exp": "Audio-capable multimodal models accept speech as input and respond to it. Embedding models return vectors, image-generation models create pictures, and text-only models need the audio to be transcribed first.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D1-322", "sub": "model-choice", "diff": 2, "type": "mcq",
+    "ctx": "A startup is building a prototype chat app. The budget is small, answers must be fast, and the team expects to try other models later.",
+    "q": "What is the best approach?",
+    "opts": [
+      "Start with a cost-effective mini model, evaluate it, and keep the deployment name configurable so you can switch later",
+      "Buy provisioned throughput for the largest model on the first day",
+      "Fine-tune a model before testing any base model",
+      "Use only image-generation models"
+    ],
+    "ans": 0,
+    "exp": "A small model keeps cost and latency low for a prototype, evaluation shows whether quality is good enough, and configuration makes switching models easy. Reserving large capacity up front is expensive, fine-tuning before testing base models is premature, and image models cannot run a chat.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+  },
+  {
+    "id": "D1-323", "sub": "model-choice", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about choosing models, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "All models have the same context window.",
+      "Published benchmarks do not replace testing on your own data.",
+      "Some models are better at writing code than others."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: context windows vary a lot between models. Yes for the second: benchmarks use general datasets, so your own tests show how a model handles your task. Yes for the third: models differ in strengths, including coding, reasoning and languages.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/benchmark-model-in-catalog"
+  },
+  {
+    "id": "D1-324", "sub": "deploy-config", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about request settings.",
+    "tpl": "If answers must be as repeatable as possible for audits, keep the temperature {0}. If you want several different suggestions from one request, ask for {1} completions.",
+    "opts": [
+      ["high", "low", "random"],
+      ["zero", "multiple", "negative"]
+    ],
+    "ans": [1, 1],
+    "exp": "A low temperature makes the model choose the most likely tokens, so answers vary less between runs. Asking for multiple completions, for example with the n parameter, returns several alternative answers in one request. A high or random temperature would reduce repeatability, and zero or negative counts are not valid.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+  },
+  {
+    "id": "D1-325", "sub": "deploy-config", "diff": 3, "type": "match",
+    "q": "Match each requirement to the deployment type that fits it. Each type can be used once or not at all.",
+    "items": [
+      "Pay per token, with processing kept inside the EU",
+      "Score two million records overnight at the lowest price",
+      "Steady high traffic that needs reserved capacity",
+      "No commitment, with processing allowed in any region"
+    ],
+    "targets": ["Global Standard", "Data Zone Standard", "Global Batch", "Provisioned"],
+    "ans": [1, 2, 3, 0],
+    "exp": "Data Zone Standard keeps processing in a zone such as the EU with pay-per-token pricing, Global Batch handles large asynchronous jobs at a discount, Provisioned reserves capacity for steady traffic, and Global Standard is pay-per-token with global processing and no commitment.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-326", "sub": "deploy-config", "diff": 3, "type": "mcq",
+    "ctx": "A support bot has steady, predictable traffic around the clock. On a Standard deployment, traffic spikes sometimes cause 429 errors, and latency must stay consistent.",
+    "q": "What should you recommend?",
+    "opts": [
+      "Global Batch",
+      "Provisioned throughput sized for the steady load",
+      "A lower temperature",
+      "Fewer maximum output tokens"
+    ],
+    "ans": 1,
+    "exp": "Provisioned throughput reserves capacity for predictable traffic and gives more consistent latency than shared pay-per-token deployments. Global Batch is asynchronous and unsuitable for live chat, and temperature or output length settings do not reserve capacity.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-327", "sub": "deploy-config", "diff": 2, "type": "multi",
+    "q": "Which TWO factors directly affect the cost of a request to a standard pay-per-token deployment? Each correct answer presents part of the solution.",
+    "opts": [
+      "The number of input tokens",
+      "The temperature value",
+      "The font used in the app",
+      "The number of output tokens",
+      "The deployment's name"
+    ],
+    "ans": [0, 3],
+    "exp": "Pay-per-token deployments bill input tokens and output tokens, often at different rates, so long prompts and long answers cost more. Temperature changes randomness, not billing, and the app's font and the deployment's name have no effect on cost.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-328", "sub": "deploy-config", "diff": 1, "type": "mcq",
+    "q": "Which deployment type is designed for large, asynchronous jobs that do not need an immediate response?",
+    "opts": ["Standard", "Provisioned", "Global Batch", "Data Zone Standard"],
+    "ans": 2,
+    "exp": "Global Batch processes large sets of requests asynchronously with a target turnaround of 24 hours at a lower price. Standard and Data Zone Standard are for real-time pay-per-token requests, and Provisioned reserves capacity for steady real-time traffic.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-329", "sub": "model-choice", "diff": 2, "type": "mcq",
+    "q": "The model catalog shows that the model your app uses will be retired in three months. What should you do?",
+    "opts": [
+      "Ignore the notice",
+      "Raise the deployment's quota",
+      "Lower the temperature",
+      "Test a newer model with your evaluations and move the deployment before the retirement date"
+    ],
+    "ans": 3,
+    "exp": "After retirement, a model can no longer be used, so you should evaluate a replacement on your own test data and switch before the date. Ignoring the notice leads to failures, and quota or temperature changes do not extend a model's life.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements"
+  }
+]

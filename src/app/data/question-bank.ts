@@ -17,6 +17,8 @@ const LOADERS: Record<string, BankLoader> = {
   'd1-ext7': () => import('./bank/d1-ext7.json').then((m) => m.default),
   'd1-ext8': () => import('./bank/d1-ext8.json').then((m) => m.default),
   'd1-ext9': () => import('./bank/d1-ext9.json').then((m) => m.default),
+  'd1-ext10': () => import('./bank/d1-ext10.json').then((m) => m.default),
+  'd1-ext11': () => import('./bank/d1-ext11.json').then((m) => m.default),
   'd2-core': () => import('./bank/d2-core.json').then((m) => m.default),
   'd2-ext1': () => import('./bank/d2-ext1.json').then((m) => m.default),
   'd2-ext2': () => import('./bank/d2-ext2.json').then((m) => m.default),
@@ -30,6 +32,9 @@ const LOADERS: Record<string, BankLoader> = {
   'd2-ext10': () => import('./bank/d2-ext10.json').then((m) => m.default),
   'd2-ext11': () => import('./bank/d2-ext11.json').then((m) => m.default),
   'd2-ext12': () => import('./bank/d2-ext12.json').then((m) => m.default),
+  'd2-ext13': () => import('./bank/d2-ext13.json').then((m) => m.default),
+  'd2-ext14': () => import('./bank/d2-ext14.json').then((m) => m.default),
+  'd2-ext15': () => import('./bank/d2-ext15.json').then((m) => m.default),
 };
 
 /** Loads the question bank one domain at a time and keeps it in signals. */
