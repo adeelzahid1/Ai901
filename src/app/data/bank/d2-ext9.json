@@ -1,0 +1,356 @@
+[
+  {
+    "id": "D2-283", "sub": "visual-input", "diff": 1, "type": "mcq",
+    "q": "When you send an image to a vision-capable chat model, what do you usually include in the same message?",
+    "opts": [
+      "A text instruction or question about the image",
+      "A speech synthesis voice",
+      "A storage account key",
+      "A deployment type"
+    ],
+    "ans": 0,
+    "exp": "A user message typically combines the image with a text part that says what you want, such as 'List the damaged parts'. Voices are for text to speech, storage keys must never be sent to a model, and the deployment type is a setting of the deployment, not part of a message.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-284", "sub": "visual-input", "diff": 3, "type": "mcq",
+    "ctx": "Customers of an insurance company upload photos of damaged cars. The claims system needs JSON with a list of damaged parts and a severity for each one.",
+    "q": "Which approach fits best?",
+    "opts": [
+      "Convert the photos to speech with text to speech",
+      "Run key phrase extraction on the file names",
+      "Send each photo with instructions and a JSON schema, using structured outputs, to a vision-capable model",
+      "Use a Global Batch deployment of an embedding model"
+    ],
+    "ans": 2,
+    "exp": "A vision-capable model can interpret the damage, and structured outputs with a JSON schema make it return exactly the fields the claims system expects. Text to speech and key phrase extraction do not look at images, and an embedding model returns vectors, not damage reports.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/structured-outputs"
+  },
+  {
+    "id": "D2-285", "sub": "visual-input", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about visual input, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Sending an image means that the model's response will also be an image.",
+      "You can send more than one image in a single message.",
+      "A vision-capable model can explain a screenshot of an error message."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: vision-capable chat models return text; creating images needs an image-generation model. Yes for the second: a message can contain several image parts. Yes for the third: the model can read the error text in a screenshot and explain it.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-286", "sub": "visual-input", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about visual input.",
+    "tpl": "A model that accepts both text and images is called {0}. An image can be sent as a URL or as {1} data.",
+    "opts": [
+      ["monolingual", "serverless", "multimodal"],
+      ["encrypted-only", "base64-encoded", "zip-compressed"]
+    ],
+    "ans": [2, 1],
+    "exp": "Multimodal models work with more than one type of input, such as text and images. Images can be referenced by URL or embedded in the request as base64-encoded data in a data URL. Monolingual and serverless describe other things, and zip files or encryption alone are not accepted image formats.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-287", "sub": "image-generation", "diff": 1, "type": "mcq",
+    "q": "Which prompt is most likely to produce the image you want?",
+    "opts": [
+      "image",
+      "make it nice",
+      "picture please",
+      "A cozy reading corner by a rainy window, soft warm lighting, watercolor style"
+    ],
+    "ans": 3,
+    "exp": "Good image prompts describe the subject, setting, lighting and style, which gives the model clear guidance. Short, vague prompts leave almost everything to chance, so results are unpredictable and rarely match what you had in mind.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-288", "sub": "image-generation", "diff": 3, "type": "mcq",
+    "q": "A designer needs a logo draft from gpt-image-1 with a transparent background. Which request parameter should be set?",
+    "opts": ["temperature set to 0", "background set to transparent", "top_p set to 1", "stop set to ###"],
+    "ans": 1,
+    "exp": "gpt-image-1 supports a background parameter; setting it to transparent, with an output format that supports transparency such as PNG, produces an image without a solid background. temperature, top_p and stop are text-generation settings and do not affect image backgrounds.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-289", "sub": "image-generation", "diff": 1, "type": "match",
+    "q": "Match each requirement to the right approach. Each approach can be used once or not at all.",
+    "items": [
+      "Create a new poster from a description",
+      "Change only the sky in an existing photo",
+      "Describe what an existing photo shows",
+      "Read the words on a sign in a photo"
+    ],
+    "targets": [
+      "OCR",
+      "Image editing with a mask",
+      "Speech synthesis",
+      "Image generation from a text prompt",
+      "Image captioning or a multimodal chat model"
+    ],
+    "ans": [3, 1, 4, 0],
+    "exp": "A new poster comes from image generation, changing only part of a photo uses editing with a mask, describing a photo uses captioning or a multimodal model, and reading words on a sign uses OCR. Speech synthesis creates audio and fits none of these requirements.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-290", "sub": "image-generation", "diff": 2, "type": "multi",
+    "q": "Which TWO are responsible practices when you publish AI-generated images? Each correct answer presents a complete solution.",
+    "opts": [
+      "Remove all provenance information from the files",
+      "Keep the Content Credentials so viewers can see that the image is AI-generated",
+      "Claim that the images are real photographs",
+      "Review the images for errors and harmful content before publishing",
+      "Turn off content filters"
+    ],
+    "ans": [1, 3],
+    "exp": "Keeping Content Credentials supports transparency about AI-generated content, and human review catches errors and inappropriate output. Removing provenance, presenting generated images as real photos and turning off content filters all undermine responsible AI.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-credentials"
+  },
+  {
+    "id": "D2-291", "sub": "vision-app", "diff": 1, "type": "mcq",
+    "q": "Which VisualFeatures value should you request to get the text in an image with ImageAnalysisClient?",
+    "opts": ["TAGS", "PEOPLE", "READ", "SMART_CROPS"],
+    "ans": 2,
+    "exp": "VisualFeatures.READ runs OCR and returns the text as blocks, lines and words with their positions. TAGS returns keywords, PEOPLE returns bounding boxes for people, and SMART_CROPS suggests crop regions.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-292", "sub": "vision-app", "diff": 2, "type": "mcq",
+    "q": "Image Analysis returns many tags for each photo, and some are wrong. The app should display only reliable tags. What should it do?",
+    "opts": [
+      "Show only tags whose confidence is above a threshold, such as 0.8",
+      "Show every tag regardless of confidence",
+      "Lower the temperature",
+      "Increase the quota"
+    ],
+    "ans": 0,
+    "exp": "Each tag comes with a confidence score, so the app can keep only tags above a threshold chosen through testing. Showing everything includes the unreliable tags, and Image Analysis has no temperature setting; quota controls throughput, not accuracy.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-293", "sub": "vision-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about ImageAnalysisClient, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "It can analyze an image from bytes or from a URL.",
+      "It returns a newly generated image.",
+      "You can request several visual features in one call."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: analyze() takes image bytes and analyze_from_url() takes a URL. No for the second: Image Analysis describes images and does not create new ones. Yes for the third: visual_features accepts a list, such as CAPTION, TAGS and READ together.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-294", "sub": "vision-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that analyzes a local image with key authentication.",
+    "tpl": "client = ImageAnalysisClient(\n    endpoint=endpoint,\n    credential={0}(key),\n)\nresult = client.{1}(image_data=image_bytes, visual_features=[VisualFeatures.TAGS])",
+    "opts": [
+      ["SpeechConfig", "DefaultAzureCredential", "AzureKeyCredential"],
+      ["generate", "analyze_from_url", "analyze"]
+    ],
+    "ans": [2, 2],
+    "exp": "AzureKeyCredential wraps the resource key, and analyze() takes the image bytes through image_data. DefaultAzureCredential uses Microsoft Entra ID and does not take a key, SpeechConfig is for the Speech SDK, analyze_from_url() needs a URL, and generate is not an Image Analysis method.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-295", "sub": "vision-app", "diff": 3, "type": "multi",
+    "q": "Which TWO requirements point to Image Analysis rather than a multimodal chat model? Each correct answer presents a complete solution.",
+    "opts": [
+      "A friendly explanation of why a meme is funny",
+      "OCR lines with their exact positions on the page",
+      "A back-and-forth conversation about a photo",
+      "Bounding boxes for each detected person",
+      "A poem inspired by an image"
+    ],
+    "ans": [1, 3],
+    "exp": "Image Analysis returns structured, predictable results such as text lines with coordinates and boxes around people. Explanations, conversations and creative writing about images are open-ended language tasks that suit a multimodal chat model.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-296", "sub": "cu-documents", "diff": 1, "type": "mcq",
+    "q": "What does Content Understanding's content extraction produce from a document?",
+    "opts": [
+      "Markdown text that keeps structure such as headings and tables",
+      "An MP3 file",
+      "A new image",
+      "A model deployment"
+    ],
+    "ans": 0,
+    "exp": "Content extraction turns the document into Markdown that preserves structure such as paragraphs, headings and tables, which is useful for search and as input for field extraction. It does not produce audio, images or deployments.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-297", "sub": "cu-documents", "diff": 3, "type": "mcq",
+    "q": "An invoice analyzer's vendor_name field sometimes returns the customer's name instead of the supplier's. What should you change first?",
+    "opts": [
+      "Change the field type to boolean",
+      "Delete the field",
+      "Improve the field description, for example 'the name of the company that issued the invoice'",
+      "Increase the deployment quota"
+    ],
+    "ans": 2,
+    "exp": "Field descriptions guide the models that fill each field, so a precise description that distinguishes the issuer from the customer usually fixes the confusion; labeled examples can help further. A boolean type cannot hold a name, deleting the field loses the data, and quota does not affect accuracy.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview"
+  },
+  {
+    "id": "D2-298", "sub": "cu-documents", "diff": 1, "type": "match",
+    "q": "Match each invoice field to the field type that fits it. Each type can be used once or not at all.",
+    "items": ["invoice_total", "invoice_date", "is_paid", "line_items"],
+    "targets": ["date", "number", "boolean", "array of objects", "image"],
+    "ans": [1, 0, 2, 3],
+    "exp": "A total is a number, an invoice date is a date, a paid or unpaid flag is a boolean, and repeating line items with several values each are an array of objects. Image is not a field type for extracted invoice values.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview"
+  },
+  {
+    "id": "D2-299", "sub": "cu-documents", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about Content Understanding, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Content Understanding can process PDF files.",
+      "Documents must be typed; scanned images are not supported.",
+      "A field schema lets you name the values you want back."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: PDFs are a supported document input. No for the second: OCR reads scanned pages and images, including handwriting. Yes for the third: the schema defines the field names, types and descriptions that the analyzer returns.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-300", "sub": "cu-images", "diff": 2, "type": "mcq",
+    "q": "A RAG solution misses facts that appear only in charts inside PDF reports. Which Content Understanding capability helps?",
+    "opts": ["Speech synthesis", "Smart crops", "Key phrase extraction", "Figure analysis that describes charts and diagrams in text"],
+    "ans": 3,
+    "exp": "Figure analysis describes the content of charts and diagrams in text, so the information becomes searchable and can be retrieved for RAG. Speech synthesis produces audio, smart crops suggests thumbnails, and key phrase extraction works on text that is already extracted.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-301", "sub": "cu-images", "diff": 1, "type": "mcq",
+    "q": "Which file can you send to a Content Understanding image analyzer?",
+    "opts": ["A WAV recording", "A JPEG photo", "An MP4 video", "An XLSX spreadsheet"],
+    "ans": 1,
+    "exp": "Image analyzers take image files such as JPEG or PNG. WAV recordings go to audio analyzers, MP4 videos to video analyzers, and spreadsheets are not image inputs.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-302", "sub": "cu-images", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about fields in an analyzer for shelf photos.",
+    "tpl": "For a field whose value must be Full, Partly empty or Empty, use the {0} method. For a free-text description of problems on the shelf, use the {1} method.",
+    "opts": [
+      ["classify", "extract", "generate"],
+      ["classify", "extract", "generate"]
+    ],
+    "ans": [0, 2],
+    "exp": "Classify picks one value from a list you define, which suits Full, Partly empty or Empty. Generate creates free-form values, such as a description. Extract returns values printed in documents and is not supported for images.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-303", "sub": "cu-images", "diff": 3, "type": "multi",
+    "q": "Which TWO changes are most likely to improve the results of a Content Understanding image analyzer? Each correct answer presents a complete solution.",
+    "opts": [
+      "Set a higher temperature in the analyzer",
+      "Write clear descriptions for each field",
+      "Remove all fields from the schema",
+      "Define the list of categories for each classify field",
+      "Send MP3 files instead of images"
+    ],
+    "ans": [1, 3],
+    "exp": "Clear field descriptions tell the models exactly what to produce, and explicit category lists keep classification consistent. Analyzers are configured through schemas rather than a temperature setting, a schema without fields returns no fields, and MP3 files are audio, not images.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-304", "sub": "cu-audio-video", "diff": 1, "type": "mcq",
+    "q": "Which business scenario is a good fit for Content Understanding audio analysis?",
+    "opts": ["Designing a logo", "Building a spreadsheet macro", "Post-call analytics for a call center", "Resizing photos"],
+    "ans": 2,
+    "exp": "Audio analysis transcribes recordings and produces fields such as summaries, sentiment and topics, which is exactly what post-call analytics needs. Logo design, spreadsheet macros and photo resizing do not involve analyzing audio.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-305", "sub": "cu-audio-video", "diff": 2, "type": "mcq",
+    "q": "A media company wants to find every segment of its videos where one of its products appears, and tag those segments. What should it use?",
+    "opts": [
+      "Key phrase extraction on the video file names",
+      "A video analyzer with a per-segment field such as products_shown",
+      "Speech synthesis",
+      "An image-generation model"
+    ],
+    "ans": 1,
+    "exp": "A video analyzer splits the video into segments and fills fields for each one, so a field such as products_shown tags where each product appears. File names do not show what is in the video, and speech synthesis and image generation create content instead of analyzing it.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-306", "sub": "cu-audio-video", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about audio and video analysis, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A video must be converted to a PDF before it can be analyzed.",
+      "Audio analysis can distinguish different speakers in a recording.",
+      "Video analysis uses both what is shown and what is said."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: video files are analyzed directly. Yes for the second: transcripts can label different speakers, which is useful for calls and meetings. Yes for the third: video analysis combines keyframes and visual content with the transcript of the audio track.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-307", "sub": "cu-audio-video", "diff": 3, "type": "match",
+    "q": "Match each requirement for analyzing lecture and meeting videos to the capability that meets it. Each capability can be used once or not at all.",
+    "items": [
+      "Know when each scene starts and ends",
+      "Read the text on slides shown in a lecture video",
+      "Know what each person said in a meeting",
+      "Get a one-line summary of each scene"
+    ],
+    "targets": [
+      "A generated field for each segment",
+      "Video segmentation",
+      "Image generation",
+      "OCR on keyframes",
+      "A transcript with speaker labels"
+    ],
+    "ans": [1, 3, 4, 0],
+    "exp": "Scene boundaries come from segmentation, slide text from OCR on keyframes, who said what from a transcript with speaker labels, and per-scene summaries from a generated field for each segment. Image generation creates new pictures and does not analyze videos.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-308", "sub": "cu-app", "diff": 2, "type": "mcq",
+    "q": "How can an app use the grounding information that Content Understanding returns for each field?",
+    "opts": [
+      "Delete the source file after analysis",
+      "Change the model deployment",
+      "Increase the quota",
+      "Show reviewers where in the source each value came from, so they can verify it quickly"
+    ],
+    "ans": 3,
+    "exp": "Grounding identifies the region of the source content behind each value, so a review screen can highlight it and a person can confirm or correct the value quickly. It is not used to delete files, change deployments or adjust quota.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-309", "sub": "cu-app", "diff": 2, "type": "mcq",
+    "q": "Which tool is designed to help you improve custom Content Understanding analyzers by labeling data?",
+    "opts": ["Content Understanding Studio", "Azure Advisor", "Power BI", "Azure Policy"],
+    "ans": 0,
+    "exp": "Content Understanding Studio complements the Foundry portal with an experience for improving analyzer performance, including labeling data and building classification-based analyzers. Azure Advisor gives recommendations, Power BI builds reports, and Azure Policy enforces resource rules.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-310", "sub": "cu-app", "diff": 3, "type": "dropdown",
+    "q": "Complete the sentence about calling Content Understanding from a production app.",
+    "tpl": "The app should authenticate with {0}, start the analyze operation for each file, and then {1} until the result is ready.",
+    "opts": [
+      ["a public URL", "no authentication", "Microsoft Entra ID"],
+      ["read the request body", "poll the operation URL", "restart the analyzer"]
+    ],
+    "ans": [2, 1],
+    "exp": "Production apps should use Microsoft Entra ID, for example through a managed identity, instead of unauthenticated or public access. Because analysis is a long-running operation, the app polls the returned operation URL until the status shows the result is ready. Restarting the analyzer or rereading the request does not give you the result.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  },
+  {
+    "id": "D2-311", "sub": "cu-app", "diff": 3, "type": "order",
+    "q": "You are building a pipeline that makes PDF reports searchable for a RAG chat app. Put the steps in the correct order. Not every step is used.",
+    "items": [
+      "Store the chunks and their vectors in a search index",
+      "Generate a new image for each document",
+      "Analyze each document with Content Understanding to get Markdown and figure descriptions",
+      "Upload the documents to storage",
+      "Split the Markdown into chunks and create embeddings"
+    ],
+    "ans": [3, 2, 4, 0],
+    "exp": "Documents are uploaded first, then Content Understanding turns them into Markdown with figure descriptions, the text is split into chunks and embedded, and finally the chunks and vectors are indexed for retrieval. Generating new images adds nothing to a search pipeline.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  }
+]
