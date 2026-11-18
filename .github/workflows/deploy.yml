@@ -1,0 +1,84 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One run per branch at a time. A new push to a pull request cancels the older run;
+# runs on master wait so a deploy is never stopped halfway.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Validate question bank
+        run: npm run validate:bank
+
+      # Ubuntu 24.04 blocks the user namespaces that headless Chrome's sandbox needs.
+      - name: Allow headless Chrome to start
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Unit tests
+        run: npx ng test --watch=false --browsers=ChromeHeadless
+
+      - name: Build
+        run: npm run build
+
+      # Only the landing page is prerendered. Surge serves 200.html for every other path,
+      # so deep links such as /study?s=1.1 load the client-side app.
+      - name: Add SPA fallback
+        run: cp dist/Ai-901/browser/index.csr.html dist/Ai-901/browser/200.html
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: dist/Ai-901/browser
+          retention-days: 7
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: site
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Deploy to Surge
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
+        run: |
+          missing=""
+          [ -z "$SURGE_LOGIN" ] && missing="$missing SURGE_LOGIN"
+          [ -z "$SURGE_TOKEN" ] && missing="$missing SURGE_TOKEN"
+          [ -z "$SURGE_DOMAIN" ] && missing="$missing SURGE_DOMAIN"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secrets:$missing. Add them under Settings > Secrets and variables > Actions (see README, Deployment)."
+            exit 1
+          fi
+          npx --yes surge@0.56.0 ./site "$SURGE_DOMAIN"

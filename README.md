@@ -70,3 +70,22 @@ npx ng test --watch=false --browsers=ChromeHeadless
 ```bash
 npm run build
 ```
+
+## Deployment
+
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every push and pull request
+to `master`: `npm ci`, `validate:bank`, unit tests in headless Chrome, production build, and a
+`200.html` copy of `index.csr.html` so Surge serves the app for deep links such as
+`/study?s=1.1`. The built site is kept as the `site` artifact for 7 days. Pushes to `master`
+(and manual runs) then deploy it to [Surge](https://surge.sh).
+
+One-time setup:
+
+1. On your computer run `npx surge login`, then `npx surge token` and copy the token.
+2. In GitHub open **Settings > Secrets and variables > Actions** and add three repository secrets:
+   - `SURGE_LOGIN`: the email of your Surge account
+   - `SURGE_TOKEN`: the token from step 1
+   - `SURGE_DOMAIN`: the address to publish to, for example `ai901-prep.surge.sh`
+3. Open **Actions > Build and deploy > Run workflow**, or push to `master`.
+
+If a secret is missing, the deploy step stops and names the missing secret.
