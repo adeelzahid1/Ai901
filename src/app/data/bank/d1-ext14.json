@@ -1,0 +1,405 @@
+[
+  {
+    "id": "D1-411", "sub": "fairness", "diff": 2, "type": "mcq",
+    "ctx": "A support chatbot gives detailed, helpful answers to users who write in formal English, but short and less useful answers to users who write in informal English or regional dialects.",
+    "q": "Which responsible AI principle does this affect?",
+    "opts": ["Transparency", "Fairness", "Accountability", "Privacy and security"],
+    "ans": 1,
+    "exp": "Some users receive a lower quality of service because of how they write, which is a fairness harm. The team should test with varied writing styles and improve the system for the groups that are served worse. Transparency, accountability and privacy are not the core issue described.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml"
+  },
+  {
+    "id": "D1-412", "sub": "reliability-safety", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about reliability and safety, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A safety approach can combine content filters with human review.",
+      "Once an AI system is deployed, it never needs to be checked again.",
+      "Testing should include inputs that the system was not designed for."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: layered safeguards catch more problems than any single control. No for the second: behavior can change as data, users and models change, so ongoing monitoring is needed. Yes for the third: unexpected inputs reveal how safely the system fails.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-413", "sub": "reliability-safety", "diff": 3, "type": "match",
+    "q": "Microsoft describes layers of mitigation for generative AI solutions. Match each measure to its layer. Each layer can be used once or not at all.",
+    "items": [
+      "Choose a model that suits the use case",
+      "Apply content filters and abuse monitoring",
+      "Give instructions and trusted data in the prompt",
+      "Show clear disclosures and limit what users can enter"
+    ],
+    "targets": ["User experience layer", "Billing layer", "Model layer", "System message and grounding layer", "Safety system layer"],
+    "ans": [2, 4, 3, 0],
+    "exp": "Mitigations are applied at four layers: picking an appropriate model, using the platform's safety system such as content filters, writing system messages with grounding data, and designing the user experience with disclosures and input limits. Billing is not a mitigation layer.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/responsible-ai-studio/"
+  },
+  {
+    "id": "D1-414", "sub": "privacy-security", "diff": 1, "type": "mcq",
+    "q": "Which of the following is personal data?",
+    "opts": ["The average temperature in a city", "The number of pages in a public report", "A product's list price", "A person's email address"],
+    "ans": 3,
+    "exp": "An email address identifies a specific person, so it is personal data that must be protected. City temperatures, page counts and product prices do not identify individuals.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview"
+  },
+  {
+    "id": "D1-415", "sub": "privacy-security", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about privacy and security practices.",
+    "tpl": "Removing names and other identifiers from training data is called {0}. Allowing only approved staff to read the logs is {1}.",
+    "opts": [
+      ["anonymization", "tokenization", "summarization"],
+      ["access control", "load balancing", "caching"]
+    ],
+    "ans": [0, 0],
+    "exp": "Anonymization removes or masks information that identifies people, and access control limits who can see data. Tokenization and summarization are text processing steps, and load balancing and caching are performance techniques, not privacy controls.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-416", "sub": "inclusiveness", "diff": 2, "type": "mcq",
+    "ctx": "A government benefits chatbot answers in complex legal language, and many citizens cannot understand its replies.",
+    "q": "Which principle is affected, and what helps?",
+    "opts": [
+      "Inclusiveness: use plain language and offer to explain terms",
+      "Fairness: retrain the model on more data",
+      "Accountability: appoint a new owner",
+      "Privacy and security: encrypt the conversations"
+    ],
+    "ans": 0,
+    "exp": "Language that many people cannot follow excludes them, so this is an inclusiveness problem, solved by plain language and explanations of difficult terms. Retraining, new owners and encryption do not make the answers easier to understand.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-417", "sub": "transparency", "diff": 1, "type": "mcq",
+    "q": "Which action supports the transparency principle?",
+    "opts": [
+      "Hide that the product uses AI",
+      "Delete all logs",
+      "Publish how the system works and what its limitations are",
+      "Increase the size of the model"
+    ],
+    "ans": 2,
+    "exp": "Explaining how a system works and where it can fail helps people understand and appropriately trust it, which is transparency. Hiding AI use works against transparency, deleting logs harms accountability, and model size is unrelated.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-418", "sub": "accountability", "diff": 3, "type": "multi",
+    "q": "Which TWO practices show accountability in an AI project? Each correct answer presents a complete solution.",
+    "opts": [
+      "The model decides when it should be updated",
+      "Nobody is assigned as the owner of the system",
+      "A named person approves each release",
+      "Logs are deleted every day so that nobody can check them",
+      "Incidents are reviewed and the lessons are recorded"
+    ],
+    "ans": [2, 4],
+    "exp": "Named approval and incident reviews keep people answerable for the system and improve it over time. Letting the model govern itself, having no owner and destroying logs all remove accountability.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-419", "sub": "genai-how", "diff": 1, "type": "mcq",
+    "q": "In generative AI, what is a completion?",
+    "opts": ["The text that the model generates in response to a prompt", "The deployment name", "The training data", "The Azure region"],
+    "ans": 0,
+    "exp": "A completion is the output a model produces for a prompt, such as an answer or a draft. The deployment name, training data and region are not outputs of a request.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-420", "sub": "genai-how", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Language models can generate code as well as natural language.",
+      "A generative model stores a copy of every web page it was trained on and returns it.",
+      "Examples in a prompt can change the style of the output."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: many models write code well because code was part of their training data. No for the second: models learn patterns and generate new text rather than retrieving stored pages. Yes for the third: few-shot examples guide tone, format and style.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-421", "sub": "genai-how", "diff": 3, "type": "dropdown",
+    "q": "Complete the sentences about how a model chooses each next token.",
+    "tpl": "A higher {0} makes less likely tokens more likely to be chosen. Limiting the choice to the most probable tokens is done with {1}.",
+    "opts": [
+      ["temperature", "max tokens", "quota"],
+      ["top P", "a stop sequence", "a seed"]
+    ],
+    "ans": [0, 0],
+    "exp": "Temperature reshapes the probability distribution, so higher values give less likely tokens a better chance. Top P restricts sampling to the smallest set of tokens whose combined probability reaches a threshold. Max tokens and quota limit length and throughput, a stop sequence ends output, and a seed affects repeatability.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+  },
+  {
+    "id": "D1-422", "sub": "genai-how", "diff": 2, "type": "mcq",
+    "q": "Why do RAG solutions split documents into chunks before creating embeddings?",
+    "opts": [
+      "To make the documents look nicer",
+      "To translate the documents",
+      "To increase the deployment quota",
+      "So the most relevant passages can be found and fit into the prompt"
+    ],
+    "ans": 3,
+    "exp": "Smaller chunks let the search find the specific passages that answer a question, and only those passages are added to the prompt, which keeps it within the context window. Chunking does not change appearance, language or quota.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-423", "sub": "model-choice", "diff": 1, "type": "mcq",
+    "q": "A shopping chatbot must also understand photos of products that customers upload. Which kind of model should it use?",
+    "opts": ["A multimodal chat model", "An embedding model", "A text-to-speech model", "A speech-to-text model such as whisper"],
+    "ans": 0,
+    "exp": "A multimodal chat model accepts images together with text and can answer questions about them. Embedding models return vectors, text-to-speech models create audio, and whisper transcribes speech.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D1-424", "sub": "model-choice", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about the Foundry model catalog, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "The catalog includes models from several providers.",
+      "Every model in the catalog supports every deployment type.",
+      "Model cards describe intended uses and limitations."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: Microsoft, OpenAI and other providers publish models in the catalog. No for the second: available deployment types differ by model and region. Yes for the third: model cards explain what a model is for and where it falls short.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/model-catalog-overview"
+  },
+  {
+    "id": "D1-425", "sub": "deploy-config", "diff": 2, "type": "mcq",
+    "ctx": "Every night, a job classifies 500,000 support tickets. Results are needed by the next morning, and cost must be as low as possible.",
+    "q": "Which deployment type fits?",
+    "opts": ["Provisioned", "Standard", "Data Zone Standard", "Global Batch"],
+    "ans": 3,
+    "exp": "Global Batch processes large asynchronous workloads within a 24-hour target at a lower price, which fits an overnight job. Provisioned reserves capacity for real-time traffic, and Standard and Data Zone Standard are real-time pay-per-token options that cost more for the same tokens.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-426", "sub": "deploy-config", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about request parameters.",
+    "tpl": "{0} controls how random the output is. {1} limits how long a response can be.",
+    "opts": [
+      ["Temperature", "A stop sequence", "The region"],
+      ["Max tokens", "Frequency penalty", "Seed"]
+    ],
+    "ans": [0, 0],
+    "exp": "Temperature controls randomness and max tokens caps the response length. A stop sequence ends output at a marker, the region is a deployment property, frequency penalty reduces repetition, and seed helps make outputs repeatable.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference"
+  },
+  {
+    "id": "D1-427", "sub": "deploy-config", "diff": 3, "type": "multi",
+    "q": "A standard deployment hits its rate limit at peak hours. Which TWO actions help? Each correct answer presents a complete solution.",
+    "opts": [
+      "Raise the temperature",
+      "Increase the deployment's tokens-per-minute allocation if quota allows",
+      "Set the maximum output tokens to 1",
+      "Retry throttled requests with exponential backoff",
+      "Rename the deployment"
+    ],
+    "ans": [1, 3],
+    "exp": "More allocated tokens per minute raises the limit, and backoff retries let requests succeed after short waits. Temperature and the deployment name do not affect throttling, and a one-token output would make answers useless.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+  },
+  {
+    "id": "D1-428", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
+    "q": "A language-learning app listens to students reading sentences aloud and scores their pronunciation. Which AI workload is this?",
+    "opts": ["Computer vision", "Speech", "Image generation", "Information extraction"],
+    "ans": 1,
+    "exp": "Listening to spoken audio and evaluating it is a speech workload, using pronunciation assessment. Computer vision works on images, image generation creates pictures, and information extraction pulls fields from content.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-pronunciation-assessment"
+  },
+  {
+    "id": "D1-429", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A help desk agent that resets passwords by calling an API is an example of agentic AI.",
+      "Reading the text of a scanned contract is a speech workload.",
+      "Drafting song lyrics is a generative AI workload."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: the agent decides to act and uses a tool to do it. No for the second: reading scanned text is OCR, a computer vision task. Yes for the third: writing new lyrics is content generation.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-430", "sub": "workload-scenarios", "diff": 2, "type": "match",
+    "q": "Match each scenario to the AI workload it represents. Each workload can be used once or not at all.",
+    "items": [
+      "Turn handwritten field notes into structured records",
+      "Draft a reply to a customer complaint",
+      "Recognize which products are missing from a shelf photo",
+      "Turn a podcast into searchable text"
+    ],
+    "targets": ["Speech", "Agentic AI", "Information extraction", "Computer vision", "Generative AI"],
+    "ans": [2, 4, 3, 0],
+    "exp": "Structured records from handwritten notes are information extraction, a drafted reply is generative AI, missing products in a photo are found with computer vision, and turning a podcast into text is speech. None of these scenarios needs an agent to take actions.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-431", "sub": "workload-scenarios", "diff": 3, "type": "mcq",
+    "q": "Which statement about combining AI workloads is correct?",
+    "opts": [
+      "Each application may use only one AI workload",
+      "Agents cannot use other AI services as tools",
+      "Many solutions chain several capabilities, such as speech to text, text analysis and generative AI",
+      "Computer vision cannot be combined with speech"
+    ],
+    "ans": 2,
+    "exp": "Real solutions often combine workloads, for example transcribing a call, analyzing its sentiment and drafting a follow-up email. Apps are not limited to one workload, agents can call AI services as tools, and vision and speech can be used together, as in a museum guide app.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-432", "sub": "workload-scenarios", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences by selecting the correct option for each blank.",
+    "tpl": "Spotting defects in photos of products is {0}. Writing a summary of a meeting transcript is {1}.",
+    "opts": [
+      ["computer vision", "speech synthesis", "text translation"],
+      ["generative AI or summarization", "optical character recognition", "object detection"]
+    ],
+    "ans": [0, 0],
+    "exp": "Analyzing product photos for defects is computer vision, and producing a summary of a transcript uses a summarization feature or a generative model. Speech synthesis creates audio, translation changes language, and OCR and object detection analyze images rather than summarize text.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-433", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "q": "What sentiment is most likely returned for the review 'The service was okay.'?",
+    "opts": ["Positive", "Neutral", "Negative", "Mixed"],
+    "ans": 1,
+    "exp": "'Okay' expresses neither clear satisfaction nor dissatisfaction, so the most likely label is neutral. Mixed is used when a text contains both clearly positive and clearly negative statements, which this short review does not.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview"
+  },
+  {
+    "id": "D1-434", "sub": "text-techniques", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Key phrase extraction returns the important words and phrases in a text.",
+      "PII detection can find credit card numbers.",
+      "Language detection requires audio input."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: key phrases are the main talking points. Yes for the second: credit card numbers are one of the PII categories. No for the third: language detection analyzes written text; spoken language identification is a Speech feature.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-435", "sub": "text-techniques", "diff": 1, "type": "match",
+    "q": "Match each business need to the text analysis technique. Each technique can be used once or not at all.",
+    "items": [
+      "Mask customer phone numbers in support tickets",
+      "Tag news articles with the people they mention",
+      "Tell whether social media posts are happy or angry"
+    ],
+    "targets": ["Sentiment analysis", "Speech synthesis", "PII detection", "Named entity recognition"],
+    "ans": [2, 3, 0],
+    "exp": "Masking phone numbers is PII detection, tagging people mentioned is named entity recognition, and judging happy or angry posts is sentiment analysis. Speech synthesis produces audio and does not analyze text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-436", "sub": "text-techniques", "diff": 3, "type": "multi",
+    "q": "Which TWO practices make text analysis results more reliable? Each correct answer presents a complete solution.",
+    "opts": [
+      "Send the text as images",
+      "Ignore any errors in the results",
+      "Pass the correct language hint, especially for short texts",
+      "Remove all punctuation from every document",
+      "Check confidence scores before acting on results"
+    ],
+    "ans": [2, 4],
+    "exp": "A language hint avoids misdetection of short texts, and confidence scores show which results to trust or review. Sending images, ignoring errors and stripping punctuation make results worse or hide problems.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/language-detection/overview"
+  },
+  {
+    "id": "D1-437", "sub": "speech-features", "diff": 1, "type": "mcq",
+    "q": "Which task is text to speech used for?",
+    "opts": ["Transcribing phone calls", "Detecting the language of an email", "Reading text from images", "Giving a virtual assistant a spoken voice"],
+    "ans": 3,
+    "exp": "Text to speech turns text into spoken audio, which gives an assistant its voice. Transcribing calls is speech to text, language detection analyzes text, and reading text from images is OCR.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech"
+  },
+  {
+    "id": "D1-438", "sub": "speech-features", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Speech to text can produce text in real time while someone is speaking.",
+      "Custom neural voice can be used without any approval or consent from the voice talent.",
+      "SSML can control how a specific word is pronounced."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: real-time recognition returns text as people speak. No for the second: custom neural voice is a Limited Access feature that requires approval and recorded consent. Yes for the third: SSML elements such as phoneme control pronunciation.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup"
+  },
+  {
+    "id": "D1-439", "sub": "speech-features", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about SSML.",
+    "tpl": "To make the voice read values such as dates correctly, use the SSML {0} element. To choose which voice speaks, use the {1} element.",
+    "opts": [
+      ["say-as", "break", "prosody"],
+      ["voice", "lang", "audio"]
+    ],
+    "ans": [0, 0],
+    "exp": "say-as tells the service how to interpret content such as dates, numbers and phone numbers, and voice selects the neural voice. break adds pauses, prosody changes rate and pitch, lang switches language, and audio inserts a recorded clip.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup"
+  },
+  {
+    "id": "D1-440", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "ctx": "A conference streams talks live. Attendees need English captions and, at the same time, French and Spanish text.",
+    "q": "Which Speech capability fits?",
+    "opts": [
+      "Text to speech only",
+      "Speech translation that recognizes English and adds French and Spanish as target languages",
+      "Batch transcription the next day",
+      "Image captioning"
+    ],
+    "ans": 1,
+    "exp": "Speech translation recognizes the English speech in real time and returns translations for several target languages at once. Text to speech produces audio, next-day batch transcription is too late for live captions, and image captioning describes pictures.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-translation"
+  },
+  {
+    "id": "D1-441", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
+    "q": "Which capability describes an image in a complete sentence?",
+    "opts": ["Optical character recognition", "Smart crops", "Image captioning", "Object detection"],
+    "ans": 2,
+    "exp": "Image captioning generates a natural-language sentence that describes the image. OCR reads text, smart crops suggests thumbnail regions, and object detection returns labels and boxes rather than a sentence.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D1-442", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about computer vision and image generation, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Face detection finds faces without identifying who the people are.",
+      "OCR returns bounding boxes around people in a photo.",
+      "Generated images can be misleading, so they should be reviewed before use."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: detection only locates faces; identification is a separate Limited Access capability. No for the second: OCR returns text and its position; people detection returns boxes around people. Yes for the third: generated images can contain errors or deceptive content.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-identity"
+  },
+  {
+    "id": "D1-443", "sub": "vision-imagegen", "diff": 3, "type": "match",
+    "q": "Match each quality-inspection requirement to the computer vision technique. Each technique can be used once or not at all.",
+    "items": [
+      "Find each scratch and where it is",
+      "Decide whether a product photo shows an acceptable or a defective item",
+      "Mark the exact pixels that belong to a scratch"
+    ],
+    "targets": ["Semantic segmentation", "Text to speech", "Object detection", "Image classification"],
+    "ans": [2, 3, 0],
+    "exp": "Locating each scratch with a box is object detection, labeling the whole photo as acceptable or defective is image classification, and outlining the exact scratch pixels is semantic segmentation. Text to speech is unrelated to visual inspection.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-444", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
+    "q": "Which technique captures what a speaker says in a recorded video?",
+    "opts": ["Transcription of the video's audio track", "OCR on the video frames", "Image tags", "Smart crops"],
+    "ans": 0,
+    "exp": "Spoken words are in the audio track, so transcription turns them into text. OCR on frames reads text shown on screen, image tags describe visual content, and smart crops suggests thumbnail areas.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-445", "sub": "extraction-techniques", "diff": 2, "type": "order",
+    "q": "Put the steps for extracting fields from a paper form in the correct order. Not every step is used.",
+    "items": [
+      "Map the text to the fields in the schema",
+      "Generate a new form",
+      "Scan or photograph the form",
+      "Have a person review low-confidence fields",
+      "Read the text and layout of the page"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "The paper form is first digitized, then its text and layout are read, then the content is mapped to schema fields, and finally uncertain values are reviewed by a person. Generating a new form creates content and is not part of extraction.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  }
+]

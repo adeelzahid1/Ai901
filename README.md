@@ -26,6 +26,8 @@ Domains, official sub-skills, study sections and per-section question targets li
 
 ## Question bank
 
+**1,065 original questions** across 14 study sections and all 29 official sub-skills (D1: 445, D2: 620). Mix: Basic 33%, Intermediate 49%, Advanced 18%; multiple choice 48%, Yes/No 14%, drop-down 13%, matching 11%, multi-select 10%, ordering 4%.
+
 - Questions are JSON files in `src/app/data/bank/` (`d1-core.json`, `d1-ext1.json`, ...), listed in
   `blueprint.json` under `bankFiles` and registered in `question-bank.ts`. Each file is a lazy chunk.
 - Types: `mcq`, `multi`, `yesno`, `order`, `dropdown`, `match` (see `src/app/data/schema.ts`).

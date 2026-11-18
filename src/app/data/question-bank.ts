@@ -21,6 +21,7 @@ const LOADERS: Record<string, BankLoader> = {
   'd1-ext11': () => import('./bank/d1-ext11.json').then((m) => m.default),
   'd1-ext12': () => import('./bank/d1-ext12.json').then((m) => m.default),
   'd1-ext13': () => import('./bank/d1-ext13.json').then((m) => m.default),
+  'd1-ext14': () => import('./bank/d1-ext14.json').then((m) => m.default),
   'd2-core': () => import('./bank/d2-core.json').then((m) => m.default),
   'd2-ext1': () => import('./bank/d2-ext1.json').then((m) => m.default),
   'd2-ext2': () => import('./bank/d2-ext2.json').then((m) => m.default),
@@ -40,6 +41,8 @@ const LOADERS: Record<string, BankLoader> = {
   'd2-ext16': () => import('./bank/d2-ext16.json').then((m) => m.default),
   'd2-ext17': () => import('./bank/d2-ext17.json').then((m) => m.default),
   'd2-ext18': () => import('./bank/d2-ext18.json').then((m) => m.default),
+  'd2-ext19': () => import('./bank/d2-ext19.json').then((m) => m.default),
+  'd2-ext20': () => import('./bank/d2-ext20.json').then((m) => m.default),
 };
 
 /** Loads the question bank one domain at a time and keeps it in signals. */

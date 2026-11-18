@@ -1,0 +1,327 @@
+[
+  {
+    "id": "D2-594", "sub": "text-app", "diff": 1, "type": "mcq",
+    "q": "Which client class and method detect the sentiment of text in Python?",
+    "opts": [
+      "SpeechRecognizer.recognize_once_async()",
+      "TextAnalyticsClient.analyze_sentiment()",
+      "ImageAnalysisClient.analyze()",
+      "AIProjectClient.agents.create_version()"
+    ],
+    "ans": 1,
+    "exp": "TextAnalyticsClient from azure-ai-textanalytics provides analyze_sentiment() for Azure Language sentiment analysis. The other methods recognize speech, analyze images and create agents.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/quickstart"
+  },
+  {
+    "id": "D2-595", "sub": "text-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about the Language SDK, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Opinion mining results include a target, such as 'battery', and the opinion about it.",
+      "recognize_entities() returns sentiment scores.",
+      "extract_key_phrases() returns a list of phrases for each document."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: opinion mining pairs targets with assessments and their sentiment. No for the second: entity recognition returns entities with categories and confidence, not sentiment. Yes for the third: each successful result has a key_phrases list.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview"
+  },
+  {
+    "id": "D2-596", "sub": "text-app", "diff": 3, "type": "dropdown",
+    "q": "Complete the Python code that stores masked notes and prints the type of each personal data item found.",
+    "tpl": "results = client.recognize_pii_entities(documents=notes)\nfor doc in results:\n    if not doc.is_error:\n        save(doc.{0})\n        for e in doc.entities:\n            print(e.{1})",
+    "opts": [
+      ["redacted_text", "sentiment", "key_phrases"],
+      ["category", "voice", "pixels"]
+    ],
+    "ans": [0, 0],
+    "exp": "Each PII result includes redacted_text, the text with personal data masked, and a list of entities whose category says what kind of data was found, such as PhoneNumber. sentiment and key_phrases belong to other features, and voice and pixels are not entity properties.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview"
+  },
+  {
+    "id": "D2-597", "sub": "spoken-prompts", "diff": 2, "type": "mcq",
+    "ctx": "An elder-care app lets people ask questions by voice and hear spoken answers. Users often speak slowly and pause, and they sometimes interrupt the reply.",
+    "q": "Which option gives the most natural spoken conversation with short delays?",
+    "opts": ["Batch transcription", "Image Analysis", "The Realtime API with a realtime model", "An embedding model"],
+    "ans": 2,
+    "exp": "The Realtime API streams audio both ways over a live connection, so the model can respond quickly and handle pauses and interruptions. Batch transcription is not live, Image Analysis works on pictures, and embedding models do not hold conversations.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/realtime-audio-quickstart"
+  },
+  {
+    "id": "D2-598", "sub": "spoken-prompts", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A spoken prompt is audio of a person asking a question or giving an instruction.",
+      "Only image models accept spoken prompts.",
+      "An app can show a text answer to a spoken question."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: that is what a spoken prompt is. No for the second: audio-capable chat and realtime models accept spoken prompts; image models do not. Yes for the third: the reply can be text only, or text and audio if requested.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-599", "sub": "spoken-prompts", "diff": 3, "type": "multi",
+    "q": "Which TWO checks should an app perform before it sends a user's recording to an audio-capable model? Each correct answer presents a complete solution.",
+    "opts": [
+      "Convert the recording into an image",
+      "Confirm that the audio is in a supported format, such as wav or mp3",
+      "Remove all instructions from the request",
+      "Make sure the user agreed to have their voice processed",
+      "Delete the model deployment"
+    ],
+    "ans": [1, 3],
+    "exp": "A supported format avoids failed requests, and user consent respects privacy, because voice recordings are personal data. Converting audio to an image, removing instructions and deleting the deployment would all break or weaken the feature.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-600", "sub": "speech-app", "diff": 1, "type": "mcq",
+    "q": "Which SpeechSynthesizer method speaks a plain text string aloud?",
+    "opts": ["speak_text_async()", "recognize_once_async()", "analyze_sentiment()", "detect_language()"],
+    "ans": 0,
+    "exp": "speak_text_async() synthesizes plain text with the configured voice; speak_ssml_async() is used for SSML. recognize_once_async() is a recognition method, and analyze_sentiment() and detect_language() belong to the Language SDK.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech"
+  },
+  {
+    "id": "D2-601", "sub": "speech-app", "diff": 2, "type": "match",
+    "q": "Match each goal to the Speech SDK class that achieves it. Each class can be used once or not at all.",
+    "items": [
+      "Turn speech from a microphone into text",
+      "Turn text into audio",
+      "Translate spoken English into German text"
+    ],
+    "targets": ["ImageAnalysisClient", "TranslationRecognizer", "SpeechRecognizer", "SpeechSynthesizer"],
+    "ans": [2, 3, 1],
+    "exp": "SpeechRecognizer transcribes speech, SpeechSynthesizer produces audio from text, and TranslationRecognizer recognizes speech and translates it. ImageAnalysisClient belongs to Azure Vision and has nothing to do with speech.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
+  },
+  {
+    "id": "D2-602", "sub": "speech-app", "diff": 3, "type": "order",
+    "q": "You must speak an SSML document and save the audio to a file. Put the steps in the correct order. Not every step is used.",
+    "items": [
+      "Call speak_ssml_async() with the SSML",
+      "Create a TextAnalyticsClient",
+      "Create the SpeechConfig and an AudioOutputConfig for the file",
+      "Check that the result reason is SynthesizingAudioCompleted",
+      "Create a SpeechSynthesizer with both configs"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "The configurations come first, the synthesizer is built from them, the SSML is spoken into the file, and the result reason confirms success. TextAnalyticsClient analyzes text and is not needed for speech synthesis.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup"
+  },
+  {
+    "id": "D2-603", "sub": "visual-input", "diff": 1, "type": "mcq",
+    "q": "In a Chat Completions message, which content part type carries an image?",
+    "opts": ["input_audio", "tool", "file_search", "image_url"],
+    "ans": 3,
+    "exp": "Images are sent as image_url parts, which hold a URL or a base64 data URL. input_audio is for audio, tool messages carry tool results, and file_search is an agent tool rather than a message content type.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-604", "sub": "visual-input", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about visual input, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A screenshot can be sent as a base64 data URL.",
+      "Vision-capable models can describe only photos of nature.",
+      "A prompt can ask the model to answer in JSON about what an image shows."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: local images are encoded as data URLs. No for the second: these models handle many kinds of images, including documents, charts and screenshots. Yes for the third: output format instructions, or structured outputs, apply to image questions too.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-605", "sub": "visual-input", "diff": 3, "type": "mcq",
+    "ctx": "An inspection app sends very high-resolution photos to a vision-capable model. Costs are high, but the app only needs a rough category for each photo.",
+    "q": "What should you change?",
+    "opts": [
+      "Send more images in each request",
+      "Increase the maximum output tokens",
+      "Use a reasoning model with high reasoning effort",
+      "Use the low image detail setting"
+    ],
+    "ans": 3,
+    "exp": "Low detail processes each image with a small, fixed number of tokens, which cuts cost when fine detail is not needed. More images, more output tokens and higher reasoning effort all increase token usage instead of reducing it.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-606", "sub": "image-generation", "diff": 2, "type": "mcq",
+    "q": "Which statement about editing images with gpt-image-1 is true?",
+    "opts": [
+      "You can give an existing image and a prompt, plus an optional mask, to change the image",
+      "It can only create images from scratch",
+      "It returns only text descriptions",
+      "It needs audio input"
+    ],
+    "ans": 0,
+    "exp": "gpt-image-1 supports edits: you provide the original image and a prompt, and optionally a mask that limits which area changes. It also creates images from text, it returns images rather than descriptions, and it does not use audio.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-607", "sub": "image-generation", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about generating images.",
+    "tpl": "To create a new image from text, call images.{0}(). The prompt should describe the subject and the {1}.",
+    "opts": [
+      ["generate", "analyze", "transcribe"],
+      ["style", "quota", "region"]
+    ],
+    "ans": [0, 0],
+    "exp": "images.generate() creates images from a prompt, and describing both the subject and the style gives the best results. analyze and transcribe are not image-generation methods, and quota and region are deployment settings, not prompt content.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e"
+  },
+  {
+    "id": "D2-608", "sub": "vision-app", "diff": 2, "type": "mcq",
+    "q": "For privacy reasons, a marketplace must flag product photos that show people before they are published. How can an app do this with Image Analysis?",
+    "opts": [
+      "Use only SMART_CROPS",
+      "Request the PEOPLE feature and flag photos in which people are detected",
+      "Use image generation",
+      "Use only OCR"
+    ],
+    "ans": 1,
+    "exp": "The PEOPLE feature returns detected people with bounding boxes and confidence, so the app can flag those photos for review or blurring. Smart crops, image generation and OCR do not tell you whether people appear in a photo.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-609", "sub": "vision-app", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about ImageAnalysisClient, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "It can authenticate with AzureKeyCredential or with a Microsoft Entra credential.",
+      "It creates new images.",
+      "You choose which visual features to request in each call."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: both key and Entra ID authentication are supported. No for the second: Image Analysis describes existing images; image generation is a different service. Yes for the third: the visual_features list decides what is analyzed and billed.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-610", "sub": "vision-app", "diff": 1, "type": "match",
+    "q": "Match each Image Analysis result property to what it contains. Each description can be used once or not at all.",
+    "items": ["caption.text", "read.blocks", "tags.list", "people.list"],
+    "targets": [
+      "Lines and words of text found in the image",
+      "A sentence that describes the image",
+      "Keywords with confidence scores",
+      "Bounding boxes around people",
+      "Newly generated images"
+    ],
+    "ans": [1, 0, 2, 3],
+    "exp": "caption.text holds the descriptive sentence, read.blocks holds the recognized text lines and words, tags.list holds keywords with confidence, and people.list holds boxes around people. Image Analysis never returns generated images.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
+  },
+  {
+    "id": "D2-611", "sub": "cu-documents", "diff": 1, "type": "mcq",
+    "q": "In Content Understanding, what is content extraction?",
+    "opts": [
+      "Deleting the file after analysis",
+      "Translating the file into audio",
+      "Turning the file into text and structure, such as paragraphs and tables, before fields are produced",
+      "Compressing the file"
+    ],
+    "ans": 2,
+    "exp": "Content extraction uses OCR and layout analysis, or transcription for audio, to turn the input into structured text, which field extraction then uses. It does not delete, translate into audio or compress files.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-612", "sub": "cu-documents", "diff": 3, "type": "match",
+    "q": "Match each field in an insurance claim analyzer to the method it should use. Each method can be used once or not at all.",
+    "items": [
+      "policy_number, exactly as printed on the form",
+      "risk_summary, a short description of the main risks",
+      "claim_type: Auto, Home or Travel"
+    ],
+    "targets": ["Classify", "Translate", "Extract", "Generate"],
+    "ans": [2, 3, 0],
+    "exp": "A printed policy number is extracted as it appears, a risk summary is generated from the content, and a fixed claim type is classified. Translate is not a Content Understanding field method.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-613", "sub": "cu-documents", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about document analysis, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Content Understanding can process scanned documents that contain handwriting.",
+      "In high-stakes processes, fields with low confidence should usually be reviewed by a person.",
+      "A document analyzer can return only one field."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: OCR reads handwriting as well as printed text. Yes for the second: confidence-based review keeps quality high where mistakes are costly. No for the third: a schema can define many fields, including arrays and objects.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-614", "sub": "cu-images", "diff": 2, "type": "mcq",
+    "q": "An insurer analyzes photos of storm damage and needs a field damage_severity with the value Minor, Moderate or Severe. Which method should the field use?",
+    "opts": ["Generate", "Extract", "Classify, with the three categories", "Translate"],
+    "ans": 2,
+    "exp": "Classify returns one value from a defined list, which guarantees that every photo is labeled Minor, Moderate or Severe. Generate gives free-form text, extract is for printed values in documents, and translate is not a field method.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-615", "sub": "cu-images", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentence about image analyzers.",
+    "tpl": "Image analyzers in Content Understanding fill their fields by using the {0} and {1} methods.",
+    "opts": [
+      ["generate", "extract", "delete"],
+      ["classify", "translate", "compress"]
+    ],
+    "ans": [0, 0],
+    "exp": "For images, fields are produced with generate, for free-form values, and classify, for values from a fixed list. Extract is supported only for documents, and delete, translate and compress are not field methods.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-616", "sub": "cu-audio-video", "diff": 2, "type": "multi",
+    "q": "Which TWO outputs can a call-center audio analyzer produce? Each correct answer presents a complete solution.",
+    "opts": [
+      "A product photo",
+      "A new voice recording",
+      "A transcript of the call",
+      "A spreadsheet macro",
+      "A generated summary of the call"
+    ],
+    "ans": [2, 4],
+    "exp": "Audio analysis first transcribes the call, and generative fields such as a summary, the sentiment or the topics discussed are then produced from that transcript. It extracts information and does not create product photos, new voice recordings or spreadsheet macros.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-617", "sub": "cu-audio-video", "diff": 1, "type": "mcq",
+    "q": "Which kind of Content Understanding analyzer processes MP4 files?",
+    "opts": ["A document analyzer", "A video analyzer", "An image analyzer", "Language detection"],
+    "ans": 1,
+    "exp": "MP4 is a video format, so it is processed by a video analyzer, which uses the frames and the audio track. Document and image analyzers handle other file types, and language detection is an Azure Language feature for text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-618", "sub": "cu-app", "diff": 2, "type": "mcq",
+    "q": "Which statement about Content Understanding and retrieval augmented generation (RAG) is true?",
+    "opts": [
+      "It replaces the need for any search index",
+      "It works only with audio files",
+      "It cannot be used in RAG solutions",
+      "Its Markdown output and figure descriptions can be indexed so RAG apps can retrieve them"
+    ],
+    "ans": 3,
+    "exp": "Content Understanding turns documents, including charts and figures, into Markdown that can be chunked, embedded and indexed, which improves what a RAG app can retrieve. It still relies on a search index for retrieval, and it handles documents, images, audio and video.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-619", "sub": "cu-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about building apps with Content Understanding, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Production apps should prefer the generally available API version.",
+      "Analyzing a file is a long-running operation.",
+      "Results are always correct, so human review is never needed."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: GA versions are recommended for production, and previews for evaluation. Yes for the second: the app starts the analysis and polls for the result. No for the third: results include confidence scores precisely because some values need human review.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D2-620", "sub": "cu-app", "diff": 3, "type": "order",
+    "q": "Put the steps for building a claims-processing app with Content Understanding in the correct order. Not every step is used.",
+    "items": [
+      "Test the analyzer on sample claims and refine the schema",
+      "Train a custom speech model",
+      "Set up a Foundry resource with the required model deployments",
+      "Integrate the analyzer into the app with polling and confidence-based review",
+      "Create the claims analyzer with fields and descriptions"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "The Foundry resource and model deployments come first, then the analyzer's schema is defined, tested on samples and refined, and finally the app calls it, polls for results and routes low-confidence fields to reviewers. A custom speech model is not needed for document claims.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  }
+]

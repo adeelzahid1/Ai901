@@ -1,0 +1,309 @@
+[
+  {
+    "id": "D2-568", "sub": "prompts", "diff": 1, "type": "mcq",
+    "q": "Which part of a prompt tells the model how to structure its answer, for example as a table?",
+    "opts": ["The output format instruction", "The deployment name", "The API version", "The Azure region"],
+    "ans": 0,
+    "exp": "An output format instruction, such as 'Return a table with these columns', defines the structure of the answer. The deployment name, API version and region are technical settings that do not shape the content of the response.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-569", "sub": "prompts", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A system message can tell the model what it must not do.",
+      "Prompts have no effect on the safety of responses.",
+      "Including relevant context reduces the chance of made-up answers."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: restrictions are a normal part of system messages. No for the second: safety instructions in the system message are one of the mitigation layers, alongside content filters. Yes for the third: grounding the model in relevant facts reduces hallucinations.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/safety-system-message-templates"
+  },
+  {
+    "id": "D2-570", "sub": "prompts", "diff": 2, "type": "match",
+    "q": "Match each goal to the instruction that achieves it. Each instruction can be used once or not at all.",
+    "items": ["Keep answers short", "Stay on the company's products", "Avoid guessing", "Use a friendly tone"],
+    "targets": [
+      "'Write in a warm, friendly tone.'",
+      "'Use deployment eastus.'",
+      "'Answer in at most three sentences.'",
+      "'If you are not sure, say that you don't know.'",
+      "'Only answer questions about Contoso products.'"
+    ],
+    "ans": [2, 4, 3, 0],
+    "exp": "A sentence limit keeps answers short, a scope rule keeps the assistant on topic, permission to say 'I don't know' discourages guessing, and a tone instruction sets the style. Deployment and region settings are configured in code and do not belong in a prompt.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+  },
+  {
+    "id": "D2-571", "sub": "prompts", "diff": 3, "type": "dropdown",
+    "q": "Complete the sentence about handling untrusted text in prompts.",
+    "tpl": "When a prompt includes untrusted text from users or documents, wrap it in {0} and tell the model to treat it as {1}.",
+    "opts": [
+      ["delimiters", "emojis", "capital letters"],
+      ["data", "instructions", "code to run"]
+    ],
+    "ans": [0, 0],
+    "exp": "Delimiters mark exactly where untrusted content begins and ends, and telling the model to treat it as data, not instructions, reduces prompt injection risk. Emojis and capital letters do not separate content, and treating the text as instructions or code is exactly what attackers want.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+  },
+  {
+    "id": "D2-572", "sub": "prompts", "diff": 2, "type": "mcq",
+    "q": "Which change most improves the consistency of labels returned by a classification prompt?",
+    "opts": [
+      "Raise the temperature",
+      "Remove all examples",
+      "List the exact allowed labels and tell the model to return only one of them",
+      "Add unrelated text to the system message"
+    ],
+    "ans": 2,
+    "exp": "Naming the allowed labels and requiring exactly one keeps outputs within the expected set, which makes them easy for code to use. A higher temperature adds randomness, removing examples removes guidance, and unrelated text distracts the model.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-573", "sub": "portal-deploy", "diff": 1, "type": "mcq",
+    "q": "A deployment you created does not appear in the chat playground. What should you check first?",
+    "opts": ["The portal's color theme", "The browser's font size", "Your computer's time zone", "That you opened the correct project"],
+    "ans": 3,
+    "exp": "Deployments belong to a resource and are used through its projects, so the most common reason is being in a different project. Theme, font size and time zone do not affect which deployments are listed.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/create-projects"
+  },
+  {
+    "id": "D2-574", "sub": "portal-deploy", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about deployments, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Each deployment has its own name within the resource.",
+      "You can deploy different models in the same project.",
+      "Deploying a model automatically creates an agent."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: the deployment name identifies it when apps call it. Yes for the second: a project can use several models, for example a chat model and an embedding model. No for the third: agents are created separately and then use a deployment.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+  },
+  {
+    "id": "D2-575", "sub": "portal-deploy", "diff": 2, "type": "mcq",
+    "q": "A legal team wants one deployment to block violent content at a stricter level than the default. What should you do?",
+    "opts": [
+      "Lower the temperature",
+      "Create a custom content filter configuration with a stricter threshold and assign it to the deployment",
+      "Move the resource to another region",
+      "Use a larger model"
+    ],
+    "ans": 1,
+    "exp": "Content filter configurations set the severity threshold per harm category and are assigned to deployments, so a stricter configuration can apply to just this one. Temperature, region and model size do not change what the safety system blocks.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+  },
+  {
+    "id": "D2-576", "sub": "portal-deploy", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentence about working in the Foundry portal.",
+    "tpl": "You try out a deployment in the {0} and measure its quality with {1}.",
+    "opts": [
+      ["chat playground", "activity log", "billing page"],
+      ["evaluations", "Azure Policy", "DNS records"]
+    ],
+    "ans": [0, 0],
+    "exp": "The chat playground is for quick manual tests, and evaluations measure quality on a test dataset. The activity log and billing page do not send prompts, and Azure Policy and DNS records are governance and networking features.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+  },
+  {
+    "id": "D2-577", "sub": "portal-deploy", "diff": 3, "type": "multi",
+    "q": "Which TWO are good reasons to run evaluations before you release a generative AI app? Each correct answer presents a complete solution.",
+    "opts": [
+      "To increase the deployment quota automatically",
+      "To measure quality on representative test data",
+      "To change the model's weights",
+      "To choose the Azure region",
+      "To find safety risks in the responses"
+    ],
+    "ans": [1, 4],
+    "exp": "Evaluations score quality, such as relevance and groundedness, and safety, such as harmful content, before real users are affected. They do not change quota, weights or regions.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+  },
+  {
+    "id": "D2-578", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
+    "q": "Which object do you create first in a Python chat client that uses the Foundry SDK?",
+    "opts": ["SpeechSynthesizer", "ImageAnalysisClient", "AIProjectClient", "TextAnalyticsClient"],
+    "ans": 2,
+    "exp": "AIProjectClient connects to the Foundry project, and from it you get the OpenAI-compatible client that calls models. The other classes belong to Speech, Vision and Language SDKs and are not the starting point of a chat client.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-579", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about the Responses and Chat Completions APIs, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "The Responses API can continue a conversation by using previous_response_id.",
+      "Chat Completions stores the conversation on the service automatically.",
+      "Both APIs return information about token usage."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: previous_response_id links a new request to earlier context. No for the second: Chat Completions is stateless, so the app sends the history itself. Yes for the third: both return a usage object with token counts.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+  },
+  {
+    "id": "D2-580", "sub": "sdk-chat-client", "diff": 3, "type": "match",
+    "q": "Match each task in a chat client to the code that performs it. Each line of code can be used once or not at all.",
+    "items": ["Connect to the project", "Get a client for calling models", "Send the prompt", "Show the reply"],
+    "targets": [
+      "print(response.output_text)",
+      "openai.responses.create(model=..., input=...)",
+      "project.get_openai_client()",
+      "AIProjectClient(endpoint=..., credential=DefaultAzureCredential())",
+      "speechsdk.SpeechConfig()"
+    ],
+    "ans": [3, 2, 1, 0],
+    "exp": "AIProjectClient with a credential connects to the project, get_openai_client() returns the client for model calls, responses.create() sends the prompt, and printing output_text shows the reply. SpeechConfig belongs to the Speech SDK and is not part of a text chat client.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-581", "sub": "sdk-chat-client", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code of a minimal chat client.",
+    "tpl": "project = AIProjectClient(\n    endpoint=os.environ[\"PROJECT_ENDPOINT\"],\n    credential={0}(),\n)\nopenai = project.get_openai_client()\nresponse = openai.responses.{1}(model=\"chat-prod\", input=\"Hello\")",
+    "opts": [
+      ["DefaultAzureCredential", "AzureKeyCredential", "SpeechConfig"],
+      ["create", "generate", "analyze"]
+    ],
+    "ans": [0, 0],
+    "exp": "DefaultAzureCredential takes no arguments and finds a Microsoft Entra identity, and responses.create() sends the input to the deployment. AzureKeyCredential needs a key, SpeechConfig is for speech, and generate and analyze are not methods of the Responses API.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-582", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
+    "q": "A user pastes a document so long that the request exceeds the model's context window. How should the chat client handle this?",
+    "opts": [
+      "Retry the same request forever",
+      "Raise the temperature",
+      "Change the deployment name",
+      "Catch the error and ask the user to shorten the input, or trim or summarize the text before sending it"
+    ],
+    "ans": 3,
+    "exp": "Requests that exceed the context window fail, so the client should handle the error and reduce the input, for example by asking the user, trimming, chunking or summarizing. Retrying the same request will fail again, and temperature or deployment names do not change the limit.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+  },
+  {
+    "id": "D2-583", "sub": "sdk-chat-client", "diff": 2, "type": "multi",
+    "q": "Which TWO values do you typically pass to responses.create()? Each correct answer presents part of the solution.",
+    "opts": ["region", "tenant_id", "model, set to the deployment name", "input, set to the prompt or messages", "quota"],
+    "ans": [2, 3],
+    "exp": "A Responses API call needs the model, which is your deployment name, and the input to respond to; optional settings such as instructions can be added. Region, tenant and quota are not request parameters.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+  },
+  {
+    "id": "D2-584", "sub": "sdk-chat-client", "diff": 3, "type": "mcq",
+    "q": "A chat client in production occasionally receives 500 or 503 server errors. What should it do?",
+    "opts": [
+      "Retry these transient errors with backoff, and show a friendly message if they continue",
+      "Delete the deployment",
+      "Turn off logging",
+      "Tell users to keep refreshing the page"
+    ],
+    "ans": 0,
+    "exp": "Occasional server errors are usually transient, so retries with backoff often succeed, and a clear message helps users if the problem persists. Deleting the deployment or turning off logging makes things worse, and endless refreshing adds load without fixing anything.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+  },
+  {
+    "id": "D2-585", "sub": "agent-portal", "diff": 1, "type": "mcq",
+    "q": "What must you add so that an agent can search documents that you upload?",
+    "opts": ["A larger font", "A new Azure region", "The file search tool", "A stop sequence"],
+    "ans": 2,
+    "exp": "The file search tool indexes uploaded documents in a vector store and lets the agent retrieve relevant passages. Fonts, regions and stop sequences have nothing to do with searching documents.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-586", "sub": "agent-portal", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about agents, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "An agent can combine knowledge tools and action tools.",
+      "An agent without tools can still follow its instructions in a chat.",
+      "Adding more tools always makes an agent more accurate."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: for example, file search for answers and function calling for actions. Yes for the second: the model and instructions alone support conversations. No for the third: unnecessary tools can confuse tool selection, so add only what the agent needs.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-587", "sub": "agent-portal", "diff": 1, "type": "match",
+    "q": "Match each agent need to the tool that provides it. Each tool can be used once or not at all.",
+    "items": [
+      "Run calculations on numbers in an uploaded file",
+      "Answer questions from a product manual",
+      "Check live stock levels in an inventory API"
+    ],
+    "targets": ["Image generation", "An OpenAPI tool or a function", "Code interpreter", "File search"],
+    "ans": [2, 3, 1],
+    "exp": "Calculations on file data need code interpreter, answers from a manual need file search, and live stock levels need a call to the inventory API through an OpenAPI tool or function. Image generation creates pictures and fits none of these needs.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-588", "sub": "agent-portal", "diff": 3, "type": "mcq",
+    "ctx": "An agent has a send_email function. When users phrase requests vaguely, it sometimes sends emails to the wrong people.",
+    "q": "What is the best change?",
+    "opts": [
+      "Remove the agent's instructions",
+      "Raise the temperature",
+      "Give the agent more tools",
+      "Require the agent to confirm the recipient with the user before it calls send_email"
+    ],
+    "ans": 3,
+    "exp": "A confirmation step before a sensitive action, stated in the instructions or enforced as an approval, prevents mistakes that are hard to undo. Removing instructions, adding randomness or adding unrelated tools would make wrong emails more likely.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-589", "sub": "agent-client", "diff": 1, "type": "mcq",
+    "q": "Which call sends a user's message to an agent from a Python client?",
+    "opts": ["project.deployments.list()", "openai.responses.create()", "speechsdk.SpeechSynthesizer()", "client.analyze()"],
+    "ans": 1,
+    "exp": "With a client bound to the agent, responses.create() sends the user's input and returns the agent's answer. Listing deployments, creating a speech synthesizer and calling Image Analysis do not talk to an agent.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-590", "sub": "agent-client", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about agent clients, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A client app can create a conversation for each chat session.",
+      "Agents can be used only from the Foundry portal.",
+      "The client reads the agent's reply from the response object."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: a conversation per session keeps each chat's history separate. No for the second: apps call agents through SDKs or the REST API. Yes for the third: the reply text is in the response's output_text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-591", "sub": "agent-client", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that starts a conversation with the helpdesk agent and sends the first message.",
+    "tpl": "openai = project.get_openai_client(agent_name=\"helpdesk\")\nconv = openai.conversations.{0}()\nresponse = openai.responses.create(conversation=conv.{1}, input=\"My laptop will not start.\")",
+    "opts": [
+      ["create", "delete", "list"],
+      ["id", "name", "text"]
+    ],
+    "ans": [0, 0],
+    "exp": "conversations.create() starts a new conversation, and its id is passed to responses.create() so the message joins that conversation. delete removes a conversation, list is not used to start one, and name and text are not the conversation identifier.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-592", "sub": "agent-client", "diff": 3, "type": "multi",
+    "q": "Which TWO responsibilities belong to the client app rather than to the agent's definition? Each correct answer presents a complete solution.",
+    "opts": [
+      "The agent's instructions",
+      "The agent's tools",
+      "The agent's model",
+      "Keeping track of which conversation belongs to which user",
+      "Showing the agent's reply in the user interface"
+    ],
+    "ans": [3, 4],
+    "exp": "The client manages users, their conversation IDs and how replies are displayed. Instructions, tools and the model are part of the agent definition stored in Foundry and shared by every client.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-593", "sub": "agent-client", "diff": 2, "type": "order",
+    "q": "Put the steps of a script that creates an agent and asks it one question in the correct order. Not every step is used.",
+    "items": [
+      "Call responses.create() and print output_text",
+      "Upload the model weights",
+      "Create the project client",
+      "Get an OpenAI client that is bound to the agent",
+      "Create the agent version with a model and instructions"
+    ],
+    "ans": [2, 4, 3, 0],
+    "exp": "The script connects to the project, creates the agent version, gets a client bound to that agent and then sends the question. Models run in Foundry, so there are no weights to upload.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  }
+]
