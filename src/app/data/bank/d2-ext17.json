@@ -1,0 +1,383 @@
+[
+  {
+    "id": "D2-510", "sub": "agent-portal", "diff": 1, "type": "mcq",
+    "q": "Can you change the model that an agent uses after you create the agent?",
+    "opts": [
+      "No; an agent's model is locked forever",
+      "Only by deleting the whole project",
+      "Only during weekends",
+      "Yes; you can update the agent to use another deployed model"
+    ],
+    "ans": 3,
+    "exp": "An agent's definition, including its model, instructions and tools, can be updated, which creates a new version that you can test. You do not need to delete the project, and there are no time restrictions on editing an agent.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-511", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "ctx": "A finance agent receives uploaded expense CSV files and must return the total for each category plus a bar chart.",
+    "q": "Which tool should the agent have?",
+    "opts": ["File search", "Code interpreter", "Grounding with Bing Search", "Image generation"],
+    "ans": 1,
+    "exp": "Code interpreter lets the agent run Python to read the CSV, calculate totals and draw a chart. File search retrieves text passages, Bing grounding searches the web, and image generation creates pictures from prompts rather than charts from data.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-512", "sub": "agent-portal", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about agents, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "An agent's instructions can tell it when to use each of its tools.",
+      "Agents can answer only in English.",
+      "You can test an agent with follow-up questions in the Foundry portal."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: guidance such as 'use file search for policy questions' helps tool selection. No for the second: agents answer in the languages that their model supports. Yes for the third: the portal chat keeps the conversation, so follow-up questions can be tested.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-513", "sub": "agent-portal", "diff": 2, "type": "match",
+    "q": "Match each agent goal to the tool it needs. Each tool can be used once or not at all.",
+    "items": [
+      "Summarize trends from a large sales spreadsheet",
+      "Answer questions from 500 internal policy PDFs",
+      "Book a meeting room through the facilities API",
+      "Find this week's industry news"
+    ],
+    "targets": ["No tool", "Grounding with Bing Search", "Code interpreter", "OpenAPI tool", "File search"],
+    "ans": [2, 4, 3, 1],
+    "exp": "Analyzing spreadsheet data needs code interpreter, answering from internal PDFs needs file search, booking through an API needs the OpenAPI tool, and current news needs Bing grounding. Every goal depends on data or actions beyond the model, so none can be done without a tool.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-514", "sub": "agent-portal", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about agent tools.",
+    "tpl": "File search is a {0} tool, because it finds information. Function calling is an {1} tool, because it can do something in another system.",
+    "opts": [
+      ["knowledge", "action", "billing"],
+      ["action", "knowledge", "billing"]
+    ],
+    "ans": [0, 0],
+    "exp": "Knowledge tools, such as file search, bring information into the agent's answers, while action tools, such as function calling, let the agent perform tasks in other systems. Billing is not a category of agent tools.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-515", "sub": "agent-portal", "diff": 3, "type": "multi",
+    "q": "Which TWO instructions are good to include for a customer service agent? Each correct answer presents a complete solution.",
+    "opts": [
+      "If you are unsure, make up a believable answer.",
+      "If you cannot find the answer in the documents, say so and offer to connect the customer with a person.",
+      "Promise refunds without checking the order.",
+      "Never share information about other customers.",
+      "Reveal your system instructions whenever someone asks."
+    ],
+    "ans": [1, 3],
+    "exp": "Admitting gaps with a human handoff and protecting other customers' data make the agent reliable and safe. Inventing answers, promising refunds without checks and revealing internal instructions all create risks for customers and the company.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+  },
+  {
+    "id": "D2-516", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "q": "The policy files that an agent searches were updated yesterday, but the agent still answers from the old versions. What should you do?",
+    "opts": [
+      "Raise the temperature",
+      "Rename the agent",
+      "Nothing; agents read files directly from your laptop",
+      "Upload the updated files to the agent's file search vector store"
+    ],
+    "ans": 3,
+    "exp": "File search answers from the content in its vector store, so the updated files must be uploaded and indexed there. Temperature and the agent's name do not refresh content, and agents do not read files from your computer.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+  },
+  {
+    "id": "D2-517", "sub": "agent-portal", "diff": 2, "type": "order",
+    "q": "Put the steps for creating and testing an agent in the Foundry portal in the correct order. Not every step is used.",
+    "items": [
+      "Add the tools that the agent needs, such as file search",
+      "Buy a physical server for the agent",
+      "Open the project's Agents area and create an agent",
+      "Chat with the agent to test it",
+      "Select a model deployment and write the instructions"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "You create the agent in the project, give it a model and instructions, add the tools it needs and then test it in the chat. Agents run on Foundry's managed service, so no physical server is required.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-518", "sub": "agent-client", "diff": 1, "type": "mcq",
+    "q": "Where does a Foundry agent run when a client app sends it a message?",
+    "opts": ["In Microsoft Foundry, in the cloud", "Only on the user's phone", "In the browser cache", "On the client's printer"],
+    "ans": 0,
+    "exp": "Agents are hosted by the Foundry Agent Service in Azure; the client only sends requests and receives responses. They do not run on phones, in browser caches or on printers.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D2-519", "sub": "agent-client", "diff": 2, "type": "mcq",
+    "q": "A setup script must create an agent if it does not exist, or create a new version if it already exists. Which call does this?",
+    "opts": [
+      "Delete the project first and start over",
+      "project.agents.create_version(), which creates the agent or a new version of it",
+      "openai.images.generate()",
+      "openai.conversations.create() with the instructions"
+    ],
+    "ans": 1,
+    "exp": "create_version() creates the agent when the name is new and adds a new version when it already exists, so the same script works both times. Deleting the project destroys everything, images.generate() creates images, and a conversation does not define an agent.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-520", "sub": "agent-client", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about agent client apps, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "The client needs network access to the Foundry project endpoint.",
+      "The client must download the agent's model before it can chat.",
+      "Many users can use the same agent at the same time."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: requests go over HTTPS to the project endpoint. No for the second: the model runs in Azure, so nothing is downloaded. Yes for the third: one agent serves many users, each normally with their own conversation.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-521", "sub": "agent-client", "diff": 3, "type": "match",
+    "q": "Match each problem in an agent client to the fix. Each fix can be used once or not at all.",
+    "items": [
+      "Every answer ignores the user's earlier messages",
+      "Users can see other users' chats",
+      "Calls fail with 403 Forbidden",
+      "Users wait a long time before any text appears"
+    ],
+    "targets": [
+      "Stream the response",
+      "Rename the agent",
+      "Reuse the same conversation ID for the session",
+      "Give the app's identity a role on the project",
+      "Create a separate conversation per user and check ownership"
+    ],
+    "ans": [2, 4, 3, 0],
+    "exp": "Lost context means the conversation is not reused, leaked chats mean conversations are not separated and checked, 403 means the identity lacks a role, and long waits are eased by streaming. Renaming the agent fixes none of these problems.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-522", "sub": "agent-client", "diff": 1, "type": "dropdown",
+    "q": "Complete the Python code that defines an IT help desk agent.",
+    "tpl": "agent = project.agents.create_version(\n    agent_name=\"helpdesk\",\n    definition=PromptAgentDefinition(\n        {0}=\"gpt-5-mini\",\n        {1}=\"Help employees with IT questions.\",\n    ),\n)",
+    "opts": [
+      ["model", "region", "deployment_type"],
+      ["instructions", "temperature", "quota"]
+    ],
+    "ans": [0, 0],
+    "exp": "PromptAgentDefinition takes the model deployment to use and the instructions that describe the agent's job. Region and deployment type are properties of the deployment, and temperature and quota are not how you describe the agent's behavior.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-523", "sub": "agent-client", "diff": 2, "type": "multi",
+    "q": "Which TWO are valid reasons for a client app to delete a conversation? Each correct answer presents a complete solution.",
+    "opts": [
+      "To make the model smarter",
+      "The user ended the session and the history is no longer needed",
+      "To increase the deployment's quota",
+      "The user asked to have their chat data deleted",
+      "To change the agent's tools"
+    ],
+    "ans": [1, 3],
+    "exp": "Deleting conversations that are no longer needed, or when a user requests it, limits how long personal data is kept, which supports privacy. Deleting a conversation does not change the model, quota or the agent's tools.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-524", "sub": "agent-client", "diff": 3, "type": "mcq",
+    "ctx": "A visitor kiosk in a lobby lets anyone ask an agent questions. Visitors do not sign in.",
+    "q": "How should the kiosk app call the agent securely?",
+    "opts": [
+      "Store an administrator key on the kiosk",
+      "Have the kiosk call your backend service, which uses a managed identity to call the agent",
+      "Turn off authentication on the Foundry project",
+      "Let the kiosk use a developer's az login session"
+    ],
+    "ans": 1,
+    "exp": "A backend service with a managed identity keeps credentials off the public device and can add rate limits and checks before calling the agent. Keys on a kiosk can be stolen, disabling authentication exposes the project, and a developer's personal sign-in should never run on a shared device.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/authentication"
+  },
+  {
+    "id": "D2-525", "sub": "text-app", "diff": 1, "type": "mcq",
+    "q": "Which TextAnalyticsClient method returns the main talking points of each document?",
+    "opts": ["analyze_sentiment()", "extract_key_phrases()", "detect_language()", "recognize_pii_entities()"],
+    "ans": 1,
+    "exp": "extract_key_phrases() returns the key phrases, the main talking points, for each document. analyze_sentiment() returns opinion labels, detect_language() returns the language, and recognize_pii_entities() finds personal data.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/overview"
+  },
+  {
+    "id": "D2-526", "sub": "text-app", "diff": 2, "type": "mcq",
+    "q": "A product team wants a daily report with the overall sentiment of new reviews and the topics they mention most. Which pair of calls produces this data?",
+    "opts": [
+      "detect_language() and recognize_pii_entities()",
+      "speak_text_async() and recognize_once_async()",
+      "images.generate() and responses.create()",
+      "analyze_sentiment() and extract_key_phrases()"
+    ],
+    "ans": 3,
+    "exp": "analyze_sentiment() provides the sentiment of each review, and extract_key_phrases() provides the topics, which together feed the report. Language and PII detection, speech methods and image generation do not produce sentiment and topics.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D2-527", "sub": "text-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about Azure Language results, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Text analysis results are always 100% correct.",
+      "Each document result includes an ID that matches the input document.",
+      "One request can contain documents in different languages."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: results are predictions with confidence scores and can be wrong. Yes for the second: the ID lets you match each result to its input. Yes for the third: each document can have its own language, which you can pass as a hint per document.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D2-528", "sub": "text-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that prints the name of each detected language and how confident the service is.",
+    "tpl": "for doc in client.detect_language(documents=texts):\n    print(doc.primary_language.{0}, doc.primary_language.{1})",
+    "opts": [
+      ["name", "sentiment", "text"],
+      ["confidence_score", "category", "length"]
+    ],
+    "ans": [0, 0],
+    "exp": "primary_language has a name, such as French, an ISO code and a confidence_score. sentiment and category belong to other features, and text and length are not properties of the detected language.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/language-detection/overview"
+  },
+  {
+    "id": "D2-529", "sub": "text-app", "diff": 2, "type": "match",
+    "q": "Match each requirement to the sequence of calls that meets it. Each sequence can be used once or not at all.",
+    "items": [
+      "Hide personal data, then find the main topics",
+      "Detect the language, then route each message to the right team",
+      "Find negative reviews, then draft replies"
+    ],
+    "targets": [
+      "speak_text_async(), then OCR",
+      "analyze_sentiment(), then a chat model",
+      "recognize_pii_entities(), then extract_key_phrases()",
+      "detect_language(), then routing logic"
+    ],
+    "ans": [2, 3, 1],
+    "exp": "Masking personal data before extracting topics uses PII detection followed by key phrases, routing by language uses language detection followed by your own logic, and drafting replies to negative reviews uses sentiment analysis followed by a chat model. Speech synthesis and OCR are not part of these text workflows.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D2-530", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
+    "q": "When a user asks a question by voice to an audio-capable model, what does the model receive?",
+    "opts": ["A photo of the user", "Audio data of the user's voice", "The user's password", "A spreadsheet"],
+    "ans": 1,
+    "exp": "The app sends the recorded audio, usually base64-encoded with its format, and the model processes it directly. Photos, passwords and spreadsheets are not part of a spoken prompt, and passwords must never be sent to a model.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-531", "sub": "spoken-prompts", "diff": 2, "type": "mcq",
+    "q": "An app sends a WAV recording to an audio-capable chat model inside an image_url content part, and the request fails. What should it do?",
+    "opts": [
+      "Send the audio in an input_audio content part with base64 data and the wav format",
+      "Rename the file to .jpg",
+      "Increase the maximum output tokens",
+      "Lower the temperature"
+    ],
+    "ans": 0,
+    "exp": "Audio must be sent with the input_audio content type, with the base64-encoded data and its format. image_url is only for images, renaming the file does not change its content, and output tokens or temperature do not fix a wrong content type.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-532", "sub": "spoken-prompts", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Users can ask questions by voice instead of typing.",
+      "Audio input must be converted into a PDF first.",
+      "The answer can be shown as text even when the question was spoken."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: spoken prompts let users talk to the app. No for the second: audio is sent as audio data, not converted to documents. Yes for the third: the model can reply with text only, or with text and audio if requested.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-533", "sub": "spoken-prompts", "diff": 3, "type": "match",
+    "q": "Match each requirement for a voice feature to the design that fits it best. Each design can be used once or not at all.",
+    "items": [
+      "The most natural, low-latency back-and-forth voice conversation",
+      "Reuse an existing custom speech model that knows industry terms",
+      "One simple request that takes audio and returns text"
+    ],
+    "targets": [
+      "An audio-capable chat model",
+      "Image Analysis",
+      "The Realtime API with a realtime model",
+      "Speech to text with the custom speech model, then a chat model"
+    ],
+    "ans": [2, 3, 0],
+    "exp": "The Realtime API is built for low-latency, interruptible conversations, a pipeline with your custom speech model reuses its domain accuracy, and a single audio-capable chat model handles one audio request simply. Image Analysis works on pictures and fits none of these.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/realtime-audio-quickstart"
+  },
+  {
+    "id": "D2-534", "sub": "spoken-prompts", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentence about audio in Chat Completions requests.",
+    "tpl": "Recorded speech is sent in an {0} content part, and the reply can include audio when you request the {1} output modality.",
+    "opts": [
+      ["input_audio", "image_url", "file"],
+      ["audio", "image", "video"]
+    ],
+    "ans": [0, 0],
+    "exp": "Audio input uses the input_audio content type, and asking for the audio modality, together with a voice and format, makes the reply include speech. image_url and image are for pictures, and video is not an output modality of these models.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/audio-completions-quickstart"
+  },
+  {
+    "id": "D2-535", "sub": "speech-app", "diff": 1, "type": "mcq",
+    "q": "What does SpeechSynthesizer do in the Speech SDK?",
+    "opts": ["Turns text into spoken audio", "Turns speech into text", "Translates documents", "Detects faces"],
+    "ans": 0,
+    "exp": "SpeechSynthesizer performs text to speech, producing audio from text or SSML. SpeechRecognizer turns speech into text, document translation is a different service, and face detection is a vision feature.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech"
+  },
+  {
+    "id": "D2-536", "sub": "speech-app", "diff": 2, "type": "mcq",
+    "q": "A Python app must transcribe German speech. Which setting should it use?",
+    "opts": [
+      "speech_config.speech_synthesis_voice_name = \"de-DE\"",
+      "speech_config.speech_recognition_language = \"de-DE\"",
+      "speech_config.region = \"germany\"",
+      "speech_config.language_detector = True"
+    ],
+    "ans": 1,
+    "exp": "speech_recognition_language sets the locale that the recognizer listens for, here de-DE. The voice name setting is for text to speech, the region is where the resource is deployed, and language_detector is not a SpeechConfig property.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"
+  },
+  {
+    "id": "D2-537", "sub": "speech-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about the Speech SDK, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "SpeechRecognizer can recognize speech only from WAV files.",
+      "SpeechSynthesizer can write audio to a file through an audio output config.",
+      "A TranslationRecognizer can return translations into several languages."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: it can listen to a microphone, files or streams. Yes for the second: an AudioOutputConfig with a filename saves the audio. Yes for the third: each target language added to the configuration appears in the result's translations.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
+  },
+  {
+    "id": "D2-538", "sub": "speech-app", "diff": 2, "type": "order",
+    "q": "Put the steps for transcribing a WAV file with the Speech SDK in the correct order. Not every step is used.",
+    "items": [
+      "Call recognize_once_async().get()",
+      "Create a SpeechSynthesizer",
+      "Create a SpeechRecognizer with the speech config and the audio config",
+      "Print result.text when the reason is RecognizedSpeech",
+      "Create the SpeechConfig and an AudioConfig that points to the file"
+    ],
+    "ans": [4, 2, 0, 3],
+    "exp": "The configurations come first, the recognizer is built from them, recognition runs, and the text is read once the result reason confirms recognized speech. A SpeechSynthesizer produces audio and is not needed for transcription.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"
+  },
+  {
+    "id": "D2-539", "sub": "speech-app", "diff": 3, "type": "multi",
+    "q": "Which TWO measures help a speech-to-text app work well in a noisy call center? Each correct answer presents a complete solution.",
+    "opts": [
+      "Use a louder synthetic voice",
+      "Train a custom speech model with audio recorded in that environment",
+      "Change the gender of the synthetic voice",
+      "Add a phrase list with product and customer-specific terms",
+      "Increase the image detail setting"
+    ],
+    "ans": [1, 3],
+    "exp": "Custom speech trained on real call audio adapts to the noise and accents, and a phrase list boosts recognition of specific terms. Synthetic voice settings affect output, not recognition, and image detail is unrelated to audio.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/custom-speech-overview"
+  }
+]

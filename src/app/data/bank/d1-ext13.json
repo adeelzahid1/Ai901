@@ -1,0 +1,328 @@
+[
+  {
+    "id": "D1-383", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
+    "q": "A hotel wants an assistant that books rooms by checking availability and creating reservations in its booking system. Which AI workload is this?",
+    "opts": ["Speech synthesis", "Agentic AI with tools for the booking system", "Optical character recognition", "Sentiment analysis"],
+    "ans": 1,
+    "exp": "Checking availability and creating reservations are actions in another system, so an agent that uses the booking system's APIs as tools is needed. Speech synthesis, OCR and sentiment analysis cannot take actions or make bookings.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D1-384", "sub": "workload-scenarios", "diff": 2, "type": "mcq",
+    "q": "A compliance team must find which of thousands of contracts contain an automatic renewal clause and, if so, the renewal date. Which workload fits?",
+    "opts": [
+      "Image generation",
+      "Speech recognition",
+      "Text to speech",
+      "Information extraction that returns the clause status and the date as fields"
+    ],
+    "ans": 3,
+    "exp": "The team needs specific facts from documents returned as data, which is information extraction, for example a Yes or No field for the clause and a date field. Image generation creates pictures, and speech recognition and text to speech deal with audio.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-385", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Translating a live conversation between two people who speak different languages is a speech workload.",
+      "Counting the cars in a photo of a car park is a text analysis workload.",
+      "Writing product descriptions from a list of features is a generative AI workload."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: speech translation recognizes and translates spoken words. No for the second: counting cars in an image is object detection, a computer vision task. Yes for the third: creating new descriptions from features is generative AI.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-386", "sub": "workload-scenarios", "diff": 2, "type": "match",
+    "q": "Match each scenario to the AI workload it represents. Each workload can be used once or not at all.",
+    "items": [
+      "A model draws a logo from a description",
+      "An app reports which language a review is written in",
+      "A tool reads serial numbers from photos of devices",
+      "An assistant checks stock levels and places an order"
+    ],
+    "targets": ["Agentic AI", "Generative AI", "Computer vision (OCR)", "Text analysis", "Speech"],
+    "ans": [1, 3, 2, 0],
+    "exp": "Drawing a logo is generative AI, identifying a review's language is text analysis, reading serial numbers from photos is OCR, and checking stock then ordering is an agent using tools. None of the scenarios involves audio, so speech is not used.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-387", "sub": "workload-scenarios", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences by selecting the correct option for each blank.",
+    "tpl": "Reading text aloud for a user with low vision is a {0} workload. Detecting a dog in a photo is a {1} workload.",
+    "opts": [
+      ["speech", "computer vision", "text analysis"],
+      ["computer vision", "speech", "text analysis"]
+    ],
+    "ans": [0, 0],
+    "exp": "Reading text aloud uses text to speech, which belongs to the speech workload, and detecting a dog in an image is computer vision. Text analysis works on written language, so it fits neither blank.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-388", "sub": "workload-scenarios", "diff": 3, "type": "multi",
+    "q": "Which TWO signs show that a scenario needs an AI agent rather than a single chat model call? Each correct answer presents a complete solution.",
+    "opts": [
+      "It only needs to answer one question about text that the user pasted",
+      "It must take actions in other systems",
+      "It only needs a summary of one paragraph",
+      "It must plan several steps and use tools to reach a goal",
+      "It only needs a translation"
+    ],
+    "ans": [1, 3],
+    "exp": "Taking actions in other systems and planning multi-step work with tools are what agents add. Answering one question, summarizing a paragraph or translating text can all be done with a single model call.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+  },
+  {
+    "id": "D1-389", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
+    "q": "A camera at a factory gate reads the license plates of arriving trucks. Which workload is this?",
+    "opts": ["Computer vision (OCR)", "Text to speech", "Generative AI", "Sentiment analysis"],
+    "ans": 0,
+    "exp": "Reading plate numbers from camera images is optical character recognition, part of computer vision. Text to speech creates audio, generative AI creates new content, and sentiment analysis judges opinions in text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-ocr"
+  },
+  {
+    "id": "D1-390", "sub": "text-techniques", "diff": 1, "type": "mcq",
+    "q": "Which technique returns phrases such as 'free Wi-Fi' and 'breakfast' as the main topics of hotel reviews?",
+    "opts": ["Language detection", "Key phrase extraction", "PII detection", "Entity linking"],
+    "ans": 1,
+    "exp": "Key phrase extraction returns the main talking points of a text. Language detection identifies the language, PII detection finds personal data, and entity linking connects named things to knowledge base entries.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/overview"
+  },
+  {
+    "id": "D1-391", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "ctx": "A government portal publishes citizen feedback online, but names, email addresses and ID numbers must be removed first.",
+    "q": "Which text analysis feature should it use?",
+    "opts": ["Sentiment analysis", "Summarization", "Language detection", "PII detection with redaction"],
+    "ans": 3,
+    "exp": "PII detection finds personal information such as names, emails and ID numbers and returns text with them masked. Sentiment analysis, summarization and language detection do not remove personal data.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview"
+  },
+  {
+    "id": "D1-392", "sub": "text-techniques", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Text analysis can be used on emails, chats and documents.",
+      "Named entity recognition can find dates in text.",
+      "Sentiment analysis can detect objects in photos."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: any written text can be analyzed. Yes for the second: DateTime is one of the entity categories. No for the third: detecting objects in photos is computer vision; sentiment analysis works on text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-393", "sub": "text-techniques", "diff": 3, "type": "match",
+    "q": "Match each result to the text analysis technique that produced it. Each technique can be used once or not at all.",
+    "items": [
+      "category: Organization, text: Contoso",
+      "sentiment: mixed",
+      "iso6391_name: ja",
+      "redacted_text: Call ********* now"
+    ],
+    "targets": ["Summarization", "Language detection", "Named entity recognition", "PII detection", "Sentiment analysis"],
+    "ans": [2, 4, 1, 3],
+    "exp": "A category with entity text comes from named entity recognition, a mixed label comes from sentiment analysis, an ISO language code comes from language detection, and masked text comes from PII detection. Summarization returns shortened text, which none of these results show.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-394", "sub": "text-techniques", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences by selecting the correct technique for each blank.",
+    "tpl": "To find reviews that speak negatively about the battery, use {0}. To produce one short paragraph that covers the main points of a long review, use {1}.",
+    "opts": [
+      ["opinion mining", "language detection", "PII detection"],
+      ["abstractive summarization", "key phrase extraction", "entity linking"]
+    ],
+    "ans": [0, 0],
+    "exp": "Opinion mining links opinions to aspects such as the battery, so negative battery comments can be found. Abstractive summarization writes a short new paragraph of the main points. The other options identify languages, personal data, topics or knowledge base links instead.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview"
+  },
+  {
+    "id": "D1-395", "sub": "text-techniques", "diff": 2, "type": "multi",
+    "q": "Which TWO techniques help find information about the products that are mentioned in customer emails? Each correct answer presents a complete solution.",
+    "opts": [
+      "Named entity recognition",
+      "Speech synthesis",
+      "Image tagging",
+      "Text to speech",
+      "Key phrase extraction"
+    ],
+    "ans": [0, 4],
+    "exp": "Named entity recognition finds named items, such as product and company names, and key phrase extraction surfaces the main topics, such as product features. Speech synthesis and text to speech create audio, and image tagging works on pictures.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-396", "sub": "text-techniques", "diff": 3, "type": "mcq",
+    "q": "Why might language detection return a low confidence score for a message?",
+    "opts": [
+      "The message is too polite",
+      "The message is very short or mixes several languages",
+      "The message contains no images",
+      "The message uses capital letters"
+    ],
+    "ans": 1,
+    "exp": "Short texts give the model few clues, and mixed-language texts match more than one language, so confidence drops; passing a country or language hint can help. Politeness, missing images and capital letters do not make the language harder to identify.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/language-detection/overview"
+  },
+  {
+    "id": "D1-397", "sub": "speech-features", "diff": 1, "type": "mcq",
+    "q": "A doctor dictates notes, and the notes must appear as text in the patient record. Which Speech feature is needed?",
+    "opts": ["Speech to text", "Text to speech", "Keyword recognition", "Custom neural voice"],
+    "ans": 0,
+    "exp": "Speech to text turns the dictated audio into written text. Text to speech and custom neural voice produce audio, and keyword recognition only listens for a wake word.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-to-text"
+  },
+  {
+    "id": "D1-398", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "q": "A call center wants to find every stored recording in which a customer said 'cancel my account'. Which approach fits?",
+    "opts": [
+      "Text to speech",
+      "Pronunciation assessment",
+      "Custom neural voice",
+      "Batch transcription of the recordings, then a search of the transcripts for the phrase"
+    ],
+    "ans": 3,
+    "exp": "Transcribing the stored calls makes them searchable as text, so the phrase can be found in every recording. Text to speech and custom neural voice create audio, and pronunciation assessment scores how well someone pronounces expected text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription"
+  },
+  {
+    "id": "D1-399", "sub": "speech-features", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Text to speech can produce only MP3 files.",
+      "Speech to text supports many languages and accents.",
+      "Custom speech can improve recognition of product names."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: synthesized audio can be produced in several formats, such as WAV and MP3, and can also be streamed. Yes for the second: speech to text supports a wide range of locales. Yes for the third: training with domain text teaches the model special vocabulary.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
+  },
+  {
+    "id": "D1-400", "sub": "speech-features", "diff": 1, "type": "match",
+    "q": "Match each scenario to the Speech feature it uses. Each feature can be used once or not at all.",
+    "items": [
+      "Listen to a book read aloud",
+      "Turn a podcast into text",
+      "Talk with a tourist in their own language",
+      "Wake a device by saying 'Hey Contoso'"
+    ],
+    "targets": ["Keyword recognition", "Speech translation", "Speech to text", "Text to speech", "Image captioning"],
+    "ans": [3, 2, 1, 0],
+    "exp": "Reading a book aloud is text to speech, turning a podcast into text is speech to text, talking across languages is speech translation, and a wake phrase uses keyword recognition. Image captioning describes pictures and is not a Speech feature.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
+  },
+  {
+    "id": "D1-401", "sub": "speech-features", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about Azure Speech.",
+    "tpl": "A meeting transcript that labels each person is produced with speech to text and {0}. To make a synthetic voice speak more slowly, you use the SSML {1} element.",
+    "opts": [
+      ["speaker diarization", "optical character recognition", "image tagging"],
+      ["prosody", "say-as", "lang"]
+    ],
+    "ans": [0, 0],
+    "exp": "Speaker diarization separates and labels the speakers in a transcript. The prosody element changes speaking rate, pitch and volume. OCR and image tagging work on images, say-as controls how values such as dates are read, and lang switches the language.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup"
+  },
+  {
+    "id": "D1-402", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
+    "q": "Which Image Analysis feature lists the objects in an image together with their positions?",
+    "opts": ["Caption", "Read", "Objects", "Smart crops"],
+    "ans": 2,
+    "exp": "The Objects feature detects objects and returns each one with a label and a bounding box. Caption describes the whole image, Read extracts text, and smart crops suggests thumbnail regions.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D1-403", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
+    "q": "A wildlife project has two million trail-camera photos and needs to know how many animals appear in each one. Which technique counts the animals?",
+    "opts": ["Image captioning", "Smart crops", "Optical character recognition", "Object detection"],
+    "ans": 3,
+    "exp": "Object detection finds each animal and returns a box for it, so the boxes can be counted per photo. A caption gives one sentence for the whole image, smart crops suggests thumbnails, and OCR reads text.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-404", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about computer vision, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Image generation and image analysis are the same task.",
+      "Multimodal models can answer questions about images.",
+      "OCR can extract text from photos of documents."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: generation creates new images, while analysis describes existing ones. Yes for the second: multimodal models accept images and respond in language. Yes for the third: OCR reads printed and handwritten text from photos and scans.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-405", "sub": "vision-imagegen", "diff": 2, "type": "match",
+    "q": "Match each task to the vision capability it needs. Each capability can be used once or not at all.",
+    "items": [
+      "Create a new illustration of a castle",
+      "Describe an existing photo in one sentence",
+      "Find all the faces in a group photo",
+      "Read the prices on a photo of a chalkboard menu"
+    ],
+    "targets": ["Optical character recognition", "Speech synthesis", "Image generation", "Face detection", "Image captioning"],
+    "ans": [2, 4, 3, 0],
+    "exp": "A new illustration needs image generation, a one-sentence description is image captioning, finding faces is face detection, and reading prices is OCR. Speech synthesis creates audio and is not a vision capability.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D1-406", "sub": "vision-imagegen", "diff": 3, "type": "multi",
+    "q": "Which TWO limitations should you plan for when you use computer vision models? Each correct answer presents a complete solution.",
+    "opts": [
+      "The models work perfectly on every image",
+      "The models never need testing",
+      "Accuracy can drop in poor lighting or from unusual angles",
+      "Models can perform worse on people or objects that were under-represented in training data",
+      "The models cannot run in the cloud"
+    ],
+    "ans": [2, 3],
+    "exp": "Vision accuracy depends on image conditions and on how well the training data covered the people and objects you care about, so you should test in realistic conditions and across groups. No model is perfect or test-free, and vision models commonly run as cloud services.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D1-407", "sub": "extraction-techniques", "diff": 1, "type": "mcq",
+    "q": "Which technique turns a photo of a printed form into machine-readable text?",
+    "opts": ["Speech synthesis", "Sentiment analysis", "Optical character recognition", "Image generation"],
+    "ans": 2,
+    "exp": "OCR detects and reads the printed characters in the photo and returns them as text. Speech synthesis creates audio, sentiment analysis judges opinion in text that already exists, and image generation creates new pictures.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-ocr"
+  },
+  {
+    "id": "D1-408", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
+    "ctx": "A logistics company receives delivery notes from 300 suppliers, and almost every supplier uses a different layout.",
+    "q": "Which approach avoids building a separate template for each supplier?",
+    "opts": [
+      "Build a fixed template for each supplier's layout",
+      "Use generative field extraction with one schema that handles different layouts",
+      "Have staff retype every delivery note",
+      "Use speech to text"
+    ],
+    "ans": 1,
+    "exp": "Generative field extraction, as in Content Understanding, reads each document's content and fills the schema's fields by meaning, so varied layouts work without per-supplier templates. Hundreds of templates are costly to maintain, retyping is slow, and speech to text does not read documents.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-409", "sub": "extraction-techniques", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about extraction techniques.",
+    "tpl": "Returning the invoice total exactly as it appears is {0}. Writing a short summary of a long contract from its content is {1}.",
+    "opts": [
+      ["extracting a value as printed", "image generation", "translation"],
+      ["generating a field from the content", "OCR only", "speech synthesis"]
+    ],
+    "ans": [0, 0],
+    "exp": "A printed total is extracted directly as it appears, while a summary does not exist in the document and must be generated from its content. Image generation, translation, OCR alone and speech synthesis do not produce either result.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-410", "sub": "extraction-techniques", "diff": 3, "type": "order",
+    "q": "Put the steps for turning a library of training videos into a searchable catalog in the correct order. Not every step is used.",
+    "items": [
+      "Generate a description for each segment",
+      "Generate a new soundtrack for each video",
+      "Split each video into segments",
+      "Index the descriptions and transcripts for search",
+      "Transcribe the speech and analyze the keyframes of each segment"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "Videos are first split into segments, then each segment's speech and keyframes are analyzed, a description is generated from that information, and finally descriptions and transcripts are indexed for search. A new soundtrack is new content and does not help search.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  }
+]

@@ -74,7 +74,7 @@
     { "id": "2.7", "domain": "D2", "en": "Information extraction with Content Understanding", "ro": "Content Understanding se maloomat nikalna", "target": 110, "subs": ["cu-documents", "cu-images", "cu-audio-video", "cu-app"] }
   ],
   "bankFiles": {
-    "D1": ["d1-core", "d1-ext1", "d1-ext2", "d1-ext3", "d1-ext4", "d1-ext5", "d1-ext6", "d1-ext7", "d1-ext8", "d1-ext9", "d1-ext10", "d1-ext11"],
-    "D2": ["d2-core", "d2-ext1", "d2-ext2", "d2-ext3", "d2-ext4", "d2-ext5", "d2-ext6", "d2-ext7", "d2-ext8", "d2-ext9", "d2-ext10", "d2-ext11", "d2-ext12", "d2-ext13", "d2-ext14", "d2-ext15"]
+    "D1": ["d1-core", "d1-ext1", "d1-ext2", "d1-ext3", "d1-ext4", "d1-ext5", "d1-ext6", "d1-ext7", "d1-ext8", "d1-ext9", "d1-ext10", "d1-ext11", "d1-ext12", "d1-ext13"],
+    "D2": ["d2-core", "d2-ext1", "d2-ext2", "d2-ext3", "d2-ext4", "d2-ext5", "d2-ext6", "d2-ext7", "d2-ext8", "d2-ext9", "d2-ext10", "d2-ext11", "d2-ext12", "d2-ext13", "d2-ext14", "d2-ext15", "d2-ext16", "d2-ext17", "d2-ext18"]
   }
 }

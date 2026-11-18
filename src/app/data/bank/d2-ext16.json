@@ -1,0 +1,352 @@
+[
+  {
+    "id": "D2-482", "sub": "prompts", "diff": 1, "type": "mcq",
+    "q": "What helps a chat model answer in a consistent tone across all conversations?",
+    "opts": ["Raising the deployment quota", "Describing the tone in the system message", "Using a longer deployment name", "Changing the Azure region"],
+    "ans": 1,
+    "exp": "The system message applies to every conversation, so describing the tone there, such as friendly and professional, keeps answers consistent. Quota, deployment names and regions do not influence how the model writes.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+  },
+  {
+    "id": "D2-483", "sub": "prompts", "diff": 2, "type": "mcq",
+    "ctx": "A recipe assistant sometimes suggests ingredients that users have said they are allergic to.",
+    "q": "Which prompt change addresses this most directly?",
+    "opts": [
+      "Only lower the temperature",
+      "Increase the maximum output tokens",
+      "Remove the user's message from the request",
+      "Add a system rule to always respect any allergies the user mentions, and to ask about allergies when unsure"
+    ],
+    "ans": 3,
+    "exp": "A clear rule in the system message makes respecting allergies part of every answer and tells the model to ask when it lacks information, which reduces a real safety risk. Temperature and output length do not enforce the rule, and removing the user's message would lose the allergy information.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+  },
+  {
+    "id": "D2-484", "sub": "prompts", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A prompt can tell the model what to do when it is unsure.",
+      "A good prompt should keep the actual task vague.",
+      "Stating the intended audience can change the reading level of answers."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: for example, telling the model to ask a clarifying question or say it does not know. No for the second: a clear task is one of the most important parts of a prompt. Yes for the third: writing for children or experts produces very different answers.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-485", "sub": "prompts", "diff": 1, "type": "match",
+    "q": "Match each part of a prompt to an example of it. Each example can be used once or not at all.",
+    "items": ["Task", "Context", "Output format", "Constraint"],
+    "targets": [
+      "'Use three bullet points.'",
+      "'Use deployment chat-prod.'",
+      "'Write a product announcement.'",
+      "'Do not mention prices.'",
+      "'Our new phone has a 48-hour battery.'"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "The task says what to produce, the context gives the facts to use, the output format describes the shape of the answer, and a constraint states what to avoid. The deployment name is a setting in code, not part of the prompt.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-486", "sub": "prompts", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about prompt instructions.",
+    "tpl": "Telling the model 'You are a senior accountant' gives it a {0}. Telling it 'Answer in under 100 words' sets a {1}.",
+    "opts": [
+      ["persona", "quota", "region"],
+      ["length limit", "deployment type", "data zone"]
+    ],
+    "ans": [0, 0],
+    "exp": "Describing who the assistant is gives it a persona that shapes expertise and tone, and a word limit sets the answer length. Quota, region, deployment type and data zone are deployment settings that prompts cannot change.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-487", "sub": "prompts", "diff": 3, "type": "multi",
+    "q": "Which TWO techniques help a model handle a complex request with several parts? Each correct answer presents a complete solution.",
+    "opts": [
+      "Put every instruction into one long sentence without punctuation",
+      "Break the request into numbered steps",
+      "Remove all context",
+      "Ask the model to work through the steps before it gives the final answer",
+      "Raise the temperature to its maximum"
+    ],
+    "ans": [1, 3],
+    "exp": "Numbered steps make each part of the request explicit, and asking for step-by-step work improves accuracy on multi-part problems. Run-on instructions, missing context and maximum temperature all make it harder for the model to respond correctly.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-488", "sub": "prompts", "diff": 2, "type": "mcq",
+    "q": "Why add 'If the question is not about our products, politely say that you can only help with product questions' to a system message?",
+    "opts": [
+      "It keeps the assistant on topic and tells it how to handle other questions",
+      "It makes responses faster",
+      "It lowers the price per token",
+      "It changes the model version"
+    ],
+    "ans": 0,
+    "exp": "Scope rules keep an assistant focused on its purpose and define a polite fallback for other questions, which improves reliability and reduces misuse. Such rules do not change speed, price or the model version.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/system-message"
+  },
+  {
+    "id": "D2-489", "sub": "prompts", "diff": 2, "type": "order",
+    "q": "You are building a few-shot prompt that classifies support tickets. Put the steps in the correct order. Not every step is used.",
+    "items": [
+      "Add the new ticket to classify",
+      "Change the deployment's region",
+      "Write the instruction that describes the classification task and labels",
+      "Check the label in the response",
+      "Add a few labeled example tickets"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "The prompt starts with the instruction and allowed labels, then shows labeled examples, then adds the new ticket, and the app finally reads the predicted label. The deployment region does not affect how the prompt is built.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-490", "sub": "prompts", "diff": 3, "type": "mcq",
+    "q": "A few-shot sentiment prompt contains three examples, all of them positive reviews labeled Positive. The model labels negative reviews badly. What should you change?",
+    "opts": [
+      "Add more examples of positive reviews only",
+      "Include balanced examples for every label",
+      "Remove the instruction",
+      "Increase the maximum output tokens"
+    ],
+    "ans": 1,
+    "exp": "Examples teach the pattern, so they should cover every label the model must produce; showing only Positive biases the model toward that label. More one-sided examples make it worse, removing the instruction removes guidance, and output length is unrelated.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/prompt-engineering"
+  },
+  {
+    "id": "D2-491", "sub": "portal-deploy", "diff": 1, "type": "mcq",
+    "q": "What can you change in the Foundry chat playground without redeploying the model?",
+    "opts": [
+      "The system message and request parameters",
+      "The model's training data",
+      "The resource's Azure region",
+      "The subscription"
+    ],
+    "ans": 0,
+    "exp": "The playground lets you edit the system message and parameters such as temperature and try them immediately. Training data is fixed by the model provider, and the region and subscription belong to the resource, not to the playground session.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/concept-playgrounds"
+  },
+  {
+    "id": "D2-492", "sub": "portal-deploy", "diff": 2, "type": "mcq",
+    "q": "A chatbot deployment must block prompts that try to jailbreak the model. What should you configure?",
+    "opts": [
+      "A higher temperature",
+      "A different deployment name",
+      "A lower quota",
+      "Prompt Shields for user prompt attacks in the deployment's content filter configuration"
+    ],
+    "ans": 3,
+    "exp": "Prompt Shields detect user prompt attacks, also called jailbreaks, and can block them as part of the content filtering applied to the deployment. Temperature, names and quota do not detect or stop attacks.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection"
+  },
+  {
+    "id": "D2-493", "sub": "portal-deploy", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about evaluations in Microsoft Foundry, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "You can evaluate a deployed model's outputs by using a test dataset.",
+      "Evaluation results remove the need for human review in high-risk scenarios.",
+      "Evaluators can measure safety risks as well as quality."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: evaluations run inputs from a dataset and score the outputs. No for the second: automated scores support but do not replace human oversight where decisions have serious impact. Yes for the third: there are quality evaluators and risk and safety evaluators.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+  },
+  {
+    "id": "D2-494", "sub": "portal-deploy", "diff": 2, "type": "match",
+    "q": "Match each evaluator to what it measures. Each description can be used once or not at all.",
+    "items": ["Coherence", "Groundedness", "Relevance", "Hate and unfairness"],
+    "targets": [
+      "Whether the answer addresses the question",
+      "How long the response took",
+      "Whether the answer is logical and well organized",
+      "Whether the answer contains harmful content about groups of people",
+      "Whether the answer is supported by the source context"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "Coherence checks logical flow, groundedness checks support in the provided context, relevance checks whether the question is answered, and hate and unfairness is a risk and safety evaluator. Response time is a performance metric, not one of these evaluators.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app"
+  },
+  {
+    "id": "D2-495", "sub": "portal-deploy", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about managing a deployment.",
+    "tpl": "To give a deployment more throughput, increase its {0} allocation. To change which harmful content is blocked, edit its {1}.",
+    "opts": [
+      ["tokens-per-minute", "context window", "temperature"],
+      ["content filter configuration", "system message", "region"]
+    ],
+    "ans": [0, 0],
+    "exp": "Throughput is governed by the tokens-per-minute allocation, and blocking rules come from the content filter configuration assigned to the deployment. The context window is a model limit, temperature is a request setting, and the system message and region do not set filtering thresholds.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+  },
+  {
+    "id": "D2-496", "sub": "portal-deploy", "diff": 2, "type": "multi",
+    "q": "Which TWO details can you see for a model deployment in the Foundry portal? Each correct answer presents a complete solution.",
+    "opts": [
+      "The model name and version",
+      "The model's training data files",
+      "The model's source code",
+      "The deployment type",
+      "Other customers' prompts"
+    ],
+    "ans": [0, 3],
+    "exp": "A deployment's details include which model and version it runs and its deployment type, along with settings such as quota. Training data and source code belong to the model provider, and other customers' prompts are never visible to you.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+  },
+  {
+    "id": "D2-497", "sub": "portal-deploy", "diff": 3, "type": "mcq",
+    "q": "A team creates two deployments of the same model: one for production with a strict content filter and one for internal testing. Why is this a good practice?",
+    "opts": [
+      "Because a model can be deployed only once per resource",
+      "So each environment can have its own quota, content filter and version settings without affecting the other",
+      "To lower the model's accuracy",
+      "To share API keys between teams"
+    ],
+    "ans": 1,
+    "exp": "Separate deployments let each environment be configured and changed independently, so testing new settings never disrupts production. A model can be deployed several times, separate deployments do not change accuracy, and sharing keys is not a goal.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/how-to/create-model-deployments"
+  },
+  {
+    "id": "D2-498", "sub": "portal-deploy", "diff": 2, "type": "order",
+    "q": "A deployment returns many 429 errors. Put the troubleshooting steps in the correct order. Not every step is used.",
+    "items": [
+      "Increase the allocation or spread the traffic",
+      "Delete the Foundry project",
+      "Check the deployment's request and token metrics",
+      "Confirm that the errors have stopped",
+      "Compare the usage with the tokens-per-minute allocation"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "First look at the metrics, then compare usage with the allocation to confirm a rate limit problem, then raise the allocation or spread traffic, and finally confirm the fix. Deleting the project destroys everything and solves nothing.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/quota"
+  },
+  {
+    "id": "D2-499", "sub": "portal-deploy", "diff": 1, "type": "mcq",
+    "q": "When do you choose a deployment type, such as Global Standard, for a model?",
+    "opts": ["In the system message", "When you create the deployment", "In the chat input box", "In Azure Advisor"],
+    "ans": 1,
+    "exp": "The deployment type is selected when you deploy the model from the catalog, along with the deployment name and other settings. Messages and chat input are sent to the model, and Azure Advisor only gives recommendations.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D2-500", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
+    "q": "Which AIProjectClient operation lists the model deployments in your project?",
+    "opts": ["openai.images.generate()", "speechsdk.SpeechRecognizer()", "project.agents.delete_version()", "project.deployments.list()"],
+    "ans": 3,
+    "exp": "The project client's deployments operations, such as list(), return the deployments in the project, which helps an app check or choose deployment names. Generating images, creating a speech recognizer and deleting an agent version do not list deployments.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/sdk-overview"
+  },
+  {
+    "id": "D2-501", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
+    "q": "A small chat app must answer only from a short FAQ text file. What is a simple and correct approach?",
+    "opts": [
+      "Fine-tune a new model for every question",
+      "Include the FAQ text, or the relevant parts, in the request with an instruction to answer only from it",
+      "Raise the temperature",
+      "Move the deployment to another region"
+    ],
+    "ans": 1,
+    "exp": "For a short FAQ, adding its text to the instructions or prompt grounds the model, and an explicit rule limits answers to that text; larger collections would use retrieval. Fine-tuning per question is impractical, and temperature or region do not provide the FAQ content.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D2-502", "sub": "sdk-chat-client", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements about a Python chat client, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A Python chat client can run in a terminal window.",
+      "You must use a web browser to call a model.",
+      "The client can loop to let the user ask several questions."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: a simple console app is a common lightweight client. No for the second: models are called over HTTPS from any program, not only browsers. Yes for the third: a loop reads each question and sends it, often with the conversation history.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-503", "sub": "sdk-chat-client", "diff": 1, "type": "match",
+    "q": "In the quickstart code, match each variable to what it holds. Each description can be used once or not at all.",
+    "items": ["project", "openai", "response", "response.output_text"],
+    "targets": [
+      "The reply text",
+      "The result of one model call",
+      "An OpenAI-compatible client for calling models",
+      "The connection to your Foundry project",
+      "The deployment's quota"
+    ],
+    "ans": [3, 2, 1, 0],
+    "exp": "project is the AIProjectClient connected to the project, openai is the client returned by get_openai_client(), response is the result of responses.create(), and output_text is the reply text inside it. None of them holds the deployment's quota.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-504", "sub": "sdk-chat-client", "diff": 3, "type": "dropdown",
+    "q": "Complete the console chat loop so that the model sees the whole conversation on every turn.",
+    "tpl": "messages = [{\"role\": \"system\", \"content\": system_prompt}]\nwhile True:\n    question = input(\"You: \")\n    messages.append({\"role\": \"user\", \"content\": question})\n    reply = openai.chat.completions.create(model=deployment, messages={0})\n    text = reply.choices[0].message.content\n    messages.append({\"role\": \"{1}\", \"content\": text})\n    print(\"Bot:\", text)",
+    "opts": [
+      ["messages", "question", "text"],
+      ["assistant", "system", "user"]
+    ],
+    "ans": [0, 0],
+    "exp": "Passing the whole messages list sends the system message and all earlier turns, so the model has the context. The reply is stored with the assistant role so the next request includes it as history. Sending only the question or the text would lose context, and system or user roles would mislabel the reply.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/chatgpt"
+  },
+  {
+    "id": "D2-505", "sub": "sdk-chat-client", "diff": 2, "type": "multi",
+    "q": "Which TWO values in a chat client should come from configuration rather than being written into the code? Each correct answer presents part of the solution.",
+    "opts": [
+      "The Python keyword def",
+      "The Python keyword import",
+      "The project endpoint",
+      "The print function",
+      "The deployment name"
+    ],
+    "ans": [2, 4],
+    "exp": "The endpoint and deployment name change between environments, such as test and production, so they belong in configuration such as environment variables. Language keywords and built-in functions are part of the code itself.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-506", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
+    "q": "A call fails with a BadRequest error that says the prompt was filtered because of the content management policy. What happened?",
+    "opts": [
+      "The quota is used up",
+      "The endpoint is wrong",
+      "The model was retired",
+      "The prompt was blocked by the content filter; the app should show the user a friendly message"
+    ],
+    "ans": 3,
+    "exp": "When input filtering blocks a prompt, the service returns a 400 error that refers to the content filter, so the app should handle it and explain politely that the request cannot be processed. Quota problems return 429, a wrong endpoint fails differently, and a retired model would fail for every prompt.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+  },
+  {
+    "id": "D2-507", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
+    "q": "In a Python console chat app, which built-in function reads what the user types?",
+    "opts": ["print()", "input()", "open()", "len()"],
+    "ans": 1,
+    "exp": "input() shows a prompt and returns the text the user types, which the app then sends to the model. print() writes output, open() opens files, and len() returns the length of an object.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+  },
+  {
+    "id": "D2-508", "sub": "sdk-chat-client", "diff": 3, "type": "mcq",
+    "ctx": "A chat client sends the full text of a long PDF plus the entire conversation history on every turn. After a few turns, requests fail with context length errors.",
+    "q": "What should you change?",
+    "opts": [
+      "Increase the temperature",
+      "Add more few-shot examples",
+      "Raise the deployment quota",
+      "Send only the relevant parts of the PDF and trim or summarize older history"
+    ],
+    "ans": 3,
+    "exp": "Each request must fit in the model's context window, so the client should retrieve only relevant chunks of the PDF and shorten the history. Temperature and examples do not reduce size, and quota limits tokens per minute rather than the size of one request.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D2-509", "sub": "sdk-chat-client", "diff": 1, "type": "dropdown",
+    "q": "Complete the sentences about reading model replies in Python.",
+    "tpl": "print(response.{0}) shows the reply from the Responses API. print(completion.choices[0].message.{1}) shows the reply from the Chat Completions API.",
+    "opts": [
+      ["output_text", "content", "choices"],
+      ["content", "output_text", "role"]
+    ],
+    "ans": [0, 0],
+    "exp": "The Responses API exposes the text in output_text, while Chat Completions returns choices with a message whose content holds the text. role only says who wrote the message, and the property names are not interchangeable between the two APIs.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses"
+  }
+]
