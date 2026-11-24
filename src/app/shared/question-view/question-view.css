@@ -111,6 +111,9 @@
 .match-row select {
   flex: 0 1 280px;
 }
+.feedback {
+  scroll-margin: 110px 0 16px;
+}
 .order {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, computed, inject, input, output } from '@angular/core';
 import {
   DropdownQuestion,
   MatchQuestion,
@@ -12,6 +12,7 @@ import {
 import { Answer, answerLines, correctLines, scoreAnswer, templateParts } from '../../core/grading';
 import { Language } from '../../core/language';
 import { PreparedQuestion } from '../../core/prepare';
+import { answerForKey, digitIndex, toggleChoice } from '../../core/shortcuts';
 import { RomanBank } from '../../data/roman-bank';
 
 type Of<T extends Answer['type']> = Extract<Answer, { type: T }>;
@@ -24,6 +25,7 @@ type Of<T extends Answer['type']> = Extract<Answer, { type: T }>;
   styleUrl: './question-view.css',
 })
 export class QuestionView {
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly translations = inject(RomanBank);
   protected readonly language = inject(Language);
 
@@ -71,6 +73,20 @@ export class QuestionView {
     return q.type === type && a.type === type ? { q: q as Q, a: a as Of<T> } : null;
   }
 
+  /** Answers with the keyboard. Returns true when the key was used. */
+  handleKey(key: string): boolean {
+    if (this.revealed()) return false;
+    const q = this.question();
+    if (q.type === 'dropdown' || q.type === 'match') {
+      const list = this.host.nativeElement.querySelectorAll('select')[digitIndex(key) ?? -1];
+      list?.focus();
+      return list !== undefined;
+    }
+    const answer = answerForKey(q, this.answer(), key);
+    if (answer) this.emit(answer);
+    return answer !== null;
+  }
+
   /** CSS state of a choice after the answer is revealed. */
   protected choiceState(isAnswer: boolean, isChosen: boolean): string {
     if (!this.revealed()) return isChosen ? 'chosen' : '';
@@ -83,11 +99,7 @@ export class QuestionView {
   }
 
   protected toggleMulti(a: Of<'multi'>, i: number, limit: number): void {
-    if (a.choices.includes(i)) {
-      this.emit({ type: 'multi', choices: a.choices.filter((c) => c !== i) });
-    } else if (a.choices.length < limit) {
-      this.emit({ type: 'multi', choices: [...a.choices, i].sort((x, y) => x - y) });
-    }
+    this.emit({ type: 'multi', choices: toggleChoice(a.choices, i, limit) });
   }
 
   protected setYesNo(a: Of<'yesno'>, i: number, value: boolean): void {

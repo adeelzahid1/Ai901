@@ -30,20 +30,20 @@
     </div>
 
     <div class="actions">
-      <button type="button" class="btn" [disabled]="index() === 0" (click)="go(index() - 1)">{{ t.runner.previous }}</button>
+      <button type="button" class="btn" aria-keyshortcuts="ArrowLeft" [disabled]="index() === 0" (click)="go(index() - 1)">{{ t.runner.previous }}</button>
       @if (!instant()) {
-        <button type="button" class="btn" [class.active]="it.marked" [attr.aria-pressed]="it.marked" (click)="toggleMark()">
+        <button type="button" class="btn" aria-keyshortcuts="M" [class.active]="it.marked" [attr.aria-pressed]="it.marked" (click)="toggleMark()">
           {{ it.marked ? t.runner.marked : t.runner.mark }}
         </button>
       }
       @if (instant() && !it.checked) {
-        <button type="button" class="btn primary" [disabled]="!canCheck()" (click)="check()">{{ t.runner.check }}</button>
+        <button type="button" class="btn primary" aria-keyshortcuts="Enter" [disabled]="!canCheck()" (click)="check()">{{ t.runner.check }}</button>
       }
       <span class="spacer"></span>
       @if (index() < total() - 1) {
-        <button type="button" class="btn" [class.primary]="!instant() || it.checked" (click)="go(index() + 1)">{{ t.runner.next }}</button>
+        <button type="button" class="btn" aria-keyshortcuts="ArrowRight" [class.primary]="!instant() || it.checked" (click)="go(index() + 1)">{{ t.runner.next }}</button>
       }
-      <button type="button" class="btn" [class.primary]="index() === total() - 1" (click)="askSubmit()">
+      <button #finish type="button" class="btn" [class.primary]="index() === total() - 1" (click)="askSubmit()">
         {{ mode() === 'practice' ? t.runner.endPractice : t.runner.submit }}
       </button>
     </div>
@@ -63,6 +63,8 @@
         <button type="button" class="btn" (click)="confirming.set(false)">{{ t.runner.keepGoing }}</button>
       </div>
     }
+
+    <app-shortcut-help [rows]="shortcuts()" [(open)]="helpOpen" />
 
     <nav class="card grid-nav" [attr.aria-label]="t.runner.navigator">
       @for (q of items(); track q.prepared.q.id; let i = $index) {

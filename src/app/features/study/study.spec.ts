@@ -95,17 +95,43 @@ describe('Study', () => {
 
     button('Show answer')?.click();
     await fixture.whenStable();
-    expect(button('Again')?.textContent).toContain('10 min');
-    expect(button('Good')?.textContent).toContain('1 day');
-    button('Again')?.click();
+    expect(button('1 Again')?.textContent).toContain('10 min');
+    expect(button('3 Good')?.textContent).toContain('1 day');
+    button('1 Again')?.click();
     await fixture.whenStable();
     expect(cardsText()).toContain(`${total} left in this round · 1 again`);
 
     button('Show answer')?.click();
     await fixture.whenStable();
-    button('Good')?.click();
+    button('3 Good')?.click();
     await fixture.whenStable();
     expect(cardsText()).toContain(`${total - 1} left in this round`);
     expect(Object.keys(TestBed.inject(StudyProgress).cards()).length).toBe(2);
+  });
+
+  it('runs flashcards from the keyboard', async () => {
+    const press = async (key: string, target: EventTarget = document.body) => {
+      target.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
+      await fixture.whenStable();
+    };
+    document.body.appendChild(el());
+    fixture.componentRef.setInput('s', '1.3');
+    await fixture.whenStable();
+    const total = sectionSize('1.3');
+    button('Flashcards')?.click();
+    await fixture.whenStable();
+    button(`Start flashcards (${total})`)?.click();
+    await fixture.whenStable();
+
+    await press('3');
+    expect(cardsText()).withContext('no rating before the answer').toContain(`${total} left in this round`);
+    await press(' ');
+    expect(button('3 Good')).toBeDefined();
+    const search = el().querySelector<HTMLInputElement>('input[formcontrolname=search]');
+    await press('3', search ?? document.body);
+    expect(cardsText()).withContext('typing in the search box').toContain(`${total} left in this round`);
+    await press('3');
+    expect(cardsText()).toContain(`${total - 1} left in this round`);
+    expect(button('Show answer')).toBeDefined();
   });
 });

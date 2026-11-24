@@ -2,6 +2,7 @@ import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProgressService } from '../../core/progress';
 import { QuizReport } from '../../core/report';
+import { ShortcutSettings } from '../../core/shortcut-settings';
 import { SAMPLE } from '../../core/testing';
 import { QuizRunner } from './quiz-runner';
 
@@ -13,7 +14,15 @@ describe('QuizRunner', () => {
   const button = (text: string) =>
     [...el().querySelectorAll<HTMLButtonElement>('button')].find((b) => b.textContent?.trim().startsWith(text));
 
+  const press = async (key: string, init: KeyboardEventInit = {}, target: EventTarget = document.body) => {
+    const e = new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true, ...init });
+    target.dispatchEvent(e);
+    await fixture.whenStable();
+    return e;
+  };
+
   beforeEach(async () => {
+    localStorage.removeItem('ai901-keys');
     localStorage.removeItem('ai901-progress');
     localStorage.removeItem('ai901-history');
     await TestBed.configureTestingModule({
@@ -26,6 +35,7 @@ describe('QuizRunner', () => {
   });
 
   afterEach(() => {
+    localStorage.removeItem('ai901-keys');
     localStorage.removeItem('ai901-progress');
     localStorage.removeItem('ai901-history');
   });
@@ -82,5 +92,78 @@ describe('QuizRunner', () => {
     await fixture.whenStable();
     expect(el().querySelector('.bar')?.textContent).toContain('Question 3 of 3');
     expect(el().querySelectorAll('.match-row').length).toBe(2);
+  });
+
+  it('answers, checks and moves on from the keyboard in practice mode', async () => {
+    fixture.componentRef.setInput('questions', [SAMPLE.mcq, SAMPLE.yesno]);
+    fixture.componentRef.setInput('mode', 'practice');
+    fixture.componentRef.setInput('feedback', 'instant');
+    await fixture.whenStable();
+
+    await press('Enter');
+    expect(el().querySelector('.feedback')).withContext('nothing to check yet').toBeNull();
+    await press('b');
+    expect(el().querySelectorAll<HTMLInputElement>('input[type=radio]')[1].checked).toBeTrue();
+    await press('1', { ctrlKey: true });
+    expect(el().querySelectorAll<HTMLInputElement>('input[type=radio]')[1].checked).withContext('Ctrl+1').toBeTrue();
+    await press('Enter');
+    expect(el().querySelector('.feedback')).not.toBeNull();
+    await press('Enter', { repeat: true });
+    expect(el().querySelector('.bar')?.textContent).withContext('held key').toContain('Question 1 of 2');
+    await press('Enter');
+    expect(el().querySelector('.bar')?.textContent).toContain('Question 2 of 2');
+    for (const key of ['1', '2', '1', 'Enter']) await press(key);
+    expect(el().querySelector('.feedback.ok')).not.toBeNull();
+  });
+
+  it('moves, marks and never submits with Enter in exam mode', async () => {
+    document.body.appendChild(el());
+    fixture.componentRef.setInput('questions', [SAMPLE.mcq, SAMPLE.match]);
+    fixture.componentRef.setInput('mode', 'exam');
+    await fixture.whenStable();
+
+    await press('m');
+    expect(el().querySelector('.cell.marked')).not.toBeNull();
+    await press('ArrowRight');
+    expect(el().querySelector('.bar')?.textContent).toContain('Question 2 of 2');
+    await press('2');
+    const lists = el().querySelectorAll('select');
+    expect(document.activeElement).toBe(lists[1]);
+    await press('ArrowLeft', {}, lists[1]);
+    expect(el().querySelector('.bar')?.textContent).withContext('arrows belong to the list').toContain('Question 2 of 2');
+    await press('Escape', {}, lists[1]);
+    expect(document.activeElement).toBe(document.body);
+
+    await press('Enter');
+    expect(document.activeElement).toBe(button('Submit') ?? null);
+    expect(reports.length).toBe(0);
+    button('Submit')?.click();
+    await fixture.whenStable();
+    await press('1');
+    await press('Enter');
+    expect(reports.length).withContext('the dialog ignores shortcuts').toBe(0);
+    await press('Escape');
+    expect(el().querySelector('.confirm')).toBeNull();
+    await press('ArrowLeft');
+    expect(el().querySelector('.bar')?.textContent).toContain('Question 1 of 2');
+  });
+
+  it('lists the shortcuts with ? and ignores keys when they are turned off', async () => {
+    fixture.componentRef.setInput('questions', [SAMPLE.order, SAMPLE.mcq]);
+    fixture.componentRef.setInput('mode', 'mock');
+    await fixture.whenStable();
+    const help = () => el().querySelector<HTMLDetailsElement>('app-shortcut-help details');
+
+    expect(help()?.open).toBeFalse();
+    await press('?');
+    expect(help()?.open).toBeTrue();
+    expect(help()?.textContent).toContain('Add that action');
+
+    help()?.querySelector<HTMLInputElement>('input[type=checkbox]')?.click();
+    await fixture.whenStable();
+    expect(TestBed.inject(ShortcutSettings).enabled()).toBeFalse();
+    expect(localStorage.getItem('ai901-keys')).toBe('false');
+    await press('ArrowRight');
+    expect(el().querySelector('.bar')?.textContent).toContain('Question 1 of 2');
   });
 });

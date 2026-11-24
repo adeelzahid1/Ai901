@@ -58,7 +58,7 @@
 
   @if (yesno(); as v) {
     <div class="yn">
-      <div class="yn-head" aria-hidden="true"><span>{{ t.question.statement }}</span><span>{{ t.answers.yes }}</span><span>{{ t.answers.no }}</span></div>
+      <div class="yn-head" aria-hidden="true"><span>{{ t.question.statement }}</span><span>{{ t.answers.yes }} <kbd class="key">1</kbd></span><span>{{ t.answers.no }} <kbd class="key">2</kbd></span></div>
       @for (s of v.q.stmts; track $index; let i = $index) {
         <div class="yn-row" role="radiogroup" [attr.aria-label]="s" [class]="revealed() ? (v.a.values[i] === v.q.ans[i] ? 'right' : 'wrong') : ''">
           <span class="yn-text">{{ s }}</span>
@@ -97,7 +97,7 @@
     <div class="match">
       @for (item of v.q.items; track $index; let i = $index) {
         <label class="match-row" [class]="revealed() ? (v.a.picks[i] === v.q.ans[i] ? 'right' : 'wrong') : ''">
-          <span>{{ item }}</span>
+          <span><kbd class="key" aria-hidden="true">{{ i + 1 }}</kbd> {{ item }}</span>
           <select #msel [disabled]="revealed()" (change)="setPick(v.a, i, msel.value)">
             <option value="" [selected]="v.a.picks[i] === null">{{ t.question.choose }}</option>
             @for (t of v.q.targets; track $index; let k = $index) {
@@ -116,6 +116,7 @@
         <ul class="plain">
           @for (i of v.left; track i) {
             <li>
+              <kbd class="key" aria-hidden="true">{{ $index + 1 }}</kbd>
               <button type="button" class="btn small" [disabled]="revealed()" (click)="addToOrder(v.a, i)">{{ t.question.add }}</button>
               <span>{{ v.q.items[i] }}</span>
             </li>

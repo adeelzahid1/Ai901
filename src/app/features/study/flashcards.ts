@@ -1,14 +1,30 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, linkedSignal, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Injector,
+  afterNextRender,
+  computed,
+  inject,
+  input,
+  linkedSignal,
+  output,
+  signal,
+} from '@angular/core';
 import { Language } from '../../core/language';
+import { ShortcutSettings } from '../../core/shortcut-settings';
+import { ShortcutRow, digitIndex, hasModifier, isPressable, isTyping } from '../../core/shortcuts';
 import { Grade, intervalLabel } from '../../core/srs';
 import { StudyProgress } from '../../core/study-progress';
 import { Question } from '../../data/schema';
+import { ShortcutHelp } from '../../shared/shortcut-help/shortcut-help';
 import { StudyCard } from './study-card';
 
 /** One flashcard round. Again puts the card back at the end of this round; Hard and Good schedule it. */
 @Component({
   selector: 'app-flashcards',
-  imports: [StudyCard],
+  imports: [StudyCard, ShortcutHelp],
+  host: { '(document:keydown)': 'onKey($event)' },
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @let t = language.ui().cards;
@@ -27,12 +43,14 @@ import { StudyCard } from './study-card';
           <div class="row grades" role="group" [attr.aria-label]="t.rate">
             @for (g of grades; track g) {
               <button type="button" class="btn" [class]="g" (click)="rate(q, g)">
-                {{ t[g] }} <span class="ivl">{{ label(q, g) }}</span>
+                <span><kbd class="key" aria-hidden="true">{{ $index + 1 }}</kbd> {{ t[g] }}</span>
+                <span class="ivl">{{ label(q, g) }}</span>
               </button>
             }
           </div>
         }
       </div>
+      <app-shortcut-help [rows]="shortcuts()" [(open)]="helpOpen" />
     } @else {
       <div class="card stack">
         <p><strong>{{ t.complete }}</strong> {{ t.summary(total(), againCount()) }}</p>
@@ -43,7 +61,11 @@ import { StudyCard } from './study-card';
     }
   `,
   styles: `
+    app-shortcut-help {
+      margin-top: 14px;
+    }
     .head {
+      scroll-margin-top: 110px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -77,6 +99,9 @@ import { StudyCard } from './study-card';
 })
 export class Flashcards {
   private readonly study = inject(StudyProgress);
+  private readonly shortcutSettings = inject(ShortcutSettings);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly injector = inject(Injector);
   protected readonly language = inject(Language);
 
   readonly deck = input.required<Question[]>();
@@ -88,11 +113,40 @@ export class Flashcards {
   protected readonly done = linkedSignal(() => (this.deck(), 0));
   protected readonly againCount = linkedSignal(() => (this.deck(), 0));
   protected readonly flipped = signal(false);
+  protected readonly helpOpen = signal(false);
   protected readonly current = computed(() => this.queue()[0] ?? null);
   protected readonly total = computed(() => this.deck().length);
 
+  protected readonly shortcuts = computed<ShortcutRow[]>(() => {
+    const { keys, cards } = this.language.ui();
+    return [
+      { keys: ['Space', 'Enter'], text: keys.flip },
+      { keys: ['1', '2', '3'], text: `${cards.again} · ${cards.hard} · ${cards.good}` },
+      { keys: ['?'], text: keys.help },
+    ];
+  });
+
   protected label(q: Question, grade: Grade): string {
     return intervalLabel(this.study.cards()[q.id], grade, this.language.ui().cards);
+  }
+
+  protected onKey(e: KeyboardEvent): void {
+    const q = this.current();
+    if (!q || e.repeat || !this.shortcutSettings.enabled() || hasModifier(e) || isTyping(e.target)) return;
+    const grade = this.grades[digitIndex(e.key) ?? -1];
+    if (e.key === '?') {
+      this.helpOpen.update((open) => !open);
+    } else if (!this.flipped() && (e.key === ' ' || e.key === 'Enter') && !isPressable(e.target)) {
+      this.flipped.set(true);
+    } else if (this.flipped() && grade) {
+      this.rate(q, grade);
+      afterNextRender(() => this.host.nativeElement.querySelector('.head')?.scrollIntoView({ block: 'nearest' }), {
+        injector: this.injector,
+      });
+    } else {
+      return;
+    }
+    e.preventDefault();
   }
 
   protected rate(q: Question, grade: Grade): void {

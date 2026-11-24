@@ -24,6 +24,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 - **Exam**: 50 questions in 45 minutes, weighted 21/29 by domain, every section, real-exam type and level mix, mark for review, auto-submit.
 - **Results**: score out of 1000 (pass 700), domain and section breakdown, review with explanations.
 - **Weak areas**: accuracy per domain, section and official sub-skill.
+- **Keyboard shortcuts** in Practice, Mock Test, Exam and flashcards: `1`-`9` or `A`-`G` answer, `Enter` check / next, arrows move, `M` mark, `Space` flip a card, `1`-`3` rate it, `?` shows the list. `Enter` never submits a test by itself. They can be turned off in the list (`ai901-keys`), and the list is hidden on touch screens.
 - **EN | Roman** switch in the top bar: the whole interface in English or Roman Urdu (saved in `ai901-lang`, `html lang="ur-Latn"`). Switching in the middle of a test keeps the answers.
 - Options are shuffled per session (`optOrder` is kept for translations). Progress is stored in `localStorage` (`ai901-progress`, `ai901-history`).
 
