@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { filterPool } from '../../core/exam-builder';
+import { Language } from '../../core/language';
 import { ProgressService } from '../../core/progress';
 import { QuizReport } from '../../core/report';
 import { createRng, shuffle } from '../../core/rng';
@@ -21,6 +22,7 @@ type Source = 'all' | 'new' | 'mistakes';
   templateUrl: './practice.html',
 })
 export class Practice implements OnInit {
+  protected readonly language = inject(Language);
   private readonly bank = inject(QuestionBank);
   private readonly progress = inject(ProgressService);
   private readonly sessions = inject(SessionStore);
@@ -32,7 +34,8 @@ export class Practice implements OnInit {
   readonly source = input<string>();
 
   protected readonly domains = DOMAINS;
-  protected readonly types = Object.entries(TYPE_LABEL) as [QuestionType, string][];
+  protected readonly types = Object.keys(TYPE_LABEL) as QuestionType[];
+  protected readonly levels: Difficulty[] = [1, 2, 3];
 
   protected readonly form = new FormGroup({
     domain: new FormControl('all', { nonNullable: true }),
@@ -64,7 +67,16 @@ export class Practice implements OnInit {
   });
 
   protected readonly session = signal<Question[] | null>(null);
-  protected readonly sessionTitle = signal('Practice');
+  private readonly scope = signal<{ section: string; domain: string; source: Source }>({ section: 'all', domain: 'all', source: 'all' });
+  protected readonly sessionTitle = computed(() => {
+    const v = this.scope();
+    const t = this.language.ui().titles;
+    const parts = [
+      v.section !== 'all' ? t.section(v.section) : v.domain !== 'all' ? v.domain : t.allTopics,
+      v.source === 'mistakes' ? t.mistakes : v.source === 'new' ? t.newQuestions : '',
+    ].filter(Boolean);
+    return t.practice(parts.join(' · '));
+  });
 
   constructor() {
     void this.bank.loadAll();
@@ -82,14 +94,9 @@ export class Practice implements OnInit {
   }
 
   protected start(): void {
-    const list = shuffle(this.matching(), createRng());
-    const v = this.value();
-    const parts = [
-      v.section !== 'all' ? `Section ${v.section}` : v.domain !== 'all' ? v.domain : 'All topics',
-      v.source === 'mistakes' ? 'mistakes' : v.source === 'new' ? 'new questions' : '',
-    ].filter(Boolean);
-    this.sessionTitle.set(`Practice · ${parts.join(' · ')}`);
-    this.session.set(list);
+    const { section, domain, source } = this.value();
+    this.scope.set({ section, domain, source });
+    this.session.set(shuffle(this.matching(), createRng()));
   }
 
   protected stop(): void {

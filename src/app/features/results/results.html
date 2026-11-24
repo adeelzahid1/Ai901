@@ -1,45 +1,46 @@
+@let t = language.ui();
 @if (report(); as r) {
-  <h1>Results</h1>
-  <p class="lead">{{ r.title }} · {{ minutes() }} min</p>
+  <h1>{{ t.results.heading }}</h1>
+  <p class="lead">{{ language.sessionTitle(r, exam.code) }} · {{ t.common.minutesShort(minutes()) }}</p>
 
   <div class="stack">
     <div class="tiles">
       <div class="card tile score" [class.pass]="r.passed" [class.fail]="!r.passed">
         <span class="value">{{ r.score }} / {{ exam.maxScore }}</span>
-        <span class="label">{{ r.passed ? 'Pass' : 'Not yet' }} (pass mark {{ exam.passScore }})</span>
+        <span class="label">{{ r.passed ? t.results.pass : t.results.notYet }} {{ t.results.passMark(exam.passScore) }}</span>
       </div>
       <div class="card tile">
         <span class="value">{{ r.correct }} / {{ r.total }}</span>
-        <span class="label">Fully correct questions</span>
+        <span class="label">{{ t.results.fullyCorrect }}</span>
       </div>
       <div class="card tile">
         <span class="value">{{ wrongCount() }}</span>
-        <span class="label">Wrong or partly correct</span>
+        <span class="label">{{ t.results.wrongOrPartly }}</span>
       </div>
     </div>
 
     <div class="actions">
-      <a class="btn primary" [routerLink]="againLink()">Try again</a>
-      <a class="btn" routerLink="/weak-areas">See weak areas</a>
-      <a class="btn" routerLink="/practice" [queryParams]="{ source: 'mistakes' }">Practice mistakes</a>
+      <a class="btn primary" [routerLink]="againLink()">{{ t.results.again }}</a>
+      <a class="btn" routerLink="/weak-areas">{{ t.results.seeWeak }}</a>
+      <a class="btn" routerLink="/practice" [queryParams]="{ source: 'mistakes' }">{{ t.results.practiceMistakes }}</a>
     </div>
 
     <section>
-      <h2>By domain</h2>
+      <h2>{{ t.results.byDomain }}</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th scope="col">Domain</th>
-              <th scope="col" class="num">Questions</th>
-              <th scope="col" class="num">Score</th>
-              <th scope="col">Result</th>
+              <th scope="col">{{ t.common.domain }}</th>
+              <th scope="col" class="num">{{ t.common.questions }}</th>
+              <th scope="col" class="num">{{ t.common.score }}</th>
+              <th scope="col">{{ t.common.result }}</th>
             </tr>
           </thead>
           <tbody>
             @for (b of r.byDomain; track b.id) {
               <tr>
-                <td>{{ b.id }} · {{ b.label }}</td>
+                <td>{{ b.id }} · {{ language.area(b.id) }}</td>
                 <td class="num">{{ b.total }}</td>
                 <td class="num">{{ b.percent }}%</td>
                 <td><div class="meter" [class.ok]="b.percent >= 70" [class.bad]="b.percent < 70"><span [style.width.%]="b.percent"></span></div></td>
@@ -51,21 +52,21 @@
     </section>
 
     <section>
-      <h2>By section</h2>
+      <h2>{{ t.results.bySection }}</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th scope="col">Section</th>
-              <th scope="col" class="num">Questions</th>
-              <th scope="col" class="num">Score</th>
-              <th scope="col">Result</th>
+              <th scope="col">{{ t.common.section }}</th>
+              <th scope="col" class="num">{{ t.common.questions }}</th>
+              <th scope="col" class="num">{{ t.common.score }}</th>
+              <th scope="col">{{ t.common.result }}</th>
             </tr>
           </thead>
           <tbody>
             @for (b of r.bySection; track b.id) {
               <tr>
-                <td>{{ b.id }} {{ b.label }}</td>
+                <td>{{ b.id }} {{ language.area(b.id) }}</td>
                 <td class="num">{{ b.total }}</td>
                 <td class="num">{{ b.percent }}%</td>
                 <td><div class="meter" [class.ok]="b.percent >= 70" [class.bad]="b.percent < 70"><span [style.width.%]="b.percent"></span></div></td>
@@ -77,25 +78,25 @@
     </section>
 
     <section class="stack">
-      <h2>Review</h2>
-      <div class="filters" role="group" aria-label="Show questions">
-        <button type="button" class="btn small" [class.primary]="filter() === 'wrong'" [attr.aria-pressed]="filter() === 'wrong'" (click)="filter.set('wrong')">Wrong ({{ wrongCount() }})</button>
-        <button type="button" class="btn small" [class.primary]="filter() === 'marked'" [attr.aria-pressed]="filter() === 'marked'" (click)="filter.set('marked')">Marked ({{ markedCount() }})</button>
-        <button type="button" class="btn small" [class.primary]="filter() === 'all'" [attr.aria-pressed]="filter() === 'all'" (click)="filter.set('all')">All ({{ r.total }})</button>
+      <h2>{{ t.results.review }}</h2>
+      <div class="filters" role="group" [attr.aria-label]="t.results.showQuestions">
+        <button type="button" class="btn small" [class.primary]="filter() === 'wrong'" [attr.aria-pressed]="filter() === 'wrong'" (click)="filter.set('wrong')">{{ t.results.wrong(wrongCount()) }}</button>
+        <button type="button" class="btn small" [class.primary]="filter() === 'marked'" [attr.aria-pressed]="filter() === 'marked'" (click)="filter.set('marked')">{{ t.results.marked(markedCount()) }}</button>
+        <button type="button" class="btn small" [class.primary]="filter() === 'all'" [attr.aria-pressed]="filter() === 'all'" (click)="filter.set('all')">{{ t.results.all(r.total) }}</button>
       </div>
       @for (row of reviewList(); track row.it.prepared.q.id) {
         <div class="card">
-          <app-question-view [question]="row.it.prepared.q" [answer]="row.it.answer" [revealed]="true" [number]="row.n" />
+          <app-question-view [question]="row.it.prepared.q" [optOrder]="row.it.prepared.optOrder" [answer]="row.it.answer" [revealed]="true" [number]="row.n" />
         </div>
       } @empty {
-        <p class="muted">Nothing to show for this filter.</p>
+        <p class="muted">{{ t.results.empty }}</p>
       }
     </section>
   </div>
 } @else {
-  <h1>Results</h1>
+  <h1>{{ t.results.heading }}</h1>
   <div class="card">
-    <p>There is no finished test in this browser session yet.</p>
-    <a class="btn primary" routerLink="/exam">Take the exam</a>
+    <p>{{ t.results.none }}</p>
+    <a class="btn primary" routerLink="/exam">{{ t.results.takeExam }}</a>
   </div>
 }

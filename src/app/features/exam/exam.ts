@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { EXAM_DIFF_MIX, EXAM_TYPE_MIX, pickQuestions } from '../../core/exam-builder';
+import { Language } from '../../core/language';
 import { QuizReport } from '../../core/report';
 import { createRng } from '../../core/rng';
 import { SessionStore } from '../../core/session-store';
@@ -17,6 +18,7 @@ import { QuizRunner } from '../../shared/quiz-runner/quiz-runner';
   styleUrl: './exam.css',
 })
 export class Exam {
+  protected readonly language = inject(Language);
   private readonly bank = inject(QuestionBank);
   private readonly sessions = inject(SessionStore);
   private readonly router = inject(Router);

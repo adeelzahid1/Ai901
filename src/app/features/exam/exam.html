@@ -1,31 +1,32 @@
+@let t = language.ui();
 @if (questions(); as list) {
   <app-quiz-runner
     [questions]="list"
     mode="exam"
-    [title]="exam.code + ' exam simulation'"
+    [title]="t.titles.exam(exam.code)"
     feedback="end"
     [timeLimitSec]="exam.minutes * 60"
     (finished)="finish($event)"
   />
 } @else {
-  <h1>Exam simulation</h1>
-  <p class="lead">Take a full {{ exam.code }} practice exam under real conditions.</p>
+  <h1>{{ t.exam.heading }}</h1>
+  <p class="lead">{{ t.exam.lead(exam.code) }}</p>
   <div class="card stack rules">
     <ul>
-      <li><strong>{{ exam.examQuestions }} questions</strong> in <strong>{{ exam.minutes }} minutes</strong>. The test is submitted automatically when time runs out.</li>
+      <li><strong>{{ t.exam.size(exam.examQuestions, exam.minutes) }}</strong> {{ t.exam.auto }}</li>
       <li>
-        Questions come from every study section and follow the official weights:
+        {{ t.exam.weights }}
         @for (d of domains; track d.id; let last = $last) {
           {{ d.id }} {{ d.weight[0] }}-{{ d.weight[1] }}%{{ last ? '.' : ',' }}
         }
       </li>
-      <li>A mix of question types (multiple choice, multi-select, Yes/No, drop-down, matching, ordering) and levels.</li>
-      <li>No answers are shown during the exam. Use <em>Mark for review</em> and the question grid to go back.</li>
-      <li>Your score is out of {{ exam.maxScore }}; {{ exam.passScore }} is the pass mark. You can review every question afterwards.</li>
+      <li>{{ t.exam.mix }}</li>
+      <li>{{ t.exam.noAnswers }}</li>
+      <li>{{ t.exam.scoring(exam.maxScore, exam.passScore) }}</li>
     </ul>
     <div>
       <button type="button" class="btn primary" [disabled]="!loaded()" (click)="start()">
-        {{ loaded() ? 'Start exam' : 'Loading questions…' }}
+        {{ loaded() ? t.exam.start : t.common.loadingQuestions }}
       </button>
     </div>
   </div>

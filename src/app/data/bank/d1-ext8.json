@@ -10,7 +10,7 @@
       "Stop accepting applications from rural schools"
     ],
     "ans": 0,
-    "exp": "The model is unfair because one group is under-represented in the training data. Adding representative data and measuring results per group addresses the cause and shows whether the gap closes. Hiding scores, enlarging the model or excluding rural applicants does not fix the bias and the last option makes the harm worse.",
+    "exp": "The model is unfair because one group is under-represented in the training data. Adding representative data and measuring results per group addresses the cause and shows whether the gap closes. Hiding scores, enlarging the model or excluding rural applicants does not fix the bias and excluding rural applicants makes the harm worse.",
     "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml"
   },
   {

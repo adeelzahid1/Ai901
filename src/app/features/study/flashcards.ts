@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, linkedSignal, output, signal } from '@angular/core';
+import { Language } from '../../core/language';
 import { Grade, intervalLabel } from '../../core/srs';
 import { StudyProgress } from '../../core/study-progress';
 import { Question } from '../../data/schema';
@@ -10,22 +11,23 @@ import { StudyCard } from './study-card';
   imports: [StudyCard],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
+    @let t = language.ui().cards;
     @if (current(); as q) {
       <div class="card stack">
         <div class="head">
-          <strong>Card {{ done() + 1 }} of {{ total() }}</strong>
-          <span class="muted">{{ queue().length }} left in this round · {{ againCount() }} again</span>
+          <strong>{{ t.position(done() + 1, total()) }}</strong>
+          <span class="muted">{{ t.left(queue().length, againCount()) }}</span>
         </div>
         <app-study-card [question]="q" [showAnswer]="flipped()" />
         @if (!flipped()) {
           <div class="row">
-            <button type="button" class="btn primary" (click)="flipped.set(true)">Show answer</button>
+            <button type="button" class="btn primary" (click)="flipped.set(true)">{{ language.ui().study.showAnswer }}</button>
           </div>
         } @else {
-          <div class="row grades" role="group" aria-label="How well did you know it?">
-            @for (g of grades; track g.grade) {
-              <button type="button" class="btn" [class]="g.grade" (click)="rate(q, g.grade)">
-                {{ g.label }} <span class="ivl">{{ label(q, g.grade) }}</span>
+          <div class="row grades" role="group" [attr.aria-label]="t.rate">
+            @for (g of grades; track g) {
+              <button type="button" class="btn" [class]="g" (click)="rate(q, g)">
+                {{ t[g] }} <span class="ivl">{{ label(q, g) }}</span>
               </button>
             }
           </div>
@@ -33,9 +35,9 @@ import { StudyCard } from './study-card';
       </div>
     } @else {
       <div class="card stack">
-        <p><strong>Round complete.</strong> {{ total() }} cards reviewed, {{ againCount() }} marked Again.</p>
+        <p><strong>{{ t.complete }}</strong> {{ t.summary(total(), againCount()) }}</p>
         <div class="row">
-          <button type="button" class="btn primary" (click)="restart.emit()">Start a new round</button>
+          <button type="button" class="btn primary" (click)="restart.emit()">{{ t.restart }}</button>
         </div>
       </div>
     }
@@ -75,15 +77,12 @@ import { StudyCard } from './study-card';
 })
 export class Flashcards {
   private readonly study = inject(StudyProgress);
+  protected readonly language = inject(Language);
 
   readonly deck = input.required<Question[]>();
   readonly restart = output<void>();
 
-  protected readonly grades: { grade: Grade; label: string }[] = [
-    { grade: 'again', label: 'Again' },
-    { grade: 'hard', label: 'Hard' },
-    { grade: 'good', label: 'Good' },
-  ];
+  protected readonly grades: Grade[] = ['again', 'hard', 'good'];
 
   protected readonly queue = linkedSignal(() => this.deck());
   protected readonly done = linkedSignal(() => (this.deck(), 0));
@@ -93,7 +92,7 @@ export class Flashcards {
   protected readonly total = computed(() => this.deck().length);
 
   protected label(q: Question, grade: Grade): string {
-    return intervalLabel(this.study.cards()[q.id], grade);
+    return intervalLabel(this.study.cards()[q.id], grade, this.language.ui().cards);
   }
 
   protected rate(q: Question, grade: Grade): void {

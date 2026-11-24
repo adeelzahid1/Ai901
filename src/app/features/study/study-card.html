@@ -1,4 +1,5 @@
-@let q = question();
+@let q = shown();
+@let t = language.ui();
 <div class="chips">
   @if (number() !== null) {
     <span class="chip strong">#{{ number() }}</span>
@@ -6,6 +7,9 @@
   <span class="chip">{{ meta().diff }}</span>
   <span class="chip">{{ meta().type }}</span>
   <span class="chip">{{ q.id }}</span>
+  @if (untranslated()) {
+    <span class="chip">{{ t.common.notTranslated }}</span>
+  }
   <ng-content select="[card-actions]" />
 </div>
 
@@ -33,7 +37,7 @@
         <li [class.right]="showAnswer()">
           {{ o.text }}
           @if (showAnswer()) {
-            <strong class="yn">{{ o.answer ? 'Yes' : 'No' }}</strong>
+            <strong class="yn">{{ o.answer ? t.answers.yes : t.answers.no }}</strong>
           }
         </li>
       }
@@ -49,7 +53,7 @@
   @case ('match') {
     <div class="two">
       <div>
-        <h4>Items</h4>
+        <h4>{{ t.study.items }}</h4>
         <ul class="opts">
           @for (o of b.items; track $index) {
             <li>{{ o }}</li>
@@ -57,7 +61,7 @@
         </ul>
       </div>
       <div>
-        <h4>Choices</h4>
+        <h4>{{ t.study.choices }}</h4>
         <ul class="opts">
           @for (o of b.targets; track $index) {
             <li>{{ o }}</li>
@@ -79,7 +83,7 @@
     </div>
     <ul class="opts">
       @for (blank of b.blanks; track blank.n) {
-        <li>Blank {{ blank.n }}: {{ blank.opts.join(' · ') }}</li>
+        <li>{{ t.question.blank(blank.n) }}: {{ blank.opts.join(' · ') }}</li>
       }
     </ul>
   }
@@ -87,12 +91,12 @@
 
 @if (showAnswer()) {
   <div class="answer">
-    <h4>Answer</h4>
+    <h4>{{ t.study.answer }}</h4>
     @for (line of correct(); track $index) {
       <p class="line">{{ line }}</p>
     }
-    <h4>Why</h4>
+    <h4>{{ t.study.why }}</h4>
     <p>{{ q.exp }}</p>
-    <a [href]="q.ref" target="_blank" rel="noopener">Read more on Microsoft Learn ↗</a>
+    <a [href]="q.ref" target="_blank" rel="noopener">{{ t.common.learn }}</a>
   </div>
 }

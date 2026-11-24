@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Language } from '../../core/language';
 import { ProgressService } from '../../core/progress';
 import { areaStats } from '../../core/stats';
 import { StudyProgress } from '../../core/study-progress';
@@ -15,6 +16,7 @@ import { DOMAINS, EXAM, SECTIONS } from '../../data/schema';
   styleUrl: './dashboard.css',
 })
 export class Dashboard {
+  protected readonly language = inject(Language);
   private readonly bank = inject(QuestionBank);
   private readonly progress = inject(ProgressService);
   private readonly study = inject(StudyProgress);
@@ -46,7 +48,7 @@ export class Dashboard {
     const byDomain = areaStats(this.bank.questions(), this.progress.stats(), 'domain');
     return DOMAINS.map((d) => ({
       id: d.id,
-      name: d.name,
+      name: this.language.domain(d),
       weight: `${d.weight[0]}-${d.weight[1]}%`,
       stats: byDomain.get(d.id),
     }));
@@ -56,7 +58,7 @@ export class Dashboard {
     const counts = this.bank.countBySection();
     return SECTIONS.map((s) => {
       const count = counts.get(s.id) ?? 0;
-      return { ...s, count, percent: Math.min(100, Math.round((count / s.target) * 100)) };
+      return { ...s, name: this.language.section(s), count, percent: Math.min(100, Math.round((count / s.target) * 100)) };
     });
   });
 

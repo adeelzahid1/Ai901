@@ -9,7 +9,7 @@
       "Email."
     ],
     "ans": 0,
-    "exp": "A good prompt states the task, the format, the audience and the focus, as the first option does with three bullet points, a busy manager and decisions needed. The other prompts are vague, so the model has to guess what length, format and emphasis you want.",
+    "exp": "A good prompt states the task, the format, the audience and the focus, as the prompt that names three bullet points, a busy manager and decisions needed does. The other prompts are vague, so the model has to guess what length, format and emphasis you want.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {

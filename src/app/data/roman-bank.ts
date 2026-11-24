@@ -1,0 +1,55 @@
+import { Injectable, effect, inject, signal } from '@angular/core';
+import { Language } from '../core/language';
+import { PreparedQuestion } from '../core/prepare';
+import { RomanText, translate } from '../core/translate';
+import { Question } from './schema';
+
+type RomanFile = Record<string, RomanText>;
+
+/**
+ * Roman Urdu overlays, one per bank file and each its own lazy chunk. Add a new file here when it
+ * is created in `data/roman/`; `npm run validate:bank` checks that the two lists match.
+ */
+const LOADERS: Record<string, () => Promise<unknown>> = {
+  'd1-core': () => import('./roman/d1-core.json').then((m) => m.default),
+  'd1-ext1': () => import('./roman/d1-ext1.json').then((m) => m.default),
+  'd2-core': () => import('./roman/d2-core.json').then((m) => m.default),
+};
+
+/** Loads the Roman Urdu question text when that language is on and applies it to questions. */
+@Injectable({ providedIn: 'root' })
+export class RomanBank {
+  private readonly language = inject(Language);
+  private readonly texts = signal<ReadonlyMap<string, RomanText>>(new Map());
+  private readonly ready = signal(false);
+  private pending: Promise<void> | null = null;
+
+  constructor() {
+    effect(() => {
+      if (this.language.roman()) void this.load();
+    });
+  }
+
+  /** Loads every overlay once. A failed download leaves the questions in English and can be retried. */
+  load(): Promise<void> {
+    this.pending ??= Promise.all(Object.values(LOADERS).map((loader) => loader()))
+      .then((files) => {
+        this.texts.set(new Map(files.flatMap((f) => Object.entries(f as RomanFile))));
+        this.ready.set(true);
+      })
+      .catch(() => {
+        this.pending = null;
+      });
+    return this.pending;
+  }
+
+  /** The question in the current language. Pass the recorded `optOrder` for shuffled questions. */
+  localize(q: Question, optOrder: PreparedQuestion['optOrder'] = null): Question {
+    return this.language.roman() ? translate(q, this.texts().get(q.id), optOrder) : q;
+  }
+
+  /** True when Roman Urdu is on but this question has no translation yet. */
+  missing(q: Question): boolean {
+    return this.language.roman() && this.ready() && !this.texts().has(q.id);
+  }
+}

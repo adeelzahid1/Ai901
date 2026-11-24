@@ -1,34 +1,35 @@
-<h1>Mock Test</h1>
+@let t = language.ui();
+<h1>{{ t.mock.heading }}</h1>
 @if (running(); as r) {
   <app-quiz-runner
     [questions]="r.questions"
     mode="mock"
-    [title]="r.title"
+    [title]="t.titles.mock(r.questions.length)"
     [feedback]="r.feedback"
     [timeLimitSec]="r.seconds"
     (finished)="finish($event)"
   />
 } @else {
-  <p class="lead">Build your own test: choose the topics, question types, levels, size and timer.</p>
+  <p class="lead">{{ t.mock.lead }}</p>
   <form class="stack" [formGroup]="form" (ngSubmit)="start()">
     <fieldset class="card" formGroupName="sections">
-      <legend>Topics ({{ selectedSections() }} of 14 sections)</legend>
+      <legend>{{ t.mock.topics(selectedSections(), sectionTotal) }}</legend>
       <div class="quick">
-        <button type="button" class="btn small" (click)="setSections(null, true)">All</button>
-        <button type="button" class="btn small" (click)="setSections(null, false)">None</button>
+        <button type="button" class="btn small" (click)="setSections(null, true)">{{ t.common.all }}</button>
+        <button type="button" class="btn small" (click)="setSections(null, false)">{{ t.common.none }}</button>
       </div>
       <div class="domains">
         @for (d of domains; track d.id) {
           <div>
             <h3>
-              {{ d.id }} · {{ d.short }} <span class="muted">({{ d.weight[0] }}-{{ d.weight[1] }}%)</span>
-              <button type="button" class="btn small" (click)="setSections(d.id, true)">All</button>
-              <button type="button" class="btn small" (click)="setSections(d.id, false)">None</button>
+              {{ d.id }} · {{ language.domainShort(d) }} <span class="muted">({{ d.weight[0] }}-{{ d.weight[1] }}%)</span>
+              <button type="button" class="btn small" (click)="setSections(d.id, true)">{{ t.common.all }}</button>
+              <button type="button" class="btn small" (click)="setSections(d.id, false)">{{ t.common.none }}</button>
             </h3>
             @for (s of d.sections; track s.id) {
               <label class="check">
                 <input type="checkbox" [formControlName]="key(s.id)" />
-                <span>{{ s.id }} {{ s.en }}</span>
+                <span>{{ s.id }} {{ language.section(s) }}</span>
               </label>
             }
           </div>
@@ -38,76 +39,76 @@
 
     <div class="form-grid">
       <fieldset class="card" formGroupName="types">
-        <legend>Question types</legend>
-        @for (t of typeList; track t[0]) {
-          <label class="check"><input type="checkbox" [formControlName]="t[0]" /> {{ t[1] }}</label>
+        <legend>{{ t.mock.types }}</legend>
+        @for (type of typeList; track type) {
+          <label class="check"><input type="checkbox" [formControlName]="type" /> {{ t.types[type] }}</label>
         }
       </fieldset>
 
       <fieldset class="card" formGroupName="levels">
-        <legend>Levels</legend>
-        @for (l of levelList; track l[0]) {
-          <label class="check"><input type="checkbox" [formControlName]="l[0]" /> {{ l[1] }}</label>
+        <legend>{{ t.mock.levels }}</legend>
+        @for (l of levelList; track l) {
+          <label class="check"><input type="checkbox" [formControlName]="l" /> {{ t.difficulty[l] }}</label>
         }
       </fieldset>
 
       <fieldset class="card">
-        <legend>Questions</legend>
-        <label class="check"><input type="radio" formControlName="source" value="all" /> All questions</label>
-        <label class="check"><input type="radio" formControlName="source" value="new" /> Only new (never answered)</label>
-        <label class="check"><input type="radio" formControlName="source" value="mistakes" /> Only my mistakes</label>
+        <legend>{{ t.common.questions }}</legend>
+        <label class="check"><input type="radio" formControlName="source" value="all" /> {{ t.common.allQuestions }}</label>
+        <label class="check"><input type="radio" formControlName="source" value="new" /> {{ t.common.onlyNew }}</label>
+        <label class="check"><input type="radio" formControlName="source" value="mistakes" /> {{ t.common.onlyMistakes }}</label>
       </fieldset>
     </div>
 
     <div class="form-grid">
       <fieldset class="card">
-        <legend>Number of questions</legend>
+        <legend>{{ t.mock.count }}</legend>
         <div class="inline-options">
           @for (n of counts; track n) {
             <label class="check"><input type="radio" formControlName="count" [value]="n" /> {{ n }}</label>
           }
         </div>
         <label class="field">
-          <span>Or type a number</span>
+          <span>{{ t.mock.typeNumber }}</span>
           <input type="number" formControlName="count" min="1" max="500" />
         </label>
       </fieldset>
 
       <fieldset class="card">
-        <legend>Timer</legend>
-        <label class="check"><input type="radio" formControlName="timer" value="off" /> No timer</label>
+        <legend>{{ t.mock.timer }}</legend>
+        <label class="check"><input type="radio" formControlName="timer" value="off" /> {{ t.mock.noTimer }}</label>
         <label class="check">
-          <input type="radio" formControlName="timer" value="exam" /> Exam pace ({{ secondsPerQuestion }} seconds per question)
+          <input type="radio" formControlName="timer" value="exam" /> {{ t.mock.examPace(secondsPerQuestion) }}
         </label>
-        <label class="check"><input type="radio" formControlName="timer" value="custom" /> Custom</label>
+        <label class="check"><input type="radio" formControlName="timer" value="custom" /> {{ t.mock.custom }}</label>
         @if (form.controls.timer.value === 'custom') {
           <label class="field">
-            <span>Minutes</span>
+            <span>{{ t.common.minutes }}</span>
             <input type="number" formControlName="minutes" min="1" max="300" />
           </label>
         }
       </fieldset>
 
       <fieldset class="card">
-        <legend>Feedback</legend>
-        <label class="check"><input type="radio" formControlName="feedback" value="end" /> At the end, like the real exam</label>
-        <label class="check"><input type="radio" formControlName="feedback" value="instant" /> After each question</label>
+        <legend>{{ t.mock.feedback }}</legend>
+        <label class="check"><input type="radio" formControlName="feedback" value="end" /> {{ t.mock.atEnd }}</label>
+        <label class="check"><input type="radio" formControlName="feedback" value="instant" /> {{ t.mock.instant }}</label>
       </fieldset>
     </div>
 
     <div class="card summary">
       <p>
-        <strong>{{ available() }}</strong> questions match.
+        <strong>{{ available() }}</strong> {{ t.mock.match }}
         @if (available() > 0) {
-          Your test: <strong>{{ finalCount() }}</strong> questions · {{ minutesLabel(seconds()) }}.
+          {{ t.mock.yourTest }} <strong>{{ finalCount() }}</strong> {{ t.mock.questionsAnd(minutesLabel(seconds())) }}
           @if (finalCount() < form.controls.count.value) {
-            <span class="muted">(Only {{ available() }} available for these settings.)</span>
+            <span class="muted">{{ t.mock.onlyAvailable(available()) }}</span>
           }
         } @else {
-          <span class="muted">Select at least one topic, type and level that have questions.</span>
+          <span class="muted">{{ t.mock.selectOne }}</span>
         }
       </p>
-      <button type="submit" class="btn primary" [disabled]="form.invalid || finalCount() === 0">Start mock test</button>
+      <button type="submit" class="btn primary" [disabled]="form.invalid || finalCount() === 0">{{ t.mock.start }}</button>
     </div>
   </form>
 }

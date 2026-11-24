@@ -14,6 +14,7 @@ import {
 } from '@angular/core';
 import { Question } from '../../data/schema';
 import { Answer, emptyAnswer, isComplete, isStarted, scoreAnswer } from '../../core/grading';
+import { Language } from '../../core/language';
 import { PreparedQuestion, prepareQuestion } from '../../core/prepare';
 import { ProgressService } from '../../core/progress';
 import { QuizMode, QuizReport, buildReport } from '../../core/report';
@@ -39,6 +40,7 @@ interface RunItem {
 })
 export class QuizRunner {
   private readonly progress = inject(ProgressService);
+  protected readonly language = inject(Language);
 
   readonly questions = input.required<Question[]>();
   readonly mode = input.required<QuizMode>();

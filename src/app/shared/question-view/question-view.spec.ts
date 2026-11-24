@@ -1,8 +1,13 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Answer, emptyAnswer } from '../../core/grading';
+import { Language } from '../../core/language';
+import { prepareQuestion } from '../../core/prepare';
+import { createRng } from '../../core/rng';
 import { SAMPLE } from '../../core/testing';
-import { Question } from '../../data/schema';
+import { QuestionBank } from '../../data/question-bank';
+import { RomanBank } from '../../data/roman-bank';
+import { McqQuestion, Question } from '../../data/schema';
 import { QuestionView } from './question-view';
 
 describe('QuestionView', () => {
@@ -71,6 +76,27 @@ describe('QuestionView', () => {
     expect(el.querySelector<HTMLAnchorElement>('.feedback a')?.href).toContain('learn.microsoft.com');
     expect(el.querySelector('.right')?.textContent).toContain('C');
     expect(el.querySelectorAll<HTMLInputElement>('input:disabled').length).toBe(4);
+  });
+
+  it('keeps the answer correct when the language changes after the options were shuffled', async () => {
+    await render(SAMPLE.mcq);
+    const bank = await TestBed.inject(QuestionBank).loadDomain('D1');
+    const src = bank.find((x) => x.id === 'D1-011') as McqQuestion;
+    const { q, optOrder } = prepareQuestion(src, createRng(4));
+    const right = (q as McqQuestion).ans;
+    fixture.componentRef.setInput('optOrder', optOrder);
+    let el = await render(q, { type: 'mcq', choice: right }, true);
+    expect(el.querySelector('.right')?.textContent).toContain('most likely next token');
+
+    await TestBed.inject(RomanBank).load();
+    TestBed.inject(Language).set('ro');
+    el = await render(q, { type: 'mcq', choice: right }, true);
+    expect(el.querySelector('.verdict')?.textContent).toContain('Sahi');
+    expect(el.querySelector('.right')?.textContent).toContain('sab se mumkina agla token');
+    expect(el.textContent).toContain('Yeh jawab kyun sahi hai');
+    expect(el.textContent).not.toContain('Filhal sirf English');
+    TestBed.inject(Language).set('en');
+    localStorage.removeItem('ai901-lang');
   });
 
   it('reports partial credit', async () => {

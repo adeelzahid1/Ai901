@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { EXAM_DIFF_MIX, EXAM_TYPE_MIX, filterPool, pickQuestions } from '../../core/exam-builder';
+import { Language } from '../../core/language';
 import { ProgressService } from '../../core/progress';
 import { QuizReport } from '../../core/report';
 import { createRng } from '../../core/rng';
@@ -21,7 +22,6 @@ const SECONDS_PER_QUESTION = (EXAM.minutes * 60) / EXAM.examQuestions;
 
 interface Running {
   questions: Question[];
-  title: string;
   feedback: FeedbackMode;
   seconds: number | null;
 }
@@ -34,22 +34,24 @@ interface Running {
   styleUrl: './mock-test.css',
 })
 export class MockTest {
+  protected readonly language = inject(Language);
   private readonly bank = inject(QuestionBank);
   private readonly progress = inject(ProgressService);
   private readonly sessions = inject(SessionStore);
   private readonly router = inject(Router);
 
   protected readonly domains = DOMAINS.map((d) => ({ ...d, sections: SECTIONS.filter((s) => s.domain === d.id) }));
-  protected readonly typeList = Object.entries(TYPE_LABEL) as [QuestionType, string][];
-  protected readonly levelList = Object.entries(DIFFICULTY_LABEL) as [string, string][];
+  protected readonly typeList = Object.keys(TYPE_LABEL) as QuestionType[];
+  protected readonly levelList = Object.keys(DIFFICULTY_LABEL).map((l) => Number(l) as Difficulty);
+  protected readonly sectionTotal = SECTIONS.length;
   protected readonly counts = [10, 20, 30, 50, 75, 100];
   protected readonly key = key;
   protected readonly secondsPerQuestion = SECONDS_PER_QUESTION;
 
   protected readonly form = new FormGroup({
     sections: new FormGroup(Object.fromEntries(SECTIONS.map((s) => [key(s.id), new FormControl(true, { nonNullable: true })]))),
-    types: new FormGroup(Object.fromEntries(this.typeList.map(([t]) => [t, new FormControl(true, { nonNullable: true })]))),
-    levels: new FormGroup(Object.fromEntries(this.levelList.map(([l]) => [l, new FormControl(true, { nonNullable: true })]))),
+    types: new FormGroup(Object.fromEntries(this.typeList.map((t) => [t, new FormControl(true, { nonNullable: true })]))),
+    levels: new FormGroup(Object.fromEntries(this.levelList.map((l) => [`${l}`, new FormControl(true, { nonNullable: true })]))),
     count: new FormControl(30, { nonNullable: true, validators: [Validators.required, Validators.min(1), Validators.max(500)] }),
     timer: new FormControl<TimerMode>('exam', { nonNullable: true }),
     minutes: new FormControl(30, { nonNullable: true, validators: [Validators.min(1), Validators.max(300)] }),
@@ -66,8 +68,8 @@ export class MockTest {
     const mistakes = this.progress.mistakeIds();
     return {
       sections: SECTIONS.filter((s) => v.sections[key(s.id)]).map((s) => s.id),
-      types: this.typeList.map(([t]) => t).filter((t) => v.types[t]),
-      diffs: this.levelList.map(([l]) => Number(l) as Difficulty).filter((d) => v.levels[d]),
+      types: this.typeList.filter((t) => v.types[t]),
+      diffs: this.levelList.filter((d) => v.levels[d]),
       include: (q: Question) =>
         v.source === 'new' ? !answered.has(q.id) : v.source === 'mistakes' ? mistakes.has(q.id) : true,
     };
@@ -114,7 +116,6 @@ export class MockTest {
     });
     this.running.set({
       questions,
-      title: `Mock test · ${questions.length} questions`,
       feedback: v.feedback,
       seconds: this.seconds(),
     });
@@ -126,6 +127,7 @@ export class MockTest {
   }
 
   protected minutesLabel(seconds: number | null): string {
-    return seconds === null ? 'no timer' : `${Math.round(seconds / 60)} min`;
+    const t = this.language.ui();
+    return seconds === null ? t.mock.timerOff : t.common.minutesShort(Math.round(seconds / 60));
   }
 }

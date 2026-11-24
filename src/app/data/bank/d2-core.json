@@ -28,7 +28,7 @@
       "Tell me everything you know."
     ],
     "ans": 2,
-    "exp": "Effective prompts are specific: they state the task, the subject, the audience, the length, the tone and the key points to include. The third prompt gives all of these, so the model knows exactly what to produce. The other prompts are vague or have no clear task, so the model has to guess, which usually leads to generic or off-target output.",
+    "exp": "Effective prompts are specific: they state the task, the subject, the audience, the length, the tone and the key points to include. The Contoso X1 prompt gives all of these, so the model knows exactly what to produce. The other prompts are vague or have no clear task, so the model has to guess, which usually leads to generic or off-target output.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -412,7 +412,7 @@
       "https://login.microsoftonline.com/contoso-ai"
     ],
     "ans": 2,
-    "exp": "A Foundry project endpoint has the format https://<resource-name>.services.ai.azure.com/api/projects/<project-name>, so the third option is correct. The blob.core.windows.net address is a storage endpoint, portal.azure.com is the Azure portal website, and login.microsoftonline.com is the Microsoft Entra sign-in endpoint.",
+    "exp": "A Foundry project endpoint has the format https://<resource-name>.services.ai.azure.com/api/projects/<project-name>, so the services.ai.azure.com address is correct. The blob.core.windows.net address is a storage endpoint, portal.azure.com is the Azure portal website, and login.microsoftonline.com is the Microsoft Entra sign-in endpoint.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {

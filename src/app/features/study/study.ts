@@ -3,12 +3,14 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
+import { Language } from '../../core/language';
 import { ProgressService } from '../../core/progress';
 import { matchesSearch } from '../../core/search';
 import { isDue } from '../../core/srs';
 import { StudyProgress } from '../../core/study-progress';
 import { QuestionBank } from '../../data/question-bank';
-import { DOMAINS, EXAM, Question, SECTIONS, sectionOf } from '../../data/schema';
+import { RomanBank } from '../../data/roman-bank';
+import { DOMAINS, Difficulty, EXAM, Question, SECTIONS, sectionOf } from '../../data/schema';
 import { Flashcards } from './flashcards';
 import { StudyCard } from './study-card';
 
@@ -26,6 +28,8 @@ export const PAGE_SIZE = 20;
 })
 export class Study {
   private readonly bank = inject(QuestionBank);
+  private readonly translations = inject(RomanBank);
+  protected readonly language = inject(Language);
   private readonly progress = inject(ProgressService);
   private readonly router = inject(Router);
   protected readonly study = inject(StudyProgress);
@@ -34,6 +38,7 @@ export class Study {
   readonly s = input<string>();
 
   protected readonly exam = EXAM;
+  protected readonly levels: Difficulty[] = [1, 2, 3];
   protected readonly section = computed(() => SECTIONS.find((x) => x.id === this.s()) ?? SECTIONS[0]);
 
   protected readonly form = new FormGroup({
@@ -91,7 +96,7 @@ export class Study {
           if (!mistakes.has(q.id)) return false;
           break;
       }
-      return matchesSearch(q, v.search);
+      return matchesSearch(this.translations.localize(q), v.search);
     });
   });
 

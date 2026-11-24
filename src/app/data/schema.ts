@@ -79,12 +79,17 @@ export type Question =
 export interface SubSkill {
   id: string;
   title: string;
+  /** Roman Urdu title. */
+  ro: string;
 }
 
 export interface Domain {
   id: DomainId;
   name: string;
   short: string;
+  /** Roman Urdu name and short name. */
+  ro: string;
+  shortRo: string;
   /** Official weight range in percent, e.g. [40, 45]. */
   weight: [number, number];
   /** 1 = highest priority. */

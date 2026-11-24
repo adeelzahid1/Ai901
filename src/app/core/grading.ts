@@ -108,17 +108,26 @@ export function fillTemplate(q: DropdownQuestion, picks: readonly (number | null
   });
 }
 
-const yesNo = (v: boolean | null) => (v === null ? '(no answer)' : v ? 'Yes' : 'No');
+/** Words used in answer lines, so they can follow the language of the app. */
+export interface AnswerWords {
+  yes: string;
+  no: string;
+  none: string;
+}
+
+const ENGLISH: AnswerWords = { yes: 'Yes', no: 'No', none: '(no answer)' };
+
+const yesNo = (v: boolean | null, w: AnswerWords) => (v === null ? w.none : v ? w.yes : w.no);
 
 /** The correct answer as readable lines. */
-export function correctLines(q: Question): string[] {
+export function correctLines(q: Question, words = ENGLISH): string[] {
   switch (q.type) {
     case 'mcq':
       return [q.opts[q.ans]];
     case 'multi':
       return q.ans.map((i) => q.opts[i]);
     case 'yesno':
-      return q.stmts.map((s, i) => `${yesNo(q.ans[i])}: ${s}`);
+      return q.stmts.map((s, i) => `${yesNo(q.ans[i], words)}: ${s}`);
     case 'order':
       return q.ans.map((i, k) => `${k + 1}. ${q.items[i]}`);
     case 'dropdown':
@@ -129,15 +138,15 @@ export function correctLines(q: Question): string[] {
 }
 
 /** The learner's answer as readable lines. */
-export function answerLines(q: Question, a: Answer): string[] {
-  if (!isStarted(a)) return ['(no answer)'];
+export function answerLines(q: Question, a: Answer, words = ENGLISH): string[] {
+  if (!isStarted(a)) return [words.none];
   switch (a.type) {
     case 'mcq':
       return q.type === 'mcq' && a.choice !== null ? [q.opts[a.choice]] : [];
     case 'multi':
       return q.type === 'multi' ? a.choices.map((i) => q.opts[i]) : [];
     case 'yesno':
-      return q.type === 'yesno' ? q.stmts.map((s, i) => `${yesNo(a.values[i])}: ${s}`) : [];
+      return q.type === 'yesno' ? q.stmts.map((s, i) => `${yesNo(a.values[i], words)}: ${s}`) : [];
     case 'order':
       return q.type === 'order' ? a.seq.map((i, k) => `${k + 1}. ${q.items[i]}`) : [];
     case 'dropdown':
@@ -146,7 +155,7 @@ export function answerLines(q: Question, a: Answer): string[] {
       return q.type === 'match'
         ? q.items.map((item, i) => {
             const p = a.picks[i];
-            return `${item} → ${p === null || p === undefined ? '(no answer)' : q.targets[p]}`;
+            return `${item} → ${p === null || p === undefined ? words.none : q.targets[p]}`;
           })
         : [];
   }

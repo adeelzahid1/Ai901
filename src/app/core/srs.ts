@@ -35,11 +35,18 @@ export function schedule(state: CardState | undefined, grade: Grade, now = Date.
   return { ivl, due: now + ivl * DAY, reps, lapses };
 }
 
+/** How intervals are written; the app passes the words of its current language. */
+export interface IntervalWords {
+  minutes: (n: number) => string;
+  days: (n: number) => string;
+}
+
+const ENGLISH: IntervalWords = { minutes: (n) => `${n} min`, days: (n) => (n === 1 ? '1 day' : `${n} days`) };
+
 /** Text for a grade button, e.g. "10 min", "1 day", "8 days". */
-export function intervalLabel(state: CardState | undefined, grade: Grade): string {
-  if (grade === 'again') return '10 min';
-  const days = nextInterval(state, grade);
-  return days === 1 ? '1 day' : `${days} days`;
+export function intervalLabel(state: CardState | undefined, grade: Grade, words = ENGLISH): string {
+  if (grade === 'again') return words.minutes(AGAIN_DELAY / MINUTE);
+  return words.days(nextInterval(state, grade));
 }
 
 /** New cards and cards whose due time has passed. */

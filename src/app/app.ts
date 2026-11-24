@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Language } from './core/language';
 import { EXAM } from './data/schema';
+import { LanguageToggle } from './shared/language-toggle/language-toggle';
 
 interface NavItem {
   path: string;
@@ -10,13 +12,14 @@ interface NavItem {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, LanguageToggle],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="topbar">
       <a class="brand" routerLink="/">{{ exam.code }} <span>Prep</span></a>
-      <nav aria-label="Main">
-        @for (item of nav; track item.path) {
+      <app-language-toggle />
+      <nav [attr.aria-label]="language.ui().nav.main">
+        @for (item of nav(); track item.path) {
           <a
             [routerLink]="item.path"
             routerLinkActive="active"
@@ -54,6 +57,19 @@ interface NavItem {
     .brand span {
       color: var(--accent);
     }
+    app-language-toggle {
+      order: 3;
+      margin-left: auto;
+    }
+    @media (max-width: 860px) {
+      /* Brand and language share the first line; the tabs get their own. */
+      app-language-toggle {
+        order: 0;
+      }
+      nav {
+        flex-basis: 100%;
+      }
+    }
     nav {
       display: flex;
       gap: 4px;
@@ -83,12 +99,16 @@ interface NavItem {
 })
 export class App {
   protected readonly exam = EXAM;
-  protected readonly nav: NavItem[] = [
-    { path: '/', label: 'Dashboard', exact: true },
-    { path: '/study', label: 'Study' },
-    { path: '/practice', label: 'Practice' },
-    { path: '/mock', label: 'Mock Test' },
-    { path: '/exam', label: 'Exam' },
-    { path: '/weak-areas', label: 'Weak areas' },
-  ];
+  protected readonly language = inject(Language);
+  protected readonly nav = computed<NavItem[]>(() => {
+    const t = this.language.ui().nav;
+    return [
+      { path: '/', label: t.dashboard, exact: true },
+      { path: '/study', label: t.study },
+      { path: '/practice', label: t.practice },
+      { path: '/mock', label: t.mock },
+      { path: '/exam', label: t.exam },
+      { path: '/weak-areas', label: t.weak },
+    ];
+  });
 }

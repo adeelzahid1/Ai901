@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Language } from '../../core/language';
 import { SessionStore } from '../../core/session-store';
 import { EXAM } from '../../data/schema';
 import { QuestionView } from '../../shared/question-view/question-view';
@@ -15,6 +16,7 @@ type ReviewFilter = 'all' | 'wrong' | 'marked';
 })
 export class Results {
   protected readonly exam = EXAM;
+  protected readonly language = inject(Language);
   protected readonly report = inject(SessionStore).lastReport;
   protected readonly filter = signal<ReviewFilter>('wrong');
 

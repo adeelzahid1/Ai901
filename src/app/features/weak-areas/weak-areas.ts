@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Language } from '../../core/language';
 import { ProgressService } from '../../core/progress';
 import { AreaStats, areaStats } from '../../core/stats';
 import { QuestionBank } from '../../data/question-bank';
@@ -33,6 +34,7 @@ function byWeakness(a: Row, b: Row): number {
   styleUrl: './weak-areas.css',
 })
 export class WeakAreas {
+  protected readonly language = inject(Language);
   private readonly bank = inject(QuestionBank);
   private readonly progress = inject(ProgressService);
 
@@ -42,24 +44,27 @@ export class WeakAreas {
 
   protected readonly domains = computed(() => {
     const m = areaStats(this.bank.questions(), this.progress.stats(), 'domain');
-    return DOMAINS.map((d) => ({ id: d.id, label: d.name, weight: d.weight, stats: m.get(d.id) ?? EMPTY }));
+    return DOMAINS.map((d) => ({ id: d.id, label: this.language.domain(d), weight: d.weight, stats: m.get(d.id) ?? EMPTY }));
   });
 
   protected readonly sections = computed(() => {
     const m = areaStats(this.bank.questions(), this.progress.stats(), 'section');
-    return SECTIONS.map<Row>((s) => ({ id: s.id, label: s.en, sectionId: s.id, stats: m.get(s.id) ?? EMPTY })).sort(byWeakness);
+    return SECTIONS.map<Row>((s) => ({ id: s.id, label: this.language.section(s), sectionId: s.id, stats: m.get(s.id) ?? EMPTY })).sort(byWeakness);
   });
 
   protected readonly subs = computed(() => {
     const m = areaStats(this.bank.questions(), this.progress.stats(), 'sub');
     return SECTIONS.flatMap((s) => {
       const domain = DOMAINS.find((d) => d.id === s.domain);
-      return s.subs.map<Row>((sub) => ({
-        id: `${s.domain}|${sub}`,
-        label: domain?.subs.find((x) => x.id === sub)?.title ?? sub,
-        sectionId: s.id,
-        stats: m.get(`${s.domain}|${sub}`) ?? EMPTY,
-      }));
+      return s.subs.map<Row>((id) => {
+        const sub = domain?.subs.find((x) => x.id === id);
+        return {
+          id: `${s.domain}|${id}`,
+          label: sub ? this.language.sub(sub) : id,
+          sectionId: s.id,
+          stats: m.get(`${s.domain}|${id}`) ?? EMPTY,
+        };
+      });
     }).sort(byWeakness);
   });
 

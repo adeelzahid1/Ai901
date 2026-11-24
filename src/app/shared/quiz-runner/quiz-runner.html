@@ -1,18 +1,19 @@
+@let t = language.ui();
 @if (current(); as it) {
   <div class="runner">
     <div class="bar card">
       <div>
         <strong>{{ title() }}</strong>
-        <span class="muted"> · Question {{ index() + 1 }} of {{ total() }}</span>
+        <span class="muted"> · {{ t.runner.position(index() + 1, total()) }}</span>
       </div>
       <div class="bar-right">
         @if (instant()) {
-          <span class="chip">{{ checkedStats().correct }} / {{ checkedStats().checked }} correct</span>
+          <span class="chip">{{ t.runner.correctOf(checkedStats().correct, checkedStats().checked) }}</span>
         } @else {
-          <span class="chip">{{ answeredCount() }} / {{ total() }} answered</span>
+          <span class="chip">{{ t.runner.answeredOf(answeredCount(), total()) }}</span>
         }
         @if (clock()) {
-          <span class="clock" [class.low]="(remaining() ?? 0) < 300" role="timer" aria-label="Time left">⏱ {{ clock() }}</span>
+          <span class="clock" [class.low]="(remaining() ?? 0) < 300" role="timer" [attr.aria-label]="t.runner.timeLeft">⏱ {{ clock() }}</span>
         }
       </div>
     </div>
@@ -20,6 +21,7 @@
     <div class="card">
       <app-question-view
         [question]="it.prepared.q"
+        [optOrder]="it.prepared.optOrder"
         [answer]="it.answer"
         [revealed]="it.checked"
         [number]="index() + 1"
@@ -28,21 +30,21 @@
     </div>
 
     <div class="actions">
-      <button type="button" class="btn" [disabled]="index() === 0" (click)="go(index() - 1)">← Previous</button>
+      <button type="button" class="btn" [disabled]="index() === 0" (click)="go(index() - 1)">{{ t.runner.previous }}</button>
       @if (!instant()) {
         <button type="button" class="btn" [class.active]="it.marked" [attr.aria-pressed]="it.marked" (click)="toggleMark()">
-          {{ it.marked ? '★ Marked for review' : '☆ Mark for review' }}
+          {{ it.marked ? t.runner.marked : t.runner.mark }}
         </button>
       }
       @if (instant() && !it.checked) {
-        <button type="button" class="btn primary" [disabled]="!canCheck()" (click)="check()">Check answer</button>
+        <button type="button" class="btn primary" [disabled]="!canCheck()" (click)="check()">{{ t.runner.check }}</button>
       }
       <span class="spacer"></span>
       @if (index() < total() - 1) {
-        <button type="button" class="btn" [class.primary]="!instant() || it.checked" (click)="go(index() + 1)">Next →</button>
+        <button type="button" class="btn" [class.primary]="!instant() || it.checked" (click)="go(index() + 1)">{{ t.runner.next }}</button>
       }
       <button type="button" class="btn" [class.primary]="index() === total() - 1" (click)="askSubmit()">
-        {{ mode() === 'practice' ? 'End practice' : 'Submit' }}
+        {{ mode() === 'practice' ? t.runner.endPractice : t.runner.submit }}
       </button>
     </div>
 
@@ -50,19 +52,19 @@
       <div class="card confirm" role="alertdialog" aria-labelledby="confirm-title">
         <p id="confirm-title">
           @if (unanswered() > 0) {
-            You have <strong>{{ unanswered() }}</strong> unanswered question(s).
+            {{ t.runner.unansweredBefore }} <strong>{{ unanswered() }}</strong> {{ t.runner.unansweredAfter }}
           }
           @if (markedCount() > 0) {
-            <strong>{{ markedCount() }}</strong> question(s) are marked for review.
+            <strong>{{ markedCount() }}</strong> {{ t.runner.markedAfter }}
           }
-          {{ mode() === 'practice' ? 'End practice now?' : 'Submit anyway?' }}
+          {{ mode() === 'practice' ? t.runner.endNow : t.runner.submitAnyway }}
         </p>
-        <button type="button" class="btn primary" (click)="submit()">{{ mode() === 'practice' ? 'End practice' : 'Submit' }}</button>
-        <button type="button" class="btn" (click)="confirming.set(false)">Keep going</button>
+        <button type="button" class="btn primary" (click)="submit()">{{ mode() === 'practice' ? t.runner.endPractice : t.runner.submit }}</button>
+        <button type="button" class="btn" (click)="confirming.set(false)">{{ t.runner.keepGoing }}</button>
       </div>
     }
 
-    <nav class="card grid-nav" aria-label="Question navigator">
+    <nav class="card grid-nav" [attr.aria-label]="t.runner.navigator">
       @for (q of items(); track q.prepared.q.id; let i = $index) {
         <button
           type="button"
@@ -71,7 +73,7 @@
           [class.current]="i === index()"
           [class.marked]="q.marked"
           [attr.aria-current]="i === index() ? 'step' : null"
-          [attr.aria-label]="'Question ' + (i + 1) + (q.marked ? ', marked' : '')"
+          [attr.aria-label]="t.runner.cell(i + 1, q.marked)"
           (click)="go(i)"
         >
           {{ i + 1 }}
@@ -80,5 +82,5 @@
     </nav>
   </div>
 } @else {
-  <p class="muted">No questions match these settings.</p>
+  <p class="muted">{{ t.runner.empty }}</p>
 }

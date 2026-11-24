@@ -1,15 +1,19 @@
-@let q = question();
+@let q = shown();
+@let t = language.ui();
 <article class="qv" [attr.aria-labelledby]="q.id + '-stem'">
   <div class="chips">
     @if (number() !== null) {
-      <span class="chip strong">Question {{ number() }}</span>
+      <span class="chip strong">{{ t.question.number(number() ?? 0) }}</span>
     }
     @if (section(); as s) {
-      <span class="chip">{{ s.id }} {{ s.en }}</span>
+      <span class="chip">{{ s.id }} {{ language.section(s) }}</span>
     }
     <span class="chip">{{ meta().diff }}</span>
     <span class="chip">{{ meta().type }}</span>
     <span class="chip id">{{ q.id }}</span>
+    @if (untranslated()) {
+      <span class="chip">{{ t.common.notTranslated }}</span>
+    }
   </div>
 
   @if (q.ctx) {
@@ -34,7 +38,7 @@
   }
 
   @if (multi(); as v) {
-    <p class="hint">Select {{ v.q.ans.length }}. ({{ v.a.choices.length }} selected)</p>
+    <p class="hint">{{ t.question.select(v.q.ans.length) }} {{ t.question.selected(v.a.choices.length) }}</p>
     <div class="choices">
       @for (opt of v.q.opts; track $index; let i = $index) {
         @let chosen = v.a.choices.includes(i);
@@ -54,12 +58,12 @@
 
   @if (yesno(); as v) {
     <div class="yn">
-      <div class="yn-head" aria-hidden="true"><span>Statement</span><span>Yes</span><span>No</span></div>
+      <div class="yn-head" aria-hidden="true"><span>{{ t.question.statement }}</span><span>{{ t.answers.yes }}</span><span>{{ t.answers.no }}</span></div>
       @for (s of v.q.stmts; track $index; let i = $index) {
         <div class="yn-row" role="radiogroup" [attr.aria-label]="s" [class]="revealed() ? (v.a.values[i] === v.q.ans[i] ? 'right' : 'wrong') : ''">
           <span class="yn-text">{{ s }}</span>
-          <label><input type="radio" [name]="q.id + '-yn-' + i" [checked]="v.a.values[i] === true" [disabled]="revealed()" (change)="setYesNo(v.a, i, true)" /><span class="sr">Yes</span></label>
-          <label><input type="radio" [name]="q.id + '-yn-' + i" [checked]="v.a.values[i] === false" [disabled]="revealed()" (change)="setYesNo(v.a, i, false)" /><span class="sr">No</span></label>
+          <label><input type="radio" [name]="q.id + '-yn-' + i" [checked]="v.a.values[i] === true" [disabled]="revealed()" (change)="setYesNo(v.a, i, true)" /><span class="sr">{{ t.answers.yes }}</span></label>
+          <label><input type="radio" [name]="q.id + '-yn-' + i" [checked]="v.a.values[i] === false" [disabled]="revealed()" (change)="setYesNo(v.a, i, false)" /><span class="sr">{{ t.answers.no }}</span></label>
         </div>
       }
     </div>
@@ -74,12 +78,12 @@
         @if (part.kind === 'blank') {
           <select
             #sel
-            [attr.aria-label]="'Blank ' + (part.index + 1)"
+            [attr.aria-label]="t.question.blank(part.index + 1)"
             [disabled]="revealed()"
             [class]="revealed() ? (v.a.picks[part.index] === v.q.ans[part.index] ? 'right' : 'wrong') : ''"
             (change)="setPick(v.a, part.index, sel.value)"
           >
-            <option value="" [selected]="v.a.picks[part.index] === null">Select…</option>
+            <option value="" [selected]="v.a.picks[part.index] === null">{{ t.question.choose }}</option>
             @for (opt of v.q.opts[part.index]; track $index; let k = $index) {
               <option [value]="k" [selected]="v.a.picks[part.index] === k">{{ opt }}</option>
             }
@@ -95,7 +99,7 @@
         <label class="match-row" [class]="revealed() ? (v.a.picks[i] === v.q.ans[i] ? 'right' : 'wrong') : ''">
           <span>{{ item }}</span>
           <select #msel [disabled]="revealed()" (change)="setPick(v.a, i, msel.value)">
-            <option value="" [selected]="v.a.picks[i] === null">Select…</option>
+            <option value="" [selected]="v.a.picks[i] === null">{{ t.question.choose }}</option>
             @for (t of v.q.targets; track $index; let k = $index) {
               <option [value]="k" [selected]="v.a.picks[i] === k">{{ t }}</option>
             }
@@ -108,28 +112,28 @@
   @if (order(); as v) {
     <div class="order">
       <div>
-        <h4>Actions</h4>
+        <h4>{{ t.question.actions }}</h4>
         <ul class="plain">
           @for (i of v.left; track i) {
             <li>
-              <button type="button" class="btn small" [disabled]="revealed()" (click)="addToOrder(v.a, i)">Add</button>
+              <button type="button" class="btn small" [disabled]="revealed()" (click)="addToOrder(v.a, i)">{{ t.question.add }}</button>
               <span>{{ v.q.items[i] }}</span>
             </li>
           } @empty {
-            <li class="muted">All actions are in your list.</li>
+            <li class="muted">{{ t.question.allUsed }}</li>
           }
         </ul>
       </div>
       <div>
-        <h4>Your order ({{ v.a.seq.length }} of {{ v.q.ans.length }} steps)</h4>
+        <h4>{{ t.question.yourOrder(v.a.seq.length, v.q.ans.length) }}</h4>
         <ol>
           @for (i of v.a.seq; track i; let pos = $index; let first = $first; let last = $last) {
             <li [class]="revealed() ? (v.q.ans[pos] === i ? 'right' : 'wrong') : ''">
               <span>{{ v.q.items[i] }}</span>
               <span class="row-actions">
-                <button type="button" class="btn small" [disabled]="revealed() || first" (click)="moveInOrder(v.a, pos, -1)" [attr.aria-label]="'Move up: ' + v.q.items[i]">↑</button>
-                <button type="button" class="btn small" [disabled]="revealed() || last" (click)="moveInOrder(v.a, pos, 1)" [attr.aria-label]="'Move down: ' + v.q.items[i]">↓</button>
-                <button type="button" class="btn small" [disabled]="revealed()" (click)="removeFromOrder(v.a, pos)" [attr.aria-label]="'Remove: ' + v.q.items[i]">✕</button>
+                <button type="button" class="btn small" [disabled]="revealed() || first" (click)="moveInOrder(v.a, pos, -1)" [attr.aria-label]="t.question.moveUp(v.q.items[i])">↑</button>
+                <button type="button" class="btn small" [disabled]="revealed() || last" (click)="moveInOrder(v.a, pos, 1)" [attr.aria-label]="t.question.moveDown(v.q.items[i])">↓</button>
+                <button type="button" class="btn small" [disabled]="revealed()" (click)="removeFromOrder(v.a, pos)" [attr.aria-label]="t.question.remove(v.q.items[i])">✕</button>
               </span>
             </li>
           }
@@ -142,30 +146,30 @@
     <section class="feedback" [class]="score() === 1 ? 'ok' : score() > 0 ? 'part' : 'bad'" aria-live="polite">
       <p class="verdict">
         @if (score() === 1) {
-          Correct
+          {{ t.question.correct }}
         } @else if (score() > 0) {
-          Partly correct ({{ (score() * 100).toFixed(0) }}%)
+          {{ t.question.partly((score() * 100).toFixed(0)) }}
         } @else {
-          Incorrect
+          {{ t.question.incorrect }}
         }
       </p>
       <div class="answers">
         <div>
-          <h4>Correct answer</h4>
+          <h4>{{ t.question.correctAnswer }}</h4>
           @for (line of correct(); track $index) {
             <p class="line">{{ line }}</p>
           }
         </div>
         <div>
-          <h4>Your answer</h4>
+          <h4>{{ t.question.yourAnswer }}</h4>
           @for (line of given(); track $index) {
             <p class="line">{{ line }}</p>
           }
         </div>
       </div>
-      <h4>Why this is the answer</h4>
+      <h4>{{ t.question.why }}</h4>
       <p>{{ q.exp }}</p>
-      <a [href]="q.ref" target="_blank" rel="noopener">Read more on Microsoft Learn ↗</a>
+      <a [href]="q.ref" target="_blank" rel="noopener">{{ t.common.learn }}</a>
     </section>
   }
 </article>

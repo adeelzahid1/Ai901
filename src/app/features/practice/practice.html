@@ -1,65 +1,66 @@
-<h1>Practice</h1>
+@let t = language.ui();
+<h1>{{ t.practice.heading }}</h1>
 @if (session(); as list) {
   <p class="lead">
-    Instant feedback after every question.
-    <button type="button" class="btn small" (click)="stop()">Change filters</button>
+    {{ t.practice.running }}
+    <button type="button" class="btn small" (click)="stop()">{{ t.practice.change }}</button>
   </p>
   <app-quiz-runner [questions]="list" mode="practice" [title]="sessionTitle()" feedback="instant" (finished)="finish($event)" />
 } @else {
-  <p class="lead">Pick a topic and level, then answer one question at a time with the explanation right after you check it.</p>
+  <p class="lead">{{ t.practice.lead }}</p>
   <form class="card stack" [formGroup]="form" (ngSubmit)="start()">
     <div class="form-grid">
       <label class="field">
-        <span>Domain</span>
+        <span>{{ t.common.domain }}</span>
         <select formControlName="domain">
-          <option value="all">All domains</option>
+          <option value="all">{{ t.practice.allDomains }}</option>
           @for (d of domains; track d.id) {
-            <option [value]="d.id">{{ d.id }} · {{ d.name }}</option>
+            <option [value]="d.id">{{ d.id }} · {{ language.domain(d) }}</option>
           }
         </select>
       </label>
       <label class="field">
-        <span>Section</span>
+        <span>{{ t.common.section }}</span>
         <select formControlName="section">
-          <option value="all">All sections</option>
+          <option value="all">{{ t.practice.allSections }}</option>
           @for (s of sectionOptions(); track s.id) {
-            <option [value]="s.id">{{ s.id }} {{ s.en }}</option>
+            <option [value]="s.id">{{ s.id }} {{ language.section(s) }}</option>
           }
         </select>
       </label>
       <label class="field">
-        <span>Level</span>
+        <span>{{ t.common.level }}</span>
         <select formControlName="level">
-          <option value="all">All levels</option>
-          <option value="1">Basic</option>
-          <option value="2">Intermediate</option>
-          <option value="3">Advanced</option>
-        </select>
-      </label>
-      <label class="field">
-        <span>Question type</span>
-        <select formControlName="type">
-          <option value="all">All types</option>
-          @for (t of types; track t[0]) {
-            <option [value]="t[0]">{{ t[1] }}</option>
+          <option value="all">{{ t.practice.allLevels }}</option>
+          @for (l of levels; track l) {
+            <option [value]="l">{{ t.difficulty[l] }}</option>
           }
         </select>
       </label>
       <label class="field">
-        <span>Questions</span>
+        <span>{{ t.practice.questionType }}</span>
+        <select formControlName="type">
+          <option value="all">{{ t.practice.allTypes }}</option>
+          @for (type of types; track type) {
+            <option [value]="type">{{ t.types[type] }}</option>
+          }
+        </select>
+      </label>
+      <label class="field">
+        <span>{{ t.common.questions }}</span>
         <select formControlName="source">
-          <option value="all">All questions</option>
-          <option value="new">Only new (never answered)</option>
-          <option value="mistakes">Only my mistakes</option>
+          <option value="all">{{ t.common.allQuestions }}</option>
+          <option value="new">{{ t.common.onlyNew }}</option>
+          <option value="mistakes">{{ t.common.onlyMistakes }}</option>
         </select>
       </label>
     </div>
     <div>
       <button type="submit" class="btn primary" [disabled]="matching().length === 0">
-        Start practice ({{ matching().length }} questions)
+        {{ t.practice.start(matching().length) }}
       </button>
       @if (matching().length === 0) {
-        <span class="muted"> No questions match these filters.</span>
+        <span class="muted"> {{ t.practice.empty }}</span>
       }
     </div>
   </form>
