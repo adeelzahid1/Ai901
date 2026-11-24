@@ -36,9 +36,9 @@
     "id": "D2-201", "sub": "visual-input", "diff": 3, "type": "multi",
     "q": "Which TWO tasks are good fits for sending images to a multimodal chat model? Each correct answer presents a complete solution.",
     "opts": [
-      "Produce pixel-perfect segmentation masks",
+      "Produce pixel-perfect segmentation masks for each object",
       "Explain what a chart shows and what trend it suggests",
-      "Train a new image classification model",
+      "Train a new image classification model from photos",
       "Compare two product photos and list the differences",
       "Guarantee exact pixel coordinates for every object"
     ],
@@ -216,11 +216,11 @@
     "id": "D2-216", "sub": "cu-images", "diff": 2, "type": "multi",
     "q": "Which TWO are good uses of Content Understanding for images? Each correct answer presents a complete solution.",
     "opts": [
-      "Create a new product image from a prompt",
+      "Create a new product image from a prompt and a photo of it",
       "Describe the damage shown in an insurance claim photo",
       "Translate an audio file",
       "Classify the type of chart in a report figure",
-      "Train a custom speech model"
+      "Train a custom speech model on call recordings"
     ],
     "ans": [1, 3],
     "exp": "Content Understanding turns images into structured information, for example a generated damage description or a classification of chart type. It does not create new images, translate audio files or train speech models; those are jobs for image-generation models, speech translation and custom speech.",

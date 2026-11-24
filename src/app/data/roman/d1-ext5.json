@@ -39,11 +39,11 @@
   "D1-172": {
     "q": "Kaunse TEEN scenarios information extraction workloads hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Samandar par nazm likhna",
+      "Company newsletter ke liye samandar par nazm likhna",
       "Supplier invoices se total aur due date nikalna",
       "Gas meters ki tasveeron se meter ki value parhna",
-      "Meeting ki recording se action items aur un ke owners ko structured fields ki soorat mein nikalna",
-      "Company ka naya logo design karna"
+      "Meeting recording se action items lena",
+      "Diye gaye rang mein company ka naya logo banana"
     ],
     "exp": "Invoices ki values, recording ke action items aur meter ki tasveeron ki readings, sab content se li gayi khaas maloomat hain jo data ki soorat mein milti hain, aur yahi information extraction hai. Nazm likhna aur logo design karna naya content banate hain."
   },
@@ -107,9 +107,9 @@
   "D1-182": {
     "q": "Speech recognition aksar company ke product names ghalat pakarta hai. Kaunse DO amal accuracy behtar kar sakte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Koi aur text-to-speech awaaz chunein",
+      "Product ke naamon ke liye doosri text-to-speech awaaz chunna",
       "Product names wali phrase list shamil karein",
-      "Text ko SSML prosody tags mein rakhein",
+      "Pehchan se pehle product ke naamon ko SSML prosody tags mein rakhna",
       "Domain ke text se custom speech model train karein",
       "Image detail level barhayein"
     ],

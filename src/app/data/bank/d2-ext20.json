@@ -62,8 +62,8 @@
     "q": "Which TWO checks should an app perform before it sends a user's recording to an audio-capable model? Each correct answer presents a complete solution.",
     "opts": [
       "Convert the recording into an image",
-      "Confirm that the audio is in a supported format, such as wav or mp3",
-      "Remove all instructions from the request",
+      "Confirm that the audio format is supported",
+      "Remove all instructions from the request to save tokens",
       "Make sure the user agreed to have their voice processed",
       "Delete the model deployment"
     ],
@@ -267,8 +267,8 @@
     "id": "D2-616", "sub": "cu-audio-video", "diff": 2, "type": "multi",
     "q": "Which THREE outputs can a call-center audio analyzer produce? Each correct answer presents a complete solution.",
     "opts": [
-      "A product photo",
-      "A new voice recording",
+      "A product photo for the call report",
+      "A new voice recording of the same call",
       "A transcript of the call",
       "The customer's sentiment as a generated field",
       "A generated summary of the call"

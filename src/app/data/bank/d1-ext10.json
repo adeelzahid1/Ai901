@@ -220,10 +220,10 @@
     "q": "Which TWO are ways to give a model up-to-date company information? Each correct answer presents a complete solution.",
     "opts": [
       "Raise the temperature",
-      "Change the deployment's region",
-      "Retrieve relevant company documents and add them to the prompt (RAG)",
-      "Use a longer deployment name",
-      "Paste the current information directly into the prompt"
+      "Change the deployment's region to a newer datacenter",
+      "Add relevant documents to the prompt (RAG)",
+      "Use a longer deployment name with the current date",
+      "Paste the information into the prompt"
     ],
     "ans": [2, 4],
     "exp": "The model can only use current company facts that you give it at request time, either by retrieving relevant documents automatically or by including the information directly in the prompt. Temperature, region and deployment names do not provide new knowledge.",
@@ -308,10 +308,10 @@
     "q": "Which TWO factors directly affect the cost of a request to a standard pay-per-token deployment? Each correct answer presents part of the solution.",
     "opts": [
       "The number of input tokens",
-      "The temperature value",
+      "The temperature value of the request",
       "The font used in the app",
       "The number of output tokens",
-      "The deployment's name"
+      "The name of the model's deployment"
     ],
     "ans": [0, 3],
     "exp": "Pay-per-token deployments bill input tokens and output tokens, often at different rates, so long prompts and long answers cost more. Temperature changes randomness, not billing, and the app's font and the deployment's name have no effect on cost.",

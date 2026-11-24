@@ -37,11 +37,11 @@
   "D2-344": {
     "q": "Ek agent kabhi kabhi ghalat tool call karta hai. Kaunsi DO tabdeeliyan sab se zyada madad karengi? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Deployment ka quota barhana",
-      "Instructions aur tool descriptions mein wazeh batana ke har tool kab istemal ho",
+      "Agent ki istemal ki hui deployment ka quota barhana",
+      "Wazeh batana ke har tool kab istemal ho",
       "Agent ka naam badalna",
       "Woh tools hatana jin ki agent ko zaroorat nahi",
-      "Mazeed ghair mutalliqa tools shamil karna"
+      "Mazeed ghair mutalliqa tools dena taake woh azaadi se chune"
     ],
     "exp": "Model tools ko un ki descriptions aur apni instructions ki bunyad par chunta hai, is liye wazeh rahnumai tool ka intikhab behtar karti hai, aur kam ghair mutalliqa tools se ghalat intikhab ke mauqay kam hote hain. Quota aur agent ka naam tool ke intikhab par asar nahi dalte, aur izafi ghair mutalliqa tools ghaltiyan barhate hain."
   },
@@ -192,10 +192,10 @@
   "D2-362": {
     "q": "Aap ki app se bolne wale users ko jawab dene ke kaunse DO durust tareeqay hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Audio image-generation model ko bhejna",
+      "Audio ko mukhtasar prompt ke saath image-generation model ko bhejna",
       "Audio audio wale chat model ko bhejna",
-      "Audio sirf embedding model ko bhejna",
-      "Speech to text se likhna, phir text chat model ko bhejna",
+      "Audio sirf embedding model ko bhej kar talash karna",
+      "Text mein likhna, phir text chat model ko bhejna",
       "Audio OCR ko bhejna"
     ],
     "exp": "Audio wala chat model speech ka seedha jawab de sakta hai, aur speech to text ke baad chat model wali pipeline bhi kaam karti hai. Image-generation models, embedding models aur OCR bole hue sawalon ke jawab nahi dete."

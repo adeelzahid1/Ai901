@@ -133,11 +133,11 @@
   "D1-427": {
     "q": "Standard deployment masroof auqaat mein apni rate limit tak pohanch jati hai. Kaunse DO amal madad karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Temperature barhana",
-      "Quota ijazat de to deployment ki tokens-per-minute allocation barhana",
+      "Masroof auqaat mein requests ka temperature barhana",
+      "Tokens-per-minute allocation barhana",
       "Maximum output tokens ko 1 karna",
-      "Ruki hui (throttled) requests ko exponential backoff ke saath dobara bhejna",
-      "Deployment ka naam badalna"
+      "Exponential backoff ke saath dobara koshish karna",
+      "Masroof auqaat se pehle deployment ka naam badalna"
     ],
     "exp": "Zyada tokens per minute ki allocation hadd barhati hai, aur backoff ke saath dobara koshish se requests thore intezar ke baad kamyab ho jati hain. Temperature aur deployment ke naam ka throttling par asar nahi, aur ek token ka output jawabon ko bekaar kar dega."
   },
@@ -205,10 +205,10 @@
   "D1-436": {
     "q": "Kaunse TEEN tareeqay text analysis ke nateejon ko zyada bharosemand banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Text ko tasveeron ki soorat mein bhejna",
-      "Nateejon ki ghaltiyan nazar andaz karna",
+      "Text ko images ki soorat mein bhejna taake layout rahe",
+      "Nateejon ki errors nazar andaz kar ke baqi documents istemal karna",
       "Sahi zaban ka hint dena, khaas taur par chhote text ke liye",
-      "Nateeja istemal karne se pehle har document ka error status dekhna",
+      "Har document ka error status dekhna",
       "Nateejon par amal se pehle confidence scores check karna"
     ],
     "exp": "Sahi language hint ghalat pehchan se bachata hai, confidence scores dikhate hain ke kaunse nateejon mein ehtiyat chahiye, aur har document ka status dekhne se nakaam nateeje istemal nahi hote. Text ko images ki soorat mein bhejne se OCR ki ghaltiyan barhti hain, aur errors nazar andaz karne se nakaamiyan chhup jati hain."

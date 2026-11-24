@@ -35,8 +35,8 @@
     "q": "User ki recording audio wale model ko bhejne se pehle app ko kaunse DO checks karne chahiye? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Recording ko image mein badalna",
-      "Tasdeeq karna ke audio supported format, jaise wav ya mp3, mein hai",
-      "Request se tamam hidayaat hatana",
+      "Tasdeeq karna ke audio format supported hai",
+      "Tokens bachane ke liye request se tamam hidayaat hatana",
       "Yaqeeni banana ke user apni awaaz process hone par razi hai",
       "Model deployment delete karna"
     ],
@@ -176,8 +176,8 @@
   "D2-616": {
     "q": "Call center ka audio analyzer kaunse TEEN outputs de sakta hai? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Product ki tasveer",
-      "Nayi voice recording",
+      "Call report ke liye product ki tasveer",
+      "Usi call ki nayi voice recording",
       "Call ka transcript",
       "Generated field ki soorat mein customer ka sentiment",
       "Call ka generated khulasa"

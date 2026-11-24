@@ -120,7 +120,13 @@
   },
   "D2-583": {
     "q": "responses.create() ko aam taur par kaunsi DO values dete hain? Har sahi jawab hal ka ek hissa hai.",
-    "opts": [null, null, "model, jis mein deployment ka naam ho", "input, jis mein prompt ya messages hon", null],
+    "opts": [
+      null,
+      "tenant_id, jis mein project ki directory ho",
+      "model, jis mein deployment ka naam ho",
+      "input, jis mein prompt ya messages hon",
+      "quota, jis mein tokens ki had ho"
+    ],
     "exp": "Responses API ki call ko model, yani aap ki deployment ka naam, aur jawab dene ke liye input chahiye; instructions jaisi ikhtiyari settings shamil ho sakti hain. Region, tenant aur quota request ke parameters nahi."
   },
   "D2-584": {
@@ -188,10 +194,10 @@
   "D2-592": {
     "q": "Kaunsi DO zimmedariyan agent ki definition ke bajaye client app ki hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Agent ki instructions",
+      "Agent ki instructions aur us ke jawabon ke usool",
       "Agent ke tools",
       "Agent ka model",
-      "Ye yaad rakhna ke kaunsi conversation kis user ki hai",
+      "Ye janna ke kaunsi conversation kis user ki hai",
       "Agent ka jawab user interface mein dikhana"
     ],
     "exp": "Client users, un ki conversation IDs aur jawab dikhane ka tareeqa sambhalta hai. Instructions, tools aur model agent ki definition ka hissa hain jo Foundry mein mehfooz hoti hai aur har client ke liye mushtarka hai."

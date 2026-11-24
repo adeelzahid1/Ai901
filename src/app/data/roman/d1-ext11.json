@@ -47,11 +47,11 @@
   "D1-335": {
     "q": "Kaunse DO scenarios mein content generation ke bajaye information extraction chahiye? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Naya advertising slogan likhna",
-      "Scan kiye hue insurance cards se policy number aur expiry date parhna",
+      "Insurance cards ke liye naya ishtihari jumla likhna",
+      "Scan kiye hue insurance cards se policy number parhna",
       "Product ki tasveer banana",
-      "Email kiye hue purchase orders se order ID aur items nikalna",
-      "Greeting card ke liye nazm likhna"
+      "Email ke purchase orders se order ID lena",
+      "Customers ke greeting card ke liye chhoti nazm likhna"
     ],
     "exp": "Insurance cards aur purchase orders se khaas values nikalna information extraction hai: data pehle se maujood hai aur usay sahi sahi lena hai. Slogans, product ki tasveerein aur nazmein naya content hain, jo generative AI hai."
   },
@@ -217,11 +217,11 @@
   "D1-355": {
     "q": "Record ki hui meeting ki video se maloomat nikalne par kaunse DO aam outputs milte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Naya soundtrack",
+      "Naya soundtrack jo mauzuaat se milta ho",
       "Boli gayi baat ka transcript",
       "Kamre ka 3D model",
       "Tafseel ke saath ahem lamhay ya segments",
-      "Actors wali nayi video"
+      "Nayi video jis mein actors baatein dohrayein"
     ],
     "exp": "Meeting ki video se extraction boli gayi baat ka transcript aur frames ki bunyad par ahem lamhon ya segments ki tafseel deti hai. Soundtracks, 3D models aur nayi videos banaya hua content hain, recording se nikali hui maloomat nahi."
   },

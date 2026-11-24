@@ -45,10 +45,10 @@
   "D1-009": {
     "q": "Ek company generative AI chat app banati hai jo customer records ko grounding data ke taur par istemal karti hai. Kaunse TEEN amal privacy and security principle ko support karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Model ka temperature barhana",
+      "Customers ke sawalon ke liye model ka temperature barhana",
       "Chat logs save hone se pehle zaati data dhoond kar chupana (redact)",
-      "Role-based access control istemal karna taake sirf manzoor shuda identities customer data query kar sakein",
-      "Yeh notice lagana ke jawab AI ne banaye hain",
+      "Customer data ke liye role-based access control istemal karna",
+      "Notice lagana ke chat window ke tamam jawab AI ke banaye hue hain",
       "Customer data sirf utni dair rakhna jitni zaroorat ho"
     ],
     "exp": "Logs mehfooz hone se pehle zaati data redact karna, role-based access control se rasai mehdood karna aur zaroorat khatam hone par data hatana, teenon customers ki maloomat ki hifazat karte hain, jo privacy and security ka maqsad hai. AI ke jawabon ka notice transparency ko support karta hai, aur temperature sirf ye badalta hai ke jawab kitne mukhtalif hon."
@@ -176,9 +176,9 @@
     "opts": [
       "Har model ko deploy karne se pehle fine-tune karna lazmi hai",
       "Aasan FAQ jawabon ke liye reasoning model hamesha behtareen intikhab hai",
-      "Chhota model, jaise mini ya nano variant, aam taur par tez aur fi token sasta hota hai",
+      "Chhota model aam taur par zyada tez aur sasta hota hai",
       "Bare models ki latency hamesha kam hoti hai",
-      "Chunne se pehle candidate models ko apne test prompts par parakhna chahiye"
+      "Models ko apne prompts se test karna chahiye"
     ],
     "exp": "Chhote model variants aam taur par tez aur saste hote hain, jo chhote aur aasan jawabon ke liye munasib hai. Apne prompts se candidate models test karne se pata chalta hai ke chhota model kaafi hai ya nahi. Bare models aam taur par sust hote hain, tez nahi. Zyada tar models fine-tuning ke baghair deploy aur istemal ho sakte hain. Reasoning models sochne mein izafi tokens kharch karte hain, jis se kharcha aur latency barhti hai jo aasan FAQ jawabon ko nahi chahiye."
   },

@@ -65,11 +65,11 @@
   "D2-232": {
     "q": "Kaunsi DO tabdeeliyan model ko zyada mutalliqa jawab dene mein madad karti hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Prompt mein bekaar ghair mutalliqa text shamil karna",
+      "Prompt lamba karne ke liye ghair mutalliqa text shamil karna",
       "Woh context ya data shamil karna jo jawab mein istemal hona chahiye",
       "User ka sawal hatana",
       "Kaam aur sunne wale ko wazeh batana",
-      "Prompt bare huroof mein likhna"
+      "Poora prompt capital letters ya bold mein likhna"
     ],
     "exp": "Mutalliqa context model ko zaroori facts deta hai, aur wazeh kaam aur sunne wala batata hai ke kya aur kis ke liye banana hai. Ghair mutalliqa text model ko bhatkata hai, sawal hatane se jawab dene ko kuch nahi rehta, aur bare huroof koi maloomat nahi barhate."
   },
@@ -142,10 +142,10 @@
   "D2-240": {
     "q": "Microsoft Foundry mein model ya chat app ki evaluation chalane ke liye kaunsi DO cheezein chahiye? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
-      "VPN gateway",
-      "Inputs ka test dataset, aur chahein to mutawaqqa outputs",
-      "GPU driver",
-      "Evaluators, jaise groundedness ya relevance",
+      "Test data ke liye VPN gateway",
+      "Inputs ka test dataset",
+      "Evaluation server par GPU driver",
+      "Evaluators, jaise relevance",
       "DNS record"
     ],
     "exp": "Evaluation aap ke model ya app ko test dataset par chalati hai aur outputs ko evaluators se score deti hai jo groundedness, relevance ya safety jaisi khoobiyan naapte hain. Networking ke hisse aur GPU drivers Foundry mein evaluation banane ka hissa nahi."

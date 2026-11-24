@@ -94,9 +94,9 @@
     "id": "D1-255", "sub": "inclusiveness", "diff": 2, "type": "multi",
     "q": "Which THREE actions make a voice assistant more inclusive? Each correct answer presents a complete solution.",
     "opts": [
-      "Support only one accent",
-      "Test the assistant with people who have speech impairments",
-      "Remove captions from responses",
+      "Support only one accent so that recognition is more accurate",
+      "Test it with people who have speech impairments",
+      "Remove captions from the assistant's responses",
       "Offer a text alternative to voice input",
       "Support several languages and accents"
     ],
@@ -211,9 +211,9 @@
     "id": "D1-264", "sub": "genai-how", "diff": 3, "type": "multi",
     "q": "Which THREE limitations of generative models should you plan for when you design a solution? Each correct answer presents a complete solution.",
     "opts": [
-      "They always cite their sources",
+      "They always cite the sources of each of their statements",
       "They can state incorrect information with confidence",
-      "They never need monitoring",
+      "They never need monitoring after the first release",
       "Their built-in knowledge ends at a training cutoff",
       "They can repeat bias from their training data"
     ],

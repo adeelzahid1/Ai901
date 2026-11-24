@@ -163,9 +163,9 @@
   "D2-273": {
     "q": "Text analysis istemal karne wali app ke kaunse TEEN aam scenarios hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Product photos banana",
+      "Online shop ke liye product photos banana",
       "Support tickets ko un ki likhi hui zaban ke hisaab se bhejna",
-      "Phone calls ko likhna",
+      "Support team ki phone calls ko text mein likhna",
       "Chat logs save karne se pehle zaati data chupana",
       "Product reviews ka sentiment dekhna"
     ],

@@ -141,8 +141,8 @@
     "opts": [
       "Named entity recognition",
       "Speech synthesis",
-      "Image tagging",
-      "Text to speech",
+      "Image tagging of the attachments",
+      "Text to speech for the emails",
       "Key phrase extraction"
     ],
     "ans": [0, 4],
@@ -267,11 +267,11 @@
     "id": "D1-406", "sub": "vision-imagegen", "diff": 3, "type": "multi",
     "q": "Which TWO limitations should you plan for when you use computer vision models? Each correct answer presents a complete solution.",
     "opts": [
-      "The models work perfectly on every image",
+      "The models work perfectly on every image that a camera can take",
       "The models never need testing",
       "Accuracy can drop in poor lighting or from unusual angles",
-      "Models can perform worse on people or objects that were under-represented in training data",
-      "The models cannot run in the cloud"
+      "Accuracy can drop for under-represented people",
+      "The models cannot run in the cloud or on small devices"
     ],
     "ans": [2, 3],
     "exp": "Vision accuracy depends on image conditions and on how well the training data covered the people and objects you care about, so you should test in realistic conditions and across groups. No model is perfect or test-free, and vision models commonly run as cloud services.",

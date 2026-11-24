@@ -168,10 +168,10 @@
   "D2-443": {
     "q": "Kaunse DO tareeqay text analysis app ko zyada efficient banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Har lafz ke liye API ko alag call karna",
-      "Har jumlay ki alag request ke bajaye documents batches mein bhejna",
+      "Document ke har lafz ke liye API ko alag call karna",
+      "Documents batches mein bhejna",
       "Na badle hue documents ka har minute dobara jaiza lena",
-      "Jab kai analyses ek saath chahiye hon to unhein ek hi job mein maangna",
+      "Ek job mein kai analyses maangna",
       "Text ke bajaye images bhejna"
     ],
     "exp": "Documents ko batch karna aur analyses ko ek job mein jorna calls ki tadad aur overhead kam karta hai. Har lafz par call karna, na badle hue text ka dobara jaiza lena aur text ke bajaye images bhejna requests zaya karta hai ya kaam hi nahi karta."

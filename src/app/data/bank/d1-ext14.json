@@ -190,11 +190,11 @@
     "id": "D1-427", "sub": "deploy-config", "diff": 3, "type": "multi",
     "q": "A standard deployment hits its rate limit at peak hours. Which TWO actions help? Each correct answer presents a complete solution.",
     "opts": [
-      "Raise the temperature",
-      "Increase the deployment's tokens-per-minute allocation if quota allows",
+      "Raise the temperature of requests at peak hours",
+      "Increase the tokens-per-minute allocation",
       "Set the maximum output tokens to 1",
-      "Retry throttled requests with exponential backoff",
-      "Rename the deployment"
+      "Retry with exponential backoff",
+      "Rename the deployment before peak hours"
     ],
     "ans": [1, 3],
     "exp": "More allocated tokens per minute raises the limit, and backoff retries let requests succeed after short waits. Temperature and the deployment name do not affect throttling, and a one-token output would make answers useless.",
@@ -296,10 +296,10 @@
     "id": "D1-436", "sub": "text-techniques", "diff": 3, "type": "multi",
     "q": "Which THREE practices make text analysis results more reliable? Each correct answer presents a complete solution.",
     "opts": [
-      "Send the text as images",
-      "Ignore any errors in the results",
+      "Send the text as images so that the layout is kept",
+      "Ignore any errors in the results and use the other documents",
       "Pass the correct language hint, especially for short texts",
-      "Look at the error status of each document before using its result",
+      "Look at the error status of each document",
       "Check confidence scores before acting on results"
     ],
     "ans": [2, 3, 4],

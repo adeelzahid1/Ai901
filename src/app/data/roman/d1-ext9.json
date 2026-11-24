@@ -55,9 +55,9 @@
     "q": "Kaunse DO kaam kai qadam aur amal maangte hain aur AI agent ke liye munasib hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Ek jumla translate karna",
-      "Teen suppliers ki websites dekhna, qeematein compare karna aur buyer ko khulasa email karna",
-      "Ek review ka sentiment classify karna",
-      "Ticket queue par nazar rakhna, tickets teams ko dena aur un ki status update karna",
+      "Suppliers ki qeematein mila kar buyer ko khulasa email karna",
+      "Ek review ka sentiment positive, neutral ya negative batana",
+      "Tickets ki qataar dekhna aur teams ko dena",
       "Ek photo ka caption likhna"
     ],
     "exp": "Suppliers ki tehqeeq kar ke khulasa email karna, ya tickets baant kar update karna, mansooba-bandi, kai tool calls aur doosre systems mein amal maangta hai, aur agents isi ke liye hain. Jumla translate karna, ek review classify karna aur ek photo ka caption likhna ek ek model call ke kaam hain."
@@ -154,9 +154,9 @@
   "D1-292": {
     "q": "Speech to text kaunsi TEEN cheezein de sakta hai? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Synthesized awaaz",
+      "Synthesized voice jo text parhe",
       "Bole hue alfaz ka transcript",
-      "Banayi hui tasveer",
+      "Bolne wale shakhs ki bani hui image",
       "Pehchane hue alfaz ka timing",
       "Transcript mein punctuation aur capitalization"
     ],
@@ -200,9 +200,9 @@
     "q": "Marketing team image-generation model istemal karna shuru karti hai. Unhein kaunse DO khatron ko sambhalna chahiye? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Model hamesha bilkul ek jaisi tasveerein banata hai",
-      "Bani hui tasveerein stereotypes ya logon ki biased akkasi dikha sakti hain",
+      "Images mein logon ke stereotypes ho sakte hain",
       "Model prompts par chal nahi sakta",
-      "Bani hui tasveeron mein ghaltiyan ho sakti hain, jaise ghalat spelling wala text",
+      "Images mein ghaltiyan, jaise ghalat spelling, ho sakti hain",
       "Bani hui tasveerein trademarks ke liye khud clear ho jati hain"
     ],
     "exp": "Image models apne training data ke stereotypes dohra sakte hain aur bigre hue text jaisi ghaltiyan kar sakte hain, is liye outputs ka review zaroori hai. Woh hamesha ek jaisi tasveerein nahi banate, prompts par chalte hain, aur generation se trademarks khud clear nahi hote."

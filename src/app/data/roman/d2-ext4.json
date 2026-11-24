@@ -211,11 +211,11 @@
   "D2-165": {
     "q": "Ek lambi chat model ki context window ke qareeb hai. Kaunse DO tareeqay requests ko hadd ke andar rakhte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Poori history hamesha bhejte rehna",
+      "Poori history bhejte rehna aur temperature thora barhana",
       "Purane turns ka khulasa kar ke us ki jagah khulasa bhejna",
       "Temperature barhana",
       "Sab se purane messages hatana lekin system message rakhna",
-      "Har turn mein mazeed few-shot misaalein shamil karna"
+      "Chat ke har turn par mazeed few-shot misaalein shamil karna"
     ],
     "exp": "System message rakhte hue purane turns ka khulasa karna ya sab se purane messages hatana bheje jane wale tokens kam karta aur guftagu ko context window ke andar rakhta hai. Sab kuch bhejne se aakhir-kaar hadd paar ho jaye gi, temperature lambai nahi badalta, aur izafi misaalein tokens barhati hain."
   },

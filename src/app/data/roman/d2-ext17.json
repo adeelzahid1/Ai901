@@ -124,9 +124,9 @@
   "D2-523": {
     "q": "Client app ke conversation delete karne ki kaunsi TEEN durust wajuhaat hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Model ko zyada hoshiyar banana",
+      "Application ke agle user ke liye model ko zyada hoshiyar banana",
       "User ne session khatam kar diya aur history ki ab zaroorat nahi",
-      "Deployment ka quota barhana",
+      "Model ki deployment ka quota barhana",
       "User ne apna chat data delete karne ko kaha",
       "Retention ka usool kehta hai ke purani chats hatayi jayein"
     ],
@@ -267,9 +267,9 @@
     "q": "Shor wale call center mein speech-to-text app ko achha chalane mein kaunse DO iqdamaat madad karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Zyada oonchi synthetic awaaz istemal karna",
-      "Usi mahaul mein record ki hui audio se custom speech model train karna",
-      "Synthetic awaaz ka gender badalna",
-      "Product aur customers ke khaas alfaaz wali phrase list shamil karna",
+      "Calls ki audio se custom speech model train karna",
+      "Synthetic awaaz ka gender aur raftaar badalna",
+      "Khaas alfaaz ki phrase list shamil karna",
       "Image detail ki setting barhana"
     ],
     "exp": "Asli calls ki audio par trained custom speech shor aur lehjon ke mutabiq dhal jata hai, aur phrase list khaas alfaaz ki pehchan barhati hai. Synthetic awaaz ki settings output par asar dalti hain, pehchan par nahi, aur image detail ka audio se taalluq nahi."

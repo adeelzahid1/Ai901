@@ -51,11 +51,11 @@
     "id": "D2-344", "sub": "agent-portal", "diff": 3, "type": "multi",
     "q": "An agent sometimes calls the wrong tool. Which TWO changes are most likely to help? Each correct answer presents a complete solution.",
     "opts": [
-      "Increase the deployment's quota",
-      "Describe clearly in the instructions and tool descriptions when each tool should be used",
+      "Increase the quota of the deployment that the agent uses",
+      "Describe clearly when each tool should be used",
       "Rename the agent",
       "Remove tools that the agent does not need",
-      "Add more unrelated tools"
+      "Add more unrelated tools so that it can choose freely"
     ],
     "ans": [1, 3],
     "exp": "The model chooses tools based on their descriptions and its instructions, so clear guidance improves tool selection, and fewer irrelevant tools mean fewer chances to choose wrongly. Quota and the agent's name do not influence tool choice, and extra unrelated tools make mistakes more likely.",
@@ -274,10 +274,10 @@
     "id": "D2-362", "sub": "spoken-prompts", "diff": 2, "type": "multi",
     "q": "Which TWO are valid ways to answer users who speak to your app? Each correct answer presents a complete solution.",
     "opts": [
-      "Send the audio to an image-generation model",
+      "Send the audio to an image-generation model with a short prompt",
       "Send the audio to an audio-capable chat model",
-      "Send the audio only to an embedding model",
-      "Transcribe it with speech to text, then send the text to a chat model",
+      "Send the audio only to an embedding model and search",
+      "Transcribe it, then send the text to a chat model",
       "Send the audio to OCR"
     ],
     "ans": [1, 3],

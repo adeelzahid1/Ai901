@@ -191,7 +191,13 @@
   {
     "id": "D2-583", "sub": "sdk-chat-client", "diff": 2, "type": "multi",
     "q": "Which TWO values do you typically pass to responses.create()? Each correct answer presents part of the solution.",
-    "opts": ["region", "tenant_id", "model, set to the deployment name", "input, set to the prompt or messages", "quota"],
+    "opts": [
+      "region",
+      "tenant_id, set to the directory that owns the project",
+      "model, set to the deployment name",
+      "input, set to the prompt or messages",
+      "quota, set to a token limit"
+    ],
     "ans": [2, 3],
     "exp": "A Responses API call needs the model, which is your deployment name, and the input to respond to; optional settings such as instructions can be added. Region, tenant and quota are not request parameters.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
@@ -292,10 +298,10 @@
     "id": "D2-592", "sub": "agent-client", "diff": 3, "type": "multi",
     "q": "Which TWO responsibilities belong to the client app rather than to the agent's definition? Each correct answer presents a complete solution.",
     "opts": [
-      "The agent's instructions",
+      "The agent's instructions and the rules for its answers",
       "The agent's tools",
       "The agent's model",
-      "Keeping track of which conversation belongs to which user",
+      "Knowing which conversation belongs to which user",
       "Showing the agent's reply in the user interface"
     ],
     "ans": [3, 4],

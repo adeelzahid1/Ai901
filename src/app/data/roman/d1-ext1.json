@@ -105,6 +105,7 @@
   },
   "D1-048": {
     "q": "Kaunsi DO techniques us text ko kam karti hain jo manager ko 20 page ki report samajhne ke liye parhna parta hai? Har sahi jawab mukammal hal hai.",
+    "opts": [null, null, "Score ke saath language detection", null, "Knowledge base se entity linking"],
     "exp": "Summarization ki dono qismein document ko chhota karti hain: extractive summarization asal ke sab se ahem jumlay deta hai, aur abstractive summarization asal khayalat ka naya chhota khulasa likhta hai. Language detection sirf zaban batata hai, PII redaction zaati data chupata hai lekin lambai wahi rehti hai, aur entity linking naamon ko knowledge base ki entries se jorta hai, is liye koi bhi report chhoti nahi karta."
   },
   "D1-049": {
@@ -161,11 +162,11 @@
   "D1-058": {
     "q": "Kaunsi TEEN cheezein speech recognition (speech to text) ki features hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "SSML se pitch aur raftar badalna",
+      "SSML se awaaz ki pitch aur raftaar badalna",
       "Speaker diarization jo dikhata hai ke kab kaun bola",
       "Microphone input ki real-time transcription",
       "Mehfooz audio files ki batch transcription",
-      "Boli jane wali output ke liye neural voice chunna"
+      "Bole hue output ke liye neural voice chunna"
     ],
     "exp": "Real-time transcription, batch transcription aur speaker diarization, teenon live ya record ki hui speech ko mufeed tafseel ke saath text mein badalte hain, is liye woh speech recognition ka hissa hain. SSML aur neural voices banayi hui audio ke liye hain, jo text to speech hai."
   },
@@ -213,11 +214,11 @@
   "D1-066": {
     "q": "Kaunsi TEEN techniques scan kiye hue kaghzi forms se maloomat nikalne mein madad karti hain? Har sahi jawab mukammal hal hai.",
     "opts": [
+      "Form ke chhape hue text ki language detection",
       null,
-      null,
-      "Field extraction jo key-value pairs deta hai, jaise Name aur Date",
+      "Field extraction jo key-value pairs de",
       "Layout analysis jo tables aur check boxes dhoondta hai",
-      null
+      "Form ki zyada saaf copy ki image generation"
     ],
     "exp": "OCR chhapa hua aur haath ka likha text parhta hai, layout analysis tables aur check boxes jaisa structure dhoondta hai, aur field extraction naam wali values deta hai. Language detection sirf zaban batata hai, aur image generation tasveerein parhne ke bajaye banata hai."
   },

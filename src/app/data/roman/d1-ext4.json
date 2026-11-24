@@ -127,10 +127,10 @@
   "D1-156": {
     "q": "Model ki context window ke baare mein kaunse DO bayan sahi hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Context window kisi hadd ke baghair khud barhti rehti hai",
-      "Jab guftagu context window se barh jaye to purana content chhota karna ya hatana parta hai",
+      "Conversation lambi ho to context window khud-ba-khud barh jati hai",
+      "Conversation is se bari ho to purana content kaatna parta hai",
       "Context window images mein naapi jati hai",
-      "Context window aur deployment ka quota ek hi cheez hain",
+      "Context window deployment ke tokens-per-minute quota ke barabar hai",
       "Lamba prompt window mein jawab ke liye kam tokens chorta hai"
     ],
     "exp": "Context window input aur output dono ki mila kar ek muqarrar token hadd hai, is liye lambi chats ko kaatna ya un ka khulasa karna parta hai, aur lamba prompt jawab ki jagah kam karta hai. Woh be-hadd nahi barhti, images ke bajaye tokens mein gini jati hai, aur model ki khoobi hai, jab ke quota deployment ke tokens per minute mehdood karta hai."
@@ -198,10 +198,10 @@
     "q": "Model ke liye deployment type chunte waqt kaunsi DO cheezein dekhni chahiye? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
       "Foundry portal ka color theme",
-      "Data residency ki sharaait, jaise processing ko EU mein rakhna",
+      "Data residency ki zarooratein, jaise EU",
       "Developer ke laptop ka brand",
-      "Mutawaqqa traffic ka andaz aur latency kitni qabil-e-andaza honi chahiye",
-      "App mein system messages ki tadad"
+      "Mutawaqqa traffic aur matlooba latency",
+      "App rozana kitne system messages bhejti hai"
     ],
     "exp": "Deployment types mein farq yeh hai ke data kahan process hota hai, jaise global ya data zone ke andar, aur capacity kaise milti hai, jaise pay per token, reserved provisioned throughput ya batch. Is liye data residency aur traffic aur latency ki zarooratein intikhab tay karti hain. Portal ke rang, laptop aur system messages ki tadad ka is se taalluq nahi."
   },

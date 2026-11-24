@@ -13,12 +13,13 @@ function lengthRanks(mcq) {
   return [0, 1, 2, 3].map((rank) => share(four, (q) => q.opts.filter((o) => o.length > q.opts[q.ans].length).length === rank));
 }
 
-/** True when the answers of a multi-select question are exactly its longest options. */
-function longestAreAnswers(q) {
+/** The longest options of a multi-select question, as many as it has answers. */
+function longestOptions(q) {
   const byLength = q.opts.map((o, i) => [o.length, i]).sort((a, b) => b[0] - a[0]);
-  const top = byLength.slice(0, q.ans.length).map(([, i]) => i);
-  return q.ans.every((i) => top.includes(i));
+  return byLength.slice(0, q.ans.length).map(([, i]) => i);
 }
+
+const longestAreAnswers = (q) => q.ans.every((i) => longestOptions(q).includes(i));
 
 /** Share of a Yes/No set that is right when only the statement with an absolute word gets "No". */
 function oneNoGuess(q) {
@@ -41,7 +42,8 @@ export function fairness(questions) {
     { name: 'mcq: answer is the longest option', value: share(mcq, (q) => q.opts[q.ans].length > Math.max(...wrongOptions(q))), max: 0.3 },
     { name: 'mcq: answer is 1.5x longer than the rest', value: share(mcq, (q) => q.opts[q.ans].length >= 1.5 * Math.max(...wrongOptions(q))), max: 0.05 },
     { name: 'mcq: most common length rank of the answer', value: Math.max(...lengthRanks(mcq)), max: 0.38 },
-    { name: 'multi: answers are the longest options', value: share(multi, longestAreAnswers), max: 0.55 },
+    { name: 'multi: answers are the longest options', value: share(multi, longestAreAnswers), max: 0.3 },
+    { name: 'multi: the longest option is an answer', value: share(multi, (q) => q.ans.includes(longestOptions(q)[0])), max: 0.6 },
     { name: 'multi: exactly two answers', value: share(multi, (q) => q.ans.length === 2), max: 0.7 },
     { name: 'yes/no: exactly one No', value: share(yesno, (q) => q.ans.filter((a) => !a).length === 1), max: 0.45 },
     { name: 'yes/no: most common answer pattern', value: Math.max(0, ...patterns.values()) / (yesno.length || 1), max: 0.2 },
@@ -56,5 +58,5 @@ export function fairness(questions) {
     0.12 * average(yesno, oneNoGuess) +
     0.13 * average(of('dropdown'), (q) => share(q.ans.map((a, i) => ({ a, g: longest(q.opts[i]) })), (x) => x.a === x.g)) +
     0.06 * average(of('match'), (q) => 1 / q.targets.length);
-  return { measures, score: Math.round(score * 1000), maxScore: 350 };
+  return { measures, score: Math.round(score * 1000), maxScore: 300 };
 }

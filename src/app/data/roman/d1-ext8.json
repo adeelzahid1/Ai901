@@ -68,9 +68,9 @@
   "D1-255": {
     "q": "Kaunse TEEN amal voice assistant ko zyada inclusive banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Sirf ek accent support karna",
-      "Bolne ki dushwari wale logon ke saath assistant test karna",
-      "Jawabon se captions hatana",
+      "Sirf ek lehja support karna taake pehchan zyada sahi ho",
+      "Bolne mein mushkil wale logon ke saath test karna",
+      "Assistant ke jawabon se captions hatana",
       "Voice input ke badle text ka raasta dena",
       "Kai zabanein aur lehje support karna"
     ],
@@ -149,9 +149,9 @@
   "D1-264": {
     "q": "Solution design karte waqt generative models ki kaunsi TEEN hudood ka khayal rakhna chahiye? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Woh hamesha apne sources cite karte hain",
+      "Woh apne har bayan ke sources hamesha batate hain",
       "Woh ghalat maloomat pur-aetemad andaz mein de sakte hain",
-      "Unhein kabhi monitoring nahi chahiye",
+      "Pehli release ke baad unhein monitoring nahi chahiye",
       "Un ki andruni maloomat training cutoff par khatam ho jati hai",
       "Woh apne training data ka bias dohra sakte hain"
     ],

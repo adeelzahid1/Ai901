@@ -67,10 +67,10 @@
     "id": "D1-107", "sub": "workload-scenarios", "diff": 2, "type": "multi",
     "q": "Which THREE scenarios are computer vision workloads? Each correct answer presents a complete solution.",
     "opts": [
-      "Transcribe a phone call",
+      "Transcribe a phone call and find its main topics",
       "Read the text on photographed receipts",
-      "Summarize a quarterly report",
-      "Detect scratches in photos of products on an assembly line",
+      "Summarize a quarterly report for the managers of a company",
+      "Detect scratches in photos of products",
       "Count the people in a camera image"
     ],
     "ans": [1, 3, 4],
@@ -188,9 +188,9 @@
     "id": "D1-117", "sub": "text-techniques", "diff": 1, "type": "multi",
     "q": "Which THREE are text analysis techniques? Each correct answer presents a complete solution.",
     "opts": [
-      "Object detection",
+      "Object detection in photos",
       "Key phrase extraction",
-      "Speech synthesis",
+      "Speech synthesis in many voices",
       "Named entity recognition",
       "Sentiment analysis"
     ],
@@ -299,9 +299,9 @@
     "id": "D1-127", "sub": "speech-features", "diff": 2, "type": "multi",
     "q": "Which THREE features belong to speech synthesis (text to speech)? Each correct answer presents a complete solution.",
     "opts": [
-      "Speaker diarization",
+      "Speaker diarization in recorded meetings",
       "Neural voices in many languages",
-      "Batch transcription",
+      "Batch transcription of stored recordings",
       "SSML control of pitch, rate and pauses",
       "Custom voice for a brand, with approval"
     ],
@@ -397,11 +397,11 @@
     "id": "D1-136", "sub": "extraction-techniques", "diff": 2, "type": "multi",
     "q": "Which TWO techniques extract information from video? Each correct answer presents a complete solution.",
     "opts": [
-      "Speech synthesis",
+      "Speech synthesis of a new commentary",
       "Transcribing the speech in the video",
-      "Image generation from prompts",
+      "Image generation from prompts about the scenes",
       "Translating a text file",
-      "Detecting keyframes and scene segments"
+      "Detecting keyframes and scenes"
     ],
     "ans": [1, 4],
     "exp": "Video analysis combines what is said, found by transcribing the audio track, with what is shown, found by detecting keyframes and splitting the video into segments. Speech synthesis and image generation create new content rather than extracting it, and translating a text file does not process video.",

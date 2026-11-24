@@ -201,8 +201,8 @@
     "q": "You must choose between two deployed models for your app. Which TWO steps give the best basis for the decision? Each correct answer presents part of the solution.",
     "opts": [
       "Pick the model with the longer name",
-      "Run the same evaluation dataset against both deployments",
-      "Choose the newest model without testing it",
+      "Run the same evaluation dataset against both",
+      "Choose the newest model without testing it first",
       "Compare cost and latency for your typical prompts",
       "Check which model has more deployments worldwide"
     ],
@@ -311,9 +311,9 @@
     "id": "D2-335", "sub": "sdk-chat-client", "diff": 1, "type": "multi",
     "q": "Which THREE practices make a chat client's code easier to maintain? Each correct answer presents a complete solution.",
     "opts": [
-      "Copy the endpoint into every source file",
+      "Copy the endpoint into every source file that calls the model",
       "Read the endpoint and deployment name from configuration",
-      "Hard-code passwords in the code",
+      "Hard-code the passwords in one file of the code",
       "Keep the system message in one place that you can update",
       "Create the project client once and reuse it"
     ],

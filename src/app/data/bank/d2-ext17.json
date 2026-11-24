@@ -174,9 +174,9 @@
     "id": "D2-523", "sub": "agent-client", "diff": 2, "type": "multi",
     "q": "Which THREE are valid reasons for a client app to delete a conversation? Each correct answer presents a complete solution.",
     "opts": [
-      "To make the model smarter",
+      "To make the model smarter for the next user of the application",
       "The user ended the session and the history is no longer needed",
-      "To increase the deployment's quota",
+      "To increase the quota of the model's deployment",
       "The user asked to have their chat data deleted",
       "A retention rule says that old chats have to be removed"
     ],
@@ -381,9 +381,9 @@
     "q": "Which TWO measures help a speech-to-text app work well in a noisy call center? Each correct answer presents a complete solution.",
     "opts": [
       "Use a louder synthetic voice",
-      "Train a custom speech model with audio recorded in that environment",
-      "Change the gender of the synthetic voice",
-      "Add a phrase list with product and customer-specific terms",
+      "Train a custom speech model with call audio",
+      "Change the gender and the speed of the synthetic voice",
+      "Add a phrase list with specific terms",
       "Increase the image detail setting"
     ],
     "ans": [1, 3],

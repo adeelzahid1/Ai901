@@ -162,10 +162,10 @@
     "q": "Model ko company ki taaza maloomat dene ke kaunse DO tareeqay hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Temperature barhana",
-      "Deployment ka region badalna",
-      "Company ke mutalliqa documents nikal kar prompt mein shamil karna (RAG)",
-      "Deployment ka naam lamba rakhna",
-      "Maujooda maloomat seedhi prompt mein paste karna"
+      "Deployment ka region naye datacenter par badalna",
+      "Prompt mein mutalliqa documents shamil karna (RAG)",
+      "Maujooda tareekh wala lamba deployment ka naam rakhna",
+      "Maloomat prompt mein paste karna"
     ],
     "exp": "Model company ke sirf wahi taaza facts istemal kar sakta hai jo aap request ke waqt dein, ya to mutalliqa documents khud nikalwa kar ya maloomat seedhi prompt mein rakh kar. Temperature, region aur deployment ke naam nayi maloomat nahi dete."
   },
@@ -220,10 +220,10 @@
     "q": "Standard pay-per-token deployment ki request ke kharche par kaunsi DO cheezein seedha asar dalti hain? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
       "Input tokens ki tadad",
-      "Temperature ki value",
+      "Request ki temperature value",
       "App mein istemal hone wala font",
       "Output tokens ki tadad",
-      "Deployment ka naam"
+      "Model ki deployment ka naam"
     ],
     "exp": "Pay-per-token deployments input tokens aur output tokens ka bill leti hain, aksar mukhtalif rates par, is liye lambe prompts aur lambe jawab mehnge parte hain. Temperature randomness badalta hai, billing nahi, aur app ke font aur deployment ke naam ka kharche par koi asar nahi."
   },

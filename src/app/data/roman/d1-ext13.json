@@ -78,6 +78,7 @@
   },
   "D1-395": {
     "q": "Kaunsi DO techniques customer emails mein zikr kiye gaye products ki maloomat dhoondne mein madad karti hain? Har sahi jawab mukammal hal hai.",
+    "opts": [null, null, "Attachments ki image tagging", "Emails ke liye text to speech", null],
     "exp": "Named entity recognition naam wali cheezein, jaise products aur companies ke naam, dhoondta hai, aur key phrase extraction asal mauzu, jaise product ke features, samne laata hai. Speech synthesis aur text to speech audio banate hain, aur image tagging tasveeron par kaam karta hai."
   },
   "D1-396": {
@@ -158,11 +159,11 @@
   "D1-406": {
     "q": "Computer vision models istemal karte waqt kaunsi DO hudood ka khayal rakhna chahiye? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Models har tasveer par bilkul sahi kaam karte hain",
+      "Models camera ki li hui har image par bilkul theek kaam karte hain",
       "Models ko kabhi testing nahi chahiye",
       "Kam roshni ya ghair mamooli zaviye se accuracy gir sakti hai",
-      "Models un logon ya cheezon par kharab kaam kar sakte hain jin ki training data mein numaindagi kam thi",
-      "Models cloud mein nahi chal sakte"
+      "Kam numaindagi wale logon par accuracy kam ho sakti hai",
+      "Models cloud mein ya chhote devices par nahi chal sakte"
     ],
     "exp": "Vision ki accuracy tasveer ke halaat par aur is par munhasir hai ke training data mein aap ke kaam ke log aur cheezein kitni achi tarah shamil thin, is liye asal halaat mein aur groups ke hisaab se test karein. Koi model bilkul sahi ya testing se azaad nahi, aur vision models aam taur par cloud services ki soorat mein chalte hain."
   },

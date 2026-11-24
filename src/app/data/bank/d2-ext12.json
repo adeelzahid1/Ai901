@@ -95,11 +95,11 @@
     "id": "D2-375", "sub": "image-generation", "diff": 3, "type": "multi",
     "q": "A brand needs a set of product images that look like one consistent series. Which TWO practices help? Each correct answer presents a complete solution.",
     "opts": [
-      "Change the style words in every prompt",
+      "Change the style words in every prompt so that images differ",
       "Reuse the same detailed style description in every prompt",
       "Use a random size for each image",
       "Keep the size and quality settings the same",
-      "Leave the product out of the prompt"
+      "Leave the product out of the prompt on purpose"
     ],
     "ans": [1, 3],
     "exp": "Repeating the same style description and keeping settings constant gives the model the same guidance each time, which produces a more consistent look. Changing styles or sizes makes images inconsistent, and leaving out the product removes the main subject.",
@@ -237,9 +237,9 @@
     "id": "D2-387", "sub": "cu-images", "diff": 3, "type": "multi",
     "q": "Which TWO statements correctly compare Content Understanding image analysis with Image Analysis in Azure Vision? Each correct answer presents a complete solution.",
     "opts": [
-      "Content Understanding can return only a fixed set of tags",
-      "Content Understanding lets you define your own fields with a schema",
-      "Image Analysis lets you define custom generated fields",
+      "Content Understanding can return only a fixed set of tags for an image",
+      "Content Understanding lets you define your fields",
+      "Image Analysis lets you define custom generated fields in a schema",
       "Content Understanding uses generative models to fill the fields",
       "Content Understanding cannot process images"
     ],

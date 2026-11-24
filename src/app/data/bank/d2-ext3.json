@@ -196,9 +196,9 @@
     "q": "Which TWO statements about sending spoken prompts directly to a multimodal model are correct? Each correct answer presents a complete solution.",
     "opts": [
       "Audio input is never billed",
-      "The model can answer without a separate speech-to-text step",
-      "Any text-only model can accept audio",
-      "Information in the audio, such as tone, can reach the model directly",
+      "It can answer without a speech-to-text step",
+      "Any text-only model can accept audio after a restart",
+      "Information such as tone can reach the model",
       "Audio input removes the need for content filtering"
     ],
     "ans": [1, 3],
@@ -441,10 +441,10 @@
     "id": "D2-138", "sub": "cu-app", "diff": 3, "type": "multi",
     "q": "Which TWO things does a custom Content Understanding analyzer define? Each correct answer presents part of the solution.",
     "opts": [
-      "The virtual machine size",
+      "The virtual machine size and the number of its processors",
       "A field schema that lists the fields to produce",
       "A DNS zone",
-      "Content extraction settings and the model deployments to use",
+      "Content extraction settings and models",
       "The storage tier of the input files"
     ],
     "ans": [1, 3],

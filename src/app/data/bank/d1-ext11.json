@@ -68,11 +68,11 @@
     "id": "D1-335", "sub": "workload-scenarios", "diff": 3, "type": "multi",
     "q": "Which TWO scenarios call for information extraction rather than content generation? Each correct answer presents a complete solution.",
     "opts": [
-      "Write a new advertising slogan",
-      "Read the policy number and expiry date from scanned insurance cards",
+      "Write a new advertising slogan for the insurance cards",
+      "Read the policy number from scanned insurance cards",
       "Create a product image",
-      "Capture the order ID and items from emailed purchase orders",
-      "Compose a poem for a greeting card"
+      "Capture the order ID from emailed purchase orders",
+      "Compose a short poem for a greeting card to customers"
     ],
     "ans": [1, 3],
     "exp": "Pulling specific values from insurance cards and purchase orders is information extraction: the data already exists and must be captured accurately. Slogans, product images and poems are new content, which is generative AI.",
@@ -314,11 +314,11 @@
     "id": "D1-355", "sub": "extraction-techniques", "diff": 2, "type": "multi",
     "q": "Which TWO are typical outputs when you extract information from a recorded meeting video? Each correct answer presents a complete solution.",
     "opts": [
-      "A new soundtrack",
+      "A new soundtrack that fits the topics",
       "A transcript of what was said",
       "A 3D model of the room",
       "Key moments or segments with descriptions",
-      "A new video with actors"
+      "A new video in which actors repeat the talks"
     ],
     "ans": [1, 3],
     "exp": "Extraction from a meeting video produces a transcript of the speech and descriptions of key moments or segments based on the frames. Soundtracks, 3D models and new videos are generated content, not information extracted from the recording.",

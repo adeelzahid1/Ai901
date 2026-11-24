@@ -57,11 +57,11 @@
     "id": "D1-076", "sub": "reliability-safety", "diff": 2, "type": "multi",
     "q": "Which THREE practices support reliability and safety before and after a generative AI chatbot is released? Each correct answer presents a complete solution.",
     "opts": [
-      "Turn off all logging so that nothing can be reviewed",
+      "Turn off all logging so that nothing can be reviewed after the release",
       "Plan a fallback, such as handing the user over to a person",
       "Red-team the chatbot with adversarial and harmful prompts",
       "Always use the highest temperature",
-      "Evaluate responses on a test dataset and keep monitoring after release"
+      "Evaluate it on a test dataset and keep monitoring it"
     ],
     "ans": [1, 2, 4],
     "exp": "Red teaming finds weaknesses before release, evaluation and monitoring show how the chatbot behaves over time, and a fallback limits harm when it cannot answer safely. Without logs problems cannot be investigated, and the highest temperature makes answers less predictable.",

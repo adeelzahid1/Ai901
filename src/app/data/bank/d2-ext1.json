@@ -585,10 +585,10 @@
     "type": "multi",
     "q": "You are choosing between Azure Vision Image Analysis and a multimodal GPT model for an app. Which TWO statements are correct? Each correct answer presents a complete solution.",
     "opts": [
-      "Image Analysis returns structured results, such as tags, objects with bounding boxes and OCR lines",
-      "A multimodal model can answer open-ended questions about an image in natural language",
+      "Image Analysis returns tags, boxes and OCR lines",
+      "A multimodal model can answer open-ended questions",
       "Image Analysis can generate new images",
-      "A multimodal model cannot accept images",
+      "A multimodal model cannot accept an image in the same message as text",
       "Only Image Analysis can be called from Python"
     ],
     "ans": [
@@ -716,10 +716,10 @@
     "type": "multi",
     "q": "Which TWO output formats can an application receive from Content Understanding? Each correct answer presents a complete solution.",
     "opts": [
-      "An MP3 recording of the content",
-      "An Excel macro",
+      "An MP3 recording of the content that was read aloud",
+      "An Excel macro that fills the fields",
       "A Markdown representation of the content",
-      "Structured JSON that matches the analyzer's field schema",
+      "Structured JSON with the fields",
       "A trained ONNX model"
     ],
     "ans": [

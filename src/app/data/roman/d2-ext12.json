@@ -69,11 +69,11 @@
   "D2-375": {
     "q": "Ek brand ko product images ka aisa set chahiye jo ek hi series lage. Kaunse DO tareeqay madad karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Har prompt mein style ke alfaaz badalna",
+      "Har prompt mein style ke alfaaz badalna taake images mukhtalif hon",
       "Har prompt mein wahi tafseeli style description dobara istemal karna",
       "Har image ke liye random size rakhna",
       "Size aur quality ki settings ek jaisi rakhna",
-      "Prompt se product hi nikal dena"
+      "Jaan boojh kar product ko prompt se nikalna"
     ],
     "exp": "Wahi style description dohrane aur settings ek jaisi rakhne se model ko har baar wahi rahnumai milti hai, is liye look zyada yaksan hota hai. Style ya size badalne se images alag alag lagti hain, aur product nikal dene se asal mauzu hi khatam ho jata hai."
   },
@@ -172,9 +172,9 @@
   "D2-387": {
     "q": "Kaunse DO bayan Content Understanding ke image analysis aur Azure Vision ke Image Analysis ka sahi muqabla karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Content Understanding sirf tags ka tay shuda set de sakta hai",
-      "Content Understanding aap ko schema ke zariye apni fields bayan karne deta hai",
-      "Image Analysis aap ko custom generated fields bayan karne deta hai",
+      "Content Understanding image ke liye sirf tags ka tay shuda set de sakta hai",
+      "Content Understanding aap ko apni fields bayan karne deta hai",
+      "Image Analysis aap ko schema mein custom generated fields bayan karne deta hai",
       "Content Understanding fields bharne ke liye generative models istemal karta hai",
       "Content Understanding images process nahi kar sakta"
     ],

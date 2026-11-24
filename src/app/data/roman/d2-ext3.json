@@ -112,9 +112,9 @@
     "q": "Bole hue prompts seedhe multimodal model ko bhejne ke baare mein kaunse DO bayan sahi hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Audio input ka kabhi bill nahi aata",
-      "Model alag speech-to-text qadam ke baghair jawab de sakta hai",
-      "Koi bhi sirf text wala model audio le sakta hai",
-      "Audio ki maloomat, jaise lehja, seedhi model tak pohanch sakti hai",
+      "Woh speech-to-text ke qadam ke baghair jawab de sakta hai",
+      "Koi bhi text wala model restart ke baad audio le sakta hai",
+      "Lehje jaisi maloomat model tak pohanch sakti hai",
       "Audio input se content filtering ki zaroorat khatam ho jati hai"
     ],
     "exp": "Audio wala model speech ko khud process karta hai, is liye alag transcription service nahi chahiye, aur lehja jaisi audio ki tafseel transcript mein kho nahi jati. Audio input ka bill aata hai, aam taur par audio tokens ke hisaab se, sirf audio support wale models usay le sakte hain, aur responsible AI ki hifazatein phir bhi lagu rehti hain."
@@ -279,10 +279,10 @@
   "D2-138": {
     "q": "Custom Content Understanding analyzer kaunsi DO cheezein tay karta hai? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
-      "Virtual machine ka size",
+      "Virtual machine ka size aur us ke processors ki tadad",
       "Field schema jo banaye jane wale fields ki list deta hai",
       "DNS zone",
-      "Content extraction settings aur istemal hone wali model deployments",
+      "Content extraction ki settings aur models",
       "Input files ka storage tier"
     ],
     "exp": "Analyzer content extraction settings, naam, types, descriptions aur methods wala field schema, aur generation chalane wali model deployments ko jorta hai, aur unhein har input par ek jaisa lagu karta hai. Content Understanding managed service hai, is liye virtual machines, DNS zones aur storage tiers analyzer ka hissa nahi."

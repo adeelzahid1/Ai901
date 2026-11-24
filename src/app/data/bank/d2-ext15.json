@@ -243,9 +243,9 @@
     "id": "D2-472", "sub": "cu-images", "diff": 2, "type": "multi",
     "q": "Which THREE image scenarios are good fits for Content Understanding? Each correct answer presents a complete solution.",
     "opts": [
-      "Create cartoon avatars of employees",
+      "Create cartoon avatars of all employees from their badge photos",
       "Extract the reading and ID number from photos of utility meters",
-      "Compose music inspired by images",
+      "Compose music inspired by the colors of holiday images",
       "Describe the condition of rental cars from their return photos",
       "List the brand names visible in shelf photos"
     ],

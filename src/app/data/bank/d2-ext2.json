@@ -333,9 +333,9 @@
     "id": "D2-099", "sub": "sdk-chat-client", "diff": 2, "type": "multi",
     "q": "Which TWO are valid ways to give a model instructions that apply to the whole conversation in a Python chat client? Each correct answer presents a complete solution.",
     "opts": [
-      "The api_version query string",
-      "A system message at the start of the messages list in a chat completion request",
-      "The region of the deployment",
+      "The api_version query string of the project endpoint",
+      "A system message at the start of the messages list",
+      "The region in which the model deployment was created",
       "The instructions parameter of responses.create()",
       "A stop sequence"
     ],

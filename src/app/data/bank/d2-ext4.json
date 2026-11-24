@@ -308,11 +308,11 @@
     "id": "D2-165", "sub": "sdk-chat-client", "diff": 2, "type": "multi",
     "q": "A long chat is close to the model's context window. Which TWO approaches keep requests within the limit? Each correct answer presents a complete solution.",
     "opts": [
-      "Keep sending the full history forever",
+      "Keep sending the full history and raise the temperature a little",
       "Summarize older turns and send the summary instead",
       "Raise the temperature",
       "Drop the oldest messages but keep the system message",
-      "Add more few-shot examples on every turn"
+      "Add more few-shot examples on every turn of the chat"
     ],
     "ans": [1, 3],
     "exp": "Summarizing older turns or dropping the oldest messages, while keeping the system message, reduces the tokens sent and keeps the conversation inside the context window. Sending everything will eventually exceed the limit, temperature does not change length, and extra examples add more tokens.",

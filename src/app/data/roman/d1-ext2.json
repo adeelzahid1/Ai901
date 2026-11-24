@@ -39,11 +39,11 @@
   "D1-076": {
     "q": "Generative AI chatbot ke release se pehle aur baad mein kaunse TEEN tareeqay reliability and safety ko support karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Tamam logging band kar dein taake kuch review na ho sake",
+      "Tamam logging band karna taake release ke baad kuch dekha na ja sake",
       "Fallback rakhna, jaise user ko kisi insan ke hawale karna",
       "Chatbot ko mukhalifana aur nuqsan deh prompts se red-team karein",
       "Hamesha sab se zyada temperature rakhein",
-      "Test dataset par jawab evaluate karein aur release ke baad bhi monitoring jari rakhein"
+      "Test dataset par evaluate karna aur monitor karte rehna"
     ],
     "exp": "Red teaming release se pehle kamzoriyan dhoondti hai, evaluation aur monitoring dikhate hain ke chatbot waqt ke saath kaisa chal raha hai, aur fallback us waqt nuqsan kam karta hai jab woh hifazat se jawab na de sake. Logs ke baghair masail ki tehqeeq nahi ho sakti, aur sab se zyada temperature jawabon ko kam qabil-e-peshgoi banata hai."
   },

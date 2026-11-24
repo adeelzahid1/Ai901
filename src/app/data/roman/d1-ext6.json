@@ -42,9 +42,9 @@
   "D1-199": {
     "q": "Generative AI chat app design karte waqt kaunsi DO baatein privacy ke lihaz se ahem hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Sab se bari available context window istemal karein",
+      "Model ki sab se bari dastiyab context window istemal karna",
       "Users ko batayein ke un ka data kaise istemal aur mehfooz hota hai",
-      "Sab se zyada parameters wala model chunein",
+      "Catalog mein sab se zyada parameters wala model chunna",
       "Prompts mein ghair zaroori zaati data na daalein",
       "Dark color theme rakhein"
     ],
@@ -74,11 +74,11 @@
   "D1-203": {
     "q": "Kaunse TEEN amal transparency principle ko support karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Model ki ghaltiyan users se chupana",
+      "Model ki ghaltiyan users se chupana taake woh bharosa karein",
       "AI ke banaye hue content par label lagana",
       "Users ko batana ke woh AI system se baat kar rahe hain",
       "Users ko system ki hudood samjhana",
-      "App ke AI istemal karne ka notice hatana"
+      "App ke AI istemal karne wala notice hatana"
     ],
     "exp": "Bane hue content par label lagana, hudood samjhana aur users ko batana ke woh AI se baat kar rahe hain, teenon logon ko samajhne mein madad dete hain ke unka wasta kis cheez se hai. Ghaltiyan chupana aur notice hatana ye samajh khatam kar dete hain."
   },
@@ -174,11 +174,11 @@
   "D1-214": {
     "q": "Model card ki kaunsi DO maloomat yeh tay karne mein madad karti hain ke model aap ke solution ke liye munasib hai? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
-      "Provider ke logo ka rang",
+      "Catalog mein provider ke logo ka rang",
       "Supported input aur output ki qismein",
       "Banane wale ka abai shehar",
       "Context window aur output ki zyada se zyada lambai",
-      "Release ka hafte wala din"
+      "Hafte ka woh din jab model release hua"
     ],
     "exp": "Supported inputs aur outputs batate hain ke model aap ka data, jaise images ya audio, sambhal sakta hai ya nahi, aur context window aur output ki hadd batati hai ke woh kitna process kar ke de sakta hai. Logo ke rang, banane walon ke shehar aur release ke din kaam ke liye munasib hone ke baare mein kuch nahi batate."
   },

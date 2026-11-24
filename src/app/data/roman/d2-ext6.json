@@ -26,9 +26,9 @@
   "D2-201": {
     "q": "Kaunse DO kaam multimodal chat model ko tasveerein bhejne ke liye munasib hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Pixel ki had tak bilkul sahi segmentation masks banana",
+      "Har cheez ke pixel-perfect segmentation masks banana",
       "Samjhana ke chart kya dikhata hai aur kaunsa rujhan zahir karta hai",
-      "Naya image classification model train karna",
+      "Tasveeron se naya image classification model train karna",
       "Do product photos ka muqabla kar ke farq batana",
       "Har cheez ke bilkul sahi pixel coordinates ki guarantee dena"
     ],
@@ -127,11 +127,11 @@
   "D2-216": {
     "q": "Images ke liye Content Understanding ke kaunse DO ache istemal hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Prompt se product ki nayi tasveer banana",
+      "Prompt aur tasveer se product ki nayi image banana",
       "Insurance claim ki photo mein nazar aane wala nuqsan bayan karna",
       "Audio file translate karna",
       "Report ki figure mein chart ki qism classify karna",
-      "Custom speech model train karna"
+      "Call recordings par custom speech model train karna"
     ],
     "exp": "Content Understanding tasveeron ko structured maloomat banata hai, maslan nuqsan ki banayi hui tafseel ya chart ki qism. Woh nayi tasveerein nahi banata, audio files translate nahi karta aur speech models train nahi karta; yeh image-generation models, speech translation aur custom speech ke kaam hain."
   },

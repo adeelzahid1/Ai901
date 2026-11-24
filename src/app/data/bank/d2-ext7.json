@@ -87,11 +87,11 @@
     "id": "D2-232", "sub": "prompts", "diff": 2, "type": "multi",
     "q": "Which TWO changes help a model give more relevant answers? Each correct answer presents a complete solution.",
     "opts": [
-      "Add random unrelated text to the prompt",
+      "Add random unrelated text to the prompt to make it longer",
       "Include the context or data that the answer should use",
       "Remove the user's question",
       "State the task and the intended audience clearly",
-      "Write the prompt in capital letters"
+      "Write the whole prompt in capital letters or in bold"
     ],
     "ans": [1, 3],
     "exp": "Relevant context gives the model the facts it needs, and a clear task and audience tell it what to produce and for whom. Unrelated text distracts the model, removing the question leaves nothing to answer, and capital letters add no information.",
@@ -188,10 +188,10 @@
     "id": "D2-240", "sub": "portal-deploy", "diff": 2, "type": "multi",
     "q": "Which TWO things do you need to run an evaluation of a model or chat app in Microsoft Foundry? Each correct answer presents part of the solution.",
     "opts": [
-      "A VPN gateway",
-      "A test dataset of inputs, and optionally expected outputs",
-      "A GPU driver",
-      "Evaluators, such as groundedness or relevance",
+      "A VPN gateway for the test data",
+      "A test dataset of inputs",
+      "A GPU driver on the evaluation server",
+      "Evaluators, such as relevance",
       "A DNS record"
     ],
     "ans": [1, 3],

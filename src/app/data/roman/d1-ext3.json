@@ -45,10 +45,10 @@
   "D1-107": {
     "q": "Kaunse TEEN scenarios computer vision workloads hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Phone call ko likhna",
+      "Phone call ko text mein likh kar asal mauzuaat dhoondna",
       "Photo li hui receipts ka text parhna",
-      "Quarterly report ka khulasa karna",
-      "Assembly line par products ki photos mein kharashein pehchanna",
+      "Company ke managers ke liye quarterly report ka khulasa karna",
+      "Products ki tasveeron mein kharashein dhoondna",
       "Camera ki image mein log ginna"
     ],
     "exp": "Tasveer wali raseedon ka text parhna OCR hai, product ki tasveeron mein kharashein dhoondna visual inspection hai, aur log ginna object detection se hota hai, is liye teenon computer vision hain. Call ko text mein likhna speech hai, aur report ka khulasa text ka kaam hai."
@@ -128,6 +128,7 @@
   },
   "D1-117": {
     "q": "Kaunsi TEEN text analysis techniques hain? Har sahi jawab mukammal hal hai.",
+    "opts": ["Tasveeron mein object detection", null, "Kai awaazon mein speech synthesis", null, null],
     "exp": "Key phrase extraction, named entity recognition aur sentiment analysis, teenon likhe hue text ka jaiza lete hain. Object detection images par kaam karta hai, aur speech synthesis text ka jaiza lene ke bajaye usay audio mein badalta hai."
   },
   "D1-118": {
@@ -189,9 +190,9 @@
   "D1-127": {
     "q": "Kaunse TEEN features speech synthesis (text to speech) ka hissa hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      null,
+      "Record ki hui meetings mein speaker diarization",
       "Bohat si zabanon mein neural voices",
-      null,
+      "Mehfooz recordings ki batch transcription",
       "SSML se pitch, raftar aur waqfon ka control",
       "Manzoori ke saath brand ki custom voice"
     ],
@@ -253,11 +254,11 @@
   "D1-136": {
     "q": "Kaunsi DO techniques video se maloomat nikalti hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      null,
+      "Nayi commentary ki speech synthesis",
       "Video mein boli gayi baat ko likhna",
-      "Prompts se image generation",
+      "Scenes ke prompts se image generation",
       "Text file translate karna",
-      "Keyframes aur scene ke segments pehchanna"
+      "Keyframes aur scenes pehchanna"
     ],
     "exp": "Video analysis boli gayi baat ko, jo audio track likhne se milti hai, dikhayi gayi cheez ke saath jorta hai, jo keyframes pehchanne aur video ko segments mein torne se milti hai. Speech synthesis aur image generation maloomat nikalne ke bajaye naya content banate hain, aur text file translate karne se video process nahi hoti."
   },

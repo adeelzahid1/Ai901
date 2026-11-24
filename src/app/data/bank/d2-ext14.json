@@ -239,10 +239,10 @@
     "id": "D2-443", "sub": "text-app", "diff": 2, "type": "multi",
     "q": "Which TWO practices make a text analysis app more efficient? Each correct answer presents a complete solution.",
     "opts": [
-      "Call the API once for every word",
-      "Send documents in batches instead of one request per sentence",
+      "Call the API once for every word of the document",
+      "Send documents in batches",
       "Analyze unchanged documents again every minute",
-      "Request several analyses in one job when you need them together",
+      "Request several analyses in one job",
       "Send images instead of text"
     ],
     "ans": [1, 3],

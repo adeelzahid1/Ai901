@@ -58,11 +58,11 @@
     "id": "D1-172", "sub": "workload-scenarios", "diff": 2, "type": "multi",
     "q": "Which THREE scenarios are information extraction workloads? Each correct answer presents a complete solution.",
     "opts": [
-      "Write a poem about the sea",
+      "Write a poem about the sea for a company newsletter",
       "Pull the total and due date from supplier invoices",
       "Read the meter value from photos of gas meters",
-      "Capture the action items and owners from a meeting recording as structured fields",
-      "Design a new company logo"
+      "Capture the action items from a meeting recording",
+      "Design a new company logo with a given color"
     ],
     "ans": [1, 2, 3],
     "exp": "Values from invoices, action items from a recording and readings from meter photos are all specific pieces of information taken from content and returned as data, which is information extraction. Writing a poem and designing a logo create new content.",
@@ -173,9 +173,9 @@
     "id": "D1-182", "sub": "speech-features", "diff": 2, "type": "multi",
     "q": "Speech recognition often misses a company's product names. Which TWO actions can improve accuracy? Each correct answer presents a complete solution.",
     "opts": [
-      "Choose a different text-to-speech voice",
+      "Choose a different text-to-speech voice for the product names",
       "Add a phrase list that contains the product names",
-      "Wrap the text in SSML prosody tags",
+      "Wrap the product names in SSML prosody tags before recognition",
       "Train a custom speech model with domain-specific text",
       "Increase the image detail level"
     ],

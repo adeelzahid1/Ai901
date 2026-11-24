@@ -69,10 +69,10 @@
   "D2-290": {
     "q": "AI ki banayi tasveerein shaya karte waqt kaunse TEEN zimmedar tareeqay hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Files se provenance ki tamam maloomat hata dena",
-      "Content Credentials rakhna taake dekhne wale jaan sakein ke tasveer AI ki banayi hai",
+      "Provenance ki tamam maloomat hatana taake shaya karne ki files chhoti hon",
+      "Images par Content Credentials rakhna",
       "Daawa karna ke tasveerein asal photos hain",
-      "Shaya karne se pehle ghaltiyon aur nuqsan deh content ke liye tasveerein review karna",
+      "Images mein ghaltiyan aur nuqsan deh content dekhna",
       "Dekhna ke images mehfooz characters ya brands ki naqal na karein"
     ],
     "exp": "Content Credentials dikhate hain ke image AI se bani hai, review ghaltiyan aur nuqsan deh content pakarta hai, aur mehfooz characters ya brands ki jaanch qanooni masail se bachati hai. Provenance ki maloomat hatana aur images ko asli tasveerein kehna dekhne walon ko gumrah karta hai."

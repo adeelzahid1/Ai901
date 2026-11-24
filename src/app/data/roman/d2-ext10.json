@@ -147,8 +147,8 @@
     "q": "Aap ko app ke liye deploy kiye hue do models mein se ek chunna hai. Kaunse DO qadam faisle ki sab se achi bunyad dete hain? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
       "Lambe naam wala model chunein",
-      "Dono deployments par wahi evaluation dataset chalayein",
-      "Test kiye baghair sab se naya model chunein",
+      "Dono par ek hi evaluation dataset chalana",
+      "Sab se naya model pehle test kiye baghair chunna",
       "Apne aam prompts ke liye kharcha aur latency compare karein",
       "Dekhein ke duniya mein kaunse model ki zyada deployments hain"
     ],
@@ -228,9 +228,9 @@
   "D2-335": {
     "q": "Kaunse TEEN tareeqay chat client ka code sambhalna aasan banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Har source file mein endpoint copy karna",
+      "Endpoint ko model call karne wali har source file mein copy karna",
       "Endpoint aur deployment ka naam configuration se parhna",
-      "Code mein passwords hard-code karna",
+      "Passwords ko code ki ek file mein likh dena",
       "System message ko ek jagah rakhna jahan se update ho sake",
       "Project client ek baar bana kar dobara istemal karna"
     ],

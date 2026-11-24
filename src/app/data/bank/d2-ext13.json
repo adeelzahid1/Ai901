@@ -69,10 +69,10 @@
     "q": "You are writing the system message for a chatbot that gives general medical information. Which TWO instructions matter most for safety? Each correct answer presents part of the solution.",
     "opts": [
       "Use as many emojis as possible",
-      "Remind users that the chatbot does not replace advice from a medical professional",
+      "Say that it does not replace a medical professional",
       "Answer in a random language",
-      "Tell users with urgent symptoms to contact a doctor or emergency services",
-      "Always give a definite diagnosis"
+      "Send users with urgent symptoms to a doctor",
+      "Always give a definite diagnosis and a treatment plan"
     ],
     "ans": [1, 3],
     "exp": "Stating the chatbot's limits and directing urgent cases to professionals reduce the risk of harm in a sensitive domain. Emojis and random languages do not help safety, and giving definite diagnoses is exactly what a general information bot must avoid.",

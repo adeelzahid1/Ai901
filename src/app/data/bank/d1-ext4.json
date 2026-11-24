@@ -182,10 +182,10 @@
     "id": "D1-156", "sub": "genai-how", "diff": 3, "type": "multi",
     "q": "Which TWO statements about a model's context window are correct? Each correct answer presents a complete solution.",
     "opts": [
-      "The context window grows automatically without any limit",
-      "When a conversation exceeds the context window, older content must be shortened or removed",
+      "The context window grows automatically whenever a conversation gets longer",
+      "Older content must be cut when a conversation exceeds it",
       "The context window is measured in images",
-      "The context window is the same as the deployment's quota",
+      "The context window is the same as the tokens-per-minute quota of the deployment",
       "A longer prompt leaves fewer tokens for the response within the window"
     ],
     "ans": [1, 4],
@@ -282,11 +282,11 @@
     "id": "D1-164", "sub": "deploy-config", "diff": 2, "type": "multi",
     "q": "Which TWO factors should you consider when you choose a deployment type for a model? Each correct answer presents part of the solution.",
     "opts": [
-      "The color theme of the Foundry portal",
-      "Data residency requirements, such as keeping processing in the EU",
+      "The color theme that the Foundry portal uses",
+      "Data residency requirements, such as the EU",
       "The brand of the developer's laptop",
-      "The expected traffic pattern and how predictable the latency must be",
-      "The number of system messages in the app"
+      "The expected traffic and the latency it needs",
+      "The number of system messages that the app sends each day"
     ],
     "ans": [1, 3],
     "exp": "Deployment types differ in where data is processed, such as global or within a data zone, and in how capacity is provided, such as pay per token, reserved provisioned throughput or batch. So data residency and traffic and latency needs drive the choice. Portal colors, laptops and the number of system messages are unrelated.",

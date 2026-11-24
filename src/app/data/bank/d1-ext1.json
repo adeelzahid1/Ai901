@@ -324,9 +324,9 @@
     "opts": [
       "Abstractive summarization",
       "Extractive summarization",
-      "Language detection",
+      "Language detection with a score",
       "PII redaction",
-      "Entity linking"
+      "Entity linking to a knowledge base"
     ],
     "ans": [
       0,
@@ -499,11 +499,11 @@
     "type": "multi",
     "q": "Which THREE are features of speech recognition (speech to text)? Each correct answer presents a complete solution.",
     "opts": [
-      "Changing pitch and rate with SSML",
+      "Changing the pitch and rate of a voice with SSML",
       "Speaker diarization that shows who spoke when",
       "Real-time transcription of microphone input",
       "Batch transcription of stored audio files",
-      "Choosing a neural voice for spoken output"
+      "Choosing a neural voice for the spoken output"
     ],
     "ans": [
       1,
@@ -655,11 +655,11 @@
     "type": "multi",
     "q": "Which THREE techniques help extract information from scanned paper forms? Each correct answer presents a complete solution.",
     "opts": [
-      "Language detection",
+      "Language detection of the form's printed text",
       "Optical character recognition (OCR)",
-      "Field extraction that returns key-value pairs, such as Name and Date",
+      "Field extraction that returns key-value pairs",
       "Layout analysis that finds tables and check boxes",
-      "Image generation"
+      "Image generation of a cleaner copy of the form"
     ],
     "ans": [
       1,

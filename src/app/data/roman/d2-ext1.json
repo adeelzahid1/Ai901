@@ -210,10 +210,10 @@
   "D2-060": {
     "q": "Aap app ke liye Azure Vision Image Analysis aur multimodal GPT model mein se chun rahe hain. Kaunse DO bayan sahi hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Image Analysis structured nateeje deta hai, jaise tags, bounding boxes wali cheezein aur OCR lines",
-      "Multimodal model tasveer ke baare mein khule sawalon ke jawab aam zaban mein de sakta hai",
+      "Image Analysis tags, boxes aur OCR lines deta hai",
+      "Multimodal model khule sawalon ke jawab de sakta hai",
       "Image Analysis nayi tasveerein bana sakta hai",
-      "Multimodal model tasveerein nahi le sakta",
+      "Multimodal model text wale message mein image nahi le sakta",
       "Sirf Image Analysis ko Python se call kiya ja sakta hai"
     ],
     "exp": "Jab tags, bounding boxes aur OCR text jaise qabil-e-andaza structured outputs chahiye hon to Image Analysis behtar hai, jab ke tasveer ke baare mein lachakdar sawalon aur wazahat ke liye multimodal model behtar hai. Image Analysis tasveeron ka jaiza leta hai lekin banata nahi, multimodal models tasveerein lete hain, aur dono ko Python se call kiya ja sakta hai."
@@ -270,10 +270,10 @@
   "D2-067": {
     "q": "Application Content Understanding se kaunse DO output formats hasil kar sakti hai? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "Content ki MP3 recording",
-      "Excel macro",
+      "Bol kar parhe hue content ki MP3 recording",
+      "Excel macro jo fields bhare",
       "Content ki Markdown soorat",
-      "Structured JSON jo analyzer ke field schema se milta ho",
+      "Fields wala structured JSON",
       "Train kiya hua ONNX model"
     ],
     "exp": "Content Understanding content ko Markdown ki soorat mein deta hai, jo search aur RAG scenarios ke liye munasib hai, aur structured JSON ki soorat mein, jis mein aap ke schema ke fields hote hain, jo automation aur analytics ke liye munasib hai. Woh train kiye hue models, audio files ya Excel macros nahi banata."

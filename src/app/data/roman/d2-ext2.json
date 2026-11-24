@@ -229,9 +229,9 @@
   "D2-099": {
     "q": "Python chat client mein model ko poori guftagu ki hidayaat dene ke kaunse DO durust tareeqay hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "api_version query string",
-      "Chat completion request ki messages list ke shuru mein system message",
-      "Deployment ka region",
+      "Project endpoint ki api_version query string",
+      "Messages list ke shuru mein system message",
+      "Woh region jahan model deployment banayi gayi",
       "responses.create() ka instructions parameter",
       "Stop sequence"
     ],

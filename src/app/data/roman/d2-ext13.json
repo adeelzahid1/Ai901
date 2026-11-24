@@ -54,10 +54,10 @@
     "q": "Aap aise chatbot ka system message likh rahe hain jo sehat ke baare mein aam maloomat deta hai. Hifazat ke liye kaunsi DO hidayaat sab se zyada ahem hain? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
       "Jitne zyada ho sakein emojis istemal karo",
-      "Users ko yaad dilao ke chatbot tibbi mahir ke mashware ka badal nahi",
+      "Batao ke ye tibbi mahir ka badal nahi",
       "Kisi bhi random zaban mein jawab do",
-      "Fauri alamaat wale users se kaho ke doctor ya emergency services se raabta karein",
-      "Hamesha yaqeeni diagnosis do"
+      "Fauri alamaat wale users ko doctor ke paas bhejo",
+      "Hamesha yaqeeni diagnosis aur ilaj ka mansooba do"
     ],
     "exp": "Chatbot ki hadein batana aur fauri cases ko mahireen ki taraf bhejna is hassas maidan mein nuqsan ka khatra kam karta hai. Emojis aur random zabanein hifazat mein madad nahi kartin, aur yaqeeni diagnosis dena wohi cheez hai jis se aam maloomat wale bot ko bachna chahiye."
   },

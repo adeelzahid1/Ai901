@@ -237,9 +237,9 @@
     "id": "D2-273", "sub": "text-app", "diff": 1, "type": "multi",
     "q": "Which THREE are typical scenarios for an app that uses text analysis? Each correct answer presents a complete solution.",
     "opts": [
-      "Generate product photos",
+      "Generate product photos for the online shop",
       "Route support tickets by the language they are written in",
-      "Transcribe phone calls",
+      "Transcribe the phone calls of a support team",
       "Mask personal data before storing chat logs",
       "Track the sentiment of product reviews"
     ],
