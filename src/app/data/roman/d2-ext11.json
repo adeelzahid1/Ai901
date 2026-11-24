@@ -1,0 +1,236 @@
+{
+  "D2-340": {
+    "q": "Microsoft Foundry mein agent ki instructions kaise likhte hain?",
+    "opts": [
+      "SQL query ki soorat mein",
+      "Binary file ki soorat mein",
+      "Aam zaban mein, jo agent ka role, maqasid aur usool bayan kare",
+      "CSS stylesheet ki soorat mein"
+    ],
+    "exp": "Agent ki instructions system message ki tarah saada aam zaban hoti hain, jo model ko batati hain ke woh kaun hai, kya karna hai aur kaunse usool par chalna hai. SQL, binary files aur stylesheets se agent ka rawaiya tay nahi hota."
+  },
+  "D2-341": {
+    "ctx": "Ek IT help desk agent ko IT knowledge base documents se sawalon ke jawab dene hain aur ticketing system mein tickets banane hain, jis ka REST API OpenAPI specification mein bayan hai.",
+    "q": "Agent ke paas kaunse tools hone chahiye?",
+    "opts": [
+      "Knowledge base ke liye file search aur ticketing API ke liye OpenAPI tool",
+      "Sirf code interpreter",
+      "Image generation aur Grounding with Bing Search",
+      "Koi tool nahi, kyunke instructions kaafi hain"
+    ],
+    "exp": "File search agent ko knowledge base documents se jawab dene deta hai, aur OpenAPI tool usay tickets banane ke liye ticketing system ka API call karne deta hai. Code interpreter Python chalata hai, image generation aur web search andruni systems tak nahi pohanchte, aur akeli instructions documents ya APIs tak rasai nahi deti."
+  },
+  "D2-342": {
+    "q": "Microsoft Foundry mein agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Agent ko sirf public website par shaya hone ke baad test kiya ja sakta hai.",
+      "Aap model badle baghair agent ke tools badal sakte hain.",
+      "Agent ke jawabon par us model deployment ke guardrails lagu hote hain jo agent istemal karta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: agent ko kisi bhi waqt portal mein ya code se test kiya ja sakta hai. Doosre ka Haan: tools aur model definition ke alag hisse hain. Teesre ka Haan: model jab agent ke taur par kaam kare tab bhi deployment ki content filtering aur doosre guardrails lagu rehte hain."
+  },
+  "D2-343": {
+    "q": "Har agent tool ko knowledge tool ya action tool mein rakhein. Har category ek se zyada baar istemal ho sakti hai.",
+    "targets": ["Knowledge tool (maloomat dhoondta hai)", "Action tool (doosre system mein kuch karta hai)"],
+    "exp": "File search aur Azure AI Search jawab ki bunyad ke liye maloomat nikalte hain, is liye woh knowledge tools hain. Function calling aur OpenAPI tool agent ko aisa code ya APIs chalane dete hain jo doosre systems mein amal karein, is liye woh action tools hain."
+  },
+  "D2-344": {
+    "q": "Ek agent kabhi kabhi ghalat tool call karta hai. Kaunsi DO tabdeeliyan sab se zyada madad karengi? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Deployment ka quota barhana",
+      "Instructions aur tool descriptions mein wazeh batana ke har tool kab istemal ho",
+      "Agent ka naam badalna",
+      "Woh tools hatana jin ki agent ko zaroorat nahi",
+      "Mazeed ghair mutalliqa tools shamil karna"
+    ],
+    "exp": "Model tools ko un ki descriptions aur apni instructions ki bunyad par chunta hai, is liye wazeh rahnumai tool ka intikhab behtar karti hai, aur kam ghair mutalliqa tools se ghalat intikhab ke mauqay kam hote hain. Quota aur agent ka naam tool ke intikhab par asar nahi dalte, aur izafi ghair mutalliqa tools ghaltiyan barhate hain."
+  },
+  "D2-345": {
+    "q": "Agents ke baare mein jumla mukammal karein.",
+    "tpl": "Agent ka rawaiya us ki {0} se tay hota hai, aur woh model se aage ki maloomat ya systems tak pohanchne ke liye {1} istemal karta hai.",
+    "exp": "Instructions agent ka role, usool aur andaz tay karti hain, aur file search, web grounding ya API calls jaise tools usay model ki maloomat se aage le jate hain. Regions, deployment types aur quotas hosting ki settings hain jo rawaiya tay nahi kartin na data tak rasai deti hain."
+  },
+  "D2-346": {
+    "q": "Agent ke file search tool ke liye upload ki hui files kahan rakhi jati hain taake agent un mein talash kar sake?",
+    "opts": [
+      "Model ke weights mein",
+      "System message mein",
+      "Browser cache mein",
+      "Vector store mein, jahan file search tool talash karta hai"
+    ],
+    "exp": "Upload ki hui files chunks mein tor kar, embed kar ke vector store mein rakhi jati hain, jahan file search tool mutalliqa hisse dhoondta hai. Woh model ke weights nahi badaltin, system message mein paste nahi hotin aur browser cache mein nahi rakhi jatin."
+  },
+  "D2-347": {
+    "q": "Foundry quickstart Python client mein project par authenticate karne ke liye kaunsi credential class istemal karta hai?",
+    "opts": [null, "Saada password string", "Anonymous rasai", null],
+    "exp": "Quickstart azure-identity ka DefaultAzureCredential istemal karta hai, jo development mein aap ka az login session aur Azure mein managed identity pakar leta hai. Code mein passwords, anonymous rasai aur storage SAS tokens Foundry project par authenticate karne ke liye istemal nahi hote."
+  },
+  "D2-348": {
+    "q": "Ek client poore jawab ka intezar karne ke bajaye agent ka jawab bante hi dikhana chahta hai. Usay kya karna chahiye?",
+    "opts": [
+      "Billing page ko baar baar check kare",
+      "Har message ke liye agent dobara banaye",
+      "Response stream kare aur har chunk aate hi dikhaye",
+      "Deployment ka quota barhaye"
+    ],
+    "exp": "Streaming response ko model ke banate hue hi hisson mein deti hai, is liye client text foran dikha sakta hai. Billing check karna, agent dobara banana aur quota barhana adhoora output dastiyab nahi karta."
+  },
+  "D2-349": {
+    "q": "Agent client apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Client app Foundry portal mein bane agent se baat kar sakti hai.",
+      "Client ko har request ke saath agent ki tool definitions bhejni lazmi hain.",
+      "Conversation ID se client baad mein chat jari rakh sakta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: portal mein bane agents code se naam ke zariye istemal ho sakte hain. Doosre ka Nahi: tools agent ki mehfooz definition ka hissa hain. Teesre ka Haan: conversation ID dobara istemal karne se pehle ki history wapas aati hai."
+  },
+  "D2-350": {
+    "q": "Agent client code ki har line ko us ke kaam se milayein. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "targets": [
+      "Mehfooz conversation hatata hai",
+      "Agent ka model aur instructions bayan karta hai",
+      "Foundry project se jurta hai",
+      "Maujooda identity ke liye Microsoft Entra tokens leta hai",
+      "Tasveer banata hai"
+    ],
+    "exp": "DefaultAzureCredential tokens leta hai, AIProjectClient project se jurta hai, PromptAgentDefinition agent ka model aur instructions bayan karti hai, aur conversations.delete conversation aur us ki history hatata hai. In mein se koi line tasveer nahi banati."
+  },
+  "D2-351": {
+    "q": "Foundry SDK se prompt agent banane ke liye kaunsi DO values chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "opts": ["GPU", "Model deployment ka naam", "Storage queue", "Agent ka naam", "DNS zone"],
+    "exp": "create_version() agent ka naam aur aisi definition leta hai jis mein model deployment ka naam, aam taur par instructions ke saath, hota hai. Agents Foundry ke managed infrastructure par chalte hain, is liye GPU, storage queue ya DNS zone ki zaroorat nahi."
+  },
+  "D2-352": {
+    "ctx": "Ek web app 1,000 employees ko ek hi HR agent se chat karne deti hai. Har employee ki chat private rehni chahiye.",
+    "q": "Client ko conversations kaise sambhalni chahiye?",
+    "opts": [
+      "Sab ke liye ek mushtarka conversation istemal kare",
+      "Har message ke liye naya agent banaye",
+      "Rasai aasan karne ke liye authentication band kare",
+      "Har user session ke liye alag conversation banaye aur us ki ID sirf usi user tak rakhe"
+    ],
+    "exp": "Har user session ko apni conversation chahiye taake history kabhi na mile, aur app ko yaqeeni banana hota hai ke ek user doosre ki conversation ID istemal na kar sake. Mushtarka conversation maloomat leak karti hai, har message par agents banana fuzool hai, aur authentication band karne se access control khatam ho jata hai."
+  },
+  "D2-353": {
+    "q": "Woh Python code mukammal karein jo agent banata aur us ka naam aur version print karta hai.",
+    "exp": "PromptAgentDefinition prompt-based agent ko us ke model aur instructions ke saath bayan karti hai. create_version() agent version object deta hai, jis mein name aur version jaisi properties hain. SpeechConfig aur ImageAnalysisClient doosri services ka hissa hain, aur temperature aur region mile hue agent ki properties nahi."
+  },
+  "D2-354": {
+    "q": "Python ke Language SDK mein analyze_sentiment() ko documents ke taur par kya dete hain?",
+    "opts": [
+      "Ek tasveer",
+      "WAV file",
+      "Strings ki list, ya id, text aur language wale objects ki list",
+      "Sirf JSON schema"
+    ],
+    "exp": "Text analysis ke methods documents ka batch lete hain, ya to saada strings ki soorat mein ya id, text aur ikhtiyari language wale objects ki soorat mein. Tasveerein, audio files aur schemas sentiment analysis ka durust input nahi."
+  },
+  "D2-355": {
+    "q": "Ek app ko customer reviews ke batch ko ek dostana paragraph mein badalna hai jo bataye ke customers ko kya pasand aur kya napasand hai. Kya sab se munasib hai?",
+    "opts": [
+      "Deploy kiye hue chat model ko lehje, lambai aur content ki hidayaat ke saath prompt dena",
+      null,
+      null,
+      "Akela key phrase extraction"
+    ],
+    "exp": "Chune hue lehje mein naya paragraph likhna generative kaam hai, is liye wazeh hidayaat wala chat model munasib hai. Language detection aur PII detection khulasa nahi karte, aur akele key phrases parhne wale paragraph ke bajaye mauzu ki list dete hain."
+  },
+  "D2-356": {
+    "q": "Text analysis apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Zaati data ko haath se dhoond kar chupana lazmi hai.",
+      "App Azure Language features ko generative model ke saath jor sakti hai.",
+      "Azure Language bohat si zabanon ke text ka jaiza le sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: PII detection zaati data khud dhoond kar chupata hai. Doosre ka Haan: maslan app Language se sentiment maloom kar ke model se jawab likhwa sakti hai. Teesre ka Haan: Language features bohat si zabanein support karte hain, har feature ki list alag hai."
+  },
+  "D2-357": {
+    "q": "Har zaroorat ko TextAnalyticsClient ke us method se milayein jo usay pura karta hai. Har method ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Har review ke liye positive, neutral ya negative",
+      "Har review ke asal mauzu",
+      "Har message ki zaban",
+      "Text ki copy jis mein zaati data chupa ho"
+    ],
+    "exp": "analyze_sentiment() sentiment ke labels deta hai, extract_key_phrases() mauzu, detect_language() zaban, aur recognize_pii_entities() redacted text. speak_text_async() Speech SDK ka hissa hai aur audio banata hai."
+  },
+  "D2-358": {
+    "q": "TextAnalyticsClient ki authentication ke baare mein jumlay mukammal karein.",
+    "tpl": "Resource key istemal karne ke liye client {0} ke saath banayein. Microsoft Entra ID istemal karne ke liye us ki jagah {1} dein.",
+    "blanks": [null, ["API version", null, "deployment ka naam"]],
+    "exp": "AzureKeyCredential key authentication ke liye key rakhta hai, aur DefaultAzureCredential Microsoft Entra tokens deta hai. SpeechConfig aur PromptAgentDefinition doosre SDKs ka hissa hain, aur API version ya deployment ka naam credential nahi."
+  },
+  "D2-359": {
+    "q": "Record kiya hua sawal audio wale chat model ko bhejne se pehle app ko recording ke saath kya karna hota hai?",
+    "opts": [
+      "Usay tasveer mein badalna",
+      "Usay print karna",
+      "Audio ko base64 mein encode karna aur us ka format batana",
+      "Usay French mein translate karna"
+    ],
+    "exp": "Audio request mein base64-encoded data ki soorat mein apne format, jaise wav, ke saath shamil hoti hai. Model ko audio ki tasveer nahi chahiye, print karne se kuch nahi hota, aur sawal samajhne ke liye tarjuma zaroori nahi."
+  },
+  "D2-360": {
+    "q": "Ek app audio wale chat model se speech mein jawab maangti hai. Chat Completions response mein audio kahan milti hai?",
+    "opts": [
+      "choices[0].message.audio.data mein, base64 ki soorat mein",
+      "choices[0].message.image_url mein",
+      "usage.audio_file mein",
+      "HTTP response header mein"
+    ],
+    "exp": "Jab audio output maanga jaye to assistant message mein audio object hota hai jis ki data property mein base64-encoded audio, aur saath mein boli gayi baat ka transcript hota hai. image_url image input ke liye hai, usage sirf tokens ki tadad batata hai, aur audio headers mein nahi aati."
+  },
+  "D2-361": {
+    "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Agar model zaban support kare to spoken prompt English ke ilawa kisi zaban mein ho sakta hai.",
+      "Audio wale model ki har request se pehle Speech resource call karna lazmi hai.",
+      "Audio wala model apne bole hue jawab ka transcript de sakta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: audio wale models bohat si boli jane wali zabanein sambhalte hain. Doosre ka Nahi: model audio khud process karta hai, is liye alag Speech call ikhtiyari hai. Teesre ka Haan: audio output ke saath text transcript aata hai jise app dikha ya log kar sakti hai."
+  },
+  "D2-362": {
+    "q": "Aap ki app se bolne wale users ko jawab dene ke kaunse DO durust tareeqay hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Audio image-generation model ko bhejna",
+      "Audio audio wale chat model ko bhejna",
+      "Audio sirf embedding model ko bhejna",
+      "Speech to text se likhna, phir text chat model ko bhejna",
+      "Audio OCR ko bhejna"
+    ],
+    "exp": "Audio wala chat model speech ka seedha jawab de sakta hai, aur speech to text ke baad chat model wali pipeline bhi kaam karti hai. Image-generation models, embedding models aur OCR bole hue sawalon ke jawab nahi dete."
+  },
+  "D2-363": {
+    "q": "SpeechConfig(subscription=key, region=region) mein region kya hai?",
+    "opts": ["Awaaz ka naam", "Pehchanne ki zaban", "Model deployment ka naam", "Resource ka Azure region, jaise eastus"],
+    "exp": "Region SDK ko batata hai ke aap ke Speech ya Foundry resource ka kaunsa regional endpoint call karna hai, maslan eastus. Awaazein speech_synthesis_voice_name se, zabanein speech_recognition_language se set hoti hain, aur Speech yahan model deployment ka naam istemal nahi karta."
+  },
+  "D2-364": {
+    "q": "Continuous recognition ke dauran SpeechRecognizer ka kaunsa event har pehchane hue phrase ka aakhri text deta hai?",
+    "exp": "recognized event har phrase ke aakhri nateeje ke saath chalta hai. recognizing kisi ke bolte waqt adhoore, badalte hue nateejon ke saath baar baar chalta hai, canceled errors ya rukne ki khabar deta hai, aur session_started session shuru hone ka nishan hai."
+  },
+  "D2-365": {
+    "q": "Speech SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "SpeechConfig woh text rakhta hai jo bola jayega.",
+      "SpeechSynthesizer speak_ssml_async() se SSML bol sakta hai.",
+      "Audio config na di jaye to SpeechRecognizer default microphone sunta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: SpeechConfig connection ki tafseel aur settings rakhta hai; text synthesizer ke speak methods ko diya jata hai. Doosre ka Haan: speak_ssml_async() bareek control ke liye SSML leta hai. Teesre ka Haan: AudioConfig ke baghair default microphone istemal hota hai."
+  },
+  "D2-366": {
+    "q": "Woh Python code mukammal karein jo SSML document bolta aur tasdeeq karta hai ke audio bani.",
+    "exp": "speak_ssml_async() SSML leta hai, jab ke speak_text_async() saada text leta hai aur recognize_once_async() pehchan karta hai. Kamyab synthesis SynthesizingAudioCompleted deta hai; RecognizedSpeech aur NoMatch speech recognition ke nateeje hain."
+  },
+  "D2-367": {
+    "q": "Aap aisa Python code likh rahe hain jo boli hui English ke ek jumlay ko German text mein translate karta hai. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "result.translations se German text parhein",
+      "ImageAnalysisClient banayein",
+      "Key aur region ke saath SpeechTranslationConfig banayein",
+      "TranslationRecognizer banayein aur ek baar pehchan karein",
+      "Recognition language English karein aur German ko target language ke taur par shamil karein"
+    ],
+    "exp": "Pehle translation config banti hai, phir us par source aur target zabanein set hoti hain, phir us config se TranslationRecognizer banta aur sunta hai, aur aakhir mein nateeje ki translations dictionary German text deti hai. ImageAnalysisClient images ka jaiza leti hai aur zaroori nahi."
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "D2-425": {
+    "q": "Foundry agent aur saadi model deployment mein asal farq kya hai?",
+    "opts": [
+      "Agent bas ek zyada bara model hai",
+      "Agent model ke upar instructions aur tools shamil karta hai, is liye woh maloomat dhoond sakta hai aur amal kar sakta hai",
+      "Agent model istemal nahi karta",
+      "Agent ek billing plan hai"
+    ],
+    "exp": "Model deployment prompts ke jawab deti hai, jab ke agent model ko mehfooz instructions aur file search ya API calls jaise tools ke saath jorta hai, taake jawab grounded hon aur woh amal kar sake. Agent zyada bara model nahi, woh hamesha kisi model par chalta hai, aur billing plan bhi nahi."
+  },
+  "D2-426": {
+    "ctx": "Ek travel company ka agent company ke brochures se sawalon ke jawab deta hai aur usay partner ke REST API se flights ki live qeematein bhi check karni hain.",
+    "q": "Kaunsa tool agent ko flights ki live qeematein lane deta hai?",
+    "opts": [
+      "Brochures par file search",
+      "Code interpreter",
+      "Partner ke flight API ke liye OpenAPI tool ya function",
+      "Image generation"
+    ],
+    "exp": "Live qeematein partner ke API se aati hain, is liye agent ko aisa action tool chahiye, jaise OpenAPI tool ya function, jo usay call kare. File search sirf upload kiye hue brochures tak hai, code interpreter sandbox mein Python chalata hai, aur image generation tasveerein banati hai."
+  },
+  "D2-427": {
+    "q": "Agent tools ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Grounding with Bing Search agent ko company ka private intranet parhne deta hai.",
+      "File search aap ke upload kiye hue PDF aur Word jaise documents se jawab de sakta hai.",
+      "Code interpreter charts jaisi files bana sakta hai jo agent wapas deta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: Bing grounding public web par talash karta hai; private content ke liye file search ya jura hua search index chahiye. Doosre ka Haan: file search ke liye aam document formats upload ho sakte hain. Teesre ka Haan: code interpreter charts aur doosri files output ke taur par bana sakta hai."
+  },
+  "D2-428": {
+    "q": "Agent ke har masle ko us tabdeeli se milayein jo usay theek karti hai. Har hal ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Agent company policy ke baare mein jawab khud gharta hai",
+      "Agent kisi se poochhe baghair emails bhejta hai",
+      "Agent aaj ke waqiaat ke baare mein jawab nahi de sakta",
+      "Agent ke jawab bohat zyada lambe hain"
+    ],
+    "targets": [
+      "Instructions mein lambai ka usool shamil karna",
+      "Deployment ka quota barhana",
+      "Policy documents par file search shamil karna aur agent ko unhein istemal karne ka kehna",
+      "Grounding with Bing Search shamil karna",
+      "Email tool chalne se pehle insani manzoori lazmi karna"
+    ],
+    "exp": "Ghare hue policy jawabon ke liye policy documents par grounding chahiye, baghair manzoori emails ke liye approval ka qadam, taza waqiaat ke liye web grounding, aur lambe jawabon ke liye lambai ka usool. Quota throughput par asar dalta hai aur in mein se koi masla hal nahi karta."
+  },
+  "D2-429": {
+    "q": "Foundry portal mein agent banane ke baare mein jumla mukammal karein.",
+    "tpl": "Aap agent ko naam dete hain, {0} chunte hain, aur us ki {1} likhte hain.",
+    "exp": "Agent ko sochne ke liye model deployment chahiye aur rawaiya tay karne ke liye instructions; tools baad mein shamil ho sakte hain. Agent banate waqt storage accounts, regions, invoices aur passwords set nahi kiye jate."
+  },
+  "D2-430": {
+    "q": "Aap Foundry portal mein naya customer support agent test kar rahe hain. Kaunse DO test prompts sab se mufeed hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Sirf lafz 'hello'",
+      "Customer ka aam sawal",
+      "Sirf random characters",
+      "Aisi request jisay agent ko mana ya kahin aur bhejna chahiye",
+      "Wahi sawal 100 baar dohrana"
+    ],
+    "exp": "Aam sawal dikhate hain ke agent apna kaam karta hai ya nahi, aur woh requests jo usay mana karni chahiye dikhati hain ke us ke usool aur hifazati rawaiya kaam karte hain ya nahi. Akela salam, random characters aur be-inteha dohrana ye bohat kam batate hain ke agent asli users ke saath kaisa chalega."
+  },
+  "D2-431": {
+    "q": "Code interpreter wala agent aisi spreadsheet ka jaiza lega jis mein customers ke email addresses hain. Kaunsa tareeqa sab se behtar hai?",
+    "opts": [
+      "Company ka sara data upload karna, shayad kaam aa jaye",
+      "Content filters band karna",
+      "Conversation public share karna",
+      "Sirf woh data upload karna jo kaam ke liye chahiye, aur yaqeeni banana ke agent ke saath share karne ki ijazat hai"
+    ],
+    "exp": "Kam se kam data dena aur ye check karna ke zaati data istemal ho sakta hai, privacy bachata hai aur agent phir bhi analysis kar leta hai. Sab kuch upload karne se khatra barhta hai, content filters hifazat ki tah hain jo on rehni chahiye, aur conversations public share karne se zaati data leak ho sakta hai."
+  },
+  "D2-432": {
+    "q": "Client app mein kaunsi value SDK ko batati hai ke kis agent se baat karni hai?",
+    "opts": ["Agent ka naam", "Tenant ID", "Storage account ki key", "Chat window ka font"],
+    "exp": "Client agent ka naam deta hai, maslan get_openai_client(agent_name=...) ko, taake requests usi agent tak jayein. Tenant ID, storage keys aur fonts agent ki pehchan nahi karte."
+  },
+  "D2-433": {
+    "q": "Page reload hone ke baad web client ko agent ke saath user ke pehle ke messages dikhane hain. Usay kya karna chahiye?",
+    "opts": [
+      "Naya agent banana",
+      "Conversation ID rakhna aur history dobara banane ke liye conversation ke items list karna",
+      "User se sab kuch dobara type karwana",
+      "Agent ki instructions parhna"
+    ],
+    "exp": "Conversations service mein mehfooz rehti hain, is liye client conversation ID, maslan user ke session mein, rakh kar us ke items list kar ke history dobara dikha sakta hai. Naya agent purani chat ke baare mein kuch nahi janta, users se dobara type karwana kharab design hai, aur instructions mein chat history nahi hoti."
+  },
+  "D2-434": {
+    "q": "Agent clients ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Client ko wahi programming language istemal karni lazmi hai jis mein agent banaya gaya tha.",
+      "Ek agent bohat si alag client apps ke kaam aa sakta hai.",
+      "Agents ko Python, C#, JavaScript ya REST API se call kiya ja sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: agent Foundry mein rehta hai, is liye koi bhi supported SDK ya saadi REST calls usay istemal kar sakti hain. Doosre ka Haan: web app, mobile app aur Teams bot sab ek hi agent se baat kar sakte hain. Teesre ka Haan: kai languages ke SDKs hain, aur REST kahin se bhi chalta hai."
+  },
+  "D2-435": {
+    "q": "Agent ka naam faq-bot hai. Woh Python code mukammal karein jo us se sawal poochta hai.",
+    "exp": "Client agent se us ke naam, faq-bot, ke zariye jura hota hai, aur input user ka sawal hai. gpt-5-mini model ka naam aur eastus region hai, agent nahi. temperature parameter ka naam aur 429 error code hai, is liye dono mein se koi sawal nahi."
+  },
+  "D2-436": {
+    "q": "Client ke har kaam ko us call se milayein jo usay karti hai. Har call ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Nayi chat shuru karna",
+      "User ka agla message bhejna",
+      "Khatam ho chuki chat hatana",
+      "Kisi khaas agent se baat karna"
+    ],
+    "exp": "conversations.create() chat shuru karta hai, conversation ID ke saath responses.create() har message bhejta hai, conversations.delete() khatam ho chuki chat hatata hai, aur get_openai_client(agent_name=...) khaas agent ko nishana banata hai. images.generate() images banata hai aur agent se chat ka hissa nahi."
+  },
+  "D2-437": {
+    "q": "Kaunse DO tareeqay agent client app ko mehfooz banate hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Project endpoint aur key ko public web page mein rakhna",
+      "Microsoft Entra ID se Foundry par authenticate karna",
+      "Poori conversations log karna, users ke type kiye passwords samet",
+      "Yaqeeni banana ke har user sirf apni conversations tak pohanche",
+      "HTTPS band karna"
+    ],
+    "exp": "Entra ID authentication secrets zahir hone se bachati hai, aur conversation ki milkiyat check karne se users doosron ki chats nahi parh sakte. Keys shaya karna, passwords log karna aur HTTPS band karna, ye sab sangeen security khatre paida karte hain."
+  },
+  "D2-438": {
+    "q": "Agent client mein ek chat session ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Session khatam hone par conversation delete karein",
+      "Agent delete karein",
+      "Agent se jura hua client lein",
+      "responses.create() aur conversation ID se messages bhejein",
+      "Conversation banayein"
+    ],
+    "exp": "Pehle client agent se jurta hai, session ke liye conversation banti hai, har message usi conversation ID ke saath jata hai, aur session khatam hone par conversation delete ho sakti hai. Agent delete karne se woh baqi tamam users ke liye bhi band ho jayega."
+  },
+  "D2-439": {
+    "q": "TextAnalyticsClient ko kis qism ke resource ka endpoint chahiye?",
+    "opts": [
+      "Storage account",
+      "Virtual network",
+      "SQL database",
+      "Azure Language resource, ya aisa Microsoft Foundry resource jis mein Language shamil ho"
+    ],
+    "exp": "Azure Language ke features Language resource ya multi-service Foundry resource se milte hain, aur client usi resource ka endpoint istemal karta hai. Storage accounts, virtual networks aur SQL databases text analysis host nahi karte."
+  },
+  "D2-440": {
+    "q": "Ek support app ko naraaz messages pehchan kar har ek ke liye hamdardi bhare jawab ka draft banana hai. Kaunsa design munasib hai?",
+    "opts": [
+      "Pehle har message ke jawab banana, phir un jawabon ke sentiment ka jaiza lena",
+      "Azure Language se sentiment ka jaiza lena, phir negative messages wazeh hidayaat ke saath chat model ko jawab ke drafts ke liye bhejna",
+      "Messages par OCR chalana",
+      "Har message ko tasveer mein badalna"
+    ],
+    "exp": "Sentiment analysis sasta tareeqa hai jo negative messages dhoondta hai, aur hidayaat wala chat model sirf unhi ke liye munasib jawab likhta hai. Customer ke messages ke bajaye jawabon ka jaiza lena maqsad se hat jata hai, aur text messages ke liye OCR ya images ka koi taalluq nahi."
+  },
+  "D2-441": {
+    "q": "Text analysis apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Text analysis ke nateeje reporting ke liye database mein rakhe ja sakte hain.",
+      "Prebuilt sentiment analysis istemal karne se pehle model train karna lazmi hai.",
+      "Azure Language ke features HTTPS par call kiye jate hain."
+    ],
+    "exp": "Pehle ka jawab Haan: sentiment aur key phrases jaise nateeje data hain jo dashboards mein ja sakte hain. Doosre ka Nahi: prebuilt features foran kaam karte hain; training sirf custom features ke liye hai. Teesre ka Haan: SDKs service ka HTTPS endpoint call karte hain."
+  },
+  "D2-442": {
+    "q": "Woh Python code mukammal karein jo documents ke abstractive khulasay print karta hai.",
+    "exp": "begin_abstract_summary() poller deta hai, aur result() operation ka intezar kar ke documents ke nateeje deta hai. Har nateeje mein summaries ki list hoti hai jin ki text property mein khulasa hota hai. wait() aur done() nateeje nahi dete, aur sentiment aur category doosre features ka hissa hain."
+  },
+  "D2-443": {
+    "q": "Kaunse DO tareeqay text analysis app ko zyada efficient banate hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Har lafz ke liye API ko alag call karna",
+      "Har jumlay ki alag request ke bajaye documents batches mein bhejna",
+      "Na badle hue documents ka har minute dobara jaiza lena",
+      "Jab kai analyses ek saath chahiye hon to unhein ek hi job mein maangna",
+      "Text ke bajaye images bhejna"
+    ],
+    "exp": "Documents ko batch karna aur analyses ko ek job mein jorna calls ki tadad aur overhead kam karta hai. Har lafz par call karna, na badle hue text ka dobara jaiza lena aur text ke bajaye images bhejna requests zaya karta hai ya kaam hi nahi karta."
+  },
+  "D2-444": {
+    "q": "Users ko bol kar (spoken prompts) sawal poochne dene ka ahem faida kya hai?",
+    "opts": [
+      "Users haath istemal kiye baghair sawal pooch sakte hain, jis se accessibility bhi behtar hoti hai",
+      "Jawab muft ho jate hain",
+      "Kisi model ki zaroorat nahi rehti",
+      "App internet connection ke baghair chalti hai"
+    ],
+    "exp": "Bolne mein haath istemal nahi hote aur ye un logon ki madad karta hai jinhein type karna mushkil lagta hai, is liye app zyada accessible ho jati hai. Requests ka bill phir bhi aata hai, samajhne aur jawab dene ke liye model phir bhi chahiye, aur cloud models ko network connection chahiye."
+  },
+  "D2-445": {
+    "ctx": "Field technicians dastanay pehnte hain aur tablet par bol kar sawal record karte hain. Jawab unhein audio mein sunane hain.",
+    "q": "Ek hi model wala kaunsa tareeqa munasib hai?",
+    "opts": [
+      "Embedding model",
+      "Image-generation model",
+      "Sirf text wala model, kisi speech service ke baghair",
+      "Audio wala chat model jo recording leta aur bola hua audio wapas deta hai"
+    ],
+    "exp": "Audio wala chat model record kiya hua sawal le kar audio wapas de sakta hai, is liye ek hi model samajhna aur bol kar jawab dena dono sambhal leta hai. Embedding aur image models sawalon ke jawab nahi dete, aur sirf text wale model ko alag speech services chahiye hongi."
+  },
+  "D2-446": {
+    "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Background ka shor spoken prompts ke jawabon ki quality kam kar sakta hai.",
+      "Spoken prompts ko conversation history ke saath nahi jora ja sakta.",
+      "Spoken prompt mein 'mukhtasar jawab do' jaisi hidayaat ho sakti hain."
+    ],
+    "exp": "Pehle ka jawab Haan: shor wali audio mein sawal samajhna mushkil hota hai. Doosre ka Nahi: audio turns pehle ke messages ke saath conversation ka hissa ban sakte hain. Teesre ka Haan: boli hui requests mein type ki hui requests ki tarah hi hidayaat ho sakti hain."
+  },
+  "D2-447": {
+    "q": "Alag alag services se bani voice app mein har qadam ko us hisse se milayein jo usay karta hai. Har hissa ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": ["User ki recording ko text mein badalna", "Jawab likhna", "Jawab ko audio mein badalna"],
+    "targets": ["Chat model", null, null, null],
+    "exp": "Speech to text sawal ko text mein likhta hai, chat model jawab likhta hai aur text to speech usay bolta hai. Image Analysis tasveeron par kaam karta hai aur is pipeline mein us ka koi kaam nahi. Audio wala model in teen qadmon ki jagah ek hi request le sakta hai."
+  },
+  "D2-448": {
+    "q": "Speech SDK ka kaunsa method ek utterance (ek baar boli gayi baat) pehchan kar ruk jata hai?",
+    "exp": "recognize_once_async() ek utterance khatam hone tak sunta hai aur us ka nateeja deta hai. speak_text_async() speech banata hai, analyze_sentiment() Language SDK ka hissa hai, aur responses.create() language model ko call karta hai."
+  },
+  "D2-449": {
+    "q": "Subtitles wali app ko har lafz bole jane ka waqt chahiye. Usay Speech SDK mein kya on karna chahiye?",
+    "opts": [
+      "Koi doosri neural voice",
+      "SSML prosody ki settings",
+      "Word-level timestamps, maslan SpeechConfig par request_word_level_timestamps() call kar ke",
+      "Text analytics"
+    ],
+    "exp": "Word-level timestamps maangne se tafseeli nateejon mein har pehchane hue lafz ka offset aur duration shamil ho jata hai, aur subtitles ko yahi chahiye. Awaazein aur SSML banayi hui speech par asar dalti hain, aur text analytics ka audio ke waqt se taalluq nahi."
+  },
+  "D2-450": {
+    "q": "Speech SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Speech SDK sirf C# se istemal ho sakta hai.",
+      "Speech SDK speech to text aur text to speech dono support karta hai.",
+      "SDK mein speech translation ek se zyada target languages shamil kar sakti hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: SDK Python, C#, Java, JavaScript aur doosri languages ke liye dastiyab hai. Doosre ka Haan: recognizers aur synthesizers dono us ka hissa hain. Teesre ka Haan: ek saath kai tarjumay lene ke liye add_target_language() kai baar call kar sakte hain."
+  },
+  "D2-451": {
+    "q": "Speech SDK ke baare mein jumlay mukammal karein.",
+    "tpl": "Microphone sun kar text lene ke liye {0} banayein. Text ko awaaz mein bolne ke liye {1} banayein.",
+    "exp": "SpeechRecognizer audio ko text mein badalta hai, aur SpeechSynthesizer text ko audio mein. TextAnalyticsClient Azure Language ka hissa hai aur text ka jaiza leta hai, is liye na sunta hai na bolta hai."
+  },
+  "D2-452": {
+    "q": "Aap Speech SDK aur chat model se saada voice chatbot bana rahe hain. Ek turn ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "SpeechSynthesizer se model ka jawab bolein",
+      "Sawal par image analysis chalayein",
+      "SpeechRecognizer se user ka sawal pehchanein",
+      "Agle sawal ka intezar karein",
+      "Pehchana hua text chat model ko bhejein"
+    ],
+    "exp": "Har turn mein pehle bola hua sawal pehchana jata hai, phir text chat model ko bheja jata hai, phir jawab bola jata hai aur aakhir mein agle sawal ka intezar hota hai. Sirf awaaz wali conversation mein image analysis ke liye kuch hai hi nahi."
+  }
+}
