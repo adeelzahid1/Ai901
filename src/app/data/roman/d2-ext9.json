@@ -1,0 +1,237 @@
+{
+  "D2-283": {
+    "q": "Vision wale chat model ko tasveer bhejte waqt aam taur par usi message mein kya shamil karte hain?",
+    "opts": ["Tasveer ke baare mein text hidayat ya sawal", "Speech synthesis ki awaaz", "Storage account key", "Deployment type"],
+    "exp": "User message aam taur par tasveer ko text part ke saath jorta hai jo batata hai ke aap kya chahte hain, jaise 'Kharab hisson ki list do'. Awaazein text to speech ke liye hain, storage keys kabhi model ko nahi bhejni chahiye, aur deployment type deployment ki setting hai, message ka hissa nahi."
+  },
+  "D2-284": {
+    "ctx": "Ek insurance company ke customers kharab gaariyon ki photos upload karte hain. Claims system ko JSON chahiye jis mein kharab hisson ki list aur har ek ki severity ho.",
+    "q": "Kaunsa tareeqa sab se munasib hai?",
+    "opts": [
+      "Text to speech se photos ko speech banana",
+      "File ke naamon par key phrase extraction chalana",
+      "Har photo hidayaat aur JSON schema ke saath, structured outputs istemal karte hue, vision wale model ko bhejna",
+      "Embedding model ki Global Batch deployment istemal karna"
+    ],
+    "exp": "Vision wala model nuqsan samajh sakta hai, aur JSON schema ke saath structured outputs us se bilkul wahi fields dilwate hain jo claims system ko chahiye. Text to speech aur key phrase extraction tasveerein nahi dekhte, aur embedding model vectors deta hai, nuqsan ki reports nahi."
+  },
+  "D2-285": {
+    "q": "Visual input ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Tasveer bhejne ka matlab hai ke model ka jawab bhi tasveer hoga.",
+      "Aap ek message mein ek se zyada tasveerein bhej sakte hain.",
+      "Vision wala model error message ke screenshot ko samjha sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: vision wale chat models text dete hain; tasveerein banane ke liye image-generation model chahiye. Doosre ka Haan: message mein kai image parts ho sakte hain. Teesre ka Haan: model screenshot mein error ka text parh kar samjha sakta hai."
+  },
+  "D2-286": {
+    "q": "Visual input ke baare mein jumlay mukammal karein.",
+    "tpl": "Jo model text aur tasveer dono leta hai usay {0} kehte hain. Tasveer URL ki soorat mein ya {1} data ki soorat mein bheji ja sakti hai.",
+    "blanks": [null, ["sirf encrypted", "base64-encoded", "zip-compressed"]],
+    "exp": "Multimodal models ek se zyada qism ke input, jaise text aur tasveerein, par kaam karte hain. Tasveeron ka hawala URL se diya ja sakta hai ya unhein request mein data URL ke andar base64-encoded data ki soorat mein rakha ja sakta hai. Monolingual aur serverless alag cheezein bayan karte hain, aur zip files ya akela encryption qabool shuda image formats nahi."
+  },
+  "D2-287": {
+    "q": "Kaunsa prompt sab se zyada imkan se aap ki matlooba tasveer banayega?",
+    "opts": [
+      "tasveer",
+      "isay khoobsurat banao",
+      "picture please",
+      "Barish wali khirki ke paas parhne ka aaram-deh kona, narm garm roshni, watercolor style"
+    ],
+    "exp": "Ache image prompts subject, mahaul, roshni aur style bayan karte hain, jo model ko wazeh rahnumai deta hai. Chhote aur mubham prompts taqreeban sab kuch ittefaq par chorte hain, is liye nateeje ghair yaqeeni hote hain aur kam hi aap ke khayal se milte hain."
+  },
+  "D2-288": {
+    "q": "Ek designer ko gpt-image-1 se transparent background wale logo ka draft chahiye. Request ka kaunsa parameter set karna chahiye?",
+    "opts": ["temperature ko 0 karna", "background ko transparent karna", "top_p ko 1 karna", "stop ko ### karna"],
+    "exp": "gpt-image-1 background parameter support karta hai; usay transparent karne se, PNG jaise transparency wale output format ke saath, thos background ke baghair tasveer banti hai. temperature, top_p aur stop text generation ki settings hain aur tasveer ke background par asar nahi daltin."
+  },
+  "D2-289": {
+    "q": "Har zaroorat ko sahi tareeqe se milayein. Har tareeqa ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Tafseel se naya poster banana",
+      "Maujood photo mein sirf aasman badalna",
+      "Bayan karna ke maujood photo mein kya hai",
+      "Photo mein sign ke alfaz parhna"
+    ],
+    "targets": [null, "Mask ke saath image editing", null, "Text prompt se image generation", "Image captioning ya multimodal chat model"],
+    "exp": "Naya poster image generation se banta hai, photo ka sirf ek hissa badalne ke liye mask ke saath editing, photo bayan karne ke liye captioning ya multimodal model, aur sign ke alfaz parhne ke liye OCR istemal hota hai. Speech synthesis audio banata hai aur kisi zaroorat par nahi aata."
+  },
+  "D2-290": {
+    "q": "AI ki banayi tasveerein shaya karte waqt kaunse DO zimmedar tareeqay hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Files se provenance ki tamam maloomat hata dena",
+      "Content Credentials rakhna taake dekhne wale jaan sakein ke tasveer AI ki banayi hai",
+      "Daawa karna ke tasveerein asal photos hain",
+      "Shaya karne se pehle ghaltiyon aur nuqsan deh content ke liye tasveerein review karna",
+      "Content filters band karna"
+    ],
+    "exp": "Content Credentials rakhna AI ke content ke baare mein transparency ko support karta hai, aur insani review ghaltiyan aur na-munasib output pakarta hai. Provenance hatana, bani hui tasveeron ko asal photos bata kar dikhana aur content filters band karna, sab responsible AI ko kamzor karte hain."
+  },
+  "D2-291": {
+    "q": "ImageAnalysisClient se tasveer ka text lene ke liye VisualFeatures ki kaunsi value maangni chahiye?",
+    "exp": "VisualFeatures.READ OCR chala kar text ko blocks, lines aur alfaz ki soorat mein un ki jagah ke saath deta hai. TAGS keywords, PEOPLE logon ke bounding boxes, aur SMART_CROPS crop ke hisse deta hai."
+  },
+  "D2-292": {
+    "q": "Image Analysis har photo ke bohat se tags deta hai, aur kuch ghalat hote hain. App ko sirf bharosemand tags dikhane hain. Usay kya karna chahiye?",
+    "opts": [
+      "Sirf woh tags dikhaye jin ka confidence kisi hadd, jaise 0.8, se zyada ho",
+      "Confidence jo bhi ho har tag dikhaye",
+      "Temperature kam kare",
+      "Quota barhaye"
+    ],
+    "exp": "Har tag ke saath confidence score aata hai, is liye app sirf woh tags rakh sakti hai jo testing se chuni hui hadd se upar hon. Sab dikhane mein ghair bharosemand tags bhi aate hain, aur Image Analysis mein temperature ki setting nahi; quota accuracy nahi balke throughput control karta hai."
+  },
+  "D2-293": {
+    "q": "ImageAnalysisClient ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Woh bytes se ya URL se tasveer ka jaiza le sakta hai.",
+      "Woh nayi banayi hui tasveer deta hai.",
+      "Aap ek call mein kai visual features maang sakte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: analyze() tasveer ke bytes aur analyze_from_url() URL leta hai. Doosre ka Nahi: Image Analysis tasveeron ko bayan karta hai aur nayi nahi banata. Teesre ka Haan: visual_features list leta hai, jaise CAPTION, TAGS aur READ ek saath."
+  },
+  "D2-294": {
+    "q": "Woh Python code mukammal karein jo key authentication ke saath local tasveer ka jaiza leta hai.",
+    "exp": "AzureKeyCredential resource key ko rakhta hai, aur analyze() image_data ke zariye tasveer ke bytes leta hai. DefaultAzureCredential Microsoft Entra ID istemal karta hai aur key nahi leta, SpeechConfig Speech SDK ke liye hai, analyze_from_url() ko URL chahiye, aur generate Image Analysis ka method nahi."
+  },
+  "D2-295": {
+    "q": "Kaunsi DO zarooratein multimodal chat model ke bajaye Image Analysis ki taraf ishara karti hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Dostana wazahat ke meme mazaqiya kyun hai",
+      "OCR lines, page par un ki bilkul sahi jagah ke saath",
+      "Photo ke baare mein aapas ki guftagu",
+      "Har pehchane hue shakhs ke bounding boxes",
+      "Tasveer se mutasir nazm"
+    ],
+    "exp": "Image Analysis structured aur qabil-e-andaza nateeje deta hai, jaise coordinates ke saath text ki lines aur logon ke gird boxes. Tasveeron ki wazahat, guftagu aur takhleeqi tehreer khule zaban ke kaam hain jo multimodal chat model ke liye munasib hain."
+  },
+  "D2-296": {
+    "q": "Content Understanding ki content extraction document se kya banati hai?",
+    "opts": [
+      "Markdown text jo headings aur tables jaisi structure barqarar rakhta hai",
+      "MP3 file",
+      "Nayi tasveer",
+      "Model deployment"
+    ],
+    "exp": "Content extraction document ko Markdown banati hai jo paragraphs, headings aur tables jaisi structure barqarar rakhta hai, jo search ke liye aur field extraction ke input ke taur par kaam aata hai. Woh audio, tasveerein ya deployments nahi banati."
+  },
+  "D2-297": {
+    "q": "Invoice analyzer ka vendor_name field kabhi kabhi supplier ke bajaye customer ka naam deta hai. Aap ko pehle kya badalna chahiye?",
+    "opts": [
+      "Field ki type boolean karein",
+      "Field delete karein",
+      "Field ki description behtar karein, maslan 'us company ka naam jis ne invoice jari kiya'",
+      "Deployment ka quota barhayein"
+    ],
+    "exp": "Field descriptions un models ki rahnumai karti hain jo fields bharte hain, is liye aisi wazeh description jo jari karne wale aur customer mein farq kare aam taur par uljhan door kar deti hai; label ki hui misaalein mazeed madad karti hain. boolean type naam nahi rakh sakti, field delete karne se data kho jata, aur quota accuracy par asar nahi dalta."
+  },
+  "D2-298": {
+    "q": "Invoice ke har field ko us field type se milayein jo us ke liye munasib hai. Har type ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "targets": [null, null, null, "objects ka array", null],
+    "exp": "Total number hai, invoice ki tareekh date, adaigi hui ya nahi boolean, aur dohrane wale line items, jin mein har ek ki kai values hain, objects ka array. Image nikali hui invoice values ke liye field type nahi."
+  },
+  "D2-299": {
+    "q": "Content Understanding ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Content Understanding PDF files process kar sakta hai.",
+      "Documents ka type kiya hua hona lazmi hai; scan ki hui tasveerein support nahi hotin.",
+      "Field schema mein aap un values ke naam rakh sakte hain jo wapas chahiye."
+    ],
+    "exp": "Pehle ka jawab Haan: PDFs supported document input hain. Doosre ka Nahi: OCR scan kiye hue pages aur tasveerein, haath ki likhai samet, parhta hai. Teesre ka Haan: schema field ke naam, types aur descriptions tay karta hai jo analyzer deta hai."
+  },
+  "D2-300": {
+    "q": "Ek RAG solution woh facts chor deta hai jo sirf PDF reports ke charts mein hain. Content Understanding ki kaunsi capability madad karti hai?",
+    "opts": [null, null, null, "Figure analysis jo charts aur diagrams ko text mein bayan karta hai"],
+    "exp": "Figure analysis charts aur diagrams ka content text mein bayan karta hai, is liye maloomat talash ke qabil ho jati hai aur RAG ke liye nikali ja sakti hai. Speech synthesis audio banata hai, smart crops thumbnails tajweez karta hai, aur key phrase extraction us text par kaam karta hai jo pehle hi nikala ja chuka ho."
+  },
+  "D2-301": {
+    "q": "Content Understanding image analyzer ko kaunsi file bheji ja sakti hai?",
+    "opts": ["WAV recording", "JPEG photo", "MP4 video", "XLSX spreadsheet"],
+    "exp": "Image analyzers JPEG ya PNG jaisi image files lete hain. WAV recordings audio analyzers ko, MP4 videos video analyzers ko jati hain, aur spreadsheets image input nahi."
+  },
+  "D2-302": {
+    "q": "Shelf photos ke analyzer ke fields ke baare mein jumlay mukammal karein.",
+    "tpl": "Aise field ke liye jis ki value Full, Partly empty ya Empty hi ho, {0} method istemal karein. Shelf ke masail ki khuli tafseel ke liye {1} method istemal karein.",
+    "exp": "Classify aap ki tay ki hui list mein se ek value chunta hai, jo Full, Partly empty ya Empty ke liye munasib hai. Generate khuli values, jaise tafseel, banata hai. Extract documents mein chhapi values deta hai aur images ke liye support nahi hota."
+  },
+  "D2-303": {
+    "q": "Kaunsi DO tabdeeliyan Content Understanding image analyzer ke nateeje behtar karne ka sab se zyada imkan rakhti hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Analyzer mein zyada temperature set karna",
+      "Har field ki wazeh descriptions likhna",
+      "Schema se tamam fields hatana",
+      "Har classify field ke liye categories ki list tay karna",
+      "Tasveeron ke bajaye MP3 files bhejna"
+    ],
+    "exp": "Wazeh field descriptions models ko bilkul batati hain ke kya banana hai, aur categories ki wazeh list classification ko ek jaisa rakhti hai. Analyzers temperature setting se nahi balke schemas se configure hote hain, fields ke baghair schema koi fields nahi deta, aur MP3 files audio hain, tasveerein nahi."
+  },
+  "D2-304": {
+    "q": "Kaunsa karobari scenario Content Understanding audio analysis ke liye munasib hai?",
+    "opts": ["Logo design karna", "Spreadsheet macro banana", "Call center ke liye call ke baad ke analytics", "Photos ka size badalna"],
+    "exp": "Audio analysis recordings likhta hai aur summaries, sentiment aur topics jaise fields banata hai, jo call ke baad ke analytics ko bilkul chahiye. Logo design, spreadsheet macros aur photos ka size badalna audio ka jaiza lena nahi."
+  },
+  "D2-305": {
+    "q": "Ek media company apni videos ka har woh segment dhoondna chahti hai jahan us ka koi product nazar aata hai, aur un segments par tag lagana chahti hai. Kya istemal karna chahiye?",
+    "opts": [
+      "Video file ke naamon par key phrase extraction",
+      "products_shown jaise har segment wale field ke saath video analyzer",
+      null,
+      "Image-generation model"
+    ],
+    "exp": "Video analyzer video ko segments mein torta aur har ek ke fields bharta hai, is liye products_shown jaisa field batata hai ke har product kahan aata hai. File ke naam nahi batate ke video mein kya hai, aur speech synthesis aur image generation jaiza lene ke bajaye content banate hain."
+  },
+  "D2-306": {
+    "q": "Audio aur video ke jaize ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Video ka jaiza lene se pehle usay PDF mein badalna lazmi hai.",
+      "Audio analysis recording mein mukhtalif speakers ko alag pehchan sakta hai.",
+      "Video analysis dikhayi aur boli gayi dono cheezein istemal karta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: video files ka seedha jaiza hota hai. Doosre ka Haan: transcripts mukhtalif speakers par label laga sakte hain, jo calls aur meetings ke liye kaam ka hai. Teesre ka Haan: video analysis keyframes aur visual content ko audio track ke transcript ke saath jorta hai."
+  },
+  "D2-307": {
+    "q": "Lecture aur meeting ki videos ke jaize ki har zaroorat ko us capability se milayein jo usay pura karti hai. Har capability ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Jaanna ke har scene kab shuru aur khatam hota hai",
+      "Lecture video mein dikhayi gayi slides ka text parhna",
+      "Jaanna ke meeting mein har shakhs ne kya kaha",
+      "Har scene ka ek line ka khulasa lena"
+    ],
+    "targets": ["Har segment ke liye generated field", null, null, "Keyframes par OCR", "Speaker labels wala transcript"],
+    "exp": "Scene ki hadein segmentation se, slides ka text keyframes par OCR se, kis ne kya kaha speaker labels wale transcript se, aur har scene ke khulase har segment ke generated field se aate hain. Image generation nayi tasveerein banata hai aur videos ka jaiza nahi leta."
+  },
+  "D2-308": {
+    "q": "Content Understanding har field ke liye jo grounding maloomat deta hai, app usay kaise istemal kar sakti hai?",
+    "opts": [
+      "Jaize ke baad source file delete karne ke liye",
+      "Model deployment badalne ke liye",
+      "Quota barhane ke liye",
+      "Reviewers ko dikhane ke liye ke source mein har value kahan se aayi, taake woh jaldi tasdeeq kar sakein"
+    ],
+    "exp": "Grounding har value ke peeche source content ka hissa batati hai, is liye review screen usay numayan kar sakti hai aur insan value ki jaldi tasdeeq ya durusti kar sakta hai. Woh files delete karne, deployments badalne ya quota adjust karne ke liye nahi."
+  },
+  "D2-309": {
+    "q": "Data par labels laga kar custom Content Understanding analyzers behtar karne ke liye kaunsa tool bana hai?",
+    "exp": "Content Understanding Studio Foundry portal ke saath analyzers ki karkardagi behtar karne ka tajurba deta hai, jis mein data par labels lagana aur classification wale analyzers banana shamil hai. Azure Advisor mashware deta hai, Power BI reports banata hai, aur Azure Policy resources ke usool lagu karta hai."
+  },
+  "D2-310": {
+    "q": "Production app se Content Understanding call karne ke baare mein jumla mukammal karein.",
+    "tpl": "App ko {0} ke saath authenticate karna chahiye, har file ke liye analyze operation shuru karna chahiye, aur phir nateeja tayyar hone tak {1}.",
+    "blanks": [
+      ["public URL", "koi authentication nahi", null],
+      ["request body parhni chahiye", "operation URL ko poll karna chahiye", "analyzer restart karna chahiye"]
+    ],
+    "exp": "Production apps ko ghair authenticated ya public rasai ke bajaye Microsoft Entra ID istemal karna chahiye, maslan managed identity ke zariye. Chunke analysis lamba chalne wala operation hai, app mile hue operation URL ko tab tak poll karti hai jab tak status dikhaye ke nateeja tayyar hai. Analyzer restart karne ya request dobara parhne se nateeja nahi milta."
+  },
+  "D2-311": {
+    "q": "Aap aisi pipeline bana rahe hain jo PDF reports ko RAG chat app ke liye talash ke qabil banati hai. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Chunks aur un ke vectors search index mein rakhein",
+      "Har document ke liye nayi tasveer banayein",
+      "Markdown aur figure ki tafseelat lene ke liye har document ka Content Understanding se jaiza lein",
+      "Documents storage mein upload karein",
+      "Markdown ko chunks mein torein aur embeddings banayein"
+    ],
+    "exp": "Pehle documents upload hote hain, phir Content Understanding unhein figure ki tafseelat ke saath Markdown banata hai, text chunks mein tor kar embed hota hai, aur aakhir mein chunks aur vectors talash ke liye index hote hain. Nayi tasveerein banane se search pipeline ko koi faida nahi."
+  }
+}

@@ -31,6 +31,11 @@ const LOADERS: Record<string, () => Promise<unknown>> = {
   'd2-ext2': () => import('./roman/d2-ext2.json').then((m) => m.default),
   'd2-ext3': () => import('./roman/d2-ext3.json').then((m) => m.default),
   'd2-ext4': () => import('./roman/d2-ext4.json').then((m) => m.default),
+  'd2-ext5': () => import('./roman/d2-ext5.json').then((m) => m.default),
+  'd2-ext6': () => import('./roman/d2-ext6.json').then((m) => m.default),
+  'd2-ext7': () => import('./roman/d2-ext7.json').then((m) => m.default),
+  'd2-ext8': () => import('./roman/d2-ext8.json').then((m) => m.default),
+  'd2-ext9': () => import('./roman/d2-ext9.json').then((m) => m.default),
 };
 
 /** Loads the Roman Urdu question text when that language is on and applies it to questions. */

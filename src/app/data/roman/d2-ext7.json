@@ -1,0 +1,254 @@
+{
+  "D2-226": {
+    "q": "Kaunsa prompt manager ke liye email ka sab se kaar-aamad khulasa dega?",
+    "opts": [
+      "Neeche wali email ka khulasa ek masroof manager ke liye teen bullet points mein karo, un faislon par tawajjo ke saath jo lene hain.",
+      "Khulasa karo.",
+      "Is ka kuch karo.",
+      "Email."
+    ],
+    "exp": "Acha prompt kaam, format, sunne wala aur tawajjo ka markaz batata hai, jaise woh prompt jo teen bullet points, masroof manager aur lene wale faislon ka zikr karta hai. Baqi prompts mubham hain, is liye model ko andaza lagana parta hai ke aap ko kitni lambai, kaunsa format aur kis baat par zor chahiye."
+  },
+  "D2-227": {
+    "ctx": "Ek company ke chat assistant ka system message hai 'You are a helpful assistant.' Woh har sawal ka jawab deta hai, competitors ke products ke sawalon ka bhi. Company chahti hai ke woh sirf us ke apne products par baat kare.",
+    "q": "Aap ko kya badalna chahiye?",
+    "opts": [
+      "Maximum output tokens barhayein",
+      "Deployment ka quota kam karein",
+      "System message mein usool shamil karein ke sirf company ke products ke sawalon ka jawab de aur baqi mauzu se muhazzab tareeqe se mana kare",
+      "System message hata dein"
+    ],
+    "exp": "Daire ke usool system message mein aate hain: kaunse mauzu ki ijazat hai aur baqi ko kaise sambhalna hai, yeh batane se assistant apne kaam par rehta hai. Output tokens aur quota se model ki baat ka mauzu nahi badalta, aur system message hatane se assistant aur bhi azaad ho jata."
+  },
+  "D2-228": {
+    "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Prompt ki tabdeeli tabhi asar karti hai jab model dobara deploy ho.",
+      "Prompt ki misaalein kisi training ke baghair model ko label lagane ka andaz sikha sakti hain.",
+      "System message mein yeh usool bhi ho sakte hain ke assistant kya na kare."
+    ],
+    "exp": "Pehle ka jawab Nahi: prompts har request ke saath jate hain, is liye tabdeeli dobara deploy kiye baghair agli call par lagu hoti hai. Doosre ka Haan: few-shot misaalein woh pattern dikhati hain jis par chalna hai. Teesre ka Haan: system messages mein aam taur par pabandiyan hoti hain, jaise woh mauzu jin se bachna hai ya woh maloomat jo kabhi zahir nahi karni."
+  },
+  "D2-229": {
+    "q": "Har maqsad ko us prompt technique se milayein jo usay hasil karti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Model se CSV row nikalwana",
+      "Model ko company ke likhne ke andaz par chalana",
+      "Model se logic puzzle zyada bharosay se hal karwana",
+      "Model se sirf policy document se jawab dilwana"
+    ],
+    "targets": [
+      "Document shamil karein aur model ko kahein ke sirf usi ko istemal kare",
+      "Model se qadam ba qadam sochne ko kahein",
+      "Us andaz mein likhi misaalein dein",
+      "Output format batayein",
+      "Temperature barhayein"
+    ],
+    "exp": "CSV row ke liye wazeh output format chahiye, likhne ka andaz misaalon se sab se behtar seekha jata hai, logic puzzle mein qadam ba qadam soch faida deti hai, aur sirf policy se jawab ke liye document grounding ke taur par aur sirf usi ko istemal karne ki hidayat chahiye. Temperature barhane se output zyada random hota hai aur kisi maqsad mein madad nahi milti."
+  },
+  "D2-230": {
+    "q": "Aap ka prompt JSON maangta hai, lekin model kabhi kabhi JSON se pehle wazahat likh deta hai, jis se aap ka parser toot jata hai. Sab se bharosemand hal kya hai?",
+    "opts": [
+      "Temperature barhayein",
+      "Structured outputs ya JSON mode istemal karein taake response durust JSON ho",
+      "Free-text jawabon ki misaalein shamil karein",
+      "Maximum output tokens ko 5 karein"
+    ],
+    "exp": "Structured outputs, ya JSON mode, response ke format ko paband karte hain taake model durust JSON de, jo sirf hidayaat se zyada bharosemand hai. Zyada temperature randomness barhata hai, free-text misaalein ghalat format ko dawat deti hain, aur paanch tokens ki hadd JSON ko kaat deti."
+  },
+  "D2-231": {
+    "q": "Prompt ke hisson ke baare mein jumlay mukammal karein.",
+    "tpl": "'Answer like a friendly teacher' wali hidayat jawab ka {0} tay karti hai. 'Use a numbered list' wali hidayat {1} tay karti hai.",
+    "blanks": [[null, "lehja", null], null],
+    "exp": "Dostana teacher bayan karna jawab ka lehja aur andaz tay karta hai, jab ke numbered list maangna output format tay karta hai. Quota, region aur deployment type deployment ki settings hain, aur temperature request ka parameter, is liye in hidayaat se koi bhi set nahi hota."
+  },
+  "D2-232": {
+    "q": "Kaunsi DO tabdeeliyan model ko zyada mutalliqa jawab dene mein madad karti hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Prompt mein bekaar ghair mutalliqa text shamil karna",
+      "Woh context ya data shamil karna jo jawab mein istemal hona chahiye",
+      "User ka sawal hatana",
+      "Kaam aur sunne wale ko wazeh batana",
+      "Prompt bare huroof mein likhna"
+    ],
+    "exp": "Mutalliqa context model ko zaroori facts deta hai, aur wazeh kaam aur sunne wala batata hai ke kya aur kis ke liye banana hai. Ghair mutalliqa text model ko bhatkata hai, sawal hatane se jawab dene ko kuch nahi rehta, aur bare huroof koi maloomat nahi barhate."
+  },
+  "D2-233": {
+    "q": "Aap prompt ko naapne ke qabil tareeqe se behtar karna chahte hain. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Prompt ka ek hissa badlein",
+      "Test set delete karein",
+      "Evaluation dobara chalayein aur scores compare karein",
+      "Mutawaqqa jawabon ke saath test sawalon ka set jama karein",
+      "Maujooda prompt ko test set par chalayein aur nateejon ko score dein"
+    ],
+    "exp": "Pehle test set banayein, maujooda prompt ka bunyadi score lein, ek waqt mein ek cheez badlein, aur evaluation dobara chala kar dekhein ke tabdeeli se faida hua ya nahi. Test set delete karne se behtari naapne ka tareeqa hi khatam ho jata, is liye woh is amal ka hissa nahi."
+  },
+  "D2-234": {
+    "q": "Chat application mein user prompt kya hota hai?",
+    "opts": ["Model ke weights", "Deployment ka quota", "Billing account", "Woh message jo end user bhejta hai"],
+    "exp": "User prompt, yaani user message, woh hai jo app istemal karne wala shakhs likhta ya bolta hai, jaise sawal. Model ke weights, deployment ka quota aur billing account guftagu ka hissa nahi."
+  },
+  "D2-235": {
+    "q": "Microsoft Foundry mein models deploy karne se pehle Azure mein kya maujood hona chahiye?",
+    "opts": [null, "Project wala Microsoft Foundry resource", null, null],
+    "exp": "Model deployments Microsoft Foundry resource mein hoti hain, aur aap us resource ke project ke zariye un par kaam karte hain. SQL Server, VPN gateway ya CDN profile solution ke doosre hisson mein istemal ho sakte hain lekin model deploy karne ke liye zaroori nahi."
+  },
+  "D2-236": {
+    "q": "Jo model aap chahte hain woh aap ke project ke region mein Standard deployment ki soorat mein dastiyab nahi. Aap ko kya karna chahiye?",
+    "opts": [
+      "Temperature barhayein",
+      "Deployment ka naam badlein",
+      "Aisi deployment type ya region istemal karein jahan model dastiyab ho, jaise global deployment",
+      "Context window chhoti karein"
+    ],
+    "exp": "Model ki dastiyabi region aur deployment type ke hisaab se mukhtalif hoti hai, is liye aisi deployment type, jaise Global Standard, ya aisa region chunein jahan model milta ho. Temperature, deployment ke naam aur context windows se model kisi region mein dastiyab nahi hota."
+  },
+  "D2-237": {
+    "q": "Foundry chat playground ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Playground istemal karne ke liye alag license khareedna lazmi hai.",
+      "Code likhne se pehle jaldi testing ke liye playground kaam ka hai.",
+      "Aap chun sakte hain ke playground aap ki kaunsi deployment istemal kare."
+    ],
+    "exp": "Pehle ka jawab Nahi: playground Foundry portal ka hissa hai; aap sirf model ke istemal ki qeemat dete hain. Doosre ka Haan: woh baghair code ke jaldi tajurbon ke liye bana hai. Teesre ka Haan: aap test ke liye deployment chunte hain, is liye models compare kar sakte hain."
+  },
+  "D2-238": {
+    "q": "Har cheez ko Microsoft Foundry ki us jagah se milayein jahan aap usay set karte ya dekhte hain. Har jagah ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Deployment type, jaise Global Standard",
+      "System message jo aap azma rahe hain",
+      "Tashaddud wale content ki severity threshold",
+      "Test dataset par scores"
+    ],
+    "targets": ["Guardrails aur content filter settings", null, null, null, null],
+    "exp": "Deployment type deployment settings mein chuni jati hai, system messages chat playground mein azmaye jate hain, severity thresholds guardrails aur content filter settings mein set hoti hain, aur test scores evaluations se aate hain. Azure Advisor Azure ke aam mashware deta hai aur in mein se koi kaam nahi karta."
+  },
+  "D2-239": {
+    "q": "Default content filter configuration ke saath hate, sexual, violence aur self-harm wala content kaunse severity levels par block hota hai?",
+    "opts": ["Medium aur high", "Sirf high", "Har level, safe samet", "Koi level nahi; default kuch block nahi karta"],
+    "exp": "Default configuration chaaron harm categories mein medium ya high severity ka content, prompts aur completions dono ke liye, filter karti hai aur safe aur low severity ka content guzarne deti hai. Filtering sakht karne ke liye custom configuration banayi ja sakti hai, aur manzoor shuda customers usay mazeed badal sakte hain. Naye Foundry portal mein yeh default Microsoft.DefaultV2 guardrail ka Medium blocking level hai."
+  },
+  "D2-240": {
+    "q": "Microsoft Foundry mein model ya chat app ki evaluation chalane ke liye kaunsi DO cheezein chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "opts": [
+      "VPN gateway",
+      "Inputs ka test dataset, aur chahein to mutawaqqa outputs",
+      "GPU driver",
+      "Evaluators, jaise groundedness ya relevance",
+      "DNS record"
+    ],
+    "exp": "Evaluation aap ke model ya app ko test dataset par chalati hai aur outputs ko evaluators se score deti hai jo groundedness, relevance ya safety jaisi khoobiyan naapte hain. Networking ke hisse aur GPU drivers Foundry mein evaluation banane ka hissa nahi."
+  },
+  "D2-241": {
+    "q": "Model lifecycle ke baare mein jumlay mukammal karein.",
+    "tpl": "Jab model version retire ho jaye to usay istemal karne wali deployments ko {0} zaroori hai. Achanak masail se bachne ke liye model ki {1} date dekhein.",
+    "blanks": [["naya naam dena", "zero par scale karna", "naye model ya version par upgrade karna"], null],
+    "exp": "Model versions ki deprecation aur retirement ki tareekhein shaya hoti hain; retire hone ke baad chalte rehne ke liye deployments ko naye model ya version par jana hota hai. Deployment ka naam badalna ya scale karna madad nahi karta, aur creation ya billing ki tareekhein nahi batatin ke model kab dastiyab nahi rahega."
+  },
+  "D2-242": {
+    "q": "Aap kahan dekh sakte hain ke pichle hafte deployment ne kitne tokens process kiye?",
+    "opts": [null, null, null, "Azure Monitor ya Foundry portal mein deployment ke usage metrics"],
+    "exp": "Usage metrics, jaise process kiye hue prompt tokens aur bane hue tokens, deployments ke liye jama hote hain aur Azure Monitor aur Foundry ke monitoring views mein dikhte hain. Model card model ko bayan karta hai, system message requests ka hissa hai, aur release notes SDK ki tabdeeliyan batate hain."
+  },
+  "D2-243": {
+    "q": "Model deployment ki deployment type kya batati hai?",
+    "opts": [
+      "Model kaise host hota hai, requests kahan process hoti hain aur istemal ka bill kaise banta hai, jaise Global Standard ya Provisioned",
+      "Aap ki app ki programming zaban",
+      "Model kaise train hua",
+      "Portal ka color theme"
+    ],
+    "exp": "Deployment types, jaise Standard, Global Standard, Data Zone Standard, Provisioned aur Global Batch, processing ki jagah, capacity ka tareeqa aur billing tay karti hain. Woh aap ki programming zaban, model ki training ya portal ki shakal par munhasir nahi."
+  },
+  "D2-244": {
+    "q": "Kaunsa Python import Foundry project client deta hai?",
+    "exp": "AIProjectClient azure-ai-projects package ke azure.ai.projects module mein hai. azure.storage.blob Blob Storage ke liye hai, azure.identity DefaultAzureCredential jaise credentials deta hai, aur openai.projects mein Foundry project client nahi."
+  },
+  "D2-245": {
+    "q": "Microsoft Entra ID istemal karne wale Python chat client ke imports mukammal karein.",
+    "exp": "DefaultAzureCredential azure.identity se aur AIProjectClient azure.ai.projects se import hota hai. azure.storage aur vision aur language modules doosri Azure services ke liye hain aur un mein yeh classes nahi."
+  },
+  "D2-246": {
+    "q": "Ek chat client az login ke baad aap ke laptop par chalta hai, lekin Azure App Service par deploy karne par DefaultAzureCredential ko credential nahi milta. Aap ko kya karna chahiye?",
+    "opts": [
+      "Server par Azure CLI install kar ke apne account se sign in karein",
+      "App Service ke liye managed identity on karein aur usay Foundry project par role dein",
+      "App mein apna password hard-code karein",
+      "Deployment ka quota barhayein"
+    ],
+    "exp": "Azure mein app ko apni managed identity istemal karni chahiye, jise DefaultAzureCredential khud pakar leta hai; identity ko project par role, jaise Foundry User (pehle Azure AI User), bhi chahiye. Server par zaati account se sign in karna ya password hard-code karna ghair mehfooz hai, aur quota authentication par asar nahi dalta."
+  },
+  "D2-247": {
+    "q": "Python chat client ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "get_openai_client() ka diya hua client chat completions aur Responses API dono call kar sakta hai.",
+      "Aap model ki value mein koi bhi text de sakte hain, aur service aap ke liye munasib model chun leti hai.",
+      "responses.create() ki har call tokens istemal karti hai jin ka bill aata hai."
+    ],
+    "exp": "Pehle ka jawab Haan: yeh OpenAI-compatible client hai jis mein dono APIs hain. Doosre ka Nahi: model ki value mein maujood deployment ka naam hona chahiye, warna request fail hoti hai. Teesre ka Haan: har call ke input aur output tokens gine jate aur un ka bill aata hai."
+  },
+  "D2-248": {
+    "q": "Response ke har field ko us ke matlab se milayein. Har matlab ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [null, null, null, "finish_reason (chat completion choice mein)"],
+    "targets": [
+      "Generation kyun ruki, jaise stop ya length",
+      "Request ke tokens ki tadad",
+      "Bana hua text",
+      "Pehchan jise previous_response_id ke taur par diya ja sakta hai",
+      "API key"
+    ],
+    "exp": "output_text mein Responses API ke nateeje ka bana hua text, usage mein tokens ki tadad, aur id mein response ki pehchan hoti hai taake aap previous_response_id se usay jari rakh sakein. Chat completions mein finish_reason batata hai ke output kyun ruka. Responses mein kabhi aap ki API key nahi hoti."
+  },
+  "D2-249": {
+    "q": "Kaunse DO tareeqay production mein chat client ko zyada mazboot banate hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Troubleshooting ke liye API key logs mein print karna",
+      "Ruki hui (throttled) requests ko exponential backoff ke saath dobara bhejna",
+      "Request ke tamam timeouts band karna",
+      "Content filter ke nateeje sambhalna aur user ko dostana message dikhana",
+      "Errors nazar andaz kar ke khali jawab dikhana"
+    ],
+    "exp": "Backoff ke saath dobara koshish aarzi 429 throttling sambhalti hai, aur filter kiye hue responses ko acchay se sambhalna users ko tooti hui app ke bajaye wazeh message deta hai. Keys log karna secrets zahir karta hai, timeouts hatane se app atak sakti hai, aur khamoshi se khali jawab dikhana masail chupata hai."
+  },
+  "D2-250": {
+    "q": "Maujooda Foundry SDK quickstart deploy kiye hue model ko prompt bhejne ke liye kaunsa API istemal karta hai?",
+    "opts": [null, null, "Responses API, openai.responses.create() ke zariye", "Sirf purana Completions API"],
+    "exp": "Quickstart project se OpenAI-compatible client leta hai aur model aur input ke saath responses.create() call karta hai, phir output_text parhta hai. Speech SDK aur Language API alag services hain, aur quickstart purana Completions API istemal nahi karta."
+  },
+  "D2-251": {
+    "q": "Chhoti si Python chat script ke statements sahi tarteeb mein rakhein. Har statement istemal nahi hota.",
+    "items": [
+      "Endpoint aur credential ke saath AIProjectClient banayein",
+      "AIProjectClient aur DefaultAzureCredential import karein",
+      "openai.responses.create() call karein aur output_text print karein",
+      "project.get_openai_client() se OpenAI client lein",
+      "speechsdk.SpeechRecognizer banayein"
+    ],
+    "exp": "Script pehle classes import karti hai, phir project client banati hai, phir us se OpenAI client leti hai, aur aakhir mein request bhej kar jawab print karti hai. Speech recognizer sirf audio input ke liye chahiye, is liye woh is text chat script ka hissa nahi."
+  },
+  "D2-252": {
+    "q": "support-chat deployment gpt-4.1-mini istemal karti hai. Code mukammal karein taake jawab markooz hon aur bante hi hisson mein aayein.",
+    "exp": "0.2 jaisa kam temperature jawab ko markooz aur ek jaisa banata hai, aur stream=True response ko hisson ke silsile mein deta hai jinhein loop dikha sakta hai. seed_value, verbose aur chunks chat.completions.create() ke parameters nahi."
+  },
+  "D2-253": {
+    "q": "Ek web chat client tamam users ke liye messages ki ek global list rakhta hai. Users ko aise jawab dikhne lagte hain jo doosron ke sawalon ke baare mein hain. Isay kaise theek karein?",
+    "opts": [
+      "Zyada temperature istemal karein",
+      "Har user ke liye nayi deployment banayein",
+      "Ek mushtarka list rakhein lekin chhoti karein",
+      "Har user session ke liye messages ki alag history rakhein"
+    ],
+    "exp": "Guftagu ki history har session ke liye alag honi chahiye, maslan user ya session ID ke hisaab se, taake har request mein sirf usi user ke messages hon. Mushtarka list guftagu ko mila deti aur users ke darmiyan maloomat leak karti hai. Temperature users ko alag nahi karta, aur har user ke liye deployment ghair zaroori hai."
+  },
+  "D2-254": {
+    "q": "Developers aksar kachi REST calls likhne ke bajaye Foundry SDK kyun istemal karte hain?",
+    "opts": [
+      "SDK aap ke liye authentication, request formatting aur retries sambhalta hai",
+      "Model call karne ka sirf SDK hi tareeqa hai",
+      "SDK se model ka istemal muft ho jata hai",
+      "SDK content filtering hata deta hai"
+    ],
+    "exp": "SDKs REST APIs ko typed methods, credentials ke zariye authentication aur retry ke saath lapet dete hain, is liye code chhota aur kam ghaltiyon wala hota hai. REST calls phir bhi mumkin hain, istemal ka bill aata hai, aur model kisi bhi tarah call ho content filtering lagu rehti hai."
+  }
+}

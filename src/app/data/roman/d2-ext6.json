@@ -1,0 +1,208 @@
+{
+  "D2-198": {
+    "q": "Kis qism ka model street sign ki photo parh kar us ka matlab samjha sakta hai?",
+    "opts": ["Vision wala chat model", "Text-embedding model", "Speech-to-text model, jaise whisper", "Text-to-speech model"],
+    "exp": "Vision wala chat model prompt mein tasveerein leta hai, tasveer ka text parh sakta hai aur us ka matlab aam zaban mein samjha sakta hai. Embedding models vectors dete hain, whisper audio likhta hai, aur text-to-speech models audio banate hain, is liye koi bhi photo nahi samajhta."
+  },
+  "D2-199": {
+    "q": "Aap ki app private storage container mein rakhi tasveer ka URL bhejti hai, aur model kehta hai ke woh tasveer nahi parh sakta. Aap ko kya karna chahiye?",
+    "opts": [
+      "Temperature barhayein",
+      "Stop sequence shamil karein",
+      "Maximum output tokens kam karein",
+      "Tasveer ko request mein base64 data URL ki soorat mein bhejein"
+    ],
+    "exp": "Service ko image URL se tasveer lena aana chahiye, is liye private container ka URL nakaam hota hai. Tasveer ke bytes base64 data URL ki soorat mein bhejne se tasveer khud request mein aa jati hai; aarzi rasai wala URL, jaise SAS link, bhi kaam karta hai. Temperature, stop sequences aur max tokens sirf bana hua text badalte hain."
+  },
+  "D2-200": {
+    "q": "Prompts mein tasveeron ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Vision wala model tasveer mein nazar aane wala text parh sakta hai.",
+      "Vision wala model sirf PNG files leta hai.",
+      "Prompt mein tasveerein request ke tokens ki tadad barhati hain."
+    ],
+    "exp": "Pehle ka jawab Haan: vision wale models signs ya screenshots jaisi tasveeron ka text parh aur samajh sakte hain. Doosre ka Nahi: JPEG, PNG, GIF aur WebP jaise aam formats support hote hain. Teesre ka Haan: tasveerein tokens mein badalti hain, is liye woh istemal aur kharche mein gini jati hain."
+  },
+  "D2-201": {
+    "q": "Kaunse DO kaam multimodal chat model ko tasveerein bhejne ke liye munasib hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Pixel ki had tak bilkul sahi segmentation masks banana",
+      "Samjhana ke chart kya dikhata hai aur kaunsa rujhan zahir karta hai",
+      "Naya image classification model train karna",
+      "Do product photos ka muqabla kar ke farq batana",
+      "Har cheez ke bilkul sahi pixel coordinates ki guarantee dena"
+    ],
+    "exp": "Multimodal chat models tasveeron ko samajhne aur zaban mein samjhane mein mazboot hain, jaise chart samjhana ya photos ka muqabla. Woh text dete hain, is liye segmentation masks ya guarantee wale coordinates ke liye munasib nahi, jo khaas vision models dete hain, aur prompt bhejne se naya model train nahi hota."
+  },
+  "D2-202": {
+    "q": "Microsoft Foundry mein code likhe baghair image-generation deployment par prompts kahan azma sakte hain?",
+    "exp": "Images playground mein aap prompts likhte, size aur quality jaisi settings chunte, aur apni deployment ki bani hui tasveerein dekhte hain. Speech SDK audio ki code library hai, Azure Monitor metrics dikhata hai, aur activity log management operations record karta hai."
+  },
+  "D2-203": {
+    "q": "Woh Python code mukammal karein jo ek chakor tasveer banata aur usay base64 ki soorat mein parhta hai.",
+    "exp": "images.generate() image-generation deployment ko prompt bhejta hai, aur size output ki lambai chaurai set karta hai, jaise 1024x1024. Tasveer data[0].b64_json mein aati hai. analyze aur create_chat image-generation ke methods nahi, aur temperature aur top_p text sampling ki settings hain."
+  },
+  "D2-204": {
+    "q": "Image-generation request ke har hisse ko us cheez se milayein jo woh control karta hai. Har option ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": ["'pencil sketch ke style mein'", null, "'neele darwaze ke saath tiki hui laal cycle'", null],
+    "targets": ["Size parameter", "Prompt mein bayan kiya hua style", "Prompt mein bayan kiya hua subject", "Quality parameter", "Temperature"],
+    "exp": "Art style aur subject ke phrases prompt ke text mein aate hain, 1024x1536 jaisi value size parameter mein di jati hai, aur 'high' gpt-image-1 ke quality parameter ki value hai. Temperature text generation ki setting hai aur is request ka hissa nahi."
+  },
+  "D2-205": {
+    "q": "Image generation ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Har prompt qabool hota hai kyunke content filters image generation par nahi lagte.",
+      "Shaya karne se pehle bani hui tasveerein review karni chahiye.",
+      "Mask dene par kuch models tasveer ka sirf ek hissa badal sakte hain.",
+      "Style aur tarteeb bayan karne wala prompt aam taur par nateeja behtar karta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: image deployments prompts aur bani hui tasveeron dono par content filters lagati hain. Doosre ka Haan: tasveeron mein ghaltiyan ya ghair matlooba content ho sakta hai, is liye insani review acha tareeqa hai. Teesre ka Haan: mask ke saath image editing sirf mask wala hissa dobara banata hai. Chauthe ka Haan: tafseeli prompts model ki rahnumai karte hain."
+  },
+  "D2-206": {
+    "q": "Jis tasveer ka jaiza lena hai woh public web address par hai. Aap ko ImageAnalysisClient ka kaunsa method call karna chahiye?",
+    "exp": "analyze_from_url() URL par maujood tasveer ka jaiza leta hai, jab ke analyze() tasveer ke bytes leta hai. analyze_sentiment() TextAnalyticsClient ka, speak_text_async() Speech SDK ka hissa hai, aur responses.create() language model call karta hai."
+  },
+  "D2-207": {
+    "q": "Woh Python code mukammal karein jo tasveer ki har cheez ka naam aur jagah print karta hai.",
+    "exp": "OBJECTS feature maangne se result.objects bharta hai, aur har pehchani hui cheez mein naam wale tags aur us ki jagah ke liye bounding_box hota hai. CAPTION aur READ doosri properties bharte hain, sentiment text analysis ka nateeja hai, aur text OCR lines ka hissa hai."
+  },
+  "D2-208": {
+    "q": "Aap ki app ke image captions mein 'man' ya 'woman' ke bajaye 'person' hona chahiye. Image Analysis ka kaunsa option set karna chahiye?",
+    "exp": "gender_neutral_caption ko true karne se captions 'person' ya 'child' jaise ghair jinsi alfaz istemal karte hain. language option output ki zaban chunta hai, smart crop ratios thumbnail ki tajaweez control karte hain, aur model version tay karta hai ke kaunsa model chale, koi bhi jins wale alfaz nahi badalta."
+  },
+  "D2-209": {
+    "q": "Har zaroorat ko behtareen tareeqe se milayein. Har tareeqa ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Tags aur bounding boxes qabil-e-andaza format mein dena",
+      "Aam zaban mein samjhana ke photo mein unchai par kaam ghair mehfooz kyun hai",
+      "Nayi marketing tasveer banana",
+      "Scan ki hui receipt ka text parhna"
+    ],
+    "targets": [null, null, null, "Image Analysis ke tags aur objects", null],
+    "exp": "Image Analysis tay shuda format mein structured tags aur boxes deta hai. Khuli wazahat ke liye multimodal chat model behtar hai. Nayi tasveerein image-generation model se aati hain, aur receipt ka text Read OCR feature se parha jata hai. Speech SDK audio par kaam karta hai aur kisi zaroorat par nahi aata."
+  },
+  "D2-210": {
+    "q": "Invoices ke Content Understanding field schema mein invoice_date field ki type kya honi chahiye?",
+    "exp": "date field ek jaise andaz mein tareekh ki value deta hai, aur invoice_date ko yahi chahiye. boolean true ya false rakhta hai, array values ki list jaise line items, aur object kai sub-fields ko jama karta hai, is liye koi bhi ek tareekh ke liye munasib nahi."
+  },
+  "D2-211": {
+    "q": "Har invoice mein kai line items hain, aur har line mein description, quantity aur price hai. Field schema mein isay kaise banana chahiye?",
+    "opts": [
+      "Ek string field ki soorat mein",
+      "boolean field ki soorat mein",
+      "Objects ke array ki soorat mein, har ek mein description, quantity aur price",
+      "date field ki soorat mein"
+    ],
+    "exp": "Values ke dohrane wale groups objects ke array ki soorat mein bante hain, jahan har object mein description, quantity aur price ke sub-fields hote hain. Ek string mein structure kho jati, aur boolean aur date types sirf ek saada value rakhti hain."
+  },
+  "D2-212": {
+    "q": "Content Understanding se documents ke jaize ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Schema mein fields ki wazeh descriptions service ko sahi values dhoondne mein madad karti hain.",
+      "Document analyzer type kiya hua text parh sakta hai lekin haath ki likhai kabhi nahi.",
+      "Content Understanding dikha sakta hai ke nikali hui value document mein kahan mili."
+    ],
+    "exp": "Pehle ka jawab Haan: descriptions generative models ko batati hain ke har field ka kya matlab hai. Doosre ka Nahi: content extraction mein OCR istemal hota hai jo chhapa hua aur haath ka likha text parhta hai. Teesre ka Haan: grounding har value ki source mein jagah deti hai taake log tasdeeq kar sakein."
+  },
+  "D2-213": {
+    "q": "Invoice analyzer ke field methods ke baare mein jumlay mukammal karein.",
+    "tpl": "Invoice ka total bilkul chhape hue jaisa dene ke liye {0} method istemal karein. Aise field ke liye jo due date se nikal kar batata hai ke invoice ki muddat guzar chuki hai ya nahi, {1} method istemal karein.",
+    "exp": "Extract values ko document mein jaisi hain waisi deta hai, jo chhape hue total ke liye munasib hai. Muddat guzarne ki baat kahin chhapi nahi hoti; usay doosri values se nikalna parta hai, is liye generate istemal hota hai. Classify muqarrar categories mein se chunta hai, aur translate field method nahi."
+  },
+  "D2-214": {
+    "q": "Kharab gaariyon ki photos ke insurance analyzer ko damage_description naam ka field chahiye jis mein nazar aane wale nuqsan ka ek jumla ho. Field ko kaunsa method istemal karna chahiye?",
+    "exp": "Tasveer mein kya dikh raha hai us ki tafseel model banata hai, is liye field generate istemal karta hai. Extract documents mein chhapi values ke liye hai, classify muqarrar list mein se chunta hai, aur translate Content Understanding ka field method nahi."
+  },
+  "D2-215": {
+    "q": "Warehouse photos ke analyzer ko pallet_count naam ka number wala field chahiye. Kaunsa tareeqa sahi hai?",
+    "opts": [
+      "Wazeh description ke saath number field tay karein aur generate method istemal karein",
+      "extract method istemal karein, kyunke images usay support karti hain",
+      "Speech transcription istemal karein",
+      "Tasveeron se numbers dena mumkin nahi"
+    ],
+    "exp": "Image fields ki type number jaisi ho sakti hai, aur generate method field ki description ki madad se model ko tasveer se value nikalne deta hai. Extract sirf documents ke liye support hota hai, speech transcription audio ke liye hai, aur tasveeron se number wale fields mumkin hain."
+  },
+  "D2-216": {
+    "q": "Images ke liye Content Understanding ke kaunse DO ache istemal hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Prompt se product ki nayi tasveer banana",
+      "Insurance claim ki photo mein nazar aane wala nuqsan bayan karna",
+      "Audio file translate karna",
+      "Report ki figure mein chart ki qism classify karna",
+      "Custom speech model train karna"
+    ],
+    "exp": "Content Understanding tasveeron ko structured maloomat banata hai, maslan nuqsan ki banayi hui tafseel ya chart ki qism. Woh nayi tasveerein nahi banata, audio files translate nahi karta aur speech models train nahi karta; yeh image-generation models, speech translation aur custom speech ke kaam hain."
+  },
+  "D2-217": {
+    "q": "Content Understanding ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Content Understanding charts aur diagrams ka jaiza le sakta hai.",
+      "Image fields generate aur classify methods istemal kar sakte hain.",
+      "Tasveer ke jaize ke liye audio track zaroori hai."
+    ],
+    "exp": "Pehle ka jawab Haan: figure analysis charts aur diagrams ko bayan kar sakta hai, jo search aur RAG mein bhi madad karta hai. Doosre ka Haan: images ke liye generate values banata aur classify categories chunta hai. Teesre ka Nahi: tasveeron ka jaiza akele hota hai; audio sirf audio aur video files ke liye ahem hai."
+  },
+  "D2-218": {
+    "q": "Jab Content Understanding call ki recording ka jaiza leta hai to summary jaise fields banne se pehle analysis kis cheez se shuru hota hai?",
+    "opts": ["Sound wave ki tasveer", "Recording mein boli gayi baat ka transcript", "Sirf file ka naam", "Translated PDF"],
+    "exp": "Audio ke liye content extraction speech ko likhta hai, aur phir summaries ya sentiment jaise generative fields usi transcript se bante hain. Service waveform ki tasveeron, file ke naamon ya PDFs se kaam nahi karti."
+  },
+  "D2-219": {
+    "q": "Content Understanding video analysis mein scene ki tafseel jaise generated fields kis par lagu hote hain?",
+    "opts": ["Sirf file ke naam par", "Sirf pehle frame par", "Video ke har segment par", "Sirf audio track ki zaban par"],
+    "exp": "Video analysis video ko segments mein torta hai aur har segment ke liye, us ke keyframes aur transcript se, field ki values banata hai, is liye scene ki tafseel har segment ke liye milti hai. Usay file ke naam, pehle frame ya audio ki zaban tak mehdood karne se zyada tar content reh jata."
+  },
+  "D2-220": {
+    "q": "Call-center analyzer ke har field ko us method se milayein jo usay istemal karna chahiye. Har method ek ya zyada baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "customer_intent: Cancel, Upgrade ya Billing question",
+      "call_summary: call ka chhota khulasa",
+      "products_mentioned: zikr kiye gaye products ke naam",
+      "outcome: Resolved ya Not resolved"
+    ],
+    "exp": "Muqarrar values wale fields, jaise intent aur outcome, classify istemal karte hain. Guftagu se banayi hui khuli values, jaise khulasa ya zikr kiye gaye products ki list, generate istemal karti hain. Extract sirf documents ke liye support hota hai, is liye audio fields ke liye istemal nahi hota."
+  },
+  "D2-221": {
+    "q": "Content Understanding se video ke jaize ke baare mein kaunse DO bayan sahi hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Woh ghair zaroori scenes hatane ke liye video edit karta hai",
+      "Woh keyframes de sakta aur video ko segments mein tor sakta hai",
+      "Woh prompt se naye video clips banata hai",
+      "Woh video mein boli gayi baat likh sakta hai",
+      "Woh sirf khamosh videos support karta hai"
+    ],
+    "exp": "Video analysis maloomat nikalta hai: woh keyframes aur segments pehchanta aur audio likhta hai, phir dono se fields banata hai. Woh videos edit ya banata nahi, aur khamosh video maangne ke bajaye audio track istemal karta hai."
+  },
+  "D2-222": {
+    "q": "Content Understanding istemal karne se pehle kaunsa Azure resource chahiye?",
+    "opts": ["Azure SQL database", "Virtual machine scale set", "Kubernetes cluster", "Microsoft Foundry resource"],
+    "exp": "Content Understanding Foundry Tool hai jo Microsoft Foundry resource ke zariye milta hai, aur wahi resource un model deployments ko bhi rakhta hai jo woh istemal karta hai. Database, scale set ya Kubernetes cluster bare solution ka hissa ho sakte hain, lekin service call karne ke liye zaroori nahi."
+  },
+  "D2-223": {
+    "q": "Production application ko Content Understanding ka kaunsa API version istemal karna chahiye?",
+    "opts": [
+      "Generally available version 2025-11-01",
+      "Sab se naya preview version",
+      "Koi bhi version, kyunke sab ek jaise hain",
+      "Koi version parameter nahi"
+    ],
+    "exp": "Microsoft production workloads ke liye generally available API version, 2025-11-01, aur nayi capabilities parakhne ke liye preview versions tajweez karta hai. Versions ke features aur rawaiye mein farq hota hai, aur requests mein api-version dena lazmi hai."
+  },
+  "D2-224": {
+    "q": "Aap Content Understanding se purchase orders ka data nikalne wali app bana rahe hain. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Fields apne database mein save karein aur kam confidence wali values review ke liye bhejein",
+      "Purchase orders ke liye analyzer banayein ya chunein",
+      "PDFs par Phi model fine-tune karein",
+      "Foundry resource banayein aur zaroori models deploy karein",
+      "Apni app se analyze operation call karein aur nateeje ka intezar karein"
+    ],
+    "exp": "Pehle model deployments wala Foundry resource chahiye, phir woh analyzer jo tay kare ke kya nikalna hai, phir aap ki app analyze operation call kar ke nateeje ka intezar karti hai, aur aakhir mein fields save karti aur ghair yaqeeni values logon ko bhejti hai. Is workflow ke liye alag model fine-tune karne ki zaroorat nahi."
+  },
+  "D2-225": {
+    "q": "Content Understanding REST calls ki tafseel mukammal karein.",
+    "tpl": "POST {endpoint}/contentunderstanding/analyzers/invoice-analyzer:{0}?api-version=2025-11-01\n\nPhir {1} response header wale URL ko tab tak poll karein jab tak status Succeeded na ho.",
+    "exp": "Analyzer par :analyze operation bheje gaye content ka jaiza shuru karta hai aur Operation-Location header mein lambe chalne wale operation ka URL deta hai, jise app kamyab hone tak poll karti hai. train aur deploy yeh operation nahi, Content-Type body ka format batata hai, aur Retry-After sirf intezar ka waqt tajweez karta hai."
+  }
+}

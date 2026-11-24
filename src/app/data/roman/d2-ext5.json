@@ -1,0 +1,220 @@
+{
+  "D2-170": {
+    "q": "Kis qism ka agent tool agent ko doosre system mein amal karne deta hai, jaise aap ke apne code se support ticket banana?",
+    "exp": "Function calling se model aap ki application se function chalane ko kehta hai, jaise ticket banana, aur phir us ka nateeja istemal karta hai; yeh amal wala tool hai. File search, Bing grounding aur Azure AI Search maloomat wale tools hain jo doosre systems mein kuch nahi badalte."
+  },
+  "D2-171": {
+    "q": "Ek agent ko woh tools istemal karne hain jo partner remote Model Context Protocol (MCP) server ke zariye deta hai. Agent mein kaunsa tool shamil karna chahiye?",
+    "opts": [null, null, "MCP tool", null],
+    "exp": "MCP tool agent ko remote Model Context Protocol server se jorta hai taake agent server ke diye hue tools dhoond kar call kar sake, zaroorat ho to har call se pehle manzoori ke saath. Code interpreter Python chalata hai, file search upload ki hui files mein talash karta hai, aur Speech SDK speech apps ke liye hai, agent tools ke liye nahi."
+  },
+  "D2-172": {
+    "q": "Agent tools ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "File search upload kiye hue documents ko vector store mein rakhta hai taake agent un mein talash kar sake.",
+      "Grounding with Bing Search sirf aap ki private SharePoint files mein talash karta hai.",
+      "Code interpreter code ko sandbox wale mahaul mein chalata hai."
+    ],
+    "exp": "Pehle ka jawab Haan: upload ki hui files chunks mein tor kar embed ki jati aur vector store mein rakhi jati hain jahan file search talash karta hai. Doosre ka Nahi: Bing grounding public web par talash karta hai, private files mein nahi. Teesre ka Haan: code interpreter apna likha hua Python alag sandbox mein chalata hai."
+  },
+  "D2-173": {
+    "q": "Agent test karte waqt aap ghalat jawab samajhne ke liye dekhna chahte hain ke us ne kaunse tools, kis tarteeb mein aur kaunse inputs ke saath call kiye. Aap ko kya dekhna chahiye?",
+    "opts": ["Conversation ka trace ya run ki tafseel", "Subscription ka bill", "Model card", "Deployment ka quota"],
+    "exp": "Traces aur run ki tafseel agent ka har qadam dikhati hai, jin mein inputs aur outputs ke saath tool calls bhi hain, aur agent ka rawaiya isi se debug hota hai. Bill kharcha dikhata hai, model card base model ko bayan karta hai, aur quota throughput mehdood karta hai; koi bhi agent ke qadam nahi dikhata."
+  },
+  "D2-174": {
+    "q": "Foundry agent solution ke har hisse ko us ke kaam se milayein. Har kaam ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": ["Deploy kiya hua model", "Instructions", "Tools", "Conversation"],
+    "targets": [
+      "User ke saath hone wale messages rakhti hai",
+      "Agent ko data mein talash ya amal karne dete hain",
+      "Agent ke maqasid, usool aur lehja tay karti hain",
+      "Sochta hai aur jawab likhta hai",
+      "Subscription ka bill banata hai"
+    ],
+    "exp": "Model sochta aur text banata hai, instructions tay karti hain ke agent kaisa rawaiya rakhe, tools usay maloomat aur amal ki salahiyat dete hain, aur conversation user ke saath guftagu rakhti hai. Billing Azure sambhalta hai aur agent ke design ka hissa nahi."
+  },
+  "D2-175": {
+    "q": "Kaunse DO tareeqay agent ke amal ko mehfooz rakhne mein madad karte hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Agent ko tamam systems par administrator ke ikhtiyar dena",
+      "Hassas tool calls se pehle insani manzoori lazmi karna",
+      "Agent ke model ke content filters band karna",
+      "Agent ko sirf woh tools aur ijazat dena jin ki usay zaroorat hai",
+      "Tool calls ko logs se chupana"
+    ],
+    "exp": "Hassas amal ke liye insani manzoori aur kam se kam zaroori rasai (least privilege) us nuqsan ko mehdood karte hain jo agent ghalat samajhne ya bahkaye jane par kar sakta hai. Wasee admin ikhtiyar, band content filters aur chupi hui tool calls, sab khatra barhate aur masail pakarna mushkil karte hain."
+  },
+  "D2-176": {
+    "q": "Microsoft Foundry ke agents ke baare mein jumla mukammal karein.",
+    "tpl": "Agent sochne wale {0}, us ka rawaiya tay karne wali {1}, aur maloomat aur amal dene wale tools ko jorta hai.",
+    "exp": "Foundry agent deploy kiye hue model, instructions aur ikhtiyari tools se banta hai. Model sochta aur likhta hai, aur instructions us ka role aur usool batati hain. Databases, networks, invoices aur regions solution ke gird ho sakte hain, lekin woh agent ke asal hisse nahi."
+  },
+  "D2-177": {
+    "q": "Python mein Foundry agents banane aur sambhalne ke liye kaunsa client istemal karte hain?",
+    "opts": [
+      "azure-storage-blob ka BlobServiceClient",
+      "azure-ai-projects ke AIProjectClient ke agents operations",
+      null,
+      null
+    ],
+    "exp": "azure-ai-projects ke AIProjectClient mein agents operations hain, jaise create_version(), jo project mein agents banate aur sambhalte hain. BlobServiceClient storage ke saath, TextAnalyticsClient Azure Language ke saath aur SpeechRecognizer Azure Speech ke saath kaam karta hai."
+  },
+  "D2-178": {
+    "q": "project.agents.create_version() call karte waqt kaunsi class prompt-based agent ka model aur instructions bayan karti hai?",
+    "exp": "azure.ai.projects.models ki PromptAgentDefinition agent ki model deployment ka naam aur instructions rakhti hai, aur create_version() ko definition ke taur par di jati hai. SpeechConfig Speech ko configure karta hai, ImageAnalysisClient images ka jaiza leti hai, aur AzureKeyCredential API key rakhta hai."
+  },
+  "D2-179": {
+    "q": "Python code mukammal karein taake dono sawalon ka jawab agent ke saath ek hi conversation mein mile.",
+    "exp": "Har call par conversation.id dene se dono sawal ek hi conversation mein rehte hain, is liye 'When will it arrive?' ko order 1042 ke baare mein samjha jata hai. Jawab ka text output_text mein hai. question aur client object conversation ki pehchan nahi, aur id aur model response ka metadata hain, jawab nahi."
+  },
+  "D2-180": {
+    "q": "Agent client apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Agent se chat karne se pehle client ko model ke weights upload karne lazmi hain.",
+      "Client app maujood agent ko dobara banaye baghair istemal kar sakti hai.",
+      "Maujood agent ke naam ke saath create_version() call karne se us agent ka naya version banta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: agent aur us ka model Foundry mein chalte hain, is liye client sirf requests bhejta hai. Doosre ka Haan: client naam se maujood agent se jura client le kar chat shuru kar sakta hai. Teesre ka Haan: create_version() naya ho to agent, aur pehle se ho to us ka naya version banata hai."
+  },
+  "D2-181": {
+    "q": "Jab user chat session khatam kare to client app ko mehfooz conversation history hatani hai. Usay kya karna chahiye?",
+    "opts": [
+      "Model deployment delete kare",
+      "Agent ki instructions badle",
+      "Temperature kam kare",
+      "Conversation ko us ki ID se delete kare"
+    ],
+    "exp": "Conversations mehfooz objects hain, is liye session khatam hone par client conversation ko us ki ID se delete kar sakta hai, jis se us ki history hat jati hai. Deployment delete karne se agent sab ke liye toot jata, instructions badalne se aage ka rawaiya badalta, aur temperature sirf randomness par asar dalta hai."
+  },
+  "D2-182": {
+    "q": "Har SDK call ko us ke maqsad se milayein. Har maqsad ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "targets": [
+      "User ka input conversation ke andar agent ko bhejta hai",
+      "History rakhne wali conversation banata hai",
+      "Agent se jura hua client deta hai",
+      "Agent ki definition banata ya update karta hai",
+      "Naya model deploy karta hai"
+    ],
+    "exp": "create_version() agent ya us ka naya version banata hai, get_openai_client(agent_name=...) us agent se jura client deta hai, conversations.create() history rakhne wali conversation shuru karta hai, aur responses.create() conversation ID ke saath har user turn bhejta hai. Models deploy karna alag hota hai."
+  },
+  "D2-183": {
+    "q": "Ek client app Foundry agent se chat karne ke liye DefaultAzureCredential istemal karti hai. Kaunsi DO sharaait puri honi chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "opts": [
+      "Client machine mein GPU ho",
+      "Sign in ki hui identity ke paas Foundry project par aisa role ho jo call ki ijazat de",
+      "Agent ke tools C# mein likhe hon",
+      "Agent project mein maujood ho",
+      "Client model ke weights ki copy rakhe"
+    ],
+    "exp": "Identity ko project par ijazat chahiye, jaise Foundry User (pehle Azure AI User) role, aur agent maujood hona chahiye taake client us ka naam de sake. Model Azure mein chalta hai, is liye GPU ya local weights nahi chahiye, aur agent ke tools client ki kisi programming zaban se bandhe nahi."
+  },
+  "D2-184": {
+    "q": "Key authentication ke saath endpoint ke ilawa TextAnalyticsClient ko kya dete hain?",
+    "opts": ["Model deployment ka naam", "Agent ka naam", "Resource key rakhne wala AzureKeyCredential", "Storage SAS token"],
+    "exp": "TextAnalyticsClient Language resource ka endpoint aur credential leta hai, jo key authentication mein key ke saath AzureKeyCredential hai; Microsoft Entra credentials bhi support hote hain. Language features model deployment ya agent ke naam se call nahi hote, aur storage SAS token Blob Storage ke liye hai."
+  },
+  "D2-185": {
+    "q": "Python app mein opinion mining ke nateeje, jaise product ke har feature ka sentiment, kaise milte hain?",
+    "opts": [
+      "analyze_sentiment() ko show_opinion_mining=True ke saath call kar ke",
+      "extract_key_phrases() call kar ke",
+      "detect_language() call kar ke",
+      "recognize_entities() call kar ke"
+    ],
+    "exp": "Opinion mining sentiment analysis ka option hai: analyze_sentiment() ko show_opinion_mining=True dene se har jumlay mein 'battery' jaise targets un ke baare mein raye ke saath aate hain. Key phrases, language detection aur entity recognition features ke baare mein raye nahi dete."
+  },
+  "D2-186": {
+    "q": "Python code mukammal karein taake woh nakaam documents chor kar har review ka sentiment aur positive score print kare.",
+    "exp": "Har nateeje mein is_error hota hai, jo us document ke nakaam hone par true hota hai, is liye code sirf kamyab nateeje parhta hai. Kamyab sentiment nateeje mein sentiment ka label, jaise positive ya mixed, aur har label ke confidence_scores hote hain. valid aur has_text properties nahi, aur key_phrases aur entities doosre operations ka hissa hain."
+  },
+  "D2-187": {
+    "q": "Text analysis apps banane ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Prompt mein output format bayan karein to deploy kiya hua chat model entities nikal sakta hai.",
+      "Text analysis app ko aap ke sambhale hue GPU par chalna lazmi hai.",
+      "Language service sentiment ke nateejon ke saath confidence scores deti hai."
+    ],
+    "exp": "Pehle ka jawab Haan: jab prompt bataye ke kya dena hai to generative models extraction ke kaam kar sakte hain. Doosre ka Nahi: Language service aur Foundry models dono cloud services hain, is liye aap ki app sirf requests bhejti hai. Teesre ka Haan: sentiment ke nateejon mein positive, neutral aur negative ke scores hote hain."
+  },
+  "D2-188": {
+    "q": "Language SDK mein document summarization lambe chalne wale operation ki soorat mein chalti hai. Python code khulase kaise hasil karta hai?",
+    "opts": [
+      "detect_language() call kar ke khulasa parhta hai",
+      "HTTP status code se khulasa parhta hai",
+      "begin_extract_summary() call kar ke poller ke nateeje ka intezar karta hai",
+      "Summary option ke saath analyze_sentiment() call karta hai"
+    ],
+    "exp": "Summarization ke methods begin_ se shuru hote hain, jaise begin_extract_summary() ya begin_abstract_summary(), aur poller dete hain; result() call karne se operation khatam hone ka intezar hota hai aur khulase milte hain. detect_language aur analyze_sentiment alag features hain, aur status code mein text nahi hota."
+  },
+  "D2-189": {
+    "q": "Spoken-prompt feature banane se pehle aap kaise tasdeeq kar sakte hain ke model audio input leta hai?",
+    "opts": [
+      "Sirf us ki qeemat dekh kar",
+      "Catalog mein model card par supported input ki qismein dekh kar",
+      "Azure region dekh kar",
+      "Deployment ka naam dekh kar"
+    ],
+    "exp": "Model card model ki capabilities batata hai, jin mein yeh bhi hai ke woh kaunse input aur output, jaise text, images ya audio, support karta hai. Qeemat, region aur deployment ka naam nahi batate ke model audio process kar sakta hai ya nahi."
+  },
+  "D2-190": {
+    "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Multimodal model ke istemal se pehle audio ko tasveer mein badalna lazmi hai.",
+      "Bola hua sawal ek hi request mein text hidayat ke saath bheja ja sakta hai.",
+      "Agar model sirf text de to app Azure Speech se jawab ko speech bana sakti hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: audio wale models audio ko seedha audio content part ki soorat mein lete hain. Doosre ka Haan: ek message mein text part aur audio part dono ho sakte hain. Teesre ka Haan: model ko text to speech ke saath jorna bole hue jawab dene ka aam tareeqa hai."
+  },
+  "D2-191": {
+    "q": "Woh content part mukammal karein jo record kiya hua WAV sawal Chat Completions message mein jorta hai.",
+    "exp": "Audio input input_audio type ka content part istemal karta hai, jis mein base64 data aur audio format, yahan wav, hota hai. image_url images ke liye aur text likhe hue text ke liye hai. jpeg image format aur csv data format hai, is liye dono recording ko bayan nahi karte."
+  },
+  "D2-192": {
+    "q": "Voice assistant ko bohat kam der ke saath qudrati boli hui guftagu karni hai, jis mein user jawab ke beech mein bol sake. Kaunsa option sab se munasib hai?",
+    "opts": [null, "Global Batch deployment", null, "Audio wale realtime model ke saath Realtime API"],
+    "exp": "Realtime API musalsal connection par audio dono taraf stream karti hai, is liye realtime model kam latency ke saath jawab de aur beech mein bolne ko sambhal sakta hai, jo live voice guftagu ke liye munasib hai. Batch transcription aur Global Batch asynchronous aur apne design mein sust hain, aur Image Analysis tasveeron par kaam karta hai."
+  },
+  "D2-193": {
+    "q": "Ek Python speech app ko Spanish speech pehchanni hai. Kaunsi line yeh set karti hai?",
+    "exp": "speech_recognition_language recognizer ko batata hai ke kaunsi zaban aur locale aane wale hain, jaise es-ES. Speech mein temperature ki setting nahi, region resource ka Azure mein maqam hai, aur text to speech ke liye awaazein speech_synthesis_voice_name se chuni jati hain."
+  },
+  "D2-194": {
+    "q": "Ek Python app ko synthesized speech chalane ke bajaye greeting.wav naam ki file mein save karni hai. Usay kya banana chahiye?",
+    "opts": [null, "SpeechRecognizer", "TextAnalyticsClient", null],
+    "exp": "filename ke saath AudioOutputConfig synthesizer ki audio file mein bhejta hai, aur usay SpeechSynthesizer ko audio config ke taur par diya jata hai. Microphone config input ke liye hai, SpeechRecognizer speech ko text banata hai, aur TextAnalyticsClient text ka jaiza leti hai."
+  },
+  "D2-195": {
+    "q": "Speech SDK ke har result reason ko us ke matlab se milayein. Har matlab ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "targets": [
+      "Synthesized audio tayyar hai",
+      "Operation nakaam hua ya ruk gaya, maslan ghalat key ki wajah se",
+      "Speech pehchan li gayi aur text dastiyab hai",
+      "Rate limit aa gayi",
+      "Audio mili lekin koi speech pehchani nahi ja saki"
+    ],
+    "exp": "RecognizedSpeech ka matlab hai text dastiyab hai, NoMatch ka matlab hai audio mein speech pehchani nahi ja saki, Canceled ka matlab hai operation ruk gaya, authentication error jaisi tafseel ke saath, aur SynthesizingAudioCompleted ka matlab hai text to speech mukammal hua. Rate limits ke liye alag result reason nahi."
+  },
+  "D2-196": {
+    "q": "Ek app ko microphone se 20 minute ka lecture hote hote likhna hai. Kaunse DO bayan sahi hain? Har sahi jawab hal ka ek hissa hai.",
+    "opts": [
+      "recognize_once_async() poore 20 minute ek nateeje mein deta hai",
+      "recognize_once_async() ke bajaye start_continuous_recognition() istemal karein",
+      "SpeechSynthesizer istemal karein",
+      "Har nateeja aate hi jama karne ke liye recognized event sambhalein",
+      "Audio lene ke liye TextAnalyticsClient istemal karein"
+    ],
+    "exp": "recognize_once_async() ek jumlay ke baad ruk jata hai, is liye lambi audio ke liye continuous recognition chahiye, jo har phrase par recognized event deti hai jise app jama karti hai. SpeechSynthesizer audio banata hai, aur TextAnalyticsClient text ka jaiza leti hai; dono speech nahi lete."
+  },
+  "D2-197": {
+    "q": "Aap aisa Python code likh rahe hain jo chuni hui neural voice mein jumla bolta hai. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Check karein ke result reason SynthesizingAudioCompleted hai",
+      "TextAnalyticsClient banayein",
+      "Key aur region ke saath SpeechConfig banayein",
+      "SpeechSynthesizer banayein aur speak_text_async() call karein",
+      "SpeechConfig par speech_synthesis_voice_name set karein"
+    ],
+    "exp": "Awaaz set karne se pehle SpeechConfig hona chahiye, phir usi config se synthesizer banta aur text bolta hai, aur aakhir mein code result reason check karta hai taake tasdeeq ho ke audio bani. TextAnalyticsClient Azure Language ke liye hai aur speech ke liye zaroori nahi."
+  }
+}
