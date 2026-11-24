@@ -2,7 +2,7 @@
   "D2-255": {
     "q": "Aap ne abhi Foundry portal mein agent banaya. Usay test karne ka sab se tez tareeqa kya hai?",
     "opts": [
-      "Billing page parhna",
+      "Us ki pehli requests ke liye billing page dekhna",
       "Portal ke agent playground mein us se chat karna",
       "Foundry resource restart karna",
       "Azure Advisor kholna"
@@ -12,10 +12,10 @@
   "D2-256": {
     "q": "Ek agent upload ki hui policy files se jawab deta hai, lekin users jaanna chahte hain ke har jawab kaunse document se aaya. Aap ko kya karna chahiye?",
     "opts": [
-      "Temperature barhayein",
-      "File search tool hata dein",
-      "Agent ko apne sources cite karne ki hidayat dein; file search ke nateejon mein files ke citations hote hain",
-      "Speech synthesis istemal karein"
+      "Temperature barhana taake woh zyada files ka zikr kare",
+      "File search tool hata kar files prompt mein paste karna",
+      "Agent ko hidayat dena ke har jawab mein sources bataye",
+      "Speech synthesis se files ke naam bol kar sunana"
     ],
     "exp": "File search istemal kiye gaye hisse un ki files ke hawalon ke saath deta hai, aur sources cite karne ki hidayat se agent unhein apne jawabon mein dikhata hai. Zyada temperature randomness barhata hai, file search hatane se policies hi hat jati hain, aur speech synthesis sirf text parh kar sunata hai."
   },
@@ -60,9 +60,9 @@
     "q": "Aap ko kya badalna chahiye?",
     "opts": [
       "Tamam instructions hata dein",
-      "Maximum output tokens barhayein",
-      "Chhote model par jayein",
-      "File search ke saath andruni HR documents shamil karein aur agent ko company policy ke sawalon ke liye unhein istemal karne ki hidayat dein"
+      "Tankhwah ke sawalon ke liye maximum output tokens barhana",
+      "Chhote model par jana jo web ke baare mein kam janta ho",
+      "File search ke saath andruni documents shamil karna"
     ],
     "exp": "Company ke khaas facts company ke sources se aane chahiye, is liye agent ko andruni documents par knowledge tool aur policy ke sawalon mein unhein tarjeeh dene ki hidayat chahiye. Instructions hatana, lambe output ki ijazat ya chhota model agent ko andruni maloomat nahi deta."
   },
@@ -73,9 +73,9 @@
   "D2-263": {
     "q": "Ek client app ko agent se sirf ek akela sawal poochna hai aur koi history nahi rakhni. Sab se aasan tareeqa kya hai?",
     "opts": [
-      "Pehle agent ka naya version banana",
-      "Har sawal ke baad agent delete karna",
-      "Conversation ke baghair, input ke saath responses.create() call karna",
+      "Pehle agent ka naya version bana kar usay ek baar call karna",
+      "Har sawal ke jawab ke baad agent delete karna",
+      "Conversation ke baghair responses.create() call karna",
       "Speech synthesis istemal karna"
     ],
     "exp": "Ek sawal ke liye client responses.create() se agent ko input bhej kar jawab parh sakta hai; conversation sirf tab chahiye jab follow-up turns ko mushtarka context chahiye ho. Har sawal par agents banana ya delete karna fuzool hai, aur speech synthesis agent se nahi poochta."
@@ -125,8 +125,8 @@
   "D2-268": {
     "q": "Ek team agent ke liye browser mein chalne wala chat page banati hai. Page ko agent tak mehfooz tareeqe se kaise pohanchna chahiye?",
     "opts": [
-      "Aisi backend service ke zariye jo credential rakhti aur agent call karti hai",
-      "Page ke JavaScript mein API key rakh kar",
+      "Backend service ke zariye jo credential rakhti ho",
+      "Page ke JavaScript code mein API key rakh kar",
       "Foundry project ko public kar ke",
       "Authentication band kar ke"
     ],
@@ -134,7 +134,7 @@
   },
   "D2-269": {
     "q": "recognize_entities() ki di hui har entity mein kaunsi properties hoti hain?",
-    "opts": ["voice aur pitch", "width aur height", "text, category aur confidence_score", "deployment aur quota"],
+    "opts": [null, "width aur height", null, "deployment aur quota"],
     "exp": "Har pehchani hui entity mein mila hua text, us ki category jaise Person ya Location, aur confidence score hota hai, saath mein document mein us ki jagah. voice aur pitch speech se, width aur height tasveeron se, aur deployment aur quota model deployments se mutalliq hain."
   },
   "D2-270": {
@@ -145,8 +145,8 @@
     "q": "Ek text app ko documents ke ek hi set ke entities, key phrases aur sentiment chahiye, aur aap unhein ek job ki soorat mein bhejna chahte hain. Kya call karna chahiye?",
     "opts": [
       "detect_language() teen baar",
-      "Teeno actions ke saath begin_analyze_actions()",
-      "Teen alag Language resources",
+      "Teen actions ke saath begin_analyze_actions()",
+      "Teen alag Language resources, har ek ke liye ek",
       "Speech synthesizer"
     ],
     "exp": "begin_analyze_actions() ek hi documents par kai jaize, jaise entity recognition, key phrase extraction aur sentiment analysis, ek lambi job mein chalata aur har action ke nateeje deta hai. Language detection yeh nateeje nahi deta, izafi resources ghair zaroori hain, aur speech synthesis audio banata hai."
@@ -174,10 +174,10 @@
   "D2-274": {
     "q": "Spoken prompt kya hota hai?",
     "opts": [
-      "Bare huroof mein likha prompt",
-      "System message",
+      "Prompt jo poora capital letters mein likha ho",
+      "System message jo users ko parh kar sunaya jaye",
       "JSON schema",
-      "Likhne ke bajaye audio mein diya gaya sawal ya hidayat"
+      "Audio ki soorat mein diya gaya sawal ya hidayat"
     ],
     "exp": "Spoken prompt kisi shakhs ke sawal ya hidayat ki audio hai, jise audio wala model seedha process kar sakta hai ya app pehle likh sakti hai. Bare huroof, system messages aur JSON schemas sab request ke text wale hisse hain."
   },
@@ -212,7 +212,7 @@
   },
   "D2-279": {
     "q": "Speech SDK ki kaunsi classes boli hui English ko French text mein translate karti hain?",
-    "opts": ["Sirf SpeechSynthesizer", null, null, "SpeechTranslationConfig, TranslationRecognizer ke saath"],
+    "opts": ["French neural voice ke saath SpeechSynthesizer", null, null, null],
     "exp": "SpeechTranslationConfig source zaban aur target zabanein set karti hai, aur TranslationRecognizer audio sun kar tarjume deta hai. SpeechSynthesizer sirf audio banata hai, TextAnalyticsClient text ka jaiza leti hai, aur ImageAnalysisClient images ka."
   },
   "D2-280": {

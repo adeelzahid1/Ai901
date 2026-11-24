@@ -14,7 +14,7 @@
       "Increase the temperature",
       "Add a stop sequence",
       "Lower the maximum output tokens",
-      "Send the image as a base64 data URL in the request"
+      "Send it as a base64 data URL"
     ],
     "ans": 3,
     "exp": "The service must be able to fetch an image URL, so a private container URL fails. Sending the image bytes as a base64 data URL puts the image in the request itself; a URL with temporary access, such as a SAS link, also works. Temperature, stop sequences and max tokens only change the generated text.",
@@ -49,7 +49,7 @@
   {
     "id": "D2-202", "sub": "image-generation", "diff": 1, "type": "mcq",
     "q": "Where in Microsoft Foundry can you try prompts with an image-generation deployment without writing code?",
-    "opts": ["The Speech SDK", "Azure Monitor", "The images playground", "The activity log"],
+    "opts": ["The Speech SDK", "Azure Monitor", "The images playground", "The activity log of the project"],
     "ans": 2,
     "exp": "The images playground lets you enter prompts, choose settings such as size and quality, and view the generated images from your deployment. The Speech SDK is a code library for audio, Azure Monitor shows metrics, and the activity log records management operations.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
@@ -158,10 +158,10 @@
     "id": "D2-211", "sub": "cu-documents", "diff": 2, "type": "mcq",
     "q": "Each invoice has several line items, and each line has a description, quantity and price. How should you model this in the field schema?",
     "opts": [
-      "As a single string field",
+      "As a single string field that holds the whole table",
       "As a boolean field",
-      "As an array of objects, each with description, quantity and price",
-      "As a date field"
+      "As an array of objects, one for each line",
+      "As a date field with a second field for prices"
     ],
     "ans": 2,
     "exp": "Repeating groups of values are modeled as an array of objects, where each object has the sub-fields description, quantity and price. A single string would lose the structure, and boolean and date types hold only one simple value.",
@@ -203,10 +203,10 @@
     "id": "D2-215", "sub": "cu-images", "diff": 2, "type": "mcq",
     "q": "An analyzer for warehouse photos needs a numeric field named pallet_count. Which approach is correct?",
     "opts": [
-      "Define a number field with a clear description and use the generate method",
+      "Define a number field that uses the generate method",
       "Use the extract method, because images support it",
       "Use speech transcription",
-      "It is not possible to return numbers from images"
+      "It is not possible to return numbers from images at all"
     ],
     "ans": 0,
     "exp": "Image fields can have types such as number, and the generate method lets the model work out the value from the picture, guided by the field's description. Extract is supported for documents only, speech transcription is for audio, and numeric fields from images are possible.",
@@ -241,7 +241,12 @@
   {
     "id": "D2-218", "sub": "cu-audio-video", "diff": 1, "type": "mcq",
     "q": "When Content Understanding analyzes a call recording, what does the analysis start from before fields such as a summary are produced?",
-    "opts": ["An image of the sound wave", "A transcript of the speech in the recording", "Only the file name", "A translated PDF"],
+    "opts": [
+      "An image of the sound wave of the recording",
+      "A transcript of the recorded speech",
+      "Only the name and the size of the file",
+      "A translated PDF of the whole recording"
+    ],
     "ans": 1,
     "exp": "For audio, content extraction transcribes the speech, and the generative fields, such as summaries or sentiment, are then produced from that transcript. The service does not work from pictures of waveforms, file names or PDFs.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"

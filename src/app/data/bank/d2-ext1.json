@@ -169,8 +169,8 @@
     "type": "mcq",
     "q": "Why does a client app create a conversation before it sends several messages to an agent?",
     "opts": [
-      "So the agent keeps the history of earlier turns and can answer follow-up questions",
-      "To deploy a new version of the model",
+      "So that the agent keeps the history for follow-up questions",
+      "To deploy a new version of the model for each user",
       "To increase the deployment's quota",
       "To store API keys securely"
     ],
@@ -211,7 +211,7 @@
     "opts": [
       "SpeechRecognizer",
       "BlobServiceClient",
-      "TextAnalyticsClient from azure-ai-textanalytics",
+      "TextAnalyticsClient",
       "ImageAnalysisClient"
     ],
     "ans": 2,
@@ -251,10 +251,10 @@
     "type": "mcq",
     "q": "A developer wants a deployed GPT model, rather than the Language service, to classify the sentiment of short messages. Which statement is correct?",
     "opts": [
-      "You can prompt the model to return the sentiment in a defined format, such as a JSON object with a label",
+      "You can prompt the model to return a label in a JSON object",
       "Generative models cannot analyze text",
       "Only speech models can detect sentiment",
-      "Sentiment analysis with a generative model needs image input"
+      "Sentiment analysis with a generative model needs image input as well"
     ],
     "ans": 0,
     "exp": "Generative language models can perform text analysis tasks, such as sentiment, key topics or summaries, when you describe the task and the output format in the prompt, for example JSON with a label field. The Language service gives fixed, well-defined outputs and scores, while a model offers more flexibility. Generative models do analyze text, sentiment does not need speech or image input.",
@@ -268,9 +268,9 @@
     "q": "Users of a help app ask questions by voice, and one deployed model must understand the audio directly. What should you deploy?",
     "opts": [
       "An embedding model",
-      "An image-generation model",
+      "An image-generation model with voice styles",
       "A text-only chat model",
-      "A multimodal model that accepts audio input"
+      "A multimodal chat model that accepts audio as input"
     ],
     "ans": 3,
     "exp": "A multimodal model with audio support can take spoken audio as input and respond, so no separate speech service is needed to understand the question. Embedding models return vectors, image-generation models create pictures, and a text-only chat model cannot accept audio input.",
@@ -302,10 +302,10 @@
     "type": "mcq",
     "q": "Design A for a voice assistant chains speech to text, a text model and text to speech. Design B uses one multimodal model that accepts audio. What is the main advantage of design B?",
     "opts": [
-      "It needs no deployment at all",
-      "The model handles the audio directly, so there are fewer services to chain and usually less delay",
+      "It needs no deployment at all, because the audio stays in the app",
+      "One model handles the audio, so there is usually less delay",
       "It is always free of charge",
-      "It works without any authentication"
+      "It works without any authentication, because audio is public data"
     ],
     "ans": 1,
     "exp": "One audio-capable multimodal model removes the separate transcription and synthesis steps, which simplifies the app and usually reduces latency; the model can also use information in the audio itself. The model still has to be deployed, it is billed by usage, and calls still need authentication, so the other statements are wrong.",
@@ -407,8 +407,8 @@
     "q": "How do you include a photo in a chat request to a vision-capable model so that the model can answer questions about it?",
     "opts": [
       "Put the image in the deployment name",
-      "Add an image item, with a URL or a base64 data URL, to the content of the user message",
-      "Set the image as the maximum response tokens value",
+      "Add an image part with a URL or a base64 data URL to the user's message",
+      "Set the image as the maximum response tokens value of the request",
       "Images cannot be sent to chat models"
     ],
     "ans": 1,
@@ -483,9 +483,9 @@
     "type": "mcq",
     "q": "An image-generation request fails, and the error says that the prompt violated the content policy. What should you do?",
     "opts": [
-      "Increase the deployment's quota",
-      "Request a larger image size",
-      "Rephrase the prompt, because the content filter blocked it",
+      "Increase the deployment's quota and try again",
+      "Request a larger image size for the same prompt",
+      "Rephrase the prompt that the filter blocked",
       "Change the project endpoint"
     ],
     "ans": 2,
@@ -502,7 +502,7 @@
       "Generate a completely new image from a text prompt only",
       "Run OCR on the photo",
       "Run object detection on the photo",
-      "Use image editing with the original image, a mask that marks the area to change, and a text prompt"
+      "Use image editing with a mask that marks only the background"
     ],
     "ans": 3,
     "exp": "Image editing, sometimes called inpainting, takes the original image, a mask that marks the region to change and a prompt that describes the new content, so only the masked background is regenerated. A new image from text only would not keep the exact product. OCR reads text and object detection finds objects; neither changes the image.",
@@ -606,7 +606,7 @@
     "q": "In Azure Content Understanding in Foundry Tools, what does an analyzer define?",
     "opts": [
       "The virtual machine size that processes the files",
-      "How content is processed, including content extraction settings, the field schema and model deployments",
+      "How content is processed, including the field schema",
       "The firewall rules of the resource",
       "The billing plan of the subscription"
     ],
@@ -656,7 +656,7 @@
       "Extract",
       "Generate",
       "Redact",
-      "Classify, with the list of allowed categories"
+      "Classify"
     ],
     "ans": 3,
     "exp": "The classify method assigns a value from a predefined set of categories, such as bar, line or pie, which guarantees one of the allowed values. Extract returns text exactly as it appears and is supported for documents only, and generate produces free-form values that are not limited to a list. Redact is not a Content Understanding field method.",
@@ -738,8 +738,8 @@
     "opts": [
       "Read the final fields immediately from the body of the first response",
       "Call the Speech SDK to synthesize the result",
-      "Poll the operation URL returned in the response until the status is succeeded, and then read the result",
-      "Delete and recreate the analyzer"
+      "Poll the operation URL until it succeeds, then read the result",
+      "Delete and recreate the analyzer before the result can be read again"
     ],
     "ans": 2,
     "exp": "The analyze request starts a long-running operation and returns an Operation-Location URL. The app polls that URL until the status shows that analysis succeeded, and then reads the result that contains the content and fields. The first response does not contain the final fields, speech synthesis is unrelated, and recreating the analyzer would not return results.",

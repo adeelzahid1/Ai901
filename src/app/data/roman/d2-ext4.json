@@ -2,16 +2,16 @@
   "D2-141": {
     "q": "In mein se kaunsi system message ki misaal hai?",
     "opts": [
-      "Aap Sunday ko kitne baje khulte hain?",
-      "Tum ek bike shop ke khush-mizaj assistant ho. Sirf bikes aur un ki marammat ke sawalon ka jawab do.",
+      "Sunday ko city center mein aap kis waqt khulte hain?",
+      "Tum bike shop ke khush-mizaj assistant ho.",
       null,
       null
     ],
-    "exp": "System message assistant ka role, lehja aur usool tay karta hai, jaise khush-mizaj bike shop assistant jo sirf bikes par baat kare. Khulne ke waqt ka sawal user message hai, JSON parameter ki setting hai, aur gpt-5-mini model ka naam hai."
+    "exp": "System message assistant ka role, lehja aur usool tay karta hai, jaise bike shop ka khush-mizaj assistant hona. Khulne ke waqt wala sawal user message hai, JSON parameter ki setting hai, aur gpt-5-mini model ka naam hai."
   },
   "D2-142": {
     "q": "Aap ki app ko hamesha khaas schema se milta JSON chahiye. Prompt mein format bayan karne ke ilawa kaunsa feature is ki pabandi karwane mein madad karta hai?",
-    "opts": ["Zyada temperature", "Stop sequences", "JSON schema ke saath structured outputs", "Image detail setting"],
+    "opts": ["Zyada temperature", "Stop sequences", null, "Image detail setting"],
     "exp": "Structured outputs mein aap request ke saath JSON schema dete hain taake model ka jawab usi schema par chale, jo sirf hidayaat se zyada bharosemand hai. Zyada temperature output ko zyada random banata hai, stop sequences sirf nishan par output khatam karte hain, aur image detail image input par lagu hota hai."
   },
   "D2-143": {
@@ -45,8 +45,8 @@
     "opts": [
       "Woh text ko encrypt karta hai",
       "Woh token ka kharcha zero kar deta hai",
-      "Har prompt ke liye yeh lazmi syntax hai",
-      "Us se model aap ki hidayaat ko us content se alag pehchanta hai jise process karna hai"
+      "Data wale har prompt ke liye ye lazmi syntax hai",
+      "Ye model ko aap ki hidayaat aur content alag karne mein madad deta hai"
     ],
     "exp": "Delimiters wazeh dikhate hain ke content kahan shuru aur khatam hota hai, is liye model usay hidayaat nahi balke kaam ka maal samajhta hai, jis se accuracy barhti hai aur prompt injection ke khilaf madad milti hai. Delimiters text encrypt nahi karte na token ka kharcha khatam karte hain, aur woh behtareen tareeqa hain, lazmi syntax nahi."
   },
@@ -70,18 +70,18 @@
   "D2-148": {
     "q": "Kaunsi line safety ki hidayat hai jo aap system message mein shamil kar sakte hain?",
     "opts": [
-      "Dostana lehja rakho.",
-      "English mein jawab do.",
-      "Agar user nuqsan deh ya khatarnak content maange to muazzirat kar ke mana karo aur woh na do.",
-      "Bullet points istemal karo."
+      "Naye customers ke saath dostana lehja rakho.",
+      "Sawal ki zaban mein jawab do.",
+      "Nuqsan deh requests adab se mana karo.",
+      "Products ki list ke liye bullet points istemal karo."
     ],
     "exp": "System message mein safety ki hidayaat model ko batati hain ke nuqsan deh requests ko kaise sambhale, maslan muhazzab tareeqe se mana kar ke, aur woh content filters ke saath mil kar kaam karti hain. Lehja, zaban aur formatting ki hidayaat jawabon ka andaz tay karti hain lekin safety ke liye nahi."
   },
   "D2-149": {
     "q": "Prompt engineering kya hai?",
     "opts": [
-      "Model se behtar nateeje lene ke liye prompts banana aur behtar karna",
-      "Models chalane wale GPUs banana",
+      "Model se behtar nateeje lene ke liye prompts behtar karna",
+      "Datacenter mein models chalane wale GPUs banana",
       "Shuru se naya model train karna",
       "Database ke liye SQL queries likhna"
     ],
@@ -89,7 +89,7 @@
   },
   "D2-150": {
     "q": "Foundry project mein kai models deploy karne ke baad un sab ko naam aur settings ke saath kahan dekh sakte hain?",
-    "opts": [null, "Project ki model deployments ki list", null, null],
+    "opts": [null, "Project ki deployments ki list", "Microsoft Entra ID ki app registrations", null],
     "exp": "Project ki model deployments ki list har deployment ko us ke naam, model, version aur deployment type ke saath dikhati hai, aur usay khol kar test ya edit kiya ja sakta hai. Azure Marketplace offerings bechta hai, Entra ID identities sambhalta hai, aur Azure DevOps code aur pipelines."
   },
   "D2-151": {
@@ -113,7 +113,7 @@
       "Ek saathi se poochein ke usay kaunsa pasand hai",
       "Bill mein dekhein ke kaunsa sasta parta hai",
       "Dono ka quota barhayein",
-      "Har version ke liye ek hi test dataset par evaluation chalayein aur scores compare karein"
+      "Dono ko ek hi test dataset se evaluate karna"
     ],
     "exp": "Evaluations test dataset par jawabon ko relevance aur groundedness jaise metrics se score dete hain, is liye dono versions ko ek hi data par chalane se ghair janibdar muqabla milta hai. Ek shakhs ki raye kaafi nahi, kharcha quality nahi naapta, aur quota sirf throughput par asar dalta hai."
   },
@@ -148,7 +148,7 @@
     "q": "Chat response jaldi khatam ho jata hai aur us ka finish reason content_filter hai. Is ka kya matlab hai?",
     "opts": [
       "Model tokens ki zyada se zyada hadd tak pohanch gaya",
-      "Output is liye ruka ke content filter ne us par nishan lagaya",
+      "Content filter ne flag hua output rok diya",
       "Deployment ka quota khatam ho gaya",
       "Deployment delete ho gayi"
     ],
@@ -156,7 +156,7 @@
   },
   "D2-158": {
     "q": "Aap code ke baghair check karna chahte hain ke deploy kiya hua vision wala model product photo ko bayan kar sakta hai ya nahi. Kya istemal karna chahiye?",
-    "opts": ["Photo attach kar ke chat playground", null, null, null],
+    "opts": ["Chat playground", "Azure Monitor ke workbooks", "Cost analysis ka page", null],
     "exp": "Chat playground mein message ke saath tasveer attach kar ke vision wali deployment ko bheji ja sakti hai aur dekha ja sakta hai ke model usay kaise bayan karta hai. Azure Monitor metrics dikhata hai, cost analysis kharcha aur Key Vault secrets rakhta hai; koi bhi model ko prompts nahi bhejta."
   },
   "D2-159": {
@@ -167,7 +167,7 @@
     "q": "Chat client ko project endpoint source code mein hard-code karne ke bajaye kahan rakhna chahiye?",
     "opts": [
       "Code comment mein",
-      "Environment variable ya app configuration setting mein",
+      "Environment variable mein",
       "System message mein",
       "Model ke training data mein"
     ],
@@ -192,7 +192,7 @@
     "opts": [
       "Source code mein API key",
       "System message mein password",
-      "DefaultAzureCredential ke zariye managed identity",
+      "Managed identity",
       "Endpoint tak anonymous rasai"
     ],
     "exp": "Managed identity App Service ko us ki apni Entra ID identity deti hai, aur DefaultAzureCredential usay khud pakar leta hai, is liye koi secret mehfooz nahi hota; identity ko project par role phir bhi chahiye. Code mein keys aur prompts mein passwords leak ho sakte hain, aur anonymous rasai ki ijazat nahi."
@@ -221,7 +221,12 @@
   },
   "D2-166": {
     "q": "Kharche par nazar rakhne ke liye aap ki app ko log karna hai ke har model call ne kitne input aur output tokens istemal kiye. Yeh tadad kahan milti hai?",
-    "opts": ["Deployment ke naam mein", "HTTP status code mein", "System message mein", "Response ki usage property mein"],
+    "opts": [
+      "Deployment ke naam mein",
+      "Call ke HTTP status code mein",
+      "System message mein",
+      "Response ki usage property mein"
+    ],
     "exp": "Model responses mein usage object hota hai jis mein input aur output tokens ki tadad aur kul tadad hoti hai, jise app kharche ke liye log kar sakti hai. Deployment ka naam model ki pehchan hai, status code kamyabi ya nakami batata hai, aur system message request ka hissa hai."
   },
   "D2-167": {
@@ -238,8 +243,8 @@
   "D2-168": {
     "q": "Chat client mein DefaultAzureCredential kya karta hai?",
     "opts": [
-      "Token lene ke liye sign-in ke kai tareeqay azmata hai, jaise environment settings, managed identity aur Azure CLI",
-      "Aap ka password source code mein mehfooz karta hai",
+      "Aap ke liye token lene ko tarteeb se kai sign-in tareeqay azmata hai",
+      "Aap ka password app ke source code mein mehfooz karta hai",
       "Nayi Azure subscription banata hai",
       "Nayi API key banata hai"
     ],

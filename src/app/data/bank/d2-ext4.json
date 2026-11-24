@@ -3,19 +3,19 @@
     "id": "D2-141", "sub": "prompts", "diff": 1, "type": "mcq",
     "q": "Which of the following is an example of a system message?",
     "opts": [
-      "What time do you open on Sunday?",
-      "You are a cheerful assistant for a bike shop. Only answer questions about bikes and repairs.",
+      "What time do you open on Sunday in the city center?",
+      "You are a cheerful assistant for a bike shop.",
       "{\"temperature\": 0.2}",
       "gpt-5-mini"
     ],
     "ans": 1,
-    "exp": "A system message sets the assistant's role, tone and rules, such as being a cheerful bike shop assistant that only discusses bikes. The opening-hours question is a user message, the JSON is a parameter setting, and gpt-5-mini is a model name.",
+    "exp": "A system message sets the assistant's role, tone and rules, such as being a cheerful bike shop assistant. The opening-hours question is a user message, the JSON is a parameter setting, and gpt-5-mini is a model name.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
     "id": "D2-142", "sub": "prompts", "diff": 2, "type": "mcq",
     "q": "Your app must always receive JSON that matches a specific schema. Besides describing the format in the prompt, which feature helps enforce it?",
-    "opts": ["A higher temperature", "Stop sequences", "Structured outputs with a JSON schema", "The image detail setting"],
+    "opts": ["A higher temperature", "Stop sequences", "Structured outputs", "The image detail setting"],
     "ans": 2,
     "exp": "Structured outputs let you pass a JSON schema with the request so that the model's response follows that schema, which is more reliable than instructions alone. A higher temperature makes output more random, stop sequences only end output at a marker, and image detail applies to image input.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
@@ -58,8 +58,8 @@
     "opts": [
       "It encrypts the text",
       "It reduces the token cost to zero",
-      "It is required syntax for every prompt",
-      "It helps the model tell your instructions apart from the content it should process"
+      "It is required syntax for every prompt that has data",
+      "It helps the model separate your instructions from the content"
     ],
     "ans": 3,
     "exp": "Delimiters clearly mark where the content starts and ends, so the model treats it as material to work on rather than as instructions, which improves accuracy and helps against prompt injection. Delimiters do not encrypt text or remove token costs, and they are a best practice, not mandatory syntax.",
@@ -95,10 +95,10 @@
     "id": "D2-148", "sub": "prompts", "diff": 3, "type": "mcq",
     "q": "Which line is a safety instruction that you might add to a system message?",
     "opts": [
-      "Use a friendly tone.",
-      "Answer in English.",
-      "If a user asks for harmful or dangerous content, politely refuse and do not provide it.",
-      "Use bullet points."
+      "Use a friendly tone with new customers.",
+      "Answer in the language of the question.",
+      "Politely refuse harmful requests.",
+      "Use bullet points for lists of products."
     ],
     "ans": 2,
     "exp": "Safety system message instructions tell the model how to handle harmful requests, for example by refusing politely, and they work together with content filters. Tone, language and formatting instructions shape the style of answers but do not address safety.",
@@ -108,8 +108,8 @@
     "id": "D2-149", "sub": "prompts", "diff": 1, "type": "mcq",
     "q": "What is prompt engineering?",
     "opts": [
-      "Designing and refining prompts to get better results from a model",
-      "Building the GPUs that run models",
+      "Refining prompts to get better results from a model",
+      "Building the GPUs that run models in a datacenter",
       "Training a new model from scratch",
       "Writing SQL queries for a database"
     ],
@@ -120,7 +120,12 @@
   {
     "id": "D2-150", "sub": "portal-deploy", "diff": 1, "type": "mcq",
     "q": "After you deploy several models in a Foundry project, where can you see all of them with their names and settings?",
-    "opts": ["Azure Marketplace", "The list of model deployments in the project", "Microsoft Entra ID", "Azure DevOps"],
+    "opts": [
+      "Azure Marketplace",
+      "The project's list of deployments",
+      "Microsoft Entra ID app registrations",
+      "Azure DevOps"
+    ],
     "ans": 1,
     "exp": "The project's list of model deployments shows each deployment with its name, model, version and deployment type, and you can open it to test or edit it. Azure Marketplace sells offerings, Entra ID manages identities, and Azure DevOps manages code and pipelines.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
@@ -153,7 +158,7 @@
       "Ask one colleague which version they prefer",
       "Check which version costs less on the bill",
       "Increase the quota for both",
-      "Run an evaluation for each version with the same test dataset and compare the scores"
+      "Evaluate both with the same test dataset"
     ],
     "ans": 3,
     "exp": "Evaluations score responses on a test dataset with metrics such as relevance and groundedness, so running both versions against the same data gives an objective comparison. A single opinion is anecdotal, cost does not measure quality, and quota only affects throughput.",
@@ -204,7 +209,7 @@
     "q": "A chat response ends early and its finish reason is content_filter. What does this mean?",
     "opts": [
       "The model reached the maximum number of tokens",
-      "The output was stopped because the content filter flagged it",
+      "The content filter stopped the flagged output",
       "The deployment's quota is used up",
       "The deployment was deleted"
     ],
@@ -215,7 +220,7 @@
   {
     "id": "D2-158", "sub": "portal-deploy", "diff": 1, "type": "mcq",
     "q": "You want to check, without code, whether a deployed vision-capable model can describe a product photo. What should you use?",
-    "opts": ["The chat playground with the photo attached", "Azure Monitor", "Cost analysis", "Azure Key Vault"],
+    "opts": ["The chat playground", "Azure Monitor workbooks", "The cost analysis page", "Azure Key Vault"],
     "ans": 0,
     "exp": "The chat playground lets you attach an image to a message and send it to a vision-capable deployment to see how the model describes it. Azure Monitor shows metrics, cost analysis shows spending and Key Vault stores secrets; none of them send prompts to a model.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
@@ -225,7 +230,7 @@
     "q": "Which command installs the packages that a Python chat client needs to connect to a Foundry project with Microsoft Entra ID?",
     "opts": [
       "npm install foundry",
-      "pip install azure-storage-queue",
+      "pip install azure-storage-queue azure-data",
       "apt install python-ai",
       "pip install azure-ai-projects azure-identity"
     ],
@@ -238,7 +243,7 @@
     "q": "Where should a chat client keep the project endpoint instead of hard-coding it in the source code?",
     "opts": [
       "In a code comment",
-      "In an environment variable or app configuration setting",
+      "In an environment variable",
       "In the system message",
       "In the model's training data"
     ],
@@ -277,7 +282,7 @@
     "opts": [
       "An API key in the source code",
       "A password in the system message",
-      "A managed identity used through DefaultAzureCredential",
+      "A managed identity",
       "Anonymous access to the endpoint"
     ],
     "ans": 2,
@@ -316,7 +321,12 @@
   {
     "id": "D2-166", "sub": "sdk-chat-client", "diff": 3, "type": "mcq",
     "q": "Your app must log how many input and output tokens each model call used, to track cost. Where does it find these numbers?",
-    "opts": ["In the deployment name", "In the HTTP status code", "In the system message", "In the usage property of the response"],
+    "opts": [
+      "In the deployment name",
+      "In the HTTP status code of a call",
+      "In the system message",
+      "In the response's usage property"
+    ],
     "ans": 3,
     "exp": "Model responses include a usage object with the number of input and output tokens, plus a total, which the app can log for cost tracking. The deployment name identifies the model, the status code reports success or failure, and the system message is part of the request.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
@@ -339,8 +349,8 @@
     "id": "D2-168", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
     "q": "What does DefaultAzureCredential do in a chat client?",
     "opts": [
-      "It tries several sign-in methods, such as environment settings, a managed identity and the Azure CLI, to get a token",
-      "It stores your password in the source code",
+      "It tries several sign-in methods in order to get a token for you",
+      "It stores your password in the source code of the app",
       "It creates a new Azure subscription",
       "It generates a new API key"
     ],

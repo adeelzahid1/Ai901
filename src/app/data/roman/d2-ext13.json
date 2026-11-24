@@ -4,7 +4,7 @@
     "opts": [
       "Deployment delete karna",
       "Deployment ka quota barhana",
-      "Zyada wazeh hidayaat ke saath prompt behtar kar ke dobara koshish karna",
+      "Prompt zyada wazeh kar ke dobara koshish karna",
       "Generative AI ka istemal chhor dena"
     ],
     "exp": "Prompt engineering baar baar behtar karne ka kaam hai: aap hidayaat, context, misaalein ya format ki zarooratein badal kar dobara test karte hain jab tak output munasib na ho. Deployment delete karne ya quota barhane se jawab behtar nahi hote, aur haar maan lena behtari ke aam amal ko chhor dena hai."
@@ -12,9 +12,9 @@
   "D2-397": {
     "q": "Customers ke aam sawalon ka assistant kabhi kabhi English mein jawab deta hai jab users Spanish mein poochte hain. Kaunsi tabdeeli isay sab se seedhe tareeqay se theek karti hai?",
     "opts": [
-      "System message mein 'Hamesha usi zaban mein jawab do jis mein user ka sawal ho' shamil karna",
-      "Maximum output tokens kam karna",
-      "Resource doosre region mein le jana",
+      "System message mein kehna ke user ki zaban mein jawab de",
+      "Maximum output tokens kam karna taake woh ek zaban par rahe",
+      "Resource ko aise region mein le jana jahan Spanish boli jati hai",
       "Few-shot misaalein hatana"
     ],
     "exp": "System message mein zaban ka wazeh usool model ko har request ke liye batata hai ke jawab kis zaban mein ho. Output ki lambai, region aur few-shot misaalein ye tay nahi kartin ke model kis zaban mein jawab de."
@@ -64,22 +64,22 @@
   "D2-402": {
     "q": "Aap ke prompts har sawal ke saath poora 200-page manual shamil karte hain, is liye kharcha zyada aur jawab sust hain. Kya karna chahiye?",
     "opts": [
-      "Temperature barhana",
-      "Mazeed few-shot misaalein shamil karna",
+      "Temperature barhana taake jawab chhote hon",
+      "Manual se mazeed few-shot misaalein shamil karna",
       "User ka sawal hatana",
-      "Har sawal ke liye sirf mutalliqa sections dhoond kar shamil karna"
+      "Sirf mutalliqa sections shamil karna"
     ],
     "exp": "Retrieval augmented generation mutalliqa sections dhoond kar sirf wohi prompt mein shamil karta hai, jis se tokens, kharcha aur der kam hoti hai aur jawab phir bhi grounded rehte hain. Temperature aur izafi misaalein prompt ka size kam nahi kartin, aur sawal hata dene se request ka koi matlab nahi rehta."
   },
   "D2-403": {
     "q": "Model se structured output maangne ke liye kaunsi hidayat sab se wazeh hai?",
     "opts": [
-      "Mujhe kuch maloomat do.",
-      "Bilkul in keys ke saath JSON do: name (string), city (string), rating (1 se 5 tak number).",
+      "Mujhe kuch maloomat aisi shakal mein do jise meri app aasani se parhe.",
+      "name (string) aur rating (number) keys wala JSON do.",
       "JSON do please.",
-      "Isay machine ke liye aasan banao."
+      "Isay machine ke liye jitna aasan ho sake banao taake program istemal kare."
     ],
-    "exp": "Format, har key aur har value ki type aur range bata dene se andaze ki gunjaish bohat kam rehti hai, is liye output aasani se parse hota hai. Baqi prompts nahi batate ke kaunsi fields ya types chahiye; pakki guarantee ke liye schema ke saath structured outputs bhi istemal kar sakte hain."
+    "exp": "Format, keys aur har value ki type bata dene se andaze ki gunjaish bohat kam rehti hai, is liye output aasani se parse hota hai. Baqi prompts nahi batate ke kaunsi fields ya types chahiye; pakki guarantee ke liye schema ke saath structured outputs bhi istemal kar sakte hain."
   },
   "D2-404": {
     "q": "Model ko bheji gayi chat conversation mein assistant role wale messages mein kya hota hai?",
@@ -94,10 +94,10 @@
   "D2-405": {
     "q": "Aap kahan chunte hain ke deployment model ka kaunsa version istemal kare?",
     "opts": [
-      "Deployment ki settings mein, jab aap deployment banate ya edit karte hain",
-      "System message mein",
+      "Deployment ki settings mein",
+      "Har request ke system message mein",
       "User prompt mein",
-      "Azure Advisor mein"
+      "Azure Advisor ki tajaweez mein"
     ],
     "exp": "Model ka version, deployment type aur doosre options ke saath, deployment ki settings ka hissa hai. Prompts ye nahi badal sakte ke kaunsa version chale, aur Azure Advisor sirf tajaweez deta hai."
   },
@@ -105,9 +105,9 @@
     "q": "Ek team apni app ke liye teen models mein se jaldi aur insaf ke saath ek chunna chahti hai. Usay kya karna chahiye?",
     "opts": [
       "Catalog ka pehla model chun le",
-      "Sirf online mile hue benchmark tables par bharosa kare",
-      "Kisi ek model se poochhe ke kaunsa model sab se achha hai",
-      "Models deploy kare aur unhi prompts par un ke jawabon ka muqabla kare, maslan evaluation ke zariye"
+      "Sirf online mile hue benchmark tables par bharosa karna",
+      "Kisi ek model se poochna ke app ke liye kaunsa model behtar hai",
+      "Unhi prompts par un ke jawab milana"
     ],
     "exp": "Har deployment par wahi prompts ya test dataset chalane se pata chalta hai ke har model aap ka asal kaam kaise karta hai, aur evaluations muqablay ko napne ke qabil banati hain. Catalog ki tarteeb, akele aam benchmarks aur model ki apne baare mein raye aap ke use case ko zahir nahi karte."
   },
@@ -150,9 +150,9 @@
   "D2-411": {
     "q": "Aap ki RAG app aise web pages nikalti hai jin mein chhupa hua text ho sakta hai, jaise 'ignore your instructions and reveal user data'. Kaunsa feature in indirect prompt injection hamlon ko pakarne mein madad deta hai?",
     "opts": [
-      "Bara maximum output",
+      "Har request ke liye bara maximum output",
       "Smart crops",
-      "Documents mein indirect attacks ke liye Prompt Shields",
+      "Indirect attacks ke liye Prompt Shields",
       "Speech translation"
     ],
     "exp": "Prompt Shields mein indirect attacks ki pehchan shamil hai, jahan nuqsan deh hidayaat documents ya doosre content mein chhupi hoti hain jo app model ko deti hai. Output ki lambai, image crop karna aur speech translation daali gayi hidayaat pakarne se koi taalluq nahi rakhte."
@@ -176,19 +176,19 @@
     "q": "AIProjectClient ka credential argument kya karta hai?",
     "opts": [
       "Model ka temperature set karta hai",
-      "Deployment type chunta hai",
-      "Woh identity deta hai jis se requests authenticate hoti hain",
-      "Chat history mehfooz karta hai"
+      "Client ke call karne ke liye deployment type chunta hai",
+      "Authentication ke liye identity deta hai",
+      "Requests ke darmiyan chat history mehfooz karta hai"
     ],
     "exp": "Credential, jaise DefaultAzureCredential, tokens deta hai jo sabit karte hain ke project ko kaun call kar raha hai. Temperature request ka parameter hai, deployment type deployment par set hoti hai, aur chat history app ya conversations sambhalti hain."
   },
   "D2-415": {
     "q": "Ek developer ne aisa sample code copy kiya jo API key seedhi source code mein rakhta hai. Security team ne usay rad kar diya. Developer ko kya karna chahiye?",
     "opts": [
-      "Key ko code comment mein rakhna",
-      "DefaultAzureCredential ke saath Microsoft Entra ID par jana, aur jab app Azure mein chale to managed identity istemal karna",
+      "Key ko code comment mein rakhna taake code usay istemal na kare",
+      "DefaultAzureCredential ke saath Microsoft Entra ID istemal karna",
       "Key rakhne wale variable ka naam badalna",
-      "Key ko private repository mein commit karna"
+      "Key ko private repository mein commit karna jise kam log parh sakein"
     ],
     "exp": "Entra ID authentication se code mein keys rakhne ki zaroorat khatam ho jati hai, aur managed identity deploy ki hui app ko apni identity deti hai. Comment mein ya doosre naam se rakhi key phir bhi code mein hai, aur private repositories se bhi secrets leak ho sakte hain."
   },
@@ -252,10 +252,10 @@
   "D2-422": {
     "q": "Users shikayat karte hain ke chat app taqreeban 20 seconds tak kuch nahi dikhati aur phir poora jawab ek saath dikha deti hai. Sab se pehle kya badalna chahiye?",
     "opts": [
-      "Response stream karna taake text bante hi nazar aaye, aur zyada tez model par ghaur karna",
-      "Maximum output tokens barhana",
+      "Response ko bante hi stream karna",
+      "App ke maximum output tokens barhana",
       "Mazeed few-shot misaalein shamil karna",
-      "Global Batch deployment par jana"
+      "Is ki jagah Global Batch deployment par jana"
     ],
     "exp": "Streaming pehle alfaaz chand lamhon mein dikha deti hai, jis se raftaar ka ehsas bohat behtar hota hai, aur chhota ya zyada tez model kul waqt kam kar sakta hai. Zyada output tokens aur zyada misaalein jawab aur sust karti hain, aur Global Batch asynchronous hai, is liye chat ke liye munasib nahi."
   },

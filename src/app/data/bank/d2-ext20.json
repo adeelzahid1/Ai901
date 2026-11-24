@@ -40,7 +40,7 @@
     "id": "D2-597", "sub": "spoken-prompts", "diff": 2, "type": "mcq",
     "ctx": "An elder-care app lets people ask questions by voice and hear spoken answers. Users often speak slowly and pause, and they sometimes interrupt the reply.",
     "q": "Which option gives the most natural spoken conversation with short delays?",
-    "opts": ["Batch transcription", "Image Analysis", "The Realtime API with a realtime model", "An embedding model"],
+    "opts": ["Batch transcription", "Image Analysis", "The Realtime API", "An embedding model"],
     "ans": 2,
     "exp": "The Realtime API streams audio both ways over a live connection, so the model can respond quickly and handle pauses and interruptions. Batch transcription is not live, Image Analysis works on pictures, and embedding models do not hold conversations.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/realtime-audio"
@@ -144,9 +144,9 @@
     "id": "D2-606", "sub": "image-generation", "diff": 2, "type": "mcq",
     "q": "Which statement about editing images with gpt-image-1 is true?",
     "opts": [
-      "You can give an existing image and a prompt, plus an optional mask, to change the image",
-      "It can only create images from scratch",
-      "It returns only text descriptions",
+      "You can edit an existing image with a prompt",
+      "It can only create images from scratch, without any input",
+      "It returns only text descriptions of an image",
       "It needs audio input"
     ],
     "ans": 0,
@@ -169,9 +169,9 @@
     "id": "D2-608", "sub": "vision-app", "diff": 2, "type": "mcq",
     "q": "For privacy reasons, a marketplace must flag product photos that show people before they are published. How can an app do this with Image Analysis?",
     "opts": [
-      "Use only SMART_CROPS",
-      "Request the PEOPLE feature and flag photos in which people are detected",
-      "Use image generation",
+      "Use SMART_CROPS and look at the size of the crops",
+      "Request PEOPLE and flag photos with results",
+      "Use image generation to draw each photo again",
       "Use only OCR"
     ],
     "ans": 1,
@@ -209,9 +209,9 @@
     "id": "D2-611", "sub": "cu-documents", "diff": 1, "type": "mcq",
     "q": "In Content Understanding, what is content extraction?",
     "opts": [
-      "Deleting the file after analysis",
-      "Translating the file into audio",
-      "Turning the file into text and structure, such as paragraphs and tables, before fields are produced",
+      "Deleting the file after the analysis is done",
+      "Translating the file into audio for users",
+      "Turning the file into text and structure",
       "Compressing the file"
     ],
     "ans": 2,
@@ -246,7 +246,7 @@
   {
     "id": "D2-614", "sub": "cu-images", "diff": 2, "type": "mcq",
     "q": "An insurer analyzes photos of storm damage and needs a field damage_severity with the value Minor, Moderate or Severe. Which method should the field use?",
-    "opts": ["Generate", "Extract", "Classify, with the three categories", "Translate"],
+    "opts": ["Generate", "Extract", "Classify", "Translate"],
     "ans": 2,
     "exp": "Classify returns one value from a defined list, which guarantees that every photo is labeled Minor, Moderate or Severe. Generate gives free-form text, extract is for printed values in documents, and translate is not a field method.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -292,7 +292,7 @@
       "It replaces the need for any search index",
       "It works only with audio files",
       "It cannot be used in RAG solutions",
-      "Its Markdown output and figure descriptions can be indexed so RAG apps can retrieve them"
+      "Its Markdown output can be indexed for retrieval"
     ],
     "ans": 3,
     "exp": "Content Understanding turns documents, including charts and figures, into Markdown that can be chunked, embedded and indexed, which improves what a RAG app can retrieve. It still relies on a search index for retrieval, and it handles documents, images, audio and video.",

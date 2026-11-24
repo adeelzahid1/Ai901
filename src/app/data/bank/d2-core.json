@@ -22,13 +22,13 @@
     "type": "mcq",
     "q": "Which user prompt is most likely to give a useful product description?",
     "opts": [
-      "Write about our product.",
+      "Write about our product and make it sound really great so that many people want to buy it.",
       "Product. Description. Now.",
-      "Write a three-sentence product description of the Contoso X1 headphones for our website, in a friendly tone, highlighting the 30-hour battery and noise cancellation.",
-      "Tell me everything you know."
+      "Write three friendly sentences about the Contoso X1 headphones and their 30-hour battery.",
+      "Tell me everything you know about headphones and about all of the products that we sell."
     ],
     "ans": 2,
-    "exp": "Effective prompts are specific: they state the task, the subject, the audience, the length, the tone and the key points to include. The Contoso X1 prompt gives all of these, so the model knows exactly what to produce. The other prompts are vague or have no clear task, so the model has to guess, which usually leads to generic or off-target output.",
+    "exp": "Effective prompts are specific: they state the task, the subject, the length, the tone and the key points to include. The Contoso X1 prompt does this, so the model knows what to produce. The other prompts are long or short but vague, so the model has to guess, which usually leads to generic or off-target output.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -54,10 +54,10 @@
     "type": "mcq",
     "q": "A support assistant receives product manual text in each prompt. It must answer only from that text and must not invent answers. What should you do?",
     "opts": [
-      "Add system instructions to answer only from the provided content and to say that it does not know when the answer is not there",
-      "Raise the temperature to the maximum value",
-      "Remove the system message so the model has fewer rules",
-      "Increase the maximum response tokens"
+      "Tell the model to use only the given text and admit gaps",
+      "Raise the temperature to the maximum value so that it tries harder",
+      "Remove the system message so the model has fewer rules to follow",
+      "Increase the maximum response tokens so that answers are complete"
     ],
     "ans": 0,
     "exp": "Telling the model in the system message to use only the supplied content, and what to say when the answer is missing, is a standard grounding technique that reduces made-up answers. A higher temperature makes output more random and can increase invented content. Removing the system message removes the guardrail you need. More response tokens only allows longer answers.",
@@ -158,10 +158,10 @@
     "type": "mcq",
     "q": "A general chat model often gets multi-step math word problems wrong when it answers immediately. Which prompt change is most likely to help?",
     "opts": [
-      "Ask for the final number only, with no explanation",
-      "Lower the maximum response tokens to 20",
-      "Ask the model to work through the problem step by step before it gives the final answer",
-      "Remove the system message"
+      "Ask for the final number only, with no explanation of how it was found",
+      "Lower the maximum response tokens to 20 so that it answers quickly",
+      "Ask the model to work step by step before the final answer",
+      "Remove the system message so that it can think more freely"
     ],
     "ans": 2,
     "exp": "Asking the model to reason step by step, often called chain-of-thought prompting, makes it write out the intermediate steps, which improves accuracy on multi-step problems. Asking for the number only removes that reasoning. A 20-token limit can cut off the working. Removing the system message takes away guidance and does nothing for reasoning quality.",
@@ -250,10 +250,10 @@
     "type": "mcq",
     "q": "During peak hours, calls to a standard deployment fail with HTTP 429 (Too Many Requests) errors. What is the most likely cause?",
     "opts": [
-      "The content filter blocked the prompts",
+      "The content filter blocked the prompts at peak hours",
       "The API key is wrong",
       "The model has been retired",
-      "The deployment exceeded its tokens-per-minute or requests-per-minute rate limit"
+      "The deployment exceeded its token or request rate limit"
     ],
     "ans": 3,
     "exp": "A 429 response means the deployment's rate limit, based on the tokens-per-minute quota and the matching requests-per-minute limit, was exceeded. You can raise the deployment's quota allocation, spread traffic or retry with backoff. A content filter block returns a different error that mentions content filtering, a wrong key returns 401, and a retired model fails on every request, not only at peak times.",
@@ -305,10 +305,10 @@
     "type": "mcq",
     "q": "A deployment must block hateful and violent content in both prompts and responses at a stricter level than the default. What should you configure?",
     "opts": [
-      "A content filter (guardrail) configuration that also blocks lower-severity content",
-      "A lower temperature",
+      "A stricter content filter configuration",
+      "A lower temperature for all of its requests",
       "A newer model version",
-      "A different deployment type"
+      "A different deployment type, such as Batch"
     ],
     "ans": 0,
     "exp": "Content filters check prompts and completions for harm categories such as hate, sexual, violence and self-harm, and you can set the severity level that is blocked for each category, then apply the configuration to the deployment. Temperature only changes randomness. A newer model version and a different deployment type change the model and its hosting, not the filtering rules. In the new Foundry portal these settings are called guardrails, and the strictest blocking level blocks low, medium and high severity content.",
@@ -407,7 +407,7 @@
     "type": "mcq",
     "q": "Your Foundry resource is named contoso-ai and your project is named support-bot. Which value is the project endpoint that you pass to AIProjectClient?",
     "opts": [
-      "https://contoso-ai.blob.core.windows.net/support-bot",
+      "https://contoso-ai.blob.core.windows.net/api/projects/support-bot",
       "https://portal.azure.com/contoso-ai/support-bot",
       "https://contoso-ai.services.ai.azure.com/api/projects/support-bot",
       "https://login.microsoftonline.com/contoso-ai"
@@ -475,7 +475,7 @@
     "type": "mcq",
     "q": "Your app calls client.chat.completions.create() with a list of messages. Which expression returns the text of the assistant's reply?",
     "opts": [
-      "response.output_text[0]",
+      "response.output_text[0].message.value",
       "response.messages.last",
       "response.text()",
       "response.choices[0].message.content"
@@ -491,10 +491,10 @@
     "type": "mcq",
     "q": "Your chat client built with the Chat Completions API forgets what the user asked earlier in the conversation. What is the reason?",
     "opts": [
-      "The model can remember only one message",
-      "The API is stateless, so the app must send the earlier user and assistant messages with each request",
-      "The temperature is too high",
-      "The project endpoint is wrong"
+      "The model can remember only one message in each of its deployments",
+      "The API is stateless, so the app must resend earlier messages",
+      "The temperature is too high, so the model ignores older messages",
+      "The project endpoint is wrong, so messages go to another project"
     ],
     "ans": 1,
     "exp": "Chat Completions requests are stateless: the model sees only the messages included in the current request. To keep context, the app appends each user message and assistant reply to a list and sends the whole list each time, within the context window. Temperature affects randomness, not memory, and a wrong endpoint would make every call fail.",
@@ -526,10 +526,10 @@
     "type": "mcq",
     "q": "A chat client uses DefaultAzureCredential and a correct project endpoint, but every call fails with a permission denied (403) error. What should you do?",
     "opts": [
-      "Increase the tokens-per-minute quota of the deployment",
-      "Assign the signed-in identity a role such as Foundry User (formerly Azure AI User) on the Foundry project",
+      "Increase the tokens-per-minute quota of the deployment for this app",
+      "Give the identity a role such as Foundry User on the project",
       "Lower the temperature",
-      "Change the deployment type to Global Batch"
+      "Change the deployment type to Global Batch and send the calls again"
     ],
     "ans": 1,
     "exp": "A 403 error means the identity was authenticated but is not authorized. Giving the identity a suitable Azure role, such as Foundry User (formerly Azure AI User), on the Foundry resource or project allows it to call models. Quota problems return 429 errors, temperature affects only the output, and changing the deployment type does not grant permissions.",

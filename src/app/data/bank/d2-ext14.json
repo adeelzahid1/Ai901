@@ -3,10 +3,10 @@
     "id": "D2-425", "sub": "agent-portal", "diff": 1, "type": "mcq",
     "q": "What is the main difference between a Foundry agent and a plain model deployment?",
     "opts": [
-      "An agent is simply a bigger model",
-      "An agent adds instructions and tools on top of a model, so it can find information and take actions",
+      "An agent is simply a bigger model with a larger context window",
+      "An agent adds instructions and tools to a model",
       "An agent does not use a model",
-      "An agent is a billing plan"
+      "An agent is a billing plan for a group of models"
     ],
     "ans": 1,
     "exp": "A model deployment answers prompts, while an agent wraps a model with stored instructions and tools such as file search or API calls, so it can ground answers and act. An agent is not a bigger model, it always relies on a model, and it is not a billing plan.",
@@ -17,9 +17,9 @@
     "ctx": "A travel company's agent answers questions from the company's brochures and must also check live flight prices from a partner's REST API.",
     "q": "Which tool lets the agent get the live flight prices?",
     "opts": [
-      "File search over the brochures",
+      "File search over the brochures and their prices",
       "Code interpreter",
-      "An OpenAPI tool or a function for the partner's flight API",
+      "An OpenAPI tool for the flight API",
       "Image generation"
     ],
     "ans": 2,
@@ -88,10 +88,10 @@
     "id": "D2-431", "sub": "agent-portal", "diff": 3, "type": "mcq",
     "q": "An agent with code interpreter will analyze a spreadsheet that contains customer email addresses. Which practice is best?",
     "opts": [
-      "Upload all company data in case it is useful",
-      "Turn off the content filters",
+      "Upload all of the company data in case it is useful",
+      "Turn off the content filters during the analysis",
       "Share the conversation publicly",
-      "Upload only the data the task needs and make sure that sharing it with the agent is allowed"
+      "Upload only data that is needed and allowed"
     ],
     "ans": 3,
     "exp": "Data minimization and checking that personal data may be used protect privacy while still letting the agent do the analysis. Uploading everything increases exposure, content filters are a safety layer that should stay on, and sharing conversations publicly can leak personal data.",
@@ -110,8 +110,8 @@
     "q": "After a page reload, a web client must show the user's earlier messages with an agent. What should it do?",
     "opts": [
       "Create a new agent",
-      "Keep the conversation ID and list the conversation's items to rebuild the history",
-      "Ask the user to type everything again",
+      "Keep the conversation ID and list its items to show the history",
+      "Ask the user to type everything again after the reload",
       "Read the agent's instructions"
     ],
     "ans": 1,
@@ -189,10 +189,10 @@
     "id": "D2-439", "sub": "text-app", "diff": 1, "type": "mcq",
     "q": "TextAnalyticsClient needs the endpoint of which kind of resource?",
     "opts": [
-      "A storage account",
+      "A storage account with the documents",
       "A virtual network",
-      "A SQL database",
-      "An Azure Language resource, or a Microsoft Foundry resource that includes Language"
+      "A SQL database that stores the results",
+      "A Language or Foundry resource"
     ],
     "ans": 3,
     "exp": "Azure Language features are served by a Language resource or by a multi-service Foundry resource, and the client uses that resource's endpoint. Storage accounts, virtual networks and SQL databases do not host text analysis.",
@@ -203,7 +203,7 @@
     "q": "A support app must detect unhappy messages and draft an empathetic reply for each one. Which design fits?",
     "opts": [
       "Generate replies for every message first, then analyze the sentiment of the replies",
-      "Analyze sentiment with Azure Language, then send the negative messages with clear instructions to a chat model to draft replies",
+      "Find negative messages with Azure Language, then draft replies with a chat model",
       "Run OCR on the messages",
       "Turn every message into an image"
     ],
@@ -253,8 +253,8 @@
     "id": "D2-444", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
     "q": "What is a key benefit of letting users ask questions with spoken prompts?",
     "opts": [
-      "Users can ask questions hands-free, which also improves accessibility",
-      "Answers become free of charge",
+      "Hands-free use and better accessibility",
+      "Answers become free of charge for all users",
       "No model is needed",
       "The app works without any internet connection"
     ],
@@ -268,9 +268,9 @@
     "q": "Which single-model approach fits?",
     "opts": [
       "An embedding model",
-      "An image-generation model",
+      "An image-generation model that draws the answer",
       "A text-only model without any speech service",
-      "An audio-capable chat model that accepts the recording and returns spoken audio"
+      "An audio-capable chat model"
     ],
     "ans": 3,
     "exp": "An audio-capable chat model can take the recorded question and return audio, so one model handles both understanding and the spoken reply. Embedding and image models do not answer questions, and a text-only model would need separate speech services.",
@@ -309,9 +309,9 @@
     "id": "D2-449", "sub": "speech-app", "diff": 3, "type": "mcq",
     "q": "A subtitle app needs the time at which each word was spoken. What should it enable in the Speech SDK?",
     "opts": [
-      "A different neural voice",
-      "SSML prosody settings",
-      "Word-level timestamps, for example by calling request_word_level_timestamps() on the SpeechConfig",
+      "A different neural voice for each of the speakers",
+      "SSML prosody settings with a slower rate",
+      "Word-level timestamps on SpeechConfig",
       "Text analytics"
     ],
     "ans": 2,

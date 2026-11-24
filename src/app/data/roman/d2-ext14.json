@@ -2,10 +2,10 @@
   "D2-425": {
     "q": "Foundry agent aur saadi model deployment mein asal farq kya hai?",
     "opts": [
-      "Agent bas ek zyada bara model hai",
-      "Agent model ke upar instructions aur tools shamil karta hai, is liye woh maloomat dhoond sakta hai aur amal kar sakta hai",
+      "Agent bas bari context window wala ek bara model hai",
+      "Agent model mein instructions aur tools shamil karta hai",
       "Agent model istemal nahi karta",
-      "Agent ek billing plan hai"
+      "Agent models ke ek group ka billing plan hai"
     ],
     "exp": "Model deployment prompts ke jawab deti hai, jab ke agent model ko mehfooz instructions aur file search ya API calls jaise tools ke saath jorta hai, taake jawab grounded hon aur woh amal kar sake. Agent zyada bara model nahi, woh hamesha kisi model par chalta hai, aur billing plan bhi nahi."
   },
@@ -13,9 +13,9 @@
     "ctx": "Ek travel company ka agent company ke brochures se sawalon ke jawab deta hai aur usay partner ke REST API se flights ki live qeematein bhi check karni hain.",
     "q": "Kaunsa tool agent ko flights ki live qeematein lane deta hai?",
     "opts": [
-      "Brochures par file search",
+      "Brochures aur un ki qeematon par file search",
       "Code interpreter",
-      "Partner ke flight API ke liye OpenAPI tool ya function",
+      "Flight API ke liye OpenAPI tool",
       "Image generation"
     ],
     "exp": "Live qeematein partner ke API se aati hain, is liye agent ko aisa action tool chahiye, jaise OpenAPI tool ya function, jo usay call kare. File search sirf upload kiye hue brochures tak hai, code interpreter sandbox mein Python chalata hai, aur image generation tasveerein banati hai."
@@ -66,9 +66,9 @@
     "q": "Code interpreter wala agent aisi spreadsheet ka jaiza lega jis mein customers ke email addresses hain. Kaunsa tareeqa sab se behtar hai?",
     "opts": [
       "Company ka sara data upload karna, shayad kaam aa jaye",
-      "Content filters band karna",
+      "Analysis ke dauran content filters band karna",
       "Conversation public share karna",
-      "Sirf woh data upload karna jo kaam ke liye chahiye, aur yaqeeni banana ke agent ke saath share karne ki ijazat hai"
+      "Sirf woh data upload karna jo zaroori ho aur jis ki ijazat ho"
     ],
     "exp": "Kam se kam data dena aur ye check karna ke zaati data istemal ho sakta hai, privacy bachata hai aur agent phir bhi analysis kar leta hai. Sab kuch upload karne se khatra barhta hai, content filters hifazat ki tah hain jo on rehni chahiye, aur conversations public share karne se zaati data leak ho sakta hai."
   },
@@ -81,8 +81,8 @@
     "q": "Page reload hone ke baad web client ko agent ke saath user ke pehle ke messages dikhane hain. Usay kya karna chahiye?",
     "opts": [
       "Naya agent banana",
-      "Conversation ID rakhna aur history dobara banane ke liye conversation ke items list karna",
-      "User se sab kuch dobara type karwana",
+      "Conversation ID rakhna aur history dikhane ke liye us ke items list karna",
+      "User se reload ke baad sab kuch dobara type karwana",
       "Agent ki instructions parhna"
     ],
     "exp": "Conversations service mein mehfooz rehti hain, is liye client conversation ID, maslan user ke session mein, rakh kar us ke items list kar ke history dobara dikha sakta hai. Naya agent purani chat ke baare mein kuch nahi janta, users se dobara type karwana kharab design hai, aur instructions mein chat history nahi hoti."
@@ -135,10 +135,10 @@
   "D2-439": {
     "q": "TextAnalyticsClient ko kis qism ke resource ka endpoint chahiye?",
     "opts": [
-      "Storage account",
+      "Documents wala storage account",
       "Virtual network",
-      "SQL database",
-      "Azure Language resource, ya aisa Microsoft Foundry resource jis mein Language shamil ho"
+      "Nateeje rakhne wala SQL database",
+      "Language ya Foundry resource"
     ],
     "exp": "Azure Language ke features Language resource ya multi-service Foundry resource se milte hain, aur client usi resource ka endpoint istemal karta hai. Storage accounts, virtual networks aur SQL databases text analysis host nahi karte."
   },
@@ -146,7 +146,7 @@
     "q": "Ek support app ko naraaz messages pehchan kar har ek ke liye hamdardi bhare jawab ka draft banana hai. Kaunsa design munasib hai?",
     "opts": [
       "Pehle har message ke jawab banana, phir un jawabon ke sentiment ka jaiza lena",
-      "Azure Language se sentiment ka jaiza lena, phir negative messages wazeh hidayaat ke saath chat model ko jawab ke drafts ke liye bhejna",
+      "Azure Language se negative messages dhoondna, phir chat model se jawab likhwana",
       "Messages par OCR chalana",
       "Har message ko tasveer mein badalna"
     ],
@@ -179,8 +179,8 @@
   "D2-444": {
     "q": "Users ko bol kar (spoken prompts) sawal poochne dene ka ahem faida kya hai?",
     "opts": [
-      "Users haath istemal kiye baghair sawal pooch sakte hain, jis se accessibility bhi behtar hoti hai",
-      "Jawab muft ho jate hain",
+      "Haath istemal kiye baghair aur behtar accessibility",
+      "Tamam users ke liye jawab muft ho jate hain",
       "Kisi model ki zaroorat nahi rehti",
       "App internet connection ke baghair chalti hai"
     ],
@@ -191,9 +191,9 @@
     "q": "Ek hi model wala kaunsa tareeqa munasib hai?",
     "opts": [
       "Embedding model",
-      "Image-generation model",
+      "Image-generation model jo jawab ki tasveer banaye",
       "Sirf text wala model, kisi speech service ke baghair",
-      "Audio wala chat model jo recording leta aur bola hua audio wapas deta hai"
+      "Audio wala chat model"
     ],
     "exp": "Audio wala chat model record kiya hua sawal le kar audio wapas de sakta hai, is liye ek hi model samajhna aur bol kar jawab dena dono sambhal leta hai. Embedding aur image models sawalon ke jawab nahi dete, aur sirf text wale model ko alag speech services chahiye hongi."
   },
@@ -219,9 +219,9 @@
   "D2-449": {
     "q": "Subtitles wali app ko har lafz bole jane ka waqt chahiye. Usay Speech SDK mein kya on karna chahiye?",
     "opts": [
-      "Koi doosri neural voice",
-      "SSML prosody ki settings",
-      "Word-level timestamps, maslan SpeechConfig par request_word_level_timestamps() call kar ke",
+      "Har bolne wale ke liye alag neural voice",
+      "Aahista raftaar wali SSML prosody settings",
+      "SpeechConfig par word-level timestamps",
       "Text analytics"
     ],
     "exp": "Word-level timestamps maangne se tafseeli nateejon mein har pehchane hue lafz ka offset aur duration shamil ho jata hai, aur subtitles ko yahi chahiye. Awaazein aur SSML banayi hui speech par asar dalti hain, aur text analytics ka audio ke waqt se taalluq nahi."

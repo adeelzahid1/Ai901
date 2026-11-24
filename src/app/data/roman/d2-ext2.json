@@ -2,10 +2,10 @@
   "D2-071": {
     "q": "Ek model lambe paragraphs mein jawab deta rehta hai, lekin aap ko table chahiye. Prompt mein kya shamil karna chahiye?",
     "opts": [
-      "Output format ki wazeh tafseel, maslan 'Product aur Price columns wali table do'",
-      "Zyada temperature",
+      "Table aur us ke columns ki tafseel",
+      "Zyada temperature taake layout badle",
       "Wahi sawal bare huroof mein likha hua",
-      "Kuch nahi; models table nahi bana sakte"
+      "Kuch nahi; models jawab mein tables nahi bana sakte"
     ],
     "exp": "Bilkul sahi output format batana prompt ki sab se asar daar techniques mein se hai: model structure ki wazeh hidayaat, jaise naam wale columns ki table, par chalta hai. Temperature sirf randomness badalta hai, bare huroof maloomat nahi barhate, aur language models maangne par tables, lists, JSON aur doosre formats bana sakte hain."
   },
@@ -18,7 +18,7 @@
     "opts": [
       "Deployment ka quota barhata hai",
       "Model ko flights ki live qeematon tak rasai deta hai",
-      "Woh role, maharat aur lehja tay karta hai jo model apne jawabon mein istemal karta hai",
+      "Ye jawabon ka role, maharat aur lehja tay karti hai",
       "Model ka version badalta hai"
     ],
     "exp": "System message mein model ko persona dena poori guftagu ke liye us ka role, maharat ka darja aur lehja tay karta hai. Is se quota ya model version nahi badalta, aur model live data se nahi jurta; real-time qeematon ke liye tool ya grounding data chahiye."
@@ -26,10 +26,10 @@
   "D2-074": {
     "q": "Aap ki app users ke upload kiye hue documents ka text prompt mein jorti hai. Kuch documents mein 'ignore your previous instructions' jaisa chupa hua text ho sakta hai. Prompt ka kaunsa tareeqa sab se zyada madad karta hai?",
     "opts": [
-      "Document ka text system message mein izafi hidayaat ke taur par paste karein",
+      "Document ka text system message mein izafi hidayaat ke taur par paste kar dena",
       "Temperature barhayein",
       "System message hata dein",
-      "Document ka text wazeh delimiters ke beech rakhein aur model ko batayein ke usay hidayaat nahi balke maloomat samjhe"
+      "Usay delimiters ke beech rakhna aur model ko batana ke ye sirf maloomat hai"
     ],
     "exp": "Ghair bharosemand content ko delimiters se alag karna aur model ko batana ke yeh hidayaat nahi balke data hai, indirect prompt injection ka khatra kam karta hai; Prompt Shields jaisi services hifazat ki ek aur teh jorti hain. Documents ko system message mein rakhne se unhein zyada ikhtiyar milta hai, zyada temperature randomness barhata hai, aur system message hatane se aap ke apne usool khatam hote hain."
   },
@@ -73,10 +73,10 @@
   "D2-079": {
     "q": "Ek lamba prompt bohat se paste kiye hue documents par khatam hota hai. Model kabhi kabhi 'Answer in Spanish' wali hidayat nazar andaz karta hai, jo sirf ek baar shuru ke qareeb aati hai. Sab se behtar hal kya hai?",
     "opts": [
-      "Hidayat system message mein wazeh likhein aur prompt ke aakhir mein dohrayein",
+      "Usay system message mein rakhna aur aakhir mein dohrana",
       "Temperature barhayein",
-      "Tamam documents delete karein",
-      "Poora prompt bare huroof mein likhein"
+      "Tamam documents hata kar sirf sawal bhejna",
+      "Poora prompt capital letters mein likhna taake woh numayan ho"
     ],
     "exp": "Lambe prompts mein models aakhir ke qareeb wale text ko zyada wazan de sakte hain, is liye ahem hidayaat ko content ke baad dohrana aur system message mein rakhna un par chalne ka imkan barhata hai. Zyada temperature randomness barhata hai, documents delete karne se zaroori context khatam hota hai, aur bare huroof hidayat ko wazeh nahi karte."
   },
@@ -111,7 +111,12 @@
   },
   "D2-084": {
     "q": "Model deployments ke default content filters kaunsi harm categories check karte hain?",
-    "opts": ["Spelling, grammar aur lehja", "Kharcha, latency aur quota", "Images, audio aur video", "Hate, sexual, violence aur self-harm"],
+    "opts": [
+      "Spelling, grammar aur lehja",
+      "Kharcha, latency aur quota",
+      "Images, audio, video aur documents",
+      "Hate, sexual, violence aur self-harm"
+    ],
     "exp": "Content filtering system prompts aur completions ko hate, sexual, violence aur self-harm wali harm categories mein, har ek ke severity level ke saath, classify karta hai, aur configure ki hui hadd par ya us se upar ka content block karta hai. Spelling, kharcha aur media ki qismein harm categories nahi; izafi ikhtiyari checks mein prompt shields aur protected material detection shamil hain."
   },
   "D2-085": {
@@ -137,10 +142,10 @@
   "D2-087": {
     "q": "Aap ki deployment ko zyada tokens per minute chahiye, lekin region mein us model ka aap ki subscription ka poora quota ek purani test deployment ko diya hua hai jis ki ab zaroorat nahi. Aap ko kya karna chahiye?",
     "opts": [
-      "Purani deployment ki allocation kam ya delete karein aur azaad quota us deployment ko dein jise zaroorat hai",
-      "Har request ke liye nayi subscription banayein",
-      "Temperature barhayein",
-      "Model ki context window chhoti karein"
+      "Purani deployment ka quota nayi deployment ko dena",
+      "Har rad hone wali request ke liye nayi subscription banana",
+      "Purani deployment delete karne se pehle us ka temperature barhana",
+      "Nayi deployment mein model ki context window chhoti karna"
     ],
     "exp": "Quota subscription, region aur model ke hisaab se milta hai, aur har deployment ko us ka hissa diya jata hai. Ghair istemal shuda deployment ko kam ya khatam karne se tokens per minute azaad hote hain jo doosri deployment ko diye ja sakte hain, ya aap quota barhane ki darkhwast kar sakte hain. Temperature aur context window quota nahi badalte, aur har request ke liye subscription banana maqool tareeqa nahi."
   },
@@ -182,7 +187,7 @@
       "Maximum output tokens barhayein",
       "Har turn ke liye nayi deployment banayein",
       "Temperature ko 0 karein",
-      "Pichle response ki id ke saath previous_response_id dein"
+      "previous_response_id dena"
     ],
     "exp": "Responses API guftagu ki state service par rakh sakti hai: previous_response_id dene se nayi request pichle response se jur jati hai, is liye model context dekhta hai. Max tokens aur temperature output ki lambai aur randomness control karte hain, aur har turn par nayi deployment context kho deti aur wasail zaya karti."
   },
@@ -203,9 +208,9 @@
   "D2-097": {
     "q": "Aap ke chat client ko masroof auqaat mein kabhi kabhi HTTP 429 responses milte hain. Client ko unhein kaise sambhalna chahiye?",
     "opts": [
-      "Kamyab hone tak foran tez loop mein dobara koshish kare",
+      "Kamyab hone tak baghair ruke foran dobara koshish karte rehna",
       "Khali jawab dikhaye aur error nazar andaz kare",
-      "Intezar kare aur exponential backoff ke saath dobara koshish kare, retry-after value ka khayal rakhte hue",
+      "Intezar kar ke exponential backoff ke saath dobara koshish karna",
       "Request kisi random URL ko bheje"
     ],
     "exp": "429 ka matlab hai ke rate limit aa gayi, is liye sahi tareeqa yeh hai ke barhte hue waqfon ke saath intezar kar ke dobara koshish ki jaye, aur retry-after header mile to us par chala jaye; Azure aur OpenAI SDKs mein is ka retry logic hota hai. Tez loop mein dobara koshish throttling barhati hai, error nazar andaz karne se users ko khali jawab milte hain, aur random URLs fail hi honge."

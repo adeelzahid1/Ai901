@@ -13,9 +13,9 @@
     "q": "Which approach fits?",
     "opts": [
       "Speech synthesis",
-      "Key phrase extraction on the screenshot's file name",
-      "Image generation",
-      "Send the screenshot to a vision-capable model with instructions to read the error code and suggest a fix"
+      "Key phrase extraction on the name of the screenshot's file",
+      "Image generation of a dialog that shows the correct message",
+      "A vision-capable model with clear instructions"
     ],
     "ans": 3,
     "exp": "A vision-capable model can read the text in the screenshot and, guided by instructions, explain the error and suggest steps. File names do not contain the error, speech synthesis creates audio, and image generation creates pictures instead of reading them.",
@@ -49,8 +49,8 @@
     "id": "D2-544", "sub": "image-generation", "diff": 1, "type": "mcq",
     "q": "Which statement about prompts for image generation is true?",
     "opts": [
-      "Vague prompts give the most predictable results",
-      "Describing the subject, style and composition usually improves the result",
+      "Vague prompts give the most predictable results in practice",
+      "Describing the subject, style and composition improves the result",
       "Prompts must be shorter than three words",
       "Prompts cannot mention colors"
     ],
@@ -62,10 +62,10 @@
     "id": "D2-545", "sub": "image-generation", "diff": 2, "type": "mcq",
     "q": "A real estate website wants to show empty rooms with furniture added. Which approach fits, and what should the site do?",
     "opts": [
-      "Use OCR on the room photos",
-      "Use image classification",
+      "Use OCR on the room photos and publish the text that it finds",
+      "Use image classification and label each room as furnished",
       "Use speech to text",
-      "Use image editing to add furniture to the photos, and note that the images are virtually staged"
+      "Use image editing and say that rooms are virtually staged"
     ],
     "ans": 3,
     "exp": "Image editing can add content to an existing photo, and labeling the result as virtually staged keeps buyers informed, which supports transparency. OCR reads text, classification labels images, and speech to text works on audio, so none of them add furniture.",
@@ -102,10 +102,10 @@
     "id": "D2-548", "sub": "vision-app", "diff": 1, "type": "mcq",
     "q": "In Image Analysis, what is a visual feature?",
     "opts": [
-      "A screen resolution",
+      "A screen resolution for the results",
       "A color theme",
-      "A model deployment",
-      "A type of analysis that you request, such as TAGS or READ"
+      "A model deployment for image analysis",
+      "A type of analysis that you request"
     ],
     "ans": 3,
     "exp": "Visual features are the kinds of analysis you ask for, such as CAPTION, TAGS, OBJECTS, PEOPLE, READ or SMART_CROPS, and the result contains a section for each one. They are not display settings or deployments.",
@@ -115,10 +115,10 @@
     "id": "D2-549", "sub": "vision-app", "diff": 3, "type": "mcq",
     "q": "A recycling app must sort photos of items into exactly one of four categories: Plastic, Glass, Metal or Paper. Which approach gives a consistent answer from that list?",
     "opts": [
-      "Use OCR on the photos",
-      "Send the photo to a multimodal model with structured output that allows only the four categories",
+      "Use OCR on the photos and look for the name of the material",
+      "Use a multimodal model with structured output",
       "Use speech to text",
-      "Use smart crops"
+      "Use smart crops to cut out the item in the photo"
     ],
     "ans": 1,
     "exp": "A multimodal model can judge the material, and a structured output schema that lists only the four allowed values keeps every answer in the expected set. OCR reads text, speech to text works on audio, and smart crops only suggests thumbnails.",
@@ -153,7 +153,7 @@
   {
     "id": "D2-552", "sub": "cu-documents", "diff": 1, "type": "mcq",
     "q": "Which value in a Content Understanding result shows how sure the service is about a field's value?",
-    "opts": ["The page count", "The confidence score", "The file name", "The API version"],
+    "opts": ["The page count", "The confidence score", "The name of the source file", "The API version"],
     "ans": 1,
     "exp": "Each field can include a confidence score from 0 to 1, which apps use to decide whether a person should review the value. Page counts, file names and API versions say nothing about how reliable a value is.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -162,10 +162,10 @@
     "id": "D2-553", "sub": "cu-documents", "diff": 2, "type": "mcq",
     "q": "An expense app receives receipts written in several languages. How should you handle them with Content Understanding?",
     "opts": [
-      "Create a separate Azure tenant for each language",
+      "Create a separate Azure tenant for each of the languages",
       "Have staff translate every receipt by hand first",
       "Use speech synthesis",
-      "Use one analyzer schema with clear field descriptions, because the service can read many languages"
+      "Use one analyzer schema for all languages"
     ],
     "ans": 3,
     "exp": "Content extraction reads text in many languages, and generative field extraction fills the same fields regardless of the receipt's language, guided by clear descriptions. Separate tenants and manual translation add cost without benefit, and speech synthesis does not read receipts.",
@@ -207,7 +207,7 @@
     "opts": [
       "Extract for both fields",
       "Translate for both fields",
-      "No fields; staff should write the notes by hand",
+      "No fields; staff should write the notes by hand for each car",
       "Classify for damage_present and generate for damage_notes"
     ],
     "ans": 3,
@@ -243,7 +243,7 @@
   {
     "id": "D2-560", "sub": "cu-audio-video", "diff": 1, "type": "mcq",
     "q": "Which input does a Content Understanding audio analyzer process?",
-    "opts": ["JPEG photos", "Audio files, such as WAV or MP3 recordings", "Spreadsheets", "Font files"],
+    "opts": ["JPEG photos of the people who speak", "Audio files, such as MP3 recordings", "Spreadsheets", "Font files"],
     "ans": 1,
     "exp": "Audio analyzers take recordings, transcribe them and produce fields from the transcript. Photos go to image analyzers, and spreadsheets and fonts are not audio input.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -253,10 +253,10 @@
     "ctx": "HR records exit interviews. For each recording it wants the main reason for leaving, as one of Pay, Manager, Growth or Other, and a short summary.",
     "q": "Which analyzer design fits?",
     "opts": [
-      "An image analyzer",
-      "OCR on the file names",
+      "An image analyzer with a field for the mood",
+      "OCR on the names of the recorded interview files",
       "Text to speech",
-      "An audio analyzer with a classify field for the reason and a generate field for the summary"
+      "An audio analyzer with two fields"
     ],
     "ans": 3,
     "exp": "The interviews are audio, so an audio analyzer transcribes them; a classify field keeps the reason within the four categories, and a generate field writes the summary. Image analyzers, OCR and text to speech do not analyze spoken interviews.",
@@ -292,9 +292,9 @@
     "id": "D2-564", "sub": "cu-app", "diff": 1, "type": "mcq",
     "q": "Why might a team use Content Understanding instead of writing its own OCR and parsing code?",
     "opts": [
-      "It is the only way to read text from files",
-      "It handles reading, structure and field extraction for many formats, with confidence scores and grounding",
-      "It removes the need to write any code at all",
+      "It is the only way to read text from files in an application",
+      "It handles reading and field extraction for many formats",
+      "It removes the need to write any code at all for the application",
       "It makes documents shorter"
     ],
     "ans": 1,
@@ -305,10 +305,10 @@
     "id": "D2-565", "sub": "cu-app", "diff": 2, "type": "mcq",
     "q": "An app needs to analyze an invoice that is stored in Azure Blob Storage. What should it send to Content Understanding?",
     "opts": [
-      "An email with the invoice attached",
+      "An email with the invoice attached to it",
       "A printed copy of the invoice",
       "An audio version of the invoice",
-      "The file's URL, for example with a SAS token, or the file bytes, to the analyze operation"
+      "The file's URL or its bytes"
     ],
     "ans": 3,
     "exp": "The analyze operation accepts the content either as a URL that the service can read or as the file data in the request. Email, printed copies and audio versions are not ways to submit a file to the API.",

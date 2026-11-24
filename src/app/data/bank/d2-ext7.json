@@ -3,13 +3,13 @@
     "id": "D2-226", "sub": "prompts", "diff": 1, "type": "mcq",
     "q": "Which prompt is most likely to give a useful summary of an email for a manager?",
     "opts": [
-      "Summarize the email below in three bullet points for a busy manager, focusing on the decisions needed.",
-      "Summarize.",
-      "Do something with this.",
+      "Summarize the email below in three points for a manager.",
+      "Summarize this for me as well as you can, please, and be quick.",
+      "Do something useful with this email that a person might like.",
       "Email."
     ],
     "ans": 0,
-    "exp": "A good prompt states the task, the format, the audience and the focus, as the prompt that names three bullet points, a busy manager and decisions needed does. The other prompts are vague, so the model has to guess what length, format and emphasis you want.",
+    "exp": "A good prompt states the task, the format and the audience, as the prompt that asks for three points for a manager does. The other prompts are vague, whether they are long or short, so the model has to guess what length, format and emphasis you want.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -17,9 +17,9 @@
     "ctx": "A company's chat assistant has the system message 'You are a helpful assistant.' It answers any question, including questions about competitors' products. The company wants it to discuss only its own products.",
     "q": "What should you change?",
     "opts": [
-      "Increase the maximum output tokens",
-      "Lower the deployment's quota",
-      "Add a rule to the system message to answer only questions about the company's products and to decline other topics politely",
+      "Increase the maximum output tokens so that answers have more detail",
+      "Lower the deployment's quota so that fewer questions are answered",
+      "Add a rule to answer only questions about its own products",
       "Remove the system message"
     ],
     "ans": 2,
@@ -62,10 +62,10 @@
     "id": "D2-230", "sub": "prompts", "diff": 3, "type": "mcq",
     "q": "Your prompt asks for JSON, but the model sometimes adds an explanation before the JSON, which breaks your parser. What is the most reliable fix?",
     "opts": [
-      "Increase the temperature",
-      "Use structured outputs or JSON mode so that the response is valid JSON",
+      "Increase the temperature for this request",
+      "Use structured outputs for the response",
       "Add examples of free-text answers",
-      "Set the maximum output tokens to 5"
+      "Set the maximum output tokens to 5 for each request"
     ],
     "ans": 1,
     "exp": "Structured outputs, or JSON mode, constrain the response format so the model returns valid JSON, which is more reliable than instructions alone. A higher temperature adds randomness, free-text examples encourage the wrong format, and a five-token limit would cut the JSON off.",
@@ -114,7 +114,12 @@
   {
     "id": "D2-234", "sub": "prompts", "diff": 1, "type": "mcq",
     "q": "In a chat application, what is the user prompt?",
-    "opts": ["The model's weights", "The deployment's quota", "The billing account", "The message that the end user sends"],
+    "opts": [
+      "The weights that the model learned",
+      "The quota that the deployment uses",
+      "The billing account",
+      "The message that the end user sends"
+    ],
     "ans": 3,
     "exp": "The user prompt, or user message, is what the person using the app types or says, such as a question. The model's weights, the deployment's quota and the billing account are not part of the conversation.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
@@ -122,7 +127,12 @@
   {
     "id": "D2-235", "sub": "portal-deploy", "diff": 1, "type": "mcq",
     "q": "What must exist in Azure before you can deploy models in Microsoft Foundry?",
-    "opts": ["A SQL Server", "A Microsoft Foundry resource with a project", "A VPN gateway", "A CDN profile"],
+    "opts": [
+      "A SQL Server with a database for prompts",
+      "A Foundry resource with a project",
+      "A VPN gateway in the same Azure region",
+      "A CDN profile for the model endpoint"
+    ],
     "ans": 1,
     "exp": "Model deployments live in a Microsoft Foundry resource, and you work with them through a project in that resource. A SQL Server, VPN gateway or CDN profile might be used by other parts of a solution but is not needed to deploy a model.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/create-projects"
@@ -131,9 +141,9 @@
     "id": "D2-236", "sub": "portal-deploy", "diff": 2, "type": "mcq",
     "q": "The model you want is not offered as a Standard deployment in your project's region. What should you do?",
     "opts": [
-      "Increase the temperature",
-      "Rename the deployment",
-      "Use a deployment type or region where the model is available, such as a global deployment",
+      "Increase the temperature of the closest model you have",
+      "Rename the deployment to the name of the model you want",
+      "Use a region or deployment type that offers it",
       "Shorten the context window"
     ],
     "ans": 2,
@@ -203,7 +213,12 @@
   {
     "id": "D2-242", "sub": "portal-deploy", "diff": 1, "type": "mcq",
     "q": "Where can you see how many tokens a deployment processed over the last week?",
-    "opts": ["The model card", "The system message", "The SDK release notes", "The deployment's usage metrics in Azure Monitor or the Foundry portal"],
+    "opts": [
+      "The model card",
+      "The system message",
+      "The release notes of the Foundry SDK",
+      "Its usage metrics in Azure Monitor or Foundry"
+    ],
     "ans": 3,
     "exp": "Usage metrics, such as processed prompt and generated tokens, are collected for deployments and shown in Azure Monitor and in Foundry's monitoring views. The model card describes the model, the system message is part of requests, and release notes describe SDK changes.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/monitor-models"
@@ -212,8 +227,8 @@
     "id": "D2-243", "sub": "portal-deploy", "diff": 1, "type": "mcq",
     "q": "What does the deployment type of a model deployment describe?",
     "opts": [
-      "How the model is hosted, where requests are processed and how usage is billed, such as Global Standard or Provisioned",
-      "The programming language of your app",
+      "Where requests are processed and how usage is billed",
+      "Which programming language the app must be written in",
       "How the model was trained",
       "The color theme of the portal"
     ],
@@ -251,7 +266,7 @@
     "q": "A chat client works on your laptop after az login, but when deployed to Azure App Service, DefaultAzureCredential cannot find a credential. What should you do?",
     "opts": [
       "Install the Azure CLI on the server and sign in with your own account",
-      "Enable a managed identity for the App Service and give it a role on the Foundry project",
+      "Enable a managed identity for the app and give it a role on the project",
       "Hard-code your password in the app",
       "Increase the deployment's quota"
     ],
@@ -303,7 +318,7 @@
   {
     "id": "D2-250", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
     "q": "Which API does the current Foundry SDK quickstart use to send a prompt to a deployed model?",
-    "opts": ["The Speech SDK", "The Language API", "The Responses API, through openai.responses.create()", "The legacy Completions API only"],
+    "opts": ["The Speech SDK", "The Language API", "The Responses API", "The legacy Completions API"],
     "ans": 2,
     "exp": "The quickstart gets an OpenAI-compatible client from the project and calls responses.create() with the model and input, then reads output_text. The Speech SDK and Language API are separate services, and the legacy Completions API is not what the quickstart uses.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
@@ -340,8 +355,8 @@
     "opts": [
       "Use a higher temperature",
       "Create a new deployment for each user",
-      "Use one shared list but shorten it",
-      "Keep a separate message history for each user session"
+      "Use one shared list but shorten it every hour",
+      "Keep a separate message history for each session"
     ],
     "ans": 3,
     "exp": "Conversation history must be kept per session, for example keyed by user or session ID, so each request includes only that user's messages. A shared list mixes conversations and leaks information between users. Temperature does not separate users, and a deployment per user is unnecessary.",
@@ -351,10 +366,10 @@
     "id": "D2-254", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
     "q": "Why do developers often use the Foundry SDK instead of writing raw REST calls?",
     "opts": [
-      "The SDK handles authentication, request formatting and retries for you",
-      "The SDK is the only way to call a model",
-      "The SDK makes model usage free",
-      "The SDK removes content filtering"
+      "It handles authentication and retries for you",
+      "It is the only way to call a model from an app",
+      "It makes model usage free for small projects",
+      "It removes content filtering from the requests"
     ],
     "ans": 0,
     "exp": "SDKs wrap the REST APIs with typed methods, built-in authentication through credentials and retry handling, so code is shorter and less error-prone. REST calls remain possible, usage is still billed, and content filtering still applies no matter how you call the model.",

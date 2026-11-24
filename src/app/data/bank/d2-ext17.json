@@ -3,10 +3,10 @@
     "id": "D2-510", "sub": "agent-portal", "diff": 1, "type": "mcq",
     "q": "Can you change the model that an agent uses after you create the agent?",
     "opts": [
-      "No; an agent's model is locked forever",
+      "No; an agent's model is locked forever once it is created",
       "Only by deleting the whole project",
       "Only during weekends",
-      "Yes; you can update the agent to use another deployed model"
+      "Yes; you can update the agent to use a different deployed model"
     ],
     "ans": 3,
     "exp": "An agent's definition, including its model, instructions and tools, can be updated, which creates a new version that you can test. You do not need to delete the project, and there are no time restrictions on editing an agent.",
@@ -77,10 +77,10 @@
     "id": "D2-516", "sub": "agent-portal", "diff": 2, "type": "mcq",
     "q": "The policy files that an agent searches were updated yesterday, but the agent still answers from the old versions. What should you do?",
     "opts": [
-      "Raise the temperature",
-      "Rename the agent",
+      "Raise the temperature for the policy questions",
+      "Rename the agent so that it reads the files again",
       "Nothing; agents read files directly from your laptop",
-      "Upload the updated files to the agent's file search vector store"
+      "Upload the new files to its vector store"
     ],
     "ans": 3,
     "exp": "File search answers from the content in its vector store, so the updated files must be uploaded and indexed there. Temperature and the agent's name do not refresh content, and agents do not read files from your computer.",
@@ -103,7 +103,12 @@
   {
     "id": "D2-518", "sub": "agent-client", "diff": 1, "type": "mcq",
     "q": "Where does a Foundry agent run when a client app sends it a message?",
-    "opts": ["In Microsoft Foundry, in the cloud", "Only on the user's phone", "In the browser cache", "On the client's printer"],
+    "opts": [
+      "In Microsoft Foundry, in the cloud",
+      "Only on the phone or laptop of the user",
+      "In the browser cache",
+      "On the client's printer"
+    ],
     "ans": 0,
     "exp": "Agents are hosted by the Foundry Agent Service in Azure; the client only sends requests and receives responses. They do not run on phones, in browser caches or on printers.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
@@ -112,8 +117,8 @@
     "id": "D2-519", "sub": "agent-client", "diff": 2, "type": "mcq",
     "q": "A setup script must create an agent if it does not exist, or create a new version if it already exists. Which call does this?",
     "opts": [
-      "Delete the project first and start over",
-      "project.agents.create_version(), which creates the agent or a new version of it",
+      "Delete the project first and start over with a new one",
+      "project.agents.create_version()",
       "openai.images.generate()",
       "openai.conversations.create() with the instructions"
     ],
@@ -184,9 +189,9 @@
     "ctx": "A visitor kiosk in a lobby lets anyone ask an agent questions. Visitors do not sign in.",
     "q": "How should the kiosk app call the agent securely?",
     "opts": [
-      "Store an administrator key on the kiosk",
-      "Have the kiosk call your backend service, which uses a managed identity to call the agent",
-      "Turn off authentication on the Foundry project",
+      "Store an administrator key on the kiosk in an encrypted file",
+      "Let it call a backend that uses a managed identity",
+      "Turn off authentication on the Foundry project for the kiosk",
       "Let the kiosk use a developer's az login session"
     ],
     "ans": 1,
@@ -259,7 +264,12 @@
   {
     "id": "D2-530", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
     "q": "When a user asks a question by voice to an audio-capable model, what does the model receive?",
-    "opts": ["A photo of the user", "Audio data of the user's voice", "The user's password", "A spreadsheet"],
+    "opts": [
+      "A photo of the user who is speaking",
+      "Audio data of the user's voice",
+      "The user's password",
+      "A spreadsheet"
+    ],
     "ans": 1,
     "exp": "The app sends the recorded audio, usually base64-encoded with its format, and the model processes it directly. Photos, passwords and spreadsheets are not part of a spoken prompt, and passwords must never be sent to a model.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
@@ -268,8 +278,8 @@
     "id": "D2-531", "sub": "spoken-prompts", "diff": 2, "type": "mcq",
     "q": "An app sends a WAV recording to an audio-capable chat model inside an image_url content part, and the request fails. What should it do?",
     "opts": [
-      "Send the audio in an input_audio content part with base64 data and the wav format",
-      "Rename the file to .jpg",
+      "Send it in an input_audio part",
+      "Rename the file so that it ends in .jpg",
       "Increase the maximum output tokens",
       "Lower the temperature"
     ],
@@ -322,7 +332,7 @@
   {
     "id": "D2-535", "sub": "speech-app", "diff": 1, "type": "mcq",
     "q": "What does SpeechSynthesizer do in the Speech SDK?",
-    "opts": ["Turns text into spoken audio", "Turns speech into text", "Translates documents", "Detects faces"],
+    "opts": ["Turns text into spoken audio", "Turns speech into written text", "Translates documents", "Detects faces"],
     "ans": 0,
     "exp": "SpeechSynthesizer performs text to speech, producing audio from text or SSML. SpeechRecognizer turns speech into text, document translation is a different service, and face detection is a vision feature.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech"

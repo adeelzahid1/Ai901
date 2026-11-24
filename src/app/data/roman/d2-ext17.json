@@ -2,7 +2,7 @@
   "D2-510": {
     "q": "Agent banane ke baad kya aap us ka model badal sakte hain?",
     "opts": [
-      "Nahi; agent ka model hamesha ke liye tay ho jata hai",
+      "Nahi; agent ban jaye to us ka model hamesha ke liye tay ho jata hai",
       "Sirf poora project delete kar ke",
       "Sirf weekend par",
       "Haan; agent ko kisi doosre deploy kiye hue model par update kar sakte hain"
@@ -53,10 +53,10 @@
   "D2-516": {
     "q": "Agent jin policy files mein talash karta hai woh kal update hui thin, lekin agent ab bhi purane versions se jawab deta hai. Kya karna chahiye?",
     "opts": [
-      "Temperature barhana",
-      "Agent ka naam badalna",
+      "Policy ke sawalon ke liye temperature barhana",
+      "Agent ka naam badalna taake woh files dobara parhe",
       "Kuch nahi; agents files seedhe aap ke laptop se parhte hain",
-      "Update ki hui files agent ke file search vector store mein upload karna"
+      "Nayi files us ke vector store mein upload karna"
     ],
     "exp": "File search apne vector store ke content se jawab deta hai, is liye update ki hui files wahan upload aur index honi chahiye. Temperature aur agent ka naam content taza nahi karte, aur agents aap ke computer se files nahi parhte."
   },
@@ -75,7 +75,7 @@
     "q": "Jab client app Foundry agent ko message bhejti hai to agent kahan chalta hai?",
     "opts": [
       "Microsoft Foundry mein, cloud mein",
-      "Sirf user ke phone par",
+      "Sirf user ke phone ya laptop par",
       "Browser cache mein",
       "Client ke printer par"
     ],
@@ -84,8 +84,8 @@
   "D2-519": {
     "q": "Ek setup script ko agent banana hai agar woh maujood na ho, ya naya version banana hai agar pehle se maujood ho. Kaunsi call ye karti hai?",
     "opts": [
-      "Pehle project delete kar ke naye sire se shuru karna",
-      "project.agents.create_version(), jo agent ya us ka naya version banata hai",
+      "Pehle project delete kar ke naye se shuru karna",
+      null,
       null,
       "instructions ke saath openai.conversations.create()"
     ],
@@ -136,9 +136,9 @@
     "ctx": "Lobby mein rakha visitor kiosk kisi ko bhi agent se sawal poochne deta hai. Visitors sign in nahi karte.",
     "q": "Kiosk app ko agent mehfooz tareeqay se kaise call karna chahiye?",
     "opts": [
-      "Kiosk par administrator key rakhna",
-      "Kiosk aap ki backend service ko call kare, jo managed identity se agent ko call kare",
-      "Foundry project par authentication band karna",
+      "Kiosk par administrator key encrypted file mein rakhna",
+      "Usay managed identity wali backend call karne dena",
+      "Kiosk ke liye Foundry project par authentication band karna",
       "Kiosk ko kisi developer ka az login session istemal karne dena"
     ],
     "exp": "Managed identity wali backend service credentials ko public device se door rakhti hai aur agent ko call karne se pehle rate limits aur checks laga sakti hai. Kiosk par rakhi keys chori ho sakti hain, authentication band karne se project khul jata hai, aur developer ka zaati sign-in kabhi mushtarka device par nahi chalna chahiye."
@@ -187,14 +187,14 @@
   },
   "D2-530": {
     "q": "Jab user audio wale model se bol kar sawal poochta hai to model ko kya milta hai?",
-    "opts": ["User ki tasveer", "User ki awaaz ka audio data", "User ka password", "Spreadsheet"],
+    "opts": ["Bolne wale user ki tasveer", "User ki awaaz ka audio data", "User ka password", "Spreadsheet"],
     "exp": "App record ki hui audio bhejti hai, aam taur par apne format ke saath base64-encoded, aur model usay seedha process karta hai. Tasveerein, passwords aur spreadsheets spoken prompt ka hissa nahi, aur passwords kabhi model ko nahi bhejne chahiye."
   },
   "D2-531": {
     "q": "Ek app audio wale chat model ko image_url content part ke andar WAV recording bhejti hai, aur request nakaam ho jati hai. Usay kya karna chahiye?",
     "opts": [
-      "Audio ko input_audio content part mein base64 data aur wav format ke saath bhejna",
-      "File ka naam badal kar .jpg karna",
+      "Usay input_audio part mein bhejna",
+      "File ka naam badalna taake .jpg par khatam ho",
       "Maximum output tokens barhana",
       "Temperature kam karna"
     ],
@@ -233,7 +233,7 @@
     "q": "Speech SDK mein SpeechSynthesizer kya karta hai?",
     "opts": [
       "Text ko boli hui audio mein badalta hai",
-      "Speech ko text mein badalta hai",
+      "Speech ko likhe hue text mein badalta hai",
       "Documents translate karta hai",
       "Chehre pehchanta hai"
     ],

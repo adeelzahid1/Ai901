@@ -3,7 +3,7 @@
     "q": "Dukan ki raseed ki tasveer di jaye to vision-capable chat model kaunsi request poori kar sakta hai?",
     "opts": [
       "Total kitna hai, aur ye raseed kis dukan ki hai?",
-      "Raseed ko nayi banayi hui awaaz mein bol kar sunao",
+      "Raseed ko user ke liye nayi banayi hui awaaz mein bol kar sunao",
       "Raseed ki nayi image banao",
       "Raseed ke kaghaz ka rang badlo"
     ],
@@ -39,9 +39,9 @@
     "q": "Aap ki app images bana sake, is se pehle Microsoft Foundry mein kya chahiye?",
     "opts": [
       "Embedding model ki deployment",
-      "Sirf Speech resource",
+      "Sirf neural voice wala Speech resource",
       "Sirf Language resource",
-      "Image-generation model, jaise gpt-image-1, ki deployment"
+      "Image model ki deployment"
     ],
     "exp": "Images image-generation model banata hai, is liye aap ko us ki deployment, jaise gpt-image-1, chahiye jisay aap ki app ya images playground call kare. Embedding models, Speech aur Language images nahi banate."
   },
@@ -49,10 +49,10 @@
     "ctx": "Bachon ki kahaniyon ki ek app mukhtasar kahani ki descriptions se illustrations banati hai. Images kabhi daraoni ya tashaddud wali nahi honi chahiye.",
     "q": "Kaunsa tareeqa sab se munasib hai?",
     "opts": [
-      "Content filters sakht settings ke saath on rakhna, har prompt mein style ke usool shamil karna aur shaya karne se pehle images review karna",
-      "Zyada creativity ke liye content filters band karna",
-      "Hamesha sab se oonchi quality setting istemal karna",
-      "Bachon ko kisi check ke baghair koi bhi prompt bhejne dena"
+      "Sakht content filters, style ke usool aur review",
+      "Content filters ke baghair, taake images zyada creative hon",
+      "Har image ke liye hamesha sab se oonchi quality setting",
+      "Bachay ka koi bhi prompt, istemal se pehle baghair kisi check ke"
     ],
     "exp": "Kai tahon wali hifazat sab se behtar kaam karti hai: sakht content filters nuqsan deh images rokte hain, prompts mein style ke usool look tay karte hain, aur insani review baqi bach jane wali cheezein pakarta hai. Filters band karna ya checks chhorna khatra barhata hai, aur quality settings content ki hifazat par asar nahi dalti."
   },
@@ -85,10 +85,10 @@
   "D2-462": {
     "q": "Ek app ko private Azure Blob Storage container mein rakhi images ka jaiza lena hai. Kaunsa tareeqa mehfooz hai aur kaam karta hai?",
     "opts": [
-      "Container ko hamesha ke liye public karna",
+      "Analysis ke waqt container ko public karna",
       "Storage account ki key image URL mein rakhna",
       "Speech to text istemal karna",
-      "App mein image ke bytes parh kar analyze() ko image_data ke saath call karna"
+      "App mein image ke bytes parh kar un par analyze() call karna"
     ],
     "exp": "App apni identity se blob download kar ke bytes analyze() ko de sakti hai, is liye container private rehta hai; kam muddat wala SAS URL ek aur option hai. Container public karna ya account key URL mein rakhna data ko zahir karta hai, aur speech to text images ka jaiza nahi leta."
   },
@@ -125,10 +125,10 @@
   "D2-466": {
     "q": "Content Understanding ka document analyzer kaunse inputs process kar sakta hai?",
     "opts": [
-      "PDF files aur documents ki scan ki hui images",
+      "PDF files aur scan ki hui images",
       "Sirf saada text",
       "Sirf spreadsheets",
-      "Sirf audio recordings"
+      "Sirf documents ki audio recordings"
     ],
     "exp": "Document analyzers PDFs aur scan ya tasveer liye hue pages jaisi files sambhalte hain, aur unhein OCR aur layout analysis se parhte hain. Woh saade text ya spreadsheets tak mehdood nahi, aur audio recordings audio analyzers ko jati hain."
   },
@@ -136,9 +136,9 @@
     "ctx": "Ek bank ko qarz ki darkhwastein milti hain jin mein har ek mein taqreeban 30 fields hain. Staff ghanton values loan system mein type karta hai.",
     "q": "Content Understanding quality ko barqarar rakhte hue ye kaam kaise kam kar sakta hai?",
     "opts": [
-      "Woh application forms delete kar deta hai",
-      "Woh naye application forms likhta hai",
-      "Custom analyzer fields khud nikalta hai, aur staff sirf kam confidence wali values review karta hai",
+      "Values type hone ke baad application forms delete kar deta hai",
+      "Naye application forms likhta hai jin mein type karne ki fields kam hon",
+      "Analyzer fields nikalta hai, aur staff kam confidence wali dekhta hai",
       "Woh forms staff ko bol kar sunata hai"
     ],
     "exp": "30 fields wala custom analyzer unhein khud nikalta hai, aur confidence scores ki madad se staff sirf ghair yaqeeni values par tawajjo deta hai, aksar grounding ke saath taake source dekh sake. Forms delete karna ya likhna data nahi leta, aur forms bol kar sunane se typing kam nahi hoti."
@@ -160,22 +160,22 @@
   "D2-470": {
     "q": "Content Understanding ka image analyzer kis qism ka output deta hai?",
     "opts": [
-      "Nayi tasveer",
-      "Gaana",
+      "Usi style ki nayi tasveer",
+      "Gaana jo image ke mood se milta ho",
       "Model deployment",
-      "Aap ki bayan ki hui naam wali fields, jaise description ya category"
+      "Aap ki bayan ki hui naam wali fields"
     ],
     "exp": "Image analyzers schema mein bayan ki hui fields, jaise generated description ya classified category, structured output ki soorat mein dete hain. Woh tasveerein ya music nahi banate, aur deployments bhi nahi banate."
   },
   "D2-471": {
     "q": "Product inspection ki tasveeron wale analyzer mein defect_type field ke liye kaunsi description sab se behtar hai?",
     "opts": [
-      null,
-      "Product ki satah par nazar aane wali asal kharabi: Scratch, Dent, Crack, ya None agar koi kharabi nazar na aaye",
-      null,
-      null
+      "Tasveer ki kharabi, apne alfaaz mein jitni tafseel se ho sake",
+      "Nazar aane wali asal kharabi: Scratch, Dent, Crack, ya None agar koi na ho",
+      "Tasveer mein koi bhi cheez jis ki customer baad mein shikayat kare",
+      "Type"
     ],
-    "exp": "Achhi description batati hai ke kya dekhna hai, ijazat wali values ginati hai aur koi kharabi na hone wali soorat samjhati hai, jis se models yaksan nateeje dete hain. Ek lafz ya be-mani descriptions matlab wazeh nahi kartin aur na-qabil-e-bharosa values deti hain."
+    "exp": "Achhi description batati hai ke kya dekhna hai, ijazat wali values ginati hai aur koi kharabi na hone wali soorat samjhati hai, jis se models yaksan nateeje dete hain. Mubham descriptions, chahe lambi hon ya ek lafz ki, matlab wazeh nahi kartin aur na-qabil-e-bharosa values deti hain."
   },
   "D2-472": {
     "q": "Image ke kaunse TEEN scenarios Content Understanding ke liye munasib hain? Har sahi jawab mukammal hal hai.",
@@ -200,20 +200,20 @@
   "D2-474": {
     "q": "Ek podcast company har episode ke khulasay aur asal mauzuaat wale show notes chahti hai. Kaunsa tareeqa munasib hai?",
     "opts": [
-      "Image analyzer",
+      "Episode ke covers ke liye image analyzer",
       "Speech synthesis",
-      "Audio analyzer jo har episode ka khulasa aur mauzuaat banaye",
-      "Akela text-embedding model"
+      "Generated fields wala audio analyzer",
+      "Har episode ke liye text-embedding model"
     ],
     "exp": "Audio analyzer har episode ko text mein likhta hai aur khulasa aur mauzuaat jaisi fields banata hai, jo show notes ban jati hain. Image analyzers tasveeron par kaam karte hain, speech synthesis audio banata hai, aur akela embedding model parhne ke qabil notes ke bajaye vectors deta hai."
   },
   "D2-475": {
     "q": "Ek sports broadcaster match ki videos mein goal hone ke lamhe dhoondna chahta hai. Kaunsa tareeqa munasib hai?",
     "opts": [
-      "Video analyzer jis mein har segment ki field events ko Goal, Foul ya Other mein classify kare",
-      "Video ke title par OCR",
+      "Har segment ki field wala video analyzer",
+      "Har video ke title aur description par OCR",
       "Text to speech",
-      "Image-generation model"
+      "Goal ke prompt wala image-generation model"
     ],
     "exp": "Video analyzer match ko segments mein taqseem karta hai, aur classify field har segment ke event ko label deti hai, is liye goals filter kar ke mil jate hain. Title se pata nahi chalta ke goals kab hue, aur text to speech aur image generation content ka jaiza lene ke bajaye naya content banate hain."
   },
@@ -234,7 +234,7 @@
   },
   "D2-478": {
     "q": "Application Content Understanding ko kaise call kar sakti hai?",
-    "opts": ["Sirf email se", "Sirf Excel macros se", "REST API ya SDK ke zariye", "Sirf phone se"],
+    "opts": ["Sirf email se", "Sirf server par chalne wale Excel macros se", "REST API ya SDK ke zariye", "Sirf phone se"],
     "exp": "Content Understanding REST API deta hai, aur SDKs aur CLI bhi dastiyab hain, is liye HTTPS calls kar sakne wali koi bhi application usay istemal kar sakti hai. Email, spreadsheet macros aur phone calls service ko call karne ke tareeqay nahi."
   },
   "D2-479": {
@@ -243,7 +243,7 @@
       "Analysis nakaam ho gaya",
       "Aakhri fields pehle se response body mein hain",
       "Analyzer delete ho gaya",
-      "Analysis shuru ho gaya hai; nateeja lene ke liye Operation-Location URL ko poll karein"
+      "Analysis shuru ho gaya hai; nateeje ke liye poll karein"
     ],
     "exp": "202 Accepted ka matlab hai ke lamba chalne wala analysis qubool ho gaya aur jari hai. Response mein Operation-Location URL hota hai jisay app tab tak poll karti hai jab tak status Succeeded na ho aur nateeja dastiyab na ho jaye. Ye nakaami, delete hone ya mukammal nateeje ka nishan nahi."
   },

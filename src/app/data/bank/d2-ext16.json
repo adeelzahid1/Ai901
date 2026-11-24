@@ -2,7 +2,12 @@
   {
     "id": "D2-482", "sub": "prompts", "diff": 1, "type": "mcq",
     "q": "What helps a chat model answer in a consistent tone across all conversations?",
-    "opts": ["Raising the deployment quota", "Describing the tone in the system message", "Using a longer deployment name", "Changing the Azure region"],
+    "opts": [
+      "Raising the quota of the chat model's deployment",
+      "Describing the tone and style in the system message",
+      "Using a longer deployment name",
+      "Changing the Azure region"
+    ],
     "ans": 1,
     "exp": "The system message applies to every conversation, so describing the tone there, such as friendly and professional, keeps answers consistent. Quota, deployment names and regions do not influence how the model writes.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
@@ -13,9 +18,9 @@
     "q": "Which prompt change addresses this most directly?",
     "opts": [
       "Only lower the temperature",
-      "Increase the maximum output tokens",
-      "Remove the user's message from the request",
-      "Add a system rule to always respect any allergies the user mentions, and to ask about allergies when unsure"
+      "Increase the maximum output tokens for longer recipes",
+      "Remove the user's message from the request to the model",
+      "Add a system rule to respect and ask about allergies"
     ],
     "ans": 3,
     "exp": "A clear rule in the system message makes respecting allergies part of every answer and tells the model to ask when it lacks information, which reduces a real safety risk. Temperature and output length do not enforce the rule, and removing the user's message would lose the allergy information.",
@@ -78,9 +83,9 @@
     "id": "D2-488", "sub": "prompts", "diff": 2, "type": "mcq",
     "q": "Why add 'If the question is not about our products, politely say that you can only help with product questions' to a system message?",
     "opts": [
-      "It keeps the assistant on topic and tells it how to handle other questions",
-      "It makes responses faster",
-      "It lowers the price per token",
+      "It keeps the assistant on topic",
+      "It makes the responses faster to generate",
+      "It lowers the price of each token",
       "It changes the model version"
     ],
     "ans": 0,
@@ -118,7 +123,7 @@
     "id": "D2-491", "sub": "portal-deploy", "diff": 1, "type": "mcq",
     "q": "What can you change in the Foundry chat playground without redeploying the model?",
     "opts": [
-      "The system message and request parameters",
+      "The system message",
       "The model's training data",
       "The resource's Azure region",
       "The subscription"
@@ -131,10 +136,10 @@
     "id": "D2-492", "sub": "portal-deploy", "diff": 2, "type": "mcq",
     "q": "A chatbot deployment must block prompts that try to jailbreak the model. What should you configure?",
     "opts": [
-      "A higher temperature",
-      "A different deployment name",
+      "A higher temperature for suspicious prompts",
+      "A different deployment name that is hard to guess",
       "A lower quota",
-      "Prompt Shields for user prompt attacks in the deployment's content filter configuration"
+      "Prompt Shields for user prompt attacks"
     ],
     "ans": 3,
     "exp": "Prompt Shields detect user prompt attacks, also called jailbreaks, and can block them as part of the content filtering applied to the deployment. Temperature, names and quota do not detect or stop attacks.",
@@ -198,7 +203,7 @@
     "q": "A team creates two deployments of the same model: one for production with a strict content filter and one for internal testing. Why is this a good practice?",
     "opts": [
       "Because a model can be deployed only once per resource",
-      "So each environment can have its own quota, content filter and version settings without affecting the other",
+      "So each environment can have its own quota, filter and version",
       "To lower the model's accuracy",
       "To share API keys between teams"
     ],
@@ -223,7 +228,12 @@
   {
     "id": "D2-499", "sub": "portal-deploy", "diff": 1, "type": "mcq",
     "q": "When do you choose a deployment type, such as Global Standard, for a model?",
-    "opts": ["In the system message", "When you create the deployment", "In the chat input box", "In Azure Advisor"],
+    "opts": [
+      "In the system message of the first request",
+      "When you create the deployment",
+      "In the chat input box",
+      "In Azure Advisor"
+    ],
     "ans": 1,
     "exp": "The deployment type is selected when you deploy the model from the catalog, along with the deployment name and other settings. Messages and chat input are sent to the model, and Azure Advisor only gives recommendations.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
@@ -240,10 +250,10 @@
     "id": "D2-501", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
     "q": "A small chat app must answer only from a short FAQ text file. What is a simple and correct approach?",
     "opts": [
-      "Fine-tune a new model for every question",
-      "Include the FAQ text, or the relevant parts, in the request with an instruction to answer only from it",
-      "Raise the temperature",
-      "Move the deployment to another region"
+      "Fine-tune a new model for every question that users might ask",
+      "Include the text and an instruction to answer only from it",
+      "Raise the temperature so that answers come from the file only",
+      "Move the deployment to the region where the file is stored now"
     ],
     "ans": 1,
     "exp": "For a short FAQ, adding its text to the instructions or prompt grounds the model, and an explicit rule limits answers to that text; larger collections would use retrieval. Fine-tuning per question is impractical, and temperature or region do not provide the FAQ content.",
@@ -306,10 +316,10 @@
     "id": "D2-506", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
     "q": "A call fails with a BadRequest error that says the prompt was filtered because of the content management policy. What happened?",
     "opts": [
-      "The quota is used up",
-      "The endpoint is wrong",
+      "The quota is used up until the next minute",
+      "The endpoint is wrong for this deployment",
       "The model was retired",
-      "The prompt was blocked by the content filter; the app should show the user a friendly message"
+      "The content filter blocked the prompt"
     ],
     "ans": 3,
     "exp": "When input filtering blocks a prompt, the service returns a 400 error that refers to the content filter, so the app should handle it and explain politely that the request cannot be processed. Quota problems return 429, a wrong endpoint fails differently, and a retired model would fail for every prompt.",
@@ -329,9 +339,9 @@
     "q": "What should you change?",
     "opts": [
       "Increase the temperature",
-      "Add more few-shot examples",
-      "Raise the deployment quota",
-      "Send only the relevant parts of the PDF and trim or summarize older history"
+      "Add more few-shot examples from the conversation history",
+      "Raise the quota of the deployment for longer requests",
+      "Send only relevant parts and trim the history"
     ],
     "ans": 3,
     "exp": "Each request must fit in the model's context window, so the client should retrieve only relevant chunks of the PDF and shorten the history. Temperature and examples do not reduce size, and quota limits tokens per minute rather than the size of one request.",

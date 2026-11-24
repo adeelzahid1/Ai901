@@ -3,8 +3,8 @@
     "id": "D2-255", "sub": "agent-portal", "diff": 1, "type": "mcq",
     "q": "You just created an agent in the Foundry portal. What is the quickest way to test it?",
     "opts": [
-      "Read the billing page",
-      "Chat with it in the agent playground in the portal",
+      "Read the billing page for its first requests",
+      "Chat with it in the agent playground of the portal",
       "Restart the Foundry resource",
       "Open Azure Advisor"
     ],
@@ -16,10 +16,10 @@
     "id": "D2-256", "sub": "agent-portal", "diff": 2, "type": "mcq",
     "q": "An agent answers from uploaded policy files, but users want to know which document each answer came from. What should you do?",
     "opts": [
-      "Increase the temperature",
-      "Remove the file search tool",
-      "Instruct the agent to cite its sources; file search results include citations to the files",
-      "Use speech synthesis"
+      "Increase the temperature so that it mentions more files",
+      "Remove the file search tool and paste the files into the prompt",
+      "Instruct the agent to cite its sources in each answer",
+      "Use speech synthesis to read the names of the files aloud"
     ],
     "ans": 2,
     "exp": "File search returns the passages it used along with references to their files, and an instruction to cite sources makes the agent show them in its answers. A higher temperature adds randomness, removing file search removes the policies altogether, and speech synthesis only reads text aloud.",
@@ -83,9 +83,9 @@
     "q": "What should you change?",
     "opts": [
       "Remove all instructions",
-      "Increase the maximum output tokens",
-      "Switch to a smaller model",
-      "Add the internal HR documents with file search and instruct the agent to use them for company policy questions"
+      "Increase the maximum output tokens for salary questions",
+      "Switch to a smaller model that knows less about the web",
+      "Add the internal documents with file search"
     ],
     "ans": 3,
     "exp": "Company-specific facts must come from company sources, so the agent needs a knowledge tool over the internal documents and an instruction to prefer them for policy questions. Removing instructions, allowing longer output or using a smaller model would not give the agent the internal information.",
@@ -103,9 +103,9 @@
     "id": "D2-263", "sub": "agent-client", "diff": 2, "type": "mcq",
     "q": "A client app needs to ask an agent one standalone question and does not need to keep any history. What is the simplest approach?",
     "opts": [
-      "Create a new agent version first",
-      "Delete the agent after each question",
-      "Call responses.create() with the input and without a conversation",
+      "Create a new agent version first and call it once",
+      "Delete the agent after each question it answers",
+      "Call responses.create() without a conversation",
       "Use speech synthesis"
     ],
     "ans": 2,
@@ -174,8 +174,8 @@
     "id": "D2-268", "sub": "agent-client", "diff": 2, "type": "mcq",
     "q": "A team builds a browser-based chat page for an agent. How should the page reach the agent securely?",
     "opts": [
-      "Through a backend service that holds the credential and calls the agent",
-      "By putting an API key in the page's JavaScript",
+      "Through a backend service that holds the credential",
+      "By putting an API key in the page's JavaScript code",
       "By making the Foundry project public",
       "By turning off authentication"
     ],
@@ -186,7 +186,12 @@
   {
     "id": "D2-269", "sub": "text-app", "diff": 1, "type": "mcq",
     "q": "Which properties does each entity returned by recognize_entities() include?",
-    "opts": ["voice and pitch", "width and height", "text, category and confidence_score", "deployment and quota"],
+    "opts": [
+      "voice, pitch, rate and speaking_style",
+      "width and height",
+      "text, category and confidence_score",
+      "deployment and quota"
+    ],
     "ans": 2,
     "exp": "Each recognized entity includes the matched text, its category such as Person or Location, and a confidence score, along with its position in the document. Voice and pitch relate to speech, width and height to images, and deployment and quota to model deployments.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/named-entity-recognition/overview"
@@ -208,8 +213,8 @@
     "q": "A text app needs entities, key phrases and sentiment for the same set of documents, and you want to submit them as one job. What should it call?",
     "opts": [
       "detect_language() three times",
-      "begin_analyze_actions() with the three actions",
-      "Three separate Language resources",
+      "begin_analyze_actions() with three actions",
+      "Three separate Language resources, one for each",
       "A speech synthesizer"
     ],
     "ans": 1,
@@ -245,7 +250,12 @@
   {
     "id": "D2-274", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
     "q": "What is a spoken prompt?",
-    "opts": ["A prompt written in capital letters", "A system message", "A JSON schema", "A question or instruction given as audio instead of typed text"],
+    "opts": [
+      "A prompt that is written entirely in capital letters",
+      "A system message that is read out to users",
+      "A JSON schema",
+      "A question or instruction given as audio"
+    ],
     "ans": 3,
     "exp": "A spoken prompt is audio of a person asking or instructing, which an audio-capable model can process directly or which an app can transcribe first. Capital letters, system messages and JSON schemas are all text-based parts of a request.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
@@ -300,10 +310,10 @@
     "id": "D2-279", "sub": "speech-app", "diff": 2, "type": "mcq",
     "q": "Which Speech SDK classes translate spoken English into French text?",
     "opts": [
-      "SpeechSynthesizer only",
+      "SpeechSynthesizer with a French neural voice",
       "TextAnalyticsClient",
       "ImageAnalysisClient",
-      "SpeechTranslationConfig together with a TranslationRecognizer"
+      "TranslationRecognizer with SpeechTranslationConfig"
     ],
     "ans": 3,
     "exp": "SpeechTranslationConfig sets the source language and target languages, and TranslationRecognizer listens to the audio and returns the translations. SpeechSynthesizer only produces audio, TextAnalyticsClient analyzes text, and ImageAnalysisClient analyzes images.",

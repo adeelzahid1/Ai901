@@ -10,16 +10,16 @@ A learner who knows nothing but picks the longest option, expects exactly one "N
 distrusts words such as "always" scored about 607 of 1000 (random guessing gives about 259). The score has
 to mean something before anything is built on top of it.
 
-| Measure | Before phase 8 | After 8.3 | Target |
+| Measure | Before phase 8 | After 8.4 | Target |
 | --- | --- | --- | --- |
-| Multiple choice: the answer is the longest option | 368 of 516 (71%) | 53% (D1: 64% -> 22%) | 35% or less |
-| Multiple choice: the answer is 1.5 times longer than every other option | 276 of 516 (53%) | 35% (D1: 44% -> 0%) | 10% or less |
-| Multiple choice: most common length rank of the answer | 72% | 56% (D1: 31%) | 35% or less |
+| Multiple choice: the answer is the longest option | 368 of 516 (71%) | 22% | 35% or less |
+| Multiple choice: the answer is 1.5 times longer than every other option | 276 of 516 (53%) | 0% | 10% or less |
+| Multiple choice: most common length rank of the answer | 72% | 34% | 35% or less |
 | Yes/No: exactly one "No" in the set | 144 of 146 (99%) | 54 of 146 (37%) | 45% or less |
 | Yes/No: statements with absolute words that are false | 87 of 102 (85%) | 48 of 85 (56%) | 40-60% |
 | Multi-select: exactly two answers | 108 of 108 (100%) | 69 of 108 (64%) | 70% or less |
 | Multi-select: the answers are the longest options | 60 of 108 (56%) | 57 of 108 (53%) | 30% or less |
-| Exam score from test-taking tricks alone | about 607 of 1000 | about 483 | 350 or less |
+| Exam score from test-taking tricks alone | about 607 of 1000 | about 331 | 350 or less |
 
 `npm run validate:bank` prints these numbers and fails when one of them gets worse than the last step.
 
@@ -30,8 +30,8 @@ to mean something before anything is built on top of it.
 | 8.1 | Fairness checks in the validator; Yes/No sets with 0-3 "No"; absolute words in true statements too | done |
 | 8.2 | Multi-select questions with three answers | done |
 | 8.3 | Multiple choice, D1: shorter answers, stronger distractors | done |
-| 8.4 | Multiple choice, D2 part 1 | planned |
-| 8.5 | Multiple choice, D2 part 2; multi-select option lengths; final limits | planned |
+| 8.4 | Multiple choice, D2: shorter answers, stronger distractors | done |
+| 8.5 | Multi-select option lengths; final limits | planned |
 
 ## Phase 9 - Honest scores
 

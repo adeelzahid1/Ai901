@@ -30,7 +30,12 @@
   {
     "id": "D2-173", "sub": "agent-portal", "diff": 2, "type": "mcq",
     "q": "While testing an agent, you want to see which tools it called, in what order and with what inputs, to understand a wrong answer. What should you look at?",
-    "opts": ["The trace or run details of the conversation", "The subscription bill", "The model card", "The deployment's quota"],
+    "opts": [
+      "The conversation's trace",
+      "The subscription bill for today",
+      "The model card",
+      "The deployment's quota page"
+    ],
     "ans": 0,
     "exp": "Traces and run details show each step the agent took, including tool calls with their inputs and outputs, which is how you debug agent behavior. The bill shows cost, the model card describes the base model, and quota limits throughput; none of them show the agent's steps.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
@@ -79,7 +84,7 @@
   {
     "id": "D2-177", "sub": "agent-client", "diff": 1, "type": "mcq",
     "q": "In Python, which client do you use to create and manage Foundry agents?",
-    "opts": ["BlobServiceClient from azure-storage-blob", "The agents operations of AIProjectClient from azure-ai-projects", "TextAnalyticsClient", "SpeechRecognizer"],
+    "opts": ["BlobServiceClient from azure-storage-blob", "AIProjectClient", "TextAnalyticsClient", "SpeechRecognizer"],
     "ans": 1,
     "exp": "AIProjectClient in azure-ai-projects has agents operations, such as create_version(), to create and manage agents in the project. BlobServiceClient works with storage, TextAnalyticsClient with Azure Language and SpeechRecognizer with Azure Speech.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
@@ -121,9 +126,9 @@
     "q": "When a user ends a chat session, the client app must remove the stored conversation history. What should it do?",
     "opts": [
       "Delete the model deployment",
-      "Change the agent's instructions",
+      "Change the agent's instructions for a while",
       "Lower the temperature",
-      "Delete the conversation by using its ID"
+      "Delete the conversation by its ID"
     ],
     "ans": 3,
     "exp": "Conversations are stored objects, so the client can delete a conversation by its ID when the session ends, which removes its history. Deleting the deployment would break the agent for everyone, changing instructions alters future behavior, and temperature only affects randomness.",
@@ -166,7 +171,7 @@
   {
     "id": "D2-184", "sub": "text-app", "diff": 1, "type": "mcq",
     "q": "Besides the endpoint, what do you pass to TextAnalyticsClient when you use key authentication?",
-    "opts": ["A model deployment name", "An agent name", "An AzureKeyCredential that holds the resource key", "A storage SAS token"],
+    "opts": ["A model deployment name", "An agent name", "An AzureKeyCredential", "A storage SAS token"],
     "ans": 2,
     "exp": "TextAnalyticsClient takes the Language resource endpoint and a credential, which for key authentication is AzureKeyCredential with the key; Microsoft Entra credentials are also supported. Language features are not called through a model deployment or agent name, and a storage SAS token is for Blob Storage.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/quickstart"
@@ -178,7 +183,7 @@
       "Call analyze_sentiment() with show_opinion_mining=True",
       "Call extract_key_phrases()",
       "Call detect_language()",
-      "Call recognize_entities()"
+      "Call recognize_entities() with opinion_mining=True"
     ],
     "ans": 0,
     "exp": "Opinion mining is an option of sentiment analysis: passing show_opinion_mining=True to analyze_sentiment() adds targets, such as 'battery', with the opinions about them to each sentence. Key phrases, language detection and entity recognition do not return opinions about features.",
@@ -212,10 +217,10 @@
     "id": "D2-188", "sub": "text-app", "diff": 3, "type": "mcq",
     "q": "Document summarization in the Language SDK runs as a long-running operation. How does Python code get the summaries?",
     "opts": [
-      "Call detect_language() and read the summary",
+      "Call detect_language() and read the summary from its result",
       "Read the summary from the HTTP status code",
-      "Call begin_extract_summary() and then wait for the poller's result",
-      "Call analyze_sentiment() with a summary option"
+      "Call begin_extract_summary() and wait for its result",
+      "Call analyze_sentiment() with the summary option turned on"
     ],
     "ans": 2,
     "exp": "Summarization methods start with begin_, such as begin_extract_summary() or begin_abstract_summary(), and return a poller; calling result() waits for the operation to finish and returns the summaries. detect_language and analyze_sentiment are different features, and a status code does not contain text.",
@@ -224,7 +229,12 @@
   {
     "id": "D2-189", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
     "q": "Before you build a spoken-prompt feature, how can you confirm that a model accepts audio input?",
-    "opts": ["Look only at its price", "Check the model card in the catalog for supported input types", "Check the Azure region", "Check the deployment name"],
+    "opts": [
+      "Look only at its price",
+      "Check the input types on its model card",
+      "Check the Azure region of the project's resource",
+      "Check the deployment name"
+    ],
     "ans": 1,
     "exp": "The model card lists the model's capabilities, including which input and output types it supports, such as text, images or audio. Price, region and deployment name do not tell you whether a model can process audio.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
@@ -260,7 +270,7 @@
       "Batch transcription",
       "A Global Batch deployment",
       "Image Analysis",
-      "The Realtime API with an audio-capable realtime model"
+      "The Realtime API"
     ],
     "ans": 3,
     "exp": "The Realtime API streams audio in and out over a persistent connection, so a realtime model can respond with low latency and handle interruptions, which suits live voice conversations. Batch transcription and Global Batch are asynchronous and slow by design, and Image Analysis works on pictures.",
@@ -271,8 +281,8 @@
     "q": "A Python speech app must recognize Spanish speech. Which line sets this?",
     "opts": [
       "speech_config.speech_recognition_language = \"es-ES\"",
-      "speech_config.temperature = \"es\"",
-      "speech_config.region = \"spain\"",
+      "speech_config.recognition_temperature = \"es-ES\"",
+      "speech_config.speech_recognition_region = \"spain\"",
       "speech_config.voice = \"Spanish\""
     ],
     "ans": 0,
@@ -283,7 +293,7 @@
     "id": "D2-194", "sub": "speech-app", "diff": 2, "type": "mcq",
     "q": "A Python app must save synthesized speech to a file named greeting.wav instead of playing it. What should it create?",
     "opts": [
-      "AudioConfig(use_default_microphone=True)",
+      "speechsdk.audio.AudioConfig(use_default_microphone=True)",
       "A SpeechRecognizer",
       "A TextAnalyticsClient",
       "speechsdk.audio.AudioOutputConfig(filename=\"greeting.wav\")"

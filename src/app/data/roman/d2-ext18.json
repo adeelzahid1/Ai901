@@ -14,9 +14,9 @@
     "q": "Kaunsa tareeqa munasib hai?",
     "opts": [
       "Speech synthesis",
-      "Screenshot file ke naam par key phrase extraction",
-      "Image generation",
-      "Screenshot vision-capable model ko bhejna, is hidayat ke saath ke error code parhe aur hal tajweez kare"
+      "Screenshot ki file ke naam par key phrase extraction",
+      "Sahi message dikhane wale dialog ki image generation",
+      "Wazeh hidayaat wala vision-capable model"
     ],
     "exp": "Vision-capable model screenshot ka text parh sakta hai aur hidayaat ki rahnumai mein error samjha kar qadam tajweez kar sakta hai. File ke naamon mein error nahi hota, speech synthesis audio banata hai, aur image generation tasveerein parhne ke bajaye banata hai."
   },
@@ -37,8 +37,8 @@
   "D2-544": {
     "q": "Image generation ke prompts ke baare mein kaunsa bayan sach hai?",
     "opts": [
-      "Mubham prompts sab se yaqeeni nateeje dete hain",
-      "Mauzu, style aur composition bayan karne se nateeja aam taur par behtar hota hai",
+      "Amal mein mubham prompts sab se yaqeeni nateeje dete hain",
+      "Mauzu, style aur composition bayan karne se nateeja behtar hota hai",
       "Prompts teen alfaaz se chhote hone lazmi hain",
       "Prompts mein rangon ka zikr nahi ho sakta"
     ],
@@ -47,10 +47,10 @@
   "D2-545": {
     "q": "Ek real estate website khali kamron ko furniture ke saath dikhana chahti hai. Kaunsa tareeqa munasib hai, aur website ko kya karna chahiye?",
     "opts": [
-      "Kamron ki tasveeron par OCR istemal karna",
-      "Image classification istemal karna",
+      "Kamron ki tasveeron par OCR chala kar mila hua text shaya karna",
+      "Image classification se har kamre par furnished ka label lagana",
       "Speech to text istemal karna",
-      "Image editing se tasveeron mein furniture shamil karna, aur likhna ke images virtually staged hain"
+      "Image editing karna aur batana ke kamre virtually staged hain"
     ],
     "exp": "Image editing maujooda tasveer mein content shamil kar sakti hai, aur nateeje par virtually staged ka label lagane se khareedar bakhabar rehte hain, jo transparency mein madad deta hai. OCR text parhta hai, classification images ko label deti hai, aur speech to text audio par kaam karta hai, is liye koi bhi furniture shamil nahi karta."
   },
@@ -83,20 +83,20 @@
   "D2-548": {
     "q": "Image Analysis mein visual feature kya hota hai?",
     "opts": [
-      "Screen resolution",
+      "Nateejon ki screen resolution",
       "Color theme",
-      "Model deployment",
-      "Analysis ki woh qism jo aap request karte hain, jaise TAGS ya READ"
+      "Image analysis ki model deployment",
+      "Analysis ki woh qism jo aap maangein"
     ],
     "exp": "Visual features analysis ki woh qismein hain jo aap maangte hain, jaise CAPTION, TAGS, OBJECTS, PEOPLE, READ ya SMART_CROPS, aur nateeje mein har ek ka apna hissa hota hai. Ye display ki settings ya deployments nahi."
   },
   "D2-549": {
     "q": "Ek recycling app ko cheezon ki tasveeron ko theek char categories mein se ek mein rakhna hai: Plastic, Glass, Metal ya Paper. Kaunsa tareeqa usi list mein se yaksan jawab deta hai?",
     "opts": [
-      "Tasveeron par OCR istemal karna",
-      "Tasveer multimodal model ko aise structured output ke saath bhejna jo sirf ye char categories ki ijazat de",
+      "Tasveeron par OCR chala kar material ka naam dhoondna",
+      "Structured output wala multimodal model istemal karna",
       "Speech to text istemal karna",
-      "Smart crops istemal karna"
+      "Tasveer se cheez kaatne ke liye smart crops"
     ],
     "exp": "Multimodal model material pehchan sakta hai, aur sirf char ijazat wali values wala structured output schema har jawab ko isi set mein rakhta hai. OCR text parhta hai, speech to text audio par kaam karta hai, aur smart crops sirf thumbnails tajweez karta hai."
   },
@@ -122,7 +122,7 @@
   },
   "D2-552": {
     "q": "Content Understanding ke nateeje mein kaunsi value batati hai ke service ko field ki value par kitna yaqeen hai?",
-    "opts": ["Pages ki tadad", "Confidence score", "File ka naam", "API version"],
+    "opts": ["Pages ki tadad", "Confidence score", "Source file ka naam", "API version"],
     "exp": "Har field mein 0 se 1 tak confidence score ho sakta hai, jis se apps tay karti hain ke insan value review kare ya nahi. Pages ki tadad, file ke naam aur API versions ye nahi batate ke value kitni qabil-e-bharosa hai."
   },
   "D2-553": {
@@ -131,7 +131,7 @@
       "Har zaban ke liye alag Azure tenant banana",
       "Pehle staff se har raseed haath se translate karwana",
       "Speech synthesis istemal karna",
-      "Wazeh field descriptions wala ek hi analyzer schema istemal karna, kyunke service bohat si zabanein parh sakti hai"
+      "Tamam zabanon ke liye ek analyzer schema"
     ],
     "exp": "Content extraction bohat si zabanon mein text parhta hai, aur generative field extraction wazeh descriptions ki rahnumai mein raseed ki zaban kuch bhi ho, wahi fields bharta hai. Alag tenants aur haath se tarjuma faide ke baghair kharcha barhate hain, aur speech synthesis raseedein nahi parhta."
   },
@@ -159,7 +159,7 @@
     "opts": [
       "Dono fields ke liye extract",
       "Dono fields ke liye translate",
-      "Koi field nahi; staff notes haath se likhe",
+      "Koi field nahi; staff har gaari ke notes haath se likhe",
       "damage_present ke liye classify aur damage_notes ke liye generate"
     ],
     "exp": "Yes ya No values ka tay shuda set hai, is liye damage_present ke liye classify munasib hai, jab ke notes tasveer se bana azad text hai, is liye damage_notes ke liye generate. Extract sirf documents ke liye support hota hai, translate koi field method nahi, aur haath se notes likhna maqsad hi khatam kar deta hai."
@@ -182,17 +182,17 @@
   },
   "D2-560": {
     "q": "Content Understanding ka audio analyzer kaunsa input process karta hai?",
-    "opts": ["JPEG tasveerein", "Audio files, jaise WAV ya MP3 recordings", "Spreadsheets", "Font files"],
+    "opts": ["Bolne walon ki JPEG tasveerein", "Audio files, jaise MP3 recordings", "Spreadsheets", "Font files"],
     "exp": "Audio analyzers recordings le kar unhein text mein likhte hain aur transcript se fields banate hain. Tasveerein image analyzers ko jati hain, aur spreadsheets aur fonts audio input nahi."
   },
   "D2-561": {
     "ctx": "HR exit interviews record karta hai. Har recording ke liye usay chhorne ki asal wajah, Pay, Manager, Growth ya Other mein se ek, aur mukhtasar khulasa chahiye.",
     "q": "Analyzer ka kaunsa design munasib hai?",
     "opts": [
-      "Image analyzer",
-      "File ke naamon par OCR",
+      "Mood ki field wala image analyzer",
+      "Record kiye interviews ki files ke naamon par OCR",
       "Text to speech",
-      "Audio analyzer, wajah ke liye classify field aur khulasay ke liye generate field ke saath"
+      "Do fields wala audio analyzer"
     ],
     "exp": "Interviews audio hain, is liye audio analyzer unhein text mein likhta hai; classify field wajah ko char categories ke andar rakhti hai, aur generate field khulasa likhti hai. Image analyzers, OCR aur text to speech bole hue interviews ka jaiza nahi lete."
   },
@@ -225,9 +225,9 @@
   "D2-564": {
     "q": "Koi team apna OCR aur parsing code likhne ke bajaye Content Understanding kyun istemal kar sakti hai?",
     "opts": [
-      "Files se text parhne ka ye wahid tareeqa hai",
-      "Ye bohat se formats ke liye parhna, structure aur field extraction sambhalta hai, confidence scores aur grounding ke saath",
-      "Is se koi bhi code likhne ki zaroorat khatam ho jati hai",
+      "Application mein files se text parhne ka ye wahid tareeqa hai",
+      "Bohat se formats ke liye parhna aur field extraction sambhalta hai",
+      "Application ke liye koi bhi code likhne ki zaroorat khatam karta hai",
       "Ye documents ko chhota kar deta hai"
     ],
     "exp": "Service documents, images, audio aur video ke liye content extraction, layout, field extraction, confidence scores aur grounding ko jorti hai, jisay khud banane mein bohat mehnat lagti. Text parhne ke doosre tareeqay maujood hain, apps phir bhi usay code se call karti hain, aur ye documents chhote nahi karta."
@@ -235,10 +235,10 @@
   "D2-565": {
     "q": "Ek app ko Azure Blob Storage mein rakhi invoice ka analysis karna hai. Usay Content Understanding ko kya bhejna chahiye?",
     "opts": [
-      "Invoice lagi hui email",
+      "Email jis ke saath invoice lagi ho",
       "Invoice ki chhapi hui copy",
       "Invoice ka audio version",
-      "File ka URL, maslan SAS token ke saath, ya file ke bytes, analyze operation ko"
+      "File ka URL ya us ke bytes"
     ],
     "exp": "Analyze operation content ko ya to aise URL ki soorat mein leta hai jisay service parh sake, ya request mein file data ki soorat mein. Email, chhapi hui copies aur audio versions API ko file bhejne ke tareeqay nahi."
   },

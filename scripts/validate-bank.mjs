@@ -177,6 +177,7 @@ if (matches.length >= 8) {
 }
 // ---- Fairness: clues that give answers away ----------------------------------------------------
 const fair = fairness(questions.filter((q) => !errors.some((e) => e.startsWith(`${q.id}:`))));
+if (fair.score > fair.maxScore) err('fairness', `test-taking tricks alone score ${fair.score} (at most ${fair.maxScore})`);
 for (const { name, value, min = 0, max } of fair.measures) {
   const limit = min ? `${Math.round(min * 100)}-${Math.round(max * 100)}%` : `at most ${Math.round(max * 100)}%`;
   if (value > max || value < min) err('fairness', `${name}: ${Math.round(value * 100)}% (${limit})`);
@@ -304,7 +305,7 @@ for (const { name, value, min, max } of fair.measures) {
   const limit = min ? `${Math.round(min * 100)}-${Math.round(max * 100)}%` : `max ${Math.round(max * 100)}%`;
   console.log(`  ${name.padEnd(42)} ${String(Math.round(value * 100)).padStart(3)}%  (${limit})`);
 }
-console.log(`  Exam score from test-taking tricks alone: about ${fair.score} / 1000`);
+console.log(`  Exam score from test-taking tricks alone: about ${fair.score} / 1000  (max ${fair.maxScore})`);
 
 if (warnings.length) {
   console.log(`\n${warnings.length} warning(s):`);

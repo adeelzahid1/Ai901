@@ -7,12 +7,12 @@
   "D2-002": {
     "q": "Kaunsa user prompt sab se zyada kaar-aamad product description dega?",
     "opts": [
-      "Hamare product ke baare mein likho.",
+      "Hamare product ke baare mein likho aur isay itna achha banao ke bohat se log khareedna chahein.",
       "Product. Description. Abhi.",
-      "Hamari website ke liye Contoso X1 headphones ki teen jumlon ki product description dostana lehje mein likho, jis mein 30 ghante ki battery aur noise cancellation numayan ho.",
-      "Jo kuch jante ho sab batao."
+      "Contoso X1 headphones aur un ki 30-hour battery ke baare mein teen dostana jumlay likho.",
+      "Headphones aur hamare bechne wale tamam products ke baare mein jo kuch jante ho sab batao."
     ],
-    "exp": "Acha prompt wazeh hota hai: woh kaam, mauzu, sunne wale, lambai, lehja aur zaroori nuqtay batata hai. Contoso X1 wala prompt yeh sab deta hai, is liye model ko pata hai ke bilkul kya banana hai. Baqi prompts mubham hain ya un mein wazeh kaam nahi, is liye model ko andaza lagana parta hai, jis se aam taur par generic ya be-mauqa output aata hai."
+    "exp": "Achhe prompts khaas hote hain: woh kaam, mauzu, lambai, lehja aur zaroori nukte batate hain. Contoso X1 wala prompt yahi karta hai, is liye model ko pata hai ke kya banana hai. Baqi prompts lambe ya chhote hon, mubham hain, is liye model ko andaza lagana parta hai, jis se aam taur par be-rang ya ghalat output milta hai."
   },
   "D2-003": {
     "q": "Ek model ko support tickets par bilkul muqarrar format mein category ka label lagana hai. Aap naye ticket se pehle prompt mein teen namoona tickets un ke sahi labels ke saath shamil karte hain. Yeh kaunsi technique hai?",
@@ -21,10 +21,10 @@
   "D2-004": {
     "q": "Ek support assistant ko har prompt mein product manual ka text milta hai. Usay sirf usi text se jawab dena hai aur jawab gharne nahi hain. Aap ko kya karna chahiye?",
     "opts": [
-      "System instructions mein likhein ke sirf diye gaye content se jawab de, aur jawab wahan na ho to keh de ke usay maloom nahi",
-      "Temperature ko sab se zyada value tak barha dein",
-      "System message hata dein taake model par kam usool hon",
-      "Maximum response tokens barha dein"
+      "Model se kehna ke sirf diya gaya text istemal kare aur kami tasleem kare",
+      "Temperature ko maximum value tak barhana taake woh zyada koshish kare",
+      "System message hatana taake model ko kam usool follow karne parein",
+      "Maximum response tokens barhana taake jawab mukammal hon"
     ],
     "exp": "System message mein model ko batana ke sirf diya gaya content istemal kare, aur jawab na ho to kya kahe, grounding ka aam tareeqa hai jo ghare hue jawab kam karta hai. Zyada temperature output ko zyada random banata hai aur ghara hua content barha sakta hai. System message hatane se woh hifazat hat jati hai jo aap ko chahiye. Zyada response tokens sirf lambe jawab dete hain."
   },
@@ -66,10 +66,10 @@
   "D2-009": {
     "q": "Ek aam chat model foran jawab dene par kai qadam wale math word problems aksar ghalat karta hai. Prompt mein kaunsi tabdeeli sab se zyada madad karegi?",
     "opts": [
-      "Wazahat ke baghair sirf aakhri number maangein",
-      "Maximum response tokens ko 20 kar dein",
-      "Model se kahein ke aakhri jawab dene se pehle masla qadam ba qadam hal kare",
-      "System message hata dein"
+      "Sirf aakhri number maangna, ye bataye baghair ke woh kaise nikla",
+      "Maximum response tokens 20 karna taake woh jaldi jawab de",
+      "Model se kehna ke aakhri jawab se pehle qadam ba qadam hal kare",
+      "System message hatana taake woh zyada azaadi se soche"
     ],
     "exp": "Model se qadam ba qadam sochne ko kehna, jise aksar chain-of-thought prompting kehte hain, us se darmiyani qadam likhwata hai, jis se kai qadam wale masail zyada sahi hote hain. Sirf number maangne se woh soch hat jati hai. 20 token ki hadd hal ko beech mein kaat sakti hai. System message hatane se rahnumai khatam hoti hai aur sochne ki quality par koi faida nahi."
   },
@@ -106,10 +106,10 @@
   "D2-014": {
     "q": "Masroof auqaat mein standard deployment ko ki gayi calls HTTP 429 (Too Many Requests) errors ke saath fail hoti hain. Sab se mumkina wajah kya hai?",
     "opts": [
-      "Content filter ne prompts block kar diye",
+      "Content filter ne masroof auqaat mein prompts block kiye",
       "API key ghalat hai",
       "Model retire ho chuka hai",
-      "Deployment apni tokens-per-minute ya requests-per-minute ki rate limit se aage nikal gayi"
+      "Deployment apni token ya request rate limit se aage nikal gayi"
     ],
     "exp": "429 ka matlab hai ke deployment ki rate limit, jo tokens-per-minute quota aur us ki requests-per-minute hadd par mabni hai, paar ho gayi. Aap deployment ka quota allocation barha sakte hain, traffic phaila sakte hain ya backoff ke saath dobara koshish kar sakte hain. Content filter ka block alag error deta hai jis mein content filtering ka zikr hota hai, ghalat key par 401 aata hai, aur retire model har request par fail hota hai, sirf masroof auqaat mein nahi."
   },
@@ -136,10 +136,10 @@
   "D2-017": {
     "q": "Ek deployment ko prompts aur responses dono mein nafrat aur tashaddud wala content default se zyada sakhti se block karna hai. Aap ko kya configure karna chahiye?",
     "opts": [
-      "Content filter (guardrail) configuration jo kam severity wala content bhi block kare",
-      "Kam temperature",
+      "Zyada sakht content filter configuration",
+      "Us ki tamam requests ke liye kam temperature",
       "Model ka naya version",
-      "Koi aur deployment type"
+      "Alag deployment type, jaise Batch deployment"
     ],
     "exp": "Content filters prompts aur completions ko hate, sexual, violence aur self-harm jaise harm categories ke liye check karte hain, aur aap har category ke liye block hone wala severity level set kar ke configuration deployment par laga sakte hain. Temperature sirf randomness badalta hai. Model ka naya version aur alag deployment type model aur us ki hosting badalte hain, filter ke usool nahi. Naye Foundry portal mein in settings ko guardrails kehte hain, aur sab se sakht blocking level low, medium aur high severity ka content block karta hai."
   },
@@ -187,10 +187,10 @@
   "D2-026": {
     "q": "Chat Completions API se bana aap ka chat client bhool jata hai ke user ne guftagu mein pehle kya poocha tha. Wajah kya hai?",
     "opts": [
-      "Model sirf ek message yaad rakh sakta hai",
-      "API stateless hai, is liye app ko har request ke saath pehle wale user aur assistant messages bhejne hote hain",
-      "Temperature bohat zyada hai",
-      "Project endpoint ghalat hai"
+      "Model apni har deployment mein sirf ek message yaad rakh sakta hai",
+      "API stateless hai, is liye app ko pehle ke messages dobara bhejne hote hain",
+      "Temperature bohat zyada hai, is liye model purane messages nazar andaz karta hai",
+      "Project endpoint ghalat hai, is liye messages kisi doosre project mein jate hain"
     ],
     "exp": "Chat Completions requests stateless hoti hain: model sirf wahi messages dekhta hai jo maujooda request mein hon. Context rakhne ke liye app har user message aur assistant ka jawab list mein jorti hai aur context window ke andar rehte hue har baar poori list bhejti hai. Temperature randomness par asar dalta hai, yaad-dasht par nahi, aur ghalat endpoint se har call fail hoti."
   },
@@ -206,10 +206,10 @@
   "D2-028": {
     "q": "Ek chat client DefaultAzureCredential aur sahi project endpoint istemal karta hai, lekin har call permission denied (403) error ke saath fail hoti hai. Aap ko kya karna chahiye?",
     "opts": [
-      "Deployment ka tokens-per-minute quota barhayein",
-      "Sign in ki hui identity ko Foundry project par Foundry User (pehle Azure AI User) jaisa role dein",
+      "Is app ke liye deployment ka tokens-per-minute quota barhana",
+      "Identity ko project par Foundry User jaisa role dena",
       "Temperature kam karein",
-      "Deployment type badal kar Global Batch karein"
+      "Deployment type ko Global Batch kar ke calls dobara bhejna"
     ],
     "exp": "403 error ka matlab hai ke identity authenticate ho gayi lekin usay ijazat nahi. Identity ko Foundry resource ya project par munasib Azure role, jaise Foundry User (pehle Azure AI User), dene se woh models call kar sakti hai. Quota ke masail 429 errors dete hain, temperature sirf output par asar dalta hai, aur deployment type badalne se ijazat nahi milti."
   },

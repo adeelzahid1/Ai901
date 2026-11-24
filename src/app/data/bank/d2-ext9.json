@@ -3,9 +3,9 @@
     "id": "D2-283", "sub": "visual-input", "diff": 1, "type": "mcq",
     "q": "When you send an image to a vision-capable chat model, what do you usually include in the same message?",
     "opts": [
-      "A text instruction or question about the image",
-      "A speech synthesis voice",
-      "A storage account key",
+      "A question or instruction about it",
+      "A neural voice for the spoken description",
+      "A key for the storage account of the image",
       "A deployment type"
     ],
     "ans": 0,
@@ -17,10 +17,10 @@
     "ctx": "Customers of an insurance company upload photos of damaged cars. The claims system needs JSON with a list of damaged parts and a severity for each one.",
     "q": "Which approach fits best?",
     "opts": [
-      "Convert the photos to speech with text to speech",
-      "Run key phrase extraction on the file names",
-      "Send each photo with instructions and a JSON schema, using structured outputs, to a vision-capable model",
-      "Use a Global Batch deployment of an embedding model"
+      "Convert the photos to speech with text to speech and transcribe it",
+      "Run key phrase extraction on the file names of all the photos",
+      "Send each photo with a JSON schema to a vision-capable model",
+      "Use a Global Batch deployment of an embedding model for photos"
     ],
     "ans": 2,
     "exp": "A vision-capable model can interpret the damage, and structured outputs with a JSON schema make it return exactly the fields the claims system expects. Text to speech and key phrase extraction do not look at images, and an embedding model returns vectors, not damage reports.",
@@ -54,19 +54,19 @@
     "id": "D2-287", "sub": "image-generation", "diff": 1, "type": "mcq",
     "q": "Which prompt is most likely to produce the image you want?",
     "opts": [
-      "image",
-      "make it nice",
+      "An image, please, as good as you can possibly make it",
+      "Make it nice and beautiful so that everyone will love it",
       "picture please",
-      "A cozy reading corner by a rainy window, soft warm lighting, watercolor style"
+      "A cozy reading corner by a window, watercolor style"
     ],
     "ans": 3,
-    "exp": "Good image prompts describe the subject, setting, lighting and style, which gives the model clear guidance. Short, vague prompts leave almost everything to chance, so results are unpredictable and rarely match what you had in mind.",
+    "exp": "Good image prompts describe the subject, setting and style, which gives the model clear guidance. Vague prompts, whether they are long or short, leave almost everything to chance, so results are unpredictable and rarely match what you had in mind.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
     "id": "D2-288", "sub": "image-generation", "diff": 3, "type": "mcq",
     "q": "A designer needs a logo draft from gpt-image-1 with a transparent background. Which request parameter should be set?",
-    "opts": ["temperature set to 0", "background set to transparent", "top_p set to 1", "stop set to ###"],
+    "opts": ["temperature set to 0 for the logo", "background set to transparent", "top_p set to 1", "stop set to ###"],
     "ans": 1,
     "exp": "gpt-image-1 supports a background parameter; setting it to transparent, with an output format that supports transparency such as PNG, produces an image without a solid background. temperature, top_p and stop are text-generation settings and do not affect image backgrounds.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
@@ -117,8 +117,8 @@
     "id": "D2-292", "sub": "vision-app", "diff": 2, "type": "mcq",
     "q": "Image Analysis returns many tags for each photo, and some are wrong. The app should display only reliable tags. What should it do?",
     "opts": [
-      "Show only tags whose confidence is above a threshold, such as 0.8",
-      "Show every tag regardless of confidence",
+      "Show only tags whose confidence is above a threshold",
+      "Show every tag and let users decide which are right",
       "Lower the temperature",
       "Increase the quota"
     ],
@@ -168,9 +168,9 @@
     "id": "D2-296", "sub": "cu-documents", "diff": 1, "type": "mcq",
     "q": "What does Content Understanding's content extraction produce from a document?",
     "opts": [
-      "Markdown text that keeps structure such as headings and tables",
-      "An MP3 file",
-      "A new image",
+      "Markdown text with the structure",
+      "An MP3 file with the text read aloud",
+      "A new image of each page in color",
       "A model deployment"
     ],
     "ans": 0,
@@ -181,10 +181,10 @@
     "id": "D2-297", "sub": "cu-documents", "diff": 3, "type": "mcq",
     "q": "An invoice analyzer's vendor_name field sometimes returns the customer's name instead of the supplier's. What should you change first?",
     "opts": [
-      "Change the field type to boolean",
+      "Change the field type from string to boolean",
       "Delete the field",
-      "Improve the field description, for example 'the name of the company that issued the invoice'",
-      "Increase the deployment quota"
+      "Improve the description of the field",
+      "Increase the quota of the model deployment"
     ],
     "ans": 2,
     "exp": "Field descriptions guide the models that fill each field, so a precise description that distinguishes the issuer from the customer usually fixes the confusion; labeled examples can help further. A boolean type cannot hold a name, deleting the field loses the data, and quota does not affect accuracy.",
@@ -214,7 +214,12 @@
   {
     "id": "D2-300", "sub": "cu-images", "diff": 2, "type": "mcq",
     "q": "A RAG solution misses facts that appear only in charts inside PDF reports. Which Content Understanding capability helps?",
-    "opts": ["Speech synthesis", "Smart crops", "Key phrase extraction", "Figure analysis that describes charts and diagrams in text"],
+    "opts": [
+      "Speech synthesis of the report text",
+      "Smart crops",
+      "Key phrase extraction",
+      "Figure analysis of charts and diagrams"
+    ],
     "ans": 3,
     "exp": "Figure analysis describes the content of charts and diagrams in text, so the information becomes searchable and can be retrieved for RAG. Speech synthesis produces audio, smart crops suggests thumbnails, and key phrase extraction works on text that is already extracted.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -256,7 +261,12 @@
   {
     "id": "D2-304", "sub": "cu-audio-video", "diff": 1, "type": "mcq",
     "q": "Which business scenario is a good fit for Content Understanding audio analysis?",
-    "opts": ["Designing a logo", "Building a spreadsheet macro", "Post-call analytics for a call center", "Resizing photos"],
+    "opts": [
+      "Designing a new logo for the call center",
+      "Building a macro for a sales spreadsheet",
+      "Post-call analytics for a call center",
+      "Resizing the photos of the agents' badges"
+    ],
     "ans": 2,
     "exp": "Audio analysis transcribes recordings and produces fields such as summaries, sentiment and topics, which is exactly what post-call analytics needs. Logo design, spreadsheet macros and photo resizing do not involve analyzing audio.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -265,8 +275,8 @@
     "id": "D2-305", "sub": "cu-audio-video", "diff": 2, "type": "mcq",
     "q": "A media company wants to find every segment of its videos where one of its products appears, and tag those segments. What should it use?",
     "opts": [
-      "Key phrase extraction on the video file names",
-      "A video analyzer with a per-segment field such as products_shown",
+      "Key phrase extraction on the names of the video files",
+      "A video analyzer with a per-segment field for the products",
       "Speech synthesis",
       "An image-generation model"
     ],
@@ -310,10 +320,10 @@
     "id": "D2-308", "sub": "cu-app", "diff": 2, "type": "mcq",
     "q": "How can an app use the grounding information that Content Understanding returns for each field?",
     "opts": [
-      "Delete the source file after analysis",
-      "Change the model deployment",
+      "Delete the source file after the analysis is done",
+      "Change the model deployment when a value is wrong",
       "Increase the quota",
-      "Show reviewers where in the source each value came from, so they can verify it quickly"
+      "Show reviewers where each value came from"
     ],
     "ans": 3,
     "exp": "Grounding identifies the region of the source content behind each value, so a review screen can highlight it and a person can confirm or correct the value quickly. It is not used to delete files, change deployments or adjust quota.",
@@ -322,7 +332,12 @@
   {
     "id": "D2-309", "sub": "cu-app", "diff": 2, "type": "mcq",
     "q": "Which tool is designed to help you improve custom Content Understanding analyzers by labeling data?",
-    "opts": ["Content Understanding Studio", "Azure Advisor", "Power BI", "Azure Policy"],
+    "opts": [
+      "Content Understanding Studio",
+      "Azure Advisor for AI workloads",
+      "Power BI with an AI visual",
+      "Azure Policy"
+    ],
     "ans": 0,
     "exp": "Content Understanding Studio complements the Foundry portal with an experience for improving analyzer performance, including labeling data and building classification-based analyzers. Azure Advisor gives recommendations, Power BI builds reports, and Azure Policy enforces resource rules.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"

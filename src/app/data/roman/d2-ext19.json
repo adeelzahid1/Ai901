@@ -1,7 +1,7 @@
 {
   "D2-568": {
     "q": "Prompt ka kaunsa hissa model ko batata hai ke jawab ki tarteeb kaisi ho, maslan table ki soorat mein?",
-    "opts": ["Output format ki hidayat", "Deployment ka naam", "API version", "Azure region"],
+    "opts": ["Output format ki hidayat", "Deployment ka naam", "Request ke URL mein API version", "Azure region"],
     "exp": "Output format ki hidayat, jaise 'In columns wali table do', jawab ki tarteeb tay karti hai. Deployment ka naam, API version aur region technical settings hain jo jawab ke content ki shakal nahi banatin."
   },
   "D2-569": {
@@ -35,8 +35,8 @@
     "q": "Classification prompt se milne wale labels ko yaksan banane mein kaunsi tabdeeli sab se zyada madad karti hai?",
     "opts": [
       "Temperature barhana",
-      "Tamam misaalein hatana",
-      "Ijazat wale theek labels ki list dena aur model se kehna ke sirf un mein se ek de",
+      "Prompt se tamam misaalein hatana",
+      "Labels ki list dena aur theek ek maangna",
       "System message mein ghair mutalliqa text shamil karna"
     ],
     "exp": "Ijazat wale labels batane aur theek ek maangne se outputs tay shuda set mein rehte hain, jis se code ke liye istemal aasan hota hai. Zyada temperature randomness barhata hai, misaalein hatane se rahnumai khatam hoti hai, aur ghair mutalliqa text model ki tawajjo hatata hai."
@@ -44,7 +44,7 @@
   "D2-573": {
     "q": "Aap ki banayi hui deployment chat playground mein nazar nahi aa rahi. Sab se pehle kya check karna chahiye?",
     "opts": [
-      "Portal ka color theme",
+      "Portal ka color theme aur us ki zaban",
       "Browser ka font size",
       "Aap ke computer ka time zone",
       "Ke aap ne sahi project khola hai"
@@ -64,8 +64,8 @@
     "q": "Ek legal team chahti hai ke ek deployment tashaddud wale content ko default se zyada sakhti se block kare. Kya karna chahiye?",
     "opts": [
       "Temperature kam karna",
-      "Zyada sakht threshold wali custom content filter configuration bana kar usay deployment par lagana",
-      "Resource doosre region mein le jana",
+      "Zyada sakht had wala custom content filter lagana",
+      "Resource ko sakht qawaneen wale region mein le jana",
       "Zyada bara model istemal karna"
     ],
     "exp": "Content filter configurations har nuqsan ki category ke liye severity threshold tay karti hain aur deployments par lagti hain, is liye zyada sakht configuration sirf isi par lag sakti hai. Temperature, region aur model ka size ye nahi badalte ke safety system kya block kare."
@@ -111,10 +111,10 @@
   "D2-582": {
     "q": "User itna lamba document paste karta hai ke request model ki context window se bara ho jata hai. Chat client ko isay kaise sambhalna chahiye?",
     "opts": [
-      "Wahi request hamesha dobara bhejte rehna",
+      "Wahi request dobara bhejna jab tak model document qubool na kare",
       "Temperature barhana",
-      "Deployment ka naam badalna",
-      "Error pakar kar user se input chhota karne ko kehna, ya bhejne se pehle text ko kaatna ya us ka khulasa karna"
+      "Deployment ka naam badal kar request phir bhejna",
+      "Error pakar kar bhejne se pehle text chhota karna"
     ],
     "exp": "Context window se bari requests nakaam hoti hain, is liye client ko error sambhal kar input kam karna chahiye, maslan user se keh kar, kaat kar, chunks bana kar ya khulasa kar ke. Wahi request dobara bhejne se phir nakaam hogi, aur temperature ya deployment ke naam had nahi badalte."
   },
@@ -126,8 +126,8 @@
   "D2-584": {
     "q": "Production mein ek chat client ko kabhi kabhi 500 ya 503 server errors milti hain. Usay kya karna chahiye?",
     "opts": [
-      "In aarzi errors par backoff ke saath dobara koshish karna, aur jari rahein to dostana message dikhana",
-      "Deployment delete karna",
+      "Backoff ke saath dobara koshish aur message dikhana",
+      "Deployment delete kar ke dobara banana",
       "Logging band karna",
       "Users se kehna ke page refresh karte rahein"
     ],
@@ -163,8 +163,8 @@
     "opts": [
       "Agent ki instructions hatana",
       "Temperature barhana",
-      "Agent ko mazeed tools dena",
-      "Lazmi karna ke send_email call karne se pehle agent user se recipient ki tasdeeq kare"
+      "Agent ko addresses dhoondne ke mazeed tools dena",
+      "Agent ke liye lazmi karna ke user se recipient ki tasdeeq kare"
     ],
     "exp": "Hassas amal se pehle tasdeeq ka qadam, jo instructions mein likha ho ya approval ke taur par lagu ho, aisi ghaltiyan rokta hai jinhein wapas karna mushkil hota hai. Instructions hatana, randomness barhana ya ghair mutalliqa tools dena ghalat emails ka imkan barhata."
   },

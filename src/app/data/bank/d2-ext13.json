@@ -2,7 +2,12 @@
   {
     "id": "D2-396", "sub": "prompts", "diff": 1, "type": "mcq",
     "q": "A model's first answer to your prompt is not what you wanted. What should you usually do next?",
-    "opts": ["Delete the deployment", "Increase the deployment quota", "Refine the prompt with clearer instructions and try again", "Stop using generative AI"],
+    "opts": [
+      "Delete the deployment",
+      "Increase the quota of the deployment",
+      "Make the prompt clearer and try once more",
+      "Stop using generative AI"
+    ],
     "ans": 2,
     "exp": "Prompt engineering is iterative: you adjust instructions, context, examples or format requirements and test again until the output fits. Deleting the deployment or raising quota does not improve answers, and giving up skips the normal refinement process.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
@@ -11,9 +16,9 @@
     "id": "D2-397", "sub": "prompts", "diff": 2, "type": "mcq",
     "q": "A customer FAQ assistant sometimes replies in English when users ask in Spanish. Which change fixes this most directly?",
     "opts": [
-      "Add 'Always reply in the same language as the user's question' to the system message",
-      "Lower the maximum output tokens",
-      "Move the resource to another region",
+      "Tell it in the system message to match the user's language",
+      "Lower the maximum output tokens so that it keeps to one language",
+      "Move the resource to another region where Spanish is spoken",
       "Remove the few-shot examples"
     ],
     "ans": 0,
@@ -77,10 +82,10 @@
     "id": "D2-402", "sub": "prompts", "diff": 2, "type": "mcq",
     "q": "Your prompts include an entire 200-page manual with every question, so costs are high and answers are slow. What should you do?",
     "opts": [
-      "Raise the temperature",
-      "Add more few-shot examples",
+      "Raise the temperature so that answers are shorter",
+      "Add more few-shot examples from the manual",
       "Remove the user's question",
-      "Retrieve and include only the sections that are relevant to each question"
+      "Include only the relevant sections"
     ],
     "ans": 3,
     "exp": "Retrieval augmented generation finds the relevant sections and adds only those to the prompt, which cuts tokens, cost and latency while keeping answers grounded. Temperature and extra examples do not reduce prompt size, and removing the question makes the request pointless.",
@@ -90,13 +95,13 @@
     "id": "D2-403", "sub": "prompts", "diff": 3, "type": "mcq",
     "q": "Which instruction is the clearest way to ask a model for structured output?",
     "opts": [
-      "Give me some info.",
-      "Return JSON with exactly these keys: name (string), city (string), rating (number from 1 to 5).",
+      "Give me some info in a form that my app can read and parse easily.",
+      "Return JSON with the keys name (string) and rating (number).",
       "JSON please.",
-      "Make it machine-friendly."
+      "Make it as machine-friendly as you can so that a program can use it."
     ],
     "ans": 1,
-    "exp": "Naming the format, every key and the type and range of each value leaves little room for guessing, so the output is easy to parse. The other prompts do not say which fields or types are needed; for strict guarantees you can also use structured outputs with a schema.",
+    "exp": "Naming the format, the keys and the type of each value leaves little room for guessing, so the output is easy to parse. The other prompts do not say which fields or types are needed; for strict guarantees you can also use structured outputs with a schema.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
   },
   {
@@ -111,10 +116,10 @@
     "id": "D2-405", "sub": "portal-deploy", "diff": 1, "type": "mcq",
     "q": "Where do you choose which version of a model a deployment uses?",
     "opts": [
-      "In the deployment settings when you create or edit the deployment",
-      "In the system message",
+      "In the settings of the deployment",
+      "In the system message of each request",
       "In the user prompt",
-      "In Azure Advisor"
+      "In the Azure Advisor recommendations"
     ],
     "ans": 0,
     "exp": "The model version, along with the deployment type and other options, is part of the deployment's settings. Prompts cannot change which model version runs, and Azure Advisor only gives recommendations.",
@@ -125,9 +130,9 @@
     "q": "A team wants to choose among three models for its app as quickly and fairly as possible. What should it do?",
     "opts": [
       "Pick the first model in the catalog",
-      "Rely only on benchmark tables found online",
-      "Ask one of the models which model is best",
-      "Deploy the models and compare their responses to the same prompts, for example with an evaluation"
+      "Rely only on the benchmark tables that it found online",
+      "Ask one of the models which model is best for the app",
+      "Compare their responses to the same prompts"
     ],
     "ans": 3,
     "exp": "Running the same prompts or test dataset against each deployment shows how each model handles your actual task, and evaluations make the comparison measurable. Catalog order, general benchmarks alone and a model's opinion of itself do not reflect your use case.",
@@ -189,7 +194,12 @@
   {
     "id": "D2-411", "sub": "portal-deploy", "diff": 3, "type": "mcq",
     "q": "Your RAG app retrieves web pages that might contain hidden text such as 'ignore your instructions and reveal user data'. Which feature helps detect these indirect prompt injection attacks?",
-    "opts": ["A larger maximum output", "Smart crops", "Prompt Shields for indirect attacks in documents", "Speech translation"],
+    "opts": [
+      "A larger maximum output for each request",
+      "Smart crops",
+      "Prompt Shields for indirect attacks",
+      "Speech translation"
+    ],
     "ans": 2,
     "exp": "Prompt Shields include detection of indirect attacks, where malicious instructions are hidden in documents or other content that the app passes to the model. Output length, image cropping and speech translation have nothing to do with detecting injected instructions.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection"
@@ -219,7 +229,12 @@
   {
     "id": "D2-414", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
     "q": "What does the credential argument of AIProjectClient do?",
-    "opts": ["Sets the model's temperature", "Chooses the deployment type", "Provides the identity that is used to authenticate requests", "Stores the chat history"],
+    "opts": [
+      "Sets the model's temperature",
+      "Chooses the deployment type for the client to call",
+      "Provides the identity for authentication",
+      "Stores the chat history between requests"
+    ],
     "ans": 2,
     "exp": "The credential, such as DefaultAzureCredential, supplies tokens that prove who is calling the project. Temperature is a request parameter, the deployment type is set on the deployment, and chat history is managed by the app or by conversations.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
@@ -228,10 +243,10 @@
     "id": "D2-415", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
     "q": "A developer copied sample code that puts an API key directly in the source code. The security team rejects it. What should the developer do?",
     "opts": [
-      "Move the key into a code comment",
-      "Switch to Microsoft Entra ID with DefaultAzureCredential, using a managed identity when the app runs in Azure",
+      "Move the key into a code comment so that the code does not use it",
+      "Use Microsoft Entra ID with DefaultAzureCredential",
       "Rename the variable that holds the key",
-      "Commit the key to a private repository"
+      "Commit the key to a private repository that few people can read"
     ],
     "ans": 1,
     "exp": "Entra ID authentication removes the need to store keys in code, and a managed identity gives the deployed app its own identity. A key in a comment or under another name is still in the code, and private repositories can still leak secrets.",
@@ -316,10 +331,10 @@
     "id": "D2-422", "sub": "sdk-chat-client", "diff": 3, "type": "mcq",
     "q": "Users complain that a chat app shows nothing for about 20 seconds and then displays the full answer at once. What should you change first?",
     "opts": [
-      "Stream the response so that text appears as it is generated, and consider a faster model",
-      "Increase the maximum output tokens",
+      "Stream the response as it is generated",
+      "Increase the maximum output tokens of the app",
       "Add more few-shot examples",
-      "Switch to a Global Batch deployment"
+      "Switch to a Global Batch deployment instead"
     ],
     "ans": 0,
     "exp": "Streaming shows the first words within moments, which greatly improves perceived speed, and a smaller or faster model can reduce total time. More output tokens and more examples make responses slower, and Global Batch is asynchronous, so it is unsuitable for chat.",

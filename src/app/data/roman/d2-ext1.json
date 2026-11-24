@@ -52,8 +52,8 @@
   "D2-039": {
     "q": "Client app agent ko kai messages bhejne se pehle conversation kyun banati hai?",
     "opts": [
-      "Taake agent pehle wale turns ki history rakhe aur follow-up sawalon ke jawab de sake",
-      "Model ka naya version deploy karne ke liye",
+      "Taake agent agle sawalon ke liye pehle ki history yaad rakhe",
+      "Har user ke liye model ka naya version deploy karne ke liye",
       "Deployment ka quota barhane ke liye",
       "API keys mehfooz rakhne ke liye"
     ],
@@ -73,7 +73,7 @@
   },
   "D2-041": {
     "q": "Ek Python app ko Azure Language in Foundry Tools se customer reviews ka sentiment maloom karna hai. Kaunsi client class istemal karni chahiye?",
-    "opts": [null, null, "azure-ai-textanalytics ki TextAnalyticsClient", null],
+    "opts": [null, null, null, null],
     "exp": "azure-ai-textanalytics package ki TextAnalyticsClient sentiment analysis, key phrase extraction, entity recognition aur PII detection jaise Azure Language features call karti hai. SpeechRecognizer Speech SDK ka hissa hai, BlobServiceClient Blob Storage ke saath kaam karti hai, aur ImageAnalysisClient images ka jaiza leti hai, is liye koi bhi review text ka jaiza nahi leti."
   },
   "D2-042": {
@@ -83,16 +83,21 @@
   "D2-043": {
     "q": "Ek developer chahta hai ke Language service ke bajaye deploy kiya hua GPT model chhote messages ka sentiment classify kare. Kaunsa bayan sahi hai?",
     "opts": [
-      "Aap model ko prompt de sakte hain ke sentiment muqarrar format mein de, jaise label wala JSON object",
+      "Aap model se JSON object mein label maang sakte hain",
       "Generative models text ka jaiza nahi le sakte",
       "Sirf speech models sentiment pehchan sakte hain",
-      "Generative model se sentiment analysis ke liye image input chahiye"
+      "Generative model se sentiment analysis ke liye image input bhi chahiye"
     ],
     "exp": "Generative language models text analysis ke kaam, jaise sentiment, ahem mauzu ya khulase, kar sakte hain jab aap prompt mein kaam aur output format bayan karein, maslan label field wala JSON. Language service tay shuda, wazeh outputs aur scores deti hai, jab ke model zyada lachak deta hai. Generative models text ka jaiza lete hain, aur sentiment ke liye speech ya image input zaroori nahi."
   },
   "D2-044": {
     "q": "Help app ke users awaaz se sawal poochte hain, aur ek hi deploy kiye hue model ko audio seedhi samajhni hai. Aap ko kya deploy karna chahiye?",
-    "opts": ["Embedding model", "Image-generation model", "Sirf text wala chat model", "Audio input lene wala multimodal model"],
+    "opts": [
+      "Embedding model",
+      "Voice styles wala image-generation model",
+      "Sirf text wala chat model",
+      "Multimodal chat model jo audio input leta hai"
+    ],
     "exp": "Audio support wala multimodal model boli hui audio ko input ke taur par le kar jawab de sakta hai, is liye sawal samajhne ke liye alag speech service nahi chahiye. Embedding models vectors dete hain, image-generation models tasveerein banate hain, aur sirf text wala chat model audio input nahi le sakta."
   },
   "D2-045": {
@@ -107,10 +112,10 @@
   "D2-046": {
     "q": "Voice assistant ka design A speech to text, text model aur text to speech ko silsile mein jorta hai. Design B audio lene wala ek multimodal model istemal karta hai. Design B ka asal faida kya hai?",
     "opts": [
-      "Usay koi deployment nahi chahiye",
-      "Model audio ko seedha sambhalta hai, is liye jorne ke liye services kam hoti hain aur aam taur par der bhi kam hoti hai",
+      "Kisi deployment ki zaroorat nahi, kyunke audio app mein hi rehti hai",
+      "Ek model audio sambhalta hai, is liye aam taur par der kam hoti hai",
       "Woh hamesha muft hota hai",
-      "Woh kisi authentication ke baghair chalta hai"
+      "Authentication ke baghair chalta hai, kyunke audio public data hoti hai"
     ],
     "exp": "Ek audio wala multimodal model alag transcription aur synthesis ke qadam khatam kar deta hai, jis se app aasan hoti hai aur aam taur par latency kam hoti hai; model audio ki apni maloomat bhi istemal kar sakta hai. Model ko phir bhi deploy karna parta hai, istemal ka bill aata hai, aur calls ko authentication chahiye, is liye baqi bayan ghalat hain."
   },
@@ -141,8 +146,8 @@
     "q": "Vision wale model ko chat request mein photo kaise shamil karte hain taake model us ke baare mein sawalon ke jawab de sake?",
     "opts": [
       "Tasveer ko deployment ke naam mein rakh kar",
-      "User message ke content mein image item, URL ya base64 data URL ke saath, shamil kar ke",
-      "Tasveer ko maximum response tokens ki value bana kar",
+      "User ke message mein URL ya base64 data URL wala image part shamil karna",
+      "Image ko request ki maximum response tokens value ke taur par set karna",
       "Chat models ko tasveerein nahi bheji ja saktin"
     ],
     "exp": "Vision wale chat models aisa user message lete hain jis ka content hisson ki list ho: sawal ke liye text part aur image part jo image URL ki taraf ishara kare ya base64 data URL rakhe. Deployment ka naam sirf model chunta hai aur max tokens output ki lambai mehdood karta hai, is liye dono mein tasveer nahi hoti, aur vision models tasveerein lete hain."
@@ -167,9 +172,9 @@
   "D2-055": {
     "q": "Image-generation request fail hoti hai, aur error kehta hai ke prompt ne content policy ki khilaf-warzi ki. Aap ko kya karna chahiye?",
     "opts": [
-      "Deployment ka quota barhayein",
-      "Tasveer ka bara size maangein",
-      "Prompt ke alfaz badlein, kyunke content filter ne usay block kiya",
+      "Deployment ka quota barha kar dobara koshish karna",
+      "Usi prompt ke liye bari image size maangna",
+      "Filter ka block kiya hua prompt badal kar likhna",
       "Project endpoint badlein"
     ],
     "exp": "Image-generation deployments content filters istemal karti hain, aur jab prompt nuqsan deh qarar paye to request content policy error ke saath reject hoti hai. Masle wala content hatane ke liye alfaz badalna isay theek karta hai. Quota ke errors 429 dete hain, tasveer ka size content filtering par asar nahi dalta, aur ghalat endpoint se prompt jo bhi ho har call fail hoti."
@@ -180,7 +185,7 @@
       "Sirf text prompt se bilkul nayi tasveer banayein",
       "Photo par OCR chalayein",
       "Photo par object detection chalayein",
-      "Image editing istemal karein: asal tasveer, badalne wale hisse ka mask, aur text prompt"
+      "Image editing aur aisa mask jo sirf background par nishan lagaye"
     ],
     "exp": "Image editing, jise kabhi inpainting kehte hain, asal tasveer, badalne wale hisse ka mask aur naye content ka prompt leta hai, is liye sirf mask wala background dobara banta hai. Sirf text se nayi tasveer product ko bilkul wahi nahi rakhti. OCR text parhta hai aur object detection cheezein dhoondta hai; dono tasveer nahi badalte."
   },
@@ -217,7 +222,7 @@
     "q": "Azure Content Understanding in Foundry Tools mein analyzer kya tay karta hai?",
     "opts": [
       "Files process karne wali virtual machine ka size",
-      "Content kaise process hota hai, jin mein content extraction settings, field schema aur model deployments shamil hain",
+      "Content kaise process ho, field schema samet",
       "Resource ke firewall rules",
       "Subscription ka billing plan"
     ],
@@ -233,7 +238,7 @@
   },
   "D2-064": {
     "q": "Chart ki tasveeron ke analyzer ko chart_type naam ka field chahiye jis ki value bar, line ya pie hi ho. Kaunsa field method istemal karna chahiye?",
-    "opts": [null, null, null, "Classify, ijazat yafta categories ki list ke saath"],
+    "opts": [null, null, null, null],
     "exp": "classify method pehle se muqarrar categories, jaise bar, line ya pie, mein se value deta hai, jis se ijazat yafta values mein se ek ki guarantee hoti hai. Extract text ko jaisa hai waisa deta hai aur sirf documents ke liye hai, aur generate khuli values banata hai jo list tak mehdood nahi. Redact Content Understanding ka field method nahi."
   },
   "D2-065": {
@@ -278,8 +283,8 @@
     "opts": [
       "Pehle response ki body se foran aakhri fields parhein",
       "Nateeja bolne ke liye Speech SDK call karein",
-      "Response mein mile hue operation URL ko tab tak poll karein jab tak status succeeded na ho, phir nateeja parhein",
-      "Analyzer delete kar ke dobara banayein"
+      "Operation URL ko kamyab hone tak poll karna, phir nateeja parhna",
+      "Nateeja dobara parhne se pehle analyzer delete kar ke phir banana"
     ],
     "exp": "analyze request lamba chalne wala operation shuru karti hai aur Operation-Location URL deti hai. App us URL ko tab tak poll karti hai jab tak status dikhaye ke analysis kamyab hua, phir woh nateeja parhti hai jis mein content aur fields hote hain. Pehle response mein aakhri fields nahi hote, speech synthesis ka is se taalluq nahi, aur analyzer dobara banane se nateeje nahi milte."
   },

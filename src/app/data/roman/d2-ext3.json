@@ -1,20 +1,20 @@
 {
   "D2-101": {
     "q": "Code likhe baghair aap ek single agent kahan bana kar test karte hain?",
-    "opts": [null, "Foundry portal ka Agents wala hissa", null, "Azure pricing calculator"],
+    "opts": [null, "Foundry portal mein project ka Agents wala hissa", null, "Azure website par pricing calculator"],
     "exp": "Foundry portal mein aap apna project kholte, Agents wale hisse mein ja kar Create agent chunte, usay model, instructions aur tools dete, aur wahin chat kar ke test karte hain. Azure Monitor metrics dikhata hai, Storage Explorer storage ka data sambhalta hai, aur pricing calculator kharche ka andaza lagata hai; koi bhi agents banata ya test nahi karta."
   },
   "D2-102": {
     "q": "Agent ke sawalon ka jawab dene se pehle aap ke Foundry project mein kaunsa resource pehle se maujood hona chahiye?",
-    "opts": ["Agent ke istemal ke liye deploy kiya hua model", "Virtual machine", "SQL database", "Custom domain name"],
+    "opts": ["Deploy kiya hua model", "Virtual machine", "SQL database", "Custom domain name"],
     "exp": "Agent sochne aur jawab dene ke liye deploy kiya hua model istemal karta hai, is liye agent banate waqt model deployment, ya project ka koi aur supported model option, dastiyab hona chahiye. Foundry ke agents managed service hain, is liye virtual machine nahi chahiye, aur database ya custom domain sirf tab chahiye jab aap ka solution khaas taur par unhein istemal kare."
   },
   "D2-103": {
     "q": "Aap ne agent ke liye HR policy files upload kin, lekin woh policies ke bajaye aam maloomat se jawab deta hai. Sab se mumkina wajah kya hai?",
     "opts": [
       "Temperature bohat kam hai",
-      "Agent ka naam bohat lamba hai",
-      "Agent mein file search tool shamil nahi, ya files us se attach nahi",
+      "Agent ka naam policies se milne ke liye bohat lamba hai",
+      "File search tool maujood nahi ya us ke saath files nahi",
       "Model bohat naya hai"
     ],
     "exp": "Agent aap ke documents mein tabhi talash kar sakta hai jab file search tool on ho aur files us se attach hon, maslan us ke vector store mein. Warna woh model ki aam maloomat se jawab deta hai. Temperature randomness par asar dalta hai, aur agent ka naam ya model ka naya hona files istemal karne se nahi rokta."
@@ -55,9 +55,9 @@
   "D2-109": {
     "q": "Client app agent ko bheje jane wale har message ke liye nayi conversation banati hai, is liye agent pehle ki baat bhool jata hai. Isay kaise theek karein?",
     "opts": [
-      "Conversation ek baar banayein aur har request ke saath wahi conversation ID dein",
-      "Maximum output tokens barhayein",
-      "Har message ke liye agent ka naya version banayein",
+      "Har request ke liye ek hi conversation ID istemal karna",
+      "Har jawab ke maximum output tokens barhana",
+      "Har message ke liye agent ka naya version banana taake woh yaad rakhe",
       "Temperature barhayein"
     ],
     "exp": "Conversation history rakhti hai, is liye client ko har chat session mein usay ek baar bana kar us ki ID har responses.create() call mein dobara istemal karni chahiye. Output tokens aur temperature yaad-dasht par asar nahi dalte, aur agent ke naye versions history rakhne ke bajaye us ki definition badalte hain."
@@ -76,7 +76,7 @@
   },
   "D2-113": {
     "q": "Ek Python app ko support tickets zaati data chupa kar save karne hain. Kaunsi TextAnalyticsClient call istemal karni chahiye?",
-    "opts": [null, null, null, "recognize_pii_entities, phir har nateeje ka redacted_text save karna"],
+    "opts": [null, null, "opinion mining ke saath analyze_sentiment", null],
     "exp": "recognize_pii_entities phone numbers, emails aur ID numbers jaisa zaati data dhoondta hai, aur har nateeje mein redacted_text hota hai jis mein woh values chupi hoti hain aur jise app save kar sakti hai. Key phrases, language detection aur sentiment zaati data nahi dhoondte na chupate."
   },
   "D2-114": {
@@ -91,10 +91,10 @@
   "D2-115": {
     "q": "App record kiya hua sawal audio wale chat model ko kaise bhejti hai?",
     "opts": [
-      "Video website ke link ki soorat mein",
-      "Message ke content mein base64-encoded audio data ki soorat mein, us ke format jaise wav ke saath",
-      "Sound wave ki tasveer ki soorat mein",
-      "Sirf chhape hue transcript ki soorat mein"
+      "Video website ke link ki soorat mein jo user ko dikhaye",
+      "Message mein base64-encoded audio data ki soorat mein",
+      "Sawal ki awaaz ki lehar ki tasveer ki soorat mein",
+      "Sirf chhape hue transcript ki soorat mein, audio ke baghair"
     ],
     "exp": "Audio wale models user message mein audio content part lete hain: app recording parhti hai, usay base64 mein encode karti hai aur us ka format, jaise wav ya mp3, batati hai. Video sites ke links aur waveform ki tasveerein audio input nahi, aur chhapa transcript text hai, jis ke liye audio model ki zaroorat nahi."
   },
@@ -103,8 +103,8 @@
     "opts": [
       "Kam temperature",
       "Stop sequence",
-      "Output modalities jin mein audio ho, voice aur audio format ke saath",
-      "Zyada top P"
+      "Audio output modality aur ek awaaz",
+      "Zyada top P, saath mein zyada lambi maximum had"
     ],
     "exp": "Audio wale chat models mein aap output modalities jaise text aur audio, voice aur audio format ke saath, maang sakte hain, taake response mein speech shamil ho. Temperature aur top P randomness badalte hain, aur stop sequence nishan par output khatam karta hai; koi bhi model se bulwata nahi."
   },
@@ -142,9 +142,9 @@
     "q": "Ek driver dashboard ki warning light ki photo upload kar ke poochta hai ke is ka kya matlab hai. App jawab kaise hasil kare?",
     "opts": [
       "Sawal ko speech mein badle",
-      "Sawal ki embedding banaye",
-      "Photo aur sawal dono vision wale chat model ko ek saath bheje",
-      "Sawal par key phrase extraction chalaye"
+      "Sawal aur gaari ki embedding banana aur milana",
+      "Tasveer aur sawal ek hi request mein bhejna",
+      "Sawal par key phrase extraction chala kar talash karna"
     ],
     "exp": "Vision wala chat model ek hi request mein tasveer aur sawal dekh kar samjha sakta hai ke usay kya nazar aa raha hai. Speech synthesis sirf text parh kar sunata hai, embedding vector deta hai, aur key phrase extraction text ke mauzu batata hai; koi bhi photo nahi samajhta."
   },
@@ -156,9 +156,9 @@
     "q": "Aap ki app vision wale model ko bohat se chhote product thumbnails bhejti hai aur chahti hai ke har tasveer kam tokens istemal kare. Tasveer ki kaunsi setting badalni chahiye?",
     "opts": [
       "Temperature ko 0 karein",
-      "Max tokens barhayein",
+      "Jawab ke max tokens barhana",
       "Stop sequence shamil karein",
-      "Image detail level ko low karein"
+      "Har thumbnail ki image detail ko low karna"
     ],
     "exp": "Image input ki detail setting control karti hai ke model usay kaise process kare: low detail kam aur muqarrar tokens leta hai, jab ke high detail tasveer ko zyada resolution par process karta aur mehnga parta hai. Temperature, max tokens aur stop sequences text output badalte hain, tasveer ke tokens nahi."
   },
@@ -173,14 +173,14 @@
   },
   "D2-125": {
     "q": "Design team aakhri versions se pehle gpt-image-1 se jaldi aur saste draft images chahti hai. Kaunsa parameter badalna chahiye?",
-    "opts": [null, "quality ko low karna", null, null],
+    "opts": [null, null, null, null],
     "exp": "gpt-image-1 ka quality parameter, jis ki values low, medium aur high jaisi hain, tafseel ke badle raftar aur kharcha bachata hai, is liye low quality jaldi drafts ke liye munasib hai. temperature, top_p aur max_tokens text generation ki settings hain aur tasveer ki quality control nahi kartin."
   },
   "D2-126": {
     "q": "Ek brand ko aisi marketing tasveerein chahiye jin mein us ke logo ka text bilkul sahi ho. Bani hui tasveeron mein kabhi kabhi spelling ghalat ho jati hai. Behtareen tareeqa kya hai?",
     "opts": [
       "Bane hue text par bharosa karein aur tasveerein seedhi shaya kar dein",
-      "Manzar banayein, usay review karein, aur asal logo alag editing ke qadam mein lagayein",
+      "Manzar banana aur asal logo editing ke qadam mein lagana",
       "Logo banane ke liye OCR istemal karein",
       "Text theek karne ke liye speech synthesis istemal karein"
     ],
@@ -219,8 +219,8 @@
   "D2-131": {
     "q": "Azure Content Understanding mein prebuilt analyzer kya hai?",
     "opts": [
-      "Documents process karne wala GPU",
-      "Aam scenario, jaise invoices, ke liye tayyar analyzer jise aap apna schema banaye baghair istemal kar sakte hain",
+      "GPU jo background mein documents process karta hai",
+      "Aam scenario ke liye bana banaya analyzer",
       "Resource ka firewall rule",
       "Scan ki hui files ke liye storage tier"
     ],
@@ -228,12 +228,17 @@
   },
   "D2-132": {
     "q": "Azure Content Understanding kis kis qism ka input process kar sakta hai?",
-    "opts": ["Sirf PDF files", "Sirf saada text", "Sirf tasveerein", "Documents, tasveerein, audio aur video"],
+    "opts": [
+      "Sirf PDF files aur scan kiye hue pages",
+      "Sirf saada text",
+      "Sirf tasveerein",
+      "Documents, tasveerein, audio aur video"
+    ],
     "exp": "Content Understanding multimodal hai: woh documents, images, audio aur video process kar ke unhein Markdown aur fields jaisa structured output banata hai. Woh ek file type tak mehdood nahi, isi liye ek service forms, photos, call recordings aur video sambhal sakti hai."
   },
   "D2-133": {
     "q": "Aap chahte hain ke Content Understanding lambi training video ke har scene ka alag jaiza le. Kaunsi capability istemal karni chahiye?",
-    "opts": ["Video ki segmentation mantiqi hisson mein", null, null, null],
+    "opts": [null, null, null, null],
     "exp": "Segmentation content ko mantiqi hisson, jaise video ke scenes, mein torti hai, taake har hisse ke fields aur tafseelat banayi ja sakein. Speech synthesis audio banata hai, Prompt Shields prompt attacks pakarte hain, aur text translation text ki zaban badalta hai; koi bhi video ko scenes mein nahi torta."
   },
   "D2-134": {
@@ -249,10 +254,10 @@
   "D2-135": {
     "q": "Ek automated claims process Content Understanding istemal karta hai. Field ko review ke liye insan ke paas kab bhejna chahiye?",
     "opts": [
-      "Hamesha, har field ko",
-      "Kabhi nahi, kyunke nateeje hamesha sahi hote hain",
-      "Jab field ka confidence score aap ki chuni hui hadd se kam ho",
-      "Sirf jab file PDF ho"
+      "Hamesha, har us field ke liye jo analyzer claim se de",
+      "Kabhi nahi, kyunke service ke nateeje hamesha sahi hote hain",
+      "Jab us ka confidence score aap ki had se kam ho",
+      "Sirf jab file haath ki likhai wali PDF ho"
     ],
     "exp": "0 se 1 ke confidence scores se aap zyada confidence wali values khud process kar sakte hain aur kam confidence wali values insani review mein bhej sakte hain, jis se quality bhi rehti hai aur haath ka kaam bhi kam hota hai. Har field review karne se automation ka faida khatam hota hai, nateeje hamesha sahi nahi hote, aur sirf file type se value ka bharosa pata nahi chalta."
   },
@@ -285,8 +290,8 @@
   "D2-139": {
     "q": "Ek app ko invoices, contracts aur receipts ka mila jula batch milta hai aur har qism se mukhtalif fields nikalne hain. Usay pehle kya karna chahiye?",
     "opts": [
-      "Har document ko qism ke hisaab se classify kar ke us ke mutabiq analyzer ko bhejna",
-      "Ek aam OCR qadam chala kar ruk jana",
+      "Har document ko qism ke mutabiq classify kar ke sahi analyzer ko bhejna",
+      "Poore batch par ek aam OCR qadam chala kar wahin ruk jana",
       "Speech translation istemal karna",
       "Har document ki nayi tasveer banana"
     ],

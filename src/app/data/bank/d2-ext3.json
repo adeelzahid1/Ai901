@@ -2,7 +2,12 @@
   {
     "id": "D2-101", "sub": "agent-portal", "diff": 1, "type": "mcq",
     "q": "Where do you create and test a single agent without writing code?",
-    "opts": ["Azure Monitor", "The Agents area of the Foundry portal", "Azure Storage Explorer", "The Azure pricing calculator"],
+    "opts": [
+      "Azure Monitor",
+      "The Agents area of the project in the Foundry portal",
+      "Azure Storage Explorer",
+      "The pricing calculator on the Azure website"
+    ],
     "ans": 1,
     "exp": "In the Foundry portal you open your project, go to the Agents area, select Create agent, give it a model, instructions and tools, and chat with it right there to test it. Azure Monitor shows metrics, Storage Explorer manages storage data, and the pricing calculator estimates cost; none of them build or test agents.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
@@ -10,7 +15,7 @@
   {
     "id": "D2-102", "sub": "agent-portal", "diff": 1, "type": "mcq",
     "q": "Which resource must already exist in your Foundry project before an agent can answer questions?",
-    "opts": ["A deployed model for the agent to use", "A virtual machine", "A SQL database", "A custom domain name"],
+    "opts": ["A deployed model", "A virtual machine", "A SQL database", "A custom domain name"],
     "ans": 0,
     "exp": "An agent uses a deployed model for its reasoning and responses, so a model deployment, or another model option your project supports, must be available when you create the agent. Agents in Foundry are a managed service, so you do not need a virtual machine, and a database or custom domain is only needed if your solution specifically uses one.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
@@ -20,8 +25,8 @@
     "q": "You uploaded HR policy files for an agent, but it answers from general knowledge instead of the policies. What is the most likely cause?",
     "opts": [
       "The temperature is too low",
-      "The agent's name is too long",
-      "The file search tool is not added to the agent, or the files are not attached to it",
+      "The agent's name is too long to match the policies",
+      "The file search tool is missing or has no files attached",
       "The model is too new"
     ],
     "ans": 2,
@@ -59,7 +64,7 @@
     "id": "D2-106", "sub": "agent-client", "diff": 2, "type": "mcq",
     "q": "In the current Foundry SDK for Python, which call returns a client that sends messages to an existing agent named order-helper?",
     "opts": [
-      "project.deployments.create()",
+      "project.deployments.create(name=\"order-helper\")",
       "openai.images.generate()",
       "project.agents.delete_version()",
       "project.get_openai_client(agent_name=\"order-helper\")"
@@ -98,9 +103,9 @@
     "id": "D2-109", "sub": "agent-client", "diff": 3, "type": "mcq",
     "q": "A client app creates a new conversation for every message it sends to an agent, so the agent forgets what was said before. How should you fix it?",
     "opts": [
-      "Create the conversation once and pass the same conversation ID with every request",
-      "Increase the maximum output tokens",
-      "Create a new agent version for each message",
+      "Reuse one conversation ID for every request",
+      "Increase the maximum output tokens per answer",
+      "Create a new agent version for each of the messages",
       "Raise the temperature"
     ],
     "ans": 0,
@@ -141,8 +146,8 @@
     "opts": [
       "extract_key_phrases",
       "detect_language",
-      "analyze_sentiment",
-      "recognize_pii_entities, and then store each result's redacted_text"
+      "analyze_sentiment with opinion mining",
+      "recognize_pii_entities"
     ],
     "ans": 3,
     "exp": "recognize_pii_entities finds personal data such as phone numbers, emails and ID numbers, and each result includes redacted_text with those values masked, which the app can store. Key phrases, language detection and sentiment do not find or mask personal data.",
@@ -164,10 +169,10 @@
     "id": "D2-115", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
     "q": "How does an app send a recorded question to an audio-capable chat model?",
     "opts": [
-      "As a link to a video website",
-      "As base64-encoded audio data in the message content, together with its format such as wav",
-      "As a picture of the sound wave",
-      "As a printed transcript only"
+      "As a link to a video website that shows the user",
+      "As base64-encoded audio data in the message",
+      "As a picture of the sound wave of the question",
+      "As a printed transcript only, without the audio"
     ],
     "ans": 1,
     "exp": "Audio-capable models accept an audio content part in the user message: the app reads the recording, encodes it as base64 and states its format, such as wav or mp3. Links to video sites and pictures of waveforms are not audio input, and a printed transcript is text, which would not need an audio model.",
@@ -179,8 +184,8 @@
     "opts": [
       "A lower temperature",
       "A stop sequence",
-      "Output modalities that include audio, with a voice and audio format",
-      "A higher top P"
+      "The audio output modality and a voice",
+      "A higher top P together with a longer maximum"
     ],
     "ans": 2,
     "exp": "Audio-capable chat models let you request output modalities such as text and audio, together with a voice and an audio format, so the response includes speech. Temperature and top P change randomness, and a stop sequence ends output at a marker; none of them make the model speak.",
@@ -240,9 +245,9 @@
     "q": "A driver uploads a photo of a dashboard warning light and asks what it means. How should the app get an answer?",
     "opts": [
       "Convert the question to speech",
-      "Create an embedding of the question",
-      "Send the photo and the question together to a vision-capable chat model",
-      "Run key phrase extraction on the question"
+      "Create an embedding of the question and of the car",
+      "Send the photo and the question in one request",
+      "Run key phrase extraction on the question and search"
     ],
     "ans": 2,
     "exp": "A vision-capable chat model can look at the image and the question in the same request and explain what it sees. Speech synthesis only reads text aloud, an embedding returns a vector, and key phrase extraction lists topics in text; none of them interpret the photo.",
@@ -263,7 +268,12 @@
   {
     "id": "D2-123", "sub": "visual-input", "diff": 2, "type": "mcq",
     "q": "Your app sends many small product thumbnails to a vision-capable model and wants to reduce the tokens each image uses. Which image setting should you change?",
-    "opts": ["Set temperature to 0", "Increase max tokens", "Add a stop sequence", "Set the image detail level to low"],
+    "opts": [
+      "Set temperature to 0",
+      "Increase the max tokens of the answer",
+      "Add a stop sequence",
+      "Set the image detail of each thumbnail to low"
+    ],
     "ans": 3,
     "exp": "The detail setting on an image input controls how the model processes it: low detail uses a small, fixed number of tokens, while high detail processes the image at higher resolution and costs more. Temperature, max tokens and stop sequences change the text output, not how many tokens the image consumes.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
@@ -283,7 +293,7 @@
   {
     "id": "D2-125", "sub": "image-generation", "diff": 2, "type": "mcq",
     "q": "A design team wants quick, low-cost draft images from gpt-image-1 before creating final versions. Which parameter should they adjust?",
-    "opts": ["temperature", "quality, set to low", "top_p", "max_tokens"],
+    "opts": ["temperature", "quality", "top_p", "max_tokens"],
     "ans": 1,
     "exp": "The quality parameter of gpt-image-1, with values such as low, medium and high, trades detail for speed and cost, so low quality suits quick drafts. temperature, top_p and max_tokens are text-generation settings and do not control image quality.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
@@ -293,7 +303,7 @@
     "q": "A brand wants marketing images that show its exact logo text. Generated images sometimes misspell the text. What is the best practice?",
     "opts": [
       "Trust the generated text and publish the images directly",
-      "Generate the scene, review it, and add the exact logo in a separate editing step",
+      "Generate the scene and add the exact logo in an editing step",
       "Use OCR to create the logo",
       "Use speech synthesis to fix the text"
     ],
@@ -350,10 +360,10 @@
     "id": "D2-131", "sub": "cu-documents", "diff": 1, "type": "mcq",
     "q": "In Azure Content Understanding, what is a prebuilt analyzer?",
     "opts": [
-      "A GPU that processes documents",
-      "A ready-made analyzer for a common scenario, such as invoices, that you can use without designing your own schema",
+      "A GPU that processes documents in the background",
+      "A ready-made analyzer for a common scenario",
       "A firewall rule for the resource",
-      "A storage tier for scanned files"
+      "A storage tier for files that have been scanned"
     ],
     "ans": 1,
     "exp": "Prebuilt analyzers are provided by the service for common scenarios, such as invoices, receipts or call analytics, so you can extract useful fields right away. You build a custom analyzer when you need your own fields. A prebuilt analyzer is not hardware, a network rule or a storage setting.",
@@ -362,7 +372,7 @@
   {
     "id": "D2-132", "sub": "cu-images", "diff": 1, "type": "mcq",
     "q": "Which kinds of input can Azure Content Understanding process?",
-    "opts": ["Only PDF files", "Only plain text", "Only images", "Documents, images, audio and video"],
+    "opts": ["Only PDF files and scanned pages", "Only plain text", "Only images", "Documents, images, audio and video"],
     "ans": 3,
     "exp": "Content Understanding is multimodal: it processes documents, images, audio and video and turns them into structured output such as Markdown and fields. It is not limited to a single file type, which is why one service can handle forms, photos, call recordings and video.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -370,7 +380,7 @@
   {
     "id": "D2-133", "sub": "cu-audio-video", "diff": 2, "type": "mcq",
     "q": "You need Content Understanding to analyze each scene of a long training video separately. Which capability should you use?",
-    "opts": ["Segmentation of the video into logical sections", "Speech synthesis", "Prompt Shields", "Text translation"],
+    "opts": ["Video segmentation", "Speech synthesis", "Prompt Shields", "Text translation"],
     "ans": 0,
     "exp": "Segmentation divides content into logical parts, such as scenes in a video, so fields and descriptions can be produced for each part. Speech synthesis creates audio, Prompt Shields detect prompt attacks, and text translation changes the language of text; none of them split a video into scenes.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -392,10 +402,10 @@
     "id": "D2-135", "sub": "cu-documents", "diff": 2, "type": "mcq",
     "q": "An automated claims process uses Content Understanding. When should a field be sent to a person for review?",
     "opts": [
-      "Always, for every field",
-      "Never, because results are always correct",
-      "When the field's confidence score is below a threshold that you choose",
-      "Only when the file is a PDF"
+      "Always, for every field that the analyzer returns from a claim",
+      "Never, because results from the service are always correct",
+      "When its confidence score is below your threshold",
+      "Only when the file is a PDF that contains handwriting"
     ],
     "ans": 2,
     "exp": "Confidence scores from 0 to 1 let you process high-confidence values automatically and route low-confidence values to human review, which keeps quality high while reducing manual work. Reviewing every field removes the benefit of automation, results are not always correct, and file type alone does not show whether a value is reliable.",
@@ -445,8 +455,8 @@
     "id": "D2-139", "sub": "cu-app", "diff": 3, "type": "mcq",
     "q": "An app receives a mixed batch of invoices, contracts and receipts and must extract different fields from each type. What should it do first?",
     "opts": [
-      "Classify each document by type and route it to the matching analyzer",
-      "Run one generic OCR step and stop",
+      "Classify each document by its type and route it to the right analyzer",
+      "Run one generic OCR step on the whole batch and stop there",
       "Use speech translation",
       "Generate a new image of each document"
     ],

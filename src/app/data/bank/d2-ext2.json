@@ -3,10 +3,10 @@
     "id": "D2-071", "sub": "prompts", "diff": 1, "type": "mcq",
     "q": "A model keeps answering in long paragraphs, but you need a table. What should you add to the prompt?",
     "opts": [
-      "A clear description of the output format, for example 'Return a table with the columns Product and Price'",
-      "A higher temperature",
+      "A description of the table and its columns",
+      "A higher temperature so that the layout changes",
       "The same question written in capital letters",
-      "Nothing; models cannot produce tables"
+      "Nothing; models cannot produce tables in answers"
     ],
     "ans": 0,
     "exp": "Stating the exact output format is one of the most effective prompt techniques: the model follows explicit instructions about structure, such as a table with named columns. Temperature only changes randomness, capital letters do not add information, and language models can produce tables, lists, JSON and other formats when asked.",
@@ -26,7 +26,7 @@
     "opts": [
       "It increases the deployment's quota",
       "It gives the model access to live flight prices",
-      "It sets the role, expertise and tone that the model uses in its answers",
+      "It sets the role, expertise and tone of the answers",
       "It changes the model version"
     ],
     "ans": 2,
@@ -40,7 +40,7 @@
       "Paste the document text into the system message as extra instructions",
       "Raise the temperature",
       "Remove the system message",
-      "Put the document text between clear delimiters and instruct the model to treat it as information, not as instructions"
+      "Put it between delimiters and tell the model it is only information"
     ],
     "ans": 3,
     "exp": "Separating untrusted content with delimiters and telling the model that this content is data, not instructions, reduces the risk of indirect prompt injection; services such as Prompt Shields add another layer of protection. Putting the documents in the system message gives them more authority, a higher temperature adds randomness, and removing the system message removes your own rules.",
@@ -103,10 +103,10 @@
     "id": "D2-079", "sub": "prompts", "diff": 3, "type": "mcq",
     "q": "A long prompt ends with many pasted documents. The model sometimes ignores the instruction 'Answer in Spanish', which appears only once near the start. What is the best fix?",
     "opts": [
-      "State the instruction clearly in the system message and repeat it at the end of the prompt",
+      "Put it in the system message and repeat it at the end",
       "Raise the temperature",
-      "Delete all the documents",
-      "Write the whole prompt in capital letters"
+      "Delete all the documents and send the question on its own",
+      "Write the whole prompt in capital letters so that it stands out"
     ],
     "ans": 0,
     "exp": "With long prompts, models can give more weight to text near the end, so repeating key instructions after the content, and keeping them in the system message, makes the model more likely to follow them. A higher temperature adds randomness, deleting the documents removes needed context, and capital letters do not make an instruction clearer.",
@@ -159,7 +159,7 @@
     "opts": [
       "Spelling, grammar and tone",
       "Cost, latency and quota",
-      "Images, audio and video",
+      "Images, audio, video and documents",
       "Hate, sexual, violence and self-harm"
     ],
     "ans": 3,
@@ -196,10 +196,10 @@
     "id": "D2-087", "sub": "portal-deploy", "diff": 3, "type": "mcq",
     "q": "Your deployment needs more tokens per minute, but your subscription's quota for that model in the region is fully assigned to an old test deployment that you no longer need. What should you do?",
     "opts": [
-      "Lower or delete the old deployment's allocation and assign the freed quota to the deployment that needs it",
-      "Create a new subscription for every request",
-      "Increase the temperature",
-      "Shorten the model's context window"
+      "Move the old deployment's quota to the new deployment",
+      "Create a new subscription for every request that is rejected",
+      "Increase the temperature of the old deployment before you delete it",
+      "Shorten the context window of the model in the new deployment"
     ],
     "ans": 0,
     "exp": "Quota is assigned per subscription, region and model, and each deployment receives part of it. Reducing or removing an unused deployment frees tokens per minute that you can give to another deployment, or you can request a quota increase. Temperature and context window do not change quota, and creating subscriptions per request is not a sensible approach.",
@@ -274,7 +274,7 @@
       "Raise the maximum output tokens",
       "Create a new deployment for each turn",
       "Set the temperature to 0",
-      "Pass previous_response_id with the id of the earlier response"
+      "Pass the previous_response_id"
     ],
     "ans": 3,
     "exp": "The Responses API can keep conversation state on the service: passing previous_response_id links the new request to the earlier response so the model sees the context. Max tokens and temperature control output length and randomness, and a new deployment per turn would lose context and waste resources.",
@@ -307,7 +307,7 @@
     "opts": [
       "Retry immediately in a tight loop until it succeeds",
       "Show an empty answer and ignore the error",
-      "Wait and retry with exponential backoff, respecting any retry-after value",
+      "Wait and retry with exponential backoff",
       "Send the request to a random URL"
     ],
     "ans": 2,

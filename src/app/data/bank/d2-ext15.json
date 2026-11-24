@@ -4,7 +4,7 @@
     "q": "Which request can a vision-capable chat model handle when it is given a photo of a shop receipt?",
     "opts": [
       "What is the total, and which store issued this receipt?",
-      "Read the receipt aloud in a new synthetic voice",
+      "Read the receipt aloud in a new synthetic voice for the user",
       "Generate a new receipt image",
       "Change the color of the receipt paper"
     ],
@@ -52,9 +52,9 @@
     "q": "What do you need in Microsoft Foundry before your app can generate images?",
     "opts": [
       "A deployment of an embedding model",
-      "Only a Speech resource",
+      "Only a Speech resource with a neural voice",
       "Only a Language resource",
-      "A deployment of an image-generation model, such as gpt-image-1"
+      "A deployment of an image model"
     ],
     "ans": 3,
     "exp": "Images are created by an image-generation model, so you need a deployment of one, such as gpt-image-1, to call from your app or the images playground. Embedding models, Speech and Language do not create images.",
@@ -65,10 +65,10 @@
     "ctx": "A children's storybook app generates illustrations from short story descriptions. Images must never be scary or violent.",
     "q": "Which approach fits best?",
     "opts": [
-      "Keep content filters on with strict settings, add style rules to every prompt and review images before publishing",
-      "Turn off content filters to allow more creativity",
-      "Always use the highest quality setting",
-      "Let children send any prompt with no checks"
+      "Strict content filters, style rules and a review",
+      "No content filters, so that the images are more creative",
+      "Always the highest quality setting for each of the images",
+      "Any prompt from a child, with no checks at all before use"
     ],
     "ans": 0,
     "exp": "Layered safety works best: strict content filters block harmful images, style rules in prompts steer the look, and human review catches anything that slips through. Turning off filters or skipping checks increases risk, and quality settings do not affect content safety.",
@@ -118,10 +118,10 @@
     "id": "D2-462", "sub": "vision-app", "diff": 2, "type": "mcq",
     "q": "An app must analyze images stored in a private Azure Blob Storage container. Which approach is safe and works?",
     "opts": [
-      "Make the container public permanently",
+      "Make the container public for the time of the analysis",
       "Put the storage account key in the image URL",
       "Use speech to text",
-      "Read the image bytes in the app and call analyze() with image_data"
+      "Read the image bytes in the app and call analyze() on them"
     ],
     "ans": 3,
     "exp": "The app can download the blob with its own identity and pass the bytes to analyze(), so the container stays private; a short-lived SAS URL is another option. Making the container public or putting the account key in a URL exposes the data, and speech to text does not analyze images.",
@@ -170,7 +170,7 @@
   {
     "id": "D2-466", "sub": "cu-documents", "diff": 1, "type": "mcq",
     "q": "Which inputs can a Content Understanding document analyzer process?",
-    "opts": ["PDF files and scanned images of documents", "Only plain text", "Only spreadsheets", "Only audio recordings"],
+    "opts": ["PDF files and scanned images", "Only plain text", "Only spreadsheets", "Only audio recordings of documents"],
     "ans": 0,
     "exp": "Document analyzers handle files such as PDFs and scanned or photographed pages, using OCR and layout analysis to read them. They are not limited to plain text or spreadsheets, and audio recordings go to audio analyzers.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview"
@@ -180,9 +180,9 @@
     "ctx": "A bank receives loan applications with about 30 fields each. Staff spend hours typing the values into the loan system.",
     "q": "How can Content Understanding reduce this work while keeping quality high?",
     "opts": [
-      "It deletes the application forms",
-      "It writes new application forms",
-      "A custom analyzer extracts the fields automatically, and staff review only the values with low confidence",
+      "It deletes the application forms after the values are typed in",
+      "It writes new application forms that have fewer fields to type",
+      "An analyzer extracts fields, and staff check low confidence",
       "It reads the forms aloud to staff"
     ],
     "ans": 2,
@@ -216,7 +216,12 @@
   {
     "id": "D2-470", "sub": "cu-images", "diff": 1, "type": "mcq",
     "q": "What kind of output does a Content Understanding image analyzer return?",
-    "opts": ["A new photo", "A song", "A model deployment", "Named fields that you define, such as a description or a category"],
+    "opts": [
+      "A new photo in the same style",
+      "A song that fits the mood of the image",
+      "A model deployment",
+      "Named fields that you define"
+    ],
     "ans": 3,
     "exp": "Image analyzers return the fields defined in the schema, such as a generated description or a classified category, as structured output. They do not create photos or music, and they do not create deployments.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -225,13 +230,13 @@
     "id": "D2-471", "sub": "cu-images", "diff": 2, "type": "mcq",
     "q": "Which description is best for a defect_type field in an analyzer for product inspection photos?",
     "opts": [
-      "defect",
-      "The main visible defect on the product surface: Scratch, Dent, Crack, or None if no defect is visible",
-      "thing",
-      "x"
+      "The defect in the photo, described in your own words as fully as possible",
+      "The main visible defect: Scratch, Dent, Crack, or None if there is none",
+      "Any thing in the photo that a customer might complain about later on",
+      "The type"
     ],
     "ans": 1,
-    "exp": "A good description says what to look at, lists the allowed values and explains the edge case of no defect, which guides the models toward consistent results. One-word or placeholder descriptions leave the meaning unclear and lead to unreliable values.",
+    "exp": "A good description says what to look at, lists the allowed values and explains the edge case of no defect, which guides the models toward consistent results. Vague descriptions, whether they are long or a single word, leave the meaning unclear and lead to unreliable values.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -264,10 +269,10 @@
     "id": "D2-474", "sub": "cu-audio-video", "diff": 1, "type": "mcq",
     "q": "A podcast company wants show notes with a summary and the main topics of each episode. Which approach fits?",
     "opts": [
-      "An image analyzer",
+      "An image analyzer for the episode covers",
       "Speech synthesis",
-      "An audio analyzer that generates a summary and topics for each episode",
-      "A text-embedding model on its own"
+      "An audio analyzer with generated fields",
+      "A text-embedding model for each of the episodes"
     ],
     "ans": 2,
     "exp": "An audio analyzer transcribes each episode and generates fields such as a summary and topics, which become the show notes. Image analyzers work on pictures, speech synthesis creates audio, and an embedding model alone returns vectors, not readable notes.",
@@ -277,10 +282,10 @@
     "id": "D2-475", "sub": "cu-audio-video", "diff": 2, "type": "mcq",
     "q": "A sports broadcaster wants to find the moments in match videos where goals happen. Which approach fits?",
     "opts": [
-      "A video analyzer with a per-segment field that classifies events as Goal, Foul or Other",
-      "OCR on the video title",
+      "A video analyzer with a per-segment field",
+      "OCR on the title and the description of each video",
       "Text to speech",
-      "An image-generation model"
+      "An image-generation model with a goal prompt"
     ],
     "ans": 0,
     "exp": "A video analyzer splits the match into segments, and a classify field labels each segment's event, so goals can be found by filtering. The title says nothing about when goals happen, and text to speech and image generation create content instead of analyzing it.",
@@ -315,7 +320,12 @@
   {
     "id": "D2-478", "sub": "cu-app", "diff": 1, "type": "mcq",
     "q": "How can an application call Content Understanding?",
-    "opts": ["Only by email", "Only from Excel macros", "Through the REST API or an SDK", "Only by phone"],
+    "opts": [
+      "Only by email",
+      "Only from Excel macros that run on a server",
+      "Through the REST API or an SDK",
+      "Only by phone"
+    ],
     "ans": 2,
     "exp": "Content Understanding exposes a REST API, with SDKs and a CLI available, so any application that can make HTTPS calls can use it. Email, spreadsheet macros and phone calls are not ways to call the service.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
@@ -327,7 +337,7 @@
       "The analysis failed",
       "The final fields are already in the response body",
       "The analyzer was deleted",
-      "The analysis has started; poll the Operation-Location URL to get the result"
+      "The analysis has started; poll for the result"
     ],
     "ans": 3,
     "exp": "202 Accepted means the long-running analysis was accepted and is in progress. The response includes an Operation-Location URL that the app polls until the status is Succeeded and the result is available. It does not indicate failure, deletion or a finished result.",

@@ -3,7 +3,7 @@
     "id": "D2-368", "sub": "visual-input", "diff": 1, "type": "mcq",
     "q": "You want a vision-capable model to check a floor plan image against a written list of requirements. How should you send them?",
     "opts": [
-      "Put the image and the requirements text in the same user message",
+      "Put the image and the text in the same message",
       "Send the image to a text-to-speech service",
       "Send only the image's file name",
       "Use an embedding model"
@@ -17,10 +17,10 @@
     "ctx": "A retail app sends photos of shelves to a vision-capable model with the prompt 'What is wrong here?' The answers are vague and change from photo to photo.",
     "q": "What should you change?",
     "opts": [
-      "Lower the maximum output tokens to 10",
-      "Remove the image from the request",
+      "Lower the maximum output tokens to 10 so that the answers are short",
+      "Remove the image from the request and describe the shelf in words",
       "Use speech synthesis instead",
-      "Say exactly what to look for, such as empty spaces and the product labels next to them, define the output format, and use high image detail"
+      "Say exactly what to look for and define the output format"
     ],
     "ans": 3,
     "exp": "Specific instructions and a defined output format, for example a JSON list of out-of-stock product names, focus the model, and high image detail helps it read small labels. Very few output tokens cut answers off, removing the image removes the evidence, and speech synthesis does not analyze photos.",
@@ -53,7 +53,12 @@
   {
     "id": "D2-372", "sub": "image-generation", "diff": 1, "type": "mcq",
     "q": "What does an image-generation request return?",
-    "opts": ["A transcript", "A list of tags", "One or more generated images, as base64 data or URLs", "A sentiment score"],
+    "opts": [
+      "A transcript of the text in the image",
+      "A list of tags for the image content",
+      "One or more generated images",
+      "A sentiment score"
+    ],
     "ans": 2,
     "exp": "Image-generation APIs return the created images, either as base64-encoded data or as URLs, depending on the model and options. Transcripts come from speech to text, tags from image analysis and sentiment scores from text analysis.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
@@ -62,7 +67,7 @@
     "id": "D2-373", "sub": "image-generation", "diff": 2, "type": "mcq",
     "q": "A user asks your app to create a realistic photo of a real politician doing something they never did. What is the right response?",
     "opts": [
-      "Block or decline the request, because it could create misleading content about a real person",
+      "Block or decline it, because it would mislead people",
       "Generate it with the quality set to high",
       "Generate it and remove the Content Credentials",
       "Ask the user for a larger image size"
@@ -103,7 +108,12 @@
   {
     "id": "D2-376", "sub": "vision-app", "diff": 1, "type": "mcq",
     "q": "What does result.caption.confidence tell a Python app that uses Image Analysis?",
-    "opts": ["The size of the image", "The number of people in the image", "The language of the text in the image", "How confident the service is in the caption"],
+    "opts": [
+      "The size of the image",
+      "The number of people in the image",
+      "The language of the text that is in the image",
+      "How confident the service is in the caption"
+    ],
     "ans": 3,
     "exp": "The caption result includes the text and a confidence score between 0 and 1, which the app can use to decide whether to show the caption or ask for review. Image size, people count and text language come from other properties or features.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
@@ -112,9 +122,9 @@
     "id": "D2-377", "sub": "vision-app", "diff": 3, "type": "mcq",
     "q": "Before publishing street photos, an app must blur all license plates. Which Image Analysis approach helps it find where the plate text is?",
     "opts": [
-      "Image captioning",
-      "Read (OCR), which returns each line of text with its bounding polygon, so the app can blur those regions",
-      "Image generation",
+      "Image captioning of the whole street photo",
+      "Read, which returns the text lines with their positions",
+      "Image generation of a street without any cars",
       "Speech to text"
     ],
     "ans": 1,
@@ -192,7 +202,7 @@
     "id": "D2-384", "sub": "cu-images", "diff": 1, "type": "mcq",
     "q": "An online store needs alt text for 50,000 product images, with the same output field for every image. Which approach fits?",
     "opts": [
-      "A Content Understanding image analyzer with a generated alt_text field",
+      "An image analyzer with a generated field",
       "Speech to text",
       "Language detection",
       "A Global Batch deployment of an embedding model"
@@ -240,7 +250,7 @@
   {
     "id": "D2-388", "sub": "cu-audio-video", "diff": 1, "type": "mcq",
     "q": "Which kind of file does a Content Understanding video analyzer accept?",
-    "opts": ["Video files, such as MP4", "Only PDF files", "Only text files", "Only spreadsheets"],
+    "opts": ["Video files, such as MP4", "Only PDF files with embedded video", "Only text files", "Only spreadsheets"],
     "ans": 0,
     "exp": "Video analyzers process video files, such as MP4, and use both the frames and the audio track. PDFs go to document analyzers, and plain text files and spreadsheets are not video input.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -287,10 +297,10 @@
     "id": "D2-392", "sub": "cu-app", "diff": 1, "type": "mcq",
     "q": "What does an app send to Content Understanding to analyze a file?",
     "opts": [
-      "The file or its URL, to an analyzer's analyze operation",
+      "The file itself or a URL that it can read",
       "A system message",
       "A speech voice name",
-      "A model weights file"
+      "A file with the model's weights"
     ],
     "ans": 0,
     "exp": "The app calls the analyze operation of an analyzer and provides the content, either the file itself or a URL to it. System messages, voice names and model weights are not inputs for content analysis.",
@@ -300,10 +310,10 @@
     "id": "D2-393", "sub": "cu-app", "diff": 3, "type": "mcq",
     "q": "An analysis succeeds but returns warnings, and some generated fields are empty. The warnings mention guardrails. What does this mean?",
     "opts": [
-      "The analyzer is broken and must be deleted",
-      "The quota is set too high",
+      "The analyzer is broken and must be deleted and created again",
+      "The quota is set too high for the analyzer's deployment",
       "The file name is too long",
-      "Some content was flagged by the guardrails of the model deployment, so you should review the warnings before using the results"
+      "Some content was flagged, so review the warnings"
     ],
     "ans": 3,
     "exp": "Content Understanding inherits the guardrails of its model deployments; when content is flagged, field generation can be limited while extracted content is kept, and the response includes warnings. Apps should check these warnings before automating decisions. Deleting the analyzer, quota and file names are not related.",

@@ -2,20 +2,20 @@
   "D2-226": {
     "q": "Kaunsa prompt manager ke liye email ka sab se kaar-aamad khulasa dega?",
     "opts": [
-      "Neeche wali email ka khulasa ek masroof manager ke liye teen bullet points mein karo, un faislon par tawajjo ke saath jo lene hain.",
-      "Khulasa karo.",
-      "Is ka kuch karo.",
+      "Neeche di gayi email ka manager ke liye teen points mein khulasa karo.",
+      "Is ka jitna achha ho sake khulasa kar do, aur jaldi karo.",
+      "Is email ke saath kuch mufeed karo jo kisi ko pasand aaye.",
       "Email."
     ],
-    "exp": "Acha prompt kaam, format, sunne wala aur tawajjo ka markaz batata hai, jaise woh prompt jo teen bullet points, masroof manager aur lene wale faislon ka zikr karta hai. Baqi prompts mubham hain, is liye model ko andaza lagana parta hai ke aap ko kitni lambai, kaunsa format aur kis baat par zor chahiye."
+    "exp": "Achha prompt kaam, format aur parhne wala batata hai, jaise manager ke liye teen points maangne wala prompt. Baqi prompts, chahe lambe hon ya chhote, mubham hain, is liye model ko andaza lagana parta hai ke aap ko kitni lambai, kaunsa format aur kis cheez par zor chahiye."
   },
   "D2-227": {
     "ctx": "Ek company ke chat assistant ka system message hai 'You are a helpful assistant.' Woh har sawal ka jawab deta hai, competitors ke products ke sawalon ka bhi. Company chahti hai ke woh sirf us ke apne products par baat kare.",
     "q": "Aap ko kya badalna chahiye?",
     "opts": [
-      "Maximum output tokens barhayein",
-      "Deployment ka quota kam karein",
-      "System message mein usool shamil karein ke sirf company ke products ke sawalon ka jawab de aur baqi mauzu se muhazzab tareeqe se mana kare",
+      "Maximum output tokens barhana taake jawabon mein zyada tafseel ho",
+      "Deployment ka quota kam karna taake kam sawalon ke jawab diye jayein",
+      "Sirf apne products ke sawalon ke jawab dene ka usool shamil karna",
       "System message hata dein"
     ],
     "exp": "Daire ke usool system message mein aate hain: kaunse mauzu ki ijazat hai aur baqi ko kaise sambhalna hai, yeh batane se assistant apne kaam par rehta hai. Output tokens aur quota se model ki baat ka mauzu nahi badalta, aur system message hatane se assistant aur bhi azaad ho jata."
@@ -49,10 +49,10 @@
   "D2-230": {
     "q": "Aap ka prompt JSON maangta hai, lekin model kabhi kabhi JSON se pehle wazahat likh deta hai, jis se aap ka parser toot jata hai. Sab se bharosemand hal kya hai?",
     "opts": [
-      "Temperature barhayein",
-      "Structured outputs ya JSON mode istemal karein taake response durust JSON ho",
+      "Is request ke liye temperature barhana",
+      "Response ke liye structured outputs istemal karna",
       "Free-text jawabon ki misaalein shamil karein",
-      "Maximum output tokens ko 5 karein"
+      "Har request ke liye maximum output tokens 5 rakhna"
     ],
     "exp": "Structured outputs, ya JSON mode, response ke format ko paband karte hain taake model durust JSON de, jo sirf hidayaat se zyada bharosemand hai. Zyada temperature randomness barhata hai, free-text misaalein ghalat format ko dawat deti hain, aur paanch tokens ki hadd JSON ko kaat deti."
   },
@@ -86,20 +86,30 @@
   },
   "D2-234": {
     "q": "Chat application mein user prompt kya hota hai?",
-    "opts": ["Model ke weights", "Deployment ka quota", "Billing account", "Woh message jo end user bhejta hai"],
+    "opts": [
+      "Woh weights jo model ne seekhe",
+      "Woh quota jo deployment istemal karti hai",
+      "Billing account",
+      "Woh message jo end user bhejta hai"
+    ],
     "exp": "User prompt, yaani user message, woh hai jo app istemal karne wala shakhs likhta ya bolta hai, jaise sawal. Model ke weights, deployment ka quota aur billing account guftagu ka hissa nahi."
   },
   "D2-235": {
     "q": "Microsoft Foundry mein models deploy karne se pehle Azure mein kya maujood hona chahiye?",
-    "opts": ["SQL Server", "Project wala Microsoft Foundry resource", "VPN gateway", "CDN profile"],
+    "opts": [
+      "Prompts ke database wala SQL Server",
+      "Project wala Foundry resource",
+      "Usi Azure region mein VPN gateway",
+      "Model endpoint ke liye CDN profile"
+    ],
     "exp": "Model deployments Microsoft Foundry resource mein hoti hain, aur aap us resource ke project ke zariye un par kaam karte hain. SQL Server, VPN gateway ya CDN profile solution ke doosre hisson mein istemal ho sakte hain lekin model deploy karne ke liye zaroori nahi."
   },
   "D2-236": {
     "q": "Jo model aap chahte hain woh aap ke project ke region mein Standard deployment ki soorat mein dastiyab nahi. Aap ko kya karna chahiye?",
     "opts": [
-      "Temperature barhayein",
-      "Deployment ka naam badlein",
-      "Aisi deployment type ya region istemal karein jahan model dastiyab ho, jaise global deployment",
+      "Apne sab se qareeb model ka temperature barhana",
+      "Deployment ka naam matlooba model ke naam par rakhna",
+      "Woh region ya deployment type istemal karna jahan ye dastiyab ho",
       "Context window chhoti karein"
     ],
     "exp": "Model ki dastiyabi region aur deployment type ke hisaab se mukhtalif hoti hai, is liye aisi deployment type, jaise Global Standard, ya aisa region chunein jahan model milta ho. Temperature, deployment ke naam aur context windows se model kisi region mein dastiyab nahi hota."
@@ -151,16 +161,16 @@
     "opts": [
       "Model card",
       "System message",
-      "SDK ke release notes",
-      "Azure Monitor ya Foundry portal mein deployment ke usage metrics"
+      "Foundry SDK ke release notes",
+      "Azure Monitor ya Foundry mein us ke usage metrics"
     ],
     "exp": "Usage metrics, jaise process kiye hue prompt tokens aur bane hue tokens, deployments ke liye jama hote hain aur Azure Monitor aur Foundry ke monitoring views mein dikhte hain. Model card model ko bayan karta hai, system message requests ka hissa hai, aur release notes SDK ki tabdeeliyan batate hain."
   },
   "D2-243": {
     "q": "Model deployment ki deployment type kya batati hai?",
     "opts": [
-      "Model kaise host hota hai, requests kahan process hoti hain aur istemal ka bill kaise banta hai, jaise Global Standard ya Provisioned",
-      "Aap ki app ki programming zaban",
+      "Requests kahan process hoti hain aur bill kaise aata hai",
+      "App kis programming language mein likhni lazmi hai",
       "Model kaise train hua",
       "Portal ka color theme"
     ],
@@ -177,8 +187,8 @@
   "D2-246": {
     "q": "Ek chat client az login ke baad aap ke laptop par chalta hai, lekin Azure App Service par deploy karne par DefaultAzureCredential ko credential nahi milta. Aap ko kya karna chahiye?",
     "opts": [
-      "Server par Azure CLI install kar ke apne account se sign in karein",
-      "App Service ke liye managed identity on karein aur usay Foundry project par role dein",
+      "Server par Azure CLI install kar ke apne account se sign in karna",
+      "App ki managed identity on kar ke usay project par role dena",
       "App mein apna password hard-code karein",
       "Deployment ka quota barhayein"
     ],
@@ -221,8 +231,8 @@
     "opts": [
       "Speech SDK",
       "Language API",
-      "Responses API, openai.responses.create() ke zariye",
-      "Sirf purana Completions API"
+      "Responses API",
+      "Purana Completions API"
     ],
     "exp": "Quickstart project se OpenAI-compatible client leta hai aur model aur input ke saath responses.create() call karta hai, phir output_text parhta hai. Speech SDK aur Language API alag services hain, aur quickstart purana Completions API istemal nahi karta."
   },
@@ -246,18 +256,18 @@
     "opts": [
       "Zyada temperature istemal karein",
       "Har user ke liye nayi deployment banayein",
-      "Ek mushtarka list rakhein lekin chhoti karein",
-      "Har user session ke liye messages ki alag history rakhein"
+      "Ek mushtarka list rakhna lekin har ghante chhoti karna",
+      "Har session ke liye alag message history rakhna"
     ],
     "exp": "Guftagu ki history har session ke liye alag honi chahiye, maslan user ya session ID ke hisaab se, taake har request mein sirf usi user ke messages hon. Mushtarka list guftagu ko mila deti aur users ke darmiyan maloomat leak karti hai. Temperature users ko alag nahi karta, aur har user ke liye deployment ghair zaroori hai."
   },
   "D2-254": {
     "q": "Developers aksar kachi REST calls likhne ke bajaye Foundry SDK kyun istemal karte hain?",
     "opts": [
-      "SDK aap ke liye authentication, request formatting aur retries sambhalta hai",
-      "Model call karne ka sirf SDK hi tareeqa hai",
-      "SDK se model ka istemal muft ho jata hai",
-      "SDK content filtering hata deta hai"
+      "Ye authentication aur retries khud sambhalta hai",
+      "App se model call karne ka ye wahid tareeqa hai",
+      "Ye chhote projects ke liye model ka istemal muft karta hai",
+      "Ye requests se content filtering hata deta hai"
     ],
     "exp": "SDKs REST APIs ko typed methods, credentials ke zariye authentication aur retry ke saath lapet dete hain, is liye code chhota aur kam ghaltiyon wala hota hai. REST calls phir bhi mumkin hain, istemal ka bill aata hai, aur model kisi bhi tarah call ho content filtering lagu rehti hai."
   }

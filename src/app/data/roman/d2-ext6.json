@@ -10,7 +10,7 @@
       "Temperature barhayein",
       "Stop sequence shamil karein",
       "Maximum output tokens kam karein",
-      "Tasveer ko request mein base64 data URL ki soorat mein bhejein"
+      "Usay base64 data URL ki soorat mein bhejna"
     ],
     "exp": "Service ko image URL se tasveer lena aana chahiye, is liye private container ka URL nakaam hota hai. Tasveer ke bytes base64 data URL ki soorat mein bhejne se tasveer khud request mein aa jati hai; aarzi rasai wala URL, jaise SAS link, bhi kaam karta hai. Temperature, stop sequences aur max tokens sirf bana hua text badalte hain."
   },
@@ -36,7 +36,7 @@
   },
   "D2-202": {
     "q": "Microsoft Foundry mein code likhe baghair image-generation deployment par prompts kahan azma sakte hain?",
-    "opts": ["Speech SDK", null, "Images playground", "Activity log"],
+    "opts": ["Speech SDK", null, "Images playground", "Project ka activity log"],
     "exp": "Images playground mein aap prompts likhte, size aur quality jaisi settings chunte, aur apni deployment ki bani hui tasveerein dekhte hain. Speech SDK audio ki code library hai, Azure Monitor metrics dikhata hai, aur activity log management operations record karta hai."
   },
   "D2-203": {
@@ -89,10 +89,10 @@
   "D2-211": {
     "q": "Har invoice mein kai line items hain, aur har line mein description, quantity aur price hai. Field schema mein isay kaise banana chahiye?",
     "opts": [
-      "Ek string field ki soorat mein",
+      "Ek string field jis mein poori table ho",
       "boolean field ki soorat mein",
-      "Objects ke array ki soorat mein, har ek mein description, quantity aur price",
-      "date field ki soorat mein"
+      "Objects ka array, har line ke liye ek",
+      "Date field aur qeematon ke liye doosri field"
     ],
     "exp": "Values ke dohrane wale groups objects ke array ki soorat mein bante hain, jahan har object mein description, quantity aur price ke sub-fields hote hain. Ek string mein structure kho jati, aur boolean aur date types sirf ek saada value rakhti hain."
   },
@@ -117,10 +117,10 @@
   "D2-215": {
     "q": "Warehouse photos ke analyzer ko pallet_count naam ka number wala field chahiye. Kaunsa tareeqa sahi hai?",
     "opts": [
-      "Wazeh description ke saath number field tay karein aur generate method istemal karein",
+      "Number field jo generate method istemal kare",
       "extract method istemal karein, kyunke images usay support karti hain",
       "Speech transcription istemal karein",
-      "Tasveeron se numbers dena mumkin nahi"
+      "Images se numbers dena bilkul mumkin nahi"
     ],
     "exp": "Image fields ki type number jaisi ho sakti hai, aur generate method field ki description ki madad se model ko tasveer se value nikalne deta hai. Extract sirf documents ke liye support hota hai, speech transcription audio ke liye hai, aur tasveeron se number wale fields mumkin hain."
   },
@@ -146,7 +146,12 @@
   },
   "D2-218": {
     "q": "Jab Content Understanding call ki recording ka jaiza leta hai to summary jaise fields banne se pehle analysis kis cheez se shuru hota hai?",
-    "opts": ["Sound wave ki tasveer", "Recording mein boli gayi baat ka transcript", "Sirf file ka naam", "Translated PDF"],
+    "opts": [
+      "Recording ki awaaz ki lehar ki image",
+      "Record ki hui speech ka transcript",
+      "Sirf file ka naam aur size",
+      "Poori recording ki translate ki hui PDF"
+    ],
     "exp": "Audio ke liye content extraction speech ko likhta hai, aur phir summaries ya sentiment jaise generative fields usi transcript se bante hain. Service waveform ki tasveeron, file ke naamon ya PDFs se kaam nahi karti."
   },
   "D2-219": {

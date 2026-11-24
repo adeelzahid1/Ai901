@@ -38,9 +38,9 @@ export function fairness(questions) {
   for (const q of yesno) patterns.set(q.ans.join(), (patterns.get(q.ans.join()) ?? 0) + 1);
 
   const measures = [
-    { name: 'mcq: answer is the longest option', value: share(mcq, (q) => q.opts[q.ans].length > Math.max(...wrongOptions(q))), max: 0.54 },
-    { name: 'mcq: answer is 1.5x longer than the rest', value: share(mcq, (q) => q.opts[q.ans].length >= 1.5 * Math.max(...wrongOptions(q))), max: 0.36 },
-    { name: 'mcq: most common length rank of the answer', value: Math.max(...lengthRanks(mcq)), max: 0.58 },
+    { name: 'mcq: answer is the longest option', value: share(mcq, (q) => q.opts[q.ans].length > Math.max(...wrongOptions(q))), max: 0.3 },
+    { name: 'mcq: answer is 1.5x longer than the rest', value: share(mcq, (q) => q.opts[q.ans].length >= 1.5 * Math.max(...wrongOptions(q))), max: 0.05 },
+    { name: 'mcq: most common length rank of the answer', value: Math.max(...lengthRanks(mcq)), max: 0.38 },
     { name: 'multi: answers are the longest options', value: share(multi, longestAreAnswers), max: 0.55 },
     { name: 'multi: exactly two answers', value: share(multi, (q) => q.ans.length === 2), max: 0.7 },
     { name: 'yes/no: exactly one No', value: share(yesno, (q) => q.ans.filter((a) => !a).length === 1), max: 0.45 },
@@ -56,5 +56,5 @@ export function fairness(questions) {
     0.12 * average(yesno, oneNoGuess) +
     0.13 * average(of('dropdown'), (q) => share(q.ans.map((a, i) => ({ a, g: longest(q.opts[i]) })), (x) => x.a === x.g)) +
     0.06 * average(of('match'), (q) => 1 / q.targets.length);
-  return { measures, score: Math.round(score * 1000) };
+  return { measures, score: Math.round(score * 1000), maxScore: 350 };
 }

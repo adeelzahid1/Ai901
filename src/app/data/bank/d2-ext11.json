@@ -2,7 +2,12 @@
   {
     "id": "D2-340", "sub": "agent-portal", "diff": 1, "type": "mcq",
     "q": "How do you write an agent's instructions in Microsoft Foundry?",
-    "opts": ["As a SQL query", "As a binary file", "In natural language that describes the agent's role, goals and rules", "As a CSS stylesheet"],
+    "opts": [
+      "As a SQL query that selects the agent's rules",
+      "As a binary file that the agent loads",
+      "In natural language that states a role and rules",
+      "As a CSS stylesheet"
+    ],
     "ans": 2,
     "exp": "Agent instructions are plain natural language, much like a system message, that tell the model who it is, what it should do and what rules to follow. SQL, binary files and stylesheets are not how agent behavior is defined.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
@@ -12,10 +17,10 @@
     "ctx": "An IT help desk agent must answer questions from the IT knowledge base documents and create tickets in the ticketing system, which has a REST API described by an OpenAPI specification.",
     "q": "Which tools should the agent have?",
     "opts": [
-      "File search for the knowledge base and the OpenAPI tool for the ticketing API",
+      "File search and the OpenAPI tool",
       "Only code interpreter",
       "Image generation and Grounding with Bing Search",
-      "No tools, because instructions are enough"
+      "No tools, because the instructions are enough"
     ],
     "ans": 0,
     "exp": "File search lets the agent answer from the knowledge base documents, and the OpenAPI tool lets it call the ticketing system's API to create tickets. Code interpreter runs Python, image generation and web search do not reach internal systems, and instructions alone cannot access documents or APIs.",
@@ -71,7 +76,7 @@
   {
     "id": "D2-346", "sub": "agent-portal", "diff": 2, "type": "mcq",
     "q": "Where are files that you upload for an agent's file search tool kept so that the agent can search them?",
-    "opts": ["In the model's weights", "In the system message", "In the browser cache", "In a vector store that the file search tool queries"],
+    "opts": ["In the model's weights", "In the system message", "In the browser cache", "In a vector store"],
     "ans": 3,
     "exp": "Uploaded files are split into chunks, embedded and stored in a vector store, which the file search tool queries to find relevant passages. They do not change the model's weights, are not pasted into the system message and are not stored in a browser cache.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search"
@@ -90,7 +95,7 @@
     "opts": [
       "Poll the billing page",
       "Recreate the agent for each message",
-      "Stream the response and display each chunk as it arrives",
+      "Stream the response and show each chunk",
       "Increase the deployment quota"
     ],
     "ans": 2,
@@ -143,9 +148,9 @@
     "q": "How should the client manage conversations?",
     "opts": [
       "Use one shared conversation for everyone",
-      "Create a new agent for every message",
-      "Turn off authentication to simplify access",
-      "Create a separate conversation for each user session and keep its ID private to that user"
+      "Create a new agent for every message that is sent",
+      "Turn off authentication to simplify the access",
+      "Create a conversation for each user session"
     ],
     "ans": 3,
     "exp": "Each user session needs its own conversation so that history is never mixed, and the app must make sure one user cannot use another user's conversation ID. A shared conversation leaks information, creating agents per message is wasteful, and turning off authentication removes access control.",
@@ -167,9 +172,9 @@
     "id": "D2-354", "sub": "text-app", "diff": 1, "type": "mcq",
     "q": "What do you pass as documents to analyze_sentiment() in the Language SDK for Python?",
     "opts": [
-      "A single image",
-      "A WAV file",
-      "A list of strings, or of objects with an id, text and language",
+      "A single image with the text inside",
+      "A WAV file with the reviews read aloud",
+      "A list of strings or text objects",
       "A JSON schema only"
     ],
     "ans": 2,
@@ -180,8 +185,8 @@
     "id": "D2-355", "sub": "text-app", "diff": 2, "type": "mcq",
     "q": "An app must turn a batch of customer reviews into one friendly paragraph that summarizes what customers like and dislike. What fits best?",
     "opts": [
-      "Prompt a deployed chat model with instructions for the tone, length and content",
-      "Language detection",
+      "A chat model with clear instructions for the summary",
+      "Language detection on each of the reviews",
       "PII detection",
       "Key phrase extraction on its own"
     ],
@@ -230,7 +235,12 @@
   {
     "id": "D2-359", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
     "q": "Before an app sends a recorded question to an audio-capable chat model, what must it do with the recording?",
-    "opts": ["Convert it into an image", "Print it", "Encode the audio as base64 and state its format", "Translate it into French"],
+    "opts": [
+      "Convert it into an image of the waveform",
+      "Print it and scan the pages of the transcript",
+      "Encode it as base64 and state its format",
+      "Translate it into French or another language"
+    ],
     "ans": 2,
     "exp": "Audio is included in the request as base64-encoded data together with its format, such as wav. The model does not need an image of the audio, printing does nothing, and translation is not required for the model to understand the question.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
@@ -239,8 +249,8 @@
     "id": "D2-360", "sub": "spoken-prompts", "diff": 3, "type": "mcq",
     "q": "An app asks an audio-capable chat model to answer with speech. Where in a Chat Completions response does it find the audio?",
     "opts": [
-      "In choices[0].message.audio.data, as base64",
-      "In choices[0].message.image_url",
+      "In choices[0].message.audio.data",
+      "In choices[0].message.image_url.audio",
       "In usage.audio_file",
       "In an HTTP response header"
     ],
@@ -277,7 +287,12 @@
   {
     "id": "D2-363", "sub": "speech-app", "diff": 1, "type": "mcq",
     "q": "In SpeechConfig(subscription=key, region=region), what is region?",
-    "opts": ["The name of the voice", "The recognition language", "The model deployment name", "The Azure region of the resource, such as eastus"],
+    "opts": [
+      "The name of the voice",
+      "The language that will be recognized",
+      "The model deployment name",
+      "The Azure region where the resource is"
+    ],
     "ans": 3,
     "exp": "The region tells the SDK which regional endpoint of your Speech or Foundry resource to call, for example eastus. Voices are set with speech_synthesis_voice_name, languages with speech_recognition_language, and Speech does not use a model deployment name here.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"

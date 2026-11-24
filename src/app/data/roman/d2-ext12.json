@@ -2,7 +2,7 @@
   "D2-368": {
     "q": "Aap chahte hain ke vision-capable model ek floor plan image ko likhi hui requirements ki list ke mutabiq check kare. Dono kaise bhejne chahiye?",
     "opts": [
-      "Image aur requirements ka text ek hi user message mein rakhna",
+      "Image aur text ko ek hi message mein rakhna",
       "Image text-to-speech service ko bhejna",
       "Sirf image file ka naam bhejna",
       "Embedding model istemal karna"
@@ -13,10 +13,10 @@
     "ctx": "Ek retail app shelves ki tasveerein vision-capable model ko 'What is wrong here?' prompt ke saath bhejti hai. Jawab mubham hain aur har tasveer ke saath badal jate hain.",
     "q": "Aap ko kya badalna chahiye?",
     "opts": [
-      "Maximum output tokens kam kar ke 10 karna",
-      "Request se image hatana",
+      "Maximum output tokens 10 karna taake jawab chhote hon",
+      "Request se image hata kar shelf ko alfaaz mein bayan karna",
       "Is ki jagah speech synthesis istemal karna",
-      "Saaf batana ke kya dhoondna hai, jaise khali jagahein aur un ke sath lage product labels, output format tay karna, aur high image detail istemal karna"
+      "Saaf batana ke kya dhoondna hai aur output format tay karna"
     ],
     "exp": "Khaas hidayaat aur tay shuda output format, maslan stock se khatam products ke naamon ki JSON list, model ko markooz rakhte hain, aur high image detail usay chhote labels parhne mein madad deti hai. Bohat kam output tokens jawab kaat dete hain, image hatane se saboot hi khatam ho jata hai, aur speech synthesis tasveeron ka jaiza nahi leti."
   },
@@ -38,9 +38,9 @@
   "D2-372": {
     "q": "Image-generation request kya wapas deti hai?",
     "opts": [
-      "Transcript",
-      "Tags ki list",
-      "Ek ya zyada bani hui images, base64 data ya URLs ki soorat mein",
+      "Image ke text ka transcript",
+      "Image ke content ke tags ki list",
+      "Ek ya zyada bani hui images",
       "Sentiment score"
     ],
     "exp": "Image-generation APIs bani hui images deti hain, model aur options ke mutabiq ya to base64-encoded data ki soorat mein ya URLs ki soorat mein. Transcripts speech to text se, tags image analysis se aur sentiment scores text analysis se aate hain."
@@ -48,7 +48,7 @@
   "D2-373": {
     "q": "Ek user aap ki app se kehta hai ke kisi asli siyasatdan ki haqeeqi nazar aane wali tasveer banaye jis mein woh aisa kaam kar raha ho jo us ne kabhi kiya hi nahi. Sahi jawab kya hai?",
     "opts": [
-      "Request block ya mana karna, kyunke is se ek asli shakhs ke baare mein gumrah-kun content ban sakta hai",
+      "Block ya mana karna, kyunke ye logon ko gumrah karega",
       "Quality high kar ke bana dena",
       "Bana kar Content Credentials hata dena",
       "User se bari image size maangna"
@@ -90,9 +90,9 @@
   "D2-377": {
     "q": "Sarak ki tasveerein shaya karne se pehle app ko tamam number plates blur karni hain. Image Analysis ka kaunsa tareeqa usay plate ka text dhoondne mein madad deta hai?",
     "opts": [
-      "Image captioning",
-      "Read (OCR), jo text ki har line us ke bounding polygon ke saath deta hai, taake app woh hisse blur kar sake",
-      "Image generation",
+      "Poori sarak ki tasveer ki image captioning",
+      "Read, jo text ki lines un ki jagah ke saath deta hai",
+      "Baghair gaariyon wali sarak ki image generation",
       "Speech to text"
     ],
     "exp": "Read mila hua text us ki jagah ke saath bounding polygon ki soorat mein deta hai, is liye app ko theek pata hota hai ke kaunse hisse blur karne hain. Caption jagah bataye baghair manzar bayan karta hai, image generation nayi tasveerein banati hai, aur speech to text audio par kaam karta hai."
@@ -148,7 +148,7 @@
   "D2-384": {
     "q": "Ek online store ko 50,000 product images ke liye alt text chahiye, har image ke liye wahi output field. Kaunsa tareeqa munasib hai?",
     "opts": [
-      "Content Understanding ka image analyzer, generated alt_text field ke saath",
+      "Generated field wala image analyzer",
       "Speech to text",
       "Language detection",
       "Embedding model ki Global Batch deployment"
@@ -182,7 +182,7 @@
   },
   "D2-388": {
     "q": "Content Understanding ka video analyzer kis qism ki file leta hai?",
-    "opts": ["Video files, jaise MP4", "Sirf PDF files", "Sirf text files", "Sirf spreadsheets"],
+    "opts": ["Video files, jaise MP4", "Sirf woh PDF files jin mein video ho", "Sirf text files", "Sirf spreadsheets"],
     "exp": "Video analyzers MP4 jaisi video files process karte hain, aur frames aur audio track dono istemal karte hain. PDFs document analyzers ko jati hain, aur saada text files aur spreadsheets video input nahi."
   },
   "D2-389": {
@@ -213,20 +213,20 @@
   "D2-392": {
     "q": "File ka analysis karwane ke liye app Content Understanding ko kya bhejti hai?",
     "opts": [
-      "File ya us ka URL, analyzer ke analyze operation ko",
+      "File khud ya aisa URL jise woh parh sake",
       "System message",
       "Speech ki awaaz ka naam",
-      "Model weights ki file"
+      "Model ke weights wali file"
     ],
     "exp": "App analyzer ka analyze operation call karti hai aur content deti hai, ya to khud file ya us ka URL. System messages, awaazon ke naam aur model weights content analysis ke inputs nahi."
   },
   "D2-393": {
     "q": "Analysis kamyab hota hai lekin warnings deta hai, aur kuch generated fields khali hain. Warnings mein guardrails ka zikr hai. Is ka kya matlab hai?",
     "opts": [
-      "Analyzer kharab hai aur usay delete karna lazmi hai",
-      "Quota bohat zyada rakha gaya hai",
+      "Analyzer kharab hai aur usay delete kar ke dobara banana lazmi hai",
+      "Analyzer ki deployment ka quota bohat zyada hai",
       "File ka naam bohat lamba hai",
-      "Kuch content ko model deployment ke guardrails ne flag kiya hai, is liye nateeje istemal karne se pehle warnings dekhni chahiye"
+      "Kuch content flag hua, is liye warnings dekhni chahiye"
     ],
     "exp": "Content Understanding apni model deployments ke guardrails par hi chalta hai; content flag ho to field generation mehdood ho sakti hai jab ke nikala hua content rehta hai, aur response mein warnings hoti hain. Apps ko faislay automate karne se pehle ye warnings check karni chahiye. Analyzer delete karna, quota aur file ke naam ka is se taalluq nahi."
   },

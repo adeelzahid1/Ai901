@@ -1,17 +1,22 @@
 {
   "D2-283": {
     "q": "Vision wale chat model ko tasveer bhejte waqt aam taur par usi message mein kya shamil karte hain?",
-    "opts": ["Tasveer ke baare mein text hidayat ya sawal", "Speech synthesis ki awaaz", "Storage account key", "Deployment type"],
+    "opts": [
+      "Us ke baare mein sawal ya hidayat",
+      "Boli hui tafseel ke liye neural voice",
+      "Image ke storage account ki key",
+      "Deployment type"
+    ],
     "exp": "User message aam taur par tasveer ko text part ke saath jorta hai jo batata hai ke aap kya chahte hain, jaise 'Kharab hisson ki list do'. Awaazein text to speech ke liye hain, storage keys kabhi model ko nahi bhejni chahiye, aur deployment type deployment ki setting hai, message ka hissa nahi."
   },
   "D2-284": {
     "ctx": "Ek insurance company ke customers kharab gaariyon ki photos upload karte hain. Claims system ko JSON chahiye jis mein kharab hisson ki list aur har ek ki severity ho.",
     "q": "Kaunsa tareeqa sab se munasib hai?",
     "opts": [
-      "Text to speech se photos ko speech banana",
-      "File ke naamon par key phrase extraction chalana",
-      "Har photo hidayaat aur JSON schema ke saath, structured outputs istemal karte hue, vision wale model ko bhejna",
-      "Embedding model ki Global Batch deployment istemal karna"
+      "Text to speech se tasveeron ko speech mein badal kar text mein likhna",
+      "Tamam photos ke file names par key phrase extraction chalana",
+      "Har tasveer JSON schema ke saath vision-capable model ko bhejna",
+      "Photos ke liye embedding model ki Global Batch deployment"
     ],
     "exp": "Vision wala model nuqsan samajh sakta hai, aur JSON schema ke saath structured outputs us se bilkul wahi fields dilwate hain jo claims system ko chahiye. Text to speech aur key phrase extraction tasveerein nahi dekhte, aur embedding model vectors deta hai, nuqsan ki reports nahi."
   },
@@ -33,16 +38,21 @@
   "D2-287": {
     "q": "Kaunsa prompt sab se zyada imkan se aap ki matlooba tasveer banayega?",
     "opts": [
-      "tasveer",
-      "isay khoobsurat banao",
+      "Ek image, jitni achhi ho sake utni achhi banao",
+      "Isay khubsurat banao taake sab ko pasand aaye",
       "picture please",
-      "Barish wali khirki ke paas parhne ka aaram-deh kona, narm garm roshni, watercolor style"
+      "Khirki ke paas aaramdeh parhne ka kona, watercolor style"
     ],
-    "exp": "Ache image prompts subject, mahaul, roshni aur style bayan karte hain, jo model ko wazeh rahnumai deta hai. Chhote aur mubham prompts taqreeban sab kuch ittefaq par chorte hain, is liye nateeje ghair yaqeeni hote hain aur kam hi aap ke khayal se milte hain."
+    "exp": "Achhe image prompts mauzu, jagah aur style bayan karte hain, jis se model ko wazeh rahnumai milti hai. Mubham prompts, chahe lambe hon ya chhote, taqreeban sab kuch ittefaq par chhorte hain, is liye nateeje ghair yaqeeni hote hain aur kam hi aap ke zehan wali tasveer se milte hain."
   },
   "D2-288": {
     "q": "Ek designer ko gpt-image-1 se transparent background wale logo ka draft chahiye. Request ka kaunsa parameter set karna chahiye?",
-    "opts": ["temperature ko 0 karna", "background ko transparent karna", "top_p ko 1 karna", "stop ko ### karna"],
+    "opts": [
+      "logo ke liye temperature ko 0 karna",
+      "background ko transparent karna",
+      "top_p ko 1 karna",
+      "stop ko ### karna"
+    ],
     "exp": "gpt-image-1 background parameter support karta hai; usay transparent karne se, PNG jaise transparency wale output format ke saath, thos background ke baghair tasveer banti hai. temperature, top_p aur stop text generation ki settings hain aur tasveer ke background par asar nahi daltin."
   },
   "D2-289": {
@@ -74,8 +84,8 @@
   "D2-292": {
     "q": "Image Analysis har photo ke bohat se tags deta hai, aur kuch ghalat hote hain. App ko sirf bharosemand tags dikhane hain. Usay kya karna chahiye?",
     "opts": [
-      "Sirf woh tags dikhaye jin ka confidence kisi hadd, jaise 0.8, se zyada ho",
-      "Confidence jo bhi ho har tag dikhaye",
+      "Sirf woh tags dikhana jin ka confidence ek had se upar ho",
+      "Har tag dikhana aur faisla users par chhorna",
       "Temperature kam kare",
       "Quota barhaye"
     ],
@@ -108,9 +118,9 @@
   "D2-296": {
     "q": "Content Understanding ki content extraction document se kya banati hai?",
     "opts": [
-      "Markdown text jo headings aur tables jaisi structure barqarar rakhta hai",
-      "MP3 file",
-      "Nayi tasveer",
+      "Structure ke saath Markdown text",
+      "MP3 file jis mein text bol kar sunaya gaya ho",
+      "Har page ki rangeen nayi image",
       "Model deployment"
     ],
     "exp": "Content extraction document ko Markdown banati hai jo paragraphs, headings aur tables jaisi structure barqarar rakhta hai, jo search ke liye aur field extraction ke input ke taur par kaam aata hai. Woh audio, tasveerein ya deployments nahi banati."
@@ -118,10 +128,10 @@
   "D2-297": {
     "q": "Invoice analyzer ka vendor_name field kabhi kabhi supplier ke bajaye customer ka naam deta hai. Aap ko pehle kya badalna chahiye?",
     "opts": [
-      "Field ki type boolean karein",
+      "Field ki type string se boolean karna",
       "Field delete karein",
-      "Field ki description behtar karein, maslan 'us company ka naam jis ne invoice jari kiya'",
-      "Deployment ka quota barhayein"
+      "Field ki description behtar karna",
+      "Model deployment ka quota barhana"
     ],
     "exp": "Field descriptions un models ki rahnumai karti hain jo fields bharte hain, is liye aisi wazeh description jo jari karne wale aur customer mein farq kare aam taur par uljhan door kar deti hai; label ki hui misaalein mazeed madad karti hain. boolean type naam nahi rakh sakti, field delete karne se data kho jata, aur quota accuracy par asar nahi dalta."
   },
@@ -141,7 +151,7 @@
   },
   "D2-300": {
     "q": "Ek RAG solution woh facts chor deta hai jo sirf PDF reports ke charts mein hain. Content Understanding ki kaunsi capability madad karti hai?",
-    "opts": [null, null, null, "Figure analysis jo charts aur diagrams ko text mein bayan karta hai"],
+    "opts": ["Report ke text ki speech synthesis", null, null, "Charts aur diagrams ki figure analysis"],
     "exp": "Figure analysis charts aur diagrams ka content text mein bayan karta hai, is liye maloomat talash ke qabil ho jati hai aur RAG ke liye nikali ja sakti hai. Speech synthesis audio banata hai, smart crops thumbnails tajweez karta hai, aur key phrase extraction us text par kaam karta hai jo pehle hi nikala ja chuka ho."
   },
   "D2-301": {
@@ -167,14 +177,19 @@
   },
   "D2-304": {
     "q": "Kaunsa karobari scenario Content Understanding audio analysis ke liye munasib hai?",
-    "opts": ["Logo design karna", "Spreadsheet macro banana", "Call center ke liye call ke baad ke analytics", "Photos ka size badalna"],
+    "opts": [
+      "Call center ke liye naya logo design karna",
+      "Sales spreadsheet ka macro banana",
+      "Call center ki calls ka baad mein analysis",
+      "Agents ke badges ki tasveeron ka size badalna"
+    ],
     "exp": "Audio analysis recordings likhta hai aur summaries, sentiment aur topics jaise fields banata hai, jo call ke baad ke analytics ko bilkul chahiye. Logo design, spreadsheet macros aur photos ka size badalna audio ka jaiza lena nahi."
   },
   "D2-305": {
     "q": "Ek media company apni videos ka har woh segment dhoondna chahti hai jahan us ka koi product nazar aata hai, aur un segments par tag lagana chahti hai. Kya istemal karna chahiye?",
     "opts": [
-      "Video file ke naamon par key phrase extraction",
-      "products_shown jaise har segment wale field ke saath video analyzer",
+      "Video files ke naamon par key phrase extraction",
+      "Products ke liye har segment ki field wala video analyzer",
       null,
       "Image-generation model"
     ],
@@ -203,15 +218,16 @@
   "D2-308": {
     "q": "Content Understanding har field ke liye jo grounding maloomat deta hai, app usay kaise istemal kar sakti hai?",
     "opts": [
-      "Jaize ke baad source file delete karne ke liye",
-      "Model deployment badalne ke liye",
+      "Analysis mukammal hone ke baad source file delete karna",
+      "Value ghalat ho to model deployment badalna",
       "Quota barhane ke liye",
-      "Reviewers ko dikhane ke liye ke source mein har value kahan se aayi, taake woh jaldi tasdeeq kar sakein"
+      "Reviewers ko dikhana ke har value kahan se aayi"
     ],
     "exp": "Grounding har value ke peeche source content ka hissa batati hai, is liye review screen usay numayan kar sakti hai aur insan value ki jaldi tasdeeq ya durusti kar sakta hai. Woh files delete karne, deployments badalne ya quota adjust karne ke liye nahi."
   },
   "D2-309": {
     "q": "Data par labels laga kar custom Content Understanding analyzers behtar karne ke liye kaunsa tool bana hai?",
+    "opts": [null, "AI workloads ke liye Azure Advisor", "AI visual ke saath Power BI", null],
     "exp": "Content Understanding Studio Foundry portal ke saath analyzers ki karkardagi behtar karne ka tajurba deta hai, jis mein data par labels lagana aur classification wale analyzers banana shamil hai. Azure Advisor mashware deta hai, Power BI reports banata hai, aur Azure Policy resources ke usool lagu karta hai."
   },
   "D2-310": {

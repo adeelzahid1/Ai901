@@ -19,7 +19,7 @@
   },
   "D2-173": {
     "q": "Agent test karte waqt aap ghalat jawab samajhne ke liye dekhna chahte hain ke us ne kaunse tools, kis tarteeb mein aur kaunse inputs ke saath call kiye. Aap ko kya dekhna chahiye?",
-    "opts": ["Conversation ka trace ya run ki tafseel", "Subscription ka bill", "Model card", "Deployment ka quota"],
+    "opts": ["Conversation ka trace", "Aaj ka subscription bill", "Model card", "Deployment ka quota page"],
     "exp": "Traces aur run ki tafseel agent ka har qadam dikhati hai, jin mein inputs aur outputs ke saath tool calls bhi hain, aur agent ka rawaiya isi se debug hota hai. Bill kharcha dikhata hai, model card base model ko bayan karta hai, aur quota throughput mehdood karta hai; koi bhi agent ke qadam nahi dikhata."
   },
   "D2-174": {
@@ -54,7 +54,7 @@
     "q": "Python mein Foundry agents banane aur sambhalne ke liye kaunsa client istemal karte hain?",
     "opts": [
       "azure-storage-blob ka BlobServiceClient",
-      "azure-ai-projects ke AIProjectClient ke agents operations",
+      null,
       null,
       null
     ],
@@ -81,9 +81,9 @@
     "q": "Jab user chat session khatam kare to client app ko mehfooz conversation history hatani hai. Usay kya karna chahiye?",
     "opts": [
       "Model deployment delete kare",
-      "Agent ki instructions badle",
+      "Kuch dair ke liye agent ki instructions badalna",
       "Temperature kam kare",
-      "Conversation ko us ki ID se delete kare"
+      "Conversation ko us ki ID se delete karna"
     ],
     "exp": "Conversations mehfooz objects hain, is liye session khatam hone par client conversation ko us ki ID se delete kar sakta hai, jis se us ki history hat jati hai. Deployment delete karne se agent sab ke liye toot jata, instructions badalne se aage ka rawaiya badalta, aur temperature sirf randomness par asar dalta hai."
   },
@@ -111,7 +111,7 @@
   },
   "D2-184": {
     "q": "Key authentication ke saath endpoint ke ilawa TextAnalyticsClient ko kya dete hain?",
-    "opts": ["Model deployment ka naam", "Agent ka naam", "Resource key rakhne wala AzureKeyCredential", "Storage SAS token"],
+    "opts": ["Model deployment ka naam", "Agent ka naam", "AzureKeyCredential", "Storage SAS token"],
     "exp": "TextAnalyticsClient Language resource ka endpoint aur credential leta hai, jo key authentication mein key ke saath AzureKeyCredential hai; Microsoft Entra credentials bhi support hote hain. Language features model deployment ya agent ke naam se call nahi hote, aur storage SAS token Blob Storage ke liye hai."
   },
   "D2-185": {
@@ -120,7 +120,7 @@
       "analyze_sentiment() ko show_opinion_mining=True ke saath call kar ke",
       "extract_key_phrases() call kar ke",
       "detect_language() call kar ke",
-      "recognize_entities() call kar ke"
+      "opinion_mining=True ke saath recognize_entities() call karna"
     ],
     "exp": "Opinion mining sentiment analysis ka option hai: analyze_sentiment() ko show_opinion_mining=True dene se har jumlay mein 'battery' jaise targets un ke baare mein raye ke saath aate hain. Key phrases, language detection aur entity recognition features ke baare mein raye nahi dete."
   },
@@ -140,10 +140,10 @@
   "D2-188": {
     "q": "Language SDK mein document summarization lambe chalne wale operation ki soorat mein chalti hai. Python code khulase kaise hasil karta hai?",
     "opts": [
-      "detect_language() call kar ke khulasa parhta hai",
+      "detect_language() call kar ke us ke nateeje se khulasa parhna",
       "HTTP status code se khulasa parhta hai",
-      "begin_extract_summary() call kar ke poller ke nateeje ka intezar karta hai",
-      "Summary option ke saath analyze_sentiment() call karta hai"
+      "begin_extract_summary() call kar ke nateeje ka intezar karna",
+      "summary option on kar ke analyze_sentiment() call karna"
     ],
     "exp": "Summarization ke methods begin_ se shuru hote hain, jaise begin_extract_summary() ya begin_abstract_summary(), aur poller dete hain; result() call karne se operation khatam hone ka intezar hota hai aur khulase milte hain. detect_language aur analyze_sentiment alag features hain, aur status code mein text nahi hota."
   },
@@ -151,8 +151,8 @@
     "q": "Spoken-prompt feature banane se pehle aap kaise tasdeeq kar sakte hain ke model audio input leta hai?",
     "opts": [
       "Sirf us ki qeemat dekh kar",
-      "Catalog mein model card par supported input ki qismein dekh kar",
-      "Azure region dekh kar",
+      "Us ke model card par input types dekhna",
+      "Project ke resource ka Azure region dekhna",
       "Deployment ka naam dekh kar"
     ],
     "exp": "Model card model ki capabilities batata hai, jin mein yeh bhi hai ke woh kaunse input aur output, jaise text, images ya audio, support karta hai. Qeemat, region aur deployment ka naam nahi batate ke model audio process kar sakta hai ya nahi."
@@ -172,7 +172,7 @@
   },
   "D2-192": {
     "q": "Voice assistant ko bohat kam der ke saath qudrati boli hui guftagu karni hai, jis mein user jawab ke beech mein bol sake. Kaunsa option sab se munasib hai?",
-    "opts": [null, "Global Batch deployment", null, "Audio wale realtime model ke saath Realtime API"],
+    "opts": [null, "Global Batch deployment", null, "Realtime API"],
     "exp": "Realtime API musalsal connection par audio dono taraf stream karti hai, is liye realtime model kam latency ke saath jawab de aur beech mein bolne ko sambhal sakta hai, jo live voice guftagu ke liye munasib hai. Batch transcription aur Global Batch asynchronous aur apne design mein sust hain, aur Image Analysis tasveeron par kaam karta hai."
   },
   "D2-193": {

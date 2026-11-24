@@ -2,8 +2,8 @@
   "D2-482": {
     "q": "Kya cheez chat model ko tamam conversations mein yaksan lehje mein jawab dene mein madad deti hai?",
     "opts": [
-      "Deployment ka quota barhana",
-      "System message mein lehja bayan karna",
+      "Chat model ki deployment ka quota barhana",
+      "System message mein lehja aur andaz bayan karna",
       "Deployment ka naam zyada lamba rakhna",
       "Azure region badalna"
     ],
@@ -14,9 +14,9 @@
     "q": "Prompt ki kaunsi tabdeeli isay sab se seedhe tareeqay se hal karti hai?",
     "opts": [
       "Sirf temperature kam karna",
-      "Maximum output tokens barhana",
-      "Request se user ka message hatana",
-      "System mein ye usool shamil karna ke user ki batayi hui allergies ka hamesha khayal rakhe, aur yaqeen na ho to allergies ke baare mein poochhe"
+      "Lambi recipes ke liye maximum output tokens barhana",
+      "Model ki request se user ka message hatana",
+      "Allergies ka khayal rakhne aur poochne ka system usool"
     ],
     "exp": "System message mein wazeh usool allergies ke khayal ko har jawab ka hissa banata hai aur model se kehta hai ke maloomat na ho to poochhe, jis se hifazat ka asli khatra kam hota hai. Temperature aur output ki lambai ye usool lagu nahi karte, aur user ka message hatane se allergy ki maloomat hi kho jayegi."
   },
@@ -61,9 +61,9 @@
   "D2-488": {
     "q": "System message mein 'Agar sawal hamare products ke baare mein na ho to adab se kaho ke tum sirf products ke sawalon mein madad kar sakte ho' kyun shamil karein?",
     "opts": [
-      "Ye assistant ko mauzu par rakhta hai aur batata hai ke baqi sawalon ke saath kya kare",
-      "Is se jawab zyada tez hote hain",
-      "Is se fi token qeemat kam hoti hai",
+      "Ye assistant ko mauzu par rakhta hai",
+      "Is se jawab jaldi bante hain",
+      "Is se har token ki qeemat kam hoti hai",
       "Is se model ka version badal jata hai"
     ],
     "exp": "Daira tay karne wale usool assistant ko us ke maqsad par rakhte hain aur baqi sawalon ke liye adab wala jawab tay karte hain, jis se bharosa barhta aur ghalat istemal kam hota hai. Aise usool raftaar, qeemat ya model ka version nahi badalte."
@@ -92,7 +92,7 @@
   "D2-491": {
     "q": "Model dobara deploy kiye baghair Foundry ke chat playground mein kya badal sakte hain?",
     "opts": [
-      "System message aur request parameters",
+      "System message",
       "Model ka training data",
       "Resource ka Azure region",
       "Subscription"
@@ -102,10 +102,10 @@
   "D2-492": {
     "q": "Ek chatbot deployment ko aise prompts block karne hain jo model ko jailbreak karne ki koshish karein. Kya configure karna chahiye?",
     "opts": [
-      "Zyada temperature",
-      "Deployment ka alag naam",
+      "Mashkook prompts ke liye zyada temperature",
+      "Deployment ka alag naam jo mushkil se andaza ho",
       "Kam quota",
-      "Deployment ki content filter configuration mein user prompt attacks ke liye Prompt Shields"
+      "User prompt attacks ke liye Prompt Shields"
     ],
     "exp": "Prompt Shields user prompt attacks, jinhein jailbreaks bhi kehte hain, pehchante hain aur deployment par lagi content filtering ke hisse ke taur par unhein block kar sakte hain. Temperature, naam aur quota hamle na pehchante na rokte hain."
   },
@@ -149,7 +149,7 @@
     "q": "Ek team ek hi model ki do deployments banati hai: ek production ke liye sakht content filter ke saath aur ek andruni testing ke liye. Ye achha tareeqa kyun hai?",
     "opts": [
       "Kyunke model har resource mein sirf ek baar deploy ho sakta hai",
-      "Taake har environment ka apna quota, content filter aur version ki settings hon aur doosre par asar na pare",
+      "Taake har environment ka apna quota, filter aur version ho",
       "Model ki accuracy kam karne ke liye",
       "Teams ke darmiyan API keys share karne ke liye"
     ],
@@ -169,7 +169,7 @@
   "D2-499": {
     "q": "Model ke liye deployment type, jaise Global Standard, kab chunte hain?",
     "opts": [
-      "System message mein",
+      "Pehli request ke system message mein",
       "Jab aap deployment banate hain",
       "Chat ke input box mein",
       "Azure Advisor mein"
@@ -183,10 +183,10 @@
   "D2-501": {
     "q": "Ek chhoti chat app ko sirf ek mukhtasar FAQ text file se jawab dene hain. Saada aur sahi tareeqa kya hai?",
     "opts": [
-      "Har sawal ke liye naya model fine-tune karna",
-      "Request mein FAQ ka text, ya mutalliqa hisse, is hidayat ke saath shamil karna ke sirf usi se jawab de",
-      "Temperature barhana",
-      "Deployment ko doosre region mein le jana"
+      "Har mumkina sawal ke liye naya model fine-tune karna",
+      "Text aur sirf usi se jawab dene ki hidayat shamil karna",
+      "Temperature barhana taake jawab sirf file se aayein",
+      "Deployment ko us region mein le jana jahan file rakhi hai"
     ],
     "exp": "Mukhtasar FAQ ke liye us ka text hidayaat ya prompt mein shamil karne se model grounded ho jata hai, aur wazeh usool jawabon ko usi text tak rakhta hai; bari collections ke liye retrieval istemal hota hai. Har sawal par fine-tuning na-qabil-e-amal hai, aur temperature ya region FAQ ka content nahi dete."
   },
@@ -222,10 +222,10 @@
   "D2-506": {
     "q": "Ek call BadRequest error ke saath nakaam hoti hai jo kehti hai ke prompt content management policy ki wajah se filter hua. Kya hua?",
     "opts": [
-      "Quota khatam ho gaya",
-      "Endpoint ghalat hai",
+      "Agle minute tak quota khatam ho gaya",
+      "Is deployment ke liye endpoint ghalat hai",
       "Model retire ho gaya",
-      "Prompt ko content filter ne block kiya; app ko user ko dostana message dikhana chahiye"
+      "Content filter ne prompt block kiya"
     ],
     "exp": "Jab input filtering prompt ko block karti hai to service 400 error deti hai jis mein content filter ka zikr hota hai, is liye app ko usay sambhal kar adab se batana chahiye ke request process nahi ho sakti. Quota ke masail 429 dete hain, ghalat endpoint alag tarah nakaam hota hai, aur retire shuda model har prompt par nakaam hota."
   },
@@ -238,9 +238,9 @@
     "q": "Kya badalna chahiye?",
     "opts": [
       "Temperature barhana",
-      "Mazeed few-shot misaalein shamil karna",
-      "Deployment ka quota barhana",
-      "PDF ke sirf mutalliqa hisse bhejna aur purani history ko kaatna ya us ka khulasa karna"
+      "Conversation history se mazeed few-shot misaalein shamil karna",
+      "Lambi requests ke liye deployment ka quota barhana",
+      "Sirf mutalliqa hisse bhejna aur history kaatna"
     ],
     "exp": "Har request ko model ki context window mein aana chahiye, is liye client ko PDF ke sirf mutalliqa chunks nikalne chahiye aur history chhoti karni chahiye. Temperature aur misaalein size kam nahi kartin, aur quota ek request ke size ke bajaye fi minute tokens ki had hai."
   },

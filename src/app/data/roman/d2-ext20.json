@@ -19,7 +19,7 @@
   "D2-597": {
     "ctx": "Buzurgon ki dekh bhal wali ek app logon ko bol kar sawal poochne aur bole hue jawab sunne deti hai. Users aksar aahista bolte aur rukte hain, aur kabhi kabhi jawab ke beech mein tok dete hain.",
     "q": "Kaunsa option kam der ke saath sab se qudrati voice conversation deta hai?",
-    "opts": ["Batch transcription", null, "Realtime model ke saath Realtime API", "Embedding model"],
+    "opts": ["Batch transcription", null, "Realtime API", "Embedding model"],
     "exp": "Realtime API live connection par dono taraf audio stream karti hai, is liye model jaldi jawab de sakta hai aur waqfon aur tokne ko sambhal sakta hai. Batch transcription live nahi, Image Analysis tasveeron par kaam karta hai, aur embedding models conversations nahi karte."
   },
   "D2-598": {
@@ -93,9 +93,9 @@
   "D2-606": {
     "q": "gpt-image-1 se images edit karne ke baare mein kaunsa bayan sach hai?",
     "opts": [
-      "Image badalne ke liye aap maujooda image aur prompt, aur chahein to mask, de sakte hain",
-      "Ye sirf shuru se nayi images bana sakta hai",
-      "Ye sirf text descriptions deta hai",
+      "Prompt se maujooda image edit kar sakte hain",
+      "Ye sirf shuru se, kisi input ke baghair images banata hai",
+      "Ye image ki sirf text descriptions deta hai",
       "Isay audio input chahiye"
     ],
     "exp": "gpt-image-1 edits support karta hai: aap asal image aur prompt dete hain, aur chahein to mask jo badalne wali jagah ko mehdood karta hai. Ye text se bhi images banata hai, descriptions ke bajaye images deta hai, aur audio istemal nahi karta."
@@ -108,9 +108,9 @@
   "D2-608": {
     "q": "Privacy ki wajah se marketplace ko woh product photos shaya hone se pehle flag karni hain jin mein log nazar aate hon. App Image Analysis se ye kaise kar sakti hai?",
     "opts": [
-      "Sirf SMART_CROPS istemal karna",
-      "PEOPLE feature request kar ke un photos ko flag karna jin mein log milein",
-      "Image generation istemal karna",
+      "SMART_CROPS istemal kar ke crops ka size dekhna",
+      "PEOPLE maang kar nateejon wali photos flag karna",
+      "Har photo dobara banane ke liye image generation",
       "Sirf OCR istemal karna"
     ],
     "exp": "PEOPLE feature mile hue logon ko bounding boxes aur confidence ke saath deta hai, is liye app un photos ko review ya blur karne ke liye flag kar sakti hai. Smart crops, image generation aur OCR ye nahi batate ke photo mein log hain ya nahi."
@@ -138,9 +138,9 @@
   "D2-611": {
     "q": "Content Understanding mein content extraction kya hai?",
     "opts": [
-      "Analysis ke baad file delete karna",
-      "File ko audio mein translate karna",
-      "Fields banne se pehle file ko text aur structure, jaise paragraphs aur tables, mein badalna",
+      "Analysis mukammal hone ke baad file delete karna",
+      "Users ke liye file ko audio mein translate karna",
+      "File ko text aur structure mein badalna",
       "File ko compress karna"
     ],
     "exp": "Content extraction OCR aur layout analysis, ya audio ke liye transcription, se input ko structured text mein badalta hai, jisay phir field extraction istemal karta hai. Ye files ko delete nahi karta, audio mein translate nahi karta aur compress nahi karta."
@@ -165,7 +165,7 @@
   },
   "D2-614": {
     "q": "Ek insurer toofan ke nuqsan ki tasveeron ka jaiza leta hai aur usay damage_severity naam ki field chahiye jis ki value Minor, Moderate ya Severe ho. Field ko kaunsa method istemal karna chahiye?",
-    "opts": [null, null, "Classify, teenon categories ke saath", null],
+    "opts": [null, null, null, null],
     "exp": "Classify tay ki hui list mein se ek value deta hai, jis se yaqeeni hota hai ke har tasveer ko Minor, Moderate ya Severe label mile. Generate azad text deta hai, extract documents mein chhapi hui values ke liye hai, aur translate koi field method nahi."
   },
   "D2-615": {
@@ -192,10 +192,10 @@
   "D2-618": {
     "q": "Content Understanding aur retrieval augmented generation (RAG) ke baare mein kaunsa bayan sach hai?",
     "opts": [
-      "Ye kisi bhi search index ki zaroorat khatam kar deta hai",
+      "Ye kisi bhi search index ki zaroorat khatam karta hai",
       "Ye sirf audio files ke saath kaam karta hai",
       "Ye RAG solutions mein istemal nahi ho sakta",
-      "Is ka Markdown output aur figures ki descriptions index ho sakti hain taake RAG apps unhein nikal sakein"
+      "Is ka Markdown output retrieval ke liye index ho sakta hai"
     ],
     "exp": "Content Understanding documents ko, charts aur figures samet, Markdown mein badalta hai jisay chunk, embed aur index kiya ja sakta hai, is se RAG app behtar cheezein nikal sakti hai. Retrieval ke liye search index phir bhi chahiye, aur ye documents, images, audio aur video sambhalta hai."
   },

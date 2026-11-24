@@ -2,9 +2,9 @@
   "D2-340": {
     "q": "Microsoft Foundry mein agent ki instructions kaise likhte hain?",
     "opts": [
-      "SQL query ki soorat mein",
-      "Binary file ki soorat mein",
-      "Aam zaban mein, jo agent ka role, maqasid aur usool bayan kare",
+      "SQL query jo agent ke usool chunti hai",
+      "Binary file jise agent load karta hai",
+      "Aam zaban mein, jo role aur usool bataye",
       "CSS stylesheet ki soorat mein"
     ],
     "exp": "Agent ki instructions system message ki tarah saada aam zaban hoti hain, jo model ko batati hain ke woh kaun hai, kya karna hai aur kaunse usool par chalna hai. SQL, binary files aur stylesheets se agent ka rawaiya tay nahi hota."
@@ -13,7 +13,7 @@
     "ctx": "Ek IT help desk agent ko IT knowledge base documents se sawalon ke jawab dene hain aur ticketing system mein tickets banane hain, jis ka REST API OpenAPI specification mein bayan hai.",
     "q": "Agent ke paas kaunse tools hone chahiye?",
     "opts": [
-      "Knowledge base ke liye file search aur ticketing API ke liye OpenAPI tool",
+      "File search aur OpenAPI tool",
       "Sirf code interpreter",
       "Image generation aur Grounding with Bing Search",
       "Koi tool nahi, kyunke instructions kaafi hain"
@@ -56,7 +56,7 @@
       "Model ke weights mein",
       "System message mein",
       "Browser cache mein",
-      "Vector store mein, jahan file search tool talash karta hai"
+      "Vector store mein"
     ],
     "exp": "Upload ki hui files chunks mein tor kar, embed kar ke vector store mein rakhi jati hain, jahan file search tool mutalliqa hisse dhoondta hai. Woh model ke weights nahi badaltin, system message mein paste nahi hotin aur browser cache mein nahi rakhi jatin."
   },
@@ -69,8 +69,8 @@
     "q": "Ek client poore jawab ka intezar karne ke bajaye agent ka jawab bante hi dikhana chahta hai. Usay kya karna chahiye?",
     "opts": [
       "Billing page ko baar baar check kare",
-      "Har message ke liye agent dobara banaye",
-      "Response stream kare aur har chunk aate hi dikhaye",
+      "Har message ke liye agent dobara banana",
+      "Response stream kar ke har chunk dikhana",
       "Deployment ka quota barhaye"
     ],
     "exp": "Streaming response ko model ke banate hue hi hisson mein deti hai, is liye client text foran dikha sakta hai. Billing check karna, agent dobara banana aur quota barhana adhoora output dastiyab nahi karta."
@@ -105,9 +105,9 @@
     "q": "Client ko conversations kaise sambhalni chahiye?",
     "opts": [
       "Sab ke liye ek mushtarka conversation istemal kare",
-      "Har message ke liye naya agent banaye",
-      "Rasai aasan karne ke liye authentication band kare",
-      "Har user session ke liye alag conversation banaye aur us ki ID sirf usi user tak rakhe"
+      "Bheje jane wale har message ke liye naya agent banana",
+      "Rasai aasan karne ke liye authentication band karna",
+      "Har user session ke liye conversation banana"
     ],
     "exp": "Har user session ko apni conversation chahiye taake history kabhi na mile, aur app ko yaqeeni banana hota hai ke ek user doosre ki conversation ID istemal na kar sake. Mushtarka conversation maloomat leak karti hai, har message par agents banana fuzool hai, aur authentication band karne se access control khatam ho jata hai."
   },
@@ -118,9 +118,9 @@
   "D2-354": {
     "q": "Python ke Language SDK mein analyze_sentiment() ko documents ke taur par kya dete hain?",
     "opts": [
-      "Ek tasveer",
-      "WAV file",
-      "Strings ki list, ya id, text aur language wale objects ki list",
+      "Ek image jis ke andar text ho",
+      "WAV file jis mein reviews parhe gaye hon",
+      "Strings ya text objects ki list",
       "Sirf JSON schema"
     ],
     "exp": "Text analysis ke methods documents ka batch lete hain, ya to saada strings ki soorat mein ya id, text aur ikhtiyari language wale objects ki soorat mein. Tasveerein, audio files aur schemas sentiment analysis ka durust input nahi."
@@ -128,8 +128,8 @@
   "D2-355": {
     "q": "Ek app ko customer reviews ke batch ko ek dostana paragraph mein badalna hai jo bataye ke customers ko kya pasand aur kya napasand hai. Kya sab se munasib hai?",
     "opts": [
-      "Deploy kiye hue chat model ko lehje, lambai aur content ki hidayaat ke saath prompt dena",
-      null,
+      "Khulasay ki wazeh hidayaat wala chat model",
+      "Har review par language detection",
       null,
       "Akela key phrase extraction"
     ],
@@ -163,18 +163,18 @@
   "D2-359": {
     "q": "Record kiya hua sawal audio wale chat model ko bhejne se pehle app ko recording ke saath kya karna hota hai?",
     "opts": [
-      "Usay tasveer mein badalna",
-      "Usay print karna",
-      "Audio ko base64 mein encode karna aur us ka format batana",
-      "Usay French mein translate karna"
+      "Usay awaaz ki lehar ki image mein badalna",
+      "Usay print kar ke transcript ke pages scan karna",
+      "Usay base64 mein encode kar ke format batana",
+      "Usay French ya kisi aur zaban mein translate karna"
     ],
     "exp": "Audio request mein base64-encoded data ki soorat mein apne format, jaise wav, ke saath shamil hoti hai. Model ko audio ki tasveer nahi chahiye, print karne se kuch nahi hota, aur sawal samajhne ke liye tarjuma zaroori nahi."
   },
   "D2-360": {
     "q": "Ek app audio wale chat model se speech mein jawab maangti hai. Chat Completions response mein audio kahan milti hai?",
     "opts": [
-      "choices[0].message.audio.data mein, base64 ki soorat mein",
-      "choices[0].message.image_url mein",
+      "choices[0].message.audio.data mein",
+      "choices[0].message.image_url.audio mein",
       "usage.audio_file mein",
       "HTTP response header mein"
     ],
@@ -202,7 +202,12 @@
   },
   "D2-363": {
     "q": "SpeechConfig(subscription=key, region=region) mein region kya hai?",
-    "opts": ["Awaaz ka naam", "Pehchanne ki zaban", "Model deployment ka naam", "Resource ka Azure region, jaise eastus"],
+    "opts": [
+      "Awaaz ka naam",
+      "Woh zaban jo pehchani jayegi",
+      "Model deployment ka naam",
+      "Woh Azure region jahan resource hai"
+    ],
     "exp": "Region SDK ko batata hai ke aap ke Speech ya Foundry resource ka kaunsa regional endpoint call karna hai, maslan eastus. Awaazein speech_synthesis_voice_name se, zabanein speech_recognition_language se set hoti hain, aur Speech yahan model deployment ka naam istemal nahi karta."
   },
   "D2-364": {
