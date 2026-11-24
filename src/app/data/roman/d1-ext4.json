@@ -1,0 +1,223 @@
+{
+  "D1-141": {
+    "q": "Ek team ne apne loan data se ethnicity wala column hata diya, lekin train kiya hua model phir bhi ethnic groups ke saath alag sulook karta hai. Sab se mumkina wajah kya hai?",
+    "opts": [
+      "Doosre features, jaise postal code, ethnicity ki jagah kaam (proxy) kar rahe hain",
+      "Model bohat tezi se jawab deta hai",
+      "Training data encrypted hai",
+      "Model ko bohat kam log istemal karte hain"
+    ],
+    "exp": "Hassas attribute hatane se bias khatam nahi hota jab doosre features us se gehre jure hon; maslan postal code bohat se ilaqon mein ethnicity zahir kar sakta hai, is liye model phir bhi na-insaafi wale patterns seekh sakta hai. Fairness ko har group ke nateejon par naapna zaroori hai. Raftar, encryption aur users ki tadad model ko groups ke saath alag sulook par majboor nahi karte."
+  },
+  "D1-142": {
+    "q": "Fairness ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Data se hassas column hatana hamesha fair model ki guarantee hai.",
+      "Fairness assessment dekhta hai ke model mukhtalif groups, jaise umar ya gender ke groups, ke liye kaisi karkardagi dikhata hai.",
+      "Fairness ke masail training data jama karne ke tareeqe se bhi aa sakte hain."
+    ],
+    "exp": "Pehle ka jawab Nahi: mutalliqa features wahi maloomat rakh sakte hain, is liye model phir bhi unfair reh sakta hai. Doosre ka Haan: groups ke darmiyan error rates ya nateejon ka muqabla karne se hi unfairness pakri jati hai. Teesre ka Haan: jis data mein kuch groups ki numaindagi kam ho ya purana bias ho, woh model ko wahi bias dohrane par le jata hai."
+  },
+  "D1-143": {
+    "q": "Launch se pehle ek team jaan boojh kar aise prompts bhejti hai jo us ki generative AI app se nuqsan deh ya ghalat output nikalwayein, taake kamzoriyan theek ki ja sakein. Is amal ko kya kehte hain?",
+    "exp": "Red teaming ka matlab hai system ko us tarah test karna jaise hamla-awar ya ghalat istemal karne wala karega, maslan jailbreak ki koshishein ya nuqsan deh requests, taake release se pehle kamzoriyan milein; yeh reliability and safety ko support karta hai. Fine-tuning model ko train karti hai, load balancing traffic ko servers par baantta hai, aur tokenization text ko tokens mein torti hai."
+  },
+  "D1-144": {
+    "q": "Generative AI app ke har khatre ko us mitigation se milayein jo usay sab se behtar hal karti hai. Har mitigation ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Model nafrat ya tashaddud wala text banata hai",
+      "Model aap ke products ke baare mein facts ghar leta hai",
+      "Users jailbreak prompts se system message ko badalne ki koshish karte hain",
+      "Model version badalne ke baad jawabon ki quality gir jati hai"
+    ],
+    "targets": ["Musalsal evaluation aur monitoring", null, null, "Bara font size", "Bharosemand data se grounding"],
+    "exp": "Content filters nafrat aur tashaddud jaisi nuqsan deh categories block karte hain. Jawabon ko bharosemand data se ground karne se ghare hue facts kam hote hain. Prompt Shields jailbreak ki koshishein pakarte hain. Baqaida evaluation aur monitoring quality ki tabdeeliyan pakarti hai, jaise model update ke baad. Font size parhne par asar dalta hai, AI ke khatre par nahi."
+  },
+  "D1-145": {
+    "q": "AI app design karte waqt kaunsa tareeqa privacy and security principle ko support karta hai?",
+    "opts": [
+      "Zyada se zyada zaati data jama karein, shayad baad mein kaam aaye",
+      "Sirf woh zaati data jama karein jo app ko apne maqsad ke liye chahiye",
+      "Jo partner maange usay customer data dein",
+      "Prompts mein passwords rakhein taake model unhein istemal kar sake"
+    ],
+    "exp": "Sirf zaroori data jama karna, jise aksar data minimization kehte hain, data zahir hone par nuqsan kam karta hai aur logon ki privacy ka khayal rakhta hai. Ehtiyatan sab kuch jama karna, data khul kar baantna aur prompts mein secrets rakhna, teeno privacy aur security ka khatra barhate hain."
+  },
+  "D1-146": {
+    "q": "Kaunse DO tareeqay AI application aur us ke data ko mehfooz rakhne mein madad karte hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "API keys ko prompts mein paste karna",
+      "Code mein keys ke bajaye Microsoft Entra ID aur managed identities istemal karna",
+      "Training data wala storage account sab ke parhne ke liye public karna",
+      "Jo secrets istemal karne hi hon unhein source code ke bajaye Azure Key Vault mein rakhna",
+      "Endpoint par authentication band karna"
+    ],
+    "exp": "Entra ID aur managed identities app ko secrets mehfooz kiye baghair tokens lene deti hain, aur Key Vault baqi secrets ko source code se bahar rakhta hai; dono credentials leak hone ka khatra kam karte hain. Prompts mein keys rakhna, data public karna aur authentication band karna, sab data ya services ko zahir karte hain."
+  },
+  "D1-147": {
+    "q": "Ek support chatbot sirf English mein kaam karta hai, halaan ke customers bohat si zabanein bolte hain. Team customers ki zabanon ka support shamil karti hai. Yeh kaunse principle ko sab se seedha support karta hai?",
+    "exp": "Inclusiveness aisa AI design karne ke baare mein hai jo sab ko ba-ikhtiyar banaye aur shamil kare, jin mein mukhtalif zabanein bolne wale ya mukhtalif salahiyaton wale log bhi hain. Customers ki zabanon ka support dene se zyada log service istemal kar sakte hain. Accountability governance ke baare mein hai, transparency system ko samajhne ke baare mein, aur reliability and safety musalsal aur mehfooz kaam ke baare mein."
+  },
+  "D1-148": {
+    "q": "Har khali jagah ke liye sahi principle chun kar jumlay mukammal karein.",
+    "tpl": "AI app test karte waqt mazoori wale logon ko shamil karna {0} ko support karta hai. Users ko samjhana ke app apni tajaweez tak kaise pohanchti hai {1} ko support karta hai.",
+    "exp": "Mukhtalif salahiyaton wale logon ke saath testing se yaqeen hota hai ke app sab ke liye kaam karti hai, yahi inclusiveness hai. Yeh samjhana ke tajaweez kaise banti hain logon ko system aur us ki hudood samajhne mein madad deta hai, yahi transparency hai. Accountability is baare mein hai ke system ka jawabdeh kaun hai, aur fairness groups ke saath barabar sulook ke baare mein hai."
+  },
+  "D1-149": {
+    "q": "Microsoft ka kaunsa document AI service ke istemal ke maqasid, capabilities aur hudood bayan karta hai taake customers usay zimmedari se istemal karein?",
+    "opts": ["Service level agreement", "Transparency Note", "Pricing page", "SDK release notes"],
+    "exp": "Microsoft apni AI services ke liye Transparency Notes shaya karta hai; woh batate hain ke system kaise kaam karta hai, kis liye bana hai, us ki hudood kya hain aur zimmedari se istemal ke behtareen tareeqay kya hain. Service level agreement dastiyabi ke waadon ke baare mein hai, pricing page qeemat ke baare mein, aur release notes library ki tabdeeliyan batate hain."
+  },
+  "D1-150": {
+    "q": "Transparency ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Users ko batana ke woh AI system se baat kar rahe hain transparency ko support karta hai.",
+      "AI ke faislay ki asal wajoohat samjhana transparency ko support karta hai.",
+      "Transparency ke liye model ka poora source code shaya karna lazmi hai."
+    ],
+    "exp": "Pehle ka jawab Haan: logon ko pata hona chahiye ke woh kab AI se kaam le rahe hain. Doosre ka Haan: nateeje par asar dalne wali cheezein samjhane se log usay samajh aur us par sawal kar sakte hain. Teesre ka Nahi: transparency is baare mein hai ke log system ka maqsad, rawaiya aur hudood samjhein; us ke liye source code shaya karna zaroori nahi."
+  },
+  "D1-151": {
+    "q": "Customers ke baare mein faislay karne wale AI system ke liye kaunsa tareeqa accountability principle ko sab se behtar dikhata hai?",
+    "opts": [
+      "Model ko koi record rakhe baghair aakhri faislay karne dein",
+      "System ke owner ko khufia rakhein",
+      "Audit logs rakhein aur logon ko faislay challenge karne ka tareeqa dein jise zimmedar team review kare",
+      "Kharcha bachane ke liye insani nigrani khatam kar dein"
+    ],
+    "exp": "Accountability ka matlab hai ke log AI systems ke jawabdeh rahein; audit trails, wazeh owner aur faislon ke khilaf appeal ka tareeqa isay mumkin banate hain. Record ke baghair faislay, chupi hui ownership aur insani nigrani khatam karna, sab kisi ko zimmedar thehrana ya ghaltiyan theek karna na-mumkin bana dete hain."
+  },
+  "D1-152": {
+    "q": "Responsible generative AI ke amal ke marahil sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Mitigations, jaise content filters aur system message ke usool, se nuqsanat kam karein",
+      "Jaldi release ke liye review chor dein",
+      "Solution ke mumkina nuqsanat pehchanein",
+      "Solution ko monitoring aur incident response plan ke saath chalayein",
+      "Naapein ke woh nuqsanat kitni baar hote hain, maslan evaluations se"
+    ],
+    "exp": "Responsible generative AI ke liye Microsoft ki rahnumai chaar marahil par chalti hai: mumkina nuqsanat pehchanein, naapein ke system ke output mein woh kitni baar aate hain, unhein content filters, grounding aur system messages jaisi tehon se kam karein, aur phir solution ko monitoring aur response plan ke saath zimmedari se chalayein. Review chorna is amal ka ulat hai."
+  },
+  "D1-153": {
+    "q": "Generative AI kis kis qism ka content bana sakta hai?",
+    "opts": ["Sirf numbers", "Sirf spreadsheet ki rows", "Text, images, code aur audio", "Sirf database ki tables"],
+    "exp": "Generative AI models kai qism ka naya content banate hain: language models text aur code likhte hain, image models tasveerein banate hain, aur speech wale models audio banate hain. Woh numbers, spreadsheets ya database rows tak mehdood nahi."
+  },
+  "D1-154": {
+    "q": "Generative AI model ko kya cheez multimodal banati hai?",
+    "opts": [
+      "Woh ek se zyada qism ka data, jaise text aur images, le ya bana sakta hai",
+      "Woh bohat se Azure regions mein chalta hai",
+      "Us ki kai deployments hain",
+      "Woh bohat se GPUs istemal karta hai"
+    ],
+    "exp": "Multimodal ka matlab hai ke model ek se zyada modality par kaam karta hai, maslan ek hi prompt mein text aur images parhna ya text aur audio banana. Regions, deployments ki tadad aur hardware hosting ki tafseel hain aur un ka is se taalluq nahi ke model kis qism ka data samajhta hai."
+  },
+  "D1-155": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Training ke dauran language model {0} seekhta hai. Jab aap usay prompt bhejte hain to model jawab banane ke liye {1} karta hai.",
+    "blanks": [["live web ke nateeje", "bohat zyada data ke patterns", "aap ki company ki private files khud ba khud"], null],
+    "exp": "Training model ke parameters ko adjust karti hai taake woh bohat bare dataset ke patterns pakar le. Train kiye hue model se prompt ka jawab banana inference hai. Model web nahi dekhta aur aap ki private files nahi parhta jab tak aap ka solution woh data na de, aur labeling data tayyar karne ka kaam hai."
+  },
+  "D1-156": {
+    "q": "Model ki context window ke baare mein kaunse DO bayan sahi hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Context window kisi hadd ke baghair khud barhti rehti hai",
+      "Jab guftagu context window se barh jaye to purana content chhota karna ya hatana parta hai",
+      "Context window images mein naapi jati hai",
+      "Context window aur deployment ka quota ek hi cheez hain",
+      "Lamba prompt window mein jawab ke liye kam tokens chorta hai"
+    ],
+    "exp": "Context window input aur output dono ki mila kar ek muqarrar token hadd hai, is liye lambi chats ko kaatna ya un ka khulasa karna parta hai, aur lamba prompt jawab ki jagah kam karta hai. Woh be-hadd nahi barhti, images ke bajaye tokens mein gini jati hai, aur model ki khoobi hai, jab ke quota deployment ke tokens per minute mehdood karta hai."
+  },
+  "D1-157": {
+    "q": "Kaunsa kaam embeddings ka aam istemal hai?",
+    "opts": [
+      "Speech ko text banana",
+      "Nayi tasveer banana",
+      "Model ka temperature set karna",
+      "Semantic search jo sawal se milte julte matlab wale documents dhoondta hai"
+    ],
+    "exp": "Embeddings text ko matlab pakarne wale vectors banate hain, is liye search system sawal ke vector ko document vectors se mila kar sab se qareebi match de sakta hai, chahe alfaz mukhtalif hon. Speech to text, image generation aur temperature settings embeddings par munhasir nahi."
+  },
+  "D1-158": {
+    "q": "Ek company Foundry catalog ka open-weight model apni subscription mein dedicated virtual machines par chalana aur compute ka size khud control karna chahti hai. Kaunsa deployment option munasib hai?",
+    "exp": "Managed compute model ko un dedicated virtual machines par deploy karta hai jo aap chunte aur jin ki qeemat dete hain, jo open-weight models ke liye munasib hai aur compute par control deta hai. Global Batch, Data Zone Standard aur Global Provisioned un models ki deployment types hain jinhein Microsoft host aur scale karta hai, jahan aap virtual machines nahi chunte."
+  },
+  "D1-159": {
+    "q": "Microsoft Foundry model catalog ke baare mein kaunsa bayan sach hai?",
+    "opts": [
+      "Us mein sirf Microsoft ke models hain",
+      "Us mein Microsoft, OpenAI aur doosre providers, jaise Meta aur Mistral, ke models hain",
+      "Us mein sirf image models hain",
+      "Us ke models filter ya compare nahi kiye ja sakte"
+    ],
+    "exp": "Foundry model catalog Microsoft, OpenAI aur bohat se doosre providers ke models jama karta hai, jo language, vision, speech aur embedding ke kaam karte hain, aur aap unhein task, provider aur benchmarks se filter aur compare kar sakte hain. Woh ek provider ya ek modality tak mehdood nahi."
+  },
+  "D1-160": {
+    "q": "Model chunne ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Catalog ke benchmarks models ko quality, kharche aur raftar par compare karne mein madad dete hain.",
+      "Candidate models ko apne data se test karna tajweez kiya jata hai.",
+      "Sab se mehnga model hamesha har kaam ke liye behtareen hota hai.",
+      "Catalog ke kuch models input mein images lete hain."
+    ],
+    "exp": "Pehle ka jawab Haan: benchmarks aur leaderboards shuruaati muqabla dete hain. Doosre ka Haan: aap ke apne prompts aur data dikhate hain ke model aap ke kaam par kaisa hai. Teesre ka Nahi: aasan kaamon ke liye chhote aur saste models aksar kaafi aur tez hote hain. Chauthe ka Haan: multimodal models text ke saath images bhi lete hain."
+  },
+  "D1-161": {
+    "q": "Har zaroorat ko us qism ke model se milayein jo us ke liye munasib hai. Har model type ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Semantic search ke liye vectors banana",
+      "Meeting ki recording ko text banana",
+      "Tafseel se poster ki tasveer banana",
+      "Photo ke baare mein sawalon ke jawab dena"
+    ],
+    "exp": "Embedding models search ke liye vectors banate hain. Speech-to-text models, jaise whisper, recordings likhte hain. Image-generation models text se tasveerein banate hain. Multimodal chat models images parh kar un ke baare mein sawalon ke jawab dete hain. Text-to-speech models audio banate hain, jo in mein se kisi zaroorat mein nahi maangi gayi."
+  },
+  "D1-162": {
+    "q": "Aap model ke jawab kam random banana chahte hain. temperature aur top P parameters ke liye aam mashwara kya hai?",
+    "opts": [
+      "Dono ko hamesha sab se zyada value par rakhein",
+      "Dono ko 0 karein aur maximum tokens barhayein",
+      "Temperature ya top P mein se ek adjust karein, dono ek saath nahi",
+      "Top P sirf image models par asar dalta hai"
+    ],
+    "exp": "Temperature aur top P dono control karte hain ke agla token kaise chuna jaye, is liye mashwara yeh hai ke dono ke bajaye ek ko adjust karein, jis se asar samajhna aasan hota hai. Zyada se zyada values randomness barhati hain, max tokens sirf lambai mehdood karta hai, aur top P text generation par lagu hota hai."
+  },
+  "D1-163": {
+    "q": "temperature parameter ke baare mein jumlay mukammal karein.",
+    "tpl": "Temperature {0} sab se zyada qabil-e-andaza jawab deta hai. Zyada takhleeqi variety ke liye temperature {1} ke qareeb rakhein.",
+    "exp": "Temperature 0 par model sab se mumkina tokens chunta hai, is liye output sab se ek jaisa hota hai. Zyada values, jaise 1 ke qareeb, intikhab ko zyada tokens par phaila deti hain aur mukhtalif, takhleeqi alfaz deti hain. 0.1 jaisi bohat kam values abhi bhi taqreeban tay shuda hoti hain, jab ke bohat zyada values jawab ko be-rabt bana sakti hain."
+  },
+  "D1-164": {
+    "q": "Model ke liye deployment type chunte waqt kaunsi DO cheezein dekhni chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "opts": [
+      "Foundry portal ka color theme",
+      "Data residency ki sharaait, jaise processing ko EU mein rakhna",
+      "Developer ke laptop ka brand",
+      "Mutawaqqa traffic ka andaz aur latency kitni qabil-e-andaza honi chahiye",
+      "App mein system messages ki tadad"
+    ],
+    "exp": "Deployment types mein farq yeh hai ke data kahan process hota hai, jaise global ya data zone ke andar, aur capacity kaise milti hai, jaise pay per token, reserved provisioned throughput ya batch. Is liye data residency aur traffic aur latency ki zarooratein intikhab tay karti hain. Portal ke rang, laptop aur system messages ki tadad ka is se taalluq nahi."
+  },
+  "D1-165": {
+    "q": "Ek regulated app ka rawaiya model ka naya version release hone par achanak nahi badalna chahiye. Aap ko kya karna chahiye?",
+    "opts": [
+      "Har hafte deployment delete kar ke dobara banayein",
+      "Deployment ko khaas model version par pin karein, phir badalne se pehle naye versions test karein",
+      "Temperature barhayein",
+      "Deployment ko Global Batch par le jayein"
+    ],
+    "exp": "Deployments ko khud upgrade hone ke bajaye khaas model version par set kiya ja sakta hai, is liye rawaiya tab tak wahi rehta hai jab tak aap naya version parakh kar badalne ka faisla na karein. Har hafte deployment dobara banane se version control nahi hota, temperature randomness barhata hai, aur Global Batch requests process karne ka tareeqa badalta hai, version nahi."
+  },
+  "D1-166": {
+    "q": "Microsoft Foundry mein model deployment aap ko kya deti hai?",
+    "opts": [
+      "Model ke training data ki copy",
+      "Model ka la-mehdood muft istemal",
+      "Virtual machine jise aap ko khud patch karna hota hai",
+      "Naam wala endpoint jise aap ki apps call kar sakti hain, apni settings aur quota ke saath"
+    ],
+    "exp": "Model deploy karne se woh aap ki applications ko deployment ke naam se dastiyab hota hai, deployment type, content filter aur tokens-per-minute quota jaisi settings ke saath. Is se training data nahi milta, istemal ka bill aata hai, aur Foundry par hosted deployment types mein aap virtual machines nahi sambhalte na patch karte hain."
+  }
+}

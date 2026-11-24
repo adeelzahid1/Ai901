@@ -74,7 +74,7 @@
     "exp": "Model se qadam ba qadam sochne ko kehna, jise aksar chain-of-thought prompting kehte hain, us se darmiyani qadam likhwata hai, jis se kai qadam wale masail zyada sahi hote hain. Sirf number maangne se woh soch hat jati hai. 20 token ki hadd hal ko beech mein kaat sakti hai. System message hatane se rahnumai khatam hoti hai aur sochne ki quality par koi faida nahi."
   },
   "D2-010": {
-    "q": "Request ke har hisse ko us prompt component se milayein jise woh zahir karta hai. Har component ek baar ya bilkul bhi istemal nahi ho sakta hai.",
+    "q": "Request ke har hisse ko us prompt component se milayein jise woh zahir karta hai. Har component ek baar istemal ho sakta hai, ya bilkul nahi.",
     "items": [
       "'Tum travel assistant ho. 100 alfaz se kam mein jawab do.'",
       "'January mein Oslo ke liye kya pack karun?'",

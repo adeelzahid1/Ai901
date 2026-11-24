@@ -1,0 +1,283 @@
+{
+  "D1-101": {
+    "q": "HR team chahti hai ke employees aam zaban mein policy ke sawal poochein aur chat window mein likhe hue jawab lein. Yeh kaunsi AI workload hai?",
+    "opts": [null, null, "Generative AI, chat interface ke saath", null],
+    "exp": "Sawal samajhne aur jawab likhne wala chat assistant generative AI workload hai, jo aam taur par language model par bana hota hai aur aksar company ke documents se grounded hota hai. Computer vision aur object detection images ka jaiza lete hain, aur speech synthesis text ko audio banata hai, is liye koi bhi likhi hui guftagu nahi karta."
+  },
+  "D1-102": {
+    "q": "Ek insurer haath se likhe claim forms parh kar policy number, date aur amount database mein save karna chahta hai. Yeh kaunsi AI workload hai?",
+    "exp": "Forms parh kar policy number, date aur amount jaise khaas fields nikalna information extraction hai, jise aksar intelligent document processing kehte hain. Speech recognition audio par kaam karta hai, image generation tasveerein banata hai, aur sentiment analysis text mein raye parakhta hai, is liye koi bhi form ko structured data nahi banata."
+  },
+  "D1-103": {
+    "q": "Ek warehouse app ko photo se har pallet par boxes ginne hain. Yeh kaunsi AI workload hai?",
+    "exp": "Photo mein cheezein ginna computer vision ka kaam hai, aam taur par object detection, jo har box aur us ki jagah dhoondta hai. Text analysis likhi hui zaban par kaam karta hai, speech audio par, aur image generation maujood tasveeron ka jaiza lene ke bajaye nayi tasveerein banata hai."
+  },
+  "D1-104": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Boli hui English ko real time mein French mein translate karna speech workload hai.",
+      "Email ki zaban pehchanna computer vision workload hai.",
+      "Likhi hui tafseel se product ki tasveer banana generative AI workload hai.",
+      "Sign kiye hue contracts se tareekhein nikalna information extraction workload hai."
+    ],
+    "exp": "Pehle ka jawab Haan: speech translation bole hue alfaz pehchan kar translate karta hai. Doosre ka Nahi: language detection text analysis ka kaam hai, computer vision ka nahi. Teesre ka Haan: image-generation models text se nayi tasveerein banate hain, jo generative AI hai. Chauthe ka Haan: documents se khaas values dhoond kar dena information extraction hai."
+  },
+  "D1-105": {
+    "q": "Har scenario ko us ki AI workload se milayein. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Chat window mein naye jawab likh kar customers ke sawalon ka jawab dena",
+      "Voicemail ko text banana",
+      "Traffic camera ki tasveeron mein log aur gaariyan dhoondna",
+      "Customers ki ghusse wali emails par nishan lagana"
+    ],
+    "exp": "Chat mein naye jawab likhna generative AI hai. Voicemail ko text banana speech recognition hai. Tasveeron mein log aur gaariyan dhoondna computer vision hai. Ghusse wali emails pehchanna sentiment analysis hai, jo text analysis ki technique hai. Information extraction content se structured fields nikalta hai, jo in mein se kisi scenario ko nahi chahiye."
+  },
+  "D1-106": {
+    "q": "Kaunsa scenario ek akeli chat completion call ke bajaye AI agent ke liye sab se munasib hai?",
+    "opts": [
+      "Text ke ek paragraph ka khulasa karna",
+      "Ek jumla Spanish mein translate karna",
+      "Inventory API mein stock check karna, stock kam ho to dobara order dena, aur buyer ko khabar karna",
+      "Ek review ka sentiment classify karna"
+    ],
+    "exp": "Agent un kaamon ke liye munasib hai jin mein kai qadam, faislay aur tools ke zariye amal chahiye hon, jaise inventory API call karna, order dena aur notification bhejna. Text ke ek hisse ka khulasa, tarjuma ya classification ek qadam ka kaam hai jo ek model call achi tarah kar leti hai, is liye wahan agent ka koi faida nahi."
+  },
+  "D1-107": {
+    "q": "Kaunse DO scenarios computer vision workloads hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Phone call ko likhna",
+      "Photo li hui receipts ka text parhna",
+      "Quarterly report ka khulasa karna",
+      "Assembly line par products ki photos mein kharashein pehchanna",
+      "Web page translate karna"
+    ],
+    "exp": "Photos se text parhne mein optical character recognition istemal hota hai, aur product photos mein nuqs dhoondne mein object detection jaisa image analysis; dono computer vision hain. Call likhna speech recognition hai, report ka khulasa text analysis ya generative AI hai, aur web page translate karna zaban ka kaam hai."
+  },
+  "D1-108": {
+    "q": "Ek media company apni video library mein is bunyad par talash karna chahti hai ke har scene mein kya bola gaya aur kya dikhaya gaya. Kaunsa tareeqa sab se munasib hai?",
+    "opts": [
+      "Video se information extraction jo speech transcription ko har scene ke visual jaize ke saath jorta hai",
+      "Sirf video titles ka sentiment analysis",
+      "Video descriptions se image generation",
+      "Video scripts ka speech synthesis"
+    ],
+    "exp": "Bole aur dikhaye gaye dono par talash ke liye solution ko bola hua likhna aur har segment ya keyframe mein nazar aane wali cheez bayan karni hoti hai, phir woh maloomat talash ke liye mehfooz karni hoti hai. Yeh video se information extraction hai, maslan Content Understanding ki video analysis se. Titles ka sentiment content ko nazar andaz karta hai, aur image generation aur speech synthesis jaiza lene ke bajaye naya media banate hain."
+  },
+  "D1-109": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Likhe hue jawab ko boli hui audio banana {0} hai. Photo mein cheezein pehchanna {1} hai.",
+    "exp": "Speech synthesis, yaani text to speech, text se boli hui audio banata hai. Tasveer mein cheezein pehchanna computer vision hai. Speech recognition ulta, audio se text banata hai, OCR tasveeron ka text parhta hai, text analysis likhi hui zaban par kaam karta hai, aur speech audio ke kaamon ke liye hai, photos mein cheezein pehchanne ke liye nahi."
+  },
+  "D1-110": {
+    "q": "Ek contact center ke paas hazaron call recordings hain aur woh na-khush customers wali calls dhoondna chahta hai. Usay capabilities ka kaunsa jor chahiye?",
+    "opts": [null, null, null, "Speech to text, phir transcript ka sentiment analysis"],
+    "exp": "Recordings audio hain, is liye pehle speech to text transcripts banata hai, phir sentiment analysis negative guftagu dhoondta hai. Image classification aur object detection tasveeron par kaam karte hain. Text to speech audio banata hai aur OCR tasveeron ka text parhta hai, is liye woh jor calls ka jaiza nahi le sakta."
+  },
+  "D1-111": {
+    "q": "Global support desk har aane wala message us agent ko bhejna chahta hai jo wahi zaban bolta ho. Kaunsi text analysis technique zaban pehchanti hai?",
+    "exp": "Language detection text ki zaban batata hai, maslan confidence score ke saath ISO code, is liye messages zaban ke hisaab se bheje ja sakte hain. Key phrase extraction mauzu batata hai, summarization text chhota karta hai, aur named entity recognition log, jaghein aur doosri entities dhoondta hai; koi bhi message ki zaban nahi batata."
+  },
+  "D1-112": {
+    "q": "Ek retailer jaanna chahta hai ke har product review positive, neutral ya negative hai. Kaunsi technique istemal karni chahiye?",
+    "exp": "Sentiment analysis text par positive, neutral, negative ya mixed ka label lagata hai aur confidence scores deta hai. Entity linking naamon ko knowledge base ki entries se jorta hai, PII detection zaati data dhoondta hai, aur language detection zaban pehchanta hai, is liye koi bhi reviewer ke ehsaas ko nahi naapta."
+  },
+  "D1-113": {
+    "q": "Aap is jumlay par named entity recognition chalate hain: 'Contoso opened an office in Paris on 3 May.' Aap kis nateeje ki umeed rakhte hain?",
+    "opts": [null, null, "Contoso Organization ke taur par, Paris Location ke taur par, 3 May DateTime ke taur par", null],
+    "exp": "Named entity recognition text mein entities dhoond kar unhein Organization, Location aur DateTime jaise categories deta hai. Sentiment ka label sentiment analysis se aata hai, mauzu ki list key phrase extraction se, aur score ke saath zaban language detection se aati hai."
+  },
+  "D1-114": {
+    "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Key phrase extraction text ke asal mauzu deta hai.",
+      "Named entity recognition batata hai ke text positive hai ya negative.",
+      "Language detection confidence score ke saath zaban batata hai.",
+      "Abstractive summarization sirf asal text ke jumlay copy karta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: key phrases baat ke asal nuqtay hote hain. Doosre ka Nahi: raye sentiment analysis se naapi jati hai; entity recognition log, jaghein aur aisi cheezein label karta hai. Teesre ka Haan: language detection pehchani hui zaban aur score deta hai. Chauthe ka Nahi: abstractive summarization naye jumlay likhta hai; jumlay copy karna extractive summarization hai."
+  },
+  "D1-115": {
+    "q": "Har zaroorat ko text analysis technique se milayein. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Support tickets mein credit card numbers chupana",
+      "Maloom karna ke har shikayat mein kaunse shehar ka zikr hai",
+      "Lambe contract ka teen jumlon ka khulasa banana",
+      "Jaanna ke customers kaunse product features ki shikayat karte hain"
+    ],
+    "exp": "Card numbers chupana redaction ke saath PII detection hai. Shehar dhoondna named entity recognition hai, jo locations par label lagata hai. Chhota khulasa summarization hai. Shikayaton ko khaas features se jorna opinion mining hai, jo sentiment analysis ka aspect wala hissa hai. Language detection sirf zaban batata hai, is liye yahan zaroorat nahi."
+  },
+  "D1-116": {
+    "q": "Ek company ko roz lakhon chhote reviews ka sentiment kam kharche mein ek jaise labels aur scores ke saath lagana hai. Kaunsa option sab se munasib hai?",
+    "opts": [
+      "Bara reasoning model, har review ke liye lamba free-form prompt",
+      "Azure Language in Foundry Tools ka sentiment analysis, jo confidence scores ke saath standard labels deta hai",
+      null,
+      null
+    ],
+    "exp": "Language service ka sentiment analysis isi kaam ke liye bana feature hai jo har baar wahi labels aur confidence scores deta hai, jo zyada tadad mein ek jaisi classification ke liye munasib hai. Bara reasoning model bhi sentiment classify kar sakta hai, lekin free-form prompts sust hote hain, har item par zyada kharcha karte hain aur output ek jaisa rakhne ke liye izafi mehnat maangte hain. Speech translation aur image tags review text ka jaiza nahi lete."
+  },
+  "D1-117": {
+    "q": "Kaunsi DO text analysis techniques hain? Har sahi jawab mukammal hal hai.",
+    "exp": "Key phrase extraction aur named entity recognition dono likhe hue text par kaam kar ke mauzu aur entities dhoondte hain, is liye yeh text analysis techniques hain. Object detection aur image captioning images ka jaiza lete hain, aur speech synthesis text se audio banata hai, is liye yeh doosri workloads ka hissa hain."
+  },
+  "D1-118": {
+    "q": "Ek review mein likha hai: 'The battery is great but the screen scratches easily.' Jumlay mukammal karein.",
+    "tpl": "Sentiment analysis ghaliban poore review par {0} ka label lagayega. Opinion mining 'great' wali raye ko {1} wale aspect se jorega.",
+    "exp": "Review mein ek positive aur ek negative raye hai, is liye document ka sentiment ghaliban mixed hai. Opinion mining aur gehrai mein ja kar har raye ko us ke nishane se jorta hai: 'great' battery ke baare mein hai, jab ke 'scratches easily' screen ke baare mein. Usay sirf positive ya neutral kehne se screen ki shikayat chup jati."
+  },
+  "D1-119": {
+    "q": "Help desk ko agent aur customer ke har chat transcript ka chhota khulasa chahiye jis mein customer ka masla aur us ka hal likha ho. Kaunsa feature sab se munasib hai?",
+    "opts": [null, null, "Conversation summarization jo masla aur hal deta hai", null],
+    "exp": "Conversation summarization logon ki guftagu ke liye bana hai aur masle aur hal par markooz khulasa bana sakta hai, jo bilkul wahi hai jo help desk ko chahiye. Extractive document summarization documents se jumlay chunta hai aur baari baari wali chats ke liye nahi bana. Key phrases khulase ke baghair mauzu batate hain, aur language detection sirf zaban batata hai."
+  },
+  "D1-120": {
+    "q": "Support emails bohat si zabanon mein aati hain, aur tamam reports English mein honi chahiye. Processing ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Sentiment analysis aur key phrase extraction chalayein",
+      "Negative emails supervisor ko bhejein",
+      "Har email ki zaban pehchanein",
+      "Customer ki tasveer banayein",
+      "Ghair English emails ko English mein translate karein"
+    ],
+    "exp": "Pehle har email ki zaban pehchanein taake pata chale kinhein tarjume ki zaroorat hai, phir ek jaisi reporting ke liye unhein English mein translate karein, phir sentiment aur key phrases ka jaiza lein, aur aakhir mein negative emails supervisor ko bhejein. Customer ki tasveer banane ka emails ke jaize se koi taalluq nahi."
+  },
+  "D1-121": {
+    "q": "Ek smart-home app ko 'turn on the kitchen lights' jaise bole hue commands samajhne hain. Kaunsi capability bole hue command ko text banati hai?",
+    "exp": "Speech recognition, yaani speech to text, boli hui audio ko text banata hai jise app phir samajh sakti hai. Speech synthesis text se audio banata hai, OCR tasveeron se text parhta hai, aur image classification tasveeron par label lagata hai, is liye koi bhi bole hue commands nahi samajhta."
+  },
+  "D1-122": {
+    "q": "Kaunsa feature app ko chuni hui awaaz aur zaban mein text buland awaaz mein parhne deta hai?",
+    "exp": "Text to speech text ko boli hui audio banata hai aur mukhtalif zabanon aur andaz mein bohat si neural voices deta hai. Speech to text ulti simt mein kaam karta hai, language detection text ki zaban batata hai, aur diarization recording mein speakers ko alag karta hai."
+  },
+  "D1-123": {
+    "q": "Ek language-learning app ko score dena hai ke students mashq ke jumlay kitne sahi aur rawani se bolte hain. Kaunsa Speech feature istemal karna chahiye?",
+    "exp": "Pronunciation assessment seekhne wale ki awaaz ko mutawaqqa text se milata hai aur accuracy, fluency aur completeness jaise scores deta hai. Speech translation speech ko translate karta hai, custom voice (jise pehle custom neural voice kehte the) synthetic awaaz banata hai, aur batch transcription talaffuz ko score diye baghair mehfooz audio ko text banata hai."
+  },
+  "D1-124": {
+    "q": "Ek device ko sirf tab sunna shuru karna chahiye jab user 'Hey Contoso' wala wake phrase bole. Kaunsa Speech feature yeh karta hai?",
+    "exp": "Keyword recognition audio stream mein khaas lafz ya phrase, jaise wake word, pakarta hai taake app poori speech recognition sirf us ke bolne par shuru kare. Text to speech audio banata hai, diarization transcript mein speakers par label lagata hai, aur speech translation boli hui baat translate karta hai; koi bhi wake word pakarne ka kaam nahi karta."
+  },
+  "D1-125": {
+    "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Text to speech sirf ek robot jaisi awaaz bana sakta hai.",
+      "Speech to text microphone ki audio ko real time mein likh sakta hai.",
+      "Speech translation boli hui audio ko doosri zaban ke text mein badal sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: text to speech bohat si zabanon aur andaz mein kai qudrati neural voices deta hai. Doosre ka Haan: real-time speech to text live audio likhta hai, maslan microphone se. Teesre ka Haan: speech translation speech pehchan kar translated text deta hai, aur translated speech bhi bana sakta hai."
+  },
+  "D1-126": {
+    "q": "Har zaroorat ko Speech feature se milayein. Har feature ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Sone se pehle ki kahani qudrati awaaz mein parh kar sunana",
+      "Seekhne wale ke jumlay ke talaffuz ko score dena",
+      "Record kiye hue lecture ke subtitles banana",
+      "Interview transcript mein do logon ko alag alag pehchanna"
+    ],
+    "exp": "Kahani parh kar sunana text to speech hai. Talaffuz ko score dena pronunciation assessment hai. Subtitles speech to text transcription se aate hain. Do speakers ko alag karna speaker diarization hai. Image captioning tasveeron ko bayan karta hai aur Speech feature nahi, is liye kisi se nahi milta."
+  },
+  "D1-127": {
+    "q": "Kaunse DO features speech synthesis (text to speech) ka hissa hain? Har sahi jawab mukammal hal hai.",
+    "opts": [null, "Bohat si zabanon mein neural voices", null, "SSML se pitch, raftar aur waqfon ka control", null],
+    "exp": "Text to speech bohat si zabanon mein neural voices deta hai, aur SSML se aap control karte hain ke woh awaazein kaise bolein, jaise pitch, raftar aur waqfay. Diarization, batch transcription aur keyword recognition sab aane wali audio par kaam karte hain, is liye woh speech synthesis ke nahi balke speech recognition ke features hain."
+  },
+  "D1-128": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Speech recognition ka output {0} hota hai. Speech synthesis ka output {1} hota hai.",
+    "exp": "Speech recognition audio sun kar text deta hai, jaise transcript. Speech synthesis text le kar us ko bolti hui awaaz ki audio deta hai. Dono mein se koi tasveerein nahi banata; tasveer ka output image-generation models se aata hai."
+  },
+  "D1-129": {
+    "q": "Factory ki voice app machinon ke shor ki wajah se pehchan mein bohat ghaltiyan karti hai. In acoustic halaat ke liye custom speech model ko kaunsa training data sab se behtar karega?",
+    "opts": [
+      "Sirf saada text documents",
+      "Factory ki photos",
+      "Available neural voices ki list",
+      "Factory ki audio recordings aur un ke insanon ke likhe hue transcripts"
+    ],
+    "exp": "Custom speech ko audio aur insanon ke likhe hue transcripts se train kiya ja sakta hai, jis se model seekhta hai ke us shor wale mahaul mein awaaz kaisi hoti hai. Saada text alfaz aur jumlon mein madad karta hai lekin acoustic halaat nahi sikhata. Photos ka audio se taalluq nahi, aur neural voices speech synthesis ke liye hain, recognition ke liye nahi."
+  },
+  "D1-130": {
+    "q": "Kaunsa SSML element synthesized speech mein waqfa daalta hai?",
+    "exp": "break element alfaz ke darmiyan muqarrar lambai ya shiddat ka waqfa daalta hai. prosody pitch, raftar aur volume badalta hai, voice chunta hai ke kaunsi awaaz bole, aur say-as service ko batata hai ke tareekh ya number jaisa content kaise parhna hai. Sirf break khamoshi daalta hai."
+  },
+  "D1-131": {
+    "q": "Ek animal shelter chahta hai ke har photo par cat ya dog ka label lage. Kaunsi computer vision technique munasib hai?",
+    "exp": "Image classification poori tasveer ko ek label deta hai, jaise cat ya dog. Object detection har cheez ki jagah bhi batata hai, jis ki yahan zaroorat nahi. OCR text parhta hai, aur semantic segmentation har pixel par label lagata hai, jo ek photo ke ek label se bohat zyada tafseel hai."
+  },
+  "D1-132": {
+    "q": "Image Analysis ek photo ke liye 'outdoor', 'tree' aur 'person' jaise keywords deta hai. Yeh keywords kaunsa visual feature deta hai?",
+    "exp": "Tags feature tasveer mein mili cheezon ke content keywords deta hai, har ek confidence score ke saath. Caption poora jumla deta hai, smart crops thumbnail ke hisse tajweez karta hai, aur read text nikalta hai, is liye keywords ki list sirf tags deta hai."
+  },
+  "D1-133": {
+    "q": "Aap ko bheer wali street photo ke kai hisson ki alag alag chhoti tafseel chahiye, maslan 'a red bus' aur 'a man riding a bicycle'. Kaunsa Image Analysis feature istemal karna chahiye?",
+    "exp": "Dense captions tasveer ke kai hisson mein se har ek ka caption us ke bounding box ke saath banata hai. Caption poori tasveer ka ek jumla deta hai, tags keywords dete hain, aur people detection sirf yeh batata hai ke log kahan hain."
+  },
+  "D1-134": {
+    "q": "Image-generation models ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Jo prompt subject, style aur mahaul bayan kare woh aam taur par mubham prompt se behtar nateeja deta hai.",
+      "Image-generation models asal photo jaisi tasveerein bhi bana sakte hain aur illustrations bhi.",
+      "Bani hui tasveerein ghalat spelling wale text ya izafi ungliyon jaisi ghaltiyon se pak hone ki guarantee ke saath aati hain.",
+      "Content filters aise image prompts block kar sakte hain jo nuqsan deh content maangte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: tafseeli prompt model ko matlooba tasveer ki taraf le jata hai. Doosre ka Haan: yeh models photos se le kar drawings tak bohat se andaz bana sakte hain. Teesre ka Nahi: bani hui tasveeron mein bigra hua text ya ghalat jism jaisi ghaltiyan ho sakti hain, is liye unhein review karna chahiye. Chauthe ka Haan: image deployments prompts aur outputs dono par content filters lagati hain."
+  },
+  "D1-135": {
+    "q": "Har maloomat ko us technique se milayein jo usay nikalti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Insurance form par naam aur policy number",
+      "Customer support call ka chhota khulasa",
+      "Meeting mein har jumla kis speaker ne bola",
+      "TV commercial ka woh scene jis mein product nazar aata hai"
+    ],
+    "targets": [null, null, null, "Audio ke liye banaya gaya summary field", null],
+    "exp": "Naam aur policy number jaise form fields document field extraction se aate hain. Call ka khulasa audio transcript se banaya gaya generated field hai. Speaker ki pehchan diarization se hoti hai. Commercial mein product kahan aata hai, yeh video segment analysis batata hai. Image generation tasveerein banata hai aur maloomat nahi nikalta."
+  },
+  "D1-136": {
+    "q": "Kaunsi DO techniques video se maloomat nikalti hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      null,
+      "Video mein boli gayi baat ko likhna",
+      "Prompts se image generation",
+      "Text file translate karna",
+      "Keyframes aur scene ke segments pehchanna"
+    ],
+    "exp": "Video analysis boli gayi baat ko, jo audio track likhne se milti hai, dikhayi gayi cheez ke saath jorta hai, jo keyframes pehchanne aur video ko segments mein torne se milti hai. Speech synthesis aur image generation maloomat nikalne ke bajaye naya content banate hain, aur text file translate karne se video process nahi hoti."
+  },
+  "D1-137": {
+    "q": "Kya Azure Vision ka Read (OCR) feature whiteboard ki photo se haath ke likhe notes nikal sakta hai?",
+    "opts": [
+      "Nahi, woh sirf chhapa hua text parhta hai",
+      "Sirf agar photo ko pehle PDF mein badla jaye",
+      "Haan, woh chhapa hua aur haath ka likha dono text parhta hai",
+      "Sirf agar image-generation model pehle text dobara banaye"
+    ],
+    "exp": "Read OCR tasveeron aur documents se chhapa hua aur haath ka likha text nikalta hai aur lines aur alfaz un ki jagah ke saath deta hai. Woh seedha tasveeron par kaam karta hai, is liye PDF banane ki zaroorat nahi, aur image-generation model se text dobara banwane se madad ke bajaye ghaltiyan barhtin."
+  },
+  "D1-138": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Poori tasveer ke liye ek label lene ke liye {0} istemal karein. Tasveer mein har cheez ki jagah jaanne ke liye {1} istemal karein.",
+    "exp": "Image classification poori tasveer ke label se jawab deta hai ke 'yeh tasveer kis cheez ki hai'. Object detection labels aur bounding boxes se batata hai ke 'yahan kaunsi cheezein hain aur kahan hain'. OCR text parhta hai aur tasveeron par label nahi lagata na cheezon ki jagah batata hai."
+  },
+  "D1-139": {
+    "q": "Accounts team ko roz hazaron invoices se vendor, invoice number aur total nikalna hai, ek jaise field naamon aur review ke liye confidence scores ke saath. Kaunsa tareeqa sab se munasib hai?",
+    "opts": [
+      "Muqarrar field schema wala document analyzer jo structured fields aur confidence scores deta hai",
+      "Har invoice ke liye chat model ko prompt dena aur us ke free-form jawab ko parse karna",
+      null,
+      null
+    ],
+    "exp": "Document analyzer, jaise Content Understanding ka, muqarrar schema istemal karta hai is liye har invoice wahi fields deta hai, aur woh confidence scores aur grounding bhi de sakta hai taake kam confidence wali values insani review mein jayein. Free-form chat jawabon ka format badalta rehta hai aur unhein automate karna mushkil hai. Image tags aam keywords dete hain, aur speech to text audio par kaam karta hai."
+  },
+  "D1-140": {
+    "q": "Scan kiye hue invoices ko process karne ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Schema mein muqarrar fields nikalein",
+      "Nayi invoice ki tasveer banayein",
+      "Kam confidence wale fields insani review ke liye bhejein",
+      "Invoices scan ya upload karein",
+      "OCR se text aur layout parhein"
+    ],
+    "exp": "Pehle invoices scan ya upload hote hain, phir OCR aur layout analysis tasveeron ko text aur structure banate hain, phir schema ke fields nikale jate hain, aur aakhir mein kam confidence wale fields kisi insan ke review ke liye jate hain. Nayi invoice ki tasveer banana maloomat nikalna nahi balke content banana hai, is liye woh is amal ka hissa nahi."
+  }
+}

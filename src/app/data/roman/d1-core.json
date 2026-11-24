@@ -24,7 +24,7 @@
     "exp": "Accountability ka matlab hai ke AI systems banane aur chalane wale log un ke kaam ke jawabdeh hon, aam taur par governance, muqarrar owners aur review processes ke zariye. Owners aur manzoori wala review board accountability hai. Inclusiveness sab ke liye design karne ke baare mein hai, reliability and safety musalsal aur mehfooz kaam ke baare mein, aur transparency system samjhane ke baare mein, is liye yeh asal mein governance aur ownership ke baare mein nahi."
   },
   "D1-007": {
-    "q": "Har amal ko us responsible AI principle se milayein jise woh sab se seedha support karta hai. Har principle ek baar, ek se zyada baar, ya bilkul bhi istemal nahi ho sakta hai.",
+    "q": "Har amal ko us responsible AI principle se milayein jise woh sab se seedha support karta hai. Har principle ek ya zyada baar istemal ho sakta hai, ya bilkul nahi.",
     "items": [
       "Mukhtalif umar aur genders ke groups ke liye model ka error rate muqabla karna taake kisi group ko bura nateeja na mile",
       "App mein yeh message dikhana ke jawab AI ne banaye hain aur un mein ghalti ho sakti hai",
@@ -127,7 +127,7 @@
     "exp": "Multimodal model ek hi request mein ek se zyada qism ka input leta hai, jaise text aur tasveer. Embedding model vectors deta hai, jawab nahi, aur regression numbers predict karta hai. Context window un tokens ki kul tadad hai jo model ek request mein input aur output ke liye sambhal sakta hai. Temperature randomness control karta hai, aur quota yeh limit lagata hai ke deployment ek minute mein kitne tokens process kare, is liye dono is hadd ko bayan nahi karte."
   },
   "D1-019": {
-    "q": "Har tafseel ko sahi generative AI term se milayein. Har term ek baar ya bilkul bhi istemal nahi ho sakti hai.",
+    "q": "Har tafseel ko sahi generative AI term se milayein. Har term ek baar istemal ho sakti hai, ya bilkul nahi.",
     "items": [
       "Lafz ya lafz ka hissa jise language model process karta hai",
       "Numbers ka vector jo text ka matlab zahir karta hai",

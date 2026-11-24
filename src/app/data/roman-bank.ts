@@ -13,6 +13,10 @@ type RomanFile = Record<string, RomanText>;
 const LOADERS: Record<string, () => Promise<unknown>> = {
   'd1-core': () => import('./roman/d1-core.json').then((m) => m.default),
   'd1-ext1': () => import('./roman/d1-ext1.json').then((m) => m.default),
+  'd1-ext2': () => import('./roman/d1-ext2.json').then((m) => m.default),
+  'd1-ext3': () => import('./roman/d1-ext3.json').then((m) => m.default),
+  'd1-ext4': () => import('./roman/d1-ext4.json').then((m) => m.default),
+  'd1-ext5': () => import('./roman/d1-ext5.json').then((m) => m.default),
   'd2-core': () => import('./roman/d2-core.json').then((m) => m.default),
 };
 

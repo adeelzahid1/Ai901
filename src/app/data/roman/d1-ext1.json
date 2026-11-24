@@ -8,7 +8,7 @@
     "exp": "AI agent generative model se maqsad par sochta hai, qadam khud tay karta hai aur APIs jaise tools call kar ke kam insani hidayat ke saath kaam mukammal karta hai. Tools chun kar flights dekhna, hotel book karna aur email bhejna agentic AI hai. Text analysis sirf text mein maloomat dhoondta hai, speech synthesis text se audio banata hai, aur OCR tasveeron se text parhta hai, is liye in mein se koi mansooba bana kar amal nahi karta."
   },
   "D1-033": {
-    "q": "Har scenario ko us AI workload se milayein jise woh zahir karta hai. Har workload ek baar, ek se zyada baar, ya bilkul bhi istemal nahi ho sakti hai.",
+    "q": "Har scenario ko us AI workload se milayein jise woh zahir karta hai. Har workload ek ya zyada baar istemal ho sakti hai, ya bilkul nahi.",
     "items": [
       "Scan kiye hue invoices se kul raqam aur due date parhna",
       "Maloom karna ke product reviews positive hain ya negative",
@@ -90,7 +90,7 @@
     "exp": "Pehle ka jawab Nahi: sentiment analysis supported zabanon mein seedha kaam karta hai aur text translate nahi karta; translation alag service hai. Doosre ka Haan: nateeje mein document ki satah par aur har jumlay ke liye positive, neutral aur negative confidence scores hote hain. Teesre ka Haan: jab jumlay ek doosre se mukhtalif hon to document ka sentiment mixed ho sakta hai."
   },
   "D1-046": {
-    "q": "Har nateeje ko us text analysis technique se milayein jis se woh bana. Har technique ek baar ya bilkul bhi istemal nahi ho sakti hai.",
+    "q": "Har nateeje ko us text analysis technique se milayein jis se woh bana. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
     "items": [
       "'Contoso' par Organization aur 'Seattle' par Location ka label",
       "'battery life' aur 'customer service'",
@@ -169,7 +169,7 @@
     "exp": "Speech to text live audio ki real-time transcription aur mehfooz recordings ki batch transcription ko support karta hai. Neural voice chunna aur SSML se pitch ya raftar badalna text-to-speech ki features hain kyunke woh bani hui audio ko shakal dete hain. Tasveerein banana image-generation ka kaam hai, speech recognition ka nahi."
   },
   "D1-059": {
-    "q": "Har scenario ko us speech feature se milayein jo usay chahiye. Har feature ek baar ya bilkul bhi istemal nahi ho sakti hai.",
+    "q": "Har scenario ko us speech feature se milayein jo usay chahiye. Har feature ek baar istemal ho sakti hai, ya bilkul nahi.",
     "items": [
       "Presenter ke bolte waqt screen par captions aate hain",
       "Navigation app raste ki hidayaat buland awaaz mein parhti hai",
@@ -214,7 +214,7 @@
     "exp": "OCR scan kiye hue page se chhapa hua aur haath ka likha text parhta hai, aur field extraction document ki layout aur matlab se Name ya Date jaise label wali values deta hai. Speech synthesis audio banata hai, image generation tasveerein banata hai, aur language detection sirf zaban batata hai, is liye koi bhi form se structured data nahi nikalta."
   },
   "D1-067": {
-    "q": "Har content type ko us technique se milayein jo us se maloomat nikalti hai. Har technique ek baar ya bilkul bhi istemal nahi ho sakti hai.",
+    "q": "Har content type ko us technique se milayein jo us se maloomat nikalti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
     "items": [
       "Scan kiye hue khat mein chhapa hua aur haath ka likha text",
       "Podcast episode mein bole hue alfaz",

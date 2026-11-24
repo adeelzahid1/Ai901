@@ -1,0 +1,252 @@
+{
+  "D1-071": {
+    "q": "Ek company résumé-screening model ko das saal ke purane hiring faislon par train karti hai, jab zyada tar mard bharti kiye gaye the. Ab model utni hi qabil khawateen ko neeche rank karta hai. Asal masla kya hai?",
+    "opts": [
+      "Fairness ka masla jo training data ke bias se paida hua",
+      "Applicants ke data ki privacy breach",
+      "Sust hardware ki wajah se reliability ka masla",
+      "Transparency feature jo apne design ke mutabiq kaam kar raha hai"
+    ],
+    "exp": "Model apne training data se patterns seekhta hai, is liye agar purane faislay biased the to model wahi bias dohrata hai aur ek jaisi qabliyat wale groups ke saath alag sulook karta hai, jo fairness principle ke khilaf hai. Yahan koi zaati data zahir nahi hua, is liye yeh privacy breach nahi. Hardware ki raftar ka ranking se koi taalluq nahi, aur transparency system ko samjhane ke baare mein hai, ghair barabar nateeje ke baare mein nahi."
+  },
+  "D1-072": {
+    "q": "Refunds manzoor karne wala ek AI system nuqsan deh faisla karta hai. Accountability principle ke mutabiq zimmedar kaun hai?",
+    "opts": [
+      "AI model khud",
+      "Woh log aur idara jinhon ne system design aur deploy kiya",
+      "Sirf woh customer jis ne refund maanga",
+      "Koi nahi, kyunke faisla automatic tha"
+    ],
+    "exp": "Accountability ka matlab hai ke AI system design, build aur deploy karne wale log us ke kaam aur asar ke jawabdeh rehte hain. Model ko zimmedar nahi thehraya ja sakta, aur zimmedari customer par nahi jati aur na sirf is wajah se khatam hoti hai ke faisla automatic tha. Idare governance, muqarrar owners, reviews aur ghaltiyan theek karne ke tareeqon se accountability dikhate hain."
+  },
+  "D1-073": {
+    "q": "Ek voice assistant sirf jawan native speakers ke saath design aur test kiya gaya tha. Ab team design reviews aur testing mein buzurg users, bolne ki dushwari wale log aur mukhtalif accents wale log shamil karti hai. Woh kaunsa principle apna rahe hain?",
+    "exp": "Inclusiveness teams se kehta hai ke aisa AI design karein jo sab ko ba-ikhtiyar banaye, aur is ka ahem tareeqa mukhtalif salahiyaton aur pas-manzar ke logon ko design aur testing mein shamil karna hai. Accountability governance aur ownership ke baare mein hai, privacy and security data ki hifazat ke baare mein, aur transparency logon ko system samjhane ke baare mein, is liye koi bhi design mein mukhtalif users laane ko bayan nahi karta."
+  },
+  "D1-074": {
+    "q": "Microsoft Foundry ke image-generation models se bani tasveeron mein Content Credentials hote hain jo dikhate hain ke yeh AI ne banayi hain. Yeh asal mein kaunse responsible AI principle ko support karta hai?",
+    "exp": "Content Credentials bani hui tasveeron mein un ke asal (provenance) ki maloomat jorte hain taake log dekh sakein ke yeh AI ne banayi hain. Yeh batana ke content AI ka bana hua hai transparency hai, kyunke log samajh jate hain ke woh kya dekh rahe hain. Reliability and safety mehfooz aur musalsal kaam ke baare mein hai, fairness barabar sulook ke baare mein, aur accountability is baare mein ke system ka jawabdeh kaun hai, is liye yeh label ka asal maqsad nahi."
+  },
+  "D1-075": {
+    "q": "Privacy and security ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Microsoft Foundry mein Azure OpenAI models ko bheje gaye prompts aur completions OpenAI ke public models train karne ke liye istemal hote hain.",
+      "AI app ke data tak role-based access control se rasai mehdood karna privacy and security principle ko support karta hai.",
+      "Har chat log ko default ke taur par hamesha ke liye rakhna privacy ka tajweez shuda tareeqa hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: Microsoft kehta hai ke customers ke prompts aur completions OpenAI models train karne ke liye istemal nahi hote aur OpenAI ko dastiyab nahi. Doosre ka Haan: role-based access control yaqeeni banata hai ke sirf manzoor shuda identities data tak pohanchein, jis se data mehfooz rehta hai. Teesre ka Nahi: privacy ka tareeqa yeh hai ke zaati data sirf zaroorat tak rakha jaye, is liye har log hamesha rakhne se khatra barhta hai."
+  },
+  "D1-076": {
+    "q": "Generative AI chatbot ke release se pehle aur baad mein kaunse DO tareeqay reliability and safety ko support karte hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Tamam logging band kar dein taake kuch review na ho sake",
+      "Users se chupayein ke app AI istemal karti hai",
+      "Chatbot ko mukhalifana aur nuqsan deh prompts se red-team karein",
+      "Hamesha sab se zyada temperature rakhein",
+      "Test dataset par jawab evaluate karein aur release ke baad bhi monitoring jari rakhein"
+    ],
+    "exp": "Red-teaming mein jaan boojh kar system ko fail karne ki koshish ki jati hai taake masail users se pehle mil jayein, aur evaluation ke saath musalsal monitoring check karti hai ke quality aur safety umeed ke mutabiq rahein. Logging band karne se masail pakarne ki salahiyat khatam hoti hai. AI ka istemal chupana transparency ko nuqsan deta hai. Sab se zyada temperature output ko zyada random banata hai, jis se reliability aam taur par girti hai."
+  },
+  "D1-077": {
+    "q": "Har tafseel ko Microsoft ke responsible AI principle se milayein. Har principle ek baar istemal hota hai.",
+    "items": [
+      "AI systems sab logon ke saath insaaf se pesh aayein",
+      "AI systems bharosemand aur mehfooz tareeqe se kaam karein",
+      "AI systems mehfooz hon aur privacy ka khayal rakhein",
+      "AI systems sab ko ba-ikhtiyar banayein aur logon ko shamil karein",
+      "AI systems samajh mein aane wale hon",
+      "Log AI systems ke jawabdeh hon"
+    ],
+    "exp": "Yeh chhe jumlay Microsoft ke responsible AI principles ki chhoti tareefein hain: insaaf wala sulook fairness hai, bharosemand aur mehfooz kaam reliability and safety hai, mehfooz aur private hona privacy and security hai, sab ko ba-ikhtiyar banana inclusiveness hai, samajh mein aana transparency hai, aur logon ka jawabdeh hona accountability hai. Har principle ki ek jumlay wali tareef yaad ho to scenario wale sawal aasan ho jate hain."
+  },
+  "D1-078": {
+    "q": "Jild ki beemariyon ka ek model kul mila kar 95% sahi hai, lekin gehri rangat wale logon ke liye sirf 70% sahi hai. Team ko agla qadam kya uthana chahiye?",
+    "opts": [
+      "Model release kar dein, kyunke kul accuracy zyada hai",
+      "Sab users ke liye decision threshold barha dein",
+      "Tasveeron se jild ka rang hata dein",
+      "Har group ki karkardagi alag naapein aur kam accuracy wale groups ka training data behtar karein"
+    ],
+    "exp": "Kul score kuch groups ke bohat kharab nateejon ko chupa sakta hai. Har group ke metrics alag naapna, jise aksar disaggregated evaluation kehte hain, farq dikhata hai, aur kam numaindagi wale groups ka munasib data shamil karna usay kam karta hai, jo fairness ko support karta hai. Sirf average dekh kar release karna nuqsan ko nazar andaz karta hai. Sab ke liye ek threshold badalne se farq khatam nahi hota, aur medical tasveeron se rang yunhi nahi hataya ja sakta."
+  },
+  "D1-079": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumla mukammal karein.",
+    "tpl": "Microsoft ke responsible AI principles yeh hain: fairness, reliability and safety, {0}, inclusiveness, transparency, aur {1}.",
+    "exp": "Microsoft ke chhe responsible AI principles fairness, reliability and safety, privacy and security, inclusiveness, transparency aur accountability hain. Speed, profitability, scalability aur availability karobari ya technical maqasid ho sakte hain, lekin woh responsible AI principles nahi. Chhe ki poori list yaad ho to pehchanna aasan hota hai ke scenario kaunse principle ko bayan kar raha hai."
+  },
+  "D1-080": {
+    "q": "Ek hospital aisa AI assistant banata hai jo batata hai ke mareez ko kitni jaldi dekhna chahiye. Kaunsa design reliability and safety ko sab se behtar support karta hai?",
+    "opts": [
+      "Model ko review ke baghair apni tajaweez par amal karne dein",
+      "Amal se pehle mustanad clinician har tajweez ko review kare",
+      "Model ka confidence staff se chupayein",
+      "Tez jawab ke liye content filters band kar dein"
+    ],
+    "exp": "Bare asar wale scenarios mein agar insan amal se pehle AI ki tajaweez review kare to model ke ghalat hone par nuqsan ka imkan kam hota hai, jo reliability and safety ko support karta hai. Review ke baghair amal karne se yeh hifazat khatam hoti hai. Confidence chupane se woh ishara hat jata hai jo logon ko output parakhne mein madad deta hai. Content filters band karne se safety kamzor hoti hai aur tajaweez zyada bharosemand nahi hotin."
+  },
+  "D1-081": {
+    "q": "Large language model (LLM) kya hai?",
+    "opts": [
+      "Tayyar jawabon ka database",
+      "Rules engine jise developers haath se program karte hain",
+      "Bohat zyada text par train kiya hua model jo qudrati zaban samajh aur bana sakta hai",
+      "Spreadsheet macro jo text format karta hai"
+    ],
+    "exp": "Large language model neural network hai, aam taur par transformer architecture par mabni, jo bohat bari text collections par train hota hai taake sawalon ke jawab dene, khulasa karne aur likhne jaise kaamon ke liye qudrati zaban samajh aur bana sake. Woh tayyar jawab mehfooz nahi karta, haath se likha rules engine nahi, aur formatting macro bhi nahi."
+  },
+  "D1-082": {
+    "q": "Generative AI solution mein prompt kya hota hai?",
+    "opts": [
+      "Woh input, jaise sawal ya hidayat, jo aap model ko bhejte hain",
+      "Woh data jis par model train hua",
+      "Model deployment ka naam",
+      "Model istemal karne ka mahana bill"
+    ],
+    "exp": "Prompt woh input hai jo aap generative model ko dete hain, jaise sawal, hidayat, misaalein ya izafi context, aur model us se jawab banata hai. Training data woh hai jis se model ne deploy hone se pehle seekha. Deployment ka naam model endpoint ki pehchan hai, aur bill ka request mein model ke istemal se taalluq nahi."
+  },
+  "D1-083": {
+    "q": "Large language model ke muqable mein small language model, jaise Phi model, ka faida kaunsa bayan batata hai?",
+    "opts": [
+      "Woh har kaam mein hamesha zyada sahi jawab deta hai",
+      "Us ki context window la-mehdood hai",
+      "Usay fine-tune nahi kiya ja sakta, is liye woh kabhi nahi badalta",
+      "Usay kam compute chahiye, is liye woh sasta ho sakta hai aur chhote hardware, jaise local devices, par chal sakta hai"
+    ],
+    "exp": "Small language models mein parameters kam hote hain, is liye unhein kam memory aur compute chahiye, woh tez jawab dete hain aur kam kharche mein ya devices par bhi chal sakte hain, aur bohat se markooz kaam achi tarah karte hain. Woh har kaam mein zyada sahi nahi hote; bare models aam taur par wasee ya mushkil soch mein behtar hote hain. Kisi model ki context window la-mehdood nahi, aur chhote models fine-tune ho sakte hain."
+  },
+  "D1-084": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Model sirf apne training cutoff tak ke facts janta hai, jab tak aap ki app usay taaza maloomat na de.",
+      "Generative model default ke taur par har jawab ke liye internet par talash karta hai.",
+      "Temperature ko 0 ke qareeb rakhne se model ka output zyada qabil-e-andaza ho jata hai."
+    ],
+    "exp": "Pehle ka jawab Haan: model us data se seekhta hai jo training cutoff se pehle jama hua, is liye naye facts dene parte hain, maslan retrieval ya search tool se. Doosre ka Nahi: model seekhe hue se text banata hai aur web nahi dekhta jab tak solution web grounding jaisa tool na jore. Teesre ka Haan: kam temperature par model sab se mumkina tokens chunta hai, is liye jawab kam badalte hain."
+  },
+  "D1-085": {
+    "q": "Kaunsa tareeqa is imkan ko sab se zyada kam karta hai ke chat solution company ke products ke baare mein facts khud se ghar le?",
+    "opts": [
+      "Har prompt ko bharosemand product data se ground karein aur model se sources cite karne ko kahein",
+      "Temperature barhayein",
+      "Izafi context ke baghair chhote prompts bhejein",
+      "System message hata dein"
+    ],
+    "exp": "Grounding model ko jawab ke liye bharosemand aur mutalliqa content deti hai, aur citations maangne se yeh check karna aasan hota hai ke jawab usi content se aaye, jis se ghare hue facts kam hote hain. Zyada temperature randomness barhata hai aur ghari hui tafseel barha sakta hai. Context ya system message hatane se maloomat aur rahnumai khatam hoti hai, jis se be-bunyad jawab ka imkan barhta hai."
+  },
+  "D1-086": {
+    "q": "GPT models generative pre-trained transformers hain. Ek waqt mein ek token kar ke text banane ke liye woh transformer architecture ka kaunsa hissa istemal karte hain?",
+    "opts": ["Sirf encoder", "Decoder", null, null],
+    "exp": "GPT models decoder par mabni transformers hain: decoder ab tak ke tokens par attention istemal kar ke agla token predict karta hai, aur text isi tarah qadam ba qadam banta hai. Sirf encoder wale models, jaise BERT, zyada tar text samajhne aur us ki numaindagi ke liye hain, banane ke liye nahi. Convolutional networks aam taur par images ke liye hote hain, aur decision trees machine learning model ki alag qism hain."
+  },
+  "D1-087": {
+    "q": "Har tafseel ko us technique se milayein jise woh bayan karti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Aap ke documents se mile hue hisse prompt mein shamil karna",
+      "Bohat se misaali inputs aur outputs par model ko mazeed train karna",
+      "Prompt mein kaam ki chand hal shuda misaalein shamil karna",
+      "Aisi hidayaat likhna jo model ka role aur usool tay karein"
+    ],
+    "exp": "Retrieval augmented generation nikala hua content prompt mein jorta hai taake model aap ke data se jawab de. Fine-tuning bohat si misaalon par training jari rakhti hai aur model ka rawaiya badalti hai. Few-shot prompting prompt ke andar chand misaalein rakhti hai. System message role aur usool tay karta hai. Tokenization sirf text ko tokens mein torti hai aur jawab dene ka andaz nahi badalti."
+  },
+  "D1-088": {
+    "q": "Tokens ke baare mein kaunse DO bayan sahi hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Model ka istemal aur kharcha aam taur par tokens mein naapa jata hai",
+      "Token hamesha bilkul ek poora lafz hota hai",
+      "Model ki context window tokens mein naapi jati hai",
+      "Tokens sirf image models ke liye istemal hote hain",
+      "Token aur API key ek hi cheez hain"
+    ],
+    "exp": "Language model ka istemal tokens ke hisaab se bill aur mehdood hota hai, aur context window, yaani ek request mein input aur output ki woh miqdar jo model sambhal sakta hai, bhi tokens mein gini jati hai. Token poora lafz, lafz ka hissa ya punctuation ho sakta hai, is liye hamesha ek lafz nahi hota. Tokens text models ki bunyadi unit hain, aur API keys se un ka koi taalluq nahi."
+  },
+  "D1-089": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Generative AI apne training data se seekhe hue patterns ki bunyad par {0} content banata hai. Jo jawab sunne mein sahi lage lekin facts se sabit na ho usay {1} kehte hain.",
+    "blanks": [["sirf copy kiya hua", "naya", null], ["token", "embedding", "hallucination"]],
+    "exp": "Generative AI training mein seekhe hue patterns se naya content, jaise text, images ya code, banata hai, mehfooz content copy nahi karta. Aisa rawan jawab jis ki bunyad facts par na ho hallucination kehlata hai. Token text ki unit hai aur embedding numeric vector hai, is liye dono ghalat jawab ko bayan nahi karte."
+  },
+  "D1-090": {
+    "q": "Retrieval augmented generation (RAG) request ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Index mein sawal se milte hue hisse talash karein",
+      "Nikale hue hisson ke saath prompt model ko bhejein",
+      "User ka sawal hasil karein",
+      "Grounded jawab wapas karein, behtar hai citations ke saath",
+      "Sawal par model ko fine-tune karein"
+    ],
+    "exp": "RAG request user ke sawal se shuru hoti hai, phir index mein, aksar embeddings ke zariye, mutalliqa hisse talash hote hain, phir sawal un hisson ke saath model ko jata hai, aur aakhir mein un hisson par mabni jawab wapas aata hai, behtar hai citations ke saath. Fine-tuning alag training ka amal hai aur ek sawal ka jawab dene ka hissa nahi."
+  },
+  "D1-091": {
+    "q": "Aap ko Foundry model catalog se aisa model chahiye jo record ki hui awaaz ko text banaye. Kaunsa model munasib hai?",
+    "exp": "whisper speech-to-text model hai jo audio likhta hai, aur speech ko English mein translate bhi kar sakta hai. gpt-image-1 tasveerein banata hai, text-embedding-3-small search ke liye embedding vectors banata hai, aur Phi-4 small language model hai jo text par kaam karta hai, is liye koi bhi audio nahi likhta."
+  },
+  "D1-092": {
+    "q": "Model deploy karne se pehle aap us ki capabilities, istemal ke maqasid, hudood aur license kahan parh sakte hain?",
+    "opts": [null, "Subscription ka activity log", "Foundry model catalog mein model card", null],
+    "exp": "Foundry model catalog mein har model ka model card hota hai jo batata hai ke model kya karta hai, kaise train hua, us ke istemal ke maqasid aur hudood kya hain, aur license ki sharaait kya hain. Azure Advisor aam best-practice mashware deta hai, activity log management operations record karta hai, aur pricing calculator kharche ka andaza lagata hai; koi bhi model ki capabilities nahi batata."
+  },
+  "D1-093": {
+    "q": "Finance team ko mushkil, kai qadam wali calculations aur planning ke liye model chahiye, jahan sahi hona raftar se zyada ahem hai. Unhein kis qism ka model chunna chahiye?",
+    "opts": [
+      "Chhota aur tez chat model",
+      "Reasoning model jo jawab se pehle sochne par zyada mehnat karta hai",
+      "Embedding model",
+      "Speech synthesis model"
+    ],
+    "exp": "Reasoning models jawab dene se pehle andar hi andar masle par sochte hain, jis se mushkil math, logic aur planning ke kaam behtar hote hain, lekin waqt aur tokens zyada lagte hain. Chhota tez model aasan aur jaldi jawabon ke liye behtar hai. Embedding models vectors dete hain aur speech synthesis models audio banate hain, is liye dono kai qadam wale masail hal nahi karte."
+  },
+  "D1-094": {
+    "q": "Aap ka prompt template har jawab ke aakhir mein ### ka nishan lagata hai. Aap chahte hain ke model yeh nishan likhte hi generation rok de. Kaunsi setting istemal karni chahiye?",
+    "exp": "Stop sequence model ko batata hai ke muqarrar string, jaise ###, aate hi generation rok de, aur woh string output mein shamil nahi hoti. Temperature aur top P control karte hain ke tokens ka intikhab kitna random ho, aur presence penalty model ko naye mauzu laane par amada karta hai; koi bhi nishan par output khatam nahi karta."
+  },
+  "D1-095": {
+    "q": "Ek model lambe jawabon mein wahi alfaz aur phrases dohrata rehta hai. Aap ko kaunsa parameter barhana chahiye?",
+    "opts": [null, null, "Stop sequences ki tadad", "Deployment ka quota"],
+    "exp": "Frequency penalty un tokens ka imkan kam karta hai jo output mein pehle se kai baar aa chuke hon, is liye model kam dohrata hai. Zyada response tokens lambe jawab dene deta hai lekin takrar kam nahi karta, stop sequences sirf nishan par output khatam karte hain, aur quota control karta hai ke deployment kitna traffic sambhal sakti hai."
+  },
+  "D1-096": {
+    "q": "Deployments ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Provisioned deployments ka bill sirf un tokens ka aata hai jo aap waqai istemal karte hain.",
+      "Global Standard deployment kisi bhi Azure region mein requests process kar sakti hai.",
+      "Deployment ka tokens-per-minute quota yeh mehdood karta hai ke woh kitna traffic sambhal sakti hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: provisioned deployments provisioned throughput units mein capacity reserve karti hain, jis ki qeemat istemal ho ya na ho deni hoti hai; pay-per-token billing standard deployments ke liye hai. Doosre ka Haan: Global Standard traffic ko Azure ke global infrastructure par bhejta hai, is liye processing kisi bhi region mein ho sakti hai. Teesre ka Haan: jab requests tokens-per-minute hadd se barh jayein to izafi calls 429 errors ke saath reject hoti hain."
+  },
+  "D1-097": {
+    "q": "Aap ko aise support chatbot ke liye model chunna hai jo paanch zabanon mein customers ki khidmat kare aur unhein kharab products ki photos upload karne de. Kaunse DO meyaar sab se ahem hain? Har sahi jawab hal ka ek hissa hai.",
+    "opts": [
+      "Catalog mein model ka naam sab se lamba ho",
+      "Model image input ko support kare",
+      "Model sab se pehle release hua ho",
+      "Model customers ki zabanon mein acha kaam kare",
+      "Model sab se zyada GPUs istemal kare"
+    ],
+    "exp": "Is scenario ko aisa multimodal model chahiye jo tasveerein le aur paanchon zabanon mein acha kaam kare, is liye faisla isi par hoga, aur yeh model cards aur apne tests se check ho sakta hai. Model ka naam, release ki tarteeb aur hardware ka istemal yeh nahi batate ke woh kaam ke liye munasib hai."
+  },
+  "D1-098": {
+    "q": "Har tafseel ko deployment type se milayein. Har type ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Asynchronous bulk jobs, 24 ghante ka target aur kam qeemat",
+      "Musalsal traffic aur qabil-e-andaza latency ke liye reserved processing capacity",
+      "Fi token adaigi, aur requests kisi bhi Azure region mein process ho sakti hain",
+      "Fi token adaigi, aur processing EU ya US data zone ke andar rehti hai"
+    ],
+    "exp": "Global Batch bari asynchronous jobs ko 24 ghante ke target mein riayat par chalata hai. Provisioned deployments qabil-e-andaza karkardagi ke liye throughput reserve karti hain. Global Standard global routing ke saath pay-per-token hai. Data Zone Standard pay-per-token hai aur processing ko data zone, jaise EU, ke andar rakhta hai. Standard ek region wali pay-per-token deployment hai, jo yahan kisi tafseel se nahi milti."
+  },
+  "D1-099": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Jawab zyada se zyada kitna lamba ho, yeh mehdood karne ke liye {0} set karein. Model wahi alfaz kam dohraye, is ke liye {1} barhayein.",
+    "exp": "Max tokens un tokens ki tadad par hadd lagata hai jo model bana sakta hai, is liye jawab ki lambai mehdood hoti hai. Frequency penalty un tokens ka imkan kam karta hai jo pehle kai baar aa chuke hon, is liye takrar kam hoti hai. Temperature aur top P randomness control karte hain, aur stop sequences muqarrar string par output khatam karte hain, is liye yeh dono kaam seedha nahi karte."
+  },
+  "D1-100": {
+    "q": "Ek team kam traffic par aur pehle se kisi commitment ke baghair jaldi se model azmana chahti hai. Baad mein production mein musalsal zyada traffic hoga jise guaranteed capacity chahiye. Unhein kya karna chahiye?",
+    "opts": [
+      "Development ke liye provisioned throughput aur production ke liye Global Batch istemal karein",
+      "Development ke liye Global Standard deployment se shuru karein, phir musalsal production traffic ke liye provisioned throughput istemal karein",
+      "Development aur production dono ke liye Global Batch istemal karein",
+      "Koi deployment na banayein aur model catalog ko seedha call karein"
+    ],
+    "exp": "Global Standard baghair commitment ke pay-per-token hai, jo tajurbe ke liye munasib hai, jab ke provisioned throughput musalsal aur qabil-e-andaza production workloads ke liye capacity reserve karta hai. Development mein provisioned capacity khali pari reserved units par paisa zaya karti hai, aur Global Batch asynchronous hai, is liye live users ko jawab nahi de sakta. Applications ke call karne se pehle models ko deploy karna ya instant-access option se istemal karna hota hai; catalog khud endpoint nahi."
+  }
+}
