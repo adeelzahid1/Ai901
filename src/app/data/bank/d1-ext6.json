@@ -2,7 +2,7 @@
   {
     "id": "D1-194", "sub": "fairness", "diff": 2, "type": "mcq",
     "q": "Which Azure Machine Learning tool helps a data scientist assess a model's errors and fairness across different groups of people?",
-    "opts": ["Azure Advisor", "Cost Management", "The Responsible AI dashboard", "Azure Policy"],
+    "opts": ["Azure Advisor", "Azure Cost Management reports", "The Responsible AI dashboard", "Azure Policy"],
     "ans": 2,
     "exp": "The Responsible AI dashboard in Azure Machine Learning brings together tools such as error analysis and fairness assessment, so you can see where a model performs worse for certain groups. Azure Advisor gives general recommendations, Cost Management tracks spending, and Azure Policy enforces resource rules; none of them evaluate model fairness.",
     "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai-dashboard"
@@ -23,10 +23,10 @@
     "id": "D1-196", "sub": "reliability-safety", "diff": 1, "type": "mcq",
     "q": "Which statement describes the reliability and safety principle?",
     "opts": [
-      "AI systems should be as cheap as possible",
-      "AI systems should perform reliably and safely, including in unexpected conditions",
+      "AI systems should be as cheap as possible for each customer",
+      "AI systems should work safely in unexpected conditions",
       "AI systems should run only at night",
-      "AI systems should never be updated"
+      "AI systems should never be updated after they are released"
     ],
     "ans": 1,
     "exp": "Reliability and safety means an AI system should behave as intended, resist harmful manipulation and respond safely to situations it was not designed for. Cost, time of day and avoiding updates are not responsible AI principles, and updates are often needed to keep a system reliable.",
@@ -121,9 +121,9 @@
     "id": "D1-204", "sub": "accountability", "diff": 1, "type": "mcq",
     "q": "Who should approve the release of a high-impact AI system in an organization that follows the accountability principle?",
     "opts": [
-      "A designated owner or review board, following the organization's AI policy",
+      "A designated owner or review board",
       "The AI model itself",
-      "Any user who asks for it",
+      "Any user who asks for it and has an account",
       "Nobody, because AI systems govern themselves"
     ],
     "ans": 0,
@@ -160,10 +160,10 @@
     "id": "D1-207", "sub": "genai-how", "diff": 1, "type": "mcq",
     "q": "What does pre-training mean for a model such as GPT?",
     "opts": [
-      "Writing the system message",
-      "Choosing the Azure region",
-      "The first training on a very large, general text dataset",
-      "Setting the deployment quota"
+      "Writing the system message for the first version",
+      "Choosing the Azure region where the model will run",
+      "The first training on a large, general dataset",
+      "Setting the quota and the region of a new deployment"
     ],
     "ans": 2,
     "exp": "Pre-training is the initial training on a very large and broad dataset, during which the model learns general language patterns; 'pre-trained' is the P in GPT. Writing a system message, choosing a region and setting quota happen later, when you use or deploy the model.",
@@ -279,7 +279,7 @@
     "id": "D1-217", "sub": "deploy-config", "diff": 3, "type": "mcq",
     "q": "During testing you want the same prompt and settings to give more repeatable outputs between runs. Which parameter helps?",
     "opts": [
-      "Set the seed parameter and keep the other settings the same",
+      "Set the seed parameter",
       "Increase the presence penalty",
       "Add a stop sequence",
       "Increase the maximum tokens"
@@ -320,9 +320,9 @@
     "q": "What happens when a standard deployment receives more requests than its tokens-per-minute quota allows?",
     "opts": [
       "The model becomes more accurate",
-      "Billing stops for that minute",
-      "The deployment is deleted",
-      "Extra requests are rejected with HTTP 429 errors until usage drops"
+      "Billing stops until the next minute begins",
+      "The deployment is deleted and must be created again",
+      "Extra requests get HTTP 429 errors"
     ],
     "ans": 3,
     "exp": "When traffic exceeds the deployment's rate limits, the service throttles extra requests and returns 429 errors, so clients should retry with backoff or you should raise the quota. Exceeding quota does not change accuracy, stop billing or delete the deployment.",

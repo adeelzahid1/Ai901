@@ -3,10 +3,10 @@
     "id": "D1-141", "sub": "fairness", "diff": 2, "type": "mcq",
     "q": "A team removed the ethnicity column from its loan data, but the trained model still treats ethnic groups differently. What is the most likely cause?",
     "opts": [
-      "Other features, such as postal code, act as proxies for ethnicity",
-      "The model responds too quickly",
-      "The training data is encrypted",
-      "Too few people use the model"
+      "Other features act as proxies for ethnicity",
+      "The model responds too quickly to be checked",
+      "The training data is encrypted while it is stored",
+      "Too few people use the model after its release"
     ],
     "ans": 0,
     "exp": "Removing a sensitive attribute does not remove bias when other features are strongly related to it; postal code, for example, can reflect ethnicity in many areas, so the model can still learn unfair patterns. Fairness needs to be measured on outcomes for each group. Speed, encryption and the number of users do not cause a model to treat groups differently.",
@@ -118,9 +118,9 @@
     "q": "Which practice best demonstrates the accountability principle for an AI system that makes decisions about customers?",
     "opts": [
       "Let the model make final decisions without keeping any records",
-      "Keep the owner of the system secret",
-      "Keep audit logs and give people a way to challenge decisions, reviewed by a responsible team",
-      "Remove human oversight to save cost"
+      "Keep the owner of the system secret to avoid questions",
+      "Keep audit logs and let people challenge decisions",
+      "Remove human oversight to save cost and shorten response times"
     ],
     "ans": 2,
     "exp": "Accountability means people remain answerable for AI systems; audit trails, a clear owner and a process for people to appeal decisions make that possible. Decisions without records, hidden ownership and removing human oversight all make it impossible to hold anyone responsible or to correct mistakes.",
@@ -143,7 +143,12 @@
   {
     "id": "D1-153", "sub": "genai-how", "diff": 1, "type": "mcq",
     "q": "Which kinds of content can generative AI create?",
-    "opts": ["Only numbers", "Only spreadsheet rows", "Text, images, code and audio", "Only database tables"],
+    "opts": [
+      "Only numerical forecasts",
+      "Only numbers and rows in spreadsheets",
+      "Text, images, code and audio",
+      "Only tables for relational databases"
+    ],
     "ans": 2,
     "exp": "Generative AI models create new content of many kinds: language models write text and code, image models create pictures, and speech-capable models produce audio. They are not limited to numbers, spreadsheets or database rows.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
@@ -152,10 +157,10 @@
     "id": "D1-154", "sub": "genai-how", "diff": 2, "type": "mcq",
     "q": "What makes a generative AI model multimodal?",
     "opts": [
-      "It can accept or produce more than one type of data, such as text and images",
-      "It runs in many Azure regions",
-      "It has several deployments",
-      "It uses many GPUs"
+      "It accepts or produces more than one type of data",
+      "It runs in more than one Azure region at the same time",
+      "It has several deployments with different quotas in a project",
+      "It uses several GPUs to answer each of its requests"
     ],
     "ans": 0,
     "exp": "Multimodal means the model works with more than one modality, for example reading text and images in the same prompt or producing text and audio. Regions, number of deployments and hardware are hosting details and have nothing to do with the kinds of data a model understands.",
@@ -191,10 +196,10 @@
     "id": "D1-157", "sub": "genai-how", "diff": 2, "type": "mcq",
     "q": "Which task is a typical use of embeddings?",
     "opts": [
-      "Converting speech to text",
-      "Generating a new image",
-      "Setting the temperature of a model",
-      "Semantic search that finds documents with a similar meaning to a question"
+      "Converting speech to text for captions in a live meeting",
+      "Generating a new image in the style of a given artist",
+      "Choosing how random the next answer of a chat model should be",
+      "Semantic search for documents with similar meaning"
     ],
     "ans": 3,
     "exp": "Embeddings turn text into vectors that capture meaning, so a search system can compare the question's vector with document vectors and return the closest matches, even when they use different words. Speech to text, image generation and temperature settings do not rely on embeddings.",
@@ -212,10 +217,10 @@
     "id": "D1-159", "sub": "model-choice", "diff": 1, "type": "mcq",
     "q": "Which statement about the Microsoft Foundry model catalog is true?",
     "opts": [
-      "It contains only Microsoft models",
-      "It includes models from Microsoft, OpenAI and other providers, such as Meta and Mistral",
-      "It contains only image models",
-      "Its models cannot be filtered or compared"
+      "It contains only models that Microsoft has trained",
+      "It includes models from several providers",
+      "It contains only image models and speech models",
+      "Its models cannot be filtered, searched or compared"
     ],
     "ans": 1,
     "exp": "The Foundry model catalog brings together models from Microsoft, OpenAI and many other providers, covering language, vision, speech and embedding tasks, and you can filter and compare them by task, provider and benchmarks. It is not limited to one provider or one modality.",
@@ -253,7 +258,7 @@
     "q": "You want to make a model's answers less random. What is the general guidance for the temperature and top P parameters?",
     "opts": [
       "Always set both to their maximum values",
-      "Set both to 0 and increase the maximum tokens",
+      "Set both to 0 and increase the maximum number of output tokens",
       "Adjust temperature or top P, but not both at the same time",
       "Top P only affects image models"
     ],
@@ -291,10 +296,10 @@
     "id": "D1-165", "sub": "deploy-config", "diff": 3, "type": "mcq",
     "q": "A regulated app must not change behavior unexpectedly when a newer version of its model is released. What should you do?",
     "opts": [
-      "Delete and recreate the deployment every week",
-      "Pin the deployment to a specific model version, then test newer versions before you switch",
-      "Increase the temperature",
-      "Move the deployment to Global Batch"
+      "Delete the deployment every week and create it again",
+      "Pin the deployment to a specific model version",
+      "Increase the temperature of the deployment slightly",
+      "Move the deployment to Global Batch for all requests"
     ],
     "ans": 1,
     "exp": "Deployments can be set to a specific model version instead of upgrading automatically, so behavior stays stable until you have evaluated a newer version and decided to move. Recreating deployments weekly does not control the version, temperature adds randomness, and Global Batch changes how requests are processed, not which version is used.",
@@ -304,10 +309,10 @@
     "id": "D1-166", "sub": "deploy-config", "diff": 1, "type": "mcq",
     "q": "What does a model deployment in Microsoft Foundry give you?",
     "opts": [
-      "A copy of the model's training data",
-      "Unlimited free use of the model",
-      "A virtual machine that you must patch",
-      "A named endpoint that your apps can call, with its own settings and quota"
+      "A copy of the model's training data for your project",
+      "Unlimited free use of the model in one project",
+      "A virtual machine that you must patch and restart",
+      "A named endpoint that your apps can call"
     ],
     "ans": 3,
     "exp": "Deploying a model makes it available to your applications under a deployment name, with settings such as deployment type, content filter and tokens-per-minute quota. It does not give you the training data, usage is billed, and for Foundry-hosted deployment types you do not manage or patch virtual machines.",

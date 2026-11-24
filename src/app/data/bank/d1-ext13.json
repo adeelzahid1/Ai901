@@ -2,7 +2,7 @@
   {
     "id": "D1-383", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
     "q": "A hotel wants an assistant that books rooms by checking availability and creating reservations in its booking system. Which AI workload is this?",
-    "opts": ["Speech synthesis", "Agentic AI with tools for the booking system", "Optical character recognition", "Sentiment analysis"],
+    "opts": ["Speech synthesis", "Agentic AI with tools", "Optical character recognition", "Sentiment analysis"],
     "ans": 1,
     "exp": "Checking availability and creating reservations are actions in another system, so an agent that uses the booking system's APIs as tools is needed. Speech synthesis, OCR and sentiment analysis cannot take actions or make bookings.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
@@ -14,7 +14,7 @@
       "Image generation",
       "Speech recognition",
       "Text to speech",
-      "Information extraction that returns the clause status and the date as fields"
+      "Information extraction"
     ],
     "ans": 3,
     "exp": "The team needs specific facts from documents returned as data, which is information extraction, for example a Yes or No field for the clause and a date field. Image generation creates pictures, and speech recognition and text to speech deal with audio.",
@@ -92,7 +92,7 @@
     "id": "D1-391", "sub": "text-techniques", "diff": 2, "type": "mcq",
     "ctx": "A government portal publishes citizen feedback online, but names, email addresses and ID numbers must be removed first.",
     "q": "Which text analysis feature should it use?",
-    "opts": ["Sentiment analysis", "Summarization", "Language detection", "PII detection with redaction"],
+    "opts": ["Sentiment analysis", "Summarization", "Language detection", "PII detection"],
     "ans": 3,
     "exp": "PII detection finds personal information such as names, emails and ID numbers and returns text with them masked. Sentiment analysis, summarization and language detection do not remove personal data.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview"
@@ -154,7 +154,7 @@
     "q": "Why might language detection return a low confidence score for a message?",
     "opts": [
       "The message is too polite",
-      "The message is very short or mixes several languages",
+      "The message is very short",
       "The message contains no images",
       "The message uses capital letters"
     ],
@@ -175,9 +175,9 @@
     "q": "A call center wants to find every stored recording in which a customer said 'cancel my account'. Which approach fits?",
     "opts": [
       "Text to speech",
-      "Pronunciation assessment",
-      "Custom voice",
-      "Batch transcription of the recordings, then a search of the transcripts for the phrase"
+      "Pronunciation assessment of each recording",
+      "Custom voice trained on the customers' recordings",
+      "Batch transcription, then a text search"
     ],
     "ans": 3,
     "exp": "Transcribing the stored calls makes them searchable as text, so the phrase can be found in every recording. Text to speech and custom voice (previously called custom neural voice) create audio, and pronunciation assessment scores how well someone pronounces expected text.",
@@ -280,7 +280,7 @@
   {
     "id": "D1-407", "sub": "extraction-techniques", "diff": 1, "type": "mcq",
     "q": "Which technique turns a photo of a printed form into machine-readable text?",
-    "opts": ["Speech synthesis", "Sentiment analysis", "Optical character recognition", "Image generation"],
+    "opts": ["Speech synthesis", "Sentiment analysis", "Optical character recognition", "Image generation from the photo"],
     "ans": 2,
     "exp": "OCR detects and reads the printed characters in the photo and returns them as text. Speech synthesis creates audio, sentiment analysis judges opinion in text that already exists, and image generation creates new pictures.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-ocr"
@@ -291,8 +291,8 @@
     "q": "Which approach avoids building a separate template for each supplier?",
     "opts": [
       "Build a fixed template for each supplier's layout",
-      "Use generative field extraction with one schema that handles different layouts",
-      "Have staff retype every delivery note",
+      "Generative field extraction with one schema for all of the layouts",
+      "Have staff retype every delivery note into one spreadsheet",
       "Use speech to text"
     ],
     "ans": 1,

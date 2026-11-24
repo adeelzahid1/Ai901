@@ -4,10 +4,10 @@
     "ctx": "A museum app lets visitors point their phone at a painting and then hear a description of it in their own language.",
     "q": "Which combination of AI workloads does the app use?",
     "opts": [
-      "Only optical character recognition",
-      "Only sentiment analysis",
-      "Computer vision to recognize the painting, generative AI to write the description, and speech synthesis to read it aloud",
-      "Only key phrase extraction"
+      "Optical character recognition of the label next to the painting",
+      "Sentiment analysis of what visitors say about the painting",
+      "Computer vision, generative AI and speech synthesis",
+      "Key phrase extraction from the museum's printed catalog"
     ],
     "ans": 2,
     "exp": "The app must recognize the painting from the camera image, which is computer vision, write a description in the visitor's language, which is generative AI, and read it aloud, which is speech synthesis. OCR, sentiment analysis and key phrase extraction alone cannot deliver this experience.",
@@ -104,10 +104,10 @@
     "id": "D1-338", "sub": "text-techniques", "diff": 2, "type": "mcq",
     "q": "A review starts with a very positive sentence and ends with a very negative one. How can you see both opinions in the sentiment analysis results?",
     "opts": [
-      "Read the sentence-level sentiment results",
-      "Run language detection",
-      "Use key phrase extraction only",
-      "Run OCR on the review"
+      "Read the sentence-level results",
+      "Run language detection on each sentence",
+      "Use key phrase extraction on the review",
+      "Run OCR on a screenshot of the review"
     ],
     "ans": 0,
     "exp": "Sentiment analysis returns a label and scores for each sentence as well as for the whole document, so you can see the positive and negative parts separately; the document may be labeled mixed. Language detection, key phrases and OCR do not report sentiment.",
@@ -176,7 +176,12 @@
     "id": "D1-344", "sub": "speech-features", "diff": 2, "type": "mcq",
     "ctx": "A bank stores thousands of call recordings. For quality reviews, transcripts must show which parts were said by the agent and which by the customer.",
     "q": "Which Speech capabilities fit?",
-    "opts": ["Text to speech", "Keyword recognition only", "Pronunciation assessment", "Batch transcription with speaker diarization"],
+    "opts": [
+      "Text to speech",
+      "Keyword recognition for the bank's name",
+      "Pronunciation assessment of the recorded calls",
+      "Batch transcription with diarization"
+    ],
     "ans": 3,
     "exp": "Batch transcription handles large numbers of stored recordings, and diarization separates the speakers so the transcript shows who said what. Text to speech creates audio, keyword recognition only listens for a wake word, and pronunciation assessment scores language learners.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription"
@@ -283,9 +288,9 @@
     "q": "Why is information extraction valuable for businesses?",
     "opts": [
       "It makes documents longer",
-      "It creates new marketing images",
-      "It removes the need to store files",
-      "It turns documents and media into structured data that systems can use automatically"
+      "It creates new marketing images from the documents",
+      "It removes the need to store files once they are read",
+      "It turns documents and media into structured data for other systems"
     ],
     "ans": 3,
     "exp": "Information extraction converts invoices, forms, recordings and other content into structured data, so systems can process it without manual typing. It does not lengthen documents, create images or replace storage.",
@@ -296,10 +301,10 @@
     "ctx": "Insurance claims arrive as PDF forms, photos of damage and voicemails. Adjusters need the claim number, the incident date and a short summary from each item.",
     "q": "Which approach fits best?",
     "opts": [
-      "A multimodal information extraction service that handles documents, images and audio with defined fields",
-      "Image classification only",
-      "Speech synthesis only",
-      "Key phrase extraction on the file names"
+      "Multimodal extraction with defined fields",
+      "Image classification of the damage photos only",
+      "Speech synthesis of the claims for the adjusters",
+      "Key phrase extraction on the names of the claim files"
     ],
     "ans": 0,
     "exp": "The inputs mix documents, images and audio, and the adjusters need the same fields from each, so a multimodal extraction service, such as Content Understanding with analyzers for each type, fits. Image classification alone ignores text and audio, speech synthesis creates audio, and file names contain no claim details.",

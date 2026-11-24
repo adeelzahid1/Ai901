@@ -59,7 +59,7 @@
     "ctx": "A government benefits chatbot answers in complex legal language, and many citizens cannot understand its replies.",
     "q": "Which principle is affected, and what helps?",
     "opts": [
-      "Inclusiveness: use plain language and offer to explain terms",
+      "Inclusiveness: use plain language",
       "Fairness: retrain the model on more data",
       "Accountability: appoint a new owner",
       "Privacy and security: encrypt the conversations"
@@ -74,8 +74,8 @@
     "opts": [
       "Hide that the product uses AI",
       "Delete all logs",
-      "Publish how the system works and what its limitations are",
-      "Increase the size of the model"
+      "Publish how the system works",
+      "Increase the size of the model and its context window"
     ],
     "ans": 2,
     "exp": "Explaining how a system works and where it can fail helps people understand and appropriately trust it, which is transparency. Hiding AI use works against transparency, deleting logs harms accountability, and model size is unrelated.",
@@ -98,7 +98,12 @@
   {
     "id": "D1-419", "sub": "genai-how", "diff": 1, "type": "mcq",
     "q": "In generative AI, what is a completion?",
-    "opts": ["The text that the model generates in response to a prompt", "The deployment name", "The training data", "The Azure region"],
+    "opts": [
+      "The text that the model generates",
+      "The deployment name that the app uses",
+      "The data that the model was trained on",
+      "The Azure region where the model is deployed"
+    ],
     "ans": 0,
     "exp": "A completion is the output a model produces for a prompt, such as an answer or a draft. The deployment name, training data and region are not outputs of a request.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
@@ -131,10 +136,10 @@
     "id": "D1-422", "sub": "genai-how", "diff": 2, "type": "mcq",
     "q": "Why do RAG solutions split documents into chunks before creating embeddings?",
     "opts": [
-      "To make the documents look nicer",
-      "To translate the documents",
-      "To increase the deployment quota",
-      "So the most relevant passages can be found and fit into the prompt"
+      "To make the documents look nicer in the search results",
+      "To translate the documents into the user's language",
+      "To increase the quota of the embedding deployment",
+      "To find the most relevant passages and fit them into the prompt"
     ],
     "ans": 3,
     "exp": "Smaller chunks let the search find the specific passages that answer a question, and only those passages are added to the prompt, which keeps it within the context window. Chunking does not change appearance, language or quota.",
@@ -235,7 +240,7 @@
     "opts": [
       "Each application may use only one AI workload",
       "Agents cannot use other AI services as tools",
-      "Many solutions chain several capabilities, such as speech to text, text analysis and generative AI",
+      "Many solutions chain several AI capabilities",
       "Computer vision cannot be combined with speech"
     ],
     "ans": 2,
@@ -339,9 +344,9 @@
     "q": "Which Speech capability fits?",
     "opts": [
       "Text to speech only",
-      "Speech translation that recognizes English and adds French and Spanish as target languages",
-      "Batch transcription the next day",
-      "Image captioning"
+      "Speech translation into French and Spanish",
+      "Batch transcription of the talks on the next day",
+      "Image captioning of the slides that the speaker shows"
     ],
     "ans": 1,
     "exp": "Speech translation recognizes the English speech in real time and returns translations for several target languages at once. Text to speech produces audio, next-day batch transcription is too late for live captions, and image captioning describes pictures.",
@@ -383,7 +388,12 @@
   {
     "id": "D1-444", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
     "q": "Which technique captures what a speaker says in a recorded video?",
-    "opts": ["Transcription of the video's audio track", "OCR on the video frames", "Image tags", "Smart crops"],
+    "opts": [
+      "Transcription of the audio track",
+      "OCR on the text in the video frames",
+      "Image tags from the first frame of the video",
+      "Smart crops"
+    ],
     "ans": 0,
     "exp": "Spoken words are in the audio track, so transcription turns them into text. OCR on frames reads text shown on screen, image tags describe visual content, and smart crops suggests thumbnail areas.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"

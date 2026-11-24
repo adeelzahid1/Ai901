@@ -187,7 +187,7 @@
     "type": "mcq",
     "q": "How does a generative AI language model produce a response to a prompt?",
     "opts": [
-      "It looks up a complete stored answer in a database of past replies",
+      "It looks up a complete stored answer in a large database of past replies and returns the best match",
       "It repeatedly predicts the most likely next token based on the tokens that came before",
       "It runs a fixed set of if-then rules written by developers",
       "It copies the web page that is most similar to the prompt"
@@ -203,9 +203,9 @@
     "type": "mcq",
     "q": "In the context of large language models, what is a token?",
     "opts": [
-      "A security key that is used to call the model endpoint",
-      "A complete document that is sent to the model",
-      "A unit of text, such as a word or part of a word, that the model reads and generates",
+      "A security key that an app sends with each call to the model endpoint",
+      "A complete document that is sent to the model as part of one request",
+      "A unit of text, such as a word or part of a word, that the model processes",
       "A saved conversation history"
     ],
     "ans": 2,
@@ -220,9 +220,9 @@
     "q": "What are embeddings in a generative AI solution?",
     "opts": [
       "Images that are inserted into a chat response",
-      "Instructions that are hidden inside the system message",
-      "Encrypted copies of the training data",
-      "Numeric vectors that capture the meaning of text, so that similar text has vectors that are close together"
+      "Instructions that are hidden inside the system message to steer the model",
+      "Encrypted copies of the training data that only the model provider can read",
+      "Numeric vectors in which text with a similar meaning is placed close together"
     ],
     "ans": 3,
     "exp": "An embedding is a vector of numbers that represents the meaning of a piece of text. Text with similar meaning produces vectors that are close together, which is why embeddings are used for semantic search and for retrieving relevant content in RAG solutions. Embeddings are not images, they are not prompt instructions, and they are not encrypted copies of training data.",
@@ -270,10 +270,10 @@
     "type": "mcq",
     "q": "A company wants a chat model to answer employee questions by using the content of its internal policy documents, which change every month. The company does not want to retrain the model. Which technique should it use?",
     "opts": [
-      "Increase the maximum response tokens",
-      "Switch to a smaller model",
-      "Fine-tune the model on the policy documents every month",
-      "Retrieval augmented generation (RAG), which adds relevant document content to each prompt"
+      "Increase the maximum response tokens for all employee questions",
+      "Switch to a smaller model that has been trained more recently than the current one",
+      "Fine-tune the model again on all of the policy documents every month",
+      "Retrieval augmented generation (RAG) with the policy documents"
     ],
     "ans": 3,
     "exp": "Retrieval augmented generation finds the document passages that are relevant to a question and adds them to the prompt, so the model grounds its answer in current company data without retraining. When the documents change, only the search index needs updating. Fine-tuning every month is costly and is meant to change model behavior, not to keep facts current. More response tokens and a smaller model do not give the model access to the policies.",
@@ -287,9 +287,9 @@
     "q": "In which situation is fine-tuning a model a better choice than retrieval augmented generation (RAG)?",
     "opts": [
       "The source data changes every day",
-      "The model must consistently follow a specialized style or task format that prompt engineering alone cannot achieve",
-      "Answers must quote the latest version of company documents",
-      "The team wants to avoid preparing any training data"
+      "The model must follow a specialized style that prompts alone cannot achieve",
+      "Answers must quote the latest version of frequently changing documents",
+      "The team wants to avoid preparing any training data before the release"
     ],
     "ans": 1,
     "exp": "Fine-tuning further trains a model on example data so that it learns a behavior, such as a consistent tone, output format or specialized task, when prompts and examples are not enough. RAG is better when facts change often or answers must use the latest documents, because new content can be retrieved without retraining. Fine-tuning always needs prepared training examples, so it does not help a team that wants to avoid preparing data.",
@@ -380,7 +380,7 @@
     "opts": [
       "An image-generation model",
       "A chat completion model",
-      "An embedding model, such as text-embedding-3-small",
+      "An embedding model",
       "A speech-to-text model"
     ],
     "ans": 2,
@@ -410,10 +410,10 @@
     "type": "mcq",
     "q": "You want to compare several models in Microsoft Foundry by quality, cost and speed before you choose one. Which feature should you use?",
     "opts": [
-      "Model leaderboards and benchmarks in the Foundry model catalog",
-      "Azure Monitor alerts",
+      "The model leaderboards in the model catalog",
+      "Azure Monitor alerts on the deployment's latency",
       "The content filter of an existing deployment",
-      "Azure Advisor recommendations"
+      "Azure Advisor recommendations for the subscription"
     ],
     "ans": 0,
     "exp": "The Foundry model catalog includes model leaderboards and benchmark results that compare models on quality, cost and throughput, and you can also compare models side by side. Azure Monitor alerts notify you about metrics of resources you already run. A content filter blocks harmful content in a deployment, and Azure Advisor gives general Azure best-practice recommendations, so neither compares candidate models.",

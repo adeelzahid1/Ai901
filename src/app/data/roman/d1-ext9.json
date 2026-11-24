@@ -2,16 +2,21 @@
   "D1-275": {
     "ctx": "Ek shehar chahta hai ke rehaishi chatbot se aise sawal poochein: 'Elm Street par kachra kab uthaya jata hai?' Jawab shehar ke shaya shuda collection schedule mein hain.",
     "q": "Kaunsa tareeqa sab se munasib hai?",
-    "opts": ["Sirf speech synthesis", "Generative AI chat jo shehar ke schedule documents se grounded ho", null, null],
+    "opts": [
+      "Poore collection schedule ki speech synthesis",
+      "Schedule par grounded generative AI chat",
+      "Kachre ke dabbon ki tasveeron mein object detection",
+      "Har sarak dikhane wale naqshe ki image generation"
+    ],
     "exp": "Generative AI chat sawal samajh kar jawab likhta hai, aur usay schedule documents se ground karne se har sarak ke liye jawab sahi hota hai. Speech synthesis sirf text parh kar sunata hai, object detection images ka jaiza leta hai, aur image generation tasveerein banata hai."
   },
   "D1-276": {
     "q": "Bank ko aisa assistant chahiye jo customer ka balance dekh sake aur customer ki tasdeeq ke baad us ke accounts ke darmiyan raqam transfer kar sake. Kaunsa solution munasib hai?",
     "opts": [
       null,
-      null,
-      "Sirf text to speech",
-      "AI agent, banking APIs ke tools aur transfer se pehle tasdeeq ke qadam ke saath"
+      "Bank statements ki optical character recognition",
+      "Text to speech jo customer ka balance bol kar sunaye",
+      "Banking tools aur tasdeeq wala AI agent"
     ],
     "exp": "Balance dekhna aur raqam bhejna doosre systems mein amal hain, is liye aisa agent chahiye jo banking APIs ko tools ke taur par call kare, aur hassas amal se pehle tasdeeq ka qadam ho. Key phrase extraction, OCR aur text to speech banking systems mein amal nahi kar sakte."
   },
@@ -65,10 +70,10 @@
   "D1-282": {
     "q": "Named entity recognition kya karta hai?",
     "opts": [
-      "Text ko doosri zaban mein translate karta hai",
+      "Text ko user ki chuni hui doosri zaban mein translate karta hai",
       "Text se audio banata hai",
-      "Text mein log, jaghein, idare aur tareekhein jaisi cheezein dhoond kar un ki category batata hai",
-      "Tasveeron mein cheezon ke gird boxes banata hai"
+      "Text mein log, jagahein, tareekhein waghera pehchanta hai",
+      "Images mein cheezon ke gird boxes bana kar har ek ka naam batata hai"
     ],
     "exp": "Named entity recognition text mein entities pehchan kar unhein Person, Location, Organization aur DateTime jaise categories deta hai. Translation, speech synthesis aur object detection alag capabilities hain."
   },
@@ -76,10 +81,10 @@
     "ctx": "Ek hotel chain ke paas 12 zabanon mein 10,000 reviews hain aur woh har zaban ki sab se aam shikayaton ka dashboard chahti hai.",
     "q": "Text analysis techniques ka kaunsa jor munasib hai?",
     "opts": [
-      "Language detection, saath mein opinion mining ya key phrase extraction",
-      "OCR ke saath object detection",
-      "Speech synthesis ke saath translation",
-      null
+      "Language detection, phir opinion mining",
+      "Reviews ka OCR, phir object detection",
+      "Speech synthesis, phir reviews ka tarjuma",
+      "Har shikayat ke liye chart ki image generation"
     ],
     "exp": "Language detection reviews ko zaban ke hisaab se group karta hai, aur opinion mining ya key phrase extraction batata hai ke mehmaan kis baat ki shikayat karte hain. OCR aur object detection images par kaam karte hain, speech synthesis audio banata hai, aur image generation tasveerein banata hai, is liye koi bhi review text ka jaiza nahi leta."
   },
@@ -104,7 +109,7 @@
   },
   "D1-286": {
     "q": "Ek company support emails ko apni categories, jaise Refund, Shipping aur Warranty, mein baantna chahti hai aur us ke paas saikron label ki hui misaalein hain. Kaunsa feature munasib hai?",
-    "opts": [null, null, null, "Label ki hui misaalon par train kiya hua custom text classification"],
+    "opts": [null, null, null, null],
     "exp": "Custom text classification label ki hui misaalon se aap ki apni categories seekhta hai aur phir unhein nayi emails par lagata hai. Language detection sirf zaban batata hai, speech translation audio par kaam karta hai, aur image tags tasveeron ko bayan karte hain."
   },
   "D1-287": {
@@ -120,10 +125,10 @@
   "D1-289": {
     "q": "Game ke ek character ko kuch lines mein pur-josh aur kuch mein udaas lagna chahiye. Azure Speech se yeh kaise karenge?",
     "opts": [
-      "Speech to text istemal karein",
-      "Pronunciation assessment istemal karein",
-      "Aisi neural voice istemal karein jo speaking styles support kare aur SSML mein style set karein",
-      "Keyword recognition istemal karein"
+      "Speech to text istemal kar ke transcript haath se badalna",
+      "Har line kaisi lagti hai, is ka score lene ke liye pronunciation assessment",
+      "Neural voice ke liye SSML mein speaking style set karna",
+      "Jazbati alfaaz pehchanne ke liye keyword recognition istemal karna"
     ],
     "exp": "Kuch neural voices speaking styles, jaise cheerful ya sad, support karti hain, jinhein har line ke liye SSML se chuna jata hai. Speech to text, pronunciation assessment aur keyword recognition aane wali speech ka jaiza lete hain aur synthesized speech ki awaaz nahi badal sakte."
   },
@@ -175,10 +180,10 @@
   "D1-295": {
     "q": "Medical imaging mein semantic segmentation kis kaam ke liye istemal hota hai?",
     "opts": [
-      "Scan mein kisi uzv ka bilkul sahi hissa pixel ba pixel numayan karna",
+      "Kisi uzv ka theek hissa nishan karna",
       "Scan par mareez ka naam parhna",
       "Naya scan banana",
-      "Radiology report translate karna"
+      "Mareez ke liye radiology report ka tarjuma karna"
     ],
     "exp": "Semantic segmentation har pixel ko ek class deta hai, is liye woh kisi uzv ya doosri structure ka bilkul sahi hissa numayan kar sakta hai. Naam parhna OCR hai, scans banana image generation hai, aur reports translate karna zaban ka kaam hai."
   },
@@ -209,7 +214,12 @@
   },
   "D1-299": {
     "q": "Ek online store chahta hai ke product photos se color aur category jaisi khususiyat khud bhar jayein. Kaunsi technique munasib hai?",
-    "opts": [null, null, "Tasveeron se muqarrar fields mein information extraction", null],
+    "opts": [
+      "Products ke naamon ki speech synthesis",
+      "Product descriptions par language detection",
+      "Images se information extraction",
+      "Product videos ki batch transcription"
+    ],
     "exp": "Tasveeron se khususiyat ko naam wale fields mein nikalna, maslan Content Understanding ke image analyzer se, photos ko structured catalog data banata hai. Speech synthesis, language detection aur batch transcription audio ya text par kaam karte hain, images par nahi."
   },
   "D1-300": {
@@ -219,7 +229,12 @@
   },
   "D1-301": {
     "q": "Information extraction solution ka aam output kya hota hai?",
-    "opts": ["Structured data, jaise JSON mein naam wale fields", "Nayi tasveer", "Background music", "Model deployment"],
+    "opts": [
+      "Structured data, jaise JSON fields",
+      "Nayi image jo nikali hui values dikhaye",
+      "Background music",
+      "Model deployment jise doosri apps call kar sakein"
+    ],
     "exp": "Information extraction be-tarteeb content ko structured data banata hai, jaise JSON mein invoice number aur total, jise doosre systems istemal kar sakein. Woh tasveerein, music ya deployments nahi banata."
   },
   "D1-302": {

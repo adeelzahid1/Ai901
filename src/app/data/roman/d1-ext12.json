@@ -21,10 +21,10 @@
   "D1-360": {
     "q": "AI app ke tamam users ko naye model version par le jane ka sab se mehfooz tareeqa kya hai?",
     "opts": [
-      "Testing ke baghair sab ko ek saath badal dein",
-      "Naye version ko parkhein, aahista aahista laayein, monitor karein aur rollback ka raasta rakhein",
+      "Sab ko ek saath badal dena taake tamam users ek hi version dekhein",
+      "Parakhna, aahista aahista jari karna, monitor karna aur rollback ka rasta rakhna",
       "Pehle purana version delete karein",
-      "Tabdeeli ke dauran monitoring band kar dein"
+      "Tabdeeli ke dauran monitoring band karna taake alerts tawajjo na hatayein"
     ],
     "exp": "Pehle parakhna, aahista release karna aur monitor karna masail ko sab par asar dalne se pehle pakarta hai, aur rollback ka raasta kharabi ki soorat mein nuqsan mehdood karta hai. Aankh band kar ke badalna, purana version delete karna ya monitoring band karna yeh hifazatein khatam kar deta hai."
   },
@@ -60,10 +60,10 @@
     "ctx": "Ek card issuer ka AI system fraud ke shak par cards khud block kar deta hai. Customers ko sirf yeh bataya jata hai: 'Aap ka card block hai.'",
     "q": "Kaunsi tabdeeli transparency ko sab se behtar support karti hai?",
     "opts": [
-      "Ehtiyatan mazeed cards block karein",
+      "Zyada cards block karna taake fraud ke kam cases reh jayein",
       "Wajah kabhi na batayein",
-      "Customers ko batayein ke automatic system ne transaction par nishan lagaya aur woh us ka review kaise karwa sakte hain",
-      "Card ka design badlein"
+      "Customers ko batana ke system ne payment flag ki aur us ka review kaise karwayein",
+      "Card ka design badalna taake us par bank ka support number ho"
     ],
     "exp": "Automatic faislon se mutasir logon ko pata hona chahiye ke AI shamil tha aur nateeje par sawal kaise uthayein. Automatic nishan aur review ka tareeqa batana transparency ke saath accountability ko bhi support karta hai. Mazeed cards block karna, wajah chupana ya card ka design badalna customers ko faisla samajhne mein madad nahi deta."
   },
@@ -81,10 +81,10 @@
   "D1-367": {
     "q": "Ek team maujood AI system ko aise naye maqsad ke liye istemal karna chahti hai jis ke liye woh nahi bana tha. Is ki ijazat ka faisla kis ko karna chahiye?",
     "opts": [
-      "System ke kisi bhi user ko",
-      "System ke owners ko, naye istemal ke responsible AI review ke baad",
+      "System ka koi bhi user jis ke paas naye istemal ki achhi wajah ho",
+      "Naye istemal ke responsible AI review ke baad system ke owners",
       "Model ko khud",
-      "Kisi ko nahi; har istemal ki ijazat hai"
+      "Koi nahi; system release ho jaye to har istemal ki ijazat hai"
     ],
     "exp": "Naye istemal se naye khatre aa sakte hain, is liye jawabdeh owners ko manzoori se pehle unhein idare ki responsible AI sharaait par parakhna chahiye. Alag alag users aur model jawabdeh nahi, aur review ke baghair har istemal ki ijazat khatron ko nazar andaz karti hai."
   },
@@ -101,9 +101,9 @@
   "D1-370": {
     "q": "Generative AI mein transformer kya hai?",
     "opts": [
-      "Database jo prompts mehfooz karta hai",
-      "GPU ki ek qism",
-      "Neural network architecture jo attention istemal karta hai aur zyada tar large language models ki bunyad hai",
+      "Database jo prompts aur un ke behtareen jawab rakhta hai",
+      "GPU ki qism jo models ki training tez karti hai",
+      "Attention par mabni neural network design jo zyada tar LLMs istemal karte hain",
       "Models ka billing plan"
     ],
     "exp": "Transformer attention ke gird bana neural network architecture hai, jo model ko tolne deta hai ke tokens ek doosre se kaise jure hain; GPT aur zyada tar jadeed language models isay istemal karte hain. Yeh database, hardware ya billing plan nahi."
@@ -210,9 +210,9 @@
     "q": "tokens-per-minute (TPM) quota kya hai?",
     "opts": [
       "Har token ki qeemat",
-      "Ijazat yafta users ki tadad",
-      "Tokens ki zyada se zyada tadad jo deployment ek minute mein process kar sakti hai",
-      "Model ki context window ka size"
+      "Kitne users ek saath deployment ko call kar sakte hain",
+      "Deployment fi minute kitne tokens process kar sakti hai",
+      "Deploy kiye hue model ki context window ka size, jo tokens mein hota hai"
     ],
     "exp": "TPM quota rate limit hai ke deployment har minute kitne tokens sambhal sakti hai; us se zyada requests throttle hoti hain. Yeh qeemat, users ki tadad ya context window nahi, jo ek request ke tokens mehdood karti hai."
   }

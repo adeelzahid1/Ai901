@@ -2,10 +2,10 @@
   "D1-141": {
     "q": "Ek team ne apne loan data se ethnicity wala column hata diya, lekin train kiya hua model phir bhi ethnic groups ke saath alag sulook karta hai. Sab se mumkina wajah kya hai?",
     "opts": [
-      "Doosre features, jaise postal code, ethnicity ki jagah kaam (proxy) kar rahe hain",
-      "Model bohat tezi se jawab deta hai",
-      "Training data encrypted hai",
-      "Model ko bohat kam log istemal karte hain"
+      "Doosri features ethnicity ki jagah le rahi hain",
+      "Model itni jaldi jawab deta hai ke check nahi ho pata",
+      "Training data rakhte waqt encrypted hota hai",
+      "Release ke baad model bohat kam log istemal karte hain"
     ],
     "exp": "Hassas attribute hatane se bias khatam nahi hota jab doosre features us se gehre jure hon; maslan postal code bohat se ilaqon mein ethnicity zahir kar sakta hai, is liye model phir bhi na-insaafi wale patterns seekh sakta hai. Fairness ko har group ke nateejon par naapna zaroori hai. Raftar, encryption aur users ki tadad model ko groups ke saath alag sulook par majboor nahi karte."
   },
@@ -81,9 +81,9 @@
     "q": "Customers ke baare mein faislay karne wale AI system ke liye kaunsa tareeqa accountability principle ko sab se behtar dikhata hai?",
     "opts": [
       "Model ko koi record rakhe baghair aakhri faislay karne dein",
-      "System ke owner ko khufia rakhein",
-      "Audit logs rakhein aur logon ko faislay challenge karne ka tareeqa dein jise zimmedar team review kare",
-      "Kharcha bachane ke liye insani nigrani khatam kar dein"
+      "Sawalon se bachne ke liye system ke owner ko khufia rakhna",
+      "Audit logs rakhna aur logon ko faislay challenge karne dena",
+      "Kharcha bachane aur jaldi jawab ke liye insani nigrani hatana"
     ],
     "exp": "Accountability ka matlab hai ke log AI systems ke jawabdeh rahein; audit trails, wazeh owner aur faislon ke khilaf appeal ka tareeqa isay mumkin banate hain. Record ke baghair faislay, chupi hui ownership aur insani nigrani khatam karna, sab kisi ko zimmedar thehrana ya ghaltiyan theek karna na-mumkin bana dete hain."
   },
@@ -100,16 +100,21 @@
   },
   "D1-153": {
     "q": "Generative AI kis kis qism ka content bana sakta hai?",
-    "opts": ["Sirf numbers", "Sirf spreadsheet ki rows", "Text, images, code aur audio", "Sirf database ki tables"],
+    "opts": [
+      "Sirf adadi forecasts",
+      "Sirf numbers aur spreadsheets ki rows",
+      "Text, images, code aur audio",
+      "Sirf relational databases ki tables"
+    ],
     "exp": "Generative AI models kai qism ka naya content banate hain: language models text aur code likhte hain, image models tasveerein banate hain, aur speech wale models audio banate hain. Woh numbers, spreadsheets ya database rows tak mehdood nahi."
   },
   "D1-154": {
     "q": "Generative AI model ko kya cheez multimodal banati hai?",
     "opts": [
-      "Woh ek se zyada qism ka data, jaise text aur images, le ya bana sakta hai",
-      "Woh bohat se Azure regions mein chalta hai",
-      "Us ki kai deployments hain",
-      "Woh bohat se GPUs istemal karta hai"
+      "Woh ek se zyada qism ka data leta ya banata hai",
+      "Woh ek hi waqt mein ek se zyada Azure regions mein chalta hai",
+      "Project mein mukhtalif quotas wali kai deployments hain",
+      "Woh har request ka jawab dene ke liye kai GPUs istemal karta hai"
     ],
     "exp": "Multimodal ka matlab hai ke model ek se zyada modality par kaam karta hai, maslan ek hi prompt mein text aur images parhna ya text aur audio banana. Regions, deployments ki tadad aur hardware hosting ki tafseel hain aur un ka is se taalluq nahi ke model kis qism ka data samajhta hai."
   },
@@ -133,10 +138,10 @@
   "D1-157": {
     "q": "Kaunsa kaam embeddings ka aam istemal hai?",
     "opts": [
-      "Speech ko text banana",
-      "Nayi tasveer banana",
-      "Model ka temperature set karna",
-      "Semantic search jo sawal se milte julte matlab wale documents dhoondta hai"
+      "Live meeting mein captions ke liye speech ko text mein badalna",
+      "Kisi artist ke style mein nayi image banana",
+      "Ye chunna ke chat model ka agla jawab kitna random ho",
+      "Milte mani wale documents ke liye semantic search"
     ],
     "exp": "Embeddings text ko matlab pakarne wale vectors banate hain, is liye search system sawal ke vector ko document vectors se mila kar sab se qareebi match de sakta hai, chahe alfaz mukhtalif hon. Speech to text, image generation aur temperature settings embeddings par munhasir nahi."
   },
@@ -147,10 +152,10 @@
   "D1-159": {
     "q": "Microsoft Foundry model catalog ke baare mein kaunsa bayan sach hai?",
     "opts": [
-      "Us mein sirf Microsoft ke models hain",
-      "Us mein Microsoft, OpenAI aur doosre providers, jaise Meta aur Mistral, ke models hain",
-      "Us mein sirf image models hain",
-      "Us ke models filter ya compare nahi kiye ja sakte"
+      "Is mein sirf Microsoft ke train kiye hue models hain",
+      "Is mein kai providers ke models hain",
+      "Is mein sirf image models aur speech models hain",
+      "Is ke models filter, search ya compare nahi ho sakte"
     ],
     "exp": "Foundry model catalog Microsoft, OpenAI aur bohat se doosre providers ke models jama karta hai, jo language, vision, speech aur embedding ke kaam karte hain, aur aap unhein task, provider aur benchmarks se filter aur compare kar sakte hain. Woh ek provider ya ek modality tak mehdood nahi."
   },
@@ -178,7 +183,7 @@
     "q": "Aap model ke jawab kam random banana chahte hain. temperature aur top P parameters ke liye aam mashwara kya hai?",
     "opts": [
       "Dono ko hamesha sab se zyada value par rakhein",
-      "Dono ko 0 karein aur maximum tokens barhayein",
+      "Dono ko 0 kar ke output tokens ki maximum tadad barhana",
       "Temperature ya top P mein se ek adjust karein, dono ek saath nahi",
       "Top P sirf image models par asar dalta hai"
     ],
@@ -203,20 +208,20 @@
   "D1-165": {
     "q": "Ek regulated app ka rawaiya model ka naya version release hone par achanak nahi badalna chahiye. Aap ko kya karna chahiye?",
     "opts": [
-      "Har hafte deployment delete kar ke dobara banayein",
-      "Deployment ko khaas model version par pin karein, phir badalne se pehle naye versions test karein",
-      "Temperature barhayein",
-      "Deployment ko Global Batch par le jayein"
+      "Har hafte deployment delete kar ke dobara banana",
+      "Deployment ko model ke khaas version par pin karna",
+      "Deployment ka temperature thora sa barhana",
+      "Tamam requests ke liye deployment ko Global Batch par le jana"
     ],
     "exp": "Deployments ko khud upgrade hone ke bajaye khaas model version par set kiya ja sakta hai, is liye rawaiya tab tak wahi rehta hai jab tak aap naya version parakh kar badalne ka faisla na karein. Har hafte deployment dobara banane se version control nahi hota, temperature randomness barhata hai, aur Global Batch requests process karne ka tareeqa badalta hai, version nahi."
   },
   "D1-166": {
     "q": "Microsoft Foundry mein model deployment aap ko kya deti hai?",
     "opts": [
-      "Model ke training data ki copy",
-      "Model ka la-mehdood muft istemal",
-      "Virtual machine jise aap ko khud patch karna hota hai",
-      "Naam wala endpoint jise aap ki apps call kar sakti hain, apni settings aur quota ke saath"
+      "Aap ke project ke liye model ke training data ki copy",
+      "Ek project mein model ka be-had muft istemal",
+      "Virtual machine jise aap ko patch aur restart karna ho",
+      "Naam wala endpoint jise aap ki apps call karein"
     ],
     "exp": "Model deploy karne se woh aap ki applications ko deployment ke naam se dastiyab hota hai, deployment type, content filter aur tokens-per-minute quota jaisi settings ke saath. Is se training data nahi milta, istemal ka bill aata hai, aur Foundry par hosted deployment types mein aap virtual machines nahi sambhalte na patch karte hain."
   }

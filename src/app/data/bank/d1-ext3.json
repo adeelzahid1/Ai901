@@ -2,7 +2,7 @@
   {
     "id": "D1-101", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
     "q": "An HR team wants employees to ask policy questions in everyday language and get written answers in a chat window. Which AI workload is this?",
-    "opts": ["Computer vision", "Speech synthesis", "Generative AI with a chat interface", "Object detection"],
+    "opts": ["Computer vision", "Speech synthesis", "Generative AI", "Object detection"],
     "ans": 2,
     "exp": "A chat assistant that understands questions and writes answers is a generative AI workload, usually built on a language model and often grounded in company documents. Computer vision and object detection analyze images, and speech synthesis turns text into audio, so none of them hold a written conversation.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
@@ -10,7 +10,7 @@
   {
     "id": "D1-102", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
     "q": "An insurer wants to read handwritten claim forms and store the policy number, date and amount in a database. Which AI workload is this?",
-    "opts": ["Information extraction (document processing)", "Speech recognition", "Image generation", "Sentiment analysis"],
+    "opts": ["Information extraction", "Speech recognition", "Image generation", "Sentiment analysis"],
     "ans": 0,
     "exp": "Reading forms and pulling out specific fields such as policy number, date and amount is information extraction, often called intelligent document processing. Speech recognition works on audio, image generation creates pictures, and sentiment analysis judges opinion in text, so none of them turn a form into structured data.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
@@ -54,9 +54,9 @@
     "id": "D1-106", "sub": "workload-scenarios", "diff": 2, "type": "mcq",
     "q": "Which scenario is best suited to an AI agent rather than a single chat completion call?",
     "opts": [
-      "Summarize one paragraph of text",
-      "Translate one sentence into Spanish",
-      "Check stock in an inventory API, place a reorder when stock is low, and notify the buyer",
+      "Summarize one paragraph of text in two sentences for a newsletter",
+      "Translate one sentence into Spanish for a customer",
+      "Check stock, reorder items and notify the buyer",
       "Classify the sentiment of one review"
     ],
     "ans": 2,
@@ -81,9 +81,9 @@
     "id": "D1-108", "sub": "workload-scenarios", "diff": 3, "type": "mcq",
     "q": "A media company wants to search its video library by what is said and what is shown in each scene. Which approach fits best?",
     "opts": [
-      "Information extraction from video that combines speech transcription with visual analysis of each scene",
-      "Sentiment analysis of the video titles only",
-      "Image generation from the video descriptions",
+      "Information extraction that uses both the speech and the visuals of each scene",
+      "Sentiment analysis of the video titles and of the comments below them",
+      "Image generation from the descriptions that editors write for each scene",
       "Speech synthesis of the video scripts"
     ],
     "ans": 0,
@@ -106,10 +106,10 @@
     "id": "D1-110", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
     "q": "A contact center has thousands of call recordings and wants to find the calls with unhappy customers. Which combination of capabilities does it need?",
     "opts": [
-      "Image classification",
+      "Image classification of screenshots from the calls",
       "Text to speech, then OCR",
-      "Object detection",
-      "Speech to text, then sentiment analysis of the transcript"
+      "Object detection, then classification of the images",
+      "Speech to text, then sentiment analysis"
     ],
     "ans": 3,
     "exp": "The recordings are audio, so speech to text first creates transcripts, and sentiment analysis then finds negative conversations. Image classification and object detection work on pictures. Text to speech creates audio and OCR reads text in images, so that pair cannot analyze calls.",
@@ -136,7 +136,7 @@
     "q": "You run named entity recognition on the sentence 'Contoso opened an office in Paris on 3 May.' Which result do you expect?",
     "opts": [
       "Sentiment: positive (0.90)",
-      "Key phrases: office, Paris",
+      "Key phrases: Contoso, office in Paris, 3 May, opened an office",
       "Contoso as Organization, Paris as Location, 3 May as DateTime",
       "Language: English (1.0)"
     ],
@@ -176,9 +176,9 @@
     "q": "A company must label the sentiment of millions of short reviews every day with consistent labels and scores at low cost. Which option fits best?",
     "opts": [
       "A large reasoning model with a long free-form prompt for each review",
-      "Sentiment analysis in Azure Language in Foundry Tools, which returns standard labels with confidence scores",
-      "Speech translation",
-      "Image Analysis tags"
+      "Sentiment analysis in Azure Language",
+      "Speech translation of the reviews into English",
+      "Image Analysis tags for the photos that reviewers attach"
     ],
     "ans": 1,
     "exp": "The Language service's sentiment analysis is a purpose-built feature that returns the same label set and confidence scores every time, which suits high-volume, consistent classification. A large reasoning model can classify sentiment too, but free-form prompts are slower, cost more per item and need extra work to keep outputs consistent. Speech translation and image tags do not analyze review text.",
@@ -216,7 +216,7 @@
     "opts": [
       "Key phrase extraction",
       "Extractive document summarization",
-      "Conversation summarization that returns the issue and the resolution",
+      "Conversation summarization",
       "Language detection"
     ],
     "ans": 2,
@@ -325,10 +325,10 @@
     "id": "D1-129", "sub": "speech-features", "diff": 3, "type": "mcq",
     "q": "A factory's voice app makes many recognition errors because of loud machine noise. Which training data will best improve a custom speech model for these acoustic conditions?",
     "opts": [
-      "Plain text documents only",
-      "Photos of the factory floor",
-      "A list of available neural voices",
-      "Audio recordings from the factory with matching human-labeled transcripts"
+      "Plain text documents that describe the machines and their noise",
+      "Photos of the factory floor that show where the machines are",
+      "A list of the neural voices that are available in the region",
+      "Factory audio recordings with matching transcripts"
     ],
     "ans": 3,
     "exp": "Custom speech can be trained with audio plus human-labeled transcripts, which teaches the model what speech sounds like in that noisy environment. Plain text helps with vocabulary and phrasing but does not teach acoustic conditions. Photos are unrelated to audio, and neural voices are for speech synthesis, not recognition.",
@@ -337,7 +337,7 @@
   {
     "id": "D1-130", "sub": "speech-features", "diff": 2, "type": "mcq",
     "q": "Which SSML element inserts a pause into synthesized speech?",
-    "opts": ["<prosody>", "<break time=\"500ms\"/>", "<voice>", "<say-as>"],
+    "opts": ["<prosody>", "<break/>", "<voice>", "<say-as>"],
     "ans": 1,
     "exp": "The break element adds a pause of a given length or strength between words. Prosody changes pitch, rate and volume, voice selects which voice speaks, and say-as tells the service how to read content such as dates or numbers. Only break inserts silence.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup"
@@ -361,7 +361,7 @@
   {
     "id": "D1-133", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
     "q": "You need separate short descriptions for several regions of a busy street photo, for example 'a red bus' and 'a man riding a bicycle'. Which Image Analysis feature should you use?",
-    "opts": ["Caption", "Tags", "People", "Dense captions"],
+    "opts": ["Single caption", "Tags", "People detection", "Dense captions"],
     "ans": 3,
     "exp": "Dense captions generate a caption for each of several regions in an image, together with the region's bounding box. Caption gives one sentence for the whole image, tags give keywords, and people detection only finds where people are.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
@@ -436,10 +436,10 @@
     "id": "D1-139", "sub": "extraction-techniques", "diff": 3, "type": "mcq",
     "q": "An accounts team must extract vendor, invoice number and total from thousands of invoices every day, with consistent field names and confidence scores for review. Which approach fits best?",
     "opts": [
-      "A document analyzer with a defined field schema that returns structured fields and confidence scores",
+      "A document analyzer with a defined field schema",
       "Prompt a chat model for each invoice and parse its free-form answer",
-      "Image Analysis tags",
-      "Speech to text"
+      "Image Analysis tags for each page of the invoices",
+      "Speech to text on recordings of the accounts team"
     ],
     "ans": 0,
     "exp": "A document analyzer, such as one in Content Understanding, uses a defined schema so every invoice returns the same fields, and it can add confidence scores and grounding so low-confidence values go to human review. Free-form chat answers vary in format and are harder to automate. Image tags give general keywords, and speech to text works on audio.",

@@ -3,10 +3,10 @@
     "ctx": "Ek university ka admissions model dehati schools ke applicants ko kam potential wala rate karta hai. Training data mein bohat kam dehati students the.",
     "q": "Team ko kya karna chahiye?",
     "opts": [
-      "Dehati schools ka munasib data shamil karein aur groups ke darmiyan model ke nateeje compare karein",
+      "Dehati data shamil karna aur groups ke nateeje milana",
       "Model ke scores admissions staff se chupayein",
-      "Sirf model ka size barhayein",
-      "Dehati schools se applications lena band karein"
+      "Sirf model ka size aur us ki training ka waqt barhana",
+      "Ek saal tak dehati schools ki darkhwastein lena band karna"
     ],
     "exp": "Model unfair hai kyunke training data mein ek group ki numaindagi kam hai. Munasib data shamil karna aur har group ke nateeje naapna wajah ko hal karta hai aur dikhata hai ke farq kam hua ya nahi. Scores chupana, model bara karna ya dehati applicants ko nikaalna bias theek nahi karta, aur dehati applicants ko nikaalna nuqsan barha deta hai."
   },
@@ -24,9 +24,9 @@
     "q": "In mein se kya generative AI app mein safety ke iqdam ki misaal hai?",
     "opts": [
       "Company ka bara logo",
-      "Developer ka tez laptop",
-      "Content filters jo self-harm ki hidayaat block karte hain",
-      "Naya color theme"
+      "App ke developers ke liye tez laptop",
+      "Nuqsan deh requests ke liye content filters",
+      "App ki chat window ke liye naya color theme"
     ],
     "exp": "Nuqsan deh content, jaise self-harm ki hidayaat, block karne se app ke nuqsan pohanchane ka khatra kam hota hai, jo reliability and safety ka hissa hai. Logo, laptop aur color theme se AI system ki safety nahi badalti."
   },
@@ -45,8 +45,8 @@
     "opts": [
       "Inclusiveness: mazeed zabanein shamil karein",
       "Transparency: label lagayein ke jawab AI se aate hain",
-      "Fairness: model ko zyada data par dobara train karein",
-      "Privacy and security: har user ki ijazat ke mutabiq mehdood karein ke woh kaunsa data nikal sakta hai"
+      "Fairness: tamam departments ke mazeed data par model train karna",
+      "Privacy and security: har user ki retrieval ko us ki permissions tak rakhna"
     ],
     "exp": "Doosron ki tankhwah zahir karna privacy and security ki nakami hai. Retrieval ko har user ki ijazat ka khayal rakhna chahiye taake chatbot sirf woh data istemal kare jo woh shakhs dekh sakta hai. Mazeed zabanein, AI labels ya dobara training khufia records ka leak nahi rokte."
   },
@@ -80,9 +80,9 @@
     "ctx": "Ek recruiting tool job candidates ko rank karta hai. Reject hone wale candidates poochte hain ke un ki rank kam kyun thi, aur company nateeje samjha nahi sakti.",
     "q": "Responsible AI ki is fikr ko hal karne ke liye company ko kya karna chahiye?",
     "opts": [
-      "Logs se rankings hata dein",
-      "Har role ke liye candidates ki tadad barhayein",
-      "Har ranking ki asal wajoohat samjhayein aur likhein ke system kaise kaam karta hai aur us ki hudood kya hain",
+      "Rankings ko logs aur reports se hata dena",
+      "Har role ke liye rank hone wale candidates ki tadad barhana",
+      "Har ranking ki asal wajuhaat samjhana",
       "Nateeje wale page ka font badlein"
     ],
     "exp": "AI ke faislon se mutasir log unhein samajh sakein, yahi transparency hai. Rankings ki wajoohat samjhana aur system ka maqsad aur hudood likhna is ko hal karta hai, aur na-insaafi wale patterns pakarne mein bhi madad deta hai. Logs hatane se accountability kam hoti hai, aur candidates ki tadad ya font se kuch samajh nahi aata."
@@ -98,7 +98,7 @@
   },
   "D1-258": {
     "q": "Microsoft mein kaunsa group company ki responsible AI policies banata aur un ki nigrani karta hai?",
-    "opts": ["Office of Responsible AI", "Marketing team", "Har end user", "AI model khud"],
+    "opts": ["Office of Responsible AI", "Marketing aur communications team", "Har end user", "AI model khud"],
     "exp": "Microsoft ka Office of Responsible AI company ke responsible AI usool aur governance tay karta hai, jo wazeh ownership ke zariye accountability ki misaal hai. Marketing teams, alag alag users aur models khud is ke zimmedar nahi ke AI kaise banaya aur deploy kiya jaye."
   },
   "D1-259": {
@@ -115,9 +115,9 @@
     "q": "Generative AI riwayati classification model se kaise mukhtalif hai?",
     "opts": [
       "Woh sirf hisaab kar sakta hai",
-      "Usay kabhi training data nahi chahiye",
-      "Woh sirf mobile phones par chalta hai",
-      "Woh sirf label lagane ke bajaye naya content, jaise text ya images, banata hai"
+      "Usay training data nahi chahiye kyunke woh apne usool khud likhta hai",
+      "Sirf mobile phones par chalta hai aur kabhi cloud servers par nahi",
+      "Woh sirf label lagane ke bajaye naya content banata hai"
     ],
     "exp": "Classification model label predict karta hai, jaise spam hai ya nahi, jab ke generative model naya content banata hai, jaise likha hua jawab, code ya tasveer. Generative models bare datasets par train hote hain, hisaab tak mehdood nahi aur aam taur par cloud mein chalte hain."
   },
@@ -125,7 +125,7 @@
     "q": "Chat model ko ek hi prompt do baar bhejne par jawab mukhtalif kyun ho sakte hain?",
     "opts": [
       "Model requests ke darmiyan apni training bhool jata hai",
-      "Temperature 0 se zyada ho to tokens ka intikhab kuch randomness ke saath hota hai",
+      "Tokens kuch randomness ke saath chune jate hain",
       "Deployment har baar alag region mein chali jati hai",
       "Har request ke baad quota reset hota hai"
     ],
@@ -162,16 +162,16 @@
     "q": "Sab se mumkina wajah aur behtareen hal kya hai?",
     "opts": [
       "Temperature bohat kam hai; usay barhayein",
-      "Deployment ka naam ghalat hai; usay badlein",
-      "Model ka training data tabdeeli se pehle khatam hota hai; prompt ko maujooda regulation documents se ground karein",
-      "Quota bohat zyada hai; usay kam karein"
+      "Deployment ka naam ghalat hai; naam badal kar prompt dobara bhejein",
+      "Training data pehle khatam hota hai; prompt ko taaza documents se ground karein",
+      "Quota bohat zyada hai; kam karein jab tak model naye usool na parh le"
     ],
     "exp": "Model sirf wahi janta hai jo us ke training data mein tha, is liye cutoff ke baad ki tabdeeliyan usay maloom nahi. Prompt mein maujooda documents dena, maslan retrieval ke zariye, khulase ko taaza content par mabni karta hai. Temperature, deployment ke naam aur quota model ko nayi maloomat nahi dete."
   },
   "D1-266": {
     "q": "Aap ko das lakh chhote support tickets kam se kam kharche mein paanch aasan categories mein baantne hain. Kaunsa model sab se munasib hai?",
     "opts": [
-      "Chhota, sasta model, jaise mini ya nano variant",
+      "Chhota, sasta model",
       "Sab se bara available reasoning model",
       "Image-generation model",
       "Speech-synthesis model"
@@ -211,9 +211,9 @@
   "D1-270": {
     "q": "Ek model ki context window 128,000 tokens hai. Aap ka prompt pehle hi 126,000 tokens istemal karta hai, aur aap 4,000 tak output tokens maangte hain. Kya hota hai?",
     "opts": [
-      "Request fail hoti hai, kyunke prompt aur maanga hua output mil kar context window se barh jate hain",
-      "Model khud mazeed context jor leta hai",
-      "Request ke hisaab se quota barh jata hai",
+      "Request fail hoti hai kyunke window se bari hai",
+      "Model is request ke liye khud-ba-khud mazeed context shamil karta hai",
+      "Request ke mutabiq quota khud-ba-khud barh jata hai",
       "Output tokens muft hote hain"
     ],
     "exp": "Context window input aur output dono ko mila kar hoti hai, is liye 126,000 aur 4,000 tokens mil kar 128,000 ki hadd se zyada hain aur service request reject karti hai. Aap ko chhota prompt, kam output tokens ya bari window wala model chahiye. Context khud nahi barhta, quota ka is se taalluq nahi, aur output tokens ka bill aata hai."
@@ -230,10 +230,10 @@
   "D1-273": {
     "q": "top P ko 0.1 set karne se kya hota hai?",
     "opts": [
-      "Jawab 10% chhota ho jata hai",
+      "Kam mufeed alfaaz hata kar jawab 10% chhota karta hai",
       "10% requests filter ho jati hain",
-      "Intikhab un sab se mumkina tokens tak mehdood ho jata hai jin ki mila kar probability 10% banti hai",
-      "Available GPUs ka 10% istemal hota hai"
+      "Sirf woh sab se mumkina tokens rakhta hai jo mil kar 10% probability banate hain",
+      "Dastiyab GPUs ka 10% istemal karta hai taake requests sasti hon"
     ],
     "exp": "Top P, yaani nucleus sampling, sirf sab se mumkina tokens ka woh sab se chhota set dekhta hai jin ki mila kar probability di gayi value, yahan 10%, tak pohanche, is liye output zyada markooz hota hai. Woh lambai nahi badalta, requests filter nahi karta aur hardware control nahi karta."
   },

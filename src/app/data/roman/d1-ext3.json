@@ -1,7 +1,7 @@
 {
   "D1-101": {
     "q": "HR team chahti hai ke employees aam zaban mein policy ke sawal poochein aur chat window mein likhe hue jawab lein. Yeh kaunsi AI workload hai?",
-    "opts": [null, null, "Generative AI, chat interface ke saath", null],
+    "opts": [null, null, null, null],
     "exp": "Sawal samajhne aur jawab likhne wala chat assistant generative AI workload hai, jo aam taur par language model par bana hota hai aur aksar company ke documents se grounded hota hai. Computer vision aur object detection images ka jaiza lete hain, aur speech synthesis text ko audio banata hai, is liye koi bhi likhi hui guftagu nahi karta."
   },
   "D1-102": {
@@ -35,9 +35,9 @@
   "D1-106": {
     "q": "Kaunsa scenario ek akeli chat completion call ke bajaye AI agent ke liye sab se munasib hai?",
     "opts": [
-      "Text ke ek paragraph ka khulasa karna",
-      "Ek jumla Spanish mein translate karna",
-      "Inventory API mein stock check karna, stock kam ho to dobara order dena, aur buyer ko khabar karna",
+      "Newsletter ke liye text ke ek paragraph ka do jumlon mein khulasa karna",
+      "Customer ke liye ek jumlay ka Spanish mein tarjuma karna",
+      "Stock check karna, cheezein dobara mangwana aur buyer ko batana",
       "Ek review ka sentiment classify karna"
     ],
     "exp": "Agent un kaamon ke liye munasib hai jin mein kai qadam, faislay aur tools ke zariye amal chahiye hon, jaise inventory API call karna, order dena aur notification bhejna. Text ke ek hisse ka khulasa, tarjuma ya classification ek qadam ka kaam hai jo ek model call achi tarah kar leti hai, is liye wahan agent ka koi faida nahi."
@@ -56,9 +56,9 @@
   "D1-108": {
     "q": "Ek media company apni video library mein is bunyad par talash karna chahti hai ke har scene mein kya bola gaya aur kya dikhaya gaya. Kaunsa tareeqa sab se munasib hai?",
     "opts": [
-      "Video se information extraction jo speech transcription ko har scene ke visual jaize ke saath jorta hai",
-      "Sirf video titles ka sentiment analysis",
-      "Video descriptions se image generation",
+      "Information extraction jo har scene ki speech aur visuals dono istemal kare",
+      "Video ke titles aur un ke neeche comments ki sentiment analysis",
+      "Editors ki likhi har scene ki descriptions se image generation",
       "Video scripts ka speech synthesis"
     ],
     "exp": "Bole aur dikhaye gaye dono par talash ke liye solution ko bola hua likhna aur har segment ya keyframe mein nazar aane wali cheez bayan karni hoti hai, phir woh maloomat talash ke liye mehfooz karni hoti hai. Yeh video se information extraction hai, maslan Content Understanding ki video analysis se. Titles ka sentiment content ko nazar andaz karta hai, aur image generation aur speech synthesis jaiza lene ke bajaye naya media banate hain."
@@ -71,10 +71,10 @@
   "D1-110": {
     "q": "Ek contact center ke paas hazaron call recordings hain aur woh na-khush customers wali calls dhoondna chahta hai. Usay capabilities ka kaunsa jor chahiye?",
     "opts": [
-      null,
+      "Calls ke screenshots ki image classification",
       "Text to speech, phir OCR",
-      null,
-      "Speech to text, phir transcript ka sentiment analysis"
+      "Object detection, phir images ki classification",
+      "Speech to text, phir sentiment analysis"
     ],
     "exp": "Recordings audio hain, is liye pehle speech to text transcripts banata hai, phir sentiment analysis negative guftagu dhoondta hai. Image classification aur object detection tasveeron par kaam karte hain. Text to speech audio banata hai aur OCR tasveeron ka text parhta hai, is liye woh jor calls ka jaiza nahi le sakta."
   },
@@ -88,7 +88,12 @@
   },
   "D1-113": {
     "q": "Aap is jumlay par named entity recognition chalate hain: 'Contoso opened an office in Paris on 3 May.' Aap kis nateeje ki umeed rakhte hain?",
-    "opts": [null, null, "Contoso Organization ke taur par, Paris Location ke taur par, 3 May DateTime ke taur par", null],
+    "opts": [
+      null,
+      "Key phrases: Contoso, Paris mein office, 3 May, office khola",
+      "Contoso Organization ke taur par, Paris Location ke taur par, 3 May DateTime ke taur par",
+      null
+    ],
     "exp": "Named entity recognition text mein entities dhoond kar unhein Organization, Location aur DateTime jaise categories deta hai. Sentiment ka label sentiment analysis se aata hai, mauzu ki list key phrase extraction se, aur score ke saath zaban language detection se aati hai."
   },
   "D1-114": {
@@ -115,9 +120,9 @@
     "q": "Ek company ko roz lakhon chhote reviews ka sentiment kam kharche mein ek jaise labels aur scores ke saath lagana hai. Kaunsa option sab se munasib hai?",
     "opts": [
       "Bara reasoning model, har review ke liye lamba free-form prompt",
-      "Azure Language in Foundry Tools ka sentiment analysis, jo confidence scores ke saath standard labels deta hai",
-      null,
-      null
+      "Azure Language ki sentiment analysis",
+      "Reviews ki English mein speech translation",
+      "Reviewers ki lagayi tasveeron ke Image Analysis tags"
     ],
     "exp": "Language service ka sentiment analysis isi kaam ke liye bana feature hai jo har baar wahi labels aur confidence scores deta hai, jo zyada tadad mein ek jaisi classification ke liye munasib hai. Bara reasoning model bhi sentiment classify kar sakta hai, lekin free-form prompts sust hote hain, har item par zyada kharcha karte hain aur output ek jaisa rakhne ke liye izafi mehnat maangte hain. Speech translation aur image tags review text ka jaiza nahi lete."
   },
@@ -132,7 +137,7 @@
   },
   "D1-119": {
     "q": "Help desk ko agent aur customer ke har chat transcript ka chhota khulasa chahiye jis mein customer ka masla aur us ka hal likha ho. Kaunsa feature sab se munasib hai?",
-    "opts": [null, null, "Conversation summarization jo masla aur hal deta hai", null],
+    "opts": [null, null, null, null],
     "exp": "Conversation summarization logon ki guftagu ke liye bana hai aur masle aur hal par markooz khulasa bana sakta hai, jo bilkul wahi hai jo help desk ko chahiye. Extractive document summarization documents se jumlay chunta hai aur baari baari wali chats ke liye nahi bana. Key phrases khulase ke baghair mauzu batate hain, aur language detection sirf zaban batata hai."
   },
   "D1-120": {
@@ -200,10 +205,10 @@
   "D1-129": {
     "q": "Factory ki voice app machinon ke shor ki wajah se pehchan mein bohat ghaltiyan karti hai. In acoustic halaat ke liye custom speech model ko kaunsa training data sab se behtar karega?",
     "opts": [
-      "Sirf saada text documents",
-      "Factory ki photos",
-      "Available neural voices ki list",
-      "Factory ki audio recordings aur un ke insanon ke likhe hue transcripts"
+      "Saade text documents jo machines aur un ke shor ko bayan karein",
+      "Factory ki tasveerein jo dikhayein ke machines kahan hain",
+      "Region mein dastiyab neural voices ki list",
+      "Factory ki audio recordings, milte hue transcripts ke saath"
     ],
     "exp": "Custom speech ko audio aur insanon ke likhe hue transcripts se train kiya ja sakta hai, jis se model seekhta hai ke us shor wale mahaul mein awaaz kaisi hoti hai. Saada text alfaz aur jumlon mein madad karta hai lekin acoustic halaat nahi sikhata. Photos ka audio se taalluq nahi, aur neural voices speech synthesis ke liye hain, recognition ke liye nahi."
   },
@@ -221,6 +226,7 @@
   },
   "D1-133": {
     "q": "Aap ko bheer wali street photo ke kai hisson ki alag alag chhoti tafseel chahiye, maslan 'a red bus' aur 'a man riding a bicycle'. Kaunsa Image Analysis feature istemal karna chahiye?",
+    "opts": ["Akela caption", null, null, null],
     "exp": "Dense captions tasveer ke kai hisson mein se har ek ka caption us ke bounding box ke saath banata hai. Caption poori tasveer ka ek jumla deta hai, tags keywords dete hain, aur people detection sirf yeh batata hai ke log kahan hain."
   },
   "D1-134": {
@@ -273,10 +279,10 @@
   "D1-139": {
     "q": "Accounts team ko roz hazaron invoices se vendor, invoice number aur total nikalna hai, ek jaise field naamon aur review ke liye confidence scores ke saath. Kaunsa tareeqa sab se munasib hai?",
     "opts": [
-      "Muqarrar field schema wala document analyzer jo structured fields aur confidence scores deta hai",
+      "Tay shuda field schema wala document analyzer",
       "Har invoice ke liye chat model ko prompt dena aur us ke free-form jawab ko parse karna",
-      null,
-      null
+      "Invoices ke har page ke Image Analysis tags",
+      "Accounts team ki recordings par speech to text"
     ],
     "exp": "Document analyzer, jaise Content Understanding ka, muqarrar schema istemal karta hai is liye har invoice wahi fields deta hai, aur woh confidence scores aur grounding bhi de sakta hai taake kam confidence wali values insani review mein jayein. Free-form chat jawabon ka format badalta rehta hai aur unhein automate karna mushkil hai. Image tags aam keywords dete hain, aur speech to text audio par kaam karta hai."
   },

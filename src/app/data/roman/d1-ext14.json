@@ -42,7 +42,7 @@
     "ctx": "Ek government benefits chatbot pecheeda qanooni zaban mein jawab deta hai, aur bohat se shehri us ke jawab samajh nahi pate.",
     "q": "Kaunsa principle mutasir hota hai, aur kya madad karega?",
     "opts": [
-      "Inclusiveness: aasan zaban istemal karein aur alfaz samjhane ki peshkash karein",
+      "Inclusiveness: saadi zaban istemal karna",
       "Fairness: model ko zyada data par dobara train karein",
       "Accountability: naya owner muqarrar karein",
       "Privacy and security: guftagu ko encrypt karein"
@@ -54,8 +54,8 @@
     "opts": [
       "Chupana ke product AI istemal karta hai",
       "Tamam logs delete karna",
-      "Shaya karna ke system kaise kaam karta hai aur us ki hudood kya hain",
-      "Model ka size barhana"
+      "System kaise kaam karta hai, ye shaya karna",
+      "Model aur us ki context window ka size barhana"
     ],
     "exp": "Yeh samjhana ke system kaise kaam karta hai aur kahan fail ho sakta hai logon ko usay samajhne aur us par munasib bharosa karne mein madad deta hai, yahi transparency hai. AI ka istemal chupana transparency ke khilaf hai, logs delete karna accountability ko nuqsan deta hai, aur model ke size ka is se taalluq nahi."
   },
@@ -72,7 +72,12 @@
   },
   "D1-419": {
     "q": "Generative AI mein completion kya hota hai?",
-    "opts": ["Woh text jo model prompt ke jawab mein banata hai", "Deployment ka naam", "Training data", "Azure region"],
+    "opts": [
+      "Model ka banaya hua text",
+      "Deployment ka naam jo app istemal karti hai",
+      "Woh data jis par model train hua",
+      "Woh Azure region jahan model deploy hai"
+    ],
     "exp": "Completion woh output hai jo model prompt ke liye banata hai, jaise jawab ya draft. Deployment ka naam, training data aur region request ke outputs nahi."
   },
   "D1-420": {
@@ -93,10 +98,10 @@
   "D1-422": {
     "q": "RAG solutions embeddings banane se pehle documents ko chunks (hisson) mein kyun torte hain?",
     "opts": [
-      "Taake documents zyada khoobsurat lagein",
-      "Taake documents ka tarjuma ho",
-      "Taake deployment ka quota barhe",
-      "Taake sab se mutalliqa hisse mil sakein aur prompt mein sama jayein"
+      "Taake documents search ke nateejon mein zyada khubsurat lagein",
+      "Documents ko user ki zaban mein translate karne ke liye",
+      "Embedding deployment ka quota barhane ke liye",
+      "Sab se mutalliqa hisse dhoond kar unhein prompt mein laane ke liye"
     ],
     "exp": "Chhote chunks se talash ko sawal ka jawab dene wale khaas hisse mil jate hain, aur sirf wohi prompt mein shamil hote hain, jis se woh context window ke andar rehta hai. Chunking se shakal, zaban ya quota nahi badalta."
   },
@@ -164,7 +169,7 @@
     "opts": [
       "Har application sirf ek AI workload istemal kar sakti hai",
       "Agents doosri AI services ko tools ke taur par istemal nahi kar sakte",
-      "Bohat se solutions kai capabilities ko silsile mein jorte hain, jaise speech to text, text analysis aur generative AI",
+      "Bohat se hal kai AI salahiyatein jorte hain",
       "Computer vision ko speech ke saath nahi jora ja sakta"
     ],
     "exp": "Asal solutions aksar workloads jorte hain, maslan call likhna, us ka sentiment dekhna aur follow-up email ka draft banana. Apps ek workload tak mehdood nahi, agents AI services ko tools ke taur par call kar sakte hain, aur vision aur speech saath istemal ho sakte hain, jaise museum guide app mein."
@@ -237,9 +242,9 @@
     "q": "Kaunsi Speech capability munasib hai?",
     "opts": [
       "Sirf text to speech",
-      "Speech translation jo English pehchane aur French aur Spanish ko target zabanon ke taur par shamil kare",
-      "Agle din batch transcription",
-      "Image captioning"
+      "French aur Spanish mein speech translation",
+      "Agle din talks ki batch transcription",
+      "Speaker ki dikhayi slides ki image captioning"
     ],
     "exp": "Speech translation English speech ko real time mein pehchanta hai aur ek saath kai target zabanon ke tarjume deta hai. Text to speech audio banata hai, agle din ki batch transcription live captions ke liye bohat der se hai, aur image captioning tasveeron ko bayan karta hai."
   },
@@ -267,7 +272,7 @@
   },
   "D1-444": {
     "q": "Record ki hui video mein speaker ki baat kaunsi technique pakarti hai?",
-    "opts": ["Video ke audio track ki transcription", "Video frames par OCR", null, null],
+    "opts": ["Audio track ki transcription", "Video frames ke text par OCR", "Video ke pehle frame ke image tags", null],
     "exp": "Bole hue alfaz audio track mein hote hain, is liye transcription unhein text banati hai. Frames par OCR screen par nazar aane wala text parhta hai, image tags visual content bayan karte hain, aur smart crops thumbnail ke hisse tajweez karta hai."
   },
   "D1-445": {

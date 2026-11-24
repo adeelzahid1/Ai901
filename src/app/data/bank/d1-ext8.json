@@ -4,10 +4,10 @@
     "ctx": "A university's admissions model rates applicants from rural schools as lower potential. Very few rural students were in the training data.",
     "q": "What should the team do?",
     "opts": [
-      "Add representative data from rural schools and compare the model's results across groups",
+      "Add rural data and compare results across groups",
       "Hide the model's scores from the admissions staff",
-      "Only increase the size of the model",
-      "Stop accepting applications from rural schools"
+      "Only increase the size of the model and its training time",
+      "Stop accepting applications from rural schools for a year"
     ],
     "ans": 0,
     "exp": "The model is unfair because one group is under-represented in the training data. Adding representative data and measuring results per group addresses the cause and shows whether the gap closes. Hiding scores, enlarging the model or excluding rural applicants does not fix the bias and excluding rural applicants makes the harm worse.",
@@ -29,7 +29,12 @@
   {
     "id": "D1-250", "sub": "reliability-safety", "diff": 1, "type": "mcq",
     "q": "Which of the following is an example of a safety measure in a generative AI app?",
-    "opts": ["A bigger company logo", "A faster developer laptop", "Content filters that block instructions for self-harm", "A new color theme"],
+    "opts": [
+      "A bigger company logo",
+      "A faster laptop for the developers of the app",
+      "Content filters for harmful requests",
+      "A new color theme for the chat window of the app"
+    ],
     "ans": 2,
     "exp": "Blocking harmful content, such as instructions for self-harm, reduces the risk that the app causes harm, which is part of reliability and safety. A logo, a laptop and a color theme do not change how safely the AI system behaves.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
@@ -53,8 +58,8 @@
     "opts": [
       "Inclusiveness: add more languages",
       "Transparency: add a label that says the answers come from AI",
-      "Fairness: retrain the model on more data",
-      "Privacy and security: limit what data each user can retrieve, based on their permissions"
+      "Fairness: retrain the model on more data from all departments",
+      "Privacy and security: limit what each user can retrieve by their permissions"
     ],
     "ans": 3,
     "exp": "Exposing other people's salaries is a privacy and security failure. Retrieval should respect each user's permissions so the chatbot can only use data that the person is allowed to see. More languages, AI labels or retraining do not stop the leak of confidential records.",
@@ -104,9 +109,9 @@
     "ctx": "A recruiting tool ranks job candidates. Rejected candidates ask why they ranked low, and the company cannot explain the results.",
     "q": "What should the company do to address the responsible AI concern?",
     "opts": [
-      "Remove the rankings from the logs",
-      "Increase the number of candidates per role",
-      "Explain the main factors behind each ranking and document how the system works and its limits",
+      "Remove the rankings from the logs and from the reports",
+      "Increase the number of candidates that are ranked for each role",
+      "Explain the main factors behind each ranking",
       "Change the font of the results page"
     ],
     "ans": 2,
@@ -128,7 +133,12 @@
   {
     "id": "D1-258", "sub": "accountability", "diff": 2, "type": "mcq",
     "q": "At Microsoft, which group sets and governs the company's responsible AI policies?",
-    "opts": ["The Office of Responsible AI", "The marketing team", "Each end user", "The AI model itself"],
+    "opts": [
+      "The Office of Responsible AI",
+      "The marketing and communications team",
+      "Each end user",
+      "The AI model itself"
+    ],
     "ans": 0,
     "exp": "Microsoft's Office of Responsible AI sets the company's responsible AI rules and governance, which is an example of accountability through clear ownership. Marketing teams, individual users and the models themselves are not responsible for governing how AI is built and deployed.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/embrace-responsible-ai-principles-practices/"
@@ -152,9 +162,9 @@
     "q": "How is generative AI different from a traditional classification model?",
     "opts": [
       "It can only do arithmetic",
-      "It never needs training data",
-      "It runs only on mobile phones",
-      "It creates new content, such as text or images, instead of only assigning a label"
+      "It never needs training data because it writes its own rules",
+      "It runs only on mobile phones and never on servers in the cloud",
+      "It creates new content instead of only assigning a label"
     ],
     "ans": 3,
     "exp": "A classification model predicts a label, such as spam or not spam, while a generative model produces new content, such as a written answer, code or an image. Generative models are trained on large datasets, are not limited to arithmetic and usually run in the cloud.",
@@ -165,7 +175,7 @@
     "q": "Why can the same prompt sent twice to a chat model produce different answers?",
     "opts": [
       "The model forgets its training between requests",
-      "Token choices are sampled with some randomness when the temperature is above 0",
+      "Token choices are sampled with some randomness",
       "The deployment moves to a different region each time",
       "The quota resets after each request"
     ],
@@ -217,9 +227,9 @@
     "q": "What is the most likely cause and the best fix?",
     "opts": [
       "The temperature is too low; raise it",
-      "The deployment name is wrong; rename it",
-      "The model's training data ends before the change; ground the prompt with the current regulation documents",
-      "The quota is too high; lower it"
+      "The deployment name is wrong; rename it and send the prompt again",
+      "Its training data ends earlier; ground the prompt with the current documents",
+      "The quota is too high; lower it until the model reads the new rules"
     ],
     "ans": 2,
     "exp": "A model only knows what was in its training data, so changes after its cutoff are unknown to it. Supplying the current documents in the prompt, for example through retrieval, grounds the summary in up-to-date content. Temperature, deployment names and quota do not give the model new knowledge.",
@@ -229,7 +239,7 @@
     "id": "D1-266", "sub": "model-choice", "diff": 1, "type": "mcq",
     "q": "You must sort one million short support tickets into five simple categories at the lowest cost. Which model fits best?",
     "opts": [
-      "A small, low-cost model such as a mini or nano variant",
+      "A small, low-cost model",
       "The largest reasoning model available",
       "An image-generation model",
       "A speech-synthesis model"
@@ -276,9 +286,9 @@
     "id": "D1-270", "sub": "deploy-config", "diff": 3, "type": "mcq",
     "q": "A model has a 128,000-token context window. Your prompt already uses 126,000 tokens, and you ask for up to 4,000 output tokens. What happens?",
     "opts": [
-      "The request fails, because the prompt plus the requested output exceed the context window",
-      "The model adds more context automatically",
-      "The quota increases to fit the request",
+      "The request fails because it exceeds the window",
+      "The model adds more context automatically for this request",
+      "The quota increases automatically to fit the request",
       "The output tokens are free"
     ],
     "ans": 0,
@@ -315,10 +325,10 @@
     "id": "D1-273", "sub": "deploy-config", "diff": 2, "type": "mcq",
     "q": "What does setting top P to 0.1 do?",
     "opts": [
-      "It makes the response 10% shorter",
+      "It makes the response 10% shorter by removing less useful words",
       "It filters 10% of requests",
-      "It limits choices to the most likely tokens that together make up 10% of the probability",
-      "It uses 10% of the available GPUs"
+      "It keeps only the most likely tokens that together make up 10% of probability",
+      "It uses 10% of the available GPUs so that requests cost less money"
     ],
     "ans": 2,
     "exp": "Top P, or nucleus sampling, considers only the smallest set of most likely tokens whose combined probability reaches the value, here 10%, so output becomes more focused. It does not change length, filter requests or control hardware.",

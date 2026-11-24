@@ -30,9 +30,9 @@
     "q": "Kya cheez solution ko sirf generative ke bajaye agentic banati hai?",
     "opts": [
       "Woh text banata hai",
-      "Woh cloud mein chalta hai",
-      "Woh bara model istemal karta hai",
-      "Woh qadam khud tay karta hai aur maqsad ki taraf amal ke liye tools istemal karta hai"
+      "Woh cloud mein chalta hai aur sara din dastiyab hai",
+      "Woh bari context window wala zyada bara model istemal karta hai",
+      "Woh qadam chunta hai aur amal ke liye tools istemal karta hai"
     ],
     "exp": "Generative AI prompt ke jawab mein content banata hai. Agentic AI maqsad wala rawaiya shamil karta hai: model qadmon ka mansooba banata hai, APIs ya search jaise tools chunta hai aur amal karta hai, aksar kai turns mein. Text banana, cloud mein chalna aur bara model istemal karna bohat si ghair agentic apps mein bhi hota hai."
   },
@@ -55,8 +55,8 @@
   "D1-174": {
     "q": "Ek manufacturer ko maintenance notes mein apne product codes, jaise CTS-4421, dhoondne hain. Prebuilt entity categories unhein nahi pehchantin. Usay kya istemal karna chahiye?",
     "opts": [
+      "Opinion mining ke saath prebuilt sentiment analysis",
       null,
-      "Codes ki label ki hui misaalon par train kiya hua custom named entity recognition",
       null,
       null
     ],
@@ -101,7 +101,7 @@
   },
   "D1-181": {
     "q": "Tour guide Italian bolta hai, aur tourists headphones par guide ko English mein sunna chahte hain. Kaunsi capability munasib hai?",
-    "opts": [null, null, "Speech translation, target zaban mein bole hue output ke saath", null],
+    "opts": [null, null, null, null],
     "exp": "Speech translation Italian speech pehchan kar translate karta hai aur nateeje ki English audio bana sakta hai, is liye tourists tarjuma sunte hain. Language detection sirf zaban batata hai, key phrase extraction text ke mauzu batata hai, aur OCR tasveeron se text parhta hai."
   },
   "D1-182": {
@@ -174,10 +174,10 @@
   "D1-191": {
     "q": "Aap ko scan kiye hue financial statements se tables nikalni hain aur un ki rows aur columns barqarar rakhni hain. Kaunsi technique sab se munasib hai?",
     "opts": [
-      "Saada OCR jo sirf text ki lines deta hai",
-      null,
-      "Layout analysis jo tables ko un ki rows aur cells ke saath deta hai",
-      null
+      "Saada OCR jo page ko text ki lines ki soorat mein de",
+      "Statements ko parh kar us par speech to text",
+      "Layout analysis jo rows aur cells rakhe",
+      "Image tags jo har page ki cheezon ki list dein"
     ],
     "exp": "Layout analysis text parhne se aage jata hai: woh paragraphs, sections aur tables jaisi structure pehchanta hai aur har table ki rows aur cells deta hai. Saada OCR mein table ki structure kho jati hai, speech to text audio par kaam karta hai, aur image tags sirf aam content bayan karte hain."
   },
@@ -189,7 +189,7 @@
   },
   "D1-193": {
     "q": "Nayi tasveer banane ke liye image-generation model ko kam az kam kaunsa input chahiye?",
-    "opts": ["Text prompt jo tasveer ko bayan kare", "Awaaz ki recording", "CSV file", "Embedding vector"],
+    "opts": ["Text prompt", "Awaaz ki recording", "CSV file", "Embedding vector"],
     "exp": "Image-generation models aise text prompt se tasveerein banate hain jo subject, style aur mahaul bayan kare; kuch edit karne ke liye maujood tasveer bhi le sakte hain. Tasveer banane ke liye unhein awaaz ki recording, CSV file ya embedding ki zaroorat nahi."
   }
 }

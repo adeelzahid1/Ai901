@@ -17,9 +17,9 @@
     "q": "An AI system that approves refunds makes a harmful decision. According to the accountability principle, who is responsible?",
     "opts": [
       "The AI model itself",
-      "The people and the organization that designed and deployed the system",
-      "Only the customer who asked for the refund",
-      "Nobody, because the decision was automated"
+      "The people and organization behind the system",
+      "Only the customer who asked for the refund in the first place",
+      "Nobody, because the decision was automated by software"
     ],
     "ans": 1,
     "exp": "Accountability means that the people who design, build and deploy an AI system remain answerable for how it operates and for its impact. A model cannot be held responsible, and responsibility does not move to the customer or disappear just because a decision was automated. Organizations show accountability through governance, named owners, reviews and ways to correct mistakes.",
@@ -87,10 +87,10 @@
     "id": "D1-078", "sub": "fairness", "diff": 3, "type": "mcq",
     "q": "A skin-condition model is 95% accurate overall, but only 70% accurate for people with darker skin tones. What should the team do next?",
     "opts": [
-      "Release the model, because the overall accuracy is high",
-      "Raise the decision threshold for all users",
+      "Release the model now, because the overall accuracy is already high",
+      "Raise the decision threshold for all users to reduce false alarms",
       "Remove skin color from the images",
-      "Measure performance separately for each group and improve the training data for groups with lower accuracy"
+      "Measure each group separately and improve the training data for weak groups"
     ],
     "ans": 3,
     "exp": "An overall score can hide much worse results for some groups. Measuring metrics per group, often called disaggregated evaluation, shows the gap, and adding representative data for under-served groups helps close it, which supports fairness. Releasing based only on the average ignores the harm. Changing one threshold for everyone does not fix the gap, and color cannot simply be removed from medical images.",
@@ -112,10 +112,10 @@
     "id": "D1-080", "sub": "reliability-safety", "diff": 2, "type": "mcq",
     "q": "A hospital builds an AI assistant that suggests how urgently patients should be seen. Which design best supports reliability and safety?",
     "opts": [
-      "Let the model act on its suggestions without any review",
+      "Let the model act on its suggestions without review when staff are too busy",
       "Have a qualified clinician review each suggestion before it is acted on",
       "Hide the model's confidence from staff",
-      "Disable the content filters to get faster answers"
+      "Disable the content filters so that staff get faster answers in emergencies"
     ],
     "ans": 1,
     "exp": "In high-impact scenarios a human in the loop who reviews AI suggestions before action reduces the chance of harm when the model is wrong, which supports reliability and safety. Acting without review removes that safeguard. Hiding confidence information takes away a signal that helps people judge the output. Disabling content filters weakens safety and does not make suggestions more reliable.",
@@ -125,9 +125,9 @@
     "id": "D1-081", "sub": "genai-how", "diff": 1, "type": "mcq",
     "q": "What is a large language model (LLM)?",
     "opts": [
-      "A database of prepared answers",
-      "A rules engine that developers program by hand",
-      "A model trained on very large amounts of text that can understand and generate natural language",
+      "A database of prepared answers that is searched each time a user asks a question",
+      "A rules engine in which developers program by hand how to answer each question",
+      "A model trained on large amounts of text to understand and generate language",
       "A spreadsheet macro that formats text"
     ],
     "ans": 2,
@@ -138,10 +138,10 @@
     "id": "D1-082", "sub": "genai-how", "diff": 1, "type": "mcq",
     "q": "In a generative AI solution, what is a prompt?",
     "opts": [
-      "The input, such as a question or instruction, that you send to the model",
-      "The data the model was trained on",
-      "The name of the model deployment",
-      "The monthly bill for using the model"
+      "The input that you send to the model",
+      "The data the model was trained on before release",
+      "The name of the model deployment that you call",
+      "The monthly bill for using the model in your app"
     ],
     "ans": 0,
     "exp": "A prompt is the input you give a generative model, such as a question, an instruction, examples or extra context, and the model generates a response from it. Training data is what the model learned from before it was deployed. The deployment name identifies the model endpoint, and the bill is unrelated to how the model is used in a request.",
@@ -151,10 +151,10 @@
     "id": "D1-083", "sub": "genai-how", "diff": 2, "type": "mcq",
     "q": "Which statement describes an advantage of a small language model, such as a Phi model, compared with a large language model?",
     "opts": [
-      "It always gives more accurate answers on every task",
+      "It always gives more accurate answers than a large model on every task",
       "It has an unlimited context window",
-      "It cannot be fine-tuned, so it never changes",
-      "It needs less compute, so it can cost less and can run on smaller hardware such as local devices"
+      "It cannot be fine-tuned, so its behavior never changes over time",
+      "It needs less compute, so it can cost less and run on smaller local devices"
     ],
     "ans": 3,
     "exp": "Small language models have fewer parameters, so they need less memory and compute, respond faster and can run at lower cost or even on devices, while handling many focused tasks well. They are not more accurate on every task; large models are usually stronger at broad or complex reasoning. No model has an unlimited context window, and small models can be fine-tuned.",
@@ -176,9 +176,9 @@
     "id": "D1-085", "sub": "genai-how", "diff": 2, "type": "mcq",
     "q": "Which approach most reduces the chance that a chat solution invents facts about a company's products?",
     "opts": [
-      "Ground each prompt with trusted product data and ask the model to cite its sources",
-      "Increase the temperature",
-      "Send shorter prompts with no extra context",
+      "Ground each prompt with trusted product data",
+      "Increase the temperature so that answers vary more",
+      "Send shorter prompts that contain no extra product context",
       "Remove the system message"
     ],
     "ans": 0,
@@ -258,7 +258,12 @@
   {
     "id": "D1-092", "sub": "model-choice", "diff": 1, "type": "mcq",
     "q": "Before you deploy a model, where can you read about its capabilities, intended uses, limitations and license?",
-    "opts": ["Azure Advisor", "The subscription's activity log", "The model card in the Foundry model catalog", "The Azure pricing calculator"],
+    "opts": [
+      "Azure Advisor",
+      "The subscription's activity log",
+      "The model card in the catalog",
+      "The Azure pricing calculator page"
+    ],
     "ans": 2,
     "exp": "Each model in the Foundry model catalog has a model card that describes what the model does, how it was trained, its intended uses and limitations, and its license terms. Azure Advisor gives general best-practice tips, the activity log records management operations, and the pricing calculator estimates cost; none of them describe a model's capabilities.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
@@ -268,7 +273,7 @@
     "q": "A finance team needs a model for complex multi-step calculations and planning, where accuracy matters more than speed. Which type of model should they choose?",
     "opts": [
       "A small, fast chat model",
-      "A reasoning model that spends more effort thinking before it answers",
+      "A reasoning model",
       "An embedding model",
       "A speech synthesis model"
     ],
@@ -349,7 +354,7 @@
     "q": "A team wants to try a model quickly with low traffic and no upfront commitment. Later, production will have steady high traffic that needs guaranteed capacity. What should they do?",
     "opts": [
       "Use provisioned throughput for development and Global Batch for production",
-      "Start with a Global Standard deployment for development, then use provisioned throughput for steady production traffic",
+      "Global Standard first, then provisioned throughput",
       "Use Global Batch for both development and production",
       "Use no deployment and call the model catalog directly"
     ],

@@ -7,6 +7,12 @@ const average = (list, score) => (list.length ? list.reduce((sum, x) => sum + sc
 const longest = (opts) => opts.reduce((best, o, i) => (o.length > opts[best].length ? i : best), 0);
 const wrongOptions = (q) => q.opts.filter((_, i) => i !== q.ans).map((o) => o.length);
 
+/** Share of four-option questions whose answer is the longest, second, third and shortest option. */
+function lengthRanks(mcq) {
+  const four = mcq.filter((q) => q.opts.length === 4);
+  return [0, 1, 2, 3].map((rank) => share(four, (q) => q.opts.filter((o) => o.length > q.opts[q.ans].length).length === rank));
+}
+
 /** True when the answers of a multi-select question are exactly its longest options. */
 function longestAreAnswers(q) {
   const byLength = q.opts.map((o, i) => [o.length, i]).sort((a, b) => b[0] - a[0]);
@@ -32,8 +38,9 @@ export function fairness(questions) {
   for (const q of yesno) patterns.set(q.ans.join(), (patterns.get(q.ans.join()) ?? 0) + 1);
 
   const measures = [
-    { name: 'mcq: answer is the longest option', value: share(mcq, (q) => q.opts[q.ans].length > Math.max(...wrongOptions(q))), max: 0.72 },
-    { name: 'mcq: answer is 1.5x longer than the rest', value: share(mcq, (q) => q.opts[q.ans].length >= 1.5 * Math.max(...wrongOptions(q))), max: 0.54 },
+    { name: 'mcq: answer is the longest option', value: share(mcq, (q) => q.opts[q.ans].length > Math.max(...wrongOptions(q))), max: 0.54 },
+    { name: 'mcq: answer is 1.5x longer than the rest', value: share(mcq, (q) => q.opts[q.ans].length >= 1.5 * Math.max(...wrongOptions(q))), max: 0.36 },
+    { name: 'mcq: most common length rank of the answer', value: Math.max(...lengthRanks(mcq)), max: 0.58 },
     { name: 'multi: answers are the longest options', value: share(multi, longestAreAnswers), max: 0.55 },
     { name: 'multi: exactly two answers', value: share(multi, (q) => q.ans.length === 2), max: 0.7 },
     { name: 'yes/no: exactly one No', value: share(yesno, (q) => q.ans.filter((a) => !a).length === 1), max: 0.45 },

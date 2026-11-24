@@ -48,10 +48,10 @@
   "D1-038": {
     "q": "Ek company record ki hui support calls se action items ke saath chhote notes chahti hai. AI capabilities ka kaunsa jor chahiye?",
     "opts": [
-      "Calls likhne ke liye speech recognition, phir text ki summarization",
-      "Speech synthesis, phir image classification",
-      "OCR, phir sentiment analysis",
-      "Object detection, phir translation"
+      null,
+      "Speech synthesis, phir recordings ki image classification",
+      "OCR, phir scan kiye hue notes ki sentiment analysis",
+      "Object detection, phir captions ka tarjuma"
     ],
     "exp": "Calls audio hain, is liye pehle speech recognition unhein text banaye ga, phir summarization technique, jaise generative model ya summarization feature, notes aur action items banaye gi. Speech synthesis audio banata hai, parhta nahi, OCR tasveeron ka text parhta hai, aur object detection tasveeron mein cheezein dhoondta hai, is liye woh jor call ko notes nahi bana sakte."
   },
@@ -142,10 +142,10 @@
   "D1-056": {
     "q": "Ek hospital ki dictation app aksar dawaon ke naam aur medical terms ghalat pehchanti hai. Pehchan behtar karne ka sab se acha tareeqa kya hai?",
     "opts": [
-      "Speech model ka temperature barhana",
-      "Koi aur neural voice chunna",
+      "Zyada theek alfaaz ke liye speech model ka temperature barhana",
+      "Koi doosri neural voice chunna jo tibbi alfaaz ke liye train ho",
       "Domain ke text aur audio se custom speech model train karna",
-      "Text ko SSML tags mein rakhna"
+      "Pehchan se pehle dawaon ke naam aur tibbi alfaaz ko SSML tags mein rakhna"
     ],
     "exp": "Custom speech aap ko apne domain ke text aur audio se base speech recognition model ko dhaalne deta hai, is liye woh dawaon ke naam jaise khaas alfaz seekh leta hai. Neural voices aur SSML sirf speech synthesis par asar dalte hain, jo output ka hissa hai, recognition ka nahi. Temperature generative text models ki setting hai aur speech recognition behtar nahi karta."
   },
@@ -190,6 +190,7 @@
   },
   "D1-062": {
     "q": "Ek city app ko street signs ki photos par likhe alfaz parhne hain. Kaunsi technique istemal karni chahiye?",
+    "opts": [null, null, "Text parhna (OCR)", null],
     "exp": "OCR tasveeron se chhapa hua aur haath ka likha text nikalta hai, is liye sign ke alfaz parh sakta hai. Object detection yeh bata sakta hai ke sign kahan hai lekin usay parh nahi sakta. Image classification poori tasveer ko label deta hai, aur face detection chehray dhoondta hai, is liye dono text nahi dete."
   },
   "D1-063": {
@@ -233,10 +234,10 @@
   "D1-068": {
     "q": "Analysts chart ki tasveer upload kar ke aam zaban mein sawal poochna chahte hain, jaise 'Kaunse maheene mein sales sab se zyada thi?'. Kis qism ka model istemal karna chahiye?",
     "opts": [
-      "Image classification model",
-      "Speech-to-text model",
+      "Charts par train kiya hua image classification model",
+      "Custom vocabulary wala speech-to-text model",
       "Embedding model",
-      "Multimodal model jo image input leta hai"
+      "Image input wala multimodal model"
     ],
     "exp": "Multimodal model, jaise vision wala GPT model, prompt mein text ke saath tasveerein bhi leta hai aur tasveer mein jo dikh raha hai us par soch sakta hai, is liye chart ke baare mein sawalon ke jawab de sakta hai. Image classification sirf tasveer ke labels deta hai, speech to text audio likhta hai, aur embedding model vectors deta hai, is liye koi bhi zaban mein sawalon ke jawab nahi deta."
   },
@@ -250,7 +251,7 @@
     "opts": [
       "Koi bhi manzoori ke baghair face identification istemal kar sakta hai",
       "Face service prompt se naye synthetic chehray banati hai",
-      "Face identification aur verification Limited Access features hain jin ke liye manzoor shuda application chahiye",
+      "Face identification ke liye manzoor shuda darkhwast chahiye",
       "Face service insan ke jazbaat bharosemand tareeqe se pehchanti hai"
     ],
     "exp": "Responsible AI ki khatir Microsoft ne face identification aur verification ko Limited Access features banaya, is liye istemal se pehle customers ko apply kar ke manzoori leni hoti hai. Face service maujood chehron ka jaiza leti hai aur naye nahi banati. Microsoft ne Face service se emotion recognition retire kar diya kyunke chehray se jazbaat ka andaza bharosemand nahi, is liye woh bayan ghalat hai."

@@ -46,9 +46,9 @@
     "q": "What makes a solution agentic rather than only generative?",
     "opts": [
       "It produces text",
-      "It runs in the cloud",
-      "It uses a large model",
-      "It decides on steps and uses tools to take actions toward a goal"
+      "It runs in the cloud and is available all day",
+      "It uses a larger model with a bigger context window",
+      "It chooses steps and uses tools to act"
     ],
     "ans": 3,
     "exp": "Generative AI creates content in response to a prompt. Agentic AI adds goal-directed behavior: the model plans steps, chooses tools such as APIs or search, and takes actions, often across several turns. Producing text, running in the cloud and using a large model are true of many non-agentic apps too.",
@@ -84,8 +84,8 @@
     "id": "D1-174", "sub": "text-techniques", "diff": 2, "type": "mcq",
     "q": "A manufacturer needs to find its own product codes, such as CTS-4421, in maintenance notes. Prebuilt entity categories do not recognize them. What should it use?",
     "opts": [
-      "Prebuilt sentiment analysis",
-      "Custom named entity recognition trained on labeled examples of the codes",
+      "Prebuilt sentiment analysis with opinion mining",
+      "Custom named entity recognition",
       "Language detection",
       "Speech synthesis"
     ],
@@ -162,7 +162,7 @@
     "opts": [
       "Language detection",
       "Key phrase extraction",
-      "Speech translation with spoken output in the target language",
+      "Speech translation",
       "Optical character recognition"
     ],
     "ans": 2,
@@ -281,10 +281,10 @@
     "id": "D1-191", "sub": "extraction-techniques", "diff": 3, "type": "mcq",
     "q": "You must extract tables from scanned financial statements and keep their rows and columns. Which technique fits best?",
     "opts": [
-      "Plain OCR that returns only lines of text",
-      "Speech to text",
-      "Layout analysis that returns tables with their rows and cells",
-      "Image tags"
+      "Plain OCR that returns the page as lines of text",
+      "Speech to text on a reading of the statements",
+      "Layout analysis that keeps rows and cells",
+      "Image tags that list the objects on each page"
     ],
     "ans": 2,
     "exp": "Layout analysis goes beyond reading text: it detects structure such as paragraphs, sections and tables, and returns each table's rows and cells. Plain OCR loses the table structure, speech to text works on audio, and image tags only describe general content.",
@@ -305,7 +305,7 @@
   {
     "id": "D1-193", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
     "q": "What is the minimum input that an image-generation model needs to create a new image?",
-    "opts": ["A text prompt that describes the image", "A voice recording", "A CSV file", "An embedding vector"],
+    "opts": ["A text prompt", "A voice recording", "A CSV file", "An embedding vector"],
     "ans": 0,
     "exp": "Image-generation models create pictures from a text prompt that describes the subject, style and setting; some can also take an existing image to edit. They do not need a voice recording, a CSV file or an embedding to produce an image.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"

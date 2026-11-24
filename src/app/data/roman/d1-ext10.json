@@ -32,10 +32,10 @@
   "D1-307": {
     "q": "Users tasdeeq ke liye AI app mein apne ID documents ki photos upload karte hain. Kaunsa tareeqa un ki privacy ki hifazat karta hai?",
     "opts": [
-      "Files ko shared public folder mein hamesha ke liye rakhna",
-      "Zaroorat khatam hone par files delete karna aur mehdood karna ke kaun unhein dekh sakta hai",
+      "Files ko mushtarka public folder mein rakhna, shayad zaroorat par jaye",
+      "Zaroorat khatam ho to files delete karna aur unhein khol sakne walon ko mehdood karna",
       "Files tamam staff ko email karna",
-      "Baghair pooche files ko marketing mein istemal karna"
+      "Users se pehle poochhe baghair files ko marketing mein dobara istemal karna"
     ],
     "exp": "Zaati data sirf zaroorat tak rakhna aur rasai mehdood karna logon ki privacy ki hifazat karta hai aur kuch ghalat hone par nuqsan kam karta hai. Public storage, khul kar baantna aur razamandi ke baghair dobara istemal, sab hassas data zahir karte hain."
   },
@@ -52,10 +52,10 @@
     "ctx": "Ek job-search assistant sirf mouse se istemal ho sakta hai, aur us ka text bara nahi kiya ja sakta.",
     "q": "Yeh design kaunse responsible AI principle par pura nahi utarta, aur kya madad karega?",
     "opts": [
-      "Inclusiveness: keyboard support aur bara hone wala text shamil karein",
-      "Fairness: model ko dobara train karein",
-      "Transparency: AI disclaimer shamil karein",
-      "Accountability: naya owner muqarrar karein"
+      "Inclusiveness: keyboard support shamil karna",
+      "Fairness: model ko mazeed jobs ke data par train karna",
+      "Transparency: har page par AI ka disclaimer lagana",
+      "Accountability: design ke liye naya owner muqarrar karna"
     ],
     "exp": "Sirf mouse wale controls aur chhota fixed text harkat ya dekhne ki dushwari wale logon ko bahar kar dete hain, jo inclusiveness ki nakami hai; keyboard support aur bara hone wala text usay theek karta hai. Dobara training, AI disclaimers aur naye owners accessibility ki in rukawaton ko door nahi karte."
   },
@@ -77,7 +77,7 @@
     "opts": [
       "Khulase lambe kar de",
       "Articles se journalists ke naam hata de",
-      "Khulason par AI-generated ka label lagaye aur samjhaye ke woh kaise bante hain",
+      "Khulason par AI-generated ka label lagana",
       "Khulason ke liye alag font istemal kare"
     ],
     "exp": "Parhne walon ko pata hona chahiye ke content kab AI ka hai taake woh usay munasib tareeqe se parkhein, yahi transparency hai. Khulason par label lagana aur amal samjhana ghalat fehmi door karta hai. Lambai, likhne walon ke naam aur font yeh nahi batate ke text AI ne likha."
@@ -121,8 +121,8 @@
   "D1-316": {
     "q": "Large language models ke baare mein kaunsa bayan sach hai?",
     "opts": [
-      "Woh training data se seekhe hue patterns aur probabilities ki bunyad par text banate hain",
-      "Unhein hamesha aaj ki khabrein maloom hoti hain",
+      "Woh training mein seekhe hue patterns aur probabilities se text banate hain",
+      "Unhein hamesha aaj ki khabrein pata hoti hain kyunke woh web par talash karte hain",
       "Woh kabhi ghalti nahi karte",
       "Un mein har sawal ke tay shuda jawab program kiye gaye hain"
     ],
@@ -132,9 +132,9 @@
     "q": "Generative AI mein grounding ka kya matlab hai?",
     "opts": [
       "Server ko electrical ground se jorna",
-      "Temperature ko 0 par set karna",
-      "Prompt mein mutalliqa, bharosemand data dena taake jawab us par mabni ho",
-      "Purani deployments delete karna"
+      "Temperature 0 karna taake jawab ek jaise rahein",
+      "Prompt mein model ko mutalliqa, bharosemand data dena jis par woh jawab de",
+      "Purani deployments delete karna taake sab se naya model istemal ho"
     ],
     "exp": "Grounding model ko mutalliqa aur bharosemand maloomat, jaise nikale hue documents, deti hai taake us ke jawab sirf training mein seekhi hui baaton ke bajaye us data par mabni hon. Is ka bijli ki grounding, temperature settings ya deployments delete karne se koi taalluq nahi."
   },
@@ -178,9 +178,9 @@
     "ctx": "Ek startup prototype chat app bana raha hai. Budget kam hai, jawab tez hone chahiye, aur team baad mein doosre models azmana chahti hai.",
     "q": "Behtareen tareeqa kya hai?",
     "opts": [
-      "Saste mini model se shuru karein, usay parkhein, aur deployment ka naam configurable rakhein taake baad mein badal sakein",
-      "Pehle hi din sab se bare model ke liye provisioned throughput khareedein",
-      "Koi base model test karne se pehle model fine-tune karein",
+      "Mini model se shuru karna aur deployment ka naam configurable rakhna",
+      "Project ke pehle din sab se bare model ke liye provisioned throughput khareedna",
+      "Kisi base model ko test karne se pehle customer data par model fine-tune karna",
       "Sirf image-generation models istemal karein"
     ],
     "exp": "Chhota model prototype ke liye kharcha aur latency kam rakhta hai, evaluation dikhati hai ke quality kaafi hai ya nahi, aur configuration se model badalna aasan hota hai. Pehle se bari capacity reserve karna mehnga hai, base models test karne se pehle fine-tuning qabl az waqt hai, aur image models chat nahi chala sakte."
@@ -213,7 +213,7 @@
   "D1-326": {
     "ctx": "Ek support bot par din raat musalsal aur qabil-e-andaza traffic hai. Standard deployment par traffic ki achanak barhat se kabhi kabhi 429 errors aate hain, aur latency ek jaisi rehni chahiye.",
     "q": "Aap kya tajweez karenge?",
-    "opts": [null, "Musalsal load ke mutabiq provisioned throughput", "Kam temperature", "Kam maximum output tokens"],
+    "opts": [null, null, "Tamam requests ke liye kam temperature", "Kam maximum output tokens"],
     "exp": "Provisioned throughput qabil-e-andaza traffic ke liye capacity reserve karta hai aur shared pay-per-token deployments se zyada ek jaisi latency deta hai. Global Batch asynchronous hai aur live chat ke liye munasib nahi, aur temperature ya output ki lambai ki settings capacity reserve nahi kartin."
   },
   "D1-327": {
@@ -235,9 +235,9 @@
     "q": "Model catalog dikhata hai ke aap ki app ka model teen maheene mein retire ho jayega. Aap ko kya karna chahiye?",
     "opts": [
       "Notice nazar andaz karein",
-      "Deployment ka quota barhayein",
-      "Temperature kam karein",
-      "Apni evaluations se naya model test karein aur retirement ki tareekh se pehle deployment us par le jayein"
+      "Deployment ka quota barhana taake model dastiyab rahe",
+      "Temperature kam karna taake purana model qabil-e-bharosa rahe",
+      "Evaluations se naya model test kar ke retire hone ki tareekh se pehle us par jana"
     ],
     "exp": "Retire hone ke baad model istemal nahi ho sakta, is liye apne test data par us ka badal parkhein aur tareekh se pehle badal lein. Notice nazar andaz karne se calls fail hongi, aur quota ya temperature badalne se model ki muddat nahi barhti."
   }

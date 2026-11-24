@@ -4,10 +4,10 @@
     "ctx": "A city wants residents to ask a chatbot questions such as 'When is trash collected on Elm Street?' The answers are in the city's published collection schedule.",
     "q": "Which approach fits best?",
     "opts": [
-      "Speech synthesis only",
-      "A generative AI chat that is grounded in the city's schedule documents",
-      "Object detection",
-      "Image generation"
+      "Speech synthesis of the whole collection schedule",
+      "A generative AI chat grounded in the schedule",
+      "Object detection in photos of the trash containers",
+      "Image generation of a map that shows each street"
     ],
     "ans": 1,
     "exp": "A generative AI chat understands the question and writes an answer, and grounding it in the schedule documents makes the answer accurate for each street. Speech synthesis only reads text aloud, object detection analyzes images, and image generation creates pictures.",
@@ -18,9 +18,9 @@
     "q": "A bank wants an assistant that can check a customer's balance and, after the customer confirms, transfer money between their accounts. Which solution fits?",
     "opts": [
       "Key phrase extraction",
-      "Optical character recognition",
-      "Text to speech only",
-      "An AI agent with tools for the banking APIs and a confirmation step before transfers"
+      "Optical character recognition of the bank statements",
+      "Text to speech that reads the customer's balance aloud",
+      "An AI agent with banking tools and confirmation"
     ],
     "ans": 3,
     "exp": "Checking balances and moving money are actions in other systems, so an agent that calls banking APIs as tools is needed, with a confirmation step before sensitive actions. Key phrase extraction, OCR and text to speech cannot take actions in banking systems.",
@@ -97,10 +97,10 @@
     "id": "D1-282", "sub": "text-techniques", "diff": 1, "type": "mcq",
     "q": "What does named entity recognition do?",
     "opts": [
-      "Translates text into another language",
+      "Translates text into another language that the user has chosen",
       "Creates audio from text",
-      "Finds items such as people, places, organizations and dates in text and labels their category",
-      "Draws boxes around objects in images"
+      "Labels people, places, dates and similar items in text",
+      "Draws boxes around objects in images and names each of them"
     ],
     "ans": 2,
     "exp": "Named entity recognition identifies entities in text and assigns categories such as Person, Location, Organization and DateTime. Translation, speech synthesis and object detection are different capabilities.",
@@ -111,10 +111,10 @@
     "ctx": "A hotel chain has 10,000 reviews in 12 languages and wants a dashboard of the most common complaints for each language.",
     "q": "Which combination of text analysis techniques fits?",
     "opts": [
-      "Language detection, plus opinion mining or key phrase extraction",
-      "OCR plus object detection",
-      "Speech synthesis plus translation",
-      "Image generation"
+      "Language detection, then opinion mining",
+      "OCR of the reviews, then object detection",
+      "Speech synthesis, then translation of the reviews",
+      "Image generation of a chart for each of the complaints"
     ],
     "ans": 0,
     "exp": "Language detection groups the reviews by language, and opinion mining or key phrase extraction surfaces what guests complain about. OCR and object detection work on images, speech synthesis produces audio, and image generation creates pictures, so none of them analyze review text.",
@@ -153,7 +153,7 @@
       "Prebuilt language detection",
       "Speech translation",
       "Image Analysis tags",
-      "Custom text classification trained on the labeled examples"
+      "Custom text classification"
     ],
     "ans": 3,
     "exp": "Custom text classification learns your own categories from labeled examples and then assigns them to new emails. Language detection only identifies the language, speech translation works on audio, and image tags describe pictures.",
@@ -183,10 +183,10 @@
     "id": "D1-289", "sub": "speech-features", "diff": 2, "type": "mcq",
     "q": "A game character must sound excited in some lines and sad in others. How should you do this with Azure Speech?",
     "opts": [
-      "Use speech to text",
-      "Use pronunciation assessment",
-      "Use a neural voice that supports speaking styles and set the style in SSML",
-      "Use keyword recognition"
+      "Use speech to text and change the transcript by hand",
+      "Use pronunciation assessment to score how each line sounds",
+      "Set a speaking style in SSML for a neural voice",
+      "Use keyword recognition to detect the emotional words"
     ],
     "ans": 2,
     "exp": "Some neural voices support speaking styles, such as cheerful or sad, which you select with SSML for each line. Speech to text, pronunciation assessment and keyword recognition all analyze incoming speech and cannot change how synthesized speech sounds.",
@@ -258,10 +258,10 @@
     "id": "D1-295", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
     "q": "In medical imaging, which task is semantic segmentation used for?",
     "opts": [
-      "Outlining the exact area of an organ in a scan, pixel by pixel",
+      "Outlining the exact area of an organ",
       "Reading the patient's name on the scan",
       "Generating a new scan",
-      "Translating the radiology report"
+      "Translating the radiology report for the patient"
     ],
     "ans": 0,
     "exp": "Semantic segmentation assigns a class to every pixel, so it can outline the precise area of an organ or other structure. Reading names is OCR, creating scans is image generation, and translating reports is a language task.",
@@ -309,10 +309,10 @@
     "id": "D1-299", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
     "q": "An online store wants product attributes, such as color and category, filled in automatically from product photos. Which technique fits?",
     "opts": [
-      "Speech synthesis",
-      "Language detection",
-      "Information extraction from images into defined fields",
-      "Batch transcription"
+      "Speech synthesis of the product names",
+      "Language detection on the product descriptions",
+      "Information extraction from images",
+      "Batch transcription of the product videos"
     ],
     "ans": 2,
     "exp": "Extracting attributes from images into named fields, for example with a Content Understanding image analyzer, turns photos into structured catalog data. Speech synthesis, language detection and batch transcription work with audio or text, not images.",
@@ -330,7 +330,12 @@
   {
     "id": "D1-301", "sub": "extraction-techniques", "diff": 1, "type": "mcq",
     "q": "What is the usual output of an information extraction solution?",
-    "opts": ["Structured data, such as named fields in JSON", "A new image", "Background music", "A model deployment"],
+    "opts": [
+      "Structured data, such as JSON fields",
+      "A new image that shows the extracted values",
+      "Background music",
+      "A model deployment that other apps can call"
+    ],
     "ans": 0,
     "exp": "Information extraction turns unstructured content into structured data, such as fields like invoice number and total in JSON, that other systems can use. It does not create images, music or deployments.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"

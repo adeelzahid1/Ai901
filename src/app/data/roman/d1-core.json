@@ -60,7 +60,7 @@
   "D1-011": {
     "q": "Generative AI language model kisi prompt ka jawab kaise banata hai?",
     "opts": [
-      "Woh purane jawabon ke database se poora mehfooz jawab dhoondta hai",
+      "Woh purane jawabon ke bare database mein se mukammal jawab dhoondta hai aur sab se milta jawab deta hai",
       "Woh pehle aaye hue tokens ki bunyad par baar baar sab se mumkina agla token predict karta hai",
       "Woh developers ke likhe hue tay shuda if-then rules chalata hai",
       "Woh prompt se sab se milta julta web page copy karta hai"
@@ -70,9 +70,9 @@
   "D1-012": {
     "q": "Large language models ke hawale se token kya hota hai?",
     "opts": [
-      "Security key jo model endpoint ko call karne ke liye istemal hoti hai",
-      "Poora document jo model ko bheja jata hai",
-      "Text ki ek unit, jaise lafz ya lafz ka hissa, jise model parhta aur banata hai",
+      "Security key jo app model endpoint ki har call ke saath bhejti hai",
+      "Mukammal document jo ek request ke hisse ke taur par model ko bheja jata hai",
+      "Text ki ikai, jaise lafz ya lafz ka hissa, jise model process karta hai",
       "Mehfooz ki hui guftagu ki history"
     ],
     "exp": "Language models text ko tokens mein torte hain, jo alfaz, alfaz ke hisse ya punctuation hote hain, aur woh text ko tokens ke silsile ki soorat mein parhte aur banate hain. Istemal, limits aur kharcha tokens mein gina jata hai. Endpoint ko call karne wali key API key ya security ke maano mein access token hoti hai, language token nahi. Poora document aur guftagu ki history bohat se tokens se bante hain, is liye woh khud token nahi."
@@ -81,9 +81,9 @@
     "q": "Generative AI solution mein embeddings kya hain?",
     "opts": [
       "Tasveerein jo chat ke jawab mein daali jati hain",
-      "Hidayaat jo system message ke andar chupi hoti hain",
-      "Training data ki encrypted copies",
-      "Numeric vectors jo text ka matlab pakarte hain, taake milte julte text ke vectors ek doosre ke qareeb hon"
+      "Hidayaat jo model ki rahnumai ke liye system message ke andar chhupi hoti hain",
+      "Training data ki encrypted copies jinhein sirf model provider parh sakta hai",
+      "Numeric vectors jin mein milte mani wala text ek doosre ke qareeb rakha jata hai"
     ],
     "exp": "Embedding numbers ka vector hai jo text ke kisi hisse ka matlab zahir karta hai. Milte julte matlab wale text ke vectors qareeb qareeb hote hain, isi liye embeddings semantic search aur RAG solutions mein mutalliqa content nikalne ke liye istemal hote hain. Embeddings tasveerein nahi, prompt ki hidayaat nahi, aur training data ki encrypted copies bhi nahi."
   },
@@ -103,10 +103,10 @@
   "D1-016": {
     "q": "Ek company chahti hai ke chat model employees ke sawalon ka jawab company ke andruni policy documents se de, jo har maheene badalte hain. Company model ko dobara train nahi karna chahti. Kaunsi technique istemal karni chahiye?",
     "opts": [
-      "Maximum response tokens barhana",
-      "Chhote model par jana",
-      "Har maheene policy documents par model ko fine-tune karna",
-      "Retrieval augmented generation (RAG), jo har prompt mein document ka mutalliqa content shamil karta hai"
+      "Employees ke tamam sawalon ke liye maximum response tokens barhana",
+      "Chhote model par jana jo maujooda model se zyada haal mein train hua ho",
+      "Har mahine tamam policy documents par model ko dobara fine-tune karna",
+      "Policy documents ke saath retrieval augmented generation (RAG)"
     ],
     "exp": "Retrieval augmented generation sawal se mutalliq document ke hisse dhoond kar prompt mein shamil karta hai, is tarah model dobara training ke baghair company ke taaza data par jawab ki bunyad rakhta hai. Documents badlein to sirf search index update karna parta hai. Har maheene fine-tuning mehngi hai aur us ka maqsad model ka rawaiya badalna hai, facts taaza rakhna nahi. Zyada response tokens ya chhota model policies tak rasai nahi dete."
   },
@@ -114,9 +114,9 @@
     "q": "Kis soorat mein model ki fine-tuning, retrieval augmented generation (RAG) se behtar intikhab hai?",
     "opts": [
       "Source data roz badalta hai",
-      "Model ko musalsal ek khaas style ya task format par chalna hai jo sirf prompt engineering se hasil nahi hota",
-      "Jawabon mein company documents ka taaza tareen version quote hona chahiye",
-      "Team koi training data tayyar nahi karna chahti"
+      "Model ko aisa khaas style follow karna ho jo sirf prompts se hasil na ho sake",
+      "Jawab mein baar baar badalne wale documents ka taaza tareen version ho",
+      "Team release se pehle koi training data tayyar karne se bachna chahti hai"
     ],
     "exp": "Fine-tuning model ko misaalon wale data par mazeed train karti hai taake woh koi rawaiya seekhe, jaise ek jaisa lehja, output format ya khaas task, jab prompts aur misaalein kaafi na hon. RAG tab behtar hai jab facts aksar badlein ya jawab taaza documents se chahiye hon, kyunke naya content dobara training ke baghair nikala ja sakta hai. Fine-tuning ko hamesha tayyar training misaalein chahiye hoti hain, is liye jo team data tayyar karne se bachna chahti hai us ke kaam ki nahi."
   },
@@ -152,7 +152,7 @@
     "opts": [
       "Image-generation model",
       "Chat completion model",
-      "Embedding model, jaise text-embedding-3-small",
+      "Embedding model",
       "Speech-to-text model"
     ],
     "exp": "Embedding model text ko vectors mein badalta hai, aur milte julte matlab wale text ke vectors qareeb hote hain, is liye aap sawal aur har article ki mushabihat naap sakte hain. Chat completion model jawab banata hai lekin muqable ke qabil vectors banane ke liye nahi bana. Image-generation models tasveerein banate hain, aur speech-to-text models audio ko likhte hain, is liye dono text ka matlab compare karne mein madad nahi karte."
@@ -164,10 +164,10 @@
   "D1-023": {
     "q": "Aap Microsoft Foundry mein model chunne se pehle kai models ko quality, kharche aur raftar ke hisaab se compare karna chahte hain. Kaunsa feature istemal karna chahiye?",
     "opts": [
-      "Foundry model catalog mein model leaderboards aur benchmarks",
-      null,
+      "Model catalog ke model leaderboards",
+      "Deployment ki latency par Azure Monitor alerts",
       "Maujooda deployment ka content filter",
-      null
+      "Subscription ke liye Azure Advisor ki tajaweez"
     ],
     "exp": "Foundry model catalog mein model leaderboards aur benchmark ke nateeje hain jo models ko quality, kharche aur throughput par compare karte hain, aur aap models ko saath saath rakh kar bhi dekh sakte hain. Azure Monitor alerts un resources ke metrics ki khabar dete hain jo aap pehle se chala rahe hain. Content filter deployment mein nuqsan deh content block karta hai, aur Azure Advisor Azure ke aam best-practice mashware deta hai, is liye dono models ka muqabla nahi karte."
   },

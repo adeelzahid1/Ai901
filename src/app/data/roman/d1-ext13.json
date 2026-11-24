@@ -1,12 +1,12 @@
 {
   "D1-383": {
     "q": "Ek hotel ko aisa assistant chahiye jo availability dekh kar aur booking system mein reservation bana kar kamre book kare. Yeh kaunsi AI workload hai?",
-    "opts": [null, "Agentic AI, booking system ke tools ke saath", null, null],
+    "opts": [null, "Tools wala agentic AI", null, null],
     "exp": "Availability dekhna aur reservations banana doosre system mein amal hain, is liye aisa agent chahiye jo booking system ke APIs ko tools ke taur par istemal kare. Speech synthesis, OCR aur sentiment analysis amal nahi kar sakte na booking bana sakte hain."
   },
   "D1-384": {
     "q": "Compliance team ko dhoondna hai ke hazaron contracts mein se kin mein automatic renewal ki shiq hai, aur agar hai to renewal ki tareekh kya hai. Kaunsi workload munasib hai?",
-    "opts": [null, null, null, "Information extraction jo shiq ki status aur tareekh ko fields ki soorat mein de"],
+    "opts": [null, null, null, null],
     "exp": "Team ko documents se khaas facts data ki soorat mein chahiye, jo information extraction hai, maslan shiq ke liye Yes ya No field aur tareekh ka field. Image generation tasveerein banata hai, aur speech recognition aur text to speech audio ke liye hain."
   },
   "D1-385": {
@@ -55,7 +55,7 @@
   "D1-391": {
     "ctx": "Ek government portal shehriyon ka feedback online shaya karta hai, lekin pehle naam, email addresses aur ID numbers hatane hain.",
     "q": "Kaunsa text analysis feature istemal karna chahiye?",
-    "opts": [null, null, null, "Redaction ke saath PII detection"],
+    "opts": [null, null, null, null],
     "exp": "PII detection naam, emails aur ID numbers jaisi zaati maloomat dhoond kar text ko un ke chupe hue hone ke saath deta hai. Sentiment analysis, summarization aur language detection zaati data nahi hatate."
   },
   "D1-392": {
@@ -84,7 +84,7 @@
     "q": "Language detection kisi message ke liye kam confidence score kyun de sakta hai?",
     "opts": [
       "Message bohat muhazzab hai",
-      "Message bohat chhota hai ya us mein kai zabanein mili hui hain",
+      "Message bohat chhota hai",
       "Message mein koi tasveer nahi",
       "Message mein bare huroof hain"
     ],
@@ -96,7 +96,12 @@
   },
   "D1-398": {
     "q": "Call center har woh mehfooz recording dhoondna chahta hai jis mein customer ne 'cancel my account' kaha. Kaunsa tareeqa munasib hai?",
-    "opts": [null, null, null, "Recordings ki batch transcription, phir transcripts mein phrase ki talash"],
+    "opts": [
+      null,
+      "Har recording ki pronunciation assessment",
+      "Customers ki recordings par train ki hui custom voice",
+      "Batch transcription, phir text mein talash"
+    ],
     "exp": "Mehfooz calls ko likhne se woh text ki soorat mein talash ke qabil ho jati hain, is liye phrase har recording mein mil sakta hai. Text to speech aur custom voice (jise pehle custom neural voice kehte the) audio banate hain, aur pronunciation assessment score deta hai ke koi mutawaqqa text kitna sahi bolta hai."
   },
   "D1-399": {
@@ -163,6 +168,7 @@
   },
   "D1-407": {
     "q": "Kaunsi technique chhape hue form ki photo ko machine ke parhne wale text mein badalti hai?",
+    "opts": [null, null, null, "Tasveer se image generation"],
     "exp": "OCR photo mein chhape hue huroof pehchan kar parhta hai aur unhein text ki soorat mein deta hai. Speech synthesis audio banata hai, sentiment analysis pehle se maujood text ki raye parakhta hai, aur image generation nayi tasveerein banata hai."
   },
   "D1-408": {
@@ -170,8 +176,8 @@
     "q": "Kaunsa tareeqa har supplier ke liye alag template banane se bachata hai?",
     "opts": [
       "Har supplier ke layout ke liye fixed template banana",
-      "Ek schema ke saath generative field extraction jo mukhtalif layouts sambhale",
-      "Staff se har delivery note dobara type karwana",
+      "Tamam layouts ke liye ek schema ke saath generative field extraction",
+      "Staff se har delivery note ek spreadsheet mein dobara type karwana",
       "Speech to text istemal karna"
     ],
     "exp": "Generative field extraction, jaise Content Understanding mein, har document ka content parh kar schema ke fields matlab ke hisaab se bharta hai, is liye mukhtalif layouts har supplier ke template ke baghair chal jate hain. Saikron templates sambhalna mehnga hai, dobara type karna sust hai, aur speech to text documents nahi parhta."

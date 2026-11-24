@@ -12,10 +12,10 @@
     "ctx": "Doctors dictate their notes after each visit. The clinic wants each visit stored as a record with fields such as symptoms, diagnosis and follow-up date.",
     "q": "Which combination of AI capabilities does the clinic need?",
     "opts": [
-      "Image classification, then OCR",
-      "Text to speech, then sentiment analysis",
-      "Speech to text, then information extraction into structured fields",
-      "Object detection, then translation"
+      "Image classification, then OCR of the doctor's notes",
+      "Text to speech, then sentiment analysis of the audio",
+      "Speech to text, then information extraction",
+      "Object detection, then translation of the records"
     ],
     "ans": 2,
     "exp": "The dictation is audio, so speech to text creates a transcript, and information extraction then fills fields such as symptoms, diagnosis and follow-up date. Image classification, OCR and object detection work on images, and text to speech and sentiment analysis do not produce structured records from dictation.",
@@ -79,9 +79,9 @@
     "q": "Which task cannot be handled well by a generative model on its own and needs grounding data or a tool?",
     "opts": [
       "Write a birthday poem",
-      "Brainstorm names for a new product",
-      "Tell a customer the current status of their specific order",
-      "Rewrite a paragraph in a friendlier tone"
+      "Brainstorm names for a new product in several languages",
+      "Tell a customer the status of their order",
+      "Rewrite a paragraph in a friendlier and shorter tone"
     ],
     "ans": 2,
     "exp": "A model does not know live, customer-specific facts such as an order's current status; the solution must look them up, for example through retrieval or a tool that calls the order system. Poems, brainstorming and rewriting rely on general language skills that the model already has.",
@@ -158,9 +158,9 @@
     "id": "D1-234", "sub": "speech-features", "diff": 3, "type": "mcq",
     "q": "A company wants to create a synthetic voice that sounds like a well-known actor, based on the actor's recordings. What is required?",
     "opts": [
-      "Nothing; any recordings can be used",
-      "A recorded consent statement from the voice talent and approved access to custom voice",
-      "Only a higher quota",
+      "Nothing; any public recordings can be used freely",
+      "Recorded consent and approved access",
+      "Only a higher quota for the voice deployment",
       "Only a stop sequence"
     ],
     "ans": 1,
@@ -170,7 +170,7 @@
   {
     "id": "D1-235", "sub": "speech-features", "diff": 2, "type": "mcq",
     "q": "Callers to a help line may speak English or Spanish, and the app does not know which in advance. Which Speech feature helps transcribe the calls correctly?",
-    "opts": ["Language identification in speech to text", "Text to speech", "Keyword recognition", "Pronunciation assessment"],
+    "opts": ["Language identification", "Text to speech", "Keyword recognition", "Pronunciation assessment"],
     "ans": 0,
     "exp": "Language identification detects which of a set of candidate languages is being spoken, so speech to text can use the right language model. Text to speech produces audio, keyword recognition listens for a wake word, and pronunciation assessment scores a learner's speech.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-identification"
@@ -225,7 +225,7 @@
   {
     "id": "D1-240", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
     "q": "From a photo of a café's menu board, you need the exact item names and prices. Which capability fits best?",
-    "opts": ["Image captioning", "OCR with the Read feature", "Tags", "Smart crops"],
+    "opts": ["Image captioning", "The Read feature", "Tags", "Smart crops"],
     "ans": 1,
     "exp": "OCR reads the exact text in the image, line by line, so you get the item names and prices. A caption would only describe the scene, tags give general keywords, and smart crops suggest thumbnail regions.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-ocr"
@@ -260,9 +260,9 @@
     "id": "D1-243", "sub": "vision-imagegen", "diff": 3, "type": "mcq",
     "q": "A construction company wants a short explanation, in plain language, of any unsafe practices visible in site photos. Which approach fits best?",
     "opts": [
-      "OCR",
+      "OCR with the Read feature",
       "Smart crops",
-      "A multimodal chat model with the photo and instructions in the prompt",
+      "A multimodal chat model",
       "Text to speech"
     ],
     "ans": 2,
@@ -288,10 +288,10 @@
     "id": "D1-245", "sub": "extraction-techniques", "diff": 1, "type": "mcq",
     "q": "What is the first step when extracting fields from a scanned form?",
     "opts": [
-      "Read the text and layout of the page (content extraction)",
-      "Generate a new image of the form",
-      "Synthesize speech from the form",
-      "Translate the form into Spanish"
+      "Read the text and layout of the page",
+      "Generate a new image of the form in higher quality",
+      "Synthesize speech from the text of the form",
+      "Translate the form into Spanish and English"
     ],
     "ans": 0,
     "exp": "Field extraction depends on first reading the content: OCR and layout analysis turn the scanned image into text with structure, and fields are then identified from it. Generating images, synthesizing speech or translating does not help pull fields from the form.",

@@ -1,7 +1,7 @@
 {
   "D1-194": {
     "q": "Azure Machine Learning ka kaunsa tool data scientist ko mukhtalif groups ke logon ke liye model ki ghaltiyan aur fairness parakhne mein madad deta hai?",
-    "opts": [null, null, "Responsible AI dashboard", null],
+    "opts": [null, "Azure Cost Management ki reports", "Responsible AI dashboard", null],
     "exp": "Azure Machine Learning ka Responsible AI dashboard error analysis aur fairness assessment jaise tools ko ek jagah laata hai, is liye aap dekh sakte hain ke model kaunse groups ke liye kharab kaam karta hai. Azure Advisor aam mashware deta hai, Cost Management kharche par nazar rakhta hai, aur Azure Policy resources ke usool lagu karta hai; koi bhi model ki fairness nahi parakhta."
   },
   "D1-195": {
@@ -16,10 +16,10 @@
   "D1-196": {
     "q": "Kaunsa bayan reliability and safety principle ko bayan karta hai?",
     "opts": [
-      "AI systems jitne saste ho sakein utne hon",
-      "AI systems bharosemand aur mehfooz tareeqe se kaam karein, achanak halaat mein bhi",
+      "AI systems har customer ke liye jitne ho sakein saste hon",
+      "AI systems ghair mutawaqqa halaat mein bhi mehfooz chalein",
       "AI systems sirf raat ko chalein",
-      "AI systems ko kabhi update na kiya jaye"
+      "AI systems release hone ke baad kabhi update na hon"
     ],
     "exp": "Reliability and safety ka matlab hai ke AI system umeed ke mutabiq chale, nuqsan deh cher-chaar ka muqabla kare aur un halaat mein bhi mehfooz rahe jin ke liye woh nahi bana tha. Kharcha, din ka waqt aur updates se bachna responsible AI principles nahi, aur system ko bharosemand rakhne ke liye updates aksar zaroori hoti hain."
   },
@@ -85,9 +85,9 @@
   "D1-204": {
     "q": "Accountability principle par chalne wale idare mein bare asar wale AI system ke release ki manzoori kis ko deni chahiye?",
     "opts": [
-      "Muqarrar owner ya review board ko, idare ki AI policy ke mutabiq",
+      "Muqarrar owner ya review board",
       "AI model ko khud",
-      "Kisi bhi user ko jo maange",
+      "Koi bhi user jo maange aur jis ka account ho",
       "Kisi ko nahi, kyunke AI systems khud apna intizam karte hain"
     ],
     "exp": "Accountability ke liye wazeh insani ownership aur governance chahiye, jaise muqarrar owners ya review board jo release se pehle idare ki AI policy lagu kare. Model jawabdeh nahi ho sakta, aam users system ke zimmedar nahi, aur AI systems khud apna intizam nahi karte."
@@ -115,10 +115,10 @@
   "D1-207": {
     "q": "GPT jaise model ke liye pre-training ka kya matlab hai?",
     "opts": [
-      "System message likhna",
-      "Azure region chunna",
-      "Bohat bare aur aam text dataset par pehli training",
-      "Deployment ka quota set karna"
+      "Pehle version ke liye system message likhna",
+      "Woh Azure region chunna jahan model chalega",
+      "Bare, aam dataset par pehli training",
+      "Nayi deployment ka quota aur region tay karna"
     ],
     "exp": "Pre-training bohat bare aur wasee dataset par ibtidai training hai jis mein model zaban ke aam patterns seekhta hai; GPT ka P 'pre-trained' hai. System message likhna, region chunna aur quota set karna baad mein hota hai, jab aap model istemal ya deploy karte hain."
   },
@@ -198,7 +198,7 @@
   "D1-217": {
     "q": "Testing ke dauran aap chahte hain ke wahi prompt aur settings har run mein zyada ek jaise output dein. Kaunsa parameter madad karta hai?",
     "opts": [
-      "seed parameter set karein aur baqi settings wahi rakhein",
+      "Seed parameter set karna",
       "Presence penalty barhayein",
       "Stop sequence shamil karein",
       "Maximum tokens barhayein"
@@ -225,9 +225,9 @@
     "q": "Jab standard deployment ko apne tokens-per-minute quota se zyada requests milein to kya hota hai?",
     "opts": [
       "Model zyada sahi ho jata hai",
-      "Us minute ke liye billing ruk jati hai",
-      "Deployment delete ho jati hai",
-      "Istemal kam hone tak izafi requests HTTP 429 errors ke saath reject hoti hain"
+      "Agla minute shuru hone tak billing ruk jati hai",
+      "Deployment delete ho jati hai aur dobara banani parti hai",
+      "Izafi requests ko HTTP 429 errors milti hain"
     ],
     "exp": "Jab traffic deployment ki rate limits se barh jaye to service izafi requests ko rok kar 429 errors deti hai, is liye clients ko backoff ke saath dobara koshish karni chahiye ya aap quota barhayein. Quota se barhna accuracy nahi badalta, billing nahi rokta aur deployment delete nahi karta."
   }

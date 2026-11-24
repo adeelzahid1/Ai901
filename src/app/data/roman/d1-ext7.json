@@ -7,10 +7,10 @@
     "ctx": "Doctors har visit ke baad apne notes bol kar likhwate hain. Clinic chahta hai ke har visit symptoms, diagnosis aur follow-up date jaise fields wale record ki soorat mein save ho.",
     "q": "Clinic ko AI capabilities ka kaunsa jor chahiye?",
     "opts": [
-      "Image classification, phir OCR",
-      "Text to speech, phir sentiment analysis",
-      "Speech to text, phir structured fields mein information extraction",
-      "Object detection, phir translation"
+      "Image classification, phir doctor ke notes ka OCR",
+      "Text to speech, phir audio ki sentiment analysis",
+      "Speech to text, phir information extraction",
+      "Object detection, phir records ka tarjuma"
     ],
     "exp": "Boli hui baat audio hai, is liye speech to text transcript banata hai, phir information extraction symptoms, diagnosis aur follow-up date jaise fields bharta hai. Image classification, OCR aur object detection images par kaam karte hain, aur text to speech aur sentiment analysis boli hui baat se structured records nahi banate."
   },
@@ -56,9 +56,9 @@
     "q": "Kaunsa kaam generative model akele achi tarah nahi kar sakta aur us ke liye grounding data ya tool chahiye?",
     "opts": [
       "Birthday ki nazm likhna",
-      "Naye product ke naam sochna",
-      "Customer ko us ke khaas order ki maujooda status batana",
-      "Paragraph ko zyada dostana lehje mein likhna"
+      "Naye product ke naam kai zabanon mein sochna",
+      "Customer ko us ke order ki halat batana",
+      "Paragraph ko zyada dostana aur mukhtasar andaz mein dobara likhna"
     ],
     "exp": "Model ko live aur customer ke khaas facts, jaise order ki maujooda status, maloom nahi hote; solution ko unhein dhoondna parta hai, maslan retrieval ya aise tool se jo order system call kare. Nazmein, naam sochna aur dobara likhna zaban ki aam salahiyat se hota hai jo model mein pehle se hai."
   },
@@ -102,16 +102,16 @@
   "D1-234": {
     "q": "Ek company mashhoor actor ki recordings se aisi synthetic awaaz banana chahti hai jo us jaisi lage. Kya zaroori hai?",
     "opts": [
-      "Kuch nahi; koi bhi recordings istemal ho sakti hain",
-      "Voice talent ki record ki hui razamandi aur custom voice tak manzoor shuda rasai",
-      "Sirf zyada quota",
+      "Kuch nahi; koi bhi public recordings azaadi se istemal ho sakti hain",
+      "Record ki hui razamandi aur manzoor shuda rasai",
+      "Sirf voice deployment ka zyada quota",
       "Sirf stop sequence"
     ],
     "exp": "Custom voice (jise pehle custom neural voice kehte the) Limited Access feature hai: Microsoft ko application aur manzoori chahiye, aur voice talent ko record ki hui razamandi deni hoti hai, taake kisi ki naqal jaise ghalat istemal ko roka ja sake. Razamandi ke baghair recordings istemal karne ki ijazat nahi, aur quota ya stop sequences ka awaaz banane se taalluq nahi."
   },
   "D1-235": {
     "q": "Help line par call karne wale English ya Spanish bol sakte hain, aur app ko pehle se pata nahi ke kaunsi. Kaunsa Speech feature calls sahi likhne mein madad karta hai?",
-    "opts": ["Speech to text mein language identification", null, null, null],
+    "opts": [null, null, null, null],
     "exp": "Language identification candidate zabanon ke set mein se pehchanta hai ke kaunsi boli ja rahi hai, taake speech to text sahi language model istemal kare. Text to speech audio banata hai, keyword recognition wake word sunta hai, aur pronunciation assessment seekhne wale ke bolne ko score deta hai."
   },
   "D1-236": {
@@ -145,7 +145,7 @@
   },
   "D1-240": {
     "q": "Café ke menu board ki photo se aap ko cheezon ke bilkul sahi naam aur qeematein chahiye. Kaunsi capability sab se munasib hai?",
-    "opts": [null, "Read feature ke saath OCR", null, null],
+    "opts": [null, "Read feature", null, null],
     "exp": "OCR tasveer ka bilkul sahi text line ba line parhta hai, is liye naam aur qeematein milti hain. Caption sirf manzar bayan karta, tags aam keywords dete hain, aur smart crops thumbnail ke hisse tajweez karta hai."
   },
   "D1-241": {
@@ -170,7 +170,7 @@
   },
   "D1-243": {
     "q": "Ek construction company site ki photos mein nazar aane wale ghair mehfooz tareeqon ki chhoti wazahat aam zaban mein chahti hai. Kaunsa tareeqa sab se munasib hai?",
-    "opts": [null, null, "Multimodal chat model, jis ke prompt mein photo aur hidayaat hon", null],
+    "opts": ["Read feature ke saath OCR", null, "Multimodal chat model", null],
     "exp": "Multimodal chat model photo dekh kar aam zaban mein wazahat likh sakta hai, maslan yeh ke koi worker unchai par harness ke baghair hai. Khaas detectors structured labels dete hain lekin wazahat nahi, OCR text parhta hai, smart crops thumbnails tajweez karta hai, aur text to speech audio banata hai."
   },
   "D1-244": {
@@ -193,10 +193,10 @@
   "D1-245": {
     "q": "Scan kiye hue form se fields nikalne ka pehla qadam kya hai?",
     "opts": [
-      "Page ka text aur layout parhna (content extraction)",
-      "Form ki nayi tasveer banana",
-      "Form se speech banana",
-      "Form ko Spanish mein translate karna"
+      "Page ka text aur layout parhna",
+      "Form ki zyada behtar quality wali nayi image banana",
+      "Form ke text se speech banana",
+      "Form ko Spanish aur English mein translate karna"
     ],
     "exp": "Field extraction pehle content parhne par munhasir hai: OCR aur layout analysis scan ki hui tasveer ko structure wala text banate hain, phir us mein se fields pehchane jate hain. Tasveerein banana, speech banana ya tarjuma karna form se fields nikalne mein madad nahi karta."
   },

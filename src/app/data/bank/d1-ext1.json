@@ -67,7 +67,7 @@
     "q": "A news app must read articles aloud for users with low vision. Which AI capability does it need?",
     "opts": [
       "Speech recognition",
-      "Speech synthesis (text to speech)",
+      "Speech synthesis",
       "Sentiment analysis",
       "Image classification"
     ],
@@ -137,10 +137,10 @@
     "type": "mcq",
     "q": "A company wants short notes with action items from recorded support calls. Which combination of AI capabilities is needed?",
     "opts": [
-      "Speech recognition to transcribe the calls, then summarization of the text",
-      "Speech synthesis, then image classification",
-      "OCR, then sentiment analysis",
-      "Object detection, then translation"
+      "Speech recognition, then summarization",
+      "Speech synthesis, then image classification of the recordings",
+      "OCR, then sentiment analysis of the scanned notes",
+      "Object detection, then translation of the captions"
     ],
     "ans": 0,
     "exp": "The calls are audio, so speech recognition must first turn them into text, and then a summarization technique, such as a generative model or a summarization feature, creates notes and action items. Speech synthesis creates audio rather than reading it, OCR reads text in images, and object detection finds objects in pictures, so those pairs cannot turn a call into notes.",
@@ -180,7 +180,7 @@
     "q": "A help desk wants to route incoming emails by detecting their language, the key topics and the products that are mentioned. Which AI workload is this?",
     "opts": [
       "Computer vision",
-      "Text analysis (natural language processing)",
+      "Text analysis",
       "Speech",
       "Image generation"
     ],
@@ -227,7 +227,7 @@
     "type": "mcq",
     "q": "A phone maker wants to know, for each review, whether customers like or dislike specific features, such as the battery or the screen. Which technique gives this detail?",
     "opts": [
-      "Opinion mining (aspect-based sentiment analysis)",
+      "Opinion mining",
       "Language detection",
       "Entity linking",
       "Extractive summarization"
@@ -464,10 +464,10 @@
     "type": "mcq",
     "q": "A hospital's dictation app often misrecognizes drug names and medical terms. What is the best way to improve recognition accuracy?",
     "opts": [
-      "Increase the temperature of the speech model",
-      "Choose a different neural voice",
+      "Increase the temperature of the speech model to get more precise words",
+      "Choose a different neural voice that is trained for medical terms",
       "Train a custom speech model with domain-specific text and audio",
-      "Wrap the text in SSML tags"
+      "Wrap the drug names and medical terms in SSML tags before recognition"
     ],
     "ans": 2,
     "exp": "Custom speech lets you adapt the base speech recognition model with your own domain text and audio, so it learns specialized vocabulary such as drug names. Neural voices and SSML only affect speech synthesis, which is the output side, not recognition. Temperature is a setting for generative text models and does not improve speech recognition.",
@@ -590,7 +590,7 @@
     "opts": [
       "Object detection",
       "Image classification",
-      "Optical character recognition (OCR)",
+      "Text reading (OCR)",
       "Face detection"
     ],
     "ans": 2,
@@ -704,10 +704,10 @@
     "type": "mcq",
     "q": "Analysts want to upload a chart image and ask questions in plain language, such as 'Which month had the highest sales?'. Which kind of model should they use?",
     "opts": [
-      "An image classification model",
-      "A speech-to-text model",
+      "An image classification model trained on charts",
+      "A speech-to-text model with a custom vocabulary",
       "An embedding model",
-      "A multimodal model that accepts image input"
+      "A multimodal model with image input"
     ],
     "ans": 3,
     "exp": "A multimodal model, such as a vision-capable GPT model, accepts images together with text in the prompt and can reason about what the image shows, so it can answer questions about a chart. Image classification only returns labels for the image, speech to text transcribes audio, and an embedding model returns vectors, so none of them answer questions in language.",
@@ -748,7 +748,7 @@
     "opts": [
       "Anyone can use face identification without approval",
       "The Face service creates new synthetic faces from a prompt",
-      "Face identification and verification are Limited Access features that require an approved application",
+      "Face identification needs an approved application",
       "The Face service reliably detects a person's emotions"
     ],
     "ans": 2,

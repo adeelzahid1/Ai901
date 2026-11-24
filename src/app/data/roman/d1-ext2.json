@@ -13,9 +13,9 @@
     "q": "Refunds manzoor karne wala ek AI system nuqsan deh faisla karta hai. Accountability principle ke mutabiq zimmedar kaun hai?",
     "opts": [
       "AI model khud",
-      "Woh log aur idara jinhon ne system design aur deploy kiya",
-      "Sirf woh customer jis ne refund maanga",
-      "Koi nahi, kyunke faisla automatic tha"
+      "System ke peeche maujood log aur idara",
+      "Sirf woh customer jis ne shuru mein refund maanga tha",
+      "Koi nahi, kyunke faisla software ne khud kiya"
     ],
     "exp": "Accountability ka matlab hai ke AI system design, build aur deploy karne wale log us ke kaam aur asar ke jawabdeh rehte hain. Model ko zimmedar nahi thehraya ja sakta, aur zimmedari customer par nahi jati aur na sirf is wajah se khatam hoti hai ke faisla automatic tha. Idare governance, muqarrar owners, reviews aur ghaltiyan theek karne ke tareeqon se accountability dikhate hain."
   },
@@ -62,10 +62,10 @@
   "D1-078": {
     "q": "Jild ki beemariyon ka ek model kul mila kar 95% sahi hai, lekin gehri rangat wale logon ke liye sirf 70% sahi hai. Team ko agla qadam kya uthana chahiye?",
     "opts": [
-      "Model release kar dein, kyunke kul accuracy zyada hai",
-      "Sab users ke liye decision threshold barha dein",
+      "Model abhi release kar dena, kyunke majmui accuracy pehle se zyada hai",
+      "Ghalat alarms kam karne ke liye tamam users ki faislay ki had barhana",
       "Tasveeron se jild ka rang hata dein",
-      "Har group ki karkardagi alag naapein aur kam accuracy wale groups ka training data behtar karein"
+      "Har group ko alag napna aur kamzor groups ke liye training data behtar karna"
     ],
     "exp": "Kul score kuch groups ke bohat kharab nateejon ko chupa sakta hai. Har group ke metrics alag naapna, jise aksar disaggregated evaluation kehte hain, farq dikhata hai, aur kam numaindagi wale groups ka munasib data shamil karna usay kam karta hai, jo fairness ko support karta hai. Sirf average dekh kar release karna nuqsan ko nazar andaz karta hai. Sab ke liye ek threshold badalne se farq khatam nahi hota, aur medical tasveeron se rang yunhi nahi hataya ja sakta."
   },
@@ -77,19 +77,19 @@
   "D1-080": {
     "q": "Ek hospital aisa AI assistant banata hai jo batata hai ke mareez ko kitni jaldi dekhna chahiye. Kaunsa design reliability and safety ko sab se behtar support karta hai?",
     "opts": [
-      "Model ko review ke baghair apni tajaweez par amal karne dein",
+      "Staff masroof ho to model ko review ke baghair apni tajaweez par amal karne dena",
       "Amal se pehle mustanad clinician har tajweez ko review kare",
       "Model ka confidence staff se chupayein",
-      "Tez jawab ke liye content filters band kar dein"
+      "Content filters band karna taake hangami halat mein staff ko jaldi jawab milein"
     ],
     "exp": "Bare asar wale scenarios mein agar insan amal se pehle AI ki tajaweez review kare to model ke ghalat hone par nuqsan ka imkan kam hota hai, jo reliability and safety ko support karta hai. Review ke baghair amal karne se yeh hifazat khatam hoti hai. Confidence chupane se woh ishara hat jata hai jo logon ko output parakhne mein madad deta hai. Content filters band karne se safety kamzor hoti hai aur tajaweez zyada bharosemand nahi hotin."
   },
   "D1-081": {
     "q": "Large language model (LLM) kya hai?",
     "opts": [
-      "Tayyar jawabon ka database",
-      "Rules engine jise developers haath se program karte hain",
-      "Bohat zyada text par train kiya hua model jo qudrati zaban samajh aur bana sakta hai",
+      "Tayyar jawabon ka database jis mein har sawal par talash hoti hai",
+      "Rules engine jis mein developers haath se likhte hain ke har sawal ka kya jawab ho",
+      "Bohat se text par train model jo zaban samajhta aur banata hai",
       "Spreadsheet macro jo text format karta hai"
     ],
     "exp": "Large language model neural network hai, aam taur par transformer architecture par mabni, jo bohat bari text collections par train hota hai taake sawalon ke jawab dene, khulasa karne aur likhne jaise kaamon ke liye qudrati zaban samajh aur bana sake. Woh tayyar jawab mehfooz nahi karta, haath se likha rules engine nahi, aur formatting macro bhi nahi."
@@ -97,20 +97,20 @@
   "D1-082": {
     "q": "Generative AI solution mein prompt kya hota hai?",
     "opts": [
-      "Woh input, jaise sawal ya hidayat, jo aap model ko bhejte hain",
-      "Woh data jis par model train hua",
-      "Model deployment ka naam",
-      "Model istemal karne ka mahana bill"
+      "Woh input jo aap model ko bhejte hain",
+      "Woh data jis par model release se pehle train hua",
+      "Us model deployment ka naam jise aap call karte hain",
+      "Apni app mein model istemal karne ka mahana bill"
     ],
     "exp": "Prompt woh input hai jo aap generative model ko dete hain, jaise sawal, hidayat, misaalein ya izafi context, aur model us se jawab banata hai. Training data woh hai jis se model ne deploy hone se pehle seekha. Deployment ka naam model endpoint ki pehchan hai, aur bill ka request mein model ke istemal se taalluq nahi."
   },
   "D1-083": {
     "q": "Large language model ke muqable mein small language model, jaise Phi model, ka faida kaunsa bayan batata hai?",
     "opts": [
-      "Woh har kaam mein hamesha zyada sahi jawab deta hai",
+      "Har kaam mein bare model se hamesha zyada sahi jawab deta hai",
       "Us ki context window la-mehdood hai",
-      "Usay fine-tune nahi kiya ja sakta, is liye woh kabhi nahi badalta",
-      "Usay kam compute chahiye, is liye woh sasta ho sakta hai aur chhote hardware, jaise local devices, par chal sakta hai"
+      "Woh fine-tune nahi ho sakta, is liye us ka rawaiya waqt ke saath kabhi nahi badalta",
+      "Usay kam compute chahiye, is liye woh sasta ho sakta hai aur chhote local devices par chal sakta hai"
     ],
     "exp": "Small language models mein parameters kam hote hain, is liye unhein kam memory aur compute chahiye, woh tez jawab dete hain aur kam kharche mein ya devices par bhi chal sakte hain, aur bohat se markooz kaam achi tarah karte hain. Woh har kaam mein zyada sahi nahi hote; bare models aam taur par wasee ya mushkil soch mein behtar hote hain. Kisi model ki context window la-mehdood nahi, aur chhote models fine-tune ho sakte hain."
   },
@@ -126,9 +126,9 @@
   "D1-085": {
     "q": "Kaunsa tareeqa is imkan ko sab se zyada kam karta hai ke chat solution company ke products ke baare mein facts khud se ghar le?",
     "opts": [
-      "Har prompt ko bharosemand product data se ground karein aur model se sources cite karne ko kahein",
-      "Temperature barhayein",
-      "Izafi context ke baghair chhote prompts bhejein",
+      "Har prompt ko bharosemand product data se ground karna",
+      "Temperature barhana taake jawab zyada mukhtalif hon",
+      "Chhote prompts bhejna jin mein products ka koi izafi context na ho",
       "System message hata dein"
     ],
     "exp": "Grounding model ko jawab ke liye bharosemand aur mutalliqa content deti hai, aur citations maangne se yeh check karna aasan hota hai ke jawab usi content se aaye, jis se ghare hue facts kam hote hain. Zyada temperature randomness barhata hai aur ghari hui tafseel barha sakta hai. Context ya system message hatane se maloomat aur rahnumai khatam hoti hai, jis se be-bunyad jawab ka imkan barhta hai."
@@ -185,8 +185,8 @@
     "opts": [
       null,
       "Subscription ka activity log",
-      "Foundry model catalog mein model card",
-      "Azure pricing calculator"
+      "Catalog mein model card",
+      "Azure pricing calculator ka page"
     ],
     "exp": "Foundry model catalog mein har model ka model card hota hai jo batata hai ke model kya karta hai, kaise train hua, us ke istemal ke maqasid aur hudood kya hain, aur license ki sharaait kya hain. Azure Advisor aam best-practice mashware deta hai, activity log management operations record karta hai, aur pricing calculator kharche ka andaza lagata hai; koi bhi model ki capabilities nahi batata."
   },
@@ -194,7 +194,7 @@
     "q": "Finance team ko mushkil, kai qadam wali calculations aur planning ke liye model chahiye, jahan sahi hona raftar se zyada ahem hai. Unhein kis qism ka model chunna chahiye?",
     "opts": [
       "Chhota aur tez chat model",
-      "Reasoning model jo jawab se pehle sochne par zyada mehnat karta hai",
+      "Reasoning model",
       "Embedding model",
       "Speech synthesis model"
     ],
@@ -248,7 +248,7 @@
     "q": "Ek team kam traffic par aur pehle se kisi commitment ke baghair jaldi se model azmana chahti hai. Baad mein production mein musalsal zyada traffic hoga jise guaranteed capacity chahiye. Unhein kya karna chahiye?",
     "opts": [
       "Development ke liye provisioned throughput aur production ke liye Global Batch istemal karein",
-      "Development ke liye Global Standard deployment se shuru karein, phir musalsal production traffic ke liye provisioned throughput istemal karein",
+      "Pehle Global Standard, phir provisioned throughput",
       "Development aur production dono ke liye Global Batch istemal karein",
       "Koi deployment na banayein aur model catalog ko seedha call karein"
     ],

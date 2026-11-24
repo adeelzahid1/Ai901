@@ -47,10 +47,10 @@
     "id": "D1-307", "sub": "privacy-security", "diff": 1, "type": "mcq",
     "q": "Users upload photos of their ID documents to an AI app for verification. Which practice protects their privacy?",
     "opts": [
-      "Keep the files forever in a shared public folder",
-      "Delete the files when they are no longer needed and restrict who can access them",
+      "Keep the files in a shared public folder in case they are needed",
+      "Delete the files when they are no longer needed and restrict who can open them",
       "Email the files to all staff",
-      "Reuse the files for marketing without asking"
+      "Reuse the files for marketing without asking the users first"
     ],
     "ans": 1,
     "exp": "Keeping personal data only as long as needed and limiting access protect people's privacy and reduce the damage if something goes wrong. Public storage, wide sharing and reuse without consent all expose sensitive data.",
@@ -73,10 +73,10 @@
     "ctx": "A job-search assistant can be used only with a mouse, and its text cannot be enlarged.",
     "q": "Which responsible AI principle does this design fail, and what helps?",
     "opts": [
-      "Inclusiveness: add keyboard support and scalable text",
-      "Fairness: retrain the model",
-      "Transparency: add an AI disclaimer",
-      "Accountability: name a new owner"
+      "Inclusiveness: add keyboard support",
+      "Fairness: retrain the model on more job data",
+      "Transparency: add an AI disclaimer to each page",
+      "Accountability: name a new owner for the design"
     ],
     "ans": 0,
     "exp": "Mouse-only controls and fixed small text exclude people with motor or visual impairments, which is an inclusiveness failure; keyboard support and scalable text fix it. Retraining, AI disclaimers and new owners do not remove these accessibility barriers.",
@@ -104,7 +104,7 @@
     "opts": [
       "Make the summaries longer",
       "Remove the journalists' names from the articles",
-      "Label the summaries as AI-generated and explain how they are produced",
+      "Label the summaries as AI-generated",
       "Use a different font for the summaries"
     ],
     "ans": 2,
@@ -166,8 +166,8 @@
     "id": "D1-316", "sub": "genai-how", "diff": 1, "type": "mcq",
     "q": "Which statement about large language models is true?",
     "opts": [
-      "They generate text based on patterns and probabilities learned from training data",
-      "They always know today's news",
+      "They generate text from patterns and probabilities learned in training",
+      "They always know today's news because they search the web",
       "They never make mistakes",
       "They are programmed with fixed answers for every question"
     ],
@@ -180,9 +180,9 @@
     "q": "In generative AI, what does grounding mean?",
     "opts": [
       "Connecting the server to electrical ground",
-      "Setting the temperature to 0",
-      "Providing relevant, trusted data in the prompt so that the answer is based on it",
-      "Deleting old deployments"
+      "Setting the temperature to 0 so that answers stay the same",
+      "Giving the model relevant, trusted data in the prompt to base its answer on",
+      "Deleting old deployments so that the newest model is used"
     ],
     "ans": 2,
     "exp": "Grounding supplies the model with relevant, trusted information, such as retrieved documents, so its answers are based on that data instead of only on what it learned in training. It has nothing to do with electrical grounding, temperature settings or deleting deployments.",
@@ -242,9 +242,9 @@
     "ctx": "A startup is building a prototype chat app. The budget is small, answers must be fast, and the team expects to try other models later.",
     "q": "What is the best approach?",
     "opts": [
-      "Start with a cost-effective mini model, evaluate it, and keep the deployment name configurable so you can switch later",
-      "Buy provisioned throughput for the largest model on the first day",
-      "Fine-tune a model before testing any base model",
+      "Start with a mini model and keep the deployment name configurable",
+      "Buy provisioned throughput for the largest model on the first day of the project",
+      "Fine-tune a model on customer data before testing any of the base models",
       "Use only image-generation models"
     ],
     "ans": 0,
@@ -295,8 +295,8 @@
     "q": "What should you recommend?",
     "opts": [
       "Global Batch",
-      "Provisioned throughput sized for the steady load",
-      "A lower temperature",
+      "Provisioned throughput",
+      "A lower temperature for all requests",
       "Fewer maximum output tokens"
     ],
     "ans": 1,
@@ -330,9 +330,9 @@
     "q": "The model catalog shows that the model your app uses will be retired in three months. What should you do?",
     "opts": [
       "Ignore the notice",
-      "Raise the deployment's quota",
-      "Lower the temperature",
-      "Test a newer model with your evaluations and move the deployment before the retirement date"
+      "Raise the deployment's quota so that the model stays available",
+      "Lower the temperature so that the older model stays reliable",
+      "Test a newer model with evaluations and move before the retirement date"
     ],
     "ans": 3,
     "exp": "After retirement, a model can no longer be used, so you should evaluate a replacement on your own test data and switch before the date. Ignoring the notice leads to failures, and quota or temperature changes do not extend a model's life.",

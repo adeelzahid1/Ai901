@@ -36,10 +36,10 @@
     "id": "D1-360", "sub": "reliability-safety", "diff": 3, "type": "mcq",
     "q": "What is the safest way to move all users of an AI app to a new model version?",
     "opts": [
-      "Switch everyone at once without testing",
-      "Evaluate the new version, roll it out gradually, monitor it and keep a way to roll back",
+      "Switch everyone at once so that all users see the same version",
+      "Evaluate it, roll it out gradually, monitor it and keep a way to roll back",
       "Delete the old version first",
-      "Turn off monitoring during the change"
+      "Turn off monitoring during the change so that alerts do not distract"
     ],
     "ans": 1,
     "exp": "Evaluating first, releasing gradually and monitoring let you catch problems before they affect everyone, and a rollback path limits the damage if something goes wrong. Switching blindly, deleting the old version or turning off monitoring removes these safeguards.",
@@ -93,10 +93,10 @@
     "ctx": "A card issuer's AI system automatically blocks cards when it suspects fraud. Customers are only told 'Your card is blocked.'",
     "q": "What change best supports transparency?",
     "opts": [
-      "Block more cards to be safe",
+      "Block more cards so that fewer fraud cases are missed overall",
       "Never explain the reason",
-      "Tell customers that an automated system flagged the transaction and how they can get it reviewed",
-      "Change the card design"
+      "Tell customers that a system flagged the payment and how to get it reviewed",
+      "Change the card design so that it shows the bank's support number"
     ],
     "ans": 2,
     "exp": "People affected by automated decisions should know that AI was involved and how to question the outcome. Explaining the automated flag and the review process supports transparency and also accountability. Blocking more cards, hiding reasons or changing the card design do not help customers understand the decision.",
@@ -120,10 +120,10 @@
     "id": "D1-367", "sub": "accountability", "diff": 2, "type": "mcq",
     "q": "A team wants to use an existing AI system for a new purpose that it was not designed for. Who should decide whether this is allowed?",
     "opts": [
-      "Any user of the system",
-      "The system's owners, after a responsible AI review of the new use",
+      "Any user of the system who has a good reason for the new use",
+      "The system's owners, after a responsible AI review of the intended new use",
       "The model itself",
-      "Nobody; any use is allowed"
+      "Nobody; any use is allowed once the system is released"
     ],
     "ans": 1,
     "exp": "New uses can bring new risks, so accountable owners should review them against the organization's responsible AI requirements before approving. Individual users and the model are not accountable, and allowing any use without review ignores the risks.",
@@ -153,9 +153,9 @@
     "id": "D1-370", "sub": "genai-how", "diff": 2, "type": "mcq",
     "q": "In generative AI, what is a transformer?",
     "opts": [
-      "A database that stores prompts",
-      "A type of GPU",
-      "A neural network architecture that uses attention and is the basis of most large language models",
+      "A database that stores prompts and their best answers",
+      "A type of GPU that speeds up the training of models",
+      "A neural network design based on attention that most LLMs use",
       "A billing plan for models"
     ],
     "ans": 2,
@@ -304,9 +304,9 @@
     "q": "What is a tokens-per-minute (TPM) quota?",
     "opts": [
       "The price of each token",
-      "The number of users allowed",
-      "The maximum number of tokens that a deployment can process per minute",
-      "The size of the model's context window"
+      "The number of users allowed to call the deployment at once",
+      "How many tokens a deployment can process per minute",
+      "The size of the context window of the deployed model"
     ],
     "ans": 2,
     "exp": "TPM quota is a rate limit on how many tokens a deployment can handle each minute; requests beyond it are throttled. It is not a price, a user count or the context window, which limits the tokens in a single request.",

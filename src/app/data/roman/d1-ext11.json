@@ -3,10 +3,10 @@
     "ctx": "Ek museum app visitors ko phone painting ki taraf karne deti hai aur phir un ki apni zaban mein us ka bayan sunati hai.",
     "q": "App AI workloads ka kaunsa jor istemal karti hai?",
     "opts": [
-      "Sirf optical character recognition",
-      "Sirf sentiment analysis",
-      "Painting pehchanne ke liye computer vision, bayan likhne ke liye generative AI, aur parh kar sunane ke liye speech synthesis",
-      "Sirf key phrase extraction"
+      "Painting ke saath lage label ki optical character recognition",
+      "Visitors painting ke baare mein jo kahein us ki sentiment analysis",
+      "Computer vision, generative AI aur speech synthesis",
+      "Museum ke chhape hue catalog se key phrase extraction"
     ],
     "exp": "App ko camera ki tasveer se painting pehchanni hai, jo computer vision hai, visitor ki zaban mein bayan likhna hai, jo generative AI hai, aur usay parh kar sunana hai, jo speech synthesis hai. Akela OCR, sentiment analysis ya key phrase extraction yeh tajurba nahi de sakta."
   },
@@ -73,10 +73,10 @@
   "D1-338": {
     "q": "Ek review bohat positive jumlay se shuru hota hai aur bohat negative jumlay par khatam. Sentiment analysis ke nateejon mein dono rayein kaise dekhenge?",
     "opts": [
-      "Har jumlay (sentence-level) ke sentiment nateeje parhein",
-      "Language detection chalayein",
-      "Sirf key phrase extraction istemal karein",
-      "Review par OCR chalayein"
+      "Jumlon ki satah ke nateeje parhna",
+      "Har jumlay par language detection chalana",
+      "Review par key phrase extraction chalana",
+      "Review ke screenshot par OCR chalana"
     ],
     "exp": "Sentiment analysis poore document ke saath har jumlay ka label aur scores deta hai, is liye positive aur negative hisse alag nazar aate hain; document par mixed ka label ho sakta hai. Language detection, key phrases aur OCR sentiment nahi batate."
   },
@@ -122,7 +122,12 @@
   "D1-344": {
     "ctx": "Ek bank hazaron call recordings mehfooz karta hai. Quality reviews ke liye transcripts mein dikhna chahiye ke kaunse hisse agent ne bole aur kaunse customer ne.",
     "q": "Kaunsi Speech capabilities munasib hain?",
-    "opts": [null, "Sirf keyword recognition", null, "Speaker diarization ke saath batch transcription"],
+    "opts": [
+      null,
+      "Bank ke naam ke liye keyword recognition",
+      "Record ki hui calls ki pronunciation assessment",
+      "Diarization ke saath batch transcription"
+    ],
     "exp": "Batch transcription mehfooz recordings ki bari tadad sambhalta hai, aur diarization speakers ko alag karta hai taake transcript dikhaye ke kis ne kya kaha. Text to speech audio banata hai, keyword recognition sirf wake word sunta hai, aur pronunciation assessment zaban seekhne walon ko score deta hai."
   },
   "D1-345": {
@@ -192,9 +197,9 @@
     "q": "Information extraction businesses ke liye kyun qeemti hai?",
     "opts": [
       "Woh documents ko lamba karta hai",
-      "Woh marketing ki nayi tasveerein banata hai",
-      "Us se files save karne ki zaroorat khatam ho jati hai",
-      "Woh documents aur media ko structured data banata hai jise systems khud istemal kar sakein"
+      "Documents se marketing ki nayi images banata hai",
+      "Files parh li jayein to unhein rakhne ki zaroorat khatam karta hai",
+      "Documents aur media ko doosre systems ke liye structured data mein badalta hai"
     ],
     "exp": "Information extraction invoices, forms, recordings aur doosre content ko structured data banata hai, is liye systems unhein haath se type kiye baghair process kar sakte hain. Woh documents lambe nahi karta, tasveerein nahi banata aur storage ka badal nahi."
   },
@@ -202,10 +207,10 @@
     "ctx": "Insurance claims PDF forms, nuqsan ki photos aur voicemails ki soorat mein aate hain. Adjusters ko har ek se claim number, waqiay ki tareekh aur chhota khulasa chahiye.",
     "q": "Kaunsa tareeqa sab se munasib hai?",
     "opts": [
-      "Multimodal information extraction service jo muqarrar fields ke saath documents, images aur audio sambhale",
-      "Sirf image classification",
-      "Sirf speech synthesis",
-      "File ke naamon par key phrase extraction"
+      "Tay shuda fields wali multimodal extraction",
+      "Sirf nuqsan ki tasveeron ki image classification",
+      "Adjusters ke liye claims ki speech synthesis",
+      "Claim files ke naamon par key phrase extraction"
     ],
     "exp": "Inputs mein documents, images aur audio mile hue hain, aur adjusters ko har ek se wahi fields chahiye, is liye multimodal extraction service, jaise har type ke analyzers wala Content Understanding, munasib hai. Akela image classification text aur audio nazar andaz karta hai, speech synthesis audio banata hai, aur file ke naamon mein claim ki tafseel nahi hoti."
   },
