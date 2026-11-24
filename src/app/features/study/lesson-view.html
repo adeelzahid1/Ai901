@@ -1,0 +1,103 @@
+@let t = language.ui().lesson;
+@if (lesson(); as l) {
+  <article class="card">
+    <p class="meta">
+      <span class="chip">{{ t.minutes(l.minutes) }}</span>
+      @if (progress.isRead(l.id)) {
+        <span class="chip done">✓ {{ t.done }}</span>
+      }
+    </p>
+    <p class="intro">{{ language.pick(l.intro) }}</p>
+
+    <h2>{{ t.concepts }}</h2>
+    <dl>
+      @for (c of l.concepts; track $index) {
+        <div>
+          <dt>{{ language.pick(c.term) }}</dt>
+          <dd>{{ language.pick(c.text) }}</dd>
+        </div>
+      }
+    </dl>
+
+    <h2>{{ language.pick(l.example.title) }}</h2>
+    <p>{{ language.pick(l.example.text) }}</p>
+    @if (l.example.code) {
+      <pre class="code" tabindex="0">{{ l.example.code }}</pre>
+    }
+
+    <h2>{{ language.pick(l.table.title) }}</h2>
+    <div class="when" tabindex="0" role="region" [attr.aria-label]="language.pick(l.table.title)">
+      <table>
+        <thead>
+          <tr>
+            @for (h of l.table.head; track $index) {
+              <th scope="col">{{ language.pick(h) }}</th>
+            }
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of l.table.rows; track $index) {
+            <tr>
+              @for (cell of row; track $index) {
+                <td>{{ language.pick(cell) }}</td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <h2>{{ t.remember }}</h2>
+    <ul>
+      @for (r of l.remember; track $index) {
+        <li>{{ language.pick(r) }}</li>
+      }
+    </ul>
+
+    <div class="traps">
+      <h2>{{ t.traps }}</h2>
+      <ul>
+        @for (r of l.traps; track $index) {
+          <li>{{ language.pick(r) }}</li>
+        }
+      </ul>
+    </div>
+
+    <p class="links">
+      @if (l.lab) {
+        <a routerLink="/labs" [queryParams]="{ l: l.lab }">{{ t.lab }}</a>
+      }
+      <a [href]="l.ref" target="_blank" rel="noopener">{{ language.ui().common.learn }}</a>
+    </p>
+  </article>
+
+  @if (checking()) {
+    <app-quiz-runner [questions]="questions()" mode="practice" [title]="t.checkTitle(l.id)" feedback="instant" (finished)="finish($event)" />
+  } @else {
+    <section class="card">
+      <h2>{{ t.checkTitle(l.id) }}</h2>
+      @if (result(); as r) {
+        <p role="status"><strong>{{ t.result(r.correct, r.total) }}</strong> {{ r.correct === r.total ? t.allRight : t.readAgain }}</p>
+      } @else {
+        <p>{{ t.checkLead(l.check.length) }}</p>
+        @if (progress.best(l.id); as best) {
+          <p class="muted">{{ t.best(best, l.check.length) }}</p>
+        }
+      }
+      <div class="row">
+        <button type="button" class="btn" [class.primary]="!result()" [disabled]="questions().length === 0" (click)="startCheck()">
+          {{ result() ? t.again : t.start }}
+        </button>
+        <label>
+          <input type="checkbox" [checked]="progress.isRead(l.id)" (change)="progress.toggleRead(l.id)" />
+          {{ t.read }}
+        </label>
+        @if (next(); as n) {
+          <button type="button" class="btn next" [class.primary]="!!result()" (click)="open(n.id)">{{ t.next(n.id) }}</button>
+        }
+      </div>
+    </section>
+  }
+} @else {
+  <p class="card muted">{{ t.loading }}</p>
+}

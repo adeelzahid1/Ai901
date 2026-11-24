@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Language } from '../../core/language';
+import { LessonProgress } from '../../core/lesson-progress';
 import { ProgressService } from '../../core/progress';
 import { areaStats } from '../../core/stats';
 import { StudyProgress } from '../../core/study-progress';
@@ -21,8 +22,10 @@ export class Dashboard {
   private readonly bank = inject(QuestionBank);
   private readonly progress = inject(ProgressService);
   private readonly study = inject(StudyProgress);
+  protected readonly lessons = inject(LessonProgress);
 
   protected readonly exam = EXAM;
+  protected readonly lessonCount = SECTIONS.length;
   protected readonly planned = SECTIONS.reduce((sum, s) => sum + s.target, 0);
   protected readonly bankSize = computed(() => this.bank.questions().length);
   protected readonly loaded = this.bank.loaded;

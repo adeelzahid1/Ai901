@@ -49,6 +49,9 @@ import { Lab } from '../../data/labs';
     </details>
   `,
   styles: `
+    details {
+      scroll-margin-top: 110px;
+    }
     summary {
       display: flex;
       flex-wrap: wrap;

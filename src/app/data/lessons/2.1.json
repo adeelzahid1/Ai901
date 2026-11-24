@@ -1,0 +1,43 @@
+{
+  "id": "2.1", "minutes": 7, "lab": "prompts",
+  "intro": {"en":"A good prompt says who the model is, what to do, with which data and in which form. The exam shows a weak prompt and asks for the best improvement.","ro":"Acha prompt batata hai ke model kaun hai, kya karna hai, kis data se aur kis shakal mein. Exam kamzor prompt dikha kar behtareen tabdeeli poochta hai."},
+  "concepts": [
+    { "term": "System message", "text": {"en":"Lasting rules for all turns: role, scope, tone, format, what to refuse.","ro":"Tamam turns ke mustaqil usool: role, daira, andaz, format, kis se inkaar."} },
+    { "term": "User message", "text": {"en":"The task or question of this turn, with its data.","ro":"Is turn ka kaam ya sawal, apne data ke saath."} },
+    { "term": {"en":"Examples (few-shot)","ro":"Misalein (few-shot)"}, "text": {"en":"Pairs of input and ideal output teach format and style. Zero-shot has none.","ro":"Input aur ideal output ke jore format aur andaz sikhate hain. Zero-shot mein misaal nahi hoti."} },
+    { "term": "Delimiters", "text": {"en":"Marks such as --- or tags separate instructions from data.","ro":"--- ya tags jaise nishan instructions ko data se alag karte hain."} },
+    { "term": "Grounding text", "text": {"en":"Give the source and say: answer only from it, otherwise say that you do not know.","ro":"Source dein aur kahein: sirf isi se jawab do, warna kaho ke nahi pata."} },
+    { "term": {"en":"Step by step","ro":"Qadam ba qadam"}, "text": {"en":"Breaking a task into steps helps with complex work; reasoning models do it by themselves.","ro":"Kaam ko qadmon mein baantna mushkil kaam mein madad karta hai; reasoning models khud karte hain."} },
+    { "term": "Structured outputs", "text": {"en":"A JSON schema forces the keys and types of the reply.","ro":"JSON schema jawab ki keys aur types lazmi banata hai."} },
+    { "term": "Prompt injection", "text": {"en":"Text in data tries to give orders. Treat data as data and use Prompt Shields.","ro":"Data ka text hukm dene ki koshish karta hai. Data ko data samjhein aur Prompt Shields lagayein."} }
+  ],
+  "example": {
+    "title": {"en":"Example: from weak to strong","ro":"Misaal: kamzor se mazboot"},
+    "text": {"en":"Weak: \"Summarize this.\" The strong version sets the role, audience, length, format and limits:","ro":"Kamzor: \"Summarize this.\" Mazboot shakal role, parhne wale, lambai, format aur hadein batati hai:"},
+    "code": "System: You are a support editor. Use only the text between the lines.\nUser: Summarize the text for a manager in 3 bullet points,\neach under 15 words. If the cause is missing, write \"cause unknown\".\n---\n<ticket text>\n---"
+  },
+  "table": {
+    "title": {"en":"Problem → change","ro":"Masla → tabdeeli"},
+    "head": [{"en":"Problem","ro":"Masla"}, {"en":"Change","ro":"Tabdeeli"}],
+    "rows": [
+      [{"en":"Off-topic answers","ro":"Topic se bahar jawab"}, {"en":"Scope and refusal rule in the system message","ro":"System message mein daira aur inkaar ka usool"}],
+      [{"en":"Different format each time","ro":"Har baar alag format"}, {"en":"Examples or structured outputs","ro":"Misalein ya structured outputs"}],
+      [{"en":"Invented facts","ro":"Gharay hue haqaiq"}, {"en":"Grounding text and \"say you do not know\"","ro":"Grounding text aur \"kaho nahi pata\""}],
+      [{"en":"Too long","ro":"Bohat lamba"}, {"en":"State the length; max output tokens as a limit","ro":"Lambai likhein; had ke liye max output tokens"}],
+      [{"en":"Orders hidden in a document","ro":"Document mein chhupe hukm"}, {"en":"Delimiters and Prompt Shields","ro":"Delimiters aur Prompt Shields"}],
+      [{"en":"Too vague","ro":"Bohat mubham"}, {"en":"Role, audience, goal, format","ro":"Role, parhne wale, maqsad, format"}]
+    ]
+  },
+  "remember": [
+    {"en":"Lasting rules go in the system message; changing data goes in the user message.","ro":"Mustaqil usool system message mein; badalta data user message mein."},
+    {"en":"Say what to do, not only what to avoid.","ro":"Sirf ye nahi ke kya na karein; batayein kya karein."},
+    {"en":"Examples guide the format; a schema guarantees it.","ro":"Misalein format ki rehnumai karti hain; schema us ki guarantee deta hai."},
+    {"en":"A system message guides the model but is not a security control by itself.","ro":"System message model ki rehnumai karta hai lekin akela security control nahi."}
+  ],
+  "traps": [
+    {"en":"Max output tokens cuts the answer off; it does not make it concise.","ro":"Max output tokens jawab kaat deta hai; mukhtasar nahi banata."},
+    {"en":"Never put keys or secrets in a system message.","ro":"Keys ya secrets kabhi system message mein na rakhein."}
+  ],
+  "check": ["D2-076", "D2-006", "D2-077", "D2-141", "D2-645"],
+  "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
+}

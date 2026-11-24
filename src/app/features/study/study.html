@@ -14,10 +14,16 @@
             <a
               routerLink="/study"
               [queryParams]="{ s: s.id }"
+              queryParamsHandling="merge"
               [class.active]="s.id === section().id"
               [attr.aria-current]="s.id === section().id ? 'page' : null"
             >
-              <span><strong>{{ s.id }}</strong> {{ language.section(s) }}</span>
+              <span>
+                <strong>{{ s.id }}</strong> {{ language.section(s) }}
+                @if (lessons.isRead(s.id)) {
+                  <span class="read" role="img" [attr.aria-label]="t.lesson.done" [title]="t.lesson.done">✓</span>
+                }
+              </span>
               <span class="badge" [class.done]="s.total > 0 && s.understood === s.total" [attr.aria-label]="t.study.badge(s.understood, s.total)">
                 {{ s.understood }}/{{ s.total }}
               </span>
@@ -62,39 +68,44 @@
     </details>
 
     <form class="card toolbar" [formGroup]="form" (submit)="$event.preventDefault()">
-      <label class="field grow">
-        <span>{{ t.study.search }}</span>
-        <input type="search" formControlName="search" [placeholder]="t.study.searchHint" />
-      </label>
-      <label class="field">
-        <span>{{ t.common.level }}</span>
-        <select formControlName="level">
-          <option value="all">{{ t.common.all }}</option>
-          @for (l of levels; track l) {
-            <option [value]="l">{{ t.difficulty[l] }}</option>
-          }
-        </select>
-      </label>
-      <label class="field">
-        <span>{{ t.study.show }}</span>
-        <select formControlName="filter">
-          <option value="all">{{ t.common.all }}</option>
-          <option value="not-understood">{{ t.study.notUnderstood }}</option>
-          <option value="bookmarked">{{ t.study.bookmarked }}</option>
-          <option value="due">{{ t.study.due }}</option>
-          <option value="mistakes">{{ t.study.mistakes }}</option>
-        </select>
-      </label>
       <div class="field">
         <span>{{ t.study.mode }}</span>
         <div class="segmented" role="group" [attr.aria-label]="t.study.mode">
-          <button type="button" class="btn small" [class.primary]="mode() === 'list'" [attr.aria-pressed]="mode() === 'list'" (click)="mode.set('list')">{{ t.study.list }}</button>
-          <button type="button" class="btn small" [class.primary]="mode() === 'cards'" [attr.aria-pressed]="mode() === 'cards'" (click)="mode.set('cards')">{{ t.study.cards }}</button>
+          @for (m of modes; track m) {
+            <button type="button" class="btn small" [class.primary]="mode() === m" [attr.aria-pressed]="mode() === m" (click)="mode.set(m)">{{ t.study[m] }}</button>
+          }
         </div>
       </div>
+      @if (mode() !== 'lesson') {
+        <label class="field grow">
+          <span>{{ t.study.search }}</span>
+          <input type="search" formControlName="search" [placeholder]="t.study.searchHint" />
+        </label>
+        <label class="field">
+          <span>{{ t.common.level }}</span>
+          <select formControlName="level">
+            <option value="all">{{ t.common.all }}</option>
+            @for (l of levels; track l) {
+              <option [value]="l">{{ t.difficulty[l] }}</option>
+            }
+          </select>
+        </label>
+        <label class="field">
+          <span>{{ t.study.show }}</span>
+          <select formControlName="filter">
+            <option value="all">{{ t.common.all }}</option>
+            <option value="not-understood">{{ t.study.notUnderstood }}</option>
+            <option value="bookmarked">{{ t.study.bookmarked }}</option>
+            <option value="due">{{ t.study.due }}</option>
+            <option value="mistakes">{{ t.study.mistakes }}</option>
+          </select>
+        </label>
+      }
     </form>
 
-    @if (mode() === 'list') {
+    @if (mode() === 'lesson') {
+      <app-lesson-view [section]="section()" (goTo)="goTo($event)" />
+    } @else if (mode() === 'list') {
       <div class="list-head">
         <span class="muted">{{ t.study.showing(shown().length, filtered().length) }}</span>
         <span>

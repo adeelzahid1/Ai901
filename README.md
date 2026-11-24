@@ -19,6 +19,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 
 - **Dashboard**: bank size, answered, accuracy, open mistakes, last exam score, domain coverage, recent tests.
 - **Study** (`/study?s=1.1`): sidebar with every section and an understood/total badge (a section picker below 860px), search, level and filters (not understood, bookmarked, due for review, mistakes), study list with Show answer, bookmarks and "I understand this", 20 at a time, and flashcards with spaced repetition (Again 10 min, Hard max(1, ivl x 1.2) days, Good 1 -> 3 -> ivl x 2.5 days). Cards can be passed without a rating (Previous / Next) and shown full screen. Saved in `ai901-study-v1`.
+- **Lessons** (Study, mode "Lesson", `/study?s=2.3&m=lesson`): one lesson per section with concepts, an example, a "which one when" table, key points, exam traps and five check questions (`src/app/data/lessons/`, both languages). Read lessons and results are saved in `ai901-lessons`.
 - **Labs** (`/labs`): ten hands-on labs in the Foundry portal and with the Python SDKs, with cost notes, checks and clean-up (`src/app/data/labs.json`, both languages). Finished steps are saved in `ai901-labs`.
 - **Practice**: filter by domain, section, level, type, new questions or mistakes; instant feedback.
 - **Mock Test**: choose sections, question types, levels, size, timer (off, exam pace or custom) and feedback mode.

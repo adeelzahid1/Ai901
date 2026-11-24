@@ -1,0 +1,43 @@
+{
+  "id": "1.3", "minutes": 8,
+  "intro": {"en":"You choose a model for the task, then a deployment type for traffic, data location and price, then parameters for each request.","ro":"Aap kaam ke liye model, phir traffic, data ki jagah aur qeemat ke liye deployment type, aur phir har request ke liye parameters chunte hain."},
+  "concepts": [
+    { "term": {"en":"Large and small language models","ro":"Bare aur chhote language models"}, "text": {"en":"Large models handle broad, complex tasks. Small models are faster and cheaper for narrow tasks.","ro":"Bare models wasee aur mushkil kaam karte hain. Chhote models mehdood kaam ke liye tez aur saste hain."} },
+    { "term": "Reasoning models", "text": {"en":"They think in steps before answering: good for math, planning and code, but slower and more expensive.","ro":"Jawab se pehle qadam ba qadam sochte hain: hisaab, planning aur code ke liye achay, lekin slow aur mehnge."} },
+    { "term": {"en":"Multimodal, image, audio and embedding models","ro":"Multimodal, image, audio aur embedding models"}, "text": {"en":"Choose by input and output: images in, pictures out, speech in and out, or vectors for search.","ro":"Input aur output ke mutabiq chunein: image andar, tasveer bahar, awaaz andar aur bahar, ya talash ke liye vectors."} },
+    { "term": {"en":"Model catalog and benchmarks","ro":"Model catalog aur benchmarks"}, "text": {"en":"Compare quality, safety, cost and throughput before deploying, then evaluate with your own data.","ro":"Deploy se pehle quality, safety, kharcha aur throughput muqabla karein, phir apne data par evaluate karein."} },
+    { "term": "Standard deployments", "text": {"en":"Pay per token. Global routes worldwide, Data Zone stays in the EU or US zone, Regional stays in one region.","ro":"Fi token adaigi. Global duniya bhar mein, Data Zone EU ya US zone mein, Regional ek region mein process karta hai."} },
+    { "term": "Provisioned deployments", "text": {"en":"Reserved throughput units for steady traffic and predictable latency.","ro":"Mustaqil traffic aur yaksan latency ke liye mukhtas throughput units."} },
+    { "term": "Batch deployments", "text": {"en":"Large files of requests at a lower price, with results within 24 hours as the target.","ro":"Requests ki bari files kam qeemat par, jin ke nateejon ka hadaf 24 ghante hai."} },
+    { "term": "Parameters", "text": {"en":"temperature and top_p control variety, max output tokens limits length, stop sequences end the text, penalties reduce repetition.","ro":"temperature aur top_p variety, max output tokens lambai, stop sequences ikhtitam, aur penalties dohrao control karti hain."} }
+  ],
+  "example": {
+    "title": {"en":"Example: three apps of one company","ro":"Misaal: ek company ki teen apps"},
+    "text": {"en":"A chat for customers with changing traffic uses Global Standard. A call assistant with steady load and strict latency uses Provisioned. The monthly summary of 300,000 reports uses Global Batch. All three can use the same model.","ro":"Customers ka chat jis ka traffic badalta hai Global Standard istemal karta hai. Yaksan load aur sakht latency wala call assistant Provisioned. 300,000 reports ka mahana khulasa Global Batch. Teenon ek hi model istemal kar sakte hain."}
+  },
+  "table": {
+    "title": {"en":"Requirement → choice","ro":"Zaroorat → intikhab"},
+    "head": [{"en":"Requirement","ro":"Zaroorat"}, {"en":"Choice","ro":"Intikhab"}],
+    "rows": [
+      [{"en":"Start quickly, changing traffic","ro":"Jaldi shuru, badalta traffic"}, "Global Standard"],
+      [{"en":"Data processed only in the EU (or US) zone","ro":"Data sirf EU (ya US) zone mein process ho"}, "Data Zone Standard"],
+      [{"en":"Data processed in one region","ro":"Data ek region mein process ho"}, "Standard (regional)"],
+      [{"en":"Steady, high load with predictable latency","ro":"Mustaqil, zyada load aur yaksan latency"}, "Provisioned"],
+      [{"en":"Nobody waits, lowest price","ro":"Koi intezar nahi karta, sab se kam qeemat"}, "Global Batch"],
+      [{"en":"Same wording every time","ro":"Har baar ek jaisi ibarat"}, {"en":"Low temperature","ro":"Kam temperature"}],
+      [{"en":"Short answers, controlled cost","ro":"Chhote jawab, kharcha control"}, "Max output tokens"]
+    ]
+  },
+  "remember": [
+    {"en":"The app calls the deployment name, not the model name.","ro":"App model ka naam nahi, deployment ka naam call karti hai."},
+    {"en":"Change temperature or top_p, not both together.","ro":"temperature ya top_p mein se ek badlein, dono ek saath nahi."},
+    {"en":"Quota is given in tokens per minute; HTTP 429 means that it is used up.","ro":"Quota tokens per minute mein hota hai; HTTP 429 ka matlab woh khatam hai."},
+    {"en":"The best model is the cheapest one that meets quality, speed and data rules.","ro":"Behtareen model woh sasta model hai jo quality, raftaar aur data ke usool poore kare."}
+  ],
+  "traps": [
+    {"en":"Global deployments do not move your stored data; they can process prompts in other regions.","ro":"Global deployments aap ka mehfooz data nahi hilatin; woh prompts doosre regions mein process kar sakti hain."},
+    {"en":"Reasoning models use reasoning effort and do not support every sampling parameter.","ro":"Reasoning models reasoning effort istemal karte hain aur har sampling parameter support nahi karte."}
+  ],
+  "check": ["D1-161", "D1-096", "D1-219", "D1-092", "D1-425"],
+  "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
+}

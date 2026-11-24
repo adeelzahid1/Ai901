@@ -55,7 +55,7 @@ clean-up, checked against Microsoft Learn.
 
 48 new questions (`d1-ext15`, `d2-ext22`) that start from a short business scenario and ask for the best decision.
 
-## Phase 13 - Lessons
+## Phase 13 - Lessons (done)
 
 A lesson for each of the 14 sections in English and Roman Urdu: concepts, a small example, "remember" points,
 "which service when" tables and five check questions.

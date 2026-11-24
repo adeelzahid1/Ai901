@@ -1,0 +1,44 @@
+{
+  "id": "1.7", "minutes": 8, "lab": "vision",
+  "intro": {"en":"Three groups: understanding pictures, creating pictures, and extracting information from documents, images, audio and video.","ro":"Teen group: tasveerein samajhna, tasveerein banana, aur documents, images, audio aur video se maloomat nikalna."},
+  "concepts": [
+    { "term": "Image classification", "text": {"en":"One or more labels for the whole image.","ro":"Poori image ke liye ek ya zyada labels."} },
+    { "term": "Object detection", "text": {"en":"Labels with bounding boxes, so you get position and count.","ro":"Bounding boxes wale labels, is liye jagah aur tadad milti hai."} },
+    { "term": "Semantic segmentation", "text": {"en":"A label for every pixel of the image.","ro":"Image ke har pixel ka label."} },
+    { "term": "OCR", "text": {"en":"Reads printed and handwritten text with its position.","ro":"Chhapa aur haath se likha text us ki jagah ke saath parhta hai."} },
+    { "term": {"en":"Captions and tags","ro":"Captions aur tags"}, "text": {"en":"A caption is a sentence; tags are single words with confidence.","ro":"Caption ek jumla hai; tags akele alfaaz confidence ke saath."} },
+    { "term": "Multimodal models", "text": {"en":"Answer free questions about an image together with text.","ro":"Text ke saath image ke baare mein khule sawalon ke jawab dete hain."} },
+    { "term": "Face", "text": {"en":"Detects and compares faces; identification features need limited access approval.","ro":"Chehre dhoondta aur muqabla karta hai; identification ke liye limited access ki manzoori chahiye."} },
+    { "term": "Image generation", "text": {"en":"Creates or edits images from a prompt; a mask limits an edit to one area.","ro":"Prompt se images banata ya edit karta hai; mask edit ko ek hisse tak mehdood karta hai."} },
+    { "term": "Content Understanding", "text": {"en":"Analyzers turn documents, images, audio and video into fields with confidence.","ro":"Analyzers documents, images, audio aur video ko confidence wali fields mein badalte hain."} }
+  ],
+  "example": {
+    "title": {"en":"Example: one street photo","ro":"Misaal: sarak ki ek tasveer"},
+    "text": {"en":"Classification: \"street\". Detection: three cars, each with a box. OCR: \"Bakery\". Caption: \"a narrow street with parked cars\". A multimodal model answers \"Is the bakery open?\" from the sign.","ro":"Classification: \"street\". Detection: teen gaariyan, har ek ka box. OCR: \"Bakery\". Caption: \"a narrow street with parked cars\". Multimodal model sign dekh kar \"Is the bakery open?\" ka jawab deta hai."}
+  },
+  "table": {
+    "title": {"en":"Need → technique","ro":"Zaroorat → technique"},
+    "head": [{"en":"Need","ro":"Zaroorat"}, "Technique"],
+    "rows": [
+      [{"en":"Sort photos into categories","ro":"Photos ko categories mein baantna"}, "Image classification"],
+      [{"en":"Count and locate objects","ro":"Objects ginna aur jagah dhoondna"}, "Object detection"],
+      [{"en":"Read signs or handwriting","ro":"Signs ya likhai parhna"}, "OCR"],
+      [{"en":"Alt text for a website","ro":"Website ke liye alt text"}, "Caption"],
+      [{"en":"Open questions about a photo","ro":"Photo ke baare mein khule sawal"}, "Multimodal model"],
+      [{"en":"New or changed picture","ro":"Nayi ya badli hui tasveer"}, "Image-generation model"],
+      [{"en":"Fields from invoices, calls or videos","ro":"Invoices, calls ya videos se fields"}, "Content Understanding"]
+    ]
+  },
+  "remember": [
+    {"en":"Generate = new pixels; analyze = facts about existing pixels.","ro":"Generate = naye pixels; analyze = maujooda pixels ki maloomat."},
+    {"en":"Detection gives boxes; classification does not.","ro":"Detection boxes deta hai; classification nahi."},
+    {"en":"Low confidence goes to a person for review.","ro":"Kam confidence insan ke paas review ke liye jata hai."},
+    {"en":"Generated images carry content credentials that mark them as AI-made.","ro":"Generated images mein content credentials hote hain jo AI se banne ka nishan hain."}
+  ],
+  "traps": [
+    {"en":"OCR gives text; it does not know which number is the total. That is extraction.","ro":"OCR text deta hai; use nahi pata ke kaunsa number total hai. Woh extraction ka kaam hai."},
+    {"en":"Detecting a face is not the same as knowing who it is.","ro":"Chehra dhoondna aur ye jaanna ke kis ka hai, ek baat nahi."}
+  ],
+  "check": ["D1-189", "D1-356", "D1-298", "D1-407", "D1-064"],
+  "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+}

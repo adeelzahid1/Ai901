@@ -56,6 +56,10 @@
   border-color: var(--ok);
   color: var(--ok);
 }
+.read {
+  color: var(--ok);
+  font-weight: 700;
+}
 .mobile-select {
   display: none;
 }

@@ -1,0 +1,42 @@
+{
+  "id": "1.5", "minutes": 6, "lab": "text",
+  "intro": {"en":"Azure Language offers ready-made text analysis. Know what each technique returns.","ro":"Azure Language tayyar text analysis deta hai. Yaad rakhein ke har technique kya deti hai."},
+  "concepts": [
+    { "term": "Language detection", "text": {"en":"Returns the language name, its code and a confidence score.","ro":"Zabaan ka naam, code aur confidence score deta hai."} },
+    { "term": "Key phrase extraction", "text": {"en":"Returns the main topics as a list of phrases, without opinion.","ro":"Aham topics ki list deta hai, baghair raaye ke."} },
+    { "term": "Named entity recognition (NER)", "text": {"en":"Finds people, places, organizations, dates, quantities and their categories.","ro":"Log, jaghein, idare, tareekhein, miqdar aur un ki categories dhoondta hai."} },
+    { "term": "PII detection", "text": {"en":"Finds personal data and can return the text with it masked.","ro":"Zaati data dhoondta hai aur usay chhupa kar text de sakta hai."} },
+    { "term": "Sentiment analysis", "text": {"en":"Labels documents and sentences positive, neutral, negative or mixed with scores.","ro":"Documents aur jumlon ko positive, neutral, negative ya mixed label aur scores deta hai."} },
+    { "term": "Opinion mining", "text": {"en":"Links an opinion to its target, such as breakfast → terrible.","ro":"Raaye ko us ke target se jorta hai, jaise breakfast → terrible."} },
+    { "term": "Summarization", "text": {"en":"Extractive picks existing sentences; abstractive writes new ones.","ro":"Extractive maujooda jumlay chunta hai; abstractive naye jumlay likhta hai."} }
+  ],
+  "example": {
+    "title": {"en":"Example: one review","ro":"Misaal: ek review"},
+    "text": {"en":"\"The staff in Lahore was great, but the room was cold.\" Language: English. Key phrases: staff, Lahore, room. Entity: Lahore (location). Sentiment: mixed. Opinions: staff → great, room → cold.","ro":"\"The staff in Lahore was great, but the room was cold.\" Zabaan: English. Key phrases: staff, Lahore, room. Entity: Lahore (location). Sentiment: mixed. Opinions: staff → great, room → cold."}
+  },
+  "table": {
+    "title": {"en":"Goal → technique","ro":"Maqsad → technique"},
+    "head": [{"en":"Goal","ro":"Maqsad"}, "Technique"],
+    "rows": [
+      [{"en":"Route messages to the right language team","ro":"Messages sahi zabaan ki team ko bhejna"}, "Language detection"],
+      [{"en":"See topics at a glance","ro":"Topics ek nazar mein dekhna"}, "Key phrase extraction"],
+      [{"en":"Find customer names, cities and dates","ro":"Customers ke naam, sheher aur tareekhein"}, "NER"],
+      [{"en":"Hide phone numbers before sharing","ro":"Share karne se pehle phone numbers chhupana"}, "PII detection"],
+      [{"en":"Happy or unhappy overall","ro":"Majmooi tor par khush ya nakhush"}, "Sentiment analysis"],
+      [{"en":"What exactly they like or dislike","ro":"Asal mein kya pasand ya napasand hai"}, "Opinion mining"],
+      [{"en":"Short version in the original sentences","ro":"Asal jumlon mein mukhtasar shakal"}, "Extractive summary"]
+    ]
+  },
+  "remember": [
+    {"en":"Scores are confidence values between 0 and 1, not a grade of the text.","ro":"Scores 0 aur 1 ke darmiyan confidence hain, text ke number nahi."},
+    {"en":"Mixed sentiment exists for documents with positive and negative sentences.","ro":"Mixed sentiment un documents ka hota hai jin mein positive aur negative jumlay hon."},
+    {"en":"PII detection is a special kind of entity recognition.","ro":"PII detection entity recognition ki khaas qism hai."},
+    {"en":"A chat model can do the same, but with less consistent output and no built-in scores.","ro":"Chat model bhi ye kar sakta hai, lekin output kam yaksan aur score ke baghair hota hai."}
+  ],
+  "traps": [
+    {"en":"Key phrases do not tell you whether people like something.","ro":"Key phrases ye nahi batate ke logon ko cheez pasand hai ya nahi."},
+    {"en":"Translation is a separate service and not part of these techniques.","ro":"Translation alag service hai, in techniques ka hissa nahi."}
+  ],
+  "check": ["D1-115", "D1-176", "D1-394", "D1-283", "D1-047"],
+  "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+}

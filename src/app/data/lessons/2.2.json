@@ -1,0 +1,43 @@
+{
+  "id": "2.2", "minutes": 7, "lab": "deploy",
+  "intro": {"en":"In the Foundry portal you create a project, deploy a model from the catalog, test it in the playground, evaluate it and protect it with guardrails.","ro":"Foundry portal mein aap project banate hain, catalog se model deploy karte hain, playground mein test, evaluation aur guardrails se hifazat karte hain."},
+  "concepts": [
+    { "term": {"en":"Foundry resource and project","ro":"Foundry resource aur project"}, "text": {"en":"The resource holds deployments and settings; projects organize the work of a team in it.","ro":"Resource mein deployments aur settings hoti hain; projects us mein team ka kaam munazzam karte hain."} },
+    { "term": "Model catalog", "text": {"en":"Search, filter and compare models, read model cards and benchmarks.","ro":"Models talash, filter aur muqabla karein, model cards aur benchmarks dekhein."} },
+    { "term": "Deployment", "text": {"en":"A model with a name, type, version and tokens-per-minute capacity. Apps call the name.","ro":"Model jis ka naam, type, version aur tokens-per-minute capacity hoti hai. Apps naam call karti hain."} },
+    { "term": "Playground", "text": {"en":"Try prompts, parameters and files, then view the sample code.","ro":"Prompts, parameters aur files azmayein, phir sample code dekhein."} },
+    { "term": "Evaluation", "text": {"en":"Measures quality (such as groundedness, relevance) and safety over a dataset.","ro":"Dataset par quality (jaise groundedness, relevance) aur safety naapta hai."} },
+    { "term": "Guardrails", "text": {"en":"Content filters, Prompt Shields, blocklists and protected-material checks for input and output.","ro":"Input aur output ke liye content filters, Prompt Shields, blocklists aur protected material ki jaanch."} },
+    { "term": "Roles", "text": {"en":"Foundry User (formerly Azure AI User) is enough to build and call; managing resources needs more.","ro":"Banane aur call karne ke liye Foundry User (pehle Azure AI User) kaafi hai; resources sambhalne ko zyada chahiye."} }
+  ],
+  "example": {
+    "title": {"en":"Example: deploy from the command line","ro":"Misaal: command line se deploy"},
+    "text": {"en":"The portal and the CLI create the same deployment. Capacity 20 means 20,000 tokens per minute.","ro":"Portal aur CLI ek hi deployment banate hain. Capacity 20 ka matlab fi minute 20,000 tokens."},
+    "code": "az cognitiveservices account deployment create \\\n  --resource-group rg-ai901 --name contoso-ai \\\n  --deployment-name chat-prod \\\n  --model-name gpt-5-mini --model-version 2025-08-07 \\\n  --model-format OpenAI \\\n  --sku-name GlobalStandard --sku-capacity 20"
+  },
+  "table": {
+    "title": {"en":"Symptom → where to look","ro":"Alamat → kahan dekhein"},
+    "head": [{"en":"Symptom","ro":"Alamat"}, {"en":"Look at","ro":"Yahan dekhein"}],
+    "rows": [
+      ["HTTP 429", {"en":"Tokens-per-minute capacity and quota","ro":"Tokens-per-minute capacity aur quota"}],
+      ["HTTP 404", {"en":"Deployment name in the code","ro":"Code mein deployment ka naam"}],
+      ["HTTP 401", {"en":"Key or token","ro":"Key ya token"}],
+      ["HTTP 403", "Role assignment"],
+      ["finish_reason: content_filter", "Guardrails"],
+      [{"en":"Good in the playground, unknown over many cases","ro":"Playground mein acha, bohat cases mein na maloom"}, {"en":"Evaluation with a dataset","ro":"Dataset ke saath evaluation"}],
+      [{"en":"Model is not offered","ro":"Model nahi milta"}, {"en":"Region, quota, access","ro":"Region, quota, rasai"}]
+    ]
+  },
+  "remember": [
+    {"en":"One model can have several deployments with different names and types.","ro":"Ek model ki mukhtalif naam aur type ki kai deployments ho sakti hain."},
+    {"en":"After a model version change, evaluate again.","ro":"Model version badalne ke baad dobara evaluate karein."},
+    {"en":"A playground test is a first look and not an evaluation.","ro":"Playground ka test pehli nazar hai, evaluation nahi."},
+    {"en":"Delete unused deployments and resource groups to stop costs.","ro":"Kharcha rokne ke liye ghair zaroori deployments aur resource groups delete karein."}
+  ],
+  "traps": [
+    {"en":"The deployment name and the model name can differ; code uses the deployment name.","ro":"Deployment ka naam aur model ka naam mukhtalif ho sakte hain; code deployment ka naam istemal karta hai."},
+    {"en":"Groundedness checks whether the answer follows the source, not whether the source is true.","ro":"Groundedness dekhta hai ke jawab source ke mutabiq hai, ye nahi ke source sach hai."}
+  ],
+  "check": ["D2-086", "D2-323", "D2-576", "D2-664", "D2-322"],
+  "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
+}

@@ -29,8 +29,9 @@ export class Language {
     this.store.write(KEY, lang);
   }
 
-  /** Text that is stored in both languages. */
-  pick(text: { en: string; ro: string }): string {
+  /** Text that is stored in both languages, or once when it is the same in both. */
+  pick(text: string | { en: string; ro: string }): string {
+    if (typeof text === 'string') return text;
     return this.roman() ? text.ro : text.en;
   }
 

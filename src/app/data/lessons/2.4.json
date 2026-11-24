@@ -1,0 +1,42 @@
+{
+  "id": "2.4", "minutes": 8, "lab": "agent-portal",
+  "intro": {"en":"An agent is a model with instructions and tools, saved in Foundry under a name. Client apps call it by that name.","ro":"Agent model hai jis ke saath instructions aur tools hon, Foundry mein ek naam se mehfooz. Client apps usay usi naam se call karti hain."},
+  "concepts": [
+    { "term": "Prompt agent", "text": {"en":"Defined by configuration: model deployment, instructions, tools. No hosting code needed.","ro":"Configuration se banta hai: model deployment, instructions, tools. Hosting code nahi chahiye."} },
+    { "term": "Tools", "text": {"en":"File search, code interpreter, web search, functions, MCP and others give knowledge or actions.","ro":"File search, code interpreter, web search, functions, MCP waghera ilm ya kaam dete hain."} },
+    { "term": "Vector store", "text": {"en":"Holds the chunks and embeddings of files that file search reads.","ro":"Files ke chunks aur embeddings rakhta hai jo file search parhta hai."} },
+    { "term": "Versions", "text": {"en":"Each saved change creates a new version of the agent.","ro":"Har mehfooz tabdeeli agent ka naya version banati hai."} },
+    { "term": "Conversation", "text": {"en":"Stores the history of one chat. Use one per user session.","ro":"Ek chat ki history rakhti hai. Har user session ke liye alag."} },
+    { "term": {"en":"Human approval","ro":"Insani manzoori"}, "text": {"en":"Ask a person before actions that cost money or change data.","ro":"Paise lagne ya data badalne wale kaam se pehle insan se poochein."} },
+    { "term": "Client app", "text": {"en":"Authenticates with Entra ID, opens a conversation, sends input and prints output_text.","ro":"Entra ID se authenticate hoti hai, conversation kholti hai, input bhejti hai aur output_text dikhati hai."} }
+  ],
+  "example": {
+    "title": {"en":"Example: client for an agent","ro":"Misaal: agent ki client app"},
+    "text": {"en":"The client holds no instructions and no model name. Both belong to the agent.","ro":"Client mein na instructions hain na model ka naam. Dono agent ke paas hain."},
+    "code": "openai = project.get_openai_client(agent_name=\"hr-helper\")\nconversation = openai.conversations.create()\nr = openai.responses.create(\n    conversation=conversation.id, input=\"How many vacation days do I get?\")\nprint(r.output_text)\nopenai.conversations.delete(conversation_id=conversation.id)"
+  },
+  "table": {
+    "title": {"en":"Need → tool","ro":"Zaroorat → tool"},
+    "head": [{"en":"Need","ro":"Zaroorat"}, "Tool"],
+    "rows": [
+      [{"en":"Answer from PDFs and policies","ro":"PDFs aur policies se jawab"}, "File search"],
+      [{"en":"Exact math, charts, spreadsheets","ro":"Bilkul sahi hisaab, charts, spreadsheets"}, "Code interpreter"],
+      [{"en":"Current public information","ro":"Taza awami maloomat"}, "Web search"],
+      [{"en":"Your own business function","ro":"Apna business function"}, "Function calling"],
+      [{"en":"Ready-made external tools over a standard","ro":"Standard ke zariye bairooni tools"}, "MCP"],
+      [{"en":"Tone, scope, limits","ro":"Andaz, daira, hadein"}, {"en":"Instructions, no tool","ro":"Instructions, tool nahi"}]
+    ]
+  },
+  "remember": [
+    {"en":"Instructions say how to behave; tools decide what the agent can do.","ro":"Instructions rawaiya batati hain; tools tay karte hain ke agent kya kar sakta hai."},
+    {"en":"Test in the agent playground and look at the tool calls.","ro":"Agent playground mein test karein aur tool calls dekhein."},
+    {"en":"Function calling: the model asks, your app runs the function and returns the result.","ro":"Function calling: model maangta hai, aap ki app function chala kar nateeja deti hai."},
+    {"en":"Give an agent only the tools and permissions that it needs.","ro":"Agent ko sirf zaroori tools aur permissions dein."}
+  ],
+  "traps": [
+    {"en":"One shared conversation mixes users; one agent can serve many conversations.","ro":"Ek mushtarka conversation users ko mila deti hai; ek agent kai conversations sambhalta hai."},
+    {"en":"Code interpreter runs code in a sandbox; it does not search the web.","ro":"Code interpreter sandbox mein code chalata hai; web par talash nahi karta."}
+  ],
+  "check": ["D2-343", "D2-520", "D2-514", "D2-039", "D2-341"],
+  "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
+}

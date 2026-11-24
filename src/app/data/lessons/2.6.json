@@ -1,0 +1,43 @@
+{
+  "id": "2.6", "minutes": 7, "lab": "images",
+  "intro": {"en":"Three ways to work with pictures: ask a multimodal model about them, create them with an image model, or analyze them with Image Analysis.","ro":"Tasveeron ke saath kaam ke teen tareeqay: multimodal model se poochna, image model se banana, ya Image Analysis se jaiza."},
+  "concepts": [
+    { "term": "Content parts", "text": {"en":"One message holds a text part and one or more image parts.","ro":"Ek message mein text part aur ek ya zyada image parts hote hain."} },
+    { "term": {"en":"Image source","ro":"Image ka source"}, "text": {"en":"A public URL or a data URL: data:image/jpeg;base64,...","ro":"Khula URL ya data URL: data:image/jpeg;base64,..."} },
+    { "term": "detail", "text": {"en":"low: fewer tokens, less detail. high: small text readable, more tokens.","ro":"low: kam tokens, kam tafseel. high: chhota text parha jata hai, zyada tokens."} },
+    { "term": "Image generation", "text": {"en":"images.generate(model, prompt, size, quality, n); gpt-image models return base64.","ro":"images.generate(model, prompt, size, quality, n); gpt-image models base64 dete hain."} },
+    { "term": "Image editing", "text": {"en":"images.edit with an image and optional mask changes only part of it.","ro":"images.edit image aur mask ke saath sirf ek hissa badalta hai."} },
+    { "term": "ImageAnalysisClient", "text": {"en":"analyze or analyze_from_url with visual_features such as CAPTION, TAGS, OBJECTS, PEOPLE, READ.","ro":"analyze ya analyze_from_url, visual_features jaise CAPTION, TAGS, OBJECTS, PEOPLE, READ ke saath."} },
+    { "term": "Safety", "text": {"en":"Prompts and images pass content filters; generated images carry content credentials.","ro":"Prompts aur images content filters se guzarti hain; generated images mein content credentials hote hain."} }
+  ],
+  "example": {
+    "title": {"en":"Example: ask about a local photo","ro":"Misaal: local tasveer ke baare mein sawal"},
+    "text": {"en":"The bytes are encoded as base64 and sent as a data URL next to the question.","ro":"Bytes base64 mein encode ho kar sawal ke saath data URL ki soorat mein jati hain."},
+    "code": "image = base64.b64encode(open(\"sign.jpg\", \"rb\").read()).decode()\nr = openai.responses.create(model=\"vision-prod\", input=[{\n    \"role\": \"user\",\n    \"content\": [\n        {\"type\": \"input_text\", \"text\": \"What does the sign say?\"},\n        {\"type\": \"input_image\", \"image_url\": f\"data:image/jpeg;base64,{image}\"},\n    ]}])\nprint(r.output_text)"
+  },
+  "table": {
+    "title": {"en":"Task → best choice","ro":"Kaam → behtareen intikhab"},
+    "head": [{"en":"Task","ro":"Kaam"}, {"en":"Choice","ro":"Intikhab"}],
+    "rows": [
+      [{"en":"Open question about a photo","ro":"Photo par khula sawal"}, "Multimodal chat model"],
+      [{"en":"Fixed tags, boxes and scores for millions of photos","ro":"Lakhon photos ke mukarrar tags, boxes aur scores"}, "Image Analysis"],
+      [{"en":"Text with position","ro":"Text us ki jagah ke saath"}, "Image Analysis READ"],
+      [{"en":"New picture from words","ro":"Alfaaz se nayi tasveer"}, "images.generate"],
+      [{"en":"Change only the background","ro":"Sirf background badalna"}, {"en":"images.edit with a mask","ro":"mask ke saath images.edit"}],
+      [{"en":"Tiny text is read wrongly","ro":"Chhota text ghalat parha"}, "detail: high"],
+      [{"en":"Cheap drafts","ro":"Saste drafts"}, "quality: low"]
+    ]
+  },
+  "remember": [
+    {"en":"Chat Completions uses text and image_url parts; Responses uses input_text and input_image.","ro":"Chat Completions text aur image_url parts; Responses input_text aur input_image."},
+    {"en":"The model cannot open a path on your computer.","ro":"Model aap ke computer ka path nahi khol sakta."},
+    {"en":"Decode b64_json before you save the file.","ro":"File save karne se pehle b64_json decode karein."},
+    {"en":"Only requested visual features are filled in the result.","ro":"Nateeje mein sirf maange gaye visual features hote hain."}
+  ],
+  "traps": [
+    {"en":"A vision model describes; an image model draws. The deployment must match.","ro":"Vision model bayan karta hai; image model banata hai. Deployment us ke mutabiq ho."},
+    {"en":"A caption is one sentence; dense captions describe regions.","ro":"Caption ek jumla hai; dense captions hisse bayan karte hain."}
+  ],
+  "check": ["D2-546", "D2-609", "D2-052", "D2-127", "D2-458"],
+  "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
+}

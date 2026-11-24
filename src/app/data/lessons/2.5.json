@@ -1,0 +1,45 @@
+{
+  "id": "2.5", "minutes": 8, "lab": "speech",
+  "intro": {"en":"Text apps use TextAnalyticsClient, speech apps use the Speech SDK, and spoken prompts go to an audio-capable model.","ro":"Text apps TextAnalyticsClient, speech apps Speech SDK istemal karti hain, aur bole gaye prompts audio wale model ko jate hain."},
+  "concepts": [
+    { "term": "TextAnalyticsClient", "text": {"en":"Takes a list of documents and returns one result per document; check is_error first.","ro":"Documents ki list leta hai aur har document ka nateeja deta hai; pehle is_error dekhein."} },
+    { "term": "Long-running methods", "text": {"en":"begin_abstract_summary and others return a poller; call result() to wait.","ro":"begin_abstract_summary waghera poller dete hain; intezar ke liye result() call karein."} },
+    { "term": "SpeechConfig", "text": {"en":"Key and region (or endpoint and token) plus language and voice settings.","ro":"Key aur region (ya endpoint aur token), zabaan aur awaaz ki settings."} },
+    { "term": "AudioConfig / AudioOutputConfig", "text": {"en":"Where audio comes from or goes to: microphone, speaker or file.","ro":"Audio kahan se aati ya jati hai: microphone, speaker ya file."} },
+    { "term": "SpeechRecognizer", "text": {"en":"recognize_once_async for one sentence; continuous recognition with events for long audio.","ro":"Ek jumlay ke liye recognize_once_async; lambi audio ke liye events wali continuous recognition."} },
+    { "term": "SpeechSynthesizer", "text": {"en":"speak_text_async for plain text, speak_ssml_async for SSML.","ro":"Saade text ke liye speak_text_async, SSML ke liye speak_ssml_async."} },
+    { "term": "Audio models", "text": {"en":"Chat with input_audio parts; modalities [\"text\", \"audio\"] return speech; Realtime API for live talk.","ro":"input_audio parts wala chat; modalities [\"text\", \"audio\"] awaaz deti hain; live guftagu ke liye Realtime API."} }
+  ],
+  "example": {
+    "title": {"en":"Example: sentiment of two reviews","ro":"Misaal: do reviews ka sentiment"},
+    "text": {"en":"Each document has its own result or error, in the same order as the input.","ro":"Har document ka apna nateeja ya error hota hai, input ki tarteeb mein."},
+    "code": "client = TextAnalyticsClient(ENDPOINT, AzureKeyCredential(KEY))\nfor doc in client.analyze_sentiment([\"Great bike!\", \"Arrived broken.\"]):\n    if doc.is_error:\n        print(doc.error.message)\n    else:\n        print(doc.sentiment, doc.confidence_scores.positive)"
+  },
+  "table": {
+    "title": {"en":"Job → class or method","ro":"Kaam → class ya method"},
+    "head": [{"en":"Job","ro":"Kaam"}, {"en":"Use","ro":"Istemal"}],
+    "rows": [
+      [{"en":"Language of a text","ro":"Text ki zabaan"}, "detect_language()"],
+      ["Topics", "extract_key_phrases()"],
+      [{"en":"Names, places, dates","ro":"Naam, jaghein, tareekhein"}, "recognize_entities()"],
+      [{"en":"Mask personal data","ro":"Zaati data chhupana"}, "recognize_pii_entities() → redacted_text"],
+      [{"en":"Opinion with target","ro":"Target ke saath raaye"}, "analyze_sentiment(show_opinion_mining=True)"],
+      [{"en":"Microphone to text","ro":"Microphone se text"}, "SpeechRecognizer"],
+      [{"en":"Text to audio file","ro":"Text se audio file"}, "SpeechSynthesizer + AudioOutputConfig"],
+      [{"en":"Speech to other languages","ro":"Awaaz se doosri zabaanein"}, "TranslationRecognizer"],
+      [{"en":"Answer a recorded question","ro":"Record sawal ka jawab"}, "Audio chat model"]
+    ]
+  },
+  "remember": [
+    {"en":"Check result.reason: RecognizedSpeech, NoMatch or Canceled.","ro":"result.reason dekhein: RecognizedSpeech, NoMatch ya Canceled."},
+    {"en":"recognize_once stops after one utterance.","ro":"recognize_once ek baat ke baad ruk jata hai."},
+    {"en":"Audio in chat is base64 with its format, such as wav.","ro":"Chat mein audio base64 hoti hai, format ke saath, jaise wav."},
+    {"en":"For live conversation use the Realtime API, not a chain of three calls.","ro":"Live guftagu ke liye teen calls ke silsile ke bajaye Realtime API."}
+  ],
+  "traps": [
+    {"en":"speak_text_async does not understand SSML tags; speak_ssml_async does.","ro":"speak_text_async SSML tags nahi samajhta; speak_ssml_async samajhta hai."},
+    {"en":"NoMatch means no recognizable speech; a wrong key gives Canceled.","ro":"NoMatch ka matlab pehchan ke qabil awaaz nahi; ghalat key Canceled deti hai."}
+  ],
+  "check": ["D2-601", "D2-532", "D2-451", "D2-594", "D2-185"],
+  "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"
+}

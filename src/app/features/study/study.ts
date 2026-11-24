@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { Language } from '../../core/language';
+import { LessonProgress } from '../../core/lesson-progress';
 import { ProgressService } from '../../core/progress';
 import { matchesSearch } from '../../core/search';
 import { isDue } from '../../core/srs';
@@ -12,16 +13,17 @@ import { QuestionBank } from '../../data/question-bank';
 import { RomanBank } from '../../data/roman-bank';
 import { DOMAINS, Difficulty, EXAM, Question, SECTIONS, sectionOf } from '../../data/schema';
 import { Flashcards } from './flashcards';
+import { LessonView } from './lesson-view';
 import { StudyCard } from './study-card';
 
 export type StudyFilter = 'all' | 'not-understood' | 'bookmarked' | 'due' | 'mistakes';
-type Mode = 'list' | 'cards';
+type Mode = 'lesson' | 'list' | 'cards';
 
 export const PAGE_SIZE = 20;
 
 @Component({
   selector: 'app-study',
-  imports: [ReactiveFormsModule, RouterLink, StudyCard, Flashcards],
+  imports: [ReactiveFormsModule, RouterLink, StudyCard, Flashcards, LessonView],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './study.html',
   styleUrl: './study.css',
@@ -33,9 +35,12 @@ export class Study {
   private readonly progress = inject(ProgressService);
   private readonly router = inject(Router);
   protected readonly study = inject(StudyProgress);
+  protected readonly lessons = inject(LessonProgress);
 
   /** Section id from the query string, e.g. /study?s=2.3 */
   readonly s = input<string>();
+  /** Mode to open, e.g. /study?s=2.3&m=lesson */
+  readonly m = input<string>();
 
   protected readonly exam = EXAM;
   protected readonly levels: Difficulty[] = [1, 2, 3];
@@ -49,7 +54,8 @@ export class Study {
   private readonly value = toSignal(this.form.valueChanges.pipe(map(() => this.form.getRawValue())), {
     initialValue: this.form.getRawValue(),
   });
-  protected readonly mode = signal<Mode>('list');
+  protected readonly modes: Mode[] = ['lesson', 'list', 'cards'];
+  protected readonly mode = linkedSignal<Mode>(() => (this.m() === 'lesson' ? 'lesson' : 'list'));
 
   /** Questions grouped by section, in bank order. */
   private readonly bySection = computed(() => {
@@ -132,7 +138,7 @@ export class Study {
   }
 
   protected goTo(sectionId: string): void {
-    void this.router.navigate(['/study'], { queryParams: { s: sectionId } });
+    void this.router.navigate(['/study'], { queryParams: { s: sectionId }, queryParamsHandling: 'merge' });
   }
 
   protected toggleOpen(id: string): void {

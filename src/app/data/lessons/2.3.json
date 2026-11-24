@@ -1,0 +1,42 @@
+{
+  "id": "2.3", "minutes": 8, "lab": "chat-client",
+  "intro": {"en":"A chat client needs four things: the project endpoint, a credential, the deployment name and a loop that keeps the conversation.","ro":"Chat client ko chaar cheezein chahiye: project endpoint, credential, deployment ka naam aur guftagu rakhne wala loop."},
+  "concepts": [
+    { "term": "AIProjectClient", "text": {"en":"Connects to the project endpoint: https://<resource>.services.ai.azure.com/api/projects/<project>.","ro":"Project endpoint se judta hai: https://<resource>.services.ai.azure.com/api/projects/<project>."} },
+    { "term": "DefaultAzureCredential", "text": {"en":"Finds your identity: az login on a laptop, managed identity in Azure. No key in the code.","ro":"Aap ki identity dhoondta hai: laptop par az login, Azure mein managed identity. Code mein key nahi."} },
+    { "term": "get_openai_client()", "text": {"en":"Returns an OpenAI client that is already authenticated for the project.","ro":"OpenAI client deta hai jo project ke liye pehle se authenticated hota hai."} },
+    { "term": "Responses API", "text": {"en":"input + instructions; result in output_text; previous_response_id continues on the server.","ro":"input + instructions; nateeja output_text mein; previous_response_id server par guftagu jari rakhta hai."} },
+    { "term": "Chat Completions API", "text": {"en":"List of messages with roles; result in choices[0].message.content; you send the history.","ro":"Roles wale messages ki list; nateeja choices[0].message.content mein; history aap bhejte hain."} },
+    { "term": "Streaming", "text": {"en":"stream=True delivers pieces while the model writes, so waiting feels shorter.","ro":"stream=True model ke likhte waqt tukre deta hai, is liye intezar kam lagta hai."} },
+    { "term": {"en":"Errors and retries","ro":"Errors aur retries"}, "text": {"en":"For 429 and temporary 5xx errors wait longer after each try; fix 401, 403 and 404 in code or settings.","ro":"429 aur waqti 5xx errors par har dafa zyada intezar; 401, 403 aur 404 code ya settings mein theek karein."} }
+  ],
+  "example": {
+    "title": {"en":"Example: a complete client","ro":"Misaal: mukammal client"},
+    "text": {"en":"Ten lines are enough. The second call knows the first one because of previous_response_id.","ro":"Das lines kaafi hain. Doosri call previous_response_id ki wajah se pehli ko janti hai."},
+    "code": "from azure.ai.projects import AIProjectClient\nfrom azure.identity import DefaultAzureCredential\n\nproject = AIProjectClient(endpoint=ENDPOINT, credential=DefaultAzureCredential())\nopenai = project.get_openai_client()\nfirst = openai.responses.create(\n    model=\"chat-prod\", instructions=\"Answer briefly.\", input=\"What is a token?\")\nprint(first.output_text)\nnext_one = openai.responses.create(\n    model=\"chat-prod\", input=\"Give an example.\", previous_response_id=first.id)\nprint(next_one.output_text)"
+  },
+  "table": {
+    "title": {"en":"Responses or Chat Completions","ro":"Responses ya Chat Completions"},
+    "head": [{"en":"Topic","ro":"Baat"}, "Responses", "Chat Completions"],
+    "rows": [
+      ["Input", "input, instructions", "messages"],
+      [{"en":"Text of the answer","ro":"Jawab ka text"}, "output_text", "choices[0].message.content"],
+      ["History", {"en":"previous_response_id or conversation","ro":"previous_response_id ya conversation"}, {"en":"App sends all messages","ro":"App tamam messages bhejti hai"}],
+      [{"en":"Length limit","ro":"Lambai ki had"}, "max_output_tokens", "max_tokens / max_completion_tokens"],
+      [{"en":"Rules for the model","ro":"Model ke usool"}, "instructions", "system message"],
+      [{"en":"Best for","ro":"Behtar kis ke liye"}, {"en":"New apps, tools, agents","ro":"Nayi apps, tools, agents"}, {"en":"Existing apps","ro":"Maujooda apps"}]
+    ]
+  },
+  "remember": [
+    {"en":"model = deployment name in both APIs.","ro":"Dono APIs mein model = deployment ka naam."},
+    {"en":"Read endpoints from environment variables; never hard-code keys.","ro":"Endpoints environment variables se parhein; keys kabhi code mein na likhein."},
+    {"en":"All tokens count: instructions, history, input and output.","ro":"Tamam tokens gine jate hain: instructions, history, input aur output."},
+    {"en":"Install azure-ai-projects and azure-identity.","ro":"azure-ai-projects aur azure-identity install karein."}
+  ],
+  "traps": [
+    {"en":"The project endpoint and the Azure OpenAI endpoint are different addresses.","ro":"Project endpoint aur Azure OpenAI endpoint alag pate hain."},
+    {"en":"Append the reply with the assistant role, not as a user message.","ro":"Jawab ko assistant role ke saath append karein, user message ki tarah nahi."}
+  ],
+  "check": ["D2-503", "D2-095", "D2-509", "D2-621", "D2-667"],
+  "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
+}

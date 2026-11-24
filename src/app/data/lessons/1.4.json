@@ -1,0 +1,40 @@
+{
+  "id": "1.4", "minutes": 6,
+  "intro": {"en":"Read what goes in and what comes out. That tells you the workload in nearly every question.","ro":"Dekhein kya andar jata hai aur kya bahar aata hai. Taqreeban har sawal mein isi se workload pata chal jata hai."},
+  "concepts": [
+    { "term": "Generative AI", "text": {"en":"Creates new content: text, code, images, audio.","ro":"Naya content banata hai: text, code, images, audio."} },
+    { "term": "Agentic AI", "text": {"en":"Plans steps and uses tools to act in other systems to reach a goal.","ro":"Qadam plan karta hai aur maqsad ke liye doosre systems mein tools se kaam karta hai."} },
+    { "term": "Text analysis", "text": {"en":"Finds language, sentiment, entities, key phrases or summaries in text.","ro":"Text mein zabaan, sentiment, entities, key phrases ya khulasa dhoondta hai."} },
+    { "term": "Speech", "text": {"en":"Turns speech into text, text into speech, or translates speech.","ro":"Awaaz ko text, text ko awaaz mein badalta hai, ya awaaz ka tarjuma karta hai."} },
+    { "term": "Computer vision", "text": {"en":"Classifies images, detects objects, reads text in pictures, describes photos.","ro":"Images classify karta hai, objects dhoondta hai, tasveeron ka text parhta hai, photos bayan karta hai."} },
+    { "term": "Information extraction", "text": {"en":"Turns documents, images, audio or video into structured fields.","ro":"Documents, images, audio ya video ko structured fields mein badalta hai."} }
+  ],
+  "example": {
+    "title": {"en":"Example: an insurance claim","ro":"Misaal: insurance claim"},
+    "text": {"en":"The photo of the car is checked for damage (computer vision). The form becomes fields (information extraction). The angry email is found (text analysis). A reply is drafted (generative AI). An agent opens the case in the claims system after an employee approves (agentic AI).","ro":"Gaari ki tasveer mein nuqsan dekha jata hai (computer vision). Form fields ban jata hai (information extraction). Naraz email pehchani jati hai (text analysis). Jawab ka draft banta hai (generative AI). Employee ki manzoori ke baad agent claims system mein case kholta hai (agentic AI)."}
+  },
+  "table": {
+    "title": {"en":"Words in the question → workload","ro":"Sawal ke alfaaz → workload"},
+    "head": [{"en":"Words","ro":"Alfaaz"}, "Workload"],
+    "rows": [
+      [{"en":"draft, write, create, rewrite","ro":"draft, likhna, banana, dobara likhna"}, "Generative AI"],
+      [{"en":"book, update, send, call other systems","ro":"book, update, bhejna, doosre systems call karna"}, "Agentic AI"],
+      [{"en":"positive or negative, names, topics, language","ro":"musbat ya manfi, naam, topics, zabaan"}, "Text analysis"],
+      [{"en":"microphone, voice, captions, read aloud","ro":"microphone, awaaz, captions, sunana"}, "Speech"],
+      [{"en":"photo, camera, count, locate","ro":"tasveer, camera, ginna, jagah dhoondna"}, "Computer vision"],
+      [{"en":"fields, forms, invoices, recordings to data","ro":"fields, forms, invoices, recordings se data"}, "Information extraction"]
+    ]
+  },
+  "remember": [
+    {"en":"An agent = a model + instructions + tools. Without tools it only writes text.","ro":"Agent = model + instructions + tools. Tools ke baghair woh sirf text likhta hai."},
+    {"en":"One solution can combine several workloads.","ro":"Ek hal mein kai workloads ho sakte hain."},
+    {"en":"If fixed rules solve the problem exactly, AI is not needed.","ro":"Agar mukarrar usool masla bilkul sahi hal karein to AI ki zaroorat nahi."},
+    {"en":"High-impact actions of an agent need human approval.","ro":"Agent ke bare asar wale kaam ko insani manzoori chahiye."}
+  ],
+  "traps": [
+    {"en":"Reading text in a photo is OCR (vision); turning an invoice into fields is information extraction.","ro":"Tasveer ka text parhna OCR (vision) hai; invoice ko fields banana information extraction hai."},
+    {"en":"A chatbot that only answers is generative AI and not an agent.","ro":"Sirf jawab dene wala chatbot generative AI hai, agent nahi."}
+  ],
+  "check": ["D1-105", "D1-223", "D1-039", "D1-330", "D1-459"],
+  "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+}

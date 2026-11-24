@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Injector, afterNextRender, computed, inject, input, signal } from '@angular/core';
 import { LabProgress } from '../../core/lab-progress';
 import { Language } from '../../core/language';
 import { Lab, loadLabs } from '../../data/labs';
@@ -45,6 +45,8 @@ import { LabCard } from './lab-card';
 export class Labs {
   protected readonly language = inject(Language);
   private readonly progress = inject(LabProgress);
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly injector = inject(Injector);
 
   /** Lab to open, e.g. /labs?l=chat-client */
   readonly l = input<string>();
@@ -55,6 +57,10 @@ export class Labs {
   );
 
   constructor() {
-    void loadLabs().then((labs) => this.labs.set(labs));
+    void loadLabs().then((labs) => {
+      this.labs.set(labs);
+      // Show the requested lab, which can be far down the page.
+      afterNextRender(() => this.host.nativeElement.querySelector('details[open]')?.scrollIntoView(), { injector: this.injector });
+    });
   }
 }

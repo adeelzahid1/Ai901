@@ -1,0 +1,41 @@
+{
+  "id": "1.2", "minutes": 7,
+  "intro": {"en":"A generative model predicts what comes next. Most questions here are about tokens, embeddings, context and why a model can be confidently wrong.","ro":"Generative model andaza lagata hai ke aage kya aayega. Yahan zyada tar sawal tokens, embeddings, context aur is baare mein hain ke model yaqeen ke saath ghalat kyun ho sakta hai."},
+  "concepts": [
+    { "term": "Token", "text": {"en":"A piece of text, often part of a word. Models read and write tokens, and price and limits are counted in tokens.","ro":"Text ka tukra, aksar lafz ka hissa. Models tokens parhte aur likhte hain, aur qeemat aur hadein tokens mein gini jati hain."} },
+    { "term": "Embedding", "text": {"en":"A list of numbers (vector) that represents meaning. Similar meanings have vectors that are close together.","ro":"Numbers ki list (vector) jo matlab zahir karti hai. Milte jultay matlab ke vectors qareeb hote hain."} },
+    { "term": {"en":"Transformer and attention","ro":"Transformer aur attention"}, "text": {"en":"The architecture behind language models. Attention weighs which other tokens matter for the current one.","ro":"Language models ka dhancha. Attention tolta hai ke maujooda token ke liye kaunse doosre tokens aham hain."} },
+    { "term": {"en":"Training and inference","ro":"Training aur inference"}, "text": {"en":"Training learns patterns from data. Inference uses the finished model to create output.","ro":"Training data se patterns seekhti hai. Inference tayyar model se output banata hai."} },
+    { "term": "Context window", "text": {"en":"The maximum number of tokens for input plus output in one request. Nothing outside it is seen.","ro":"Ek request mein input aur output ke tokens ki had. Is se bahar ki koi cheez nazar nahi aati."} },
+    { "term": {"en":"Hallucination and grounding","ro":"Hallucination aur grounding"}, "text": {"en":"A model can write convincing but false text. Grounding gives it trusted data to answer from.","ro":"Model yaqeen dilane wala ghalat text likh sakta hai. Grounding usay jawab ke liye qabil e bharosa data deta hai."} },
+    { "term": "Retrieval-augmented generation (RAG)", "text": {"en":"Search finds passages that match the question, adds them to the prompt, and the model answers from them.","ro":"Talash sawal se milte hisse dhoond kar prompt mein dalti hai, aur model unhi se jawab deta hai."} },
+    { "term": "Fine-tuning", "text": {"en":"Extra training with examples to teach a style, format or task. It is not the tool for changing facts.","ro":"Andaz, format ya kaam sikhane ke liye misalon se mazeed training. Badalte haqaiq ke liye ye tareeqa nahi."} }
+  ],
+  "example": {
+    "title": {"en":"Example: one answer, step by step","ro":"Misaal: ek jawab, qadam ba qadam"},
+    "text": {"en":"\"What is our return policy?\" is split into tokens. A search with embeddings finds two passages of the policy. They are added to the prompt. The model writes the answer token by token, and each new token depends on all tokens before it.","ro":"\"What is our return policy?\" tokens mein bantta hai. Embeddings se talash policy ke do hisse dhoondti hai. Woh prompt mein shamil hote hain. Model jawab token ba token likhta hai, aur har naya token pichle tamam tokens par munhasir hota hai."}
+  },
+  "table": {
+    "title": {"en":"Problem → technique","ro":"Masla → technique"},
+    "head": [{"en":"Problem","ro":"Masla"}, "Technique"],
+    "rows": [
+      [{"en":"Answers ignore company documents","ro":"Jawab company documents se nahi"}, "RAG (grounding)"],
+      [{"en":"Facts change every week","ro":"Haqaiq har hafte badalte hain"}, {"en":"RAG with a fresh index","ro":"Taza index wala RAG"}],
+      [{"en":"Wrong tone or format in spite of good prompts","ro":"Ache prompts ke bawajood andaz ya format ghalat"}, "Fine-tuning"],
+      [{"en":"Find texts with a similar meaning","ro":"Milte matlab ke text dhoondna"}, "Embeddings"],
+      [{"en":"Task is not clear to the model","ro":"Model ko kaam wazeh nahi"}, "Prompt engineering"]
+    ]
+  },
+  "remember": [
+    {"en":"A model has no memory between requests; the app sends the history again.","ro":"Model ko requests ke darmiyan yaad nahi rehta; app history dobara bhejti hai."},
+    {"en":"The model does not look anything up unless it gets data or a tool.","ro":"Data ya tool na mile to model kahin se kuch nahi dekhta."},
+    {"en":"Output is sampled, so the same prompt can give different answers.","ro":"Output sampling se banta hai, is liye ek hi prompt mukhtalif jawab de sakta hai."},
+    {"en":"Try prompts first, then RAG, then fine-tuning.","ro":"Pehle prompts, phir RAG, phir fine-tuning azmayein."}
+  ],
+  "traps": [
+    {"en":"Embeddings do not generate text; they make meaning comparable.","ro":"Embeddings text nahi banate; woh matlab ko muqable ke qabil banate hain."},
+    {"en":"Temperature zero makes answers more consistent, not more true.","ro":"Temperature zero jawab yaksan karta hai, zyada sach nahi."}
+  ],
+  "check": ["D1-019", "D1-319", "D1-089", "D1-316", "D1-452"],
+  "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+}

@@ -34,10 +34,14 @@
   </div>
 
   <div class="card study-row">
+    <span><strong>{{ lessons.readCount() }}</strong> {{ t.dashboard.lessons(lessonCount) }}</span>
     <span><strong>{{ studyRow().understood }}</strong> {{ t.dashboard.understood(studySize()) }}</span>
     <span><strong>{{ studyRow().due }}</strong> {{ t.dashboard.due }}</span>
     <span><strong>{{ studyRow().bookmarked }}</strong> {{ t.dashboard.bookmarked }}</span>
-    <a class="btn" routerLink="/study">{{ t.dashboard.openStudy }}</a>
+    <span class="study-links">
+      <a class="btn" routerLink="/study" [queryParams]="{ m: 'lesson' }">{{ t.dashboard.openLessons }}</a>
+      <a class="btn" routerLink="/study">{{ t.dashboard.openStudy }}</a>
+    </span>
   </div>
 
   <app-readiness-card />

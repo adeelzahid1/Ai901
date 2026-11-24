@@ -1,0 +1,40 @@
+{
+  "id": "1.1", "minutes": 7,
+  "intro": {"en":"Microsoft has six principles for responsible AI. The exam describes a situation and asks which principle it touches, or which action fits a principle.","ro":"Microsoft ke zimmedar AI ke chhe usool hain. Exam ek surat e haal batata hai aur poochta hai ke ye kis usool se juri hai, ya kaunsa kaam kis usool ke mutabiq hai."},
+  "concepts": [
+    { "term": {"en":"Fairness","ro":"Fairness (insaaf)"}, "text": {"en":"The system treats similar people alike. Compare results per group and look for bias in the data.","ro":"System ek jaise logon ke saath ek jaisa sulook karta hai. Har group ke nateeje muqabla karein aur data mein bias dhoondein."} },
+    { "term": {"en":"Reliability and safety","ro":"Reliability and safety (bharosa aur hifazat)"}, "text": {"en":"The system works as intended, also in unusual conditions, and does no harm. Test edge cases and monitor after launch.","ro":"System apne maqsad ke mutabiq chalta hai, ghair mamooli halaat mein bhi, aur nuqsan nahi karta. Edge cases test karein aur launch ke baad nigrani karein."} },
+    { "term": {"en":"Privacy and security","ro":"Privacy and security (raazdari aur security)"}, "text": {"en":"Personal data is protected, used only for its purpose and visible only to those who may see it.","ro":"Zaati data mehfooz hota hai, sirf apne maqsad ke liye istemal hota hai aur sirf ijazat wale logon ko nazar aata hai."} },
+    { "term": {"en":"Inclusiveness","ro":"Inclusiveness (sab ki shamooliat)"}, "text": {"en":"Everyone can use the system, including people with disabilities and people who speak other languages.","ro":"System sab istemal kar sakte hain, mazoor log aur doosri zabaanein bolne wale bhi."} },
+    { "term": {"en":"Transparency","ro":"Transparency (shaffafiat)"}, "text": {"en":"People know that they deal with AI, how it reaches its results and where its limits are.","ro":"Log jante hain ke woh AI se kaam le rahe hain, nateeje kaise bante hain aur us ki hadein kya hain."} },
+    { "term": {"en":"Accountability","ro":"Accountability (jawabdehi)"}, "text": {"en":"People answer for the system: there are owners, rules, reviews and a way to correct mistakes.","ro":"System ke jawabdeh insan hain: zimmedar log, usool, reviews aur ghalti theek karne ka raasta hota hai."} }
+  ],
+  "example": {
+    "title": {"en":"Example: one loan app, six questions","ro":"Misaal: ek loan app, chhe sawal"},
+    "text": {"en":"A bank scores loan requests with AI. Do women and men with equal income get equal results (fairness)? What happens with an income of zero (reliability)? Who may read the applications (privacy)? Can a blind customer use the form (inclusiveness)? Is the customer told why the request was rejected (transparency)? Who decides when a customer complains (accountability)?","ro":"Ek bank AI se loan requests ko score deta hai. Barabar income wali khawateen aur mardon ko barabar nateeja milta hai (fairness)? Income zero ho to kya hota hai (reliability)? Applications kaun parh sakta hai (privacy)? Kya nabeena customer form istemal kar sakta hai (inclusiveness)? Kya customer ko inkaar ki wajah batayi jati hai (transparency)? Shikayat par faisla kaun karta hai (accountability)?"}
+  },
+  "table": {
+    "title": {"en":"Clue in the question → principle","ro":"Sawal mein ishara → usool"},
+    "head": [{"en":"Clue","ro":"Ishara"}, {"en":"Principle","ro":"Usool"}],
+    "rows": [
+      [{"en":"Worse results for one gender, region or skin tone","ro":"Kisi gender, ilaqe ya rang ke liye kharab nateeje"}, "Fairness"],
+      [{"en":"Failure in rain, rare cases, no fallback","ro":"Barish ya nayab cases mein nakaami, mutabadil nahi"}, "Reliability and safety"],
+      [{"en":"Personal data, consent, encryption, access","ro":"Zaati data, ijazat, encryption, rasai"}, "Privacy and security"],
+      [{"en":"Screen reader, captions, languages, accents","ro":"Screen reader, captions, zabaanein, lehje"}, "Inclusiveness"],
+      [{"en":"Not told that it is AI, no explanation, hidden limits","ro":"AI hone ka nahi bataya, wazahat nahi, hadein chhupi"}, "Transparency"],
+      [{"en":"Nobody responsible, no review board, no human approval","ro":"Koi zimmedar nahi, review nahi, insani manzoori nahi"}, "Accountability"]
+    ]
+  },
+  "remember": [
+    {"en":"Removing a sensitive column does not remove bias, because other columns can act as a proxy.","ro":"Hassas column hatane se bias khatam nahi hota, kyunke doosre columns us ki jagah le lete hain."},
+    {"en":"Explaining a decision is transparency; being answerable for it is accountability.","ro":"Faisla samjhana transparency hai; us ka jawabdeh hona accountability hai."},
+    {"en":"Blocking harmful input and output with guardrails supports reliability and safety.","ro":"Guardrails se nuqsan dah input aur output rokna reliability and safety ki madad karta hai."},
+    {"en":"A human in the loop for high-impact decisions supports accountability and safety.","ro":"Bare asar wale faislon mein insan ko shamil rakhna accountability aur safety ki madad karta hai."}
+  ],
+  "traps": [
+    {"en":"Fairness and inclusiveness: unequal results are fairness; not being able to use the system is inclusiveness.","ro":"Fairness aur inclusiveness: ghair barabar nateeje fairness hain; system istemal na kar pana inclusiveness hai."},
+    {"en":"A vendor or a model never takes over the accountability of the organization.","ro":"Vendor ya model kabhi idare ki jawabdehi apne upar nahi leta."}
+  ],
+  "check": ["D1-077", "D1-257", "D1-079", "D1-303", "D1-305"],
+  "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+}
