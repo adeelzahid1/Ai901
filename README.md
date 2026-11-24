@@ -42,7 +42,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 - Interface text: [`src/app/i18n/ui-text.ts`](src/app/i18n/ui-text.ts), an English and a Roman Urdu object with the same shape.
 - Section, domain and sub-skill names: `ro` fields in `blueprint.json`.
 - Questions: `src/app/data/roman/<bank file>.json` maps question ids to translated text and is registered in `roman-bank.ts` (lazy chunks, loaded only when Roman Urdu is on). Fields that are left out and `null` list entries stay in English, so Azure terms, commands and code are not translated. Drop-down choices go in `blanks`. A question without a translation is shown in English with a label.
-- Translated so far: 475 of 1,065 questions (all of D1 and `d2-core`). `npm run validate:bank` prints the coverage per section and checks the translations.
+- Translated so far: 614 of 1,065 questions (all of D1, `d2-core` and `d2-ext1` to `d2-ext4`). `npm run validate:bank` prints the coverage per section and checks the translations.
 
 ### Validation
 

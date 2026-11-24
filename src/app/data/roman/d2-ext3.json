@@ -1,0 +1,306 @@
+{
+  "D2-101": {
+    "q": "Code likhe baghair aap ek single agent kahan bana kar test karte hain?",
+    "opts": [null, "Foundry portal ka Agents wala hissa", null, "Azure pricing calculator"],
+    "exp": "Foundry portal mein aap apna project kholte, Agents wale hisse mein ja kar Create agent chunte, usay model, instructions aur tools dete, aur wahin chat kar ke test karte hain. Azure Monitor metrics dikhata hai, Storage Explorer storage ka data sambhalta hai, aur pricing calculator kharche ka andaza lagata hai; koi bhi agents banata ya test nahi karta."
+  },
+  "D2-102": {
+    "q": "Agent ke sawalon ka jawab dene se pehle aap ke Foundry project mein kaunsa resource pehle se maujood hona chahiye?",
+    "opts": ["Agent ke istemal ke liye deploy kiya hua model", "Virtual machine", "SQL database", "Custom domain name"],
+    "exp": "Agent sochne aur jawab dene ke liye deploy kiya hua model istemal karta hai, is liye agent banate waqt model deployment, ya project ka koi aur supported model option, dastiyab hona chahiye. Foundry ke agents managed service hain, is liye virtual machine nahi chahiye, aur database ya custom domain sirf tab chahiye jab aap ka solution khaas taur par unhein istemal kare."
+  },
+  "D2-103": {
+    "q": "Aap ne agent ke liye HR policy files upload kin, lekin woh policies ke bajaye aam maloomat se jawab deta hai. Sab se mumkina wajah kya hai?",
+    "opts": [
+      "Temperature bohat kam hai",
+      "Agent ka naam bohat lamba hai",
+      "Agent mein file search tool shamil nahi, ya files us se attach nahi",
+      "Model bohat naya hai"
+    ],
+    "exp": "Agent aap ke documents mein tabhi talash kar sakta hai jab file search tool on ho aur files us se attach hon, maslan us ke vector store mein. Warna woh model ki aam maloomat se jawab deta hai. Temperature randomness par asar dalta hai, aur agent ka naam ya model ka naya hona files istemal karne se nahi rokta."
+  },
+  "D2-104": {
+    "q": "Microsoft Foundry mein agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Agent ek se zyada tools istemal kar sakta hai, maslan file search aur code interpreter.",
+      "Model agent ki instructions nazar andaz karta hai.",
+      "Grounding with Bing Search shamil karne se agent public web ki taaza maloomat istemal kar sakta hai.",
+      "Aap baad mein agent ki instructions badal kar tabdeeli test kar sakte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: agent kai tools jor sakta hai. Doosre ka Nahi: instructions agent ka role aur usool tay karti hain, aur model har guftagu mein un par chalta hai. Teesre ka Haan: web grounding taaza public maloomat laati hai. Chauthe ka Haan: agent edit karne se naya version banta hai, jise dobara test kiya ja sakta hai."
+  },
+  "D2-105": {
+    "q": "Har zaroorat ko us agent tool se milayein jo usay pura karta hai. Har tool ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Upload ki hui CSV file mein column ka ausat nikalna",
+      "Company ke maujood Azure AI Search index se jawab dena",
+      "Web par aaj ke exchange rates dekhna",
+      "Support ticket banane ke liye aap ke apne code ka function call karna"
+    ],
+    "exp": "Code interpreter data files se values nikalne ke liye Python chalata hai. Azure AI Search tool agent ko maujood search index se jorta hai. Grounding with Bing Search web ki taaza maloomat dhoondta hai. Function calling se agent aap ke code se koi amal, jaise ticket banana, karwa sakta hai. File search agent mein upload ki hui files ke liye hai aur yahan zaroorat nahi."
+  },
+  "D2-106": {
+    "q": "Python ke maujooda Foundry SDK mein kaunsi call aisa client deti hai jo order-helper naam ke maujood agent ko messages bhejta hai?",
+    "exp": "get_openai_client(agent_name=...) aisa OpenAI-compatible client deta hai jo us naam ke agent se jura hota hai, is liye responses.create() calls ka jawab wahi agent deta hai. Deployments banana, tasveerein banana aur agent versions delete karna doosre operations hain jin se agent ke saath chat nahi hoti."
+  },
+  "D2-107": {
+    "q": "Woh Python code mukammal karein jo maujood agent se ek sawal poochta aur us ka jawab print karta hai.",
+    "exp": "agent_name dene se OpenAI client agent se jur jata hai, is liye responses.create() ko wahi agent apni instructions aur tools ke saath sambhalta hai. Jawab ka text response ke output_text mein hota hai. deployment aur model_id get_openai_client ke parameters nahi, messages chat completions ki request ka field hai, aur choices chat completion ke nateejon ka hissa hai."
+  },
+  "D2-108": {
+    "q": "Microsoft Entra ID authentication ke saath maujood agent se chat karne ke liye halke Python client ko kaunsi DO values chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "opts": ["Storage account key", "Project endpoint", "GPU virtual machine", "Agent ka naam", "Agent ka training data"],
+    "exp": "Client apne endpoint aur DefaultAzureCredential jaise credential se project se jurta hai, aur us agent ka naam deta hai jis se baat karni hai. Agents ko Foundry sambhalta hai, is liye virtual machine nahi chahiye, storage key ka is se taalluq nahi, aur agents client ke diye hue data par train nahi hote."
+  },
+  "D2-109": {
+    "q": "Client app agent ko bheje jane wale har message ke liye nayi conversation banati hai, is liye agent pehle ki baat bhool jata hai. Isay kaise theek karein?",
+    "opts": [
+      "Conversation ek baar banayein aur har request ke saath wahi conversation ID dein",
+      "Maximum output tokens barhayein",
+      "Har message ke liye agent ka naya version banayein",
+      "Temperature barhayein"
+    ],
+    "exp": "Conversation history rakhti hai, is liye client ko har chat session mein usay ek baar bana kar us ki ID har responses.create() call mein dobara istemal karni chahiye. Output tokens aur temperature yaad-dasht par asar nahi dalte, aur agent ke naye versions history rakhne ke bajaye us ki definition badalte hain."
+  },
+  "D2-110": {
+    "q": "Kaunsa agent tool agent ko specification file mein bayan kiya hua bahar ka REST API call karne deta hai?",
+    "exp": "OpenAPI tool aisi OpenAPI specification parhta hai jo API ke operations bayan karti hai, is liye agent tay kar sakta hai ke unhein kab aur kaise call kare. Code interpreter sandbox mein Python chalata hai, file search upload ki hui files se hisse nikalta hai, aur image generation tasveerein banata hai."
+  },
+  "D2-111": {
+    "q": "TextAnalyticsClient ka kaunsa method har document mein zikr kiye gaye log, jaghein aur idare deta hai?",
+    "exp": "recognize_entities named entity recognition chalata hai aur har entity us ki category, jaise Person, Location ya Organization, aur confidence score ke saath deta hai. analyze_sentiment raye ke labels deta hai, extract_key_phrases mauzu, aur detect_language har document ki zaban."
+  },
+  "D2-112": {
+    "q": "Woh Python code mukammal karein jo har customer message ka ISO language code print karta hai.",
+    "exp": "detect_language har document ke liye primary_language deta hai, jis mein name, 'fr' jaisa iso6391_name, aur confidence score hota hai. analyze_sentiment aur recognize_entities doosri qism ke nateeje dete hain, aur sentiment aur key_phrases primary_language ki properties nahi."
+  },
+  "D2-113": {
+    "q": "Ek Python app ko support tickets zaati data chupa kar save karne hain. Kaunsi TextAnalyticsClient call istemal karni chahiye?",
+    "opts": [null, null, null, "recognize_pii_entities, phir har nateeje ka redacted_text save karna"],
+    "exp": "recognize_pii_entities phone numbers, emails aur ID numbers jaisa zaati data dhoondta hai, aur har nateeje mein redacted_text hota hai jis mein woh values chupi hoti hain aur jise app save kar sakti hai. Key phrases, language detection aur sentiment zaati data nahi dhoondte na chupate."
+  },
+  "D2-114": {
+    "q": "Text analysis app banane ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Ek request mein jaize ke liye kai documents ho sakte hain.",
+      "Aap ke code ko values parhne se pehle har nateeje mein error check karna chahiye.",
+      "Sentiment analysis ko input ke taur par tasveer chahiye."
+    ],
+    "exp": "Pehle ka jawab Haan: Language APIs service ki hadon ke andar ek call mein documents ka batch leti hain. Doosre ka Haan: response ka har document alag kamyab ya nakaam ho sakta hai, is liye SDK nakaam nateejon par nishan lagata hai, maslan is_error se, aur aap ke code ko usay check karna chahiye. Teesre ka Nahi: sentiment analysis text par kaam karta hai."
+  },
+  "D2-115": {
+    "q": "App record kiya hua sawal audio wale chat model ko kaise bhejti hai?",
+    "opts": [
+      "Video website ke link ki soorat mein",
+      "Message ke content mein base64-encoded audio data ki soorat mein, us ke format jaise wav ke saath",
+      "Sound wave ki tasveer ki soorat mein",
+      "Sirf chhape hue transcript ki soorat mein"
+    ],
+    "exp": "Audio wale models user message mein audio content part lete hain: app recording parhti hai, usay base64 mein encode karti hai aur us ka format, jaise wav ya mp3, batati hai. Video sites ke links aur waveform ki tasveerein audio input nahi, aur chhapa transcript text hai, jis ke liye audio model ki zaroorat nahi."
+  },
+  "D2-116": {
+    "q": "Ek voice app audio wale model ko bole hue sawal bhejti hai aur jawab bhi bole hue chahti hai. Request ki kaunsi setting model se text ke saath audio bhi maangti hai?",
+    "opts": [
+      "Kam temperature",
+      "Stop sequence",
+      "Output modalities jin mein audio ho, voice aur audio format ke saath",
+      "Zyada top P"
+    ],
+    "exp": "Audio wale chat models mein aap output modalities jaise text aur audio, voice aur audio format ke saath, maang sakte hain, taake response mein speech shamil ho. Temperature aur top P randomness badalte hain, aur stop sequence nishan par output khatam karta hai; koi bhi model se bulwata nahi."
+  },
+  "D2-117": {
+    "q": "Bole hue prompts seedhe multimodal model ko bhejne ke baare mein kaunse DO bayan sahi hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Audio input ka kabhi bill nahi aata",
+      "Model alag speech-to-text qadam ke baghair jawab de sakta hai",
+      "Koi bhi sirf text wala model audio le sakta hai",
+      "Audio ki maloomat, jaise lehja, seedhi model tak pohanch sakti hai",
+      "Audio input se content filtering ki zaroorat khatam ho jati hai"
+    ],
+    "exp": "Audio wala model speech ko khud process karta hai, is liye alag transcription service nahi chahiye, aur lehja jaisi audio ki tafseel transcript mein kho nahi jati. Audio input ka bill aata hai, aam taur par audio tokens ke hisaab se, sirf audio support wale models usay le sakte hain, aur responsible AI ki hifazatein phir bhi lagu rehti hain."
+  },
+  "D2-118": {
+    "q": "Speech SDK mein kaunsi class key, region aur recognition language ya voice jaisi settings rakhti hai?",
+    "exp": "SpeechConfig mein Speech resource se jurne ki maloomat, jaise key aur region ya endpoint, aur speech_recognition_language aur speech_synthesis_voice_name jaisi settings hoti hain. AudioConfig audio input ya output chunta hai, TextAnalyticsClient Azure Language ke liye hai, aur AIProjectClient Foundry project ka client hai."
+  },
+  "D2-119": {
+    "q": "Woh Python code mukammal karein jo microphone ke bajaye WAV file se speech pehchanta hai.",
+    "exp": "AudioConfig(filename=...) recognizer ko audio file ki taraf le jata hai, aur SpeechRecognizer usay audio_config parameter se leta hai; us ke baghair default microphone istemal hota hai. url aur device yahan local file ke parameter nahi, aur source aur input SpeechRecognizer ke parameter names nahi."
+  },
+  "D2-120": {
+    "q": "Speech SDK ke har hisse ko us ke kaam se milayein. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "targets": [
+      "Text ko boli hui audio banata hai",
+      "Key, region aur doosri settings rakhta hai",
+      "Woh zaban set karta hai jise recognizer sunta hai",
+      "Boli hui audio ko text banata hai",
+      "Text documents ka tarjuma karta hai"
+    ],
+    "exp": "SpeechConfig connection ki tafseel aur settings rakhta hai. SpeechRecognizer audio ko text, aur SpeechSynthesizer text ko audio banata hai. speech_recognition_language SpeechConfig ki property hai, jaise 'en-US', jo recognizer ko batati hai ke kaunsi zaban aane wali hai. Text documents ka tarjuma alag service karti hai."
+  },
+  "D2-121": {
+    "q": "Ek driver dashboard ki warning light ki photo upload kar ke poochta hai ke is ka kya matlab hai. App jawab kaise hasil kare?",
+    "opts": [
+      "Sawal ko speech mein badle",
+      "Sawal ki embedding banaye",
+      "Photo aur sawal dono vision wale chat model ko ek saath bheje",
+      "Sawal par key phrase extraction chalaye"
+    ],
+    "exp": "Vision wala chat model ek hi request mein tasveer aur sawal dekh kar samjha sakta hai ke usay kya nazar aa raha hai. Speech synthesis sirf text parh kar sunata hai, embedding vector deta hai, aur key phrase extraction text ke mauzu batata hai; koi bhi photo nahi samajhta."
+  },
+  "D2-122": {
+    "q": "Woh Python code mukammal karein jo local photo ko vision wale chat model ke liye data URL banata hai.",
+    "exp": "Tasveer ke bytes base64.b64encode se encode ho kar string mein decode hote hain, aur data URL ka format data:<media type>;base64,<data> hai. b64decode encoding ulta deta aur hexlify base64 nahi balke hex banata. Data URL mein base64 likhna zaroori hai taake service jane ke data kaise parhna hai."
+  },
+  "D2-123": {
+    "q": "Aap ki app vision wale model ko bohat se chhote product thumbnails bhejti hai aur chahti hai ke har tasveer kam tokens istemal kare. Tasveer ki kaunsi setting badalni chahiye?",
+    "opts": [
+      "Temperature ko 0 karein",
+      "Max tokens barhayein",
+      "Stop sequence shamil karein",
+      "Image detail level ko low karein"
+    ],
+    "exp": "Image input ki detail setting control karti hai ke model usay kaise process kare: low detail kam aur muqarrar tokens leta hai, jab ke high detail tasveer ko zyada resolution par process karta aur mehnga parta hai. Temperature, max tokens aur stop sequences text output badalte hain, tasveer ke tokens nahi."
+  },
+  "D2-124": {
+    "q": "Microsoft Foundry mein tasveerein banane ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Image generation ke liye hamesha agent chahiye.",
+      "Zyada tafseeli prompt aam taur par aap ki chahat ke zyada qareeb nateeja deta hai.",
+      "gpt-image-1 bani hui tasveerein base64-encoded data ki soorat mein de sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: image-generation deployment ko code se seedha call ya image playground mein azmaya ja sakta hai. Doosre ka Haan: subject, style, mahaul aur tarteeb bayan karna model ki rahnumai karta hai. Teesre ka Haan: gpt-image-1 tasveerein base64 data ki soorat mein deta hai jise aap ki app decode kar ke save karti hai."
+  },
+  "D2-125": {
+    "q": "Design team aakhri versions se pehle gpt-image-1 se jaldi aur saste draft images chahti hai. Kaunsa parameter badalna chahiye?",
+    "opts": [null, "quality ko low karna", null, null],
+    "exp": "gpt-image-1 ka quality parameter, jis ki values low, medium aur high jaisi hain, tafseel ke badle raftar aur kharcha bachata hai, is liye low quality jaldi drafts ke liye munasib hai. temperature, top_p aur max_tokens text generation ki settings hain aur tasveer ki quality control nahi kartin."
+  },
+  "D2-126": {
+    "q": "Ek brand ko aisi marketing tasveerein chahiye jin mein us ke logo ka text bilkul sahi ho. Bani hui tasveeron mein kabhi kabhi spelling ghalat ho jati hai. Behtareen tareeqa kya hai?",
+    "opts": [
+      "Bane hue text par bharosa karein aur tasveerein seedhi shaya kar dein",
+      "Manzar banayein, usay review karein, aur asal logo alag editing ke qadam mein lagayein",
+      "Logo banane ke liye OCR istemal karein",
+      "Text theek karne ke liye speech synthesis istemal karein"
+    ],
+    "exp": "Bani hui tasveeron mein chhoti ghaltiyan, khaas taur par text mein, ho sakti hain, is liye outputs ka review hona chahiye aur logo jaise brand ke asal hisse editing ke qadam mein lagaye ya theek kiye jayein. Review ke baghair shaya karne mein ghaltiyon ka khatra hai, OCR sirf tasveeron ka text parhta hai, aur speech synthesis audio banata hai."
+  },
+  "D2-127": {
+    "q": "ImageAnalysisClient istemal karne ke liye kaunsa Python package install karte hain?",
+    "exp": "ImageAnalysisClient Image Analysis 4.0 ke azure-ai-vision-imageanalysis package mein hai. azure-ai-textanalytics Azure Language ke liye hai, azure-cognitiveservices-speech Speech SDK hai, aur azure-ai-projects Foundry project SDK hai."
+  },
+  "D2-128": {
+    "q": "Image Analysis ke nateeje ki har property ko us visual feature se milayein jo usay bharta hai. Har feature ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "exp": "caption property mein Caption feature ki ek jumlay wali tafseel hoti hai. read.blocks mein Read ki mili hui lines aur alfaz hote hain. objects.list pehchani hui cheezein bounding boxes ke saath deta hai, aur tags.list content ke keywords. Smart crops tajweez kiye hue crop hisson ke liye alag property bharta hai."
+  },
+  "D2-129": {
+    "q": "Key authentication wala ImageAnalysisClient banane ke liye aap kaunsi DO values dete hain? Har sahi jawab hal ka ek hissa hai.",
+    "opts": [
+      "Model deployment ka naam",
+      "Resource endpoint",
+      "Foundry project ka naam",
+      "Credential, jaise resource key ke saath AzureKeyCredential",
+      "Agent ka naam"
+    ],
+    "exp": "ImageAnalysisClient resource ke endpoint aur credential, jaise key ke saath AzureKeyCredential, ya Microsoft Entra credential se banta hai. Image Analysis model deployment, project ke naam ya agent ke naam se call nahi hota."
+  },
+  "D2-130": {
+    "q": "Aap chhoti Python app bana rahe hain jo tasveer ka caption aur tags print karti hai. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Endpoint aur credential ke saath ImageAnalysisClient banayein",
+      "Tasveer aur zaroori visual features ke saath analyze() call karein",
+      "Nateeje se caption aur tags print karein",
+      "azure-ai-vision-imageanalysis package install karein",
+      "Prompt se nayi tasveer banayein"
+    ],
+    "exp": "Package install karein, client banayein, tasveer aur CAPTION aur TAGS jaise features ke saath analyze() call karein, aur phir nateeje se caption aur tags parhein. Nayi tasveer banana alag kaam hai jis ki maujood tasveer ke jaize mein zaroorat nahi."
+  },
+  "D2-131": {
+    "q": "Azure Content Understanding mein prebuilt analyzer kya hai?",
+    "opts": [
+      "Documents process karne wala GPU",
+      "Aam scenario, jaise invoices, ke liye tayyar analyzer jise aap apna schema banaye baghair istemal kar sakte hain",
+      "Resource ka firewall rule",
+      "Scan ki hui files ke liye storage tier"
+    ],
+    "exp": "Prebuilt analyzers service aam scenarios, jaise invoices, receipts ya call analytics, ke liye deti hai, is liye aap foran kaar-aamad fields nikal sakte hain. Apne fields chahiye hon to custom analyzer banate hain. Prebuilt analyzer hardware, network rule ya storage setting nahi."
+  },
+  "D2-132": {
+    "q": "Azure Content Understanding kis kis qism ka input process kar sakta hai?",
+    "opts": ["Sirf PDF files", "Sirf saada text", "Sirf tasveerein", "Documents, tasveerein, audio aur video"],
+    "exp": "Content Understanding multimodal hai: woh documents, images, audio aur video process kar ke unhein Markdown aur fields jaisa structured output banata hai. Woh ek file type tak mehdood nahi, isi liye ek service forms, photos, call recordings aur video sambhal sakti hai."
+  },
+  "D2-133": {
+    "q": "Aap chahte hain ke Content Understanding lambi training video ke har scene ka alag jaiza le. Kaunsi capability istemal karni chahiye?",
+    "opts": ["Video ki segmentation mantiqi hisson mein", null, null, null],
+    "exp": "Segmentation content ko mantiqi hisson, jaise video ke scenes, mein torti hai, taake har hisse ke fields aur tafseelat banayi ja sakein. Speech synthesis audio banata hai, Prompt Shields prompt attacks pakarte hain, aur text translation text ki zaban badalta hai; koi bhi video ko scenes mein nahi torta."
+  },
+  "D2-134": {
+    "q": "Content Understanding se images ke jaize ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "extract method image fields ke liye istemal ho sakta hai.",
+      "Aap aisa image field tay kar sakte hain jis mein banayi hui tafseel ho.",
+      "classify method image field ko muqarrar categories mein se ek de sakta hai.",
+      "Content Understanding us Foundry model deployment ke guardrails lagu karta hai jo woh istemal karta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: extract, jo values ko jaisi hain waisi deta hai, sirf documents ke liye support hota hai. Doosre ka Haan: generate tafseel jaisi values banata hai. Teesre ka Haan: classify aap ki tay ki hui categories mein se chunta hai. Chauthe ka Haan: Content Understanding apni istemal ki hui model deployments ke guardrails apnata hai."
+  },
+  "D2-135": {
+    "q": "Ek automated claims process Content Understanding istemal karta hai. Field ko review ke liye insan ke paas kab bhejna chahiye?",
+    "opts": [
+      "Hamesha, har field ko",
+      "Kabhi nahi, kyunke nateeje hamesha sahi hote hain",
+      "Jab field ka confidence score aap ki chuni hui hadd se kam ho",
+      "Sirf jab file PDF ho"
+    ],
+    "exp": "0 se 1 ke confidence scores se aap zyada confidence wali values khud process kar sakte hain aur kam confidence wali values insani review mein bhej sakte hain, jis se quality bhi rehti hai aur haath ka kaam bhi kam hota hai. Har field review karne se automation ka faida khatam hota hai, nateeje hamesha sahi nahi hote, aur sirf file type se value ka bharosa pata nahi chalta."
+  },
+  "D2-136": {
+    "q": "Content Understanding ke output ke baare mein jumlay mukammal karein.",
+    "tpl": "Search aur RAG scenarios ke liye content ko {0} ki soorat mein istemal karein. Automation workflows ke liye {1} istemal karein.",
+    "exp": "Content Understanding content ko Markdown ki soorat mein deta hai, jise search aur retrieval ke liye index karna aasan hai, aur structured JSON fields deta hai jo aap ke schema par chalte hain aur jinhein code automated workflows mein istemal kar sakta hai. Woh audio files, tasveerein, videos ya macros nahi deta."
+  },
+  "D2-137": {
+    "q": "Analyzer ke har field ko us method se milayein jo usay istemal karna chahiye. Har method ek ya zyada baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "call_summary: record ki hui call ka chhota khulasa",
+      "sentiment: Positive, Neutral ya Negative",
+      "invoice_total: total bilkul usi tarah jaise PDF invoice par chhapa hai",
+      "main_topics: video mein zikr kiye gaye mauzu"
+    ],
+    "exp": "Khulasa aur mauzu ki list generate se bante hain, kyunke values content se banayi jati hain. Muqarrar values wala sentiment classify istemal karta hai. Document par chhapa total extract istemal karta hai, jo documents ke liye support hota hai. Translate Content Understanding ka field method nahi."
+  },
+  "D2-138": {
+    "q": "Custom Content Understanding analyzer kaunsi DO cheezein tay karta hai? Har sahi jawab hal ka ek hissa hai.",
+    "opts": [
+      "Virtual machine ka size",
+      "Field schema jo banaye jane wale fields ki list deta hai",
+      "DNS zone",
+      "Content extraction settings aur istemal hone wali model deployments",
+      "Input files ka storage tier"
+    ],
+    "exp": "Analyzer content extraction settings, naam, types, descriptions aur methods wala field schema, aur generation chalane wali model deployments ko jorta hai, aur unhein har input par ek jaisa lagu karta hai. Content Understanding managed service hai, is liye virtual machines, DNS zones aur storage tiers analyzer ka hissa nahi."
+  },
+  "D2-139": {
+    "q": "Ek app ko invoices, contracts aur receipts ka mila jula batch milta hai aur har qism se mukhtalif fields nikalne hain. Usay pehle kya karna chahiye?",
+    "opts": [
+      "Har document ko qism ke hisaab se classify kar ke us ke mutabiq analyzer ko bhejna",
+      "Ek aam OCR qadam chala kar ruk jana",
+      "Speech translation istemal karna",
+      "Har document ki nayi tasveer banana"
+    ],
+    "exp": "Content Understanding ki classification har document ki qism pehchan sakti hai, aur segmentation mili hui files ko tor sakti hai, taake har hissa us analyzer ko jaye jo sahi fields nikalta hai. Akela OCR zaroori fields ke baghair text deta hai, aur speech translation aur image generation is workflow mein kaam nahi aate."
+  },
+  "D2-140": {
+    "q": "Aap ki app file ke jaize ke liye Content Understanding REST API call karti hai. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Us URL ko tab tak poll karein jab tak status Succeeded na ho",
+      "Nateeje se analyzer ko fine-tune karein",
+      "Nateeje se content aur fields parhein",
+      "File analyzer ke analyze operation ko bhejein",
+      "Response se Operation-Location URL parhein"
+    ],
+    "exp": "App analyze operation call kar ke analysis shuru karti hai, lambe chalne wale kaam ke liye Operation-Location URL hasil karti hai, usay tab tak poll karti hai jab tak status Succeeded na ho, aur phir nateeje se content aur fields parhti hai. Fine-tuning nateeja parhne ka hissa nahi."
+  }
+}
