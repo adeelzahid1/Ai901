@@ -475,15 +475,15 @@
     "sub": "deploy-config",
     "diff": 2,
     "type": "mcq",
-    "q": "A European company must keep model processing inside the EU, but it wants higher throughput than a single-region deployment offers. Which deployment type should it choose?",
+    "q": "A European company must keep model processing inside the EU, but it wants a higher default quota than deployments limited to one Azure geography offer. Which deployment type should it choose?",
     "opts": [
       "Global Standard",
       "Data Zone Standard",
-      "Standard (regional)",
+      "Standard",
       "Global Batch"
     ],
     "ans": 1,
-    "exp": "Data Zone Standard routes requests across Azure regions inside a defined data zone, such as the EU, so processing stays in that geography while capacity is higher than a single region. Global Standard can process requests in any Azure region worldwide, which breaks the EU requirement. Standard is limited to one region and its quota. Global Batch is for asynchronous bulk jobs and is also global.",
+    "exp": "Data Zone Standard routes requests across datacenters inside a defined data zone, such as the EU, so processing stays in that zone while the default quota is higher than for geography-based types. Global Standard can process requests in any Azure region worldwide, which breaks the EU requirement. Standard keeps processing within one Azure geography, with a lower quota. Global Batch is for asynchronous bulk jobs and is also global.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {

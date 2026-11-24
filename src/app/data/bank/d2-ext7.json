@@ -129,7 +129,7 @@
   },
   {
     "id": "D2-236", "sub": "portal-deploy", "diff": 2, "type": "mcq",
-    "q": "The model you want is not offered for a regional deployment in your project's region. What should you do?",
+    "q": "The model you want is not offered as a Standard deployment in your project's region. What should you do?",
     "opts": [
       "Increase the temperature",
       "Rename the deployment",

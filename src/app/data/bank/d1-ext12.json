@@ -282,7 +282,7 @@
       "It returns results within a 24-hour batch window"
     ],
     "ans": [0, 3],
-    "exp": "Global Standard routes requests across Azure's worldwide capacity and charges per token used. It does not keep processing inside one country, which is what Data Zone or regional types address, reserved hourly capacity describes Provisioned, and the 24-hour window describes Global Batch.",
+    "exp": "Global Standard routes requests across Azure's worldwide capacity and charges per token used. It does not limit where processing happens, which is what Data Zone and geography-based types do, reserved hourly capacity describes Provisioned, and the 24-hour window describes Global Batch.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {

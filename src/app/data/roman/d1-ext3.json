@@ -70,7 +70,12 @@
   },
   "D1-110": {
     "q": "Ek contact center ke paas hazaron call recordings hain aur woh na-khush customers wali calls dhoondna chahta hai. Usay capabilities ka kaunsa jor chahiye?",
-    "opts": [null, null, null, "Speech to text, phir transcript ka sentiment analysis"],
+    "opts": [
+      null,
+      "Text to speech, phir OCR",
+      null,
+      "Speech to text, phir transcript ka sentiment analysis"
+    ],
     "exp": "Recordings audio hain, is liye pehle speech to text transcripts banata hai, phir sentiment analysis negative guftagu dhoondta hai. Image classification aur object detection tasveeron par kaam karte hain. Text to speech audio banata hai aur OCR tasveeron ka text parhta hai, is liye woh jor calls ka jaiza nahi le sakta."
   },
   "D1-111": {

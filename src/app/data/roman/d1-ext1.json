@@ -49,9 +49,9 @@
     "q": "Ek company record ki hui support calls se action items ke saath chhote notes chahti hai. AI capabilities ka kaunsa jor chahiye?",
     "opts": [
       "Calls likhne ke liye speech recognition, phir text ki summarization",
-      null,
-      null,
-      null
+      "Speech synthesis, phir image classification",
+      "OCR, phir sentiment analysis",
+      "Object detection, phir translation"
     ],
     "exp": "Calls audio hain, is liye pehle speech recognition unhein text banaye ga, phir summarization technique, jaise generative model ya summarization feature, notes aur action items banaye gi. Speech synthesis audio banata hai, parhta nahi, OCR tasveeron ka text parhta hai, aur object detection tasveeron mein cheezein dhoondta hai, is liye woh jor call ko notes nahi bana sakte."
   },

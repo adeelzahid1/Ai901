@@ -230,9 +230,9 @@
       "Asynchronous bulk jobs, 24 ghante ka target aur kam qeemat",
       "Musalsal traffic aur qabil-e-andaza latency ke liye reserved processing capacity",
       "Fi token adaigi, aur requests kisi bhi Azure region mein process ho sakti hain",
-      "Fi token adaigi, aur processing EU ya US data zone ke andar rehti hai"
+      "Fi token adaigi, aur processing data zone, jaise EU ya US, ke andar rehti hai"
     ],
-    "exp": "Global Batch bari asynchronous jobs ko 24 ghante ke target mein riayat par chalata hai. Provisioned deployments qabil-e-andaza karkardagi ke liye throughput reserve karti hain. Global Standard global routing ke saath pay-per-token hai. Data Zone Standard pay-per-token hai aur processing ko data zone, jaise EU, ke andar rakhta hai. Standard ek region wali pay-per-token deployment hai, jo yahan kisi tafseel se nahi milti."
+    "exp": "Global Batch bari asynchronous jobs ko 24 ghante ke target mein riayat par chalata hai. Provisioned deployments qabil-e-andaza karkardagi ke liye throughput reserve karti hain. Global Standard global routing ke saath pay-per-token hai. Data Zone Standard pay-per-token hai aur processing ko data zone, jaise EU, ke andar rakhta hai. Standard pay-per-token deployment hai jo processing ko ek Azure geography ke andar rakhti hai, jo yahan kisi tafseel se nahi milti."
   },
   "D1-099": {
     "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",

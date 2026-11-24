@@ -1,0 +1,250 @@
+{
+  "D1-248": {
+    "ctx": "Ek university ka admissions model dehati schools ke applicants ko kam potential wala rate karta hai. Training data mein bohat kam dehati students the.",
+    "q": "Team ko kya karna chahiye?",
+    "opts": [
+      "Dehati schools ka munasib data shamil karein aur groups ke darmiyan model ke nateeje compare karein",
+      "Model ke scores admissions staff se chupayein",
+      "Sirf model ka size barhayein",
+      "Dehati schools se applications lena band karein"
+    ],
+    "exp": "Model unfair hai kyunke training data mein ek group ki numaindagi kam hai. Munasib data shamil karna aur har group ke nateeje naapna wajah ko hal karta hai aur dikhata hai ke farq kam hua ya nahi. Scores chupana, model bara karna ya dehati applicants ko nikaalna bias theek nahi karta, aur dehati applicants ko nikaalna nuqsan barha deta hai."
+  },
+  "D1-249": {
+    "q": "Har misaal ko us nuqsan ki qism se milayein jo woh dikhati hai. Nuqsan ki har qism ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Loan model ek group ke utni hi qabliyat wale applicants ko kam approve karta hai",
+      "Speech app khaas accents wale bolne walon ke liye bohat zyada ghaltiyan karti hai",
+      "Chatbot doosre customer ke ghar ka pata bata deta hai"
+    ],
+    "targets": [null, null, null, "Transparency ka feature"],
+    "exp": "Allocation harm tab hota hai jab system mauqay ya wasail, jaise loan, na-insaafi se de ya rok le. Quality-of-service harm tab hota hai jab system ek group ke liye doosre se kharab kaam kare, jaise kuch accents ke liye zyada error rate. Kisi ka pata bata dena privacy breach hai. In mein se koi transparency ka feature nahi."
+  },
+  "D1-250": {
+    "q": "In mein se kya generative AI app mein safety ke iqdam ki misaal hai?",
+    "opts": [
+      "Company ka bara logo",
+      "Developer ka tez laptop",
+      "Content filters jo self-harm ki hidayaat block karte hain",
+      "Naya color theme"
+    ],
+    "exp": "Nuqsan deh content, jaise self-harm ki hidayaat, block karne se app ke nuqsan pohanchane ka khatra kam hota hai, jo reliability and safety ka hissa hai. Logo, laptop aur color theme se AI system ki safety nahi badalti."
+  },
+  "D1-251": {
+    "q": "Reliability and safety ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Jo system testing mein theek chale woh production mein hamesha usi tarah chalega.",
+      "Release ke baad AI system ko monitor karna reliability and safety ka hissa hai.",
+      "Fallback muqarrar karna, jaise user ko insan ke hawale karna, safety behtar karta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: asal users naye inputs laate hain, data waqt ke saath badalta hai aur models update hote hain, is liye rawaiya testing se mukhtalif ho sakta hai. Doosre ka Haan: monitoring release ke baad kharabiyan aur drift pakarti hai. Teesre ka Haan: jab system halaat na sambhal sake to mehfooz fallback nuqsan ko mehdood karta hai."
+  },
+  "D1-252": {
+    "ctx": "Ek HR chatbot tamam employee records par grounded hai. Koi bhi employee us se doosre employees ki tankhwah pooch kar jawab le sakta hai.",
+    "q": "Kaunsa principle khatre mein hai, aur kya karna chahiye?",
+    "opts": [
+      "Inclusiveness: mazeed zabanein shamil karein",
+      "Transparency: label lagayein ke jawab AI se aate hain",
+      "Fairness: model ko zyada data par dobara train karein",
+      "Privacy and security: har user ki ijazat ke mutabiq mehdood karein ke woh kaunsa data nikal sakta hai"
+    ],
+    "exp": "Doosron ki tankhwah zahir karna privacy and security ki nakami hai. Retrieval ko har user ki ijazat ka khayal rakhna chahiye taake chatbot sirf woh data istemal kare jo woh shakhs dekh sakta hai. Mazeed zabanein, AI labels ya dobara training khufia records ka leak nahi rokte."
+  },
+  "D1-253": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Chat logs save hone se pehle phone numbers chupana {0} ki hifazat karta hai. Users ko apne records dekhne se pehle sign in karwana {1} ka control hai.",
+    "exp": "Zaati data chupana logon ki privacy ki hifazat karta hai, aur rasai se pehle authentication security ka control hai. Dono privacy and security principle mein aate hain. Inclusiveness, transparency aur fairness doosri baaton ke liye hain: accessibility, samajh aur barabar sulook."
+  },
+  "D1-254": {
+    "q": "AI app mein kaunsa design intikhab inclusiveness ko sab se behtar support karta hai?",
+    "opts": [
+      "Maloomat sirf tasveeron mein dikhayein, text ke baghair",
+      "Keyboard navigation aur screen readers ko support karein",
+      "Users ko tezi se type karne par majboor karein",
+      "Sirf ek zaban support karein"
+    ],
+    "exp": "Keyboard navigation aur screen reader support se dekhne ya harkat ki dushwari wale log app istemal kar sakte hain, yahi inclusive design hai. Sirf tasveeron wala content na-beena users ko bahar kar deta hai, raftar ki shart harkat ki dushwari walon ko, aur ek zaban doosri zabanein bolne walon ko."
+  },
+  "D1-255": {
+    "q": "Kaunse DO amal voice assistant ko zyada inclusive banate hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Sirf ek accent support karna",
+      "Bolne ki dushwari wale logon ke saath assistant test karna",
+      "Jawabon se captions hatana",
+      "Voice input ke badle text ka raasta dena",
+      "Users ko tez bolne par majboor karna"
+    ],
+    "exp": "Bolne ki dushwari wale logon ke saath testing se rukawatein jaldi milti hain, aur text ka raasta un logon ko assistant istemal karne deta hai jo bol nahi sakte ya bolna nahi chahte. Ek accent support karna, captions hatana aur tez bolne par majboor karna, sab users ke groups ko bahar karte hain."
+  },
+  "D1-256": {
+    "ctx": "Ek recruiting tool job candidates ko rank karta hai. Reject hone wale candidates poochte hain ke un ki rank kam kyun thi, aur company nateeje samjha nahi sakti.",
+    "q": "Responsible AI ki is fikr ko hal karne ke liye company ko kya karna chahiye?",
+    "opts": [
+      "Logs se rankings hata dein",
+      "Har role ke liye candidates ki tadad barhayein",
+      "Har ranking ki asal wajoohat samjhayein aur likhein ke system kaise kaam karta hai aur us ki hudood kya hain",
+      "Nateeje wale page ka font badlein"
+    ],
+    "exp": "AI ke faislon se mutasir log unhein samajh sakein, yahi transparency hai. Rankings ki wajoohat samjhana aur system ka maqsad aur hudood likhna is ko hal karta hai, aur na-insaafi wale patterns pakarne mein bhi madad deta hai. Logs hatane se accountability kam hoti hai, aur candidates ki tadad ya font se kuch samajh nahi aata."
+  },
+  "D1-257": {
+    "q": "Transparency ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Transparency logon ko yeh tay karne mein madad karti hai ke AI system par kitna bharosa karein.",
+      "Yeh batana ke content AI ne banaya hai transparency ka tareeqa hai.",
+      "System ki hudood samjhana transparency ko kam karta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: system kaise kaam karta hai aur kahan fail ho sakta hai, yeh samajhne se log us par munasib bharosa karte hain. Doosre ka Haan: AI ke content par label logon ko batata hai ke woh kya dekh rahe hain. Teesre ka Nahi: hudood bayan karna transparency ka asal hissa hai, us ki kami nahi."
+  },
+  "D1-258": {
+    "q": "Microsoft mein kaunsa group company ki responsible AI policies banata aur un ki nigrani karta hai?",
+    "opts": [null, "Marketing team", "Har end user", "AI model khud"],
+    "exp": "Microsoft ka Office of Responsible AI company ke responsible AI usool aur governance tay karta hai, jo wazeh ownership ke zariye accountability ki misaal hai. Marketing teams, alag alag users aur models khud is ke zimmedar nahi ke AI kaise banaya aur deploy kiya jaye."
+  },
+  "D1-259": {
+    "q": "Har tareeqe ko us responsible AI principle se milayein jise woh sab se seedha support karta hai. Har principle ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Har AI system ke liye ek jawabdeh owner muqarrar karna",
+      "Har demographic group ke liye error rates naapna",
+      "Users ko samjhana ke system kaunsa data istemal karta hai",
+      "Mehfooz prompts aur responses ko encrypt karna"
+    ],
+    "exp": "Muqarrar aur jawabdeh owner accountability hai. Groups ke error rates compare karna fairness check karta hai. Users ko batana ke system kaunsa data istemal karta hai transparency hai. Mehfooz data encrypt karna privacy and security hai. Inclusiveness har salahiyat aur pas-manzar ke logon ke liye design karne ke baare mein hai, jo in mein se kisi tareeqe ka maqsad nahi."
+  },
+  "D1-260": {
+    "q": "Generative AI riwayati classification model se kaise mukhtalif hai?",
+    "opts": [
+      "Woh sirf hisaab kar sakta hai",
+      "Usay kabhi training data nahi chahiye",
+      "Woh sirf mobile phones par chalta hai",
+      "Woh sirf label lagane ke bajaye naya content, jaise text ya images, banata hai"
+    ],
+    "exp": "Classification model label predict karta hai, jaise spam hai ya nahi, jab ke generative model naya content banata hai, jaise likha hua jawab, code ya tasveer. Generative models bare datasets par train hote hain, hisaab tak mehdood nahi aur aam taur par cloud mein chalte hain."
+  },
+  "D1-261": {
+    "q": "Chat model ko ek hi prompt do baar bhejne par jawab mukhtalif kyun ho sakte hain?",
+    "opts": [
+      "Model requests ke darmiyan apni training bhool jata hai",
+      "Temperature 0 se zyada ho to tokens ka intikhab kuch randomness ke saath hota hai",
+      "Deployment har baar alag region mein chali jati hai",
+      "Har request ke baad quota reset hota hai"
+    ],
+    "exp": "Generation har agla token probability distribution se chunti hai, aur temperature 0 se zyada ho to us intikhab mein kuch randomness hoti hai, is liye har run mein alfaz badal sakte hain. Model apni training nahi bhoolta, deployments requests ke darmiyan nahi hiltin, aur quota content par asar nahi dalta."
+  },
+  "D1-262": {
+    "q": "Language models kaise kaam karte hain, is ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Language models matlab sirf keywords ke hu-ba-hu milne se samajhte hain.",
+      "Prompt mein hidayaat ki tarteeb aur alfaz jawab badal sakte hain.",
+      "Embeddings milte julte matlab wale text ko vector space mein qareeb rakhte hain."
+    ],
+    "exp": "Pehle ka jawab Nahi: models alfaz ke aapas ke taalluq aur context seekhte hain, is liye woh hu-ba-hu keywords par munhasir hone ke bajaye hum-maani alfaz aur badli hui jumla-bandi samajh lete hain. Doosre ka Haan: models is par hassas hote hain ke prompts kaise likhe aur tarteeb diye gaye hain. Teesre ka Haan: isi wajah se embeddings semantic search ke kaam aate hain."
+  },
+  "D1-263": {
+    "q": "Embeddings ke baare mein jumlay mukammal karein.",
+    "tpl": "'dog' aur 'puppy' ke embedding vectors, 'dog' aur 'invoice' ke vectors ke muqable mein, ek doosre se {0} hote hain. Do vectors ko compare karne ka aam tareeqa {1} hai.",
+    "blanks": [["zyada door", "bilkul barabar faasle par", "zyada qareeb"], null],
+    "exp": "Mutalliqa matlab wale alfaz, jaise dog aur puppy, ke vectors milti simt mein hote hain, is liye woh ghair mutalliqa alfaz se zyada qareeb hote hain. Cosine similarity naapta hai ke do vectors kitni ek hi simt mein hain. Temperature aur top P generation ki settings hain, mushabihat naapne ke tareeqay nahi."
+  },
+  "D1-264": {
+    "q": "Solution design karte waqt generative models ki kaunsi DO hudood ka khayal rakhna chahiye? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Woh hamesha apne sources cite karte hain",
+      "Woh ghalat maloomat pur-aetemad andaz mein de sakte hain",
+      "Unhein kabhi monitoring nahi chahiye",
+      "Un ki andruni maloomat training cutoff par khatam ho jati hai",
+      "Woh code nahi likh sakte"
+    ],
+    "exp": "Models hallucinate kar sakte hain, aur training cutoff ke baad ka kuch nahi jante, is liye solutions ko grounding, review aur taaza data chahiye. Models sources cite nahi karte jab tak solution unhein na de, unhein kisi bhi system ki tarah monitoring chahiye, aur bohat se models code acha likhte hain."
+  },
+  "D1-265": {
+    "ctx": "Ek model se un regulations ka khulasa karne ko kaha gaya jo 2026 mein badli thin, lekin woh purane usool bayan karta hai.",
+    "q": "Sab se mumkina wajah aur behtareen hal kya hai?",
+    "opts": [
+      "Temperature bohat kam hai; usay barhayein",
+      "Deployment ka naam ghalat hai; usay badlein",
+      "Model ka training data tabdeeli se pehle khatam hota hai; prompt ko maujooda regulation documents se ground karein",
+      "Quota bohat zyada hai; usay kam karein"
+    ],
+    "exp": "Model sirf wahi janta hai jo us ke training data mein tha, is liye cutoff ke baad ki tabdeeliyan usay maloom nahi. Prompt mein maujooda documents dena, maslan retrieval ke zariye, khulase ko taaza content par mabni karta hai. Temperature, deployment ke naam aur quota model ko nayi maloomat nahi dete."
+  },
+  "D1-266": {
+    "q": "Aap ko das lakh chhote support tickets kam se kam kharche mein paanch aasan categories mein baantne hain. Kaunsa model sab se munasib hai?",
+    "opts": [
+      "Chhota, sasta model, jaise mini ya nano variant",
+      "Sab se bara available reasoning model",
+      "Image-generation model",
+      "Speech-synthesis model"
+    ],
+    "exp": "Zyada tadad mein aasan classification ke liye chhota model munasib hai, jo tez aur fi token sasta hota hai aur wazeh categories ke liye kaafi sahi bhi. Bara reasoning model aisa kharcha aur latency barhata hai jo is kaam ko nahi chahiye, aur image ya speech models text tickets classify nahi kar sakte."
+  },
+  "D1-267": {
+    "q": "Ek law firm ko aisa chat model chahiye jo Arabic aur Japanese mein sawalon ke jawab de. Model ki kaunsi khoobi sab se pehle check karni chahiye?",
+    "opts": [
+      "Us ke logo ka rang",
+      "Us ke release ka maheena",
+      "Pichle hafte kitni baar download hua",
+      "Woh Arabic aur Japanese ko kitni achi tarah support karta hai"
+    ],
+    "exp": "Zaban ka support aur quality models ke darmiyan mukhtalif hoti hai, is liye model card dekhein aur Arabic aur Japanese prompts se test karein. Logo, release ka maheena ya downloads yeh nahi batate ke model woh zabanein achi tarah sambhalta hai ya nahi."
+  },
+  "D1-268": {
+    "q": "Deployment types ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Global Batch live users ke saath interactive chat ke liye bana hai.",
+      "Data Zone deployments processing ko ek geographic zone, jaise EU, ke andar rakhti hain.",
+      "Standard deployments processing ko deployment ke region wali Azure geography ke andar rakhti hain."
+    ],
+    "exp": "Pehle ka jawab Nahi: Global Batch asynchronous hai aur us ka target 24 ghante tak hai, is liye woh live chat ke nahi balke bulk jobs ke liye munasib hai. Doosre ka Haan: Data Zone types processing ko EU ya US jaise zone ke andar rakhti hain. Teesre ka Haan: Standard geography par mabni type hai, is liye prompts aur responses usi Azure geography mein process hote hain."
+  },
+  "D1-269": {
+    "q": "Har zaroorat ko us qism ke model se milayein jo us ke liye sab se munasib hai. Model ki har qism ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Search box ke liye documents ko matlab ke hisaab se rank karna",
+      "Tax ke mushkil, kai qadam wale sawal ka sahi jawab dena",
+      "Aasan FAQ sawalon ka kam latency ke saath jawab dena",
+      "Photo mein kya hai yeh bayan karna"
+    ],
+    "targets": ["Chhota chat model", null, null, null, null],
+    "exp": "Semantic ranking embeddings istemal karti hai, mushkil kai qadam wale masail mein reasoning model faida deta hai, aasan aur tez jawabon ke liye chhota chat model munasib hai, aur photos bayan karne ke liye multimodal model chahiye. Text-to-speech model audio banata hai aur in mein se kisi zaroorat par nahi aata."
+  },
+  "D1-270": {
+    "q": "Ek model ki context window 128,000 tokens hai. Aap ka prompt pehle hi 126,000 tokens istemal karta hai, aur aap 4,000 tak output tokens maangte hain. Kya hota hai?",
+    "opts": [
+      "Request fail hoti hai, kyunke prompt aur maanga hua output mil kar context window se barh jate hain",
+      "Model khud mazeed context jor leta hai",
+      "Request ke hisaab se quota barh jata hai",
+      "Output tokens muft hote hain"
+    ],
+    "exp": "Context window input aur output dono ko mila kar hoti hai, is liye 126,000 aur 4,000 tokens mil kar 128,000 ki hadd se zyada hain aur service request reject karti hai. Aap ko chhota prompt, kam output tokens ya bari window wala model chahiye. Context khud nahi barhta, quota ka is se taalluq nahi, aur output tokens ka bill aata hai."
+  },
+  "D1-271": {
+    "q": "Request parameters ke baare mein jumlay mukammal karein.",
+    "tpl": "Model END jaise nishan par pohanch kar ruk jaye, is ke liye {0} istemal karein. Lambe jawab dene ke liye {1} barhayein.",
+    "exp": "Stop sequence muqarrar string par generation khatam karta hai. Max tokens jawab ki lambai ki upri hadd set karta hai, is liye usay barhane se lambe jawab milte hain. Seed output ko qabil-e-dohrai banane par asar dalta hai, temperature aur top P randomness par, aur frequency penalty takrar kam karta hai."
+  },
+  "D1-272": {
+    "q": "Kaunsi DO cheezein request parameters hain jo app har call par set karti hai, na ke deployment ki settings? Har sahi jawab mukammal hal hai.",
+    "exp": "Temperature aur maximum output tokens har request ke saath jate hain aur har call mein mukhtalif ho sakte hain. Deployment type, tokens-per-minute quota aur content filter configuration deployment par set hote hain aur us ki tamam requests par lagu hote hain."
+  },
+  "D1-273": {
+    "q": "top P ko 0.1 set karne se kya hota hai?",
+    "opts": [
+      "Jawab 10% chhota ho jata hai",
+      "10% requests filter ho jati hain",
+      "Intikhab un sab se mumkina tokens tak mehdood ho jata hai jin ki mila kar probability 10% banti hai",
+      "Available GPUs ka 10% istemal hota hai"
+    ],
+    "exp": "Top P, yaani nucleus sampling, sirf sab se mumkina tokens ka woh sab se chhota set dekhta hai jin ki mila kar probability di gayi value, yahan 10%, tak pohanche, is liye output zyada markooz hota hai. Woh lambai nahi badalta, requests filter nahi karta aur hardware control nahi karta."
+  },
+  "D1-274": {
+    "q": "Aap ne Microsoft Foundry mein model fine-tune kiya. Aap ki apps ke us model ko istemal karne se pehle kya hona zaroori hai?",
+    "opts": [
+      "Kuch nahi; woh apps ko khud dastiyab ho jata hai",
+      "Base model delete karna",
+      "Resource ko doosre region mein le jana",
+      "Fine-tuned model ko deploy karna"
+    ],
+    "exp": "Fine-tuning job naya custom model banati hai, jise phir aap deploy karte hain taake apps usay deployment ke naam se call karein. Woh khud live nahi hota, base model delete nahi hota, aur region badalna is amal ka hissa nahi."
+  }
+}

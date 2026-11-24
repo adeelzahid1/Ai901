@@ -187,8 +187,8 @@
     "exp": "Maximum response tokens setting yeh hadd lagati hai ke model kitne tokens bana sakta hai. Hadd aane par output ruk jata hai, chahe jumla adhoora ho, aur finish reason length aata hai. Temperature aur top P tokens chunne ka tareeqa badalte hain, aur frequency penalty dohraye hue alfaz kam karta hai; in mein se koi jawab ko beech mein nahi kaatta."
   },
   "D1-027": {
-    "q": "Ek European company ko model ki processing EU ke andar rakhni hai, lekin usay single-region deployment se zyada throughput chahiye. Kaunsi deployment type chunni chahiye?",
-    "exp": "Data Zone Standard requests ko ek muqarrar data zone, jaise EU, ke andar ke Azure regions mein bhejta hai, is liye processing usi ilaqay mein rehti hai aur capacity ek region se zyada hoti hai. Global Standard duniya ke kisi bhi Azure region mein requests process kar sakta hai, jo EU ki shart torta hai. Standard ek region aur us ke quota tak mehdood hai. Global Batch asynchronous bulk jobs ke liye hai aur woh bhi global hai."
+    "q": "Ek European company ko model ki processing EU ke andar rakhni hai, lekin usay un deployments se zyada default quota chahiye jo ek Azure geography tak mehdood hoti hain. Kaunsi deployment type chunni chahiye?",
+    "exp": "Data Zone Standard requests ko ek muqarrar data zone, jaise EU, ke andar ke datacenters mein bhejta hai, is liye processing usi zone mein rehti hai aur default quota geography par mabni types se zyada hota hai. Global Standard duniya ke kisi bhi Azure region mein requests process kar sakta hai, jo EU ki shart torta hai. Standard processing ko ek Azure geography ke andar rakhta hai, kam quota ke saath. Global Batch asynchronous bulk jobs ke liye hai aur woh bhi global hai."
   },
   "D1-028": {
     "q": "Har raat aap ko 100,000 documents ka khulasa banana hai. Nateeje agle din tak nahi chahiye, aur kharcha kam se kam hona chahiye. Kaunsi deployment type sab se munasib hai?",

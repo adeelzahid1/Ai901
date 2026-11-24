@@ -252,10 +252,10 @@
     "stmts": [
       "Global Batch is designed for interactive chat with live users.",
       "Data Zone deployments keep processing within a geographic zone, such as the EU.",
-      "Standard (regional) deployments process requests in a single Azure region."
+      "Standard deployments keep processing within the Azure geography of the deployment's region."
     ],
     "ans": [false, true, true],
-    "exp": "No for the first: Global Batch is asynchronous with a target turnaround of up to 24 hours, so it suits bulk jobs, not live chat. Yes for the second: Data Zone types keep processing inside a zone such as the EU or US. Yes for the third: Standard deployments are regional.",
+    "exp": "No for the first: Global Batch is asynchronous with a target turnaround of up to 24 hours, so it suits bulk jobs, not live chat. Yes for the second: Data Zone types keep processing inside a zone such as the EU or US. Yes for the third: Standard is a geography-based type, so prompts and responses are processed within that Azure geography.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {

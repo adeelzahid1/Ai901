@@ -325,11 +325,11 @@
       "Asynchronous bulk jobs with a 24-hour target turnaround at a lower price",
       "Reserved processing capacity for steady traffic and predictable latency",
       "Pay per token, and requests can be processed in any Azure region",
-      "Pay per token, and processing stays inside the EU or US data zone"
+      "Pay per token, and processing stays inside a data zone, such as the EU or US"
     ],
     "targets": ["Standard", "Global Standard", "Data Zone Standard", "Provisioned", "Global Batch"],
     "ans": [4, 3, 1, 2],
-    "exp": "Global Batch runs large asynchronous jobs within a 24-hour target at a discount. Provisioned deployments reserve throughput for predictable performance. Global Standard is pay-per-token with global routing. Data Zone Standard is pay-per-token while keeping processing inside a data zone such as the EU. Standard is a single-region pay-per-token deployment, which does not match any description here.",
+    "exp": "Global Batch runs large asynchronous jobs within a 24-hour target at a discount. Provisioned deployments reserve throughput for predictable performance. Global Standard is pay-per-token with global routing. Data Zone Standard is pay-per-token while keeping processing inside a data zone such as the EU. Standard is a pay-per-token deployment that keeps processing within one Azure geography, which does not match any description here.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
   },
   {
