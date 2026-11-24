@@ -5,7 +5,7 @@
   },
   "D2-171": {
     "q": "Ek agent ko woh tools istemal karne hain jo partner remote Model Context Protocol (MCP) server ke zariye deta hai. Agent mein kaunsa tool shamil karna chahiye?",
-    "opts": [null, null, "MCP tool", null],
+    "opts": [null, null, "MCP tool", "Speech SDK"],
     "exp": "MCP tool agent ko remote Model Context Protocol server se jorta hai taake agent server ke diye hue tools dhoond kar call kar sake, zaroorat ho to har call se pehle manzoori ke saath. Code interpreter Python chalata hai, file search upload ki hui files mein talash karta hai, aur Speech SDK speech apps ke liye hai, agent tools ke liye nahi."
   },
   "D2-172": {

@@ -91,7 +91,7 @@
   },
   "D2-235": {
     "q": "Microsoft Foundry mein models deploy karne se pehle Azure mein kya maujood hona chahiye?",
-    "opts": [null, "Project wala Microsoft Foundry resource", null, null],
+    "opts": ["SQL Server", "Project wala Microsoft Foundry resource", "VPN gateway", "CDN profile"],
     "exp": "Model deployments Microsoft Foundry resource mein hoti hain, aur aap us resource ke project ke zariye un par kaam karte hain. SQL Server, VPN gateway ya CDN profile solution ke doosre hisson mein istemal ho sakte hain lekin model deploy karne ke liye zaroori nahi."
   },
   "D2-236": {
@@ -148,7 +148,12 @@
   },
   "D2-242": {
     "q": "Aap kahan dekh sakte hain ke pichle hafte deployment ne kitne tokens process kiye?",
-    "opts": [null, null, null, "Azure Monitor ya Foundry portal mein deployment ke usage metrics"],
+    "opts": [
+      "Model card",
+      "System message",
+      "SDK ke release notes",
+      "Azure Monitor ya Foundry portal mein deployment ke usage metrics"
+    ],
     "exp": "Usage metrics, jaise process kiye hue prompt tokens aur bane hue tokens, deployments ke liye jama hote hain aur Azure Monitor aur Foundry ke monitoring views mein dikhte hain. Model card model ko bayan karta hai, system message requests ka hissa hai, aur release notes SDK ki tabdeeliyan batate hain."
   },
   "D2-243": {
@@ -213,7 +218,12 @@
   },
   "D2-250": {
     "q": "Maujooda Foundry SDK quickstart deploy kiye hue model ko prompt bhejne ke liye kaunsa API istemal karta hai?",
-    "opts": [null, null, "Responses API, openai.responses.create() ke zariye", "Sirf purana Completions API"],
+    "opts": [
+      "Speech SDK",
+      "Language API",
+      "Responses API, openai.responses.create() ke zariye",
+      "Sirf purana Completions API"
+    ],
     "exp": "Quickstart project se OpenAI-compatible client leta hai aur model aur input ke saath responses.create() call karta hai, phir output_text parhta hai. Speech SDK aur Language API alag services hain, aur quickstart purana Completions API istemal nahi karta."
   },
   "D2-251": {

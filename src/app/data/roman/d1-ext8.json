@@ -98,7 +98,7 @@
   },
   "D1-258": {
     "q": "Microsoft mein kaunsa group company ki responsible AI policies banata aur un ki nigrani karta hai?",
-    "opts": [null, "Marketing team", "Har end user", "AI model khud"],
+    "opts": ["Office of Responsible AI", "Marketing team", "Har end user", "AI model khud"],
     "exp": "Microsoft ka Office of Responsible AI company ke responsible AI usool aur governance tay karta hai, jo wazeh ownership ke zariye accountability ki misaal hai. Marketing teams, alag alag users aur models khud is ke zimmedar nahi ke AI kaise banaya aur deploy kiya jaye."
   },
   "D1-259": {

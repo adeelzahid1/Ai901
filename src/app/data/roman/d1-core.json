@@ -149,7 +149,12 @@
   },
   "D1-021": {
     "q": "Aap ko customers ke sawalon ka matlab hazaron help articles se compare karna hai taake sab se milta julta article mile. Kis qism ka model istemal karna chahiye?",
-    "opts": [null, null, "Embedding model, jaise text-embedding-3-small", null],
+    "opts": [
+      "Image-generation model",
+      "Chat completion model",
+      "Embedding model, jaise text-embedding-3-small",
+      "Speech-to-text model"
+    ],
     "exp": "Embedding model text ko vectors mein badalta hai, aur milte julte matlab wale text ke vectors qareeb hote hain, is liye aap sawal aur har article ki mushabihat naap sakte hain. Chat completion model jawab banata hai lekin muqable ke qabil vectors banane ke liye nahi bana. Image-generation models tasveerein banate hain, aur speech-to-text models audio ko likhte hain, is liye dono text ka matlab compare karne mein madad nahi karte."
   },
   "D1-022": {

@@ -62,7 +62,7 @@
   },
   "D2-347": {
     "q": "Foundry quickstart Python client mein project par authenticate karne ke liye kaunsi credential class istemal karta hai?",
-    "opts": [null, "Saada password string", "Anonymous rasai", null],
+    "opts": [null, "Saada password string", "Anonymous rasai", "Storage ka SAS token"],
     "exp": "Quickstart azure-identity ka DefaultAzureCredential istemal karta hai, jo development mein aap ka az login session aur Azure mein managed identity pakar leta hai. Code mein passwords, anonymous rasai aur storage SAS tokens Foundry project par authenticate karne ke liye istemal nahi hote."
   },
   "D2-348": {

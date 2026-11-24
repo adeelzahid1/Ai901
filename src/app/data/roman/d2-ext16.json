@@ -1,0 +1,252 @@
+{
+  "D2-482": {
+    "q": "Kya cheez chat model ko tamam conversations mein yaksan lehje mein jawab dene mein madad deti hai?",
+    "opts": [
+      "Deployment ka quota barhana",
+      "System message mein lehja bayan karna",
+      "Deployment ka naam zyada lamba rakhna",
+      "Azure region badalna"
+    ],
+    "exp": "System message har conversation par lagu hota hai, is liye wahan lehja, jaise dostana aur professional, bayan karne se jawab yaksan rehte hain. Quota, deployment ke naam aur regions model ke likhne ke andaz par asar nahi dalte."
+  },
+  "D2-483": {
+    "ctx": "Recipes ka ek assistant kabhi kabhi aise ajza tajweez karta hai jin se users ne allergy batayi hoti hai.",
+    "q": "Prompt ki kaunsi tabdeeli isay sab se seedhe tareeqay se hal karti hai?",
+    "opts": [
+      "Sirf temperature kam karna",
+      "Maximum output tokens barhana",
+      "Request se user ka message hatana",
+      "System mein ye usool shamil karna ke user ki batayi hui allergies ka hamesha khayal rakhe, aur yaqeen na ho to allergies ke baare mein poochhe"
+    ],
+    "exp": "System message mein wazeh usool allergies ke khayal ko har jawab ka hissa banata hai aur model se kehta hai ke maloomat na ho to poochhe, jis se hifazat ka asli khatra kam hota hai. Temperature aur output ki lambai ye usool lagu nahi karte, aur user ka message hatane se allergy ki maloomat hi kho jayegi."
+  },
+  "D2-484": {
+    "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Prompt model ko bata sakta hai ke yaqeen na hone par kya kare.",
+      "Achhe prompt ko asal kaam mubham rakhna chahiye.",
+      "Parhne wale batane se jawabon ki mushkil ka darja badal sakta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: maslan model se kehna ke wazahat ka sawal poochhe ya kahe ke usay nahi pata. Doosre ka Nahi: wazeh kaam prompt ke sab se ahem hisson mein se hai. Teesre ka Haan: bachon ke liye aur mahireen ke liye likhne se bohat mukhtalif jawab milte hain."
+  },
+  "D2-485": {
+    "q": "Prompt ke har hisse ko us ki misaal se milayein. Har misaal ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": ["Kaam (task)", "Context", "Output ka format", "Pabandi (constraint)"],
+    "targets": [
+      "'Teen bullet points istemal karo.'",
+      "'chat-prod deployment istemal karo.'",
+      "'Product ka elaan likho.'",
+      "'Qeematon ka zikr mat karo.'",
+      "'Hamare naye phone ki battery 48 ghante chalti hai.'"
+    ],
+    "exp": "Task batata hai ke kya banana hai, context istemal hone wale facts deta hai, output format jawab ki shakal bayan karta hai, aur constraint batata hai ke kis se bachna hai. Deployment ka naam code ki setting hai, prompt ka hissa nahi."
+  },
+  "D2-486": {
+    "q": "Prompt ki hidayaat ke baare mein jumlay mukammal karein.",
+    "tpl": "Model se 'Tum ek senior accountant ho' kehna usay {0} deta hai. 'Jawab 100 alfaaz se kam mein do' kehna {1} tay karta hai.",
+    "blanks": [null, ["lambai ki had", null, null]],
+    "exp": "Ye batana ke assistant kaun hai usay persona deta hai jo maharat aur lehja tay karta hai, aur alfaaz ki had jawab ki lambai tay karti hai. Quota, region, deployment type aur data zone deployment ki settings hain jo prompts nahi badal sakte."
+  },
+  "D2-487": {
+    "q": "Kaunsi DO techniques model ko kai hisson wali pecheeda request sambhalne mein madad deti hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Har hidayat ko baghair punctuation ek lambe jumlay mein likhna",
+      "Request ko number wale qadmon mein torna",
+      "Sara context hatana",
+      "Model se kehna ke aakhri jawab dene se pehle qadam ba qadam hal kare",
+      "Temperature ko maximum tak barhana"
+    ],
+    "exp": "Number wale qadam request ke har hisse ko wazeh karte hain, aur qadam ba qadam kaam karwane se kai hisson wale masail mein accuracy behtar hoti hai. Baghair waqfe ki lambi hidayaat, context ki kami aur maximum temperature, ye sab model ke liye sahi jawab dena mushkil banate hain."
+  },
+  "D2-488": {
+    "q": "System message mein 'Agar sawal hamare products ke baare mein na ho to adab se kaho ke tum sirf products ke sawalon mein madad kar sakte ho' kyun shamil karein?",
+    "opts": [
+      "Ye assistant ko mauzu par rakhta hai aur batata hai ke baqi sawalon ke saath kya kare",
+      "Is se jawab zyada tez hote hain",
+      "Is se fi token qeemat kam hoti hai",
+      "Is se model ka version badal jata hai"
+    ],
+    "exp": "Daira tay karne wale usool assistant ko us ke maqsad par rakhte hain aur baqi sawalon ke liye adab wala jawab tay karte hain, jis se bharosa barhta aur ghalat istemal kam hota hai. Aise usool raftaar, qeemat ya model ka version nahi badalte."
+  },
+  "D2-489": {
+    "q": "Aap aisa few-shot prompt bana rahe hain jo support tickets ko classify kare. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Classify hone wala naya ticket shamil karein",
+      "Deployment ka region badlein",
+      "Classification ka kaam aur labels bayan karne wali hidayat likhein",
+      "Response mein label check karein",
+      "Label lage hue chand misaali tickets shamil karein"
+    ],
+    "exp": "Prompt hidayat aur ijazat wale labels se shuru hota hai, phir label lagi misaalein dikhata hai, phir naya ticket shamil karta hai, aur aakhir mein app label parhti hai. Deployment ke region ka prompt banane par asar nahi."
+  },
+  "D2-490": {
+    "q": "Ek few-shot sentiment prompt mein teen misaalein hain, aur teenon Positive label wale positive reviews hain. Model negative reviews ko ghalat label deta hai. Kya badalna chahiye?",
+    "opts": [
+      "Sirf positive reviews ki mazeed misaalein shamil karna",
+      "Har label ke liye mutawazan misaalein shamil karna",
+      "Hidayat hatana",
+      "Maximum output tokens barhana"
+    ],
+    "exp": "Misaalein pattern sikhati hain, is liye woh har us label ki honi chahiye jo model ko dena hai; sirf Positive dikhane se model usi label ki taraf jhuk jata hai. Mazeed ek tarafa misaalein masla barhati hain, hidayat hatane se rahnumai khatam hoti hai, aur output ki lambai ka taalluq nahi."
+  },
+  "D2-491": {
+    "q": "Model dobara deploy kiye baghair Foundry ke chat playground mein kya badal sakte hain?",
+    "opts": [
+      "System message aur request parameters",
+      "Model ka training data",
+      "Resource ka Azure region",
+      "Subscription"
+    ],
+    "exp": "Playground mein aap system message aur temperature jaise parameters badal kar foran azma sakte hain. Training data model provider ki taraf se tay hai, aur region aur subscription resource ka hissa hain, playground session ka nahi."
+  },
+  "D2-492": {
+    "q": "Ek chatbot deployment ko aise prompts block karne hain jo model ko jailbreak karne ki koshish karein. Kya configure karna chahiye?",
+    "opts": [
+      "Zyada temperature",
+      "Deployment ka alag naam",
+      "Kam quota",
+      "Deployment ki content filter configuration mein user prompt attacks ke liye Prompt Shields"
+    ],
+    "exp": "Prompt Shields user prompt attacks, jinhein jailbreaks bhi kehte hain, pehchante hain aur deployment par lagi content filtering ke hisse ke taur par unhein block kar sakte hain. Temperature, naam aur quota hamle na pehchante na rokte hain."
+  },
+  "D2-493": {
+    "q": "Microsoft Foundry mein evaluations ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Aap test dataset se deploy kiye hue model ke outputs evaluate kar sakte hain.",
+      "Evaluation ke nateeje zyada khatre wale scenarios mein insani review ki zaroorat khatam kar dete hain.",
+      "Evaluators quality ke saath saath safety ke khatre bhi nap sakte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: evaluations dataset ke inputs chala kar outputs ko score karti hain. Doosre ka Nahi: khudkar scores madad dete hain lekin jahan faislon ka sangeen asar ho wahan insani nigrani ki jagah nahi lete. Teesre ka Haan: quality evaluators bhi hain aur risk aur safety evaluators bhi."
+  },
+  "D2-494": {
+    "q": "Har evaluator ko us cheez se milayein jo woh napta hai. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "targets": [
+      "Jawab sawal ka jawab deta hai ya nahi",
+      "Response mein kitna waqt laga",
+      "Jawab mantiqi aur achhi tarteeb mein hai ya nahi",
+      "Jawab mein logon ke groups ke baare mein nuqsan deh content hai ya nahi",
+      "Jawab ko source context se taaeed milti hai ya nahi"
+    ],
+    "exp": "Coherence mantiqi rawani check karta hai, groundedness diye gaye context mein taaeed check karta hai, relevance dekhta hai ke sawal ka jawab mila ya nahi, aur hate and unfairness risk aur safety evaluator hai. Response ka waqt performance metric hai, in evaluators mein se nahi."
+  },
+  "D2-495": {
+    "q": "Deployment sambhalne ke baare mein jumlay mukammal karein.",
+    "tpl": "Deployment ko zyada throughput dene ke liye us ki {0} allocation barhayein. Kaunsa nuqsan deh content block ho, ye badalne ke liye us ka {1} edit karein.",
+    "exp": "Throughput tokens-per-minute allocation se tay hoti hai, aur block karne ke usool deployment par lagi content filter configuration se aate hain. Context window model ki had hai, temperature request ki setting hai, aur system message aur region filtering ki hadein tay nahi karte."
+  },
+  "D2-496": {
+    "q": "Foundry portal mein model deployment ki kaunsi DO tafseelaat dekh sakte hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Model ka naam aur version",
+      "Model ke training data ki files",
+      "Model ka source code",
+      "Deployment type",
+      "Doosre customers ke prompts"
+    ],
+    "exp": "Deployment ki tafseelaat mein hota hai ke woh kaunsa model aur version chalati hai aur us ka deployment type, quota jaisi settings ke saath. Training data aur source code model provider ke hain, aur doosre customers ke prompts aap ko kabhi nazar nahi aate."
+  },
+  "D2-497": {
+    "q": "Ek team ek hi model ki do deployments banati hai: ek production ke liye sakht content filter ke saath aur ek andruni testing ke liye. Ye achha tareeqa kyun hai?",
+    "opts": [
+      "Kyunke model har resource mein sirf ek baar deploy ho sakta hai",
+      "Taake har environment ka apna quota, content filter aur version ki settings hon aur doosre par asar na pare",
+      "Model ki accuracy kam karne ke liye",
+      "Teams ke darmiyan API keys share karne ke liye"
+    ],
+    "exp": "Alag deployments se har environment ko alag configure aur badla ja sakta hai, is liye nayi settings test karne se production par asar nahi parta. Model kai baar deploy ho sakta hai, alag deployments accuracy nahi badaltin, aur keys share karna maqsad nahi."
+  },
+  "D2-498": {
+    "q": "Ek deployment bohat si 429 errors de rahi hai. Masla hal karne ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Allocation barhayein ya traffic taqseem karein",
+      "Foundry project delete karein",
+      "Deployment ke request aur token metrics check karein",
+      "Tasdeeq karein ke errors ruk gayi hain",
+      "Istemal ka tokens-per-minute allocation se muqabla karein"
+    ],
+    "exp": "Pehle metrics dekhein, phir istemal ka allocation se muqabla kar ke rate limit ke masle ki tasdeeq karein, phir allocation barhayein ya traffic taqseem karein, aur aakhir mein hal ki tasdeeq karein. Project delete karne se sab kuch khatam ho jata hai aur koi masla hal nahi hota."
+  },
+  "D2-499": {
+    "q": "Model ke liye deployment type, jaise Global Standard, kab chunte hain?",
+    "opts": [
+      "System message mein",
+      "Jab aap deployment banate hain",
+      "Chat ke input box mein",
+      "Azure Advisor mein"
+    ],
+    "exp": "Deployment type us waqt chuna jata hai jab aap catalog se model deploy karte hain, deployment ke naam aur doosri settings ke saath. Messages aur chat input model ko bheje jate hain, aur Azure Advisor sirf tajaweez deta hai."
+  },
+  "D2-500": {
+    "q": "AIProjectClient ka kaunsa operation aap ke project ki model deployments ki list deta hai?",
+    "exp": "Project client ke deployments operations, jaise list(), project ki deployments dete hain, jis se app deployment ke naam check kar ya chun sakti hai. Images banana, speech recognizer banana aur agent ka version delete karna deployments ki list nahi dete."
+  },
+  "D2-501": {
+    "q": "Ek chhoti chat app ko sirf ek mukhtasar FAQ text file se jawab dene hain. Saada aur sahi tareeqa kya hai?",
+    "opts": [
+      "Har sawal ke liye naya model fine-tune karna",
+      "Request mein FAQ ka text, ya mutalliqa hisse, is hidayat ke saath shamil karna ke sirf usi se jawab de",
+      "Temperature barhana",
+      "Deployment ko doosre region mein le jana"
+    ],
+    "exp": "Mukhtasar FAQ ke liye us ka text hidayaat ya prompt mein shamil karne se model grounded ho jata hai, aur wazeh usool jawabon ko usi text tak rakhta hai; bari collections ke liye retrieval istemal hota hai. Har sawal par fine-tuning na-qabil-e-amal hai, aur temperature ya region FAQ ka content nahi dete."
+  },
+  "D2-502": {
+    "q": "Python chat client ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Python chat client terminal window mein chal sakta hai.",
+      "Model call karne ke liye web browser istemal karna lazmi hai.",
+      "Client loop chala sakta hai taake user kai sawal pooch sake."
+    ],
+    "exp": "Pehle ka jawab Haan: saadi console app ek aam halka client hai. Doosre ka Nahi: models ko HTTPS par kisi bhi program se call kiya jata hai, sirf browsers se nahi. Teesre ka Haan: loop har sawal parh kar bhejta hai, aksar conversation history ke saath."
+  },
+  "D2-503": {
+    "q": "Quickstart code mein har variable ko us cheez se milayein jo us mein hai. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "targets": [
+      "Jawab ka text",
+      "Model ki ek call ka nateeja",
+      "Models call karne ke liye OpenAI-compatible client",
+      "Aap ke Foundry project se connection",
+      "Deployment ka quota"
+    ],
+    "exp": "project woh AIProjectClient hai jo project se jura hai, openai woh client hai jo get_openai_client() deta hai, response responses.create() ka nateeja hai, aur output_text us ke andar jawab ka text hai. In mein se kisi mein deployment ka quota nahi."
+  },
+  "D2-504": {
+    "q": "Console chat loop mukammal karein taake model har turn par poori conversation dekhe.",
+    "exp": "Poori messages list dene se system message aur pehle ke tamam turns jate hain, is liye model ke paas context hota hai. Jawab assistant role ke saath mehfooz hota hai taake agli request mein history ke taur par shamil ho. Sirf sawal ya text bhejne se context kho jata, aur system ya user role jawab par ghalat label lagata."
+  },
+  "D2-505": {
+    "q": "Chat client ki kaunsi DO values code mein likhne ke bajaye configuration se aani chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "opts": ["Python keyword def", "Python keyword import", "Project endpoint", "print function", "Deployment ka naam"],
+    "exp": "Endpoint aur deployment ka naam environments, jaise test aur production, ke darmiyan badalte hain, is liye woh environment variables jaisi configuration mein hone chahiye. Language ke keywords aur built-in functions khud code ka hissa hain."
+  },
+  "D2-506": {
+    "q": "Ek call BadRequest error ke saath nakaam hoti hai jo kehti hai ke prompt content management policy ki wajah se filter hua. Kya hua?",
+    "opts": [
+      "Quota khatam ho gaya",
+      "Endpoint ghalat hai",
+      "Model retire ho gaya",
+      "Prompt ko content filter ne block kiya; app ko user ko dostana message dikhana chahiye"
+    ],
+    "exp": "Jab input filtering prompt ko block karti hai to service 400 error deti hai jis mein content filter ka zikr hota hai, is liye app ko usay sambhal kar adab se batana chahiye ke request process nahi ho sakti. Quota ke masail 429 dete hain, ghalat endpoint alag tarah nakaam hota hai, aur retire shuda model har prompt par nakaam hota."
+  },
+  "D2-507": {
+    "q": "Python console chat app mein kaunsa built-in function user ka type kiya hua parhta hai?",
+    "exp": "input() prompt dikha kar user ka type kiya hua text deta hai, jisay app phir model ko bhejti hai. print() output likhta hai, open() files kholta hai, aur len() object ki lambai deta hai."
+  },
+  "D2-508": {
+    "ctx": "Ek chat client har turn par lambi PDF ka poora text aur poori conversation history bhejta hai. Chand turns ke baad requests context length errors ke saath nakaam ho jati hain.",
+    "q": "Kya badalna chahiye?",
+    "opts": [
+      "Temperature barhana",
+      "Mazeed few-shot misaalein shamil karna",
+      "Deployment ka quota barhana",
+      "PDF ke sirf mutalliqa hisse bhejna aur purani history ko kaatna ya us ka khulasa karna"
+    ],
+    "exp": "Har request ko model ki context window mein aana chahiye, is liye client ko PDF ke sirf mutalliqa chunks nikalne chahiye aur history chhoti karni chahiye. Temperature aur misaalein size kam nahi kartin, aur quota ek request ke size ke bajaye fi minute tokens ki had hai."
+  },
+  "D2-509": {
+    "q": "Python mein model ke jawab parhne ke baare mein jumlay mukammal karein.",
+    "tpl": "print(response.{0}) Responses API ka jawab dikhata hai. print(completion.choices[0].message.{1}) Chat Completions API ka jawab dikhata hai.",
+    "exp": "Responses API text ko output_text mein deta hai, jab ke Chat Completions choices deta hai jin ke message ke content mein text hota hai. role sirf batata hai ke message kis ne likha, aur dono APIs ke property names ek doosre ki jagah istemal nahi ho sakte."
+  }
+}

@@ -75,7 +75,12 @@
   "D1-283": {
     "ctx": "Ek hotel chain ke paas 12 zabanon mein 10,000 reviews hain aur woh har zaban ki sab se aam shikayaton ka dashboard chahti hai.",
     "q": "Text analysis techniques ka kaunsa jor munasib hai?",
-    "opts": ["Language detection, saath mein opinion mining ya key phrase extraction", null, null, null],
+    "opts": [
+      "Language detection, saath mein opinion mining ya key phrase extraction",
+      "OCR ke saath object detection",
+      "Speech synthesis ke saath translation",
+      null
+    ],
     "exp": "Language detection reviews ko zaban ke hisaab se group karta hai, aur opinion mining ya key phrase extraction batata hai ke mehmaan kis baat ki shikayat karte hain. OCR aur object detection images par kaam karte hain, speech synthesis audio banata hai, aur image generation tasveerein banata hai, is liye koi bhi review text ka jaiza nahi leta."
   },
   "D1-284": {

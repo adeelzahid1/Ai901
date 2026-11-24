@@ -1,0 +1,222 @@
+{
+  "D2-594": {
+    "q": "Python mein text ka sentiment kaunsi client class aur method maloom karte hain?",
+    "exp": "azure-ai-textanalytics ka TextAnalyticsClient Azure Language ki sentiment analysis ke liye analyze_sentiment() deta hai. Baqi methods speech pehchante hain, images ka jaiza lete hain aur agents banate hain."
+  },
+  "D2-595": {
+    "q": "Language SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Opinion mining ke nateejon mein target, jaise 'battery', aur us ke baare mein raye hoti hai.",
+      "recognize_entities() sentiment scores deta hai.",
+      "extract_key_phrases() har document ke liye phrases ki list deta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: opinion mining targets ko assessments aur un ke sentiment ke saath jorta hai. Doosre ka Nahi: entity recognition sentiment nahi balke categories aur confidence ke saath entities deta hai. Teesre ka Haan: har kamyab nateeje mein key_phrases ki list hoti hai."
+  },
+  "D2-596": {
+    "q": "Woh Python code mukammal karein jo zaati data chupaye hue notes mehfooz karta hai aur mile hue zaati data ki har cheez ki qism print karta hai.",
+    "exp": "Har PII nateeje mein redacted_text, yani zaati data chupaya hua text, aur entities ki list hoti hai jin ki category batati hai ke kis qism ka data mila, jaise PhoneNumber. sentiment aur key_phrases doosre features ka hissa hain, aur voice aur pixels entity ki properties nahi."
+  },
+  "D2-597": {
+    "ctx": "Buzurgon ki dekh bhal wali ek app logon ko bol kar sawal poochne aur bole hue jawab sunne deti hai. Users aksar aahista bolte aur rukte hain, aur kabhi kabhi jawab ke beech mein tok dete hain.",
+    "q": "Kaunsa option kam der ke saath sab se qudrati voice conversation deta hai?",
+    "opts": ["Batch transcription", null, "Realtime model ke saath Realtime API", "Embedding model"],
+    "exp": "Realtime API live connection par dono taraf audio stream karti hai, is liye model jaldi jawab de sakta hai aur waqfon aur tokne ko sambhal sakta hai. Batch transcription live nahi, Image Analysis tasveeron par kaam karta hai, aur embedding models conversations nahi karte."
+  },
+  "D2-598": {
+    "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Spoken prompt kisi shakhs ki audio hai jo sawal poochta ya hidayat deta hai.",
+      "Sirf image models spoken prompts lete hain.",
+      "App bole hue sawal ka jawab text mein dikha sakti hai."
+    ],
+    "exp": "Pehle ka jawab Haan: spoken prompt yahi hota hai. Doosre ka Nahi: audio wale chat models aur realtime models spoken prompts lete hain; image models nahi. Teesre ka Haan: jawab sirf text ho sakta hai, ya maangne par text aur audio dono."
+  },
+  "D2-599": {
+    "q": "User ki recording audio wale model ko bhejne se pehle app ko kaunse DO checks karne chahiye? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Recording ko image mein badalna",
+      "Tasdeeq karna ke audio supported format, jaise wav ya mp3, mein hai",
+      "Request se tamam hidayaat hatana",
+      "Yaqeeni banana ke user apni awaaz process hone par razi hai",
+      "Model deployment delete karna"
+    ],
+    "exp": "Supported format se requests nakaam nahi hotin, aur user ki razamandi privacy ka khayal rakhti hai, kyunke awaaz ki recordings zaati data hain. Audio ko image mein badalna, hidayaat hatana aur deployment delete karna, ye sab feature ko tor ya kamzor kar dete."
+  },
+  "D2-600": {
+    "q": "SpeechSynthesizer ka kaunsa method saada text string bol kar sunata hai?",
+    "exp": "speak_text_async() set ki hui awaaz mein saada text bolta hai; SSML ke liye speak_ssml_async() istemal hota hai. recognize_once_async() pehchan ka method hai, aur analyze_sentiment() aur detect_language() Language SDK ka hissa hain."
+  },
+  "D2-601": {
+    "q": "Har maqsad ko Speech SDK ki us class se milayein jo usay hasil karti hai. Har class ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Microphone ki speech ko text mein badalna",
+      "Text ko audio mein badalna",
+      "Boli hui English ko German text mein translate karna"
+    ],
+    "exp": "SpeechRecognizer speech ko text mein likhta hai, SpeechSynthesizer text se audio banata hai, aur TranslationRecognizer speech pehchan kar us ka tarjuma karta hai. ImageAnalysisClient Azure Vision ka hissa hai aur speech se us ka taalluq nahi."
+  },
+  "D2-602": {
+    "q": "Aap ko SSML document bol kar audio file mein mehfooz karni hai. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "SSML ke saath speak_ssml_async() call karein",
+      "TextAnalyticsClient banayein",
+      "SpeechConfig aur file ke liye AudioOutputConfig banayein",
+      "Check karein ke result reason SynthesizingAudioCompleted hai",
+      "Dono configs ke saath SpeechSynthesizer banayein"
+    ],
+    "exp": "Pehle configurations banti hain, un se synthesizer banta hai, SSML file mein bola jata hai, aur result reason kamyabi ki tasdeeq karta hai. TextAnalyticsClient text ka jaiza leta hai aur speech synthesis ke liye zaroori nahi."
+  },
+  "D2-603": {
+    "q": "Chat Completions message mein kaunsi content part type image rakhti hai?",
+    "exp": "Images image_url parts ki soorat mein bheji jati hain, jin mein URL ya base64 data URL hota hai. input_audio audio ke liye hai, tool messages mein tool ke nateeje hote hain, aur file_search message content type ke bajaye agent ka tool hai."
+  },
+  "D2-604": {
+    "q": "Visual input ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Screenshot ko base64 data URL ki soorat mein bheja ja sakta hai.",
+      "Vision-capable models sirf qudrati manazir ki tasveerein bayan kar sakte hain.",
+      "Prompt model se keh sakta hai ke image mein jo nazar aaye us ka jawab JSON mein de."
+    ],
+    "exp": "Pehle ka jawab Haan: local images data URLs ki soorat mein encode hoti hain. Doosre ka Nahi: ye models bohat si qismon ki images sambhalte hain, documents, charts aur screenshots samet. Teesre ka Haan: output format ki hidayaat, ya structured outputs, image ke sawalon par bhi lagu hote hain."
+  },
+  "D2-605": {
+    "ctx": "Ek inspection app bohat zyada resolution wali tasveerein vision-capable model ko bhejti hai. Kharcha zyada hai, lekin app ko har tasveer ki sirf moti category chahiye.",
+    "q": "Kya badalna chahiye?",
+    "opts": [
+      "Har request mein zyada images bhejna",
+      "Maximum output tokens barhana",
+      "Zyada reasoning effort wala reasoning model istemal karna",
+      "Image detail ki low setting istemal karna"
+    ],
+    "exp": "Low detail har image ko thore, tay shuda tokens se process karti hai, jis se bareek tafseel ki zaroorat na ho to kharcha kam hota hai. Zyada images, zyada output tokens aur zyada reasoning effort, ye sab token usage kam karne ke bajaye barhate hain."
+  },
+  "D2-606": {
+    "q": "gpt-image-1 se images edit karne ke baare mein kaunsa bayan sach hai?",
+    "opts": [
+      "Image badalne ke liye aap maujooda image aur prompt, aur chahein to mask, de sakte hain",
+      "Ye sirf shuru se nayi images bana sakta hai",
+      "Ye sirf text descriptions deta hai",
+      "Isay audio input chahiye"
+    ],
+    "exp": "gpt-image-1 edits support karta hai: aap asal image aur prompt dete hain, aur chahein to mask jo badalne wali jagah ko mehdood karta hai. Ye text se bhi images banata hai, descriptions ke bajaye images deta hai, aur audio istemal nahi karta."
+  },
+  "D2-607": {
+    "q": "Images banane ke baare mein jumlay mukammal karein.",
+    "tpl": "Text se nayi image banane ke liye images.{0}() call karein. Prompt mein mauzu aur {1} bayan hone chahiye.",
+    "exp": "images.generate() prompt se images banata hai, aur mauzu aur style dono bayan karne se sab se behtar nateeje milte hain. analyze aur transcribe image banane ke methods nahi, aur quota aur region deployment ki settings hain, prompt ka content nahi."
+  },
+  "D2-608": {
+    "q": "Privacy ki wajah se marketplace ko woh product photos shaya hone se pehle flag karni hain jin mein log nazar aate hon. App Image Analysis se ye kaise kar sakti hai?",
+    "opts": [
+      "Sirf SMART_CROPS istemal karna",
+      "PEOPLE feature request kar ke un photos ko flag karna jin mein log milein",
+      "Image generation istemal karna",
+      "Sirf OCR istemal karna"
+    ],
+    "exp": "PEOPLE feature mile hue logon ko bounding boxes aur confidence ke saath deta hai, is liye app un photos ko review ya blur karne ke liye flag kar sakti hai. Smart crops, image generation aur OCR ye nahi batate ke photo mein log hain ya nahi."
+  },
+  "D2-609": {
+    "q": "ImageAnalysisClient ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Ye AzureKeyCredential ya Microsoft Entra credential se authenticate ho sakta hai.",
+      "Ye nayi images banata hai.",
+      "Aap har call mein chunte hain ke kaunse visual features maangne hain."
+    ],
+    "exp": "Pehle ka jawab Haan: key aur Entra ID authentication dono support hote hain. Doosre ka Nahi: Image Analysis maujooda images ko bayan karta hai; image generation alag service hai. Teesre ka Haan: visual_features ki list tay karti hai ke kya analyze ho aur kis ka bill aaye."
+  },
+  "D2-610": {
+    "q": "Image Analysis ke nateeje ki har property ko us cheez se milayein jo us mein hai. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "targets": [
+      "Image mein mile hue text ki lines aur alfaaz",
+      "Image ko bayan karne wala jumla",
+      "Confidence scores ke saath keywords",
+      "Logon ke gird bounding boxes",
+      "Nayi bani hui images"
+    ],
+    "exp": "caption.text mein bayan karne wala jumla, read.blocks mein pehchani hui text lines aur alfaaz, tags.list mein confidence ke saath keywords, aur people.list mein logon ke gird boxes hote hain. Image Analysis kabhi bani hui images nahi deta."
+  },
+  "D2-611": {
+    "q": "Content Understanding mein content extraction kya hai?",
+    "opts": [
+      "Analysis ke baad file delete karna",
+      "File ko audio mein translate karna",
+      "Fields banne se pehle file ko text aur structure, jaise paragraphs aur tables, mein badalna",
+      "File ko compress karna"
+    ],
+    "exp": "Content extraction OCR aur layout analysis, ya audio ke liye transcription, se input ko structured text mein badalta hai, jisay phir field extraction istemal karta hai. Ye files ko delete nahi karta, audio mein translate nahi karta aur compress nahi karta."
+  },
+  "D2-612": {
+    "q": "Insurance claim analyzer ki har field ko us method se milayein jo usay istemal karna chahiye. Har method ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "policy_number, bilkul waise jaise form par chhapa hai",
+      "risk_summary, asal khatron ki mukhtasar tafseel",
+      "claim_type: Auto, Home ya Travel"
+    ],
+    "exp": "Chhapa hua policy number waise hi extract hota hai, khatron ka khulasa content se generate hota hai, aur tay shuda claim type classify hoti hai. Translate Content Understanding ka field method nahi."
+  },
+  "D2-613": {
+    "q": "Document analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Content Understanding haath ki likhai wale scan shuda documents process kar sakta hai.",
+      "Zyada ahem amal mein kam confidence wali fields aam taur par insan ko review karni chahiye.",
+      "Document analyzer sirf ek field de sakta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: OCR chhape hue text ke saath haath ki likhai bhi parhta hai. Doosre ka Haan: jahan ghaltiyan mehngi hon wahan confidence par mabni review quality barqarar rakhta hai. Teesre ka Nahi: schema mein bohat si fields bayan ho sakti hain, arrays aur objects samet."
+  },
+  "D2-614": {
+    "q": "Ek insurer toofan ke nuqsan ki tasveeron ka jaiza leta hai aur usay damage_severity naam ki field chahiye jis ki value Minor, Moderate ya Severe ho. Field ko kaunsa method istemal karna chahiye?",
+    "opts": [null, null, "Classify, teenon categories ke saath", null],
+    "exp": "Classify tay ki hui list mein se ek value deta hai, jis se yaqeeni hota hai ke har tasveer ko Minor, Moderate ya Severe label mile. Generate azad text deta hai, extract documents mein chhapi hui values ke liye hai, aur translate koi field method nahi."
+  },
+  "D2-615": {
+    "q": "Image analyzers ke baare mein jumla mukammal karein.",
+    "tpl": "Content Understanding ke image analyzers apni fields {0} aur {1} methods se bharte hain.",
+    "exp": "Images ke liye fields generate se banti hain jab values azad soorat wali hon, aur classify se jab values tay shuda list se hon. Extract sirf documents ke liye support hota hai, aur delete, translate aur compress field methods nahi."
+  },
+  "D2-616": {
+    "q": "Call center ka audio analyzer kaunse DO outputs de sakta hai? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Product ki tasveer",
+      "Nayi voice recording",
+      "Call ka transcript",
+      "Spreadsheet macro",
+      "Call ka generated khulasa"
+    ],
+    "exp": "Audio analysis pehle call ko text mein likhta hai, aur phir usi transcript se khulasa, sentiment ya zer-e-bahas mauzuaat jaisi generative fields banti hain. Ye maloomat nikalta hai aur product ki tasveerein, nayi voice recordings ya spreadsheet macros nahi banata."
+  },
+  "D2-617": {
+    "q": "Content Understanding ka kis qism ka analyzer MP4 files process karta hai?",
+    "opts": ["Document analyzer", "Video analyzer", "Image analyzer", "Language detection"],
+    "exp": "MP4 video format hai, is liye usay video analyzer process karta hai, jo frames aur audio track istemal karta hai. Document aur image analyzers doosri file types sambhalte hain, aur language detection text ke liye Azure Language ka feature hai."
+  },
+  "D2-618": {
+    "q": "Content Understanding aur retrieval augmented generation (RAG) ke baare mein kaunsa bayan sach hai?",
+    "opts": [
+      "Ye kisi bhi search index ki zaroorat khatam kar deta hai",
+      "Ye sirf audio files ke saath kaam karta hai",
+      "Ye RAG solutions mein istemal nahi ho sakta",
+      "Is ka Markdown output aur figures ki descriptions index ho sakti hain taake RAG apps unhein nikal sakein"
+    ],
+    "exp": "Content Understanding documents ko, charts aur figures samet, Markdown mein badalta hai jisay chunk, embed aur index kiya ja sakta hai, is se RAG app behtar cheezein nikal sakti hai. Retrieval ke liye search index phir bhi chahiye, aur ye documents, images, audio aur video sambhalta hai."
+  },
+  "D2-619": {
+    "q": "Content Understanding se apps banane ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Production apps ko generally available API version ko tarjeeh deni chahiye.",
+      "File ka analysis lamba chalne wala operation hai.",
+      "Nateeje hamesha sahi hote hain, is liye insani review ki kabhi zaroorat nahi."
+    ],
+    "exp": "Pehle ka jawab Haan: production ke liye GA versions ki sifarish hoti hai, aur azmane ke liye previews ki. Doosre ka Haan: app analysis shuru karti hai aur nateeje ke liye poll karti hai. Teesre ka Nahi: nateejon mein confidence scores isi liye hote hain ke kuch values ko insani review chahiye."
+  },
+  "D2-620": {
+    "q": "Content Understanding se claims process karne wali app banane ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Analyzer ko sample claims par test karein aur schema behtar karein",
+      "Custom speech model train karein",
+      "Zaroori model deployments ke saath Foundry resource set up karein",
+      "Analyzer ko polling aur confidence par mabni review ke saath app mein jorein",
+      "Fields aur descriptions ke saath claims analyzer banayein"
+    ],
+    "exp": "Pehle Foundry resource aur model deployments aate hain, phir analyzer ka schema bayan hota hai, samples par test aur behtar hota hai, aur aakhir mein app usay call karti hai, nateejon ke liye poll karti hai aur kam confidence wali fields reviewers ko bhejti hai. Document claims ke liye custom speech model zaroori nahi."
+  }
+}

@@ -85,15 +85,22 @@
   },
   "D2-011": {
     "q": "Microsoft Foundry portal mein aap available models kahan dekhte aur deploy karne ke liye chunte hain?",
+    "opts": ["Model catalog", "Azure billing page", null, null],
     "exp": "Foundry model catalog mein Microsoft, OpenAI aur doosre providers ke models model cards, benchmarks aur deploy options ke saath hote hain, is liye model wahin se chune aur deploy kiye jate hain. Billing page kharcha dikhata hai, Azure Monitor metrics aur logs dikhata hai, aur Microsoft Entra ID identities sambhalta hai; in mein se koi models dhoondne aur deploy karne ke liye nahi."
   },
   "D2-012": {
     "q": "Aap ne Foundry portal mein model deploy kiya aur koi code likhe baghair us par prompts azmana chahte hain. Kya istemal karna chahiye?",
+    "opts": [null, "Chat playground", null, "Azure pricing calculator"],
     "exp": "Foundry portal ka chat playground aap ko deploy kiye hue model ko prompts bhejne, system message badalne aur parameters adjust karne deta hai, sab baghair code ke. Cloud Shell command line ka mahaul hai, Storage Explorer storage accounts sambhalta hai, aur pricing calculator kharche ka andaza lagata hai, is liye koi bhi model ke saath interactive chat nahi deta."
   },
   "D2-013": {
     "q": "Aap ne gpt-5-mini ko support-chat naam se deploy kiya. Is deployment ko call karte waqt aap ki application model ke taur par kaunsi value deti hai?",
-    "opts": [null, null, "Deployment ka naam, support-chat", null],
+    "opts": [
+      "Subscription ID",
+      "Resource group ka naam",
+      "Deployment ka naam, support-chat",
+      "Microsoft Entra tenant ID"
+    ],
     "exp": "Requests deployment ko jati hain, is liye application deployment ka naam, yahan support-chat, model ki value ke taur par deti hai. Subscription ID, resource group aur tenant ID Azure ke containers aur directories ki pehchan hain; un se yeh tay nahi hota ke kaunsi model deployment jawab degi."
   },
   "D2-014": {
@@ -221,9 +228,9 @@
   "D2-030": {
     "q": "Microsoft Entra ID authentication ke saath Foundry SDK se deploy kiye hue model ko call karne ke liye client app ke paas kaunsi DO values honi chahiye? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
-      null,
+      "Storage account ki key",
       "Virtual machine ka size",
-      null,
+      "Project endpoint",
       "Model deployment ka naam",
       "Azure region ke datacenter ka address"
     ],

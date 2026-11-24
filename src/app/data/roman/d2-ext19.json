@@ -1,0 +1,210 @@
+{
+  "D2-568": {
+    "q": "Prompt ka kaunsa hissa model ko batata hai ke jawab ki tarteeb kaisi ho, maslan table ki soorat mein?",
+    "opts": ["Output format ki hidayat", "Deployment ka naam", "API version", "Azure region"],
+    "exp": "Output format ki hidayat, jaise 'In columns wali table do', jawab ki tarteeb tay karti hai. Deployment ka naam, API version aur region technical settings hain jo jawab ke content ki shakal nahi banatin."
+  },
+  "D2-569": {
+    "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "System message model ko bata sakta hai ke usay kya nahi karna.",
+      "Prompts ka jawabon ki hifazat par koi asar nahi hota.",
+      "Mutalliqa context shamil karne se ghare hue jawabon ka imkan kam hota hai."
+    ],
+    "exp": "Pehle ka jawab Haan: pabandiyan system messages ka aam hissa hain. Doosre ka Nahi: system message mein hifazati hidayaat, content filters ke saath, bachao ki tahon mein se ek hain. Teesre ka Haan: model ko mutalliqa facts par ground karne se hallucinations kam hoti hain."
+  },
+  "D2-570": {
+    "q": "Har maqsad ko us hidayat se milayein jo usay hasil karti hai. Har hidayat ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": ["Jawab mukhtasar rakhna", "Company ke products tak rehna", "Andaze lagane se bachna", "Dostana lehja istemal karna"],
+    "targets": [
+      "'Garmjoshi wale, dostana lehje mein likho.'",
+      "'eastus deployment istemal karo.'",
+      "'Zyada se zyada teen jumlon mein jawab do.'",
+      "'Agar yaqeen na ho to kaho ke tumhein nahi pata.'",
+      "'Sirf Contoso products ke sawalon ke jawab do.'"
+    ],
+    "exp": "Jumlon ki had jawab mukhtasar rakhti hai, daire ka usool assistant ko mauzu par rakhta hai, 'mujhe nahi pata' kehne ki ijazat andaze rokti hai, aur lehje ki hidayat andaz tay karti hai. Deployment aur region ki settings code mein hoti hain aur prompt ka hissa nahi."
+  },
+  "D2-571": {
+    "q": "Prompts mein ghair bharosemand text sambhalne ke baare mein jumla mukammal karein.",
+    "tpl": "Jab prompt mein users ya documents ka ghair bharosemand text ho to usay {0} mein band karein aur model se kahein ke usay {1} samjhe.",
+    "blanks": [null, [null, "instructions", "chalane wala code"]],
+    "exp": "Delimiters theek dikhate hain ke ghair bharosemand content kahan shuru aur kahan khatam hota hai, aur model se ye kehna ke usay instructions nahi balke data samjhe, prompt injection ka khatra kam karta hai. Emojis aur capital letters content ko alag nahi karte, aur text ko instructions ya code samajhna wohi hai jo hamlawar chahte hain."
+  },
+  "D2-572": {
+    "q": "Classification prompt se milne wale labels ko yaksan banane mein kaunsi tabdeeli sab se zyada madad karti hai?",
+    "opts": [
+      "Temperature barhana",
+      "Tamam misaalein hatana",
+      "Ijazat wale theek labels ki list dena aur model se kehna ke sirf un mein se ek de",
+      "System message mein ghair mutalliqa text shamil karna"
+    ],
+    "exp": "Ijazat wale labels batane aur theek ek maangne se outputs tay shuda set mein rehte hain, jis se code ke liye istemal aasan hota hai. Zyada temperature randomness barhata hai, misaalein hatane se rahnumai khatam hoti hai, aur ghair mutalliqa text model ki tawajjo hatata hai."
+  },
+  "D2-573": {
+    "q": "Aap ki banayi hui deployment chat playground mein nazar nahi aa rahi. Sab se pehle kya check karna chahiye?",
+    "opts": [
+      "Portal ka color theme",
+      "Browser ka font size",
+      "Aap ke computer ka time zone",
+      "Ke aap ne sahi project khola hai"
+    ],
+    "exp": "Deployments resource ka hissa hoti hain aur us ke projects ke zariye istemal hoti hain, is liye sab se aam wajah doosre project mein hona hai. Theme, font size aur time zone ka deployments ki list par asar nahi."
+  },
+  "D2-574": {
+    "q": "Deployments ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Har deployment ka resource ke andar apna naam hota hai.",
+      "Aap ek hi project mein alag alag models deploy kar sakte hain.",
+      "Model deploy karne se khud-ba-khud agent ban jata hai."
+    ],
+    "exp": "Pehle ka jawab Haan: apps ke call karte waqt deployment ki pehchan us ke naam se hoti hai. Doosre ka Haan: project kai models istemal kar sakta hai, maslan chat model aur embedding model. Teesre ka Nahi: agents alag se bante hain aur phir deployment istemal karte hain."
+  },
+  "D2-575": {
+    "q": "Ek legal team chahti hai ke ek deployment tashaddud wale content ko default se zyada sakhti se block kare. Kya karna chahiye?",
+    "opts": [
+      "Temperature kam karna",
+      "Zyada sakht threshold wali custom content filter configuration bana kar usay deployment par lagana",
+      "Resource doosre region mein le jana",
+      "Zyada bara model istemal karna"
+    ],
+    "exp": "Content filter configurations har nuqsan ki category ke liye severity threshold tay karti hain aur deployments par lagti hain, is liye zyada sakht configuration sirf isi par lag sakti hai. Temperature, region aur model ka size ye nahi badalte ke safety system kya block kare."
+  },
+  "D2-576": {
+    "q": "Foundry portal mein kaam karne ke baare mein jumla mukammal karein.",
+    "tpl": "Aap deployment ko {0} mein azmate hain aur us ki quality {1} se napte hain.",
+    "exp": "Chat playground haath se jaldi tests ke liye hai, aur evaluations test dataset par quality napti hain. Activity log aur billing page prompts nahi bhejte, aur Azure Policy aur DNS records governance aur networking ke features hain."
+  },
+  "D2-577": {
+    "q": "Generative AI app release karne se pehle evaluations chalane ki kaunsi DO achhi wajuhaat hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Deployment ka quota khud-ba-khud barhana",
+      "Numainda test data par quality napna",
+      "Model ke weights badalna",
+      "Azure region chunna",
+      "Jawabon mein hifazat ke khatre dhoondna"
+    ],
+    "exp": "Evaluations asli users par asar hone se pehle quality, jaise relevance aur groundedness, aur hifazat, jaise nuqsan deh content, ko score karti hain. Woh quota, weights ya regions nahi badaltin."
+  },
+  "D2-578": {
+    "q": "Foundry SDK istemal karne wale Python chat client mein sab se pehle kaunsa object banate hain?",
+    "exp": "AIProjectClient Foundry project se jurta hai, aur usi se OpenAI-compatible client milta hai jo models call karta hai. Baqi classes Speech, Vision aur Language SDKs ki hain aur chat client ka shuruati qadam nahi."
+  },
+  "D2-579": {
+    "q": "Responses aur Chat Completions APIs ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Responses API previous_response_id istemal kar ke conversation jari rakh sakta hai.",
+      "Chat Completions conversation ko service par khud-ba-khud mehfooz karta hai.",
+      "Dono APIs token usage ki maloomat deti hain."
+    ],
+    "exp": "Pehle ka jawab Haan: previous_response_id nayi request ko pehle ke context se jorta hai. Doosre ka Nahi: Chat Completions stateless hai, is liye app history khud bhejti hai. Teesre ka Haan: dono tokens ki tadad wala usage object deti hain."
+  },
+  "D2-580": {
+    "q": "Chat client ke har kaam ko us code se milayein jo usay karta hai. Code ki har line ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": ["Project se jurna", "Models call karne ke liye client lena", "Prompt bhejna", "Jawab dikhana"],
+    "exp": "Credential ke saath AIProjectClient project se jurta hai, get_openai_client() model calls ke liye client deta hai, responses.create() prompt bhejta hai, aur output_text print karne se jawab nazar aata hai. SpeechConfig Speech SDK ka hissa hai aur text chat client mein nahi aata."
+  },
+  "D2-581": {
+    "q": "Chhote se chat client ka Python code mukammal karein.",
+    "exp": "DefaultAzureCredential koi argument nahi leta aur Microsoft Entra identity khud dhoondta hai, aur responses.create() input deployment ko bhejta hai. AzureKeyCredential ko key chahiye, SpeechConfig speech ke liye hai, aur generate aur analyze Responses API ke methods nahi."
+  },
+  "D2-582": {
+    "q": "User itna lamba document paste karta hai ke request model ki context window se bara ho jata hai. Chat client ko isay kaise sambhalna chahiye?",
+    "opts": [
+      "Wahi request hamesha dobara bhejte rehna",
+      "Temperature barhana",
+      "Deployment ka naam badalna",
+      "Error pakar kar user se input chhota karne ko kehna, ya bhejne se pehle text ko kaatna ya us ka khulasa karna"
+    ],
+    "exp": "Context window se bari requests nakaam hoti hain, is liye client ko error sambhal kar input kam karna chahiye, maslan user se keh kar, kaat kar, chunks bana kar ya khulasa kar ke. Wahi request dobara bhejne se phir nakaam hogi, aur temperature ya deployment ke naam had nahi badalte."
+  },
+  "D2-583": {
+    "q": "responses.create() ko aam taur par kaunsi DO values dete hain? Har sahi jawab hal ka ek hissa hai.",
+    "opts": [null, null, "model, jis mein deployment ka naam ho", "input, jis mein prompt ya messages hon", null],
+    "exp": "Responses API ki call ko model, yani aap ki deployment ka naam, aur jawab dene ke liye input chahiye; instructions jaisi ikhtiyari settings shamil ho sakti hain. Region, tenant aur quota request ke parameters nahi."
+  },
+  "D2-584": {
+    "q": "Production mein ek chat client ko kabhi kabhi 500 ya 503 server errors milti hain. Usay kya karna chahiye?",
+    "opts": [
+      "In aarzi errors par backoff ke saath dobara koshish karna, aur jari rahein to dostana message dikhana",
+      "Deployment delete karna",
+      "Logging band karna",
+      "Users se kehna ke page refresh karte rahein"
+    ],
+    "exp": "Kabhi kabhar ki server errors aam taur par aarzi hoti hain, is liye backoff ke saath dobara koshish aksar kamyab hoti hai, aur masla rahe to wazeh message users ki madad karta hai. Deployment delete karne ya logging band karne se halat bigarti hai, aur baar baar refresh karne se kuch theek hue baghair load barhta hai."
+  },
+  "D2-585": {
+    "q": "Kya shamil karna lazmi hai taake agent aap ke upload kiye hue documents mein talash kar sake?",
+    "opts": ["Bara font", "Naya Azure region", "File search tool", "Stop sequence"],
+    "exp": "File search tool upload kiye hue documents ko vector store mein index karta hai aur agent ko mutalliqa hisse nikalne deta hai. Fonts, regions aur stop sequences ka documents mein talash se koi taalluq nahi."
+  },
+  "D2-586": {
+    "q": "Agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Agent knowledge tools aur action tools ko jor sakta hai.",
+      "Tools ke baghair bhi agent chat mein apni instructions par chal sakta hai.",
+      "Mazeed tools shamil karne se agent hamesha zyada accurate ho jata hai."
+    ],
+    "exp": "Pehle ka jawab Haan: maslan jawabon ke liye file search aur amal ke liye function calling. Doosre ka Haan: akele model aur instructions se conversations chal sakti hain. Teesre ka Nahi: ghair zaroori tools se tool ka intikhab uljh sakta hai, is liye sirf woh shamil karein jo agent ko chahiye."
+  },
+  "D2-587": {
+    "q": "Agent ki har zaroorat ko us tool se milayein jo usay pura karta hai. Har tool ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Upload ki hui file ke numbers par hisab karna",
+      "Product manual se sawalon ke jawab dena",
+      "Inventory API mein stock ki live miqdar check karna"
+    ],
+    "targets": [null, "OpenAPI tool ya function", null, null],
+    "exp": "File ke data par hisab ke liye code interpreter chahiye, manual se jawab ke liye file search, aur stock ki live miqdar ke liye OpenAPI tool ya function ke zariye inventory API ki call. Image generation tasveerein banata hai aur in mein se kisi zaroorat ke liye munasib nahi."
+  },
+  "D2-588": {
+    "ctx": "Ek agent ke paas send_email function hai. Jab users mubham tareeqay se request karte hain to woh kabhi kabhi ghalat logon ko emails bhej deta hai.",
+    "q": "Sab se behtar tabdeeli kya hai?",
+    "opts": [
+      "Agent ki instructions hatana",
+      "Temperature barhana",
+      "Agent ko mazeed tools dena",
+      "Lazmi karna ke send_email call karne se pehle agent user se recipient ki tasdeeq kare"
+    ],
+    "exp": "Hassas amal se pehle tasdeeq ka qadam, jo instructions mein likha ho ya approval ke taur par lagu ho, aisi ghaltiyan rokta hai jinhein wapas karna mushkil hota hai. Instructions hatana, randomness barhana ya ghair mutalliqa tools dena ghalat emails ka imkan barhata."
+  },
+  "D2-589": {
+    "q": "Python client se agent ko user ka message kaunsi call bhejti hai?",
+    "exp": "Agent se jure hue client ke saath responses.create() user ka input bhejta hai aur agent ka jawab deta hai. Deployments ki list lena, speech synthesizer banana aur Image Analysis call karna agent se baat nahi karte."
+  },
+  "D2-590": {
+    "q": "Agent clients ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Client app har chat session ke liye conversation bana sakti hai.",
+      "Agents sirf Foundry portal se istemal ho sakte hain.",
+      "Client agent ka jawab response object se parhta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: har session ki alag conversation se har chat ki history alag rehti hai. Doosre ka Nahi: apps agents ko SDKs ya REST API se call karti hain. Teesre ka Haan: jawab ka text response ke output_text mein hota hai."
+  },
+  "D2-591": {
+    "q": "Woh Python code mukammal karein jo helpdesk agent ke saath conversation shuru kar ke pehla message bhejta hai.",
+    "exp": "conversations.create() nayi conversation shuru karta hai, aur us ka id responses.create() ko diya jata hai taake message usi conversation mein jaye. delete conversation hatata hai, list shuru karne ke liye nahi, aur name aur text conversation ki pehchan nahi."
+  },
+  "D2-592": {
+    "q": "Kaunsi DO zimmedariyan agent ki definition ke bajaye client app ki hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Agent ki instructions",
+      "Agent ke tools",
+      "Agent ka model",
+      "Ye yaad rakhna ke kaunsi conversation kis user ki hai",
+      "Agent ka jawab user interface mein dikhana"
+    ],
+    "exp": "Client users, un ki conversation IDs aur jawab dikhane ka tareeqa sambhalta hai. Instructions, tools aur model agent ki definition ka hissa hain jo Foundry mein mehfooz hoti hai aur har client ke liye mushtarka hai."
+  },
+  "D2-593": {
+    "q": "Agent bana kar us se ek sawal poochne wale script ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "responses.create() call kar ke output_text print karein",
+      "Model ke weights upload karein",
+      "Project client banayein",
+      "Agent se jura hua OpenAI client lein",
+      "Model aur instructions ke saath agent version banayein"
+    ],
+    "exp": "Script project se jurta hai, agent version banata hai, us agent se jura client leta hai aur phir sawal bhejta hai. Models Foundry mein chalte hain, is liye koi weights upload nahi karne parte."
+  }
+}

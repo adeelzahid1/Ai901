@@ -109,6 +109,7 @@
   },
   "D1-049": {
     "q": "Aap ki app ko batana hai ke jumlay mein 'Mercury' se murad planet hai ya chemical element, aur usay sahi wale ke reference article se link karna hai. Kaunsi technique istemal karni chahiye?",
+    "opts": [null, "Sirf named entity recognition", null, null],
     "exp": "Entity linking entity ko pehchanta hai, context se tay karta hai ke asal duniya ki kaunsi cheez murad hai, aur us ki knowledge base entry ka link deta hai. Named entity recognition entity par category lagata hai lekin yeh tay nahi karta ke woh khaas kaunsi cheez hai aur link bhi nahi deta. Key phrase extraction sirf mauzu batata hai, aur sentiment analysis raye parakhta hai."
   },
   "D1-050": {
@@ -225,7 +226,12 @@
   },
   "D1-068": {
     "q": "Analysts chart ki tasveer upload kar ke aam zaban mein sawal poochna chahte hain, jaise 'Kaunse maheene mein sales sab se zyada thi?'. Kis qism ka model istemal karna chahiye?",
-    "opts": [null, null, null, "Multimodal model jo image input leta hai"],
+    "opts": [
+      "Image classification model",
+      "Speech-to-text model",
+      "Embedding model",
+      "Multimodal model jo image input leta hai"
+    ],
     "exp": "Multimodal model, jaise vision wala GPT model, prompt mein text ke saath tasveerein bhi leta hai aur tasveer mein jo dikh raha hai us par soch sakta hai, is liye chart ke baare mein sawalon ke jawab de sakta hai. Image classification sirf tasveer ke labels deta hai, speech to text audio likhta hai, aur embedding model vectors deta hai, is liye koi bhi zaban mein sawalon ke jawab nahi deta."
   },
   "D1-069": {

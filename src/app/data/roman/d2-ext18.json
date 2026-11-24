@@ -1,0 +1,262 @@
+{
+  "D2-540": {
+    "q": "Prompt mein di gayi image parhne ke baad vision-capable chat model kya wapas deta hai?",
+    "opts": [
+      "Nayi image",
+      "Image ke baare mein text jawab",
+      "Sirf audio file",
+      "Hamesha bounding boxes ki JSON list"
+    ],
+    "exp": "Vision-capable chat models images ko input ke taur par lete hain aur text mein jawab dete hain, jaise description ya sawal ka jawab. Images banane ke liye image-generation model chahiye, audio output ke liye audio wala model, aur structured boxes object detection jaisi vision services se aate hain."
+  },
+  "D2-541": {
+    "ctx": "Ek software support bot users ko error dialogs ke screenshots upload karne deta hai. Har jawab mein error code aur us ka hal hona chahiye.",
+    "q": "Kaunsa tareeqa munasib hai?",
+    "opts": [
+      "Speech synthesis",
+      "Screenshot file ke naam par key phrase extraction",
+      "Image generation",
+      "Screenshot vision-capable model ko bhejna, is hidayat ke saath ke error code parhe aur hal tajweez kare"
+    ],
+    "exp": "Vision-capable model screenshot ka text parh sakta hai aur hidayaat ki rahnumai mein error samjha kar qadam tajweez kar sakta hai. File ke naamon mein error nahi hota, speech synthesis audio banata hai, aur image generation tasveerein parhne ke bajaye banata hai."
+  },
+  "D2-542": {
+    "q": "Prompts mein images ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Vision-capable model ek hi request mein tasveer ko reference image se mila sakta hai.",
+      "Kisi bhi vision-capable model ke istemal se pehle images ko OCR se text mein badalna lazmi hai.",
+      "Image inputs request ke token usage mein gine jate hain."
+    ],
+    "exp": "Pehle ka jawab Haan: kai images ek saath bhej kar un ka muqabla ho sakta hai. Doosre ka Nahi: vision-capable models images seedhi parhte hain. Teesre ka Haan: images tokens mein badalti hain, jis ka istemal aur kharche par asar parta hai."
+  },
+  "D2-543": {
+    "q": "Vision-capable model ko images bhejne ke baare mein jumlay mukammal karein.",
+    "tpl": "Image {0} se ya base64-encoded data ki soorat mein bheji ja sakti hai. Phir model {1} mein jawab deta hai.",
+    "exp": "Images ka hawala URL se diya jata hai ya woh base64 data ki soorat mein request mein shamil hoti hain, aur model text mein jawab deta hai. Phone calls aur faxes API ko images bhejne ke tareeqay nahi, aur ye models video ya Morse code mein jawab nahi dete."
+  },
+  "D2-544": {
+    "q": "Image generation ke prompts ke baare mein kaunsa bayan sach hai?",
+    "opts": [
+      "Mubham prompts sab se yaqeeni nateeje dete hain",
+      "Mauzu, style aur composition bayan karne se nateeja aam taur par behtar hota hai",
+      "Prompts teen alfaaz se chhote hone lazmi hain",
+      "Prompts mein rangon ka zikr nahi ho sakta"
+    ],
+    "exp": "Khaas prompts, jo batayein ke kya dikhana hai, kis style mein aur kis tarteeb se, model ko matlooba image ki taraf le jate hain. Mubham prompts ke nateeje ghair yaqeeni hote hain, aur prompts ko teen alfaaz tak rakhne ya rangon ki manahi ka koi usool nahi."
+  },
+  "D2-545": {
+    "q": "Ek real estate website khali kamron ko furniture ke saath dikhana chahti hai. Kaunsa tareeqa munasib hai, aur website ko kya karna chahiye?",
+    "opts": [
+      "Kamron ki tasveeron par OCR istemal karna",
+      "Image classification istemal karna",
+      "Speech to text istemal karna",
+      "Image editing se tasveeron mein furniture shamil karna, aur likhna ke images virtually staged hain"
+    ],
+    "exp": "Image editing maujooda tasveer mein content shamil kar sakti hai, aur nateeje par virtually staged ka label lagane se khareedar bakhabar rehte hain, jo transparency mein madad deta hai. OCR text parhta hai, classification images ko label deti hai, aur speech to text audio par kaam karta hai, is liye koi bhi furniture shamil nahi karta."
+  },
+  "D2-546": {
+    "q": "Har zaroorat ko image generation ki us setting se milayein jo us ke liye munasib hai. Har setting ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Logo ke das kachche ideas, jaldi se",
+      "Ek aakhri, zyada tafseel wali product image",
+      "Baghair background wala logo"
+    ],
+    "targets": [
+      "High quality setting",
+      "Speech synthesis",
+      "Transparent background ki setting",
+      "Kai images ke saath low quality setting"
+    ],
+    "exp": "Jaldi drafts ke liye har request mein kai images ke saath low quality setting munasib hai, aakhri asal image ke liye high quality, aur baghair background wale logo ke liye transparent background ka option. Speech synthesis audio banata hai aur image generation se us ka taalluq nahi."
+  },
+  "D2-547": {
+    "q": "Public image-generation feature ke liye kaunse DO tareeqay zimmedarana hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Asli logon ki aisi haqeeqi tasveeron ki ijazat dena jin mein woh aisa kaam kar rahe hon jo unhon ne kabhi kiya hi nahi",
+      "Content filters on rakhna aur block hone wale prompts ko achhe tareeqay se sambhalna",
+      "Ye chupana ke images AI se bani hain",
+      "Bani hui images par Content Credentials barqarar rakhna",
+      "Ghalat istemal ki logging band karna"
+    ],
+    "exp": "Content filters nuqsan deh requests rokte hain, aur Content Credentials se dekhne wale jaan sakte hain ke images AI se bani hain. Asli logon ki jaali haqeeqi images, AI se bane hone ko chupana aur ghalat istemal ko nazar andaz karna, ye sab nuqsan ka khatra barhate hain."
+  },
+  "D2-548": {
+    "q": "Image Analysis mein visual feature kya hota hai?",
+    "opts": [
+      "Screen resolution",
+      "Color theme",
+      "Model deployment",
+      "Analysis ki woh qism jo aap request karte hain, jaise TAGS ya READ"
+    ],
+    "exp": "Visual features analysis ki woh qismein hain jo aap maangte hain, jaise CAPTION, TAGS, OBJECTS, PEOPLE, READ ya SMART_CROPS, aur nateeje mein har ek ka apna hissa hota hai. Ye display ki settings ya deployments nahi."
+  },
+  "D2-549": {
+    "q": "Ek recycling app ko cheezon ki tasveeron ko theek char categories mein se ek mein rakhna hai: Plastic, Glass, Metal ya Paper. Kaunsa tareeqa usi list mein se yaksan jawab deta hai?",
+    "opts": [
+      "Tasveeron par OCR istemal karna",
+      "Tasveer multimodal model ko aise structured output ke saath bhejna jo sirf ye char categories ki ijazat de",
+      "Speech to text istemal karna",
+      "Smart crops istemal karna"
+    ],
+    "exp": "Multimodal model material pehchan sakta hai, aur sirf char ijazat wali values wala structured output schema har jawab ko isi set mein rakhta hai. OCR text parhta hai, speech to text audio par kaam karta hai, aur smart crops sirf thumbnails tajweez karta hai."
+  },
+  "D2-550": {
+    "q": "Image Analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Image Analysis bohat si zabanon mein text parh sakta hai.",
+      "Smart crops naya image content banata hai.",
+      "Dense captions image ke kai hisson ko bayan karte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: Read feature bohat si zabanein aur scripts support karta hai. Doosre ka Nahi: smart crops sirf maujooda image ke hisse tajweez karta hai; content nahi banata. Teesre ka Haan: dense captions kai hisson mein se har ek ka caption dete hain."
+  },
+  "D2-551": {
+    "q": "Image Analysis istemal karne wale alt-text feature ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Caption ka confidence score check karein",
+      "Nayi image banayein",
+      "Image upload karein ya chunein",
+      "Caption ko alt text ke taur par istemal karein, ya confidence kam ho to review ke liye nishan lagayein",
+      "CAPTION feature ke saath Image Analysis call karein"
+    ],
+    "exp": "Image chuni jati hai, CAPTION ke saath us ka analysis hota hai, caption ka confidence check hota hai, aur phir caption istemal hota hai ya review ke liye jata hai. Nayi image banana content ko bayan karne ke bajaye us ki jagah le leta."
+  },
+  "D2-552": {
+    "q": "Content Understanding ke nateeje mein kaunsi value batati hai ke service ko field ki value par kitna yaqeen hai?",
+    "opts": ["Pages ki tadad", "Confidence score", "File ka naam", "API version"],
+    "exp": "Har field mein 0 se 1 tak confidence score ho sakta hai, jis se apps tay karti hain ke insan value review kare ya nahi. Pages ki tadad, file ke naam aur API versions ye nahi batate ke value kitni qabil-e-bharosa hai."
+  },
+  "D2-553": {
+    "q": "Ek expense app ko kai zabanon mein likhi raseedein milti hain. Content Understanding ke saath unhein kaise sambhalna chahiye?",
+    "opts": [
+      "Har zaban ke liye alag Azure tenant banana",
+      "Pehle staff se har raseed haath se translate karwana",
+      "Speech synthesis istemal karna",
+      "Wazeh field descriptions wala ek hi analyzer schema istemal karna, kyunke service bohat si zabanein parh sakti hai"
+    ],
+    "exp": "Content extraction bohat si zabanon mein text parhta hai, aur generative field extraction wazeh descriptions ki rahnumai mein raseed ki zaban kuch bhi ho, wahi fields bharta hai. Alag tenants aur haath se tarjuma faide ke baghair kharcha barhate hain, aur speech synthesis raseedein nahi parhta."
+  },
+  "D2-554": {
+    "q": "Raseed ki har field ko us type se milayein jo us ke liye munasib hai. Har type ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "targets": [null, null, null, "objects ka array", null],
+    "exp": "Raqam number hai, khareedari ki tareekh date, dukan ka naam string, aur cheezon ki list un ki tafseel ke saath objects ka array hai. In mein se koi field saada true ya false value nahi, is liye boolean istemal nahi hota."
+  },
+  "D2-555": {
+    "q": "Content Understanding ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Field schema mein text, number aur date fields ho sakti hain.",
+      "Content Understanding istemal karne se pehle apna OCR code likhna lazmi hai.",
+      "Content Understanding document ka content Markdown ki soorat mein de sakta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: schemas kai field types support karte hain. Doosre ka Nahi: content extraction, OCR samet, service mein pehle se maujood hai. Teesre ka Haan: nikala hua content Markdown ki soorat mein milta hai, jo search aur RAG ke liye mufeed hai."
+  },
+  "D2-556": {
+    "q": "Ek image analyzer ko photo_description naam ki field chahiye jis mein ye jumla ho ke image kya dikhati hai. Usay kaunsa method istemal karna chahiye?",
+    "exp": "Description image se banayi jati hai, is liye field generate istemal karti hai. Extract documents mein chhapi hui values ke liye hai, classify tay shuda list mein se ek value chunta hai, aur delete koi field method nahi."
+  },
+  "D2-557": {
+    "ctx": "Ek car rental company har gaari ki wapasi par tasveer leti hai. Usay damage_present naam ki field Yes ya No value ke saath aur damage_notes naam ki field mukhtasar text description ke saath chahiye.",
+    "q": "Analyzer ko kaunse field methods istemal karne chahiye?",
+    "opts": [
+      "Dono fields ke liye extract",
+      "Dono fields ke liye translate",
+      "Koi field nahi; staff notes haath se likhe",
+      "damage_present ke liye classify aur damage_notes ke liye generate"
+    ],
+    "exp": "Yes ya No values ka tay shuda set hai, is liye damage_present ke liye classify munasib hai, jab ke notes tasveer se bana azad text hai, is liye damage_notes ke liye generate. Extract sirf documents ke liye support hota hai, translate koi field method nahi, aur haath se notes likhna maqsad hi khatam kar deta hai."
+  },
+  "D2-558": {
+    "q": "Image analyzer ki fields ke baare mein jumlay mukammal karein.",
+    "tpl": "Jis field ki value Red, Blue ya Green honi lazmi ho woh {0} method istemal karti hai. Jo field product par nazar aane wale har text label ki list de woh {1} method istemal karti hai.",
+    "exp": "Rangon ke tay shuda set ke liye classify chahiye. Nazar aane wale labels ki list khuli hoti hai, is liye generate method usay image se banata hai. Extract sirf documents ke liye support hota hai, aur translate koi field method nahi."
+  },
+  "D2-559": {
+    "q": "Content Understanding ke image analyzers ke baare mein kaunse DO bayan sach hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Woh hamesha tags ki tay shuda list dete hain jisay aap badal nahi sakte",
+      "Woh jo fields dete hain unhein aap bayan karte hain",
+      "Unhein audio input chahiye hota hai",
+      "Un ki fields ko generative models aap ki field descriptions ke mutabiq bharte hain",
+      "Woh sirf PDF files par kaam karte hain"
+    ],
+    "exp": "Image analyzers schema par chalte hain: aap fields chunte hain, aur generative models aap ki descriptions se unhein bharte hain. Woh tags ki tay shuda list nahi dete, unhein audio nahi chahiye, aur woh sirf PDFs ke bajaye images process karte hain."
+  },
+  "D2-560": {
+    "q": "Content Understanding ka audio analyzer kaunsa input process karta hai?",
+    "opts": ["JPEG tasveerein", "Audio files, jaise WAV ya MP3 recordings", "Spreadsheets", "Font files"],
+    "exp": "Audio analyzers recordings le kar unhein text mein likhte hain aur transcript se fields banate hain. Tasveerein image analyzers ko jati hain, aur spreadsheets aur fonts audio input nahi."
+  },
+  "D2-561": {
+    "ctx": "HR exit interviews record karta hai. Har recording ke liye usay chhorne ki asal wajah, Pay, Manager, Growth ya Other mein se ek, aur mukhtasar khulasa chahiye.",
+    "q": "Analyzer ka kaunsa design munasib hai?",
+    "opts": [
+      "Image analyzer",
+      "File ke naamon par OCR",
+      "Text to speech",
+      "Audio analyzer, wajah ke liye classify field aur khulasay ke liye generate field ke saath"
+    ],
+    "exp": "Interviews audio hain, is liye audio analyzer unhein text mein likhta hai; classify field wajah ko char categories ke andar rakhti hai, aur generate field khulasa likhti hai. Image analyzers, OCR aur text to speech bole hue interviews ka jaiza nahi lete."
+  },
+  "D2-562": {
+    "q": "Audio aur video analyzers ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Video analyzers video ke har segment ki maloomat de sakte hain.",
+      "Video analyzers audio track ko bilkul nazar andaz karte hain.",
+      "Audio analyzers recording ka transcript bana sakte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: fields har segment ke liye ban sakti hain. Doosre ka Nahi: video analysis frames aur text mein likhi hui audio dono istemal karta hai. Teesre ka Haan: transcription audio analysis ka pehla qadam hai."
+  },
+  "D2-563": {
+    "q": "Record kiye hue webinar ke analysis ki har zaroorat ko us output se milayein jo usay deta hai. Har output ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Har scene kab shuru aur kab khatam hota hai",
+      "Kaun bola aur kya kaha",
+      "Har scene ka ek jumlay ka khulasa",
+      "Slides par dikhaya gaya text"
+    ],
+    "targets": [
+      "Keyframes se OCR",
+      "Smart crops",
+      "Segment ke shuru aur khatam hone ke waqt",
+      "Har segment ke liye generated field",
+      "Speaker labels wala transcript"
+    ],
+    "exp": "Segmentation shuru aur khatam hone ke waqt deti hai, speaker labels wala transcript dikhata hai ke kis ne kya kaha, har segment ki generated field har scene ka khulasa karti hai, aur keyframes par OCR slides ka text parhta hai. Smart crops images ke thumbnails ka feature hai aur in mein se kisi zaroorat ko pura nahi karta."
+  },
+  "D2-564": {
+    "q": "Koi team apna OCR aur parsing code likhne ke bajaye Content Understanding kyun istemal kar sakti hai?",
+    "opts": [
+      "Files se text parhne ka ye wahid tareeqa hai",
+      "Ye bohat se formats ke liye parhna, structure aur field extraction sambhalta hai, confidence scores aur grounding ke saath",
+      "Is se koi bhi code likhne ki zaroorat khatam ho jati hai",
+      "Ye documents ko chhota kar deta hai"
+    ],
+    "exp": "Service documents, images, audio aur video ke liye content extraction, layout, field extraction, confidence scores aur grounding ko jorti hai, jisay khud banane mein bohat mehnat lagti. Text parhne ke doosre tareeqay maujood hain, apps phir bhi usay code se call karti hain, aur ye documents chhote nahi karta."
+  },
+  "D2-565": {
+    "q": "Ek app ko Azure Blob Storage mein rakhi invoice ka analysis karna hai. Usay Content Understanding ko kya bhejna chahiye?",
+    "opts": [
+      "Invoice lagi hui email",
+      "Invoice ki chhapi hui copy",
+      "Invoice ka audio version",
+      "File ka URL, maslan SAS token ke saath, ya file ke bytes, analyze operation ko"
+    ],
+    "exp": "Analyze operation content ko ya to aise URL ki soorat mein leta hai jisay service parh sake, ya request mein file data ki soorat mein. Email, chhapi hui copies aur audio versions API ko file bhejne ke tareeqay nahi."
+  },
+  "D2-566": {
+    "q": "Content Understanding ke nateeje parhne ke baare mein jumla mukammal karein.",
+    "tpl": "Analysis shuru karne ke baad app tab tak poll karti hai jab tak status {0} na ho, aur phir nateeje se {1} parhti hai.",
+    "blanks": [null, ["fields aur content", null, null]],
+    "exp": "Lamba chalne wala operation Succeeded hone tak statuses batata hai, aur phir nateeje mein nikala hua content aur fields hoti hain. Started aur Queued ka matlab hai ke analysis abhi jari hai, aur API keys aur quota kabhi analysis ke nateeje ka hissa nahi hote."
+  },
+  "D2-567": {
+    "q": "Raseedon ke liye Content Understanding istemal karne wali expense app ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "App total, date aur merchant fields parhti hai",
+      "App raseed ki nayi image banati hai",
+      "Employee raseed ki tasveer upload karta hai",
+      "App expense entry banati hai aur kam confidence wali values review ke liye bhejti hai",
+      "App tasveer receipt analyzer ko bhejti hai"
+    ],
+    "exp": "Employee raseed upload karta hai, app us ka analysis karti hai, fields parhti hai aur phir expense entry banati hai, aur mashkook values reviewer ko bhejti hai. Raseed ki nayi image banana asli kharcha darj karne ke bajaye content banata."
+  }
+}

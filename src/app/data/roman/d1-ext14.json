@@ -87,6 +87,7 @@
   "D1-421": {
     "q": "Model har agla token kaise chunta hai, is ke baare mein jumlay mukammal karein.",
     "tpl": "Zyada {0} kam imkan wale tokens ke chune jane ka imkan barhata hai. Intikhab ko sab se zyada imkan wale tokens tak mehdood karna {1} se hota hai.",
+    "blanks": [null, [null, "stop sequence", "seed"]],
     "exp": "Temperature probability distribution ki shakal badalta hai, is liye zyada values kam imkan wale tokens ko behtar mauqa deti hain. Top P sampling ko tokens ke us sab se chhote set tak mehdood karta hai jin ki mila kar probability hadd tak pohanche. Max tokens aur quota lambai aur throughput mehdood karte hain, stop sequence output khatam karta hai, aur seed output ko qabil-e-dohrai banane par asar dalta hai."
   },
   "D1-422": {
@@ -121,6 +122,7 @@
   "D1-426": {
     "q": "Request parameters ke baare mein jumlay mukammal karein.",
     "tpl": "{0} control karta hai ke output kitna random ho. {1} mehdood karta hai ke jawab kitna lamba ho sakta hai.",
+    "blanks": [[null, "Stop sequence", "Region"], null],
     "exp": "Temperature randomness control karta hai aur max tokens jawab ki lambai par hadd lagata hai. Stop sequence nishan par output khatam karta hai, region deployment ki khoobi hai, frequency penalty takrar kam karta hai, aur seed output ko qabil-e-dohrai banane mein madad karta hai."
   },
   "D1-427": {

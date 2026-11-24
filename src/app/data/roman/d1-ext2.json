@@ -135,7 +135,7 @@
   },
   "D1-086": {
     "q": "GPT models generative pre-trained transformers hain. Ek waqt mein ek token kar ke text banane ke liye woh transformer architecture ka kaunsa hissa istemal karte hain?",
-    "opts": ["Sirf encoder", "Decoder", null, null],
+    "opts": ["Sirf encoder", "Decoder", "Convolutional image network", "Decision tree"],
     "exp": "GPT models decoder par mabni transformers hain: decoder ab tak ke tokens par attention istemal kar ke agla token predict karta hai, aur text isi tarah qadam ba qadam banta hai. Sirf encoder wale models, jaise BERT, zyada tar text samajhne aur us ki numaindagi ke liye hain, banane ke liye nahi. Convolutional networks aam taur par images ke liye hote hain, aur decision trees machine learning model ki alag qism hain."
   },
   "D1-087": {
@@ -182,7 +182,12 @@
   },
   "D1-092": {
     "q": "Model deploy karne se pehle aap us ki capabilities, istemal ke maqasid, hudood aur license kahan parh sakte hain?",
-    "opts": [null, "Subscription ka activity log", "Foundry model catalog mein model card", null],
+    "opts": [
+      null,
+      "Subscription ka activity log",
+      "Foundry model catalog mein model card",
+      "Azure pricing calculator"
+    ],
     "exp": "Foundry model catalog mein har model ka model card hota hai jo batata hai ke model kya karta hai, kaise train hua, us ke istemal ke maqasid aur hudood kya hain, aur license ki sharaait kya hain. Azure Advisor aam best-practice mashware deta hai, activity log management operations record karta hai, aur pricing calculator kharche ka andaza lagata hai; koi bhi model ki capabilities nahi batata."
   },
   "D1-093": {

@@ -1,6 +1,7 @@
 {
   "D1-194": {
     "q": "Azure Machine Learning ka kaunsa tool data scientist ko mukhtalif groups ke logon ke liye model ki ghaltiyan aur fairness parakhne mein madad deta hai?",
+    "opts": [null, null, "Responsible AI dashboard", null],
     "exp": "Azure Machine Learning ka Responsible AI dashboard error analysis aur fairness assessment jaise tools ko ek jagah laata hai, is liye aap dekh sakte hain ke model kaunse groups ke liye kharab kaam karta hai. Azure Advisor aam mashware deta hai, Cost Management kharche par nazar rakhta hai, aur Azure Policy resources ke usool lagu karta hai; koi bhi model ki fairness nahi parakhta."
   },
   "D1-195": {
@@ -25,6 +26,7 @@
   "D1-197": {
     "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
     "tpl": "Model ko aise inputs se test karna jo us ne training mein nahi dekhe, {0} check karne mein madad karta hai. Production mein system fail ho to kya karna hai, is ki tayyari ka matlab {1} banana hai.",
+    "blanks": [null, ["pricing plan", "marketing plan", "incident response plan"]],
     "exp": "Na dekhe hue aur ghair mamooli inputs se testing dikhati hai ke system apne training data se bahar bharosemand aur mehfooz hai ya nahi. Incident response plan batata hai ke production mein kharabi ko kaise pakra, roka aur theek kiya jaye. Transparency aur inclusiveness doosre principles hain, aur pricing ya marketing plans kharabiyon ko nahi sambhalte."
   },
   "D1-198": {
