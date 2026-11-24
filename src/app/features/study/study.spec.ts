@@ -22,7 +22,7 @@ describe('Study', () => {
     }).compileComponents();
     const bank = TestBed.inject(QuestionBank);
     await bank.loadAll();
-    sectionSize = (id) => bank.countBySection().get(id) ?? 0;
+    sectionSize = (id) => bank.studyCountBySection().get(id) ?? 0;
     fixture = TestBed.createComponent(Study);
   });
 

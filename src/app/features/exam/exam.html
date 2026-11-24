@@ -21,6 +21,9 @@
         }
       </li>
       <li>{{ t.exam.mix }}</li>
+      @if (loaded()) {
+        <li>{{ t.exam.pool(poolSize(), freshCount()) }}</li>
+      }
       <li>{{ t.exam.noAnswers }}</li>
       <li>{{ t.exam.scoring(exam.maxScore, exam.passScore) }}</li>
     </ul>

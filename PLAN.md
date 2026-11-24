@@ -38,8 +38,8 @@ to mean something before anything is built on top of it.
 
 | Step | Work |
 | --- | --- |
-| 9.1 | About 200 questions that appear only in the Exam tab, never in Study, Practice or Mock Test |
-| 9.2 | Readiness score per domain, from first attempts only |
+| 9.1 | 200 questions that appear only in the Exam tab, never in Study, Practice or Mock Test (done) |
+| 9.2 | Readiness score per domain, from first attempts only (done) |
 
 ## Phase 10 - Hands-on labs
 

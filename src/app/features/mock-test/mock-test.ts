@@ -78,7 +78,7 @@ export class MockTest {
   protected readonly available = computed(() => {
     const f = this.filters();
     if (!f.sections.length || !f.types.length || !f.diffs.length) return 0;
-    return filterPool(this.bank.questions(), f).length;
+    return filterPool(this.bank.studyQuestions(), f).length;
   });
   protected readonly finalCount = computed(() => Math.min(Math.max(0, this.value().count || 0), this.available()));
   protected readonly seconds = computed(() => {
@@ -106,7 +106,7 @@ export class MockTest {
     if (this.form.invalid || this.finalCount() === 0) return;
     const f = this.filters();
     const v = this.value();
-    const questions = pickQuestions(this.bank.questions(), {
+    const questions = pickQuestions(this.bank.studyQuestions(), {
       ...f,
       count: this.finalCount(),
       rng: createRng(),

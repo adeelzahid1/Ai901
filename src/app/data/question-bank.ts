@@ -1,5 +1,5 @@
 import { Injectable, PendingTasks, computed, inject, signal } from '@angular/core';
-import { BANK_FILES, DOMAINS, DomainId, Question, SECTIONS, sectionOf } from './schema';
+import { BANK_FILES, DOMAINS, DomainId, Question, SECTIONS, isExamOnly, sectionOf } from './schema';
 
 type BankLoader = () => Promise<unknown>;
 
@@ -55,16 +55,16 @@ export class QuestionBank {
   /** All questions loaded so far, in domain order. */
   readonly questions = computed(() => DOMAINS.flatMap((d) => this.byDomain()[d.id] ?? []));
 
+  /** Questions for Study, Practice and Mock Test. */
+  readonly studyQuestions = computed(() => this.questions().filter((q) => !isExamOnly(q)));
+
+  /** Questions that are kept for the Exam tab. */
+  readonly examQuestions = computed(() => this.questions().filter(isExamOnly));
+
   readonly loaded = computed(() => DOMAINS.every((d) => this.byDomain()[d.id] !== undefined));
 
-  readonly countBySection = computed(() => {
-    const counts = new Map<string, number>(SECTIONS.map((s) => [s.id, 0]));
-    for (const q of this.questions()) {
-      const s = sectionOf(q);
-      if (s) counts.set(s.id, (counts.get(s.id) ?? 0) + 1);
-    }
-    return counts;
-  });
+  readonly countBySection = computed(() => countBySection(this.questions()));
+  readonly studyCountBySection = computed(() => countBySection(this.studyQuestions()));
 
   loadDomain(id: DomainId): Promise<Question[]> {
     const existing = this.pending.get(id);
@@ -91,4 +91,13 @@ export class QuestionBank {
     if (!loader) throw new Error(`No loader registered for bank file "${file}"`);
     return (await loader()) as Question[];
   }
+}
+
+function countBySection(questions: readonly Question[]): Map<string, number> {
+  const counts = new Map<string, number>(SECTIONS.map((s) => [s.id, 0]));
+  for (const q of questions) {
+    const s = sectionOf(q);
+    if (s) counts.set(s.id, (counts.get(s.id) ?? 0) + 1);
+  }
+  return counts;
 }

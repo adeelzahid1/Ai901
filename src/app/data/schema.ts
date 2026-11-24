@@ -1,4 +1,5 @@
 import blueprint from './blueprint.json';
+import examPool from './exam-pool.json';
 
 export type DomainId = 'D1' | 'D2';
 
@@ -148,6 +149,13 @@ const sectionBySub = new Map<string, StudySection>(
 /** The study section a question belongs to, found through its domain and sub-skill. */
 export function sectionOf(q: Pick<Question, 'id' | 'sub'>): StudySection | undefined {
   return sectionBySub.get(`${domainOf(q)}|${q.sub}`);
+}
+
+const examOnly: ReadonlySet<string> = new Set(examPool);
+
+/** True for questions that appear only in the Exam tab, so the exam measures knowledge and not memory. */
+export function isExamOnly(q: Pick<Question, 'id'>): boolean {
+  return examOnly.has(q.id);
 }
 
 /** Mid-point of the official weight range, e.g. [40, 45] -> 42.5. */

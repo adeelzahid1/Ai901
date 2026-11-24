@@ -7,10 +7,11 @@ import { areaStats } from '../../core/stats';
 import { StudyProgress } from '../../core/study-progress';
 import { QuestionBank } from '../../data/question-bank';
 import { DOMAINS, EXAM, SECTIONS } from '../../data/schema';
+import { ReadinessCard } from '../../shared/readiness-card/readiness-card';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, ReadinessCard],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
@@ -30,12 +31,17 @@ export class Dashboard {
     return [...this.progress.answeredIds()].filter((id) => ids.has(id)).length;
   });
   protected readonly accuracy = computed(() => this.progress.totals().accuracy);
-  protected readonly mistakes = computed(() => this.progress.mistakeIds().size);
+  /** Mistakes that can be practiced; exam questions are only reviewed after the exam. */
+  protected readonly mistakes = computed(() => {
+    const wrong = this.progress.mistakeIds();
+    return this.bank.studyQuestions().filter((q) => wrong.has(q.id)).length;
+  });
+  protected readonly studySize = computed(() => this.bank.studyQuestions().length);
   protected readonly history = computed(() => this.progress.history().slice(0, 5));
   protected readonly lastExam = computed(() => this.progress.history().find((h) => h.mode === 'exam') ?? null);
 
   protected readonly studyRow = computed(() => {
-    const ids = new Set(this.bank.questions().map((q) => q.id));
+    const ids = new Set(this.bank.studyQuestions().map((q) => q.id));
     const count = (set: ReadonlySet<string>) => [...set].filter((id) => ids.has(id)).length;
     return {
       understood: count(this.study.understood()),

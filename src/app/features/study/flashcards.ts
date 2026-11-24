@@ -58,7 +58,7 @@ interface RoundCard {
             <p class="muted rated">{{ t.rated(t[grade]) }}</p>
           } @else if (!flipped()) {
             <div class="row">
-              <button type="button" class="btn primary" (click)="flipped.set(true)">{{ ui.study.showAnswer }}</button>
+              <button type="button" class="btn primary" (click)="flip()">{{ ui.study.showAnswer }}</button>
             </div>
           } @else {
             <div class="row grades" role="group" [attr.aria-label]="t.rate">
@@ -220,6 +220,12 @@ export class Flashcards {
     return intervalLabel(this.study.cards()[q.id], grade, this.language.ui().cards);
   }
 
+  protected flip(): void {
+    const card = this.current();
+    if (card) this.study.markPeeked([card.q.id]);
+    this.flipped.set(true);
+  }
+
   protected show(i: number): void {
     if (i < 0 || i >= this.total()) return;
     this.index.set(i);
@@ -280,7 +286,7 @@ export class Flashcards {
       case ' ':
       case 'Enter':
         if (!open || this.flipped() || isPressable(e.target)) return false;
-        this.flipped.set(true);
+        this.flip();
         return true;
     }
     if (!open || !this.flipped() || !grade) return false;

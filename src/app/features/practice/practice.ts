@@ -58,7 +58,7 @@ export class Practice implements OnInit {
     const answered = this.progress.answeredIds();
     const mistakes = this.progress.mistakeIds();
     const sectionOk = this.sectionOptions().some((s) => s.id === v.section);
-    return filterPool(this.bank.questions(), {
+    return filterPool(this.bank.studyQuestions(), {
       sections: sectionOk ? [v.section] : this.sectionOptions().map((s) => s.id),
       diffs: v.level === 'all' ? [] : [Number(v.level) as Difficulty],
       types: v.type === 'all' ? [] : [v.type as QuestionType],

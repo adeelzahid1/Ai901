@@ -150,6 +150,26 @@ export function pickQuestions(pool: readonly Question[], opts: PickOptions): Que
   return shuffle(picked, rng);
 }
 
+/**
+ * Exam candidates: questions never answered before. A domain without enough of them is filled up with the
+ * questions that were answered longest ago.
+ */
+export function freshFirst(
+  pool: readonly Question[],
+  answeredAt: (id: string) => number | undefined,
+  count: number,
+): Question[] {
+  return DOMAINS.flatMap((d) => {
+    const own = pool.filter((q) => domainOf(q) === d.id);
+    const fresh = own.filter((q) => answeredAt(q.id) === undefined);
+    const need = Math.ceil((count * d.weight[1]) / 100) - fresh.length;
+    if (need <= 0) return fresh;
+    const seen = own.filter((q) => answeredAt(q.id) !== undefined);
+    seen.sort((a, b) => (answeredAt(a.id) ?? 0) - (answeredAt(b.id) ?? 0));
+    return [...fresh, ...seen.slice(0, need)];
+  });
+}
+
 export function domainCounts(list: readonly Question[]): Record<DomainId, number> {
   const out = { D1: 0, D2: 0 } as Record<DomainId, number>;
   for (const q of list) out[domainOf(q)]++;

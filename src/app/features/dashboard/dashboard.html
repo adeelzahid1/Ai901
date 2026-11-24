@@ -34,11 +34,13 @@
   </div>
 
   <div class="card study-row">
-    <span><strong>{{ studyRow().understood }}</strong> {{ t.dashboard.understood(bankSize()) }}</span>
+    <span><strong>{{ studyRow().understood }}</strong> {{ t.dashboard.understood(studySize()) }}</span>
     <span><strong>{{ studyRow().due }}</strong> {{ t.dashboard.due }}</span>
     <span><strong>{{ studyRow().bookmarked }}</strong> {{ t.dashboard.bookmarked }}</span>
     <a class="btn" routerLink="/study">{{ t.dashboard.openStudy }}</a>
   </div>
+
+  <app-readiness-card />
 
   <div class="actions">
     <a class="btn primary" routerLink="/exam">{{ t.dashboard.startExam(exam.examQuestions, exam.minutes) }}</a>

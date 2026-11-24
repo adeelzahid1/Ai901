@@ -5,6 +5,7 @@ import { ProgressService } from '../../core/progress';
 import { AreaStats, areaStats } from '../../core/stats';
 import { QuestionBank } from '../../data/question-bank';
 import { DOMAINS, SECTIONS } from '../../data/schema';
+import { ReadinessCard } from '../../shared/readiness-card/readiness-card';
 
 /** Fewer attempts than this are not enough to call an area weak or strong. */
 export const MIN_ATTEMPTS = 3;
@@ -28,7 +29,7 @@ function byWeakness(a: Row, b: Row): number {
 
 @Component({
   selector: 'app-weak-areas',
-  imports: [RouterLink],
+  imports: [RouterLink, ReadinessCard],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './weak-areas.html',
   styleUrl: './weak-areas.css',

@@ -3,7 +3,8 @@ import bankD1b from '../data/bank/d1-ext1.json';
 import bankD2a from '../data/bank/d2-core.json';
 import bankD2b from '../data/bank/d2-ext1.json';
 import { Question, SECTIONS, sectionOf } from '../data/schema';
-import { EXAM_DIFF_MIX, EXAM_TYPE_MIX, allocate, domainCounts, filterPool, pickQuestions } from './exam-builder';
+import { EXAM_DIFF_MIX, EXAM_TYPE_MIX, allocate, domainCounts, filterPool, pickQuestions, freshFirst } from './exam-builder';
+import { SAMPLE } from './testing';
 import { createRng } from './rng';
 
 const BANK = [...bankD1a, ...bankD1b, ...bankD2a, ...bankD2b] as unknown as Question[];
@@ -50,5 +51,18 @@ describe('pickQuestions', () => {
     const only = new Set(['D1-001', 'D2-010', 'D2-070']);
     const list = pickQuestions(BANK, { count: 30, rng: createRng(4), include: (q) => only.has(q.id) });
     expect(list.map((q) => q.id).sort()).toEqual([...only].sort());
+  });
+
+  it('prefers exam questions that were never answered, then the oldest answers', () => {
+    const pool = ['D1', 'D2'].flatMap((d) =>
+      Array.from({ length: 40 }, (_, i) => ({ ...SAMPLE.mcq, id: `${d}-${String(i).padStart(3, '0')}`, sub: d === 'D1' ? 'fairness' : 'prompts' })),
+    );
+    expect(freshFirst(pool, (id) => (id === 'D1-000' ? 5 : undefined), 50).some((q) => q.id === 'D1-000')).toBeFalse();
+    // Every D1 question is answered, D1-039 longest ago: the oldest ones fill the domain.
+    const mixed = freshFirst(pool, (id) => (id.startsWith('D1') ? 100 - Number(id.slice(3)) : undefined), 50);
+    const d1 = mixed.filter((q) => q.id.startsWith('D1')).map((q) => q.id);
+    expect(d1.length).toBe(23);
+    expect(d1[0]).toBe('D1-039');
+    expect(mixed.filter((q) => q.id.startsWith('D2')).length).toBe(40);
   });
 });

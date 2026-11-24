@@ -3,16 +3,19 @@ import { TestBed } from '@angular/core/testing';
 import { emptyAnswer } from './grading';
 import { ProgressService } from './progress';
 import { buildReport } from './report';
+import { StudyProgress } from './study-progress';
 import { SAMPLE } from './testing';
 
 describe('ProgressService', () => {
   beforeEach(() => {
+    localStorage.removeItem('ai901-study-v1');
     localStorage.removeItem('ai901-progress');
     localStorage.removeItem('ai901-history');
     TestBed.configureTestingModule({ providers: [provideZonelessChangeDetection()] });
   });
 
   afterEach(() => {
+    localStorage.removeItem('ai901-study-v1');
     localStorage.removeItem('ai901-progress');
     localStorage.removeItem('ai901-history');
   });
@@ -25,6 +28,16 @@ describe('ProgressService', () => {
     expect(p.stats()['D1-001']).toEqual(jasmine.objectContaining({ a: 2, c: 1, last: 1 }));
     expect([...p.mistakeIds()]).toEqual(['D1-002']);
     expect(p.totals()).toEqual({ attempts: 3, correct: 1, accuracy: 33 });
+  });
+
+  it('keeps the result of the first attempt unless the answer was shown before', () => {
+    const p = TestBed.inject(ProgressService);
+    TestBed.inject(StudyProgress).markPeeked(['D1-003']);
+    p.record('D1-001', false);
+    p.record('D1-001', true);
+    p.record('D1-003', true);
+    expect(p.stats()['D1-001'].f).toBe(0);
+    expect(p.stats()['D1-003'].f).toBeNull();
   });
 
   it('saves to localStorage under the exam prefix and loads it again', () => {

@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { EXAM_DIFF_MIX, EXAM_TYPE_MIX, pickQuestions } from '../../core/exam-builder';
+import { EXAM_DIFF_MIX, EXAM_TYPE_MIX, freshFirst, pickQuestions } from '../../core/exam-builder';
 import { Language } from '../../core/language';
+import { ProgressService } from '../../core/progress';
 import { QuizReport } from '../../core/report';
 import { createRng } from '../../core/rng';
 import { SessionStore } from '../../core/session-store';
@@ -20,6 +21,7 @@ import { QuizRunner } from '../../shared/quiz-runner/quiz-runner';
 export class Exam {
   protected readonly language = inject(Language);
   private readonly bank = inject(QuestionBank);
+  private readonly progress = inject(ProgressService);
   private readonly sessions = inject(SessionStore);
   private readonly router = inject(Router);
 
@@ -27,14 +29,22 @@ export class Exam {
   protected readonly loaded = this.bank.loaded;
   protected readonly domains = DOMAINS.map((d) => ({ id: d.id, name: d.name, weight: d.weight, mid: weightMid(d) }));
   protected readonly questions = signal<Question[] | null>(null);
+  protected readonly poolSize = computed(() => this.bank.examQuestions().length);
+  /** Exam questions the learner has not answered yet. */
+  protected readonly freshCount = computed(() => {
+    const answered = this.progress.answeredIds();
+    return this.bank.examQuestions().filter((q) => !answered.has(q.id)).length;
+  });
 
   constructor() {
     void this.bank.loadAll();
   }
 
   protected start(): void {
+    const stats = this.progress.stats();
+    const pool = freshFirst(this.bank.examQuestions(), (id) => stats[id]?.t, EXAM.examQuestions);
     this.questions.set(
-      pickQuestions(this.bank.questions(), {
+      pickQuestions(pool, {
         count: EXAM.examQuestions,
         rng: createRng(),
         minPerSection: 2,

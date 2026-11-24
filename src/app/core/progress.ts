@@ -1,13 +1,18 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { HistoryEntry, QuizReport, toHistory } from './report';
 import { LocalStore } from './storage';
+import { StudyProgress } from './study-progress';
 
-/** Per-question statistics: attempts, correct attempts, result of the last attempt, last time. */
+/**
+ * Per-question statistics: attempts, correct attempts, result of the last attempt, last time and result of
+ * the first attempt (null when the learner had seen the answer before; missing in older saved progress).
+ */
 export interface QuestionStat {
   a: number;
   c: number;
   last: 0 | 1;
   t: number;
+  f?: 0 | 1 | null;
 }
 
 const PROGRESS_KEY = 'ai901-progress';
@@ -18,6 +23,7 @@ const MAX_HISTORY = 30;
 @Injectable({ providedIn: 'root' })
 export class ProgressService {
   private readonly store = inject(LocalStore);
+  private readonly study = inject(StudyProgress);
 
   readonly stats = signal<Record<string, QuestionStat>>(this.store.read(PROGRESS_KEY, {}));
   readonly history = signal<HistoryEntry[]>(this.store.read(HISTORY_KEY, []));
@@ -39,8 +45,10 @@ export class ProgressService {
 
   record(id: string, correct: boolean, at = Date.now()): void {
     this.stats.update((all) => {
-      const prev = all[id] ?? { a: 0, c: 0, last: 0, t: 0 };
-      return { ...all, [id]: { a: prev.a + 1, c: prev.c + (correct ? 1 : 0), last: correct ? 1 : 0, t: at } };
+      const result = correct ? 1 : 0;
+      const first: QuestionStat = { a: 0, c: 0, last: 0, t: 0, f: this.study.peeked().has(id) ? null : result };
+      const prev = all[id] ?? first;
+      return { ...all, [id]: { ...prev, a: prev.a + 1, c: prev.c + result, last: result, t: at } };
     });
     this.store.write(PROGRESS_KEY, this.stats());
   }

@@ -127,6 +127,8 @@ const EN = {
     auto: 'The test is submitted automatically when time runs out.',
     weights: 'Questions come from every study section and follow the official weights:',
     mix: 'A mix of question types (multiple choice, multi-select, Yes/No, drop-down, matching, ordering) and levels.',
+    pool: (total: number, fresh: number) =>
+      `The ${total} exam questions never appear in Study, Practice or Mock Test. You have not answered ${fresh} of them yet; new ones come first.`,
     noAnswers: 'No answers are shown during the exam. Use “Mark for review” and the question grid to go back.',
     scoring: (max: number, pass: number) =>
       `Your score is out of ${max}; ${pass} is the pass mark. You can review every question afterwards.`,
@@ -248,6 +250,14 @@ const EN = {
     exitFull: 'Exit full screen',
     minutes: (n: number) => `${n} min`,
     days: (n: number) => plural(n, 'day', 'days'),
+  },
+  readiness: {
+    heading: 'Exam readiness',
+    lead: 'From your first answer to each question only. Repeated questions and questions whose answer you had already seen in Study do not count.',
+    levels: { unknown: 'Not enough answers yet', learn: 'Keep studying', close: 'Nearly there', ready: 'Ready' },
+    left: (answers: number, need: number, left: number) => `${answers} of ${need} first answers, ${left} to go`,
+    of: (correct: number, answers: number) => `(${correct} of ${answers} right the first time)`,
+    estimate: (score: number, max: number) => `Estimated score: about ${score} of ${max}. The real exam is scored on a different scale.`,
   },
   keys: {
     heading: 'Keyboard shortcuts',
@@ -430,6 +440,8 @@ const ROMAN: UiText = {
     auto: 'Waqt khatam hone par test khud jama ho jata hai.',
     weights: 'Sawal har study section se aate hain aur official weights ke mutabiq hote hain:',
     mix: 'Har qism ke sawal (ek jawab, kai jawab, Haan/Nahi, drop-down, matching, tarteeb) aur har level shamil hai.',
+    pool: (total, fresh) =>
+      `Exam ke ${total} sawal Parhai, Mashq ya Mock Test mein kabhi nahi aate. In mein se ${fresh} ka jawab aap ne abhi nahi diya; naye pehle aate hain.`,
     noAnswers: 'Exam ke dauran jawab nahi dikhaye jate. Wapas aane ke liye “Baad mein dekhna hai” aur sawalon ki list istemal karein.',
     scoring: (max, pass) => `Score ${max} mein se hota hai; pass ke liye ${pass} chahiye. Baad mein har sawal dobara dekh sakte hain.`,
     start: 'Exam shuru karein',
@@ -550,6 +562,14 @@ const ROMAN: UiText = {
     exitFull: 'Full screen band karein',
     minutes: (n) => `${n} min`,
     days: (n) => `${n} din`,
+  },
+  readiness: {
+    heading: 'Exam ki tayyari',
+    lead: 'Sirf har sawal ke pehle jawab se. Dobara kiye hue sawal, ya woh jin ka jawab aap Parhai mein dekh chuke thay, nahi gine jate.',
+    levels: { unknown: 'Abhi jawab kam hain', learn: 'Parhai jari rakhein', close: 'Qareeb hain', ready: 'Tayyar' },
+    left: (answers, need, left) => `${need} mein se ${answers} pehle jawab, ${left} baqi`,
+    of: (correct, answers) => `(${answers} mein se ${correct} pehli dafa sahi)`,
+    estimate: (score, max) => `Andazan score: taqreeban ${score} / ${max}. Asal exam ka score alag paimane par hota hai.`,
   },
   keys: {
     heading: 'Keyboard shortcuts',

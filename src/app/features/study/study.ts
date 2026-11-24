@@ -54,7 +54,7 @@ export class Study {
   /** Questions grouped by section, in bank order. */
   private readonly bySection = computed(() => {
     const m = new Map<string, Question[]>();
-    for (const q of this.bank.questions()) {
+    for (const q of this.bank.studyQuestions()) {
       const id = sectionOf(q)?.id;
       if (id) m.set(id, [...(m.get(id) ?? []), q]);
     }
@@ -136,6 +136,7 @@ export class Study {
   }
 
   protected toggleOpen(id: string): void {
+    this.study.markPeeked([id]);
     this.open.update((set) => {
       const next = new Set(set);
       if (next.has(id)) next.delete(id);
@@ -145,7 +146,9 @@ export class Study {
   }
 
   protected showAll(on: boolean): void {
-    this.open.set(on ? new Set(this.shown().map((q) => q.id)) : new Set());
+    const ids = on ? this.shown().map((q) => q.id) : [];
+    this.study.markPeeked(ids);
+    this.open.set(new Set(ids));
   }
 
   protected loadMore(): void {

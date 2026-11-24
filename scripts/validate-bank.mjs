@@ -183,6 +183,22 @@ for (const { name, value, min = 0, max } of fair.measures) {
   if (value > max || value < min) err('fairness', `${name}: ${Math.round(value * 100)}% (${limit})`);
 }
 
+// ---- Exam-only questions: in no other tab, weighted like the exam ------------------------------
+const examPool = readJson(join(dataDir, 'exam-pool.json'));
+const inBank = new Map(questions.map((q) => [q.id, q]));
+for (const id of examPool) if (!inBank.has(id)) err(id, 'is in exam-pool.json but not in the bank');
+if (new Set(examPool).size !== examPool.length) err('exam-pool', 'repeats a question');
+const poolQuestions = examPool.map((id) => inBank.get(id)).filter(Boolean);
+if (examPool.length < 4 * blueprint.exam.examQuestions) err('exam-pool', 'needs questions for at least four exams');
+for (const d of blueprint.domains) {
+  const share = poolQuestions.filter((q) => q._domain === d.id).length / (poolQuestions.length || 1);
+  if (share * 100 < d.weight[0] - 1 || share * 100 > d.weight[1] + 1) err('exam-pool', `${d.id} is ${Math.round(share * 100)}% (${d.weight.join('-')}%)`);
+}
+for (const s of blueprint.sections) {
+  const n = poolQuestions.filter((q) => sectionOf.get(`${q._domain}|${q.sub}`) === s.id).length;
+  if (n < 8) err('exam-pool', `section ${s.id} has ${n} questions (at least 8)`);
+}
+
 // ---- Roman Urdu overlays --------------------------------------------------------------------
 // data/roman/<bank file>.json maps question ids to translated text. Fields that are left out and
 // `null` list entries stay in English (Azure terms, commands, code).
@@ -288,7 +304,8 @@ for (const s of blueprint.sections) {
   const ro = questions.filter((q) => translated.has(q.id) && sectionOf.get(`${q._domain}|${q.sub}`) === s.id).length;
   console.log(`  ${s.id.padEnd(6)} ${String(n).padStart(4)} / ${String(s.target).padEnd(4)} ${String(ro).padStart(9)}  ${s.en}`);
 }
-console.log(`\nRoman Urdu: ${translated.size} / ${questions.length} questions (${pct(translated.size)}) in ${romanFiles.length} files`);
+console.log(`\nExam-only questions: ${poolQuestions.length} (the other tabs have ${questions.length - poolQuestions.length})`);
+console.log(`Roman Urdu: ${translated.size} / ${questions.length} questions (${pct(translated.size)}) in ${romanFiles.length} files`);
 const missingSubs = [...sectionOf.keys()].filter((k) => !bySub.has(k));
 console.log(`\nSub-skills covered: ${sectionOf.size - missingSubs.length} / ${sectionOf.size}`);
 if (missingSubs.length) console.log(`  not covered yet: ${missingSubs.join(', ')}`);

@@ -1,7 +1,7 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { QuestionBank } from './question-bank';
-import { DOMAINS, SECTIONS, domainOf, sectionOf } from './schema';
+import { DOMAINS, EXAM, SECTIONS, domainOf, isExamOnly, sectionOf } from './schema';
 
 describe('QuestionBank', () => {
   let bank: QuestionBank;
@@ -34,6 +34,17 @@ describe('QuestionBank', () => {
     }
     for (const d of DOMAINS) {
       expect(all.some((q) => domainOf(q) === d.id)).withContext(d.id).toBeTrue();
+    }
+  });
+
+  it('keeps exam questions apart from study questions', async () => {
+    const all = await bank.loadAll();
+    const exam = bank.examQuestions();
+    expect(exam.length).toBeGreaterThanOrEqual(4 * EXAM.examQuestions);
+    expect(bank.studyQuestions().some(isExamOnly)).toBeFalse();
+    expect(bank.studyQuestions().length + exam.length).toBe(all.length);
+    for (const s of SECTIONS) {
+      expect(exam.some((q) => sectionOf(q)?.id === s.id)).withContext(s.id).toBeTrue();
     }
   });
 
