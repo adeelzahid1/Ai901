@@ -1,0 +1,252 @@
+{
+  "D1-446": {
+    "q": "Team ko sab se pehle kya karna chahiye?",
+    "ctx": "Ek recruitment company apne das saal ke hiring faislon par model train karti hai. Data mein gender ka column nahi. Launch ke baad ek jaise tajurbe wali khawateen mardon se aadhi dafa shortlist hoti hain.",
+    "opts": [
+      "Kuch nahi, kyunke model aise column par biased nahi ho sakta jo us ne dekha hi nahi",
+      "Har group ke nateeje naapna aur aise columns dhoondna jo gender ki jagah kaam kar rahe hain",
+      "Source code publish karna",
+      "Usi das saal ke hiring faislon par wahi model zyada der train karna"
+    ],
+    "exp": "Hassas column hatane se bias khatam nahi hota, kyunke doosre columns, jaise job gaps ya club ke naam, us ki jagah le lete hain aur purane faislon mein purana bias hota hai. Har group ke nateeje muqabla karne se nuqsan ki jagah pata chalti hai. Usi data par zyada training bias dohrati hai, aur code publish karne se masla hal nahi hota."
+  },
+  "D1-447": {
+    "q": "Launch se pehle kaunsa qadam sab se aham hai?",
+    "ctx": "Ek hospital triage assistant ko 200 aam cases par test karta hai aur nateeje ache aate hain. Ab woh isay tamam mareezon ke liye kholna chahta hai, jin mein bachay aur nayab beemariyon wale log bhi hain.",
+    "opts": [
+      "Assistant ko zyada dostana naam aur awaaz dena",
+      "Assistant ko hospital ke qareeb region mein le jana",
+      "Ghair mamooli aur zyada khatre wale cases par test aur staff ko case dene ka plan",
+      "Assistant jo sawal har mareez se poochta hai un ki tadad kam karna"
+    ],
+    "exp": "Reliability and safety ka matlab hai ke system mutawaqqe aur ghair mutawaqqe halaat mein theek chale. Aam cases bachon ya nayab beemariyon ke baare mein kuch nahi batate, is liye edge cases test hone chahiye aur insan case sambhal sakein. Naam, region ya kam sawal khatra kam nahi karte."
+  },
+  "D1-448": {
+    "q": "Kaunse TEEN iqdamat is hal mein privacy ki hifazat karte hain? Har sahi jawab hal ka ek hissa hai.",
+    "ctx": "Ek clinic aisa chat assistant chahti hai jo staff ke sawalon ka jawab mareezon ke khutoot se de. Khutoot mein naam, pate aur diagnoses hain, aur sirf ilaaj karne wali team unhein dekh sakti hai.",
+    "opts": [
+      "Khutoot nikalne se pehle user ka role check karna",
+      "Aisi zaati tafseelat chupana jin ki jawab ko zaroorat nahi",
+      "Ek mushtarka account rakhna taake kisi ko alag sign in na karna pare",
+      "Tay karna ke chat logs kitne arse rakhe jayein",
+      "Temperature barhana taake jawab asal alfaaz kam dohrayein"
+    ],
+    "exp": "Access check, masking aur rakhne ki muddat tay karti hain ke zaati data kaun dekhe, kitna dikhe aur kab tak rahe. Mushtarka account access control aur audit khatam kar deta hai, aur temperature alfaaz badalta hai lekin zaati data phir bhi zahir hota hai."
+  },
+  "D1-449": {
+    "q": "Kaunsi tabdeeli inclusiveness ke usool ke mutabiq hai?",
+    "ctx": "Ek sheher apni phone line ki jagah sirf awaaz wala assistant lagata hai. Behre log aur haklane wale log ab appointment book nahi kar sakte.",
+    "opts": [
+      "Text chat aur insan tak pohanchne ka raasta shamil karna",
+      "Un logon se kehna ke dost se call karwayein",
+      "Website par samjhana ke speech model kaise train hua",
+      "Har call record karna taake team baad mein masle dekhe"
+    ],
+    "exp": "Inclusiveness ka matlab hai ke har salahiyat ke log system istemal kar sakein, is liye awaaz ka mutabadil aur insan tak raasta chahiye. Doston par inhisar logon ko bahar rakhta hai, training ki wazahat sirf transparency hai, aur recordings rasai nahi detin."
+  },
+  "D1-450": {
+    "q": "Is scenario ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "ctx": "Ek bank loan ki hadein tay karne ke liye model istemal karta hai. Customers ko bataya jata hai ke AI system istemal hua, un ke case mein kaunse teen asbab sab se aham thay, aur insani review kaise maangein.",
+    "stmts": [
+      "Customers ko batana ke kaunse asbab sab se aham thay transparency ki madad karta hai.",
+      "Faisla samjha diya gaya, is liye bank ab us ka jawabdeh nahi.",
+      "Wazahat sabit karti hai ke model tamam groups ke saath insaaf karta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: log samajh sakte hain ke faisla kaise hua. Doosre ka Nahi: idara apne systems ka jawabdeh rehta hai, aur insani review is mein madad karta hai. Teesre ka Nahi: fairness groups ke nateeje muqabla kar ke naapi jati hai."
+  },
+  "D1-451": {
+    "q": "Kaunsa intezam accountability ke usool ke mutabiq hota?",
+    "ctx": "Ek retailer vendor se pricing model khareedta hai. Model dawai ki ghalat qeemat lagata hai aur customers ko nuqsan hota hai. Retailer kehta hai vendor zimmedar hai, aur vendor kehta hai model ne khud faisla kiya.",
+    "opts": [
+      "Notice ke qeematein AI se aati hain",
+      "Launch se pehle tay shuda zimmedar log, manzoori ke usool aur nigrani",
+      "Zyada bara model",
+      "Contract ki shart jo model ko khud har lagai hui qeemat ka zimmedar banati hai"
+    ],
+    "exp": "Accountability ka matlab hai ke log AI system ke jawabdeh hon, is ke liye wazeh zimmedar, governance aur nigrani chahiye. Model insan nahi aur zimmedar nahi ho sakta, notice transparency hai, aur bara model bhi wahi ghalti kar sakta hai."
+  },
+  "D1-452": {
+    "q": "Gharay hue cases ki wajah kya hai?",
+    "ctx": "Ek law firm chat model se shor ke baare mein adalati cases poochti hai. Model char cases number aur tareekh ke saath deta hai. Un mein se do maujood hi nahi.",
+    "opts": [
+      "Model ne ghalat adalati database mein talash kiya",
+      "Model mumkina text banata hai aur haqaiq check nahi karta",
+      "Content filter ne asli cases ki jagah be zarar cases rakhe",
+      "Prompt model ke liye zaroori tokens ki kam az kam tadad se chhota tha"
+    ],
+    "exp": "Language model patterns se agle tokens ka andaza lagata hai, is liye aise hawale likh sakta hai jo sach lagte hain lekin maujood nahi. Database mein tabhi dekhta hai jab aisa tool diya jaye, filters cases nahi ghartay, aur prompt ki koi kam az kam lambai is ki wajah nahi."
+  },
+  "D1-453": {
+    "q": "Aap kya tajweez karenge?",
+    "ctx": "Ek assistant 900 page ke manual se jawab deta hai. Har sawal ke saath poora manual bhejna slow, mehnga aur kabhi model ke liye bohat lamba hota hai. Manual har hafte badalta hai.",
+    "opts": [
+      "Har hafte naye manual par model fine-tune karna",
+      "Manual ko embeddings se index kar ke sirf milte jultay hisse bhejna",
+      "Model se kehna ke yaad se jawab de",
+      "max output tokens barhana taake poora manual ek request mein aa jaye"
+    ],
+    "exp": "Retrieval sawal se milte chand hisse dhoond kar prompt mein dalta hai, aur index aasani se taza hota hai. Har hafte fine-tuning slow hai aur haqaiq ki guarantee nahi, yaad se gharay hue jawab aate hain, aur max output tokens input nahi balke jawab mehdood karta hai."
+  },
+  "D1-454": {
+    "q": "Is scenario ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "ctx": "Ek translator fi token paise deta hai. 600 alfaaz ka English page 800 tokens ka hai, aur wahi page doosri zabaan mein 1,500 tokens ka.",
+    "stmts": [
+      "Alfaaz aur tokens ek hi ikai nahi.",
+      "Doosri zabaan usi page ke liye context window ka zyada hissa leti hai.",
+      "Wahi page doosri baar bhejna muft hai, kyunke model usay yaad rakhta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: token text ka tukra hai, aur ek lafz ek ya kai tokens ka ho sakta hai. Doosre ka Haan: 1,500 tokens 800 se zyada jagah lete hain. Teesre ka Nahi: model requests ke darmiyan yaad nahi rakhta, aur input tokens har baar gine jate hain."
+  },
+  "D1-455": {
+    "q": "Kaunsa intikhab zarooraton par sab se behtar utarta hai?",
+    "ctx": "Ek insurance app ko har mahine 20 lakh chhoti emails par claim, question ya complaint ka label lagana hai. Label ek second se kam mein aaye, aur mahana budget chhota hai. Test mein chhota model 96% aur bara reasoning model 97% emails mein sahi hai.",
+    "opts": [
+      "Chhota language model",
+      "Bara reasoning model, kyunke accuracy faisla karti hai",
+      "Image-generation model jis ka prompt email ho",
+      "Sirf embedding model"
+    ],
+    "exp": "Chhota model raftaar aur kharche ki hadon par utarta hai aur sirf ek percentage point kam hai. Reasoning model slow aur mehnga hai, image model text par label nahi lagata, aur embedding model vectors deta hai jin se label banane ke liye ek aur qadam chahiye."
+  },
+  "D1-456": {
+    "q": "Chune hue models mein kaunsi TEEN salahiyatein honi chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "ctx": "Ek repair app mein technician machine ki tasveer leta hai, awaaz se sawal poochta hai aur phir jawab sunta hai. Likhi hui report bhi banni chahiye.",
+    "opts": [
+      "Images samajhna",
+      "Audio input aur output",
+      "Text se product ki nayi images banana",
+      "Text generation",
+      "Shanakht ke liye technician ka chehra pehchanna"
+    ],
+    "exp": "Tasveer ke liye image samajhna, bole gaye sawal aur jawab ke liye audio input aur output, aur report ke liye text generation chahiye. Scenario mein nayi tasveerein banane ya technician ki shanakht ki zaroorat nahi."
+  },
+  "D1-457": {
+    "q": "Aap kaunsa deployment type chunenge?",
+    "ctx": "Ek publisher 400,000 purane articles ke khulasay chahta hai. Nateeje ek hafte mein chahiye, kisi ek jawab ka koi intezar nahi karta, aur qeemat jitni kam ho sake utni chahiye.",
+    "opts": ["Global Standard", "Regional Provisioned Throughput", "Global Batch", "Data Zone Provisioned"],
+    "exp": "Batch deployments requests ki bari files ko asynchronous tareeqay se kam qeemat par process karti hain, jo aise kaam ke liye munasib hai jahan user intezar nahi karta. Standard aam qeemat par real-time calls ke liye hai, aur provisioned types mustaqil aur latency wale traffic ke liye capacity mukhtas karti hain."
+  },
+  "D1-458": {
+    "q": "Dono apps ki configuration kaise honi chahiye?",
+    "ctx": "Support bot ko refund rules ke liye har baar ek jaisi ibarat deni hai, lekin marketing team usi model se das mukhtalif slogans likhwana chahti hai.",
+    "opts": [
+      "Bot ke liye kam aur slogans ke liye zyada temperature",
+      "Dono apps ke liye zyada temperature aur support bot ke liye lamba prompt",
+      "Do regions",
+      "Content filter jo bot ke liye band aur slogans ke liye on ho"
+    ],
+    "exp": "Temperature har request mein set hota hai: kam value output ko yaksan rakhti hai, aur zyada value mukhtalif text deti hai. Region se creativity nahi badalti, lamba prompt zyada temperature ko khatam nahi karta, aur content filters nuqsan dah mawad rokte hain, variety nahi."
+  },
+  "D1-459": {
+    "q": "Ye kaunsa workload hai?",
+    "ctx": "Ek travel company aisa software chahti hai jo customer ki request parhe, booking system mein khali kamre dekhe, customer ki manzoori ke baad kamra book kare aur confirmation bheje.",
+    "opts": ["Information extraction", "Agentic AI", "Speech synthesis", "Tools ke baghair generative AI"],
+    "exp": "Software kai qadam plan karta hai aur customer ke liye doosre systems ke tools se kaam karta hai, ye agentic AI hai. Tools ke baghair generative model sirf text likh sakta hai, extraction sirf content se data nikalta hai, aur yahan awaaz nahi banti."
+  },
+  "D1-460": {
+    "q": "Har project ko us ke AI workload se milayein. Har workload ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "ctx": "Ek museum chaar projects plan karta hai: (1) purani darazon ki tasveeron se chhape labels parhna, (2) numaish ke text awaaz mein sunana, (3) jaanna ke visitors ke comments khush hain ya naraz, (4) har numaish par bachon ke liye nayi chhoti kahani likhna.",
+    "items": ["Project 1", "Project 2", "Project 3", "Project 4"],
+    "targets": ["Generative AI", "Computer vision", "Text analysis", "Speech", "Agentic AI"],
+    "exp": "Tasveeron se text parhna OCR hai jo computer vision ka kaam hai. Awaaz mein sunana speech synthesis, comments parakhna text analysis mein sentiment analysis, aur nayi kahani likhna generative AI hai. Koi project doosre systems mein kaam nahi karta, is liye agent ki zaroorat nahi."
+  },
+  "D1-461": {
+    "q": "Behtareen mashwara kya hai?",
+    "ctx": "Ek warehouse mukarrar shelf par boxes ek camera se ginta hai. Usi shelf par barcode scanner pehle hi boxes ki bilkul sahi tadad baghair ghalti ke deta hai. Manager AI vision solution maangta hai.",
+    "opts": [
+      "Scanner hi rakhein",
+      "Object detection model train kar ke scanner ki jagah lagayein",
+      "Har tasveer multimodal model se bayan karwa kar alfaaz ginein",
+      "Bhare hue shelves ki images banayein"
+    ],
+    "exp": "AI tab mufeed hai jab saade usool ya devices kaafi na hon. Yahan bilkul sahi aur sasta hal pehle se maujood hai, is liye vision model sirf kharcha aur ghaltiyan barhata. Tafseel ke alfaaz ginne ya images banane se boxes nahi ginte."
+  },
+  "D1-462": {
+    "q": "Is scenario ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "ctx": "Ek agent suppliers ki emails sambhalta hai. Woh khud orders dekh sakta aur jawab ka draft bana sakta hai. 500 dollar se zyada ki payment employee ki manzoori tak ruki rehti hai.",
+    "stmts": [
+      "Orders dekhna agent ka ek tool hai.",
+      "Manzoori ka usool bare asar wale kaam mein insan ko shamil rakhta hai.",
+      "Agent yahi kaam tab bhi kar leta jab us ke paas language model hota lekin doosre systems tak rasai na hoti."
+    ],
+    "exp": "Pehle ka jawab Haan: system se orders parhna tool call hai. Doosre ka Haan: employee aise kaam ki tasdeeq karta hai jin se nuqsan ho sakta hai. Teesre ka Nahi: tools ke baghair model text likh sakta lekin orders nahi dekh sakta na payment shuru kar sakta."
+  },
+  "D1-463": {
+    "q": "Kaunsi technique unhein ye deti hai?",
+    "ctx": "Ek hotel chain ko \"Great pool, terrible breakfast\" jaise reviews milte hain. Pool aur kitchen ke managers dono jaanna chahte hain ke mehman un ke apne hisse ke baare mein kya sochte hain.",
+    "opts": [
+      "Poore review ka sentiment analysis",
+      "Opinion mining",
+      "Language detection aur phir tamam reviews ka khulasa",
+      "Key phrase extraction"
+    ],
+    "exp": "Opinion mining har target, jaise pool ya breakfast, ko us ke sentiment se jorta hai. Poore review ka ek sentiment sirf mixed batata, key phrases baghair raaye ke topics batate hain, aur khulasa ya zabaan hisse alag nahi karte."
+  },
+  "D1-464": {
+    "q": "Kaunsa tareeqa dono usoolon par utarta hai?",
+    "ctx": "Ek adalat ko faislay publish karne hain. Naam aur pate nazar nahi aane chahiye, aur baqi har lafz bilkul waisa rahe jaisa judge ne likha.",
+    "opts": [
+      "Kam lambai wala abstractive summarization",
+      "Chat model se har faisla baghair naamon ke dobara likhwana",
+      "Redaction ke saath PII detection",
+      "Key phrase extraction"
+    ],
+    "exp": "PII detection zaati entities pehchan kar sirf un ke huroof chupata hai, is liye baqi text nahi badalta. Khulasa ya dobara likhna judge ki ibarat badal deta hai, aur key phrases faislay ke bajaye topics ki list dete hain."
+  },
+  "D1-465": {
+    "q": "Station ko kaunsi salahiyat istemal karni chahiye?",
+    "ctx": "Ek radio station ke paas storage mein 6,000 record interviews hain. Usay agle mahine tak aise transcripts chahiye jin mein talash ho sake. Audio chalte waqt text kisi ko nahi chahiye.",
+    "opts": [
+      "Microphone se real-time transcription",
+      "Batch transcription",
+      "Neural voice wala speech synthesis",
+      "Speech translation"
+    ],
+    "exp": "Batch transcription bohat si mehfooz audio ko asynchronous tareeqay se process karta hai. Real-time transcription live audio ke liye hai, speech synthesis text se audio banata hai, aur translation zabaan badalta hai jo kisi ne nahi maanga."
+  },
+  "D1-466": {
+    "q": "Aap kaunse DO features shamil karenge? Har sahi jawab hal ka ek hissa hai.",
+    "ctx": "Ek call center dawaiyon ke baare mein calls transcribe karta hai. Transcripts mein 300 dawaiyon ke naam aksar ghalat likhe hote hain, aur ye nazar nahi aata ke kis ne kya kaha.",
+    "opts": [
+      "Dawaiyon ke naamon wali phrase list ya custom speech model",
+      "Neural voice jo dawaiyon ke naam aahista bole",
+      "Diarization",
+      "Sentiment analysis",
+      "SSML"
+    ],
+    "exp": "Phrase list ya custom speech model recognition ko nayab naam sikhata hai, aur diarization bolne walon ko alag karta hai. Neural voice aur SSML awaaz banane ke liye hain, aur sentiment analysis text par chalta hai aur spelling ya speakers theek nahi karta."
+  },
+  "D1-467": {
+    "q": "Kaunsi technique dono sawalon ka jawab deti hai?",
+    "ctx": "Ek farm drone kheton ki tasveerein leta hai. Kisan jaanna chahta hai ke har tasveer mein gaayein kahan hain aur kitni hain.",
+    "opts": [
+      "cow aur no cow labels wali image classification",
+      "Object detection",
+      "Optical character recognition",
+      "Image caption jo tasveer ko ek jumlay mein bayan kare"
+    ],
+    "exp": "Object detection har gaaye ka bounding box deta hai, is liye jagah aur tadad dono milti hain. Classification poori tasveer ka ek label deta hai, OCR text parhta hai, aur caption jumla hai jis mein qabil e bharosa jagah ya tadad nahi."
+  },
+  "D1-468": {
+    "q": "Kis tareeqay mein sab se kam alag services chahiye?",
+    "ctx": "Ek logistics company ko delivery notes scans mein, driver reports voice messages mein aur unloading ki videos milti hain. Ek system ko har item ka delivery number, waqt aur nuqsan structured fields mein chahiye.",
+    "opts": [
+      "Scans ke liye OCR, messages ke liye Speech aur videos ke liye Face",
+      "Ek image-generation model jo har item dobara banaye",
+      "Yaksan fields wale Content Understanding analyzers",
+      "Translation service"
+    ],
+    "exp": "Content Understanding documents, audio aur video process kar ke aap ki define ki hui fields deta hai, is liye ek service tamam inputs sambhal leti hai. Alag services mein fields dhoondne ke liye zyada code chahiye, aur image generation ya translation data nahi nikalte."
+  },
+  "D1-469": {
+    "q": "Lender confidence values kaise istemal kare?",
+    "ctx": "Ek lender pay slips se income nikalta hai. Nateeje mein har field ka confidence bhi hota hai. Lender ghalat loans diye baghair staff ka waqt bachana chahta hai.",
+    "opts": [
+      "Unhein nazar andaz kare aur kuch check na kare",
+      "Har field qabool kare aur pay slip delete kar de",
+      "Kam values staff ko bheje aur zyada wali qabool kare",
+      "Mehfooz number ke liye income ko confidence se zarab de"
+    ],
+    "exp": "Threshold saaf fields ko khud guzarne deta hai aur mashkook ko logon ke paas bhejta hai, jis se waqt bachta hai aur ghaltiyan kam hoti hain. Kuch check na karna ghalat loans ka khatra hai, slip delete karna saboot khatam karta hai, aur income ko zarab dena be matlab raqam deta hai."
+  }
+}

@@ -1,0 +1,324 @@
+[
+  {
+    "id": "D1-446", "sub": "fairness", "diff": 2, "type": "mcq",
+    "ctx": "A recruitment company trains a model on ten years of its own hiring decisions. Gender is not a column in the data. After launch, women are shortlisted half as often as men with similar experience.",
+    "q": "What should the team do first?",
+    "opts": [
+      "Nothing, because a model cannot be biased about a column that it has never seen",
+      "Measure results per group and look for columns that act as a proxy for gender",
+      "Publish the source code",
+      "Train the same model for longer on the same ten years of hiring decisions"
+    ],
+    "ans": 1,
+    "exp": "Removing a sensitive column does not remove bias, because other columns such as job gaps or club names can stand in for it and the old decisions carry old bias. Comparing results per group shows where the harm is. More training on the same data repeats it, and publishing code does not fix it.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml"
+  },
+  {
+    "id": "D1-447", "sub": "reliability-safety", "diff": 2, "type": "mcq",
+    "ctx": "A hospital tests a triage assistant on 200 typical cases and gets good results. It now wants to open the assistant to all patients, including children and people with rare diseases.",
+    "q": "Which step matters most before the launch?",
+    "opts": [
+      "Give the assistant a friendlier name and voice",
+      "Move the assistant to a region nearer the hospital",
+      "Test it on unusual and high-risk cases and plan a handover to staff",
+      "Reduce the number of questions that the assistant asks each of the patients"
+    ],
+    "ans": 2,
+    "exp": "Reliability and safety means that a system works under expected and unexpected conditions. Typical cases say nothing about children or rare diseases, so edge cases must be tested and people must be able to take over. A name, a region or fewer questions does not reduce that risk.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-448", "sub": "privacy-security", "diff": 2, "type": "multi",
+    "ctx": "A clinic wants a chat assistant that answers staff questions from patient letters. The letters contain names, addresses and diagnoses, and only the treating team may see them.",
+    "q": "Which THREE measures protect privacy in this solution? Each correct answer presents part of the solution.",
+    "opts": [
+      "Check the role of the user before letters are retrieved",
+      "Mask personal details that an answer does not need",
+      "Use one shared account so that nobody has to sign in separately",
+      "Set how long chat logs are kept",
+      "Raise the temperature so that answers repeat fewer of the exact words"
+    ],
+    "ans": [0, 1, 3],
+    "exp": "Access checks, masking and a retention limit reduce who can see personal data, how much of it is shown and how long it exists. A shared account removes the ability to control and audit access, and temperature changes wording but still reveals personal data.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-449", "sub": "inclusiveness", "diff": 1, "type": "mcq",
+    "ctx": "A city replaces its phone line with a voice-only assistant. Deaf residents and people who speak with a stammer can no longer book appointments.",
+    "q": "Which change follows the principle of inclusiveness?",
+    "opts": [
+      "Add a text chat and a way to reach a person",
+      "Ask those residents to let a friend call for them",
+      "Explain on the website how the speech model was trained",
+      "Record every call so that the team can review problems later"
+    ],
+    "ans": 0,
+    "exp": "Inclusiveness means that people of all abilities can use the system, so an alternative to speech and a route to a person is needed. Relying on friends excludes people, an explanation of training supports transparency only, and recordings do not give access.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-450", "sub": "transparency", "diff": 2, "type": "yesno",
+    "ctx": "A bank uses a model to decide loan limits. Customers are told that an AI system is used, which three factors counted most in their case, and how to ask for a human review.",
+    "q": "For each of the following statements about this scenario, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Telling customers which factors counted most supports transparency.",
+      "Because the decision is explained, the bank is no longer accountable for it.",
+      "The explanation proves that the model treats all groups fairly."
+    ],
+    "ans": [true, false, false],
+    "exp": "Yes for the first: people can understand how the decision was made. No for the second: the organization stays accountable for its systems, and a human review supports that. No for the third: fairness must be measured by comparing results between groups.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-451", "sub": "accountability", "diff": 2, "type": "mcq",
+    "ctx": "A retailer buys a pricing model from a vendor. The model sets a wrong price for medicine, and customers are harmed. The retailer says that the vendor is responsible, and the vendor says that the model decided by itself.",
+    "q": "Which arrangement would have met the principle of accountability?",
+    "opts": [
+      "A notice saying that prices come from AI",
+      "Named owners, approval rules and monitoring that were agreed before launch",
+      "A larger model",
+      "A contract clause that makes the model itself responsible for every price that it sets"
+    ],
+    "ans": 1,
+    "exp": "Accountability means that people answer for an AI system, which requires clear owners, governance and monitoring. A model is not a person and cannot be responsible, a notice is transparency, and a larger model can make the same mistake.",
+    "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+  },
+  {
+    "id": "D1-452", "sub": "genai-how", "diff": 2, "type": "mcq",
+    "ctx": "A law firm asks a chat model for court cases about noise. The model returns four cases with numbers and dates. Two of them do not exist.",
+    "q": "What explains the invented cases?",
+    "opts": [
+      "The model searched the wrong court database",
+      "The model produces likely text and does not check facts",
+      "The content filter replaced real cases with harmless ones",
+      "The prompt was shorter than the minimum number of tokens that the model requires"
+    ],
+    "ans": 1,
+    "exp": "A language model predicts the next tokens from patterns, so it can write convincing references that do not exist. It does not look in a database unless it is given such a tool, filters do not invent cases, and there is no minimum prompt length that causes this.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-453", "sub": "genai-how", "diff": 3, "type": "mcq",
+    "ctx": "An assistant answers from a 900-page manual. Sending the whole manual with each question is slow, costly and sometimes too long for the model. The manual changes every week.",
+    "q": "What should you recommend?",
+    "opts": [
+      "Fine-tune the model each week on the new manual",
+      "Index the manual as embeddings and send only matching passages",
+      "Ask the model to answer from memory",
+      "Raise max output tokens so that the whole manual fits into a single request"
+    ],
+    "ans": 1,
+    "exp": "Retrieval finds the few passages that match a question and adds them to the prompt, and the index is easy to refresh. Weekly fine-tuning is slow and does not guarantee facts, memory gives invented answers, and max output tokens limits the reply and not the input.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"
+  },
+  {
+    "id": "D1-454", "sub": "genai-how", "diff": 2, "type": "yesno",
+    "ctx": "A translator pays per token. An English page of 600 words costs 800 tokens, and the same page in another language costs 1,500 tokens.",
+    "q": "For each of the following statements about this scenario, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Words and tokens are not the same unit.",
+      "The other language uses more of the context window for the same page.",
+      "Sending the same page twice costs nothing the second time, because the model remembers it."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: a token is a piece of text, and a word can be one or several tokens. Yes for the second: 1,500 tokens take more room than 800. No for the third: a model keeps no memory between requests, and input tokens are counted every time.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-455", "sub": "model-choice", "diff": 2, "type": "mcq",
+    "ctx": "An insurance app must label 2 million short emails per month as claim, question or complaint. Labels must arrive in under a second, and the monthly budget is small. A test shows that a small model is right in 96% and a large reasoning model in 97% of the emails.",
+    "q": "Which choice fits the requirements best?",
+    "opts": [
+      "The small language model",
+      "The large reasoning model, because accuracy decides",
+      "An image-generation model with the email as its prompt",
+      "An embedding model on its own"
+    ],
+    "ans": 0,
+    "exp": "The small model meets the speed and cost limits and loses only one percentage point. The reasoning model is slower and more expensive, an image model does not label text, and an embedding model returns vectors that still need another step to become labels.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
+  },
+  {
+    "id": "D1-456", "sub": "model-choice", "diff": 3, "type": "multi",
+    "ctx": "A repair app lets a technician take a photo of a machine, ask a question by voice and then hear the answer. A written report must also be created.",
+    "q": "Which THREE capabilities must the selected models cover? Each correct answer presents part of the solution.",
+    "opts": [
+      "Understanding images",
+      "Audio input and output",
+      "Generating new product images from a text description",
+      "Text generation",
+      "Detecting the face of the technician to verify identity"
+    ],
+    "ans": [0, 1, 3],
+    "exp": "The photo needs image understanding, the spoken question and answer need audio in and out, and the report needs text generation. Nothing in the scenario asks for new pictures or for checking who the technician is.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
+  },
+  {
+    "id": "D1-457", "sub": "deploy-config", "diff": 3, "type": "mcq",
+    "ctx": "A publisher wants summaries of 400,000 old articles. The results are needed within a week, nobody waits for a single answer, and the price should be as low as possible.",
+    "q": "Which deployment type should you choose?",
+    "opts": ["Global Standard", "Regional Provisioned Throughput", "Global Batch", "Data Zone Provisioned"],
+    "ans": 2,
+    "exp": "Batch deployments process large files of requests asynchronously at a lower price, which suits work without a waiting user. Standard is for real-time calls at the normal price, and the provisioned types reserve capacity for steady, latency-sensitive traffic.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types"
+  },
+  {
+    "id": "D1-458", "sub": "deploy-config", "diff": 2, "type": "mcq",
+    "ctx": "A support bot must give the same wording each time for refund rules, but the marketing team wants the same model to write ten different slogans.",
+    "q": "How should the two apps be configured?",
+    "opts": [
+      "Low temperature for the bot and higher temperature for slogans",
+      "Higher temperature for both apps and a longer prompt for the support bot",
+      "Two regions",
+      "A content filter that is switched off for the bot and on for the slogans"
+    ],
+    "ans": 0,
+    "exp": "Temperature is set per request: a low value makes output consistent, and a higher value gives more varied text. The region does not change creativity, a long prompt does not cancel a high temperature, and content filters block harm and not variety.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/reference"
+  },
+  {
+    "id": "D1-459", "sub": "workload-scenarios", "diff": 2, "type": "mcq",
+    "ctx": "A travel company wants software that reads a customer request, checks free rooms in its booking system, books a room after the customer agrees and sends a confirmation.",
+    "q": "Which workload does this describe?",
+    "opts": ["Information extraction", "Agentic AI", "Speech synthesis", "Generative AI without tools"],
+    "ans": 1,
+    "exp": "The software plans several steps and uses tools in other systems to act for the customer, which is agentic AI. A generative model without tools can only write text, extraction only pulls data out of content, and no speech is produced.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
+  },
+  {
+    "id": "D1-460", "sub": "workload-scenarios", "diff": 2, "type": "match",
+    "ctx": "A museum plans four projects: (1) read printed labels in photos of old drawers, (2) read exhibit texts aloud, (3) find out whether visitor comments are happy or angry, (4) write a new short story for children about each exhibit.",
+    "q": "Match each project to its AI workload. Each workload can be used once or not at all.",
+    "items": ["Project 1", "Project 2", "Project 3", "Project 4"],
+    "targets": ["Generative AI", "Computer vision", "Text analysis", "Speech", "Agentic AI"],
+    "ans": [1, 3, 2, 0],
+    "exp": "Reading text in photos is optical character recognition, a computer vision task. Reading aloud is speech synthesis, judging comments is sentiment analysis in text analysis, and writing a new story is generative AI. No project acts in other systems, so no agent is needed.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-461", "sub": "workload-scenarios", "diff": 3, "type": "mcq",
+    "ctx": "A warehouse counts boxes on a fixed shelf with one camera. A barcode scanner at the same shelf already reports the exact number of boxes with no errors. A manager asks for an AI vision solution.",
+    "q": "What is the best advice?",
+    "opts": [
+      "Keep the scanner",
+      "Train an object detection model and use it in place of the scanner",
+      "Describe each photo with a multimodal model and count the words",
+      "Generate images of full shelves"
+    ],
+    "ans": 0,
+    "exp": "AI is useful when simple rules or devices are not enough. Here an exact and cheaper solution already exists, so a vision model would add cost and errors. Counting words in a description or generating images does not count boxes.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
+  },
+  {
+    "id": "D1-462", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
+    "ctx": "An agent handles supplier emails. It may look up orders and draft replies by itself. Payments above 500 dollars wait until an employee approves them.",
+    "q": "For each of the following statements about this scenario, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Looking up orders is a tool that the agent uses.",
+      "The approval rule keeps a human in the loop for high-impact actions.",
+      "The agent could do the same work if it had a language model but no access to other systems."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: reading orders from a system is a tool call. Yes for the second: an employee confirms actions that can cause damage. No for the third: without tools the model could write text but could not look up orders or start payments.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
+  },
+  {
+    "id": "D1-463", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "ctx": "A hotel chain gets reviews such as \"Great pool, terrible breakfast\". The managers of the pool and of the kitchen each want to know what guests think of their own area.",
+    "q": "Which technique gives them this?",
+    "opts": [
+      "Sentiment analysis of the whole review",
+      "Opinion mining",
+      "Language detection followed by a summary of all reviews",
+      "Key phrase extraction"
+    ],
+    "ans": 1,
+    "exp": "Opinion mining links each target, such as pool or breakfast, to the sentiment about it. One sentiment for the whole review would only say mixed, key phrases name topics without an opinion, and a summary or the language does not separate the areas.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview"
+  },
+  {
+    "id": "D1-464", "sub": "text-techniques", "diff": 3, "type": "mcq",
+    "ctx": "A court must publish rulings. Names and addresses may not be visible, and every other word must stay exactly as the judge wrote it.",
+    "q": "Which approach fits both rules?",
+    "opts": [
+      "Abstractive summarization with a short length limit",
+      "Let a chat model rewrite each ruling without names",
+      "PII detection with redaction",
+      "Key phrase extraction"
+    ],
+    "ans": 2,
+    "exp": "PII detection marks personal entities and masks only those characters, so the rest of the text is unchanged. A summary or a rewrite changes the wording of the judge, and key phrases return a list of topics instead of the ruling.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview"
+  },
+  {
+    "id": "D1-465", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "ctx": "A radio station has 6,000 recorded interviews in storage. It wants searchable transcripts by next month. Nobody needs the text while the audio is playing.",
+    "q": "Which capability should the station use?",
+    "opts": [
+      "Real-time transcription from a microphone",
+      "Batch transcription",
+      "Speech synthesis with a neural voice",
+      "Speech translation"
+    ],
+    "ans": 1,
+    "exp": "Batch transcription processes large amounts of stored audio asynchronously. Real-time transcription is for live audio, speech synthesis makes audio from text, and translation would change the language, which nobody asked for.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription"
+  },
+  {
+    "id": "D1-466", "sub": "speech-features", "diff": 3, "type": "multi",
+    "ctx": "A call center transcribes calls about medicines. The transcripts often misspell the names of 300 medicines, and it is not visible who said what.",
+    "q": "Which TWO features should you add? Each correct answer presents part of the solution.",
+    "opts": [
+      "A phrase list or custom speech model with the medicine names",
+      "A neural voice that pronounces the names of the medicines more slowly",
+      "Diarization",
+      "Sentiment analysis",
+      "SSML"
+    ],
+    "ans": [0, 2],
+    "exp": "A phrase list or custom speech model teaches recognition the rare names, and diarization separates the speakers. A neural voice and SSML are for speech output, and sentiment analysis works on the text and does not fix spelling or speakers.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-to-text"
+  },
+  {
+    "id": "D1-467", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
+    "ctx": "A farm drone takes photos of fields. The farmer wants to know where in each photo the cows are and how many there are.",
+    "q": "Which technique answers both questions?",
+    "opts": [
+      "Image classification with the labels cow and no cow",
+      "Object detection",
+      "Optical character recognition",
+      "An image caption that describes the photo in one sentence"
+    ],
+    "ans": 1,
+    "exp": "Object detection returns a bounding box for each cow, so it gives both positions and the count. Classification gives one label for the whole photo, OCR reads text, and a caption is a sentence without reliable positions or counts.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D1-468", "sub": "extraction-techniques", "diff": 3, "type": "mcq",
+    "ctx": "A logistics company receives delivery notes as scans, driver reports as voice messages and unloading videos. One system must receive delivery number, time and damage for each item as structured fields.",
+    "q": "Which approach needs the fewest separate services?",
+    "opts": [
+      "OCR for scans, Speech for messages and Face for videos",
+      "One image-generation model that redraws each item",
+      "Content Understanding analyzers with the same fields",
+      "A translation service"
+    ],
+    "ans": 2,
+    "exp": "Content Understanding processes documents, audio and video and returns the fields that you define, so one service covers all inputs. Separate services would need extra code to find the fields, and image generation or translation does not extract data.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  },
+  {
+    "id": "D1-469", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
+    "ctx": "A lender extracts income from pay slips. The result also contains a confidence for each field. The lender wants to save staff time without paying out wrong loans.",
+    "q": "How should the lender use the confidence values?",
+    "opts": [
+      "Ignore them and check nothing",
+      "Accept every field and delete the pay slip",
+      "Send low values to staff and accept high ones",
+      "Multiply the income by the confidence to get a safer number"
+    ],
+    "ans": 2,
+    "exp": "A threshold lets clear fields pass automatically and sends uncertain ones to people, which saves time and limits errors. Checking nothing risks wrong loans, deleting the slip removes the evidence, and multiplying the income gives a meaningless amount.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
+  }
+]

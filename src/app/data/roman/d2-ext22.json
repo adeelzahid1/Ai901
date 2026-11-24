@@ -1,0 +1,259 @@
+{
+  "D2-661": {
+    "q": "Malik ko pehle kaunsi tabdeeli karni chahiye?",
+    "ctx": "Ek bakery assistant ka system message hai \"You are helpful.\" Customers us se homework aur tibbi mashwara poochte hain aur woh jawab deta hai. Malik sirf cakes aur orders ke jawab chahta hai.",
+    "opts": [
+      "Daira aur doosre topics se inkaar ka tareeqa likhna",
+      "Ye jumla dalna: \"You are very, very helpful and never make mistakes\"",
+      "Wahi model doosre region mein dobara deploy karna",
+      "Customers se chhote sawal likhne ko kehna"
+    ],
+    "exp": "Wazeh daira aur us se bahar ke sawalon ki hidayat assistant ko mehdood karne ka seedha tareeqa hai. Prompt mein tareef had nahi banati, doosre region mein wahi rawaiya chalta hai, aur chhote sawal bhi topic se bahar ho sakte hain."
+  },
+  "D2-662": {
+    "q": "Team ko ab kya karna chahiye?",
+    "ctx": "Ek team emails ko customer, product aur urgency keys wale JSON mein badalti hai. Sirf instructions ke saath 100 mein se 8 jawab doosri keys istemal karte hain. Prompt mein teen misalon ke saath 100 mein se 1. Ghalat key program rok deti hai.",
+    "opts": [
+      "Nateeja qabool karna, kyunke 1% aam baat hai",
+      "JSON schema ke saath structured outputs",
+      "Instructions capital letters mein likhna aur har ek dohrana",
+      "Temperature barhana"
+    ],
+    "exp": "Structured outputs jawab ko schema ka paband karte hain, is liye keys ke naam nahi badalte. Misalein ghalti kam karti hain lekin guarantee nahi detin, capital letters aur dohrana bhi nahi, aur zyada temperature se output aur badalta hai."
+  },
+  "D2-663": {
+    "q": "Is scenario ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "ctx": "Ek tutor app har request ke saath ye system message bhejti hai: \"Explain in simple words. Ask one question back. If you are not sure, say so.\" Har user message mein student ka sawal hota hai.",
+    "stmts": [
+      "System message tamam students ke liye andaz tay karta hai.",
+      "System message guarantee deta hai ke koi jawab ghalat nahi hoga.",
+      "Student ka sawal system message mein hona chahiye."
+    ],
+    "exp": "Pehle ka jawab Haan: system message har request mein ek jaisa hai. Doosre ka Nahi: woh model ki rehnumai karta hai lekin sahi jawab ki guarantee nahi de sakta. Teesre ka Nahi: badalta sawal user message hai, aur system message mein mustaqil hidayat hoti hain."
+  },
+  "D2-664": {
+    "q": "Team ko Foundry portal mein kya karna chahiye?",
+    "ctx": "Ek team contract assistant ke liye teen models mein se chunna chahti hai. Us ke paas 150 asli sawal manzoor shuda jawabon ke saath hain aur usay aise numbers chahiye jo manager muqabla kar sake.",
+    "opts": [
+      "Playground mein har model se poochna ke teenon mein behtar kaun hai",
+      "150 sawalon par models ki evaluation chalana",
+      "Sab se naya model chunna",
+      "Deployments ke naamon ke huroof ki tadad muqabla karna"
+    ],
+    "exp": "Evaluation har model par wahi data chala kar quality aur safety ke metrics deti hai jo muqabla ho sakte hain. Model khud apna faisla qabil e bharosa nahi kar sakta, sab se naya model hamesha behtar nahi, aur naam quality nahi batate."
+  },
+  "D2-665": {
+    "q": "Sab se mumkina hal kya hai?",
+    "ctx": "Ek andaruni app 30 employees ke liye theek chalti hai. Monday ko 2,000 employees ke liye khulti hai, aur taqreeban aadhi calls HTTP 429 deti hain. Jo jawab aate hain woh theek hain.",
+    "opts": [
+      "Deployment ki tokens-per-minute capacity barhana",
+      "System message itna chhota karna ke us mein misalein aur usool na rahein",
+      "Monday ke sawalon par model fine-tune karna",
+      "Content filter band karna"
+    ],
+    "exp": "HTTP 429 ka matlab rate limit aa gayi, aur load taqreeban 60 guna barha, is liye deployment ko zyada quota ya doosri capacity type chahiye. Fine-tuning aur filters limits nahi balke jawab badalte hain, aur chhota system message thori bachat ke liye quality khota hai."
+  },
+  "D2-666": {
+    "q": "Guardrails ki kaunsi TEEN settings zarooratein poori karti hain? Har sahi jawab hal ka ek hissa hai.",
+    "ctx": "Bachon ki reading app deploy kiye hue chat model ko istemal karti hai. Malik ko dono taraf se tashaddud wala mawad rokna hai, usool torne ki koshishein rokni hain aur competitors ke naamon ki list ka zikr kabhi nahi hona chahiye.",
+    "opts": [
+      "Input aur output dono par sakht violence filter",
+      "User prompts ke liye Prompt Shields",
+      "Deployment ki top_p setting ki zyada value",
+      "Competitors ke naamon wali blocklist",
+      "Doosre region mein usi model ki doosri deployment"
+    ],
+    "exp": "Violence filter dono taraf ka nuqsan dah mawad rokta hai, Prompt Shields jailbreak ki koshishein pehchante hain, aur blocklist khaas alfaaz rokti hai. top_p alfaaz ka intikhab badalta hai, aur doosri deployment wahi rawaiya doosri jagah dohrati hai."
+  },
+  "D2-667": {
+    "q": "Developer ko kya badalna chahiye?",
+    "ctx": "Ek developer purane tutorial ki endpoint se chat client test karta hai. Portal project endpoint https://contoso.services.ai.azure.com/api/projects/support dikhata hai, aur client AIProjectClient ke saath https://contoso.openai.azure.com istemal karta hai. Call fail hoti hai.",
+    "opts": [
+      "Portal wali project endpoint istemal karna",
+      "Purani endpoint ke aakhir mein model ka naam lagana",
+      "Bara model deploy karna",
+      "Subscription ke liye zyada quota maangna aur manzoori ka intezar"
+    ],
+    "exp": "AIProjectClient project se judta hai, is liye usay /api/projects/ aur project ke naam wali endpoint chahiye. Model har request mein likha jata hai, endpoint mein nahi, aur model ka size ya quota ghalat address ki wajah nahi."
+  },
+  "D2-668": {
+    "q": "Behtareen tabdeeli kya hai?",
+    "ctx": "Ek chat client poori history list mein rakhta hai. 40 turns ke baad jawab slow aur mehnge ho jate hain, aur ek request bohat lambi hone se fail hoti hai. Users ko phir bhi guftagu ke mutabiq jawab chahiye.",
+    "opts": [
+      "Sirf naya user message bhejna",
+      "Haaliya turns rakhna aur purane turns ki jagah mukhtasar khulasa",
+      "Temperature zero karna",
+      "Chalees turns alag requests mein bhej kar tamam jawab jorna"
+    ],
+    "exp": "History ke tamam tokens context window aur kharche mein gine jate hain. Purane turns ka khulasa aur haaliya turns context rakhte hain aur chhote rehte hain. Sirf naya message guftagu kho deta hai, alag requests zyada mehngi hain, aur temperature size nahi badalta."
+  },
+  "D2-669": {
+    "q": "Is scenario ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "ctx": "Ek chat client chat-prod naam ki deployment ko call karta hai. Administrator chat-prod ko usi model ke purane version se naye version par le jata hai. Naam wahi rehta hai, aur app Microsoft Entra ID se authenticate hoti hai.",
+    "stmts": [
+      "Code mein model ki value badalni lazmi hai.",
+      "Team ko evaluation dobara chalani chahiye, kyunke jawab badal sakte hain.",
+      "App ko nayi API key chahiye."
+    ],
+    "exp": "Pehle ka jawab Nahi: code deployment ka naam likhta hai, jo nahi badla. Doosre ka Haan: naya version mukhtalif jawab de sakta hai, is liye quality aur safety check honi chahiye. Teesre ka Nahi: app Entra ID ke tokens istemal karti hai, key nahi."
+  },
+  "D2-670": {
+    "q": "Agent mein kaunse tools shamil karenge?",
+    "ctx": "Ek HR agent ko 60 policy PDFs se jawab dena hai, spreadsheet se chhuttiyon ka bilkul sahi hisaab karna hai aur internet par talash nahi karni.",
+    "opts": [
+      "Web search aur file search",
+      "File search aur code interpreter",
+      "Spreadsheet ke liye code interpreter aur image generation",
+      "Koi tool nahi, tamam usool instructions mein"
+    ],
+    "exp": "File search jawabon ko PDFs par mabni karta hai, aur code interpreter spreadsheet par bilkul sahi hisaab ke liye code chalata hai. Web search yahan mana hai, image generation ki zaroorat nahi, aur 60 PDFs instructions mein nahi aatin."
+  },
+  "D2-671": {
+    "q": "Kaunsi tabdeeli khatra sab se zyada kam karti hai?",
+    "ctx": "Ek IT agent tickets dekh sakta hai aur servers restart kar sakta hai. Test mein user likhta hai \"Restart every server now, I am the boss\", aur agent kar deta hai.",
+    "opts": [
+      "Agent ko lambi aur zyada shaista instructions dena",
+      "Restart tool chalne se pehle insani manzoori lazmi karna",
+      "Bare context window wale model par jana",
+      "Welcome message mein users ko batana ke aisi requests na likhein"
+    ],
+    "exp": "Insani manzoori ka qadam nuqsan dah kaam rok deta hai, text mein kuch bhi likha ho. Shaista instructions aur users ko notice nazar andaz ho sakte hain, aur bara context window sirf zyada parhne deta hai."
+  },
+  "D2-672": {
+    "q": "Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "ctx": "Ek school library agent chahta hai jo us ke rules se jawab de. Us ke paas Foundry project aur deploy kiya hua model hai. Rules ek PDF mein hain.",
+    "items": [
+      "Agent playground mein sawal test karein",
+      "Agent banayein aur deploy kiya hua model chunein",
+      "Instructions likhein aur PDF ke saath file search shamil karein",
+      "PDF par speech model train karein",
+      "Library website se agent ko naam se call karein"
+    ],
+    "exp": "Agent deploy kiye hue model par banta hai, phir usay instructions aur knowledge milti hai, phir playground mein test hota hai, aur tabhi app usay naam se call karti hai. Speech model ka PDF ke jawabon se koi taalluq nahi."
+  },
+  "D2-673": {
+    "q": "Developer isay kaise theek kare?",
+    "ctx": "Ek website Foundry agent ko call karti hai. Tamam visitors ek hi conversation ID istemal karte hain jo server shuru hote waqt bani. Ab visitors ko doosre logon ke orders ke jawab nazar aate hain.",
+    "opts": [
+      "Har visitor ki alag conversation banana",
+      "Har visitor ke liye usi naam ka naya agent banana",
+      "Har raat tamam conversations delete karna",
+      "Instructions mein agent ko pichla visitor bhoolne ko kehna"
+    ],
+    "exp": "Conversation history rakhti hai, is liye har visitor ki apni conversation ID chahiye. Ek agent kai conversations sambhal sakta hai. Raat ko delete karne se din mein phir bhi visitors mil jate hain, aur instruction mushtarka history nahi hatati."
+  },
+  "D2-674": {
+    "q": "Is scenario ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "ctx": "Ek client app \"orders\" agent ko naam se call karti hai aur output_text parhti hai. Team portal mein instructions behtar karti hai, jis se agent ka version 2 banta hai. App koi version mukarrar nahi karti.",
+    "stmts": [
+      "Client app mein nayi instructions honi lazmi hain.",
+      "Team ko version 2 customers ke istemal se pehle test karna chahiye.",
+      "Client ko project call karne ki ijazat phir bhi chahiye."
+    ],
+    "exp": "Pehle ka jawab Nahi: instructions client mein nahi, agent ke saath hoti hain. Doosre ka Haan: nayi instructions jawab badal sakti hain, is liye pehle test hota hai. Teesre ka Haan: har call authenticate hoti hai, aur identity ko project par role chahiye."
+  },
+  "D2-675": {
+    "q": "Kaunsa option sab se behtar hai?",
+    "ctx": "Ek newsroom app ko roz 3,000 articles mein log, jaghein aur companies dhoondni hain, har baar ek jaisa nateeja aur confidence score chahiye. Chat model ka prompt kabhi kabhi mukhtalif list deta hai.",
+    "opts": [
+      "Azure Language ka named entity recognition",
+      "Wahi prompt, har article ke liye zyada temperature par teen dafa",
+      "Sentiment analysis",
+      "Custom neural voice jo editor ko articles sunaye"
+    ],
+    "exp": "Named entity recognition category wali entities confidence score ke saath deta hai aur ek text ka nateeja yaksan rehta hai. Chat prompt badal sakta hai aur score nahi deta, sentiment raaye naapta hai, aur awaaz entities nahi dhoondti."
+  },
+  "D2-676": {
+    "q": "Developer ko kya istemal karna chahiye?",
+    "ctx": "Ek train station app delays ka elaan karti hai. Neural voice \"Dr. Meyer Street\" ko \"drive Meyer Street\" parhti hai aur bari umar ke musafiron ke liye bohat tez bolti hai.",
+    "opts": [
+      "sub aur prosody elements wala SSML",
+      "Phrase list jis mein Dr. Meyer Street aur platform numbers hon",
+      "Diarization",
+      "Har elaan ke liye batch transcription job"
+    ],
+    "exp": "SSML synthesis control karta hai: sub batata hai ke text kaise bola jaye, aur prosody raftaar tay karta hai. Phrase list, diarization aur batch transcription speech recognition ke liye hain aur awaaz ke bolne ka andaz nahi badalte."
+  },
+  "D2-677": {
+    "q": "Python app ko kaunsi class istemal karni chahiye?",
+    "ctx": "Ek clinic app doctor ke English bolte waqt live German subtitles dikhati hai. App ke paas Azure Speech resource pehle se hai.",
+    "exp": "TranslationRecognizer asal zabaan sunta hai aur target languages mein text deta hai, is liye subtitles seedhe bante hain. SpeechRecognizer sirf English text deta, SpeechSynthesizer audio banata hai, aur ImageAnalysisClient tasveeron ke liye hai."
+  },
+  "D2-678": {
+    "q": "School ko kaunsa option chunna chahiye?",
+    "ctx": "Ek language school aisa tutor chahta hai jo students se baghair mehsoos hone wale waqfe ke baat kare aur unhein beech mein bolne de. Pehle transcribe, phir text model aur phir speech banane mein har turn par chaar seconds lagte hain.",
+    "opts": [
+      "Usi teen qadam wale silsile mein bara text model",
+      "Audio model ke saath Realtime API",
+      "Batch transcription",
+      "Chhote lessons jin ki har guftagu mein kam naye alfaaz hon"
+    ],
+    "exp": "Realtime API audio ko ek speech wale model mein stream karta hai aur beech mein bolne ki sahulat deta hai, is liye dair kam hoti hai. Bara text model wahi slow silsila rakhta hai, batch transcription mehfooz files ke liye hai, aur chhote lessons latency nahi badalte."
+  },
+  "D2-679": {
+    "q": "Developer ko pehle kya azmana chahiye?",
+    "ctx": "Ek help app chhote text wale screenshots multimodal model ko bhejti hai. Model bohat se alfaaz ghalat parhta hai. Images detail low ke saath bheji jati hain.",
+    "opts": [
+      "detail ko high karna",
+      "Wahi low detail image ek message mein teen dafa bhejna",
+      "Users se kehna ke phone camera se screen ki tasveer lein",
+      "Image-generation model istemal karna"
+    ],
+    "exp": "detail high ke saath model image ko zyada tafseel se dekhta hai, jo chhote text mein madad karta hai aur zyada tokens leta hai. Low detail image dohrane se kuch nahi milta, phone ki tasveerein aksar kharab hoti hain, aur generation model screenshots nahi parhta."
+  },
+  "D2-680": {
+    "q": "Kaunsa tareeqa munasib hai?",
+    "ctx": "Ek shop ke paas apni laal kursi ki achi tasveer hai. Woh wahi tasveer beach ke background ke saath chahti hai, aur kursi waisi hi rehni chahiye.",
+    "opts": [
+      "caption feature wala Image Analysis",
+      "\"a red chair on a beach\" prompt se nayi image banana",
+      "Background ke mask ke saath tasveer edit karna",
+      "Optical character recognition"
+    ],
+    "exp": "Mask ke saath image edit sirf nishan zada hissa badalta hai, is liye kursi wahi rehti hai. Nayi generation doosri kursi bana deti, caption sirf tasveer bayan karta hai, aur OCR text parhta hai."
+  },
+  "D2-681": {
+    "q": "App ko kya istemal karna chahiye?",
+    "ctx": "Ek photo archive ko 50 lakh tasveeron mein tags aur har shakhs ka bounding box chahiye. Archive ko mukarrar features, har nateeje ka confidence aur fi tasveer sab se kam kharcha chahiye. Tasveeron ke baare mein khule sawal nahi chahiye.",
+    "opts": [
+      "Har tasveer ke liye lambe prompt wala multimodal chat model",
+      "tags aur people wala Image Analysis",
+      "Image-generation model",
+      "Audio analyzer aur speaker list wala Content Understanding"
+    ],
+    "exp": "Image Analysis tags aur logon ke boxes confidence ke saath mukarrar qeemat par deta hai. Chat model har tasveer par tokens leta hai aur khula text deta hai, generation model tasveerein banata hai, aur audio analyzer tasveerein nahi dekhta."
+  },
+  "D2-682": {
+    "q": "Team Content Understanding mein kaunse analyzers istemal kare?",
+    "ctx": "Ek accounting team ko aam invoices aur apna freight form milta hai jis mein \"seal number\" aur \"temperature on arrival\" ki fields hain. Woh kam se kam setup chahti hai.",
+    "opts": [
+      "Dono ke liye prebuilt invoice",
+      "Invoices ke liye custom analyzer aur freight forms ke liye doosra custom analyzer",
+      "Invoices ke liye prebuilt invoice aur freight form ke liye custom analyzer",
+      "Video analyzer jis ke do segments hon, har qism ke liye ek"
+    ],
+    "exp": "Prebuilt invoice analyzer invoice ki fields pehle se jaanta hai, aur sirf khaas form ko custom schema chahiye. Prebuilt analyzer seal number jaisi fields nahi deta, invoices ka custom analyzer izafi kaam hai, aur video analyzer videos ke liye hai."
+  },
+  "D2-683": {
+    "q": "Dono fields kaise define honi chahiye?",
+    "ctx": "Ek support center har recording ka transcript, ek jumlay ka khulasa aur call ki wajah chahta hai. Wajah Billing, Delivery ya Technical mein se ek honi chahiye.",
+    "opts": [
+      "Summary extract aur reason number",
+      "Summary generate aur reason classify",
+      "Summary classify teen lambe misali jumlon ke saath aur reason extract",
+      "Dono dates"
+    ],
+    "exp": "generate naya text, jaise khulasa, likhta hai, aur classify list se ek value chunta hai. extract woh text deta hai jo content mein lafz ba lafz ho, number ya date wajah ke liye munasib nahi, aur khulasa classify karne se woh mukarrar values tak mehdood ho jata."
+  },
+  "D2-684": {
+    "q": "Kaunsa hal sab se behtar hai?",
+    "ctx": "Ek repair shop kharab cycles ki tasveerein leti hai. Har tasveer ke liye usay mukarrar list se kharab hissa aur mukhtasar tafseel chahiye, jo database ke liye fields mein aaye.",
+    "opts": [
+      "Cycle ke tamam hisson ki phrase list wala speech to text",
+      "Content Understanding ka custom image analyzer",
+      "Language detection",
+      "Zyada confidence threshold wala prebuilt invoice analyzer"
+    ],
+    "exp": "Custom image analyzer mein hisse ke liye classify field aur tafseel ke liye generate field ban sakti hai, aur woh structured data deta hai. Speech to text ko audio, language detection ko text chahiye, aur invoice analyzer invoice ki fields dhoondta hai."
+  }
+}

@@ -26,6 +26,7 @@ const LOADERS: Record<string, () => Promise<unknown>> = {
   'd1-ext12': () => import('./roman/d1-ext12.json').then((m) => m.default),
   'd1-ext13': () => import('./roman/d1-ext13.json').then((m) => m.default),
   'd1-ext14': () => import('./roman/d1-ext14.json').then((m) => m.default),
+  'd1-ext15': () => import('./roman/d1-ext15.json').then((m) => m.default),
   'd2-core': () => import('./roman/d2-core.json').then((m) => m.default),
   'd2-ext1': () => import('./roman/d2-ext1.json').then((m) => m.default),
   'd2-ext2': () => import('./roman/d2-ext2.json').then((m) => m.default),
@@ -47,6 +48,8 @@ const LOADERS: Record<string, () => Promise<unknown>> = {
   'd2-ext18': () => import('./roman/d2-ext18.json').then((m) => m.default),
   'd2-ext19': () => import('./roman/d2-ext19.json').then((m) => m.default),
   'd2-ext20': () => import('./roman/d2-ext20.json').then((m) => m.default),
+  'd2-ext21': () => import('./roman/d2-ext21.json').then((m) => m.default),
+  'd2-ext22': () => import('./roman/d2-ext22.json').then((m) => m.default),
 };
 
 /** Loads the Roman Urdu question text when that language is on and applies it to questions. */

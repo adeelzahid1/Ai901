@@ -38,22 +38,22 @@ to mean something before anything is built on top of it.
 
 | Step | Work |
 | --- | --- |
-| 9.1 | 200 questions that appear only in the Exam tab, never in Study, Practice or Mock Test (done) |
+| 9.1 | 200 questions (240 since phase 12) that appear only in the Exam tab, never in Study, Practice or Mock Test (done) |
 | 9.2 | Readiness score per domain, from first attempts only (done) |
 
-## Phase 10 - Hands-on labs
+## Phase 10 - Hands-on labs (done)
 
 8-10 labs in the Foundry portal and the Python SDK (deploy and test a model, prompts, chat client, agent,
 text analysis, speech, vision, image generation, Content Understanding), each with cost notes, checks and
 clean-up, checked against Microsoft Learn.
 
-## Phase 11 - Code, REST and CLI questions
+## Phase 11 - Code, REST and CLI questions (done)
 
-New questions that read Python code, REST calls and Azure CLI commands.
+40 new questions that read Python code, REST calls and Azure CLI commands (`d2-ext21`).
 
-## Phase 12 - Scenario questions
+## Phase 12 - Scenario questions (done)
 
-New questions that start from a short business scenario and ask for the best decision.
+48 new questions (`d1-ext15`, `d2-ext22`) that start from a short business scenario and ask for the best decision.
 
 ## Phase 13 - Lessons
 

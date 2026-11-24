@@ -36,5 +36,10 @@ export const routes: Routes = [
     title: 'Weak areas · AI-901 Prep',
     loadComponent: () => import('./features/weak-areas/weak-areas').then((m) => m.WeakAreas),
   },
+  {
+    path: 'labs',
+    title: 'Labs · AI-901 Prep',
+    loadComponent: () => import('./features/labs/labs').then((m) => m.Labs),
+  },
   { path: '**', redirectTo: '' },
 ];

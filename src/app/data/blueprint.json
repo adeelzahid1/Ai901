@@ -62,23 +62,23 @@
     }
   ],
   "sections": [
-    { "id": "1.1", "domain": "D1", "en": "Responsible AI principles", "ro": "Zimmedar AI ke usool", "target": 90, "subs": ["fairness", "reliability-safety", "privacy-security", "inclusiveness", "transparency", "accountability"] },
-    { "id": "1.2", "domain": "D1", "en": "How generative AI models work", "ro": "Generative AI models kaise kaam karte hain", "target": 50, "subs": ["genai-how"] },
-    { "id": "1.3", "domain": "D1", "en": "Choosing models, deployment & parameters", "ro": "Model ka intikhab, deployment aur settings", "target": 70, "subs": ["model-choice", "deploy-config"] },
-    { "id": "1.4", "domain": "D1", "en": "AI workload scenarios (incl. agentic AI)", "ro": "AI workloads ke scenarios (agentic AI samet)", "target": 60, "subs": ["workload-scenarios"] },
-    { "id": "1.5", "domain": "D1", "en": "Text analysis techniques", "ro": "Text analysis ke tareeqay", "target": 55, "subs": ["text-techniques"] },
-    { "id": "1.6", "domain": "D1", "en": "Speech recognition & synthesis", "ro": "Awaaz pehchanna aur awaaz banana", "target": 50, "subs": ["speech-features"] },
-    { "id": "1.7", "domain": "D1", "en": "Vision, image generation & information extraction", "ro": "Tasveer ki samajh, tasveer banana aur maloomat nikalna", "target": 70, "subs": ["vision-imagegen", "extraction-techniques"] },
-    { "id": "2.1", "domain": "D2", "en": "Writing system & user prompts", "ro": "System aur user prompts likhna", "target": 70, "subs": ["prompts"] },
-    { "id": "2.2", "domain": "D2", "en": "Deploy & test a model in the Foundry portal", "ro": "Foundry portal mein model deploy aur test karna", "target": 70, "subs": ["portal-deploy"] },
-    { "id": "2.3", "domain": "D2", "en": "Chat client with the Foundry SDK", "ro": "Foundry SDK se chat client banana", "target": 80, "subs": ["sdk-chat-client"] },
-    { "id": "2.4", "domain": "D2", "en": "Build agents & agent client apps", "ro": "Agent aur us ki client app banana", "target": 100, "subs": ["agent-portal", "agent-client"] },
-    { "id": "2.5", "domain": "D2", "en": "Text & speech solutions in Foundry", "ro": "Foundry mein text aur speech solutions", "target": 100, "subs": ["text-app", "spoken-prompts", "speech-app"] },
-    { "id": "2.6", "domain": "D2", "en": "Vision & image-generation solutions", "ro": "Vision aur image generation solutions", "target": 90, "subs": ["visual-input", "image-generation", "vision-app"] },
-    { "id": "2.7", "domain": "D2", "en": "Information extraction with Content Understanding", "ro": "Content Understanding se maloomat nikalna", "target": 110, "subs": ["cu-documents", "cu-images", "cu-audio-video", "cu-app"] }
+    { "id": "1.1", "domain": "D1", "en": "Responsible AI principles", "ro": "Zimmedar AI ke usool", "target": 95, "subs": ["fairness", "reliability-safety", "privacy-security", "inclusiveness", "transparency", "accountability"] },
+    { "id": "1.2", "domain": "D1", "en": "How generative AI models work", "ro": "Generative AI models kaise kaam karte hain", "target": 53, "subs": ["genai-how"] },
+    { "id": "1.3", "domain": "D1", "en": "Choosing models, deployment & parameters", "ro": "Model ka intikhab, deployment aur settings", "target": 74, "subs": ["model-choice", "deploy-config"] },
+    { "id": "1.4", "domain": "D1", "en": "AI workload scenarios (incl. agentic AI)", "ro": "AI workloads ke scenarios (agentic AI samet)", "target": 64, "subs": ["workload-scenarios"] },
+    { "id": "1.5", "domain": "D1", "en": "Text analysis techniques", "ro": "Text analysis ke tareeqay", "target": 57, "subs": ["text-techniques"] },
+    { "id": "1.6", "domain": "D1", "en": "Speech recognition & synthesis", "ro": "Awaaz pehchanna aur awaaz banana", "target": 52, "subs": ["speech-features"] },
+    { "id": "1.7", "domain": "D1", "en": "Vision, image generation & information extraction", "ro": "Tasveer ki samajh, tasveer banana aur maloomat nikalna", "target": 73, "subs": ["vision-imagegen", "extraction-techniques"] },
+    { "id": "2.1", "domain": "D2", "en": "Writing system & user prompts", "ro": "System aur user prompts likhna", "target": 75, "subs": ["prompts"] },
+    { "id": "2.2", "domain": "D2", "en": "Deploy & test a model in the Foundry portal", "ro": "Foundry portal mein model deploy aur test karna", "target": 77, "subs": ["portal-deploy"] },
+    { "id": "2.3", "domain": "D2", "en": "Chat client with the Foundry SDK", "ro": "Foundry SDK se chat client banana", "target": 95, "subs": ["sdk-chat-client"] },
+    { "id": "2.4", "domain": "D2", "en": "Build agents & agent client apps", "ro": "Agent aur us ki client app banana", "target": 109, "subs": ["agent-portal", "agent-client"] },
+    { "id": "2.5", "domain": "D2", "en": "Text & speech solutions in Foundry", "ro": "Foundry mein text aur speech solutions", "target": 110, "subs": ["text-app", "spoken-prompts", "speech-app"] },
+    { "id": "2.6", "domain": "D2", "en": "Vision & image-generation solutions", "ro": "Vision aur image generation solutions", "target": 98, "subs": ["visual-input", "image-generation", "vision-app"] },
+    { "id": "2.7", "domain": "D2", "en": "Information extraction with Content Understanding", "ro": "Content Understanding se maloomat nikalna", "target": 118, "subs": ["cu-documents", "cu-images", "cu-audio-video", "cu-app"] }
   ],
   "bankFiles": {
-    "D1": ["d1-core", "d1-ext1", "d1-ext2", "d1-ext3", "d1-ext4", "d1-ext5", "d1-ext6", "d1-ext7", "d1-ext8", "d1-ext9", "d1-ext10", "d1-ext11", "d1-ext12", "d1-ext13", "d1-ext14"],
-    "D2": ["d2-core", "d2-ext1", "d2-ext2", "d2-ext3", "d2-ext4", "d2-ext5", "d2-ext6", "d2-ext7", "d2-ext8", "d2-ext9", "d2-ext10", "d2-ext11", "d2-ext12", "d2-ext13", "d2-ext14", "d2-ext15", "d2-ext16", "d2-ext17", "d2-ext18", "d2-ext19", "d2-ext20"]
+    "D1": ["d1-core", "d1-ext1", "d1-ext2", "d1-ext3", "d1-ext4", "d1-ext5", "d1-ext6", "d1-ext7", "d1-ext8", "d1-ext9", "d1-ext10", "d1-ext11", "d1-ext12", "d1-ext13", "d1-ext14", "d1-ext15"],
+    "D2": ["d2-core", "d2-ext1", "d2-ext2", "d2-ext3", "d2-ext4", "d2-ext5", "d2-ext6", "d2-ext7", "d2-ext8", "d2-ext9", "d2-ext10", "d2-ext11", "d2-ext12", "d2-ext13", "d2-ext14", "d2-ext15", "d2-ext16", "d2-ext17", "d2-ext18", "d2-ext19", "d2-ext20", "d2-ext21", "d2-ext22"]
   }
 }

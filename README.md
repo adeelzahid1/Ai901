@@ -19,6 +19,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 
 - **Dashboard**: bank size, answered, accuracy, open mistakes, last exam score, domain coverage, recent tests.
 - **Study** (`/study?s=1.1`): sidebar with every section and an understood/total badge (a section picker below 860px), search, level and filters (not understood, bookmarked, due for review, mistakes), study list with Show answer, bookmarks and "I understand this", 20 at a time, and flashcards with spaced repetition (Again 10 min, Hard max(1, ivl x 1.2) days, Good 1 -> 3 -> ivl x 2.5 days). Cards can be passed without a rating (Previous / Next) and shown full screen. Saved in `ai901-study-v1`.
+- **Labs** (`/labs`): ten hands-on labs in the Foundry portal and with the Python SDKs, with cost notes, checks and clean-up (`src/app/data/labs.json`, both languages). Finished steps are saved in `ai901-labs`.
 - **Practice**: filter by domain, section, level, type, new questions or mistakes; instant feedback.
 - **Mock Test**: choose sections, question types, levels, size, timer (off, exam pace or custom) and feedback mode.
 - **Exam**: 50 questions in 45 minutes from a pool that no other tab uses (`src/app/data/exam-pool.json`; questions you have not answered come first), weighted 21/29 by domain, every section, real-exam type and level mix, mark for review, auto-submit.
@@ -31,7 +32,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 
 ## Question bank
 
-**1,065 original questions** across 14 study sections and all 29 official sub-skills (D1: 445, D2: 620). Mix: Basic 33%, Intermediate 49%, Advanced 18%; multiple choice 48%, Yes/No 14%, drop-down 13%, matching 11%, multi-select 10%, ordering 4%.
+**1,153 original questions** across 14 study sections and all 29 official sub-skills (D1: 469, D2: 684), including code, REST and CLI questions and business scenarios. Mix: Basic 31%, Intermediate 50%, Advanced 19%; multiple choice 50%, Yes/No 13%, drop-down 13%, matching 10%, multi-select 10%, ordering 4%.
 
 - Questions are JSON files in `src/app/data/bank/` (`d1-core.json`, `d1-ext1.json`, ...), listed in
   `blueprint.json` under `bankFiles` and registered in `question-bank.ts`. Each file is a lazy chunk.
@@ -44,7 +45,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 - Interface text: [`src/app/i18n/ui-text.ts`](src/app/i18n/ui-text.ts), an English and a Roman Urdu object with the same shape.
 - Section, domain and sub-skill names: `ro` fields in `blueprint.json`.
 - Questions: `src/app/data/roman/<bank file>.json` maps question ids to translated text and is registered in `roman-bank.ts` (lazy chunks, loaded only when Roman Urdu is on). Fields that are left out and `null` list entries stay in English, so Azure terms, commands and code are not translated. Drop-down choices go in `blanks`. A question without a translation is shown in English with a label.
-- All 1,065 questions are translated. `npm run validate:bank` prints the coverage per section and checks the translations.
+- All 1,153 questions are translated. `npm run validate:bank` prints the coverage per section and checks the translations.
 
 ### Validation
 

@@ -29,6 +29,11 @@ export class Language {
     this.store.write(KEY, lang);
   }
 
+  /** Text that is stored in both languages. */
+  pick(text: { en: string; ro: string }): string {
+    return this.roman() ? text.ro : text.en;
+  }
+
   section(s: Pick<StudySection, 'en' | 'ro'>): string {
     return this.roman() ? s.ro : s.en;
   }
