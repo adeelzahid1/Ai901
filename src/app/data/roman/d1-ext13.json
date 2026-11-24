@@ -1,0 +1,199 @@
+{
+  "D1-383": {
+    "q": "Ek hotel ko aisa assistant chahiye jo availability dekh kar aur booking system mein reservation bana kar kamre book kare. Yeh kaunsi AI workload hai?",
+    "opts": [null, "Agentic AI, booking system ke tools ke saath", null, null],
+    "exp": "Availability dekhna aur reservations banana doosre system mein amal hain, is liye aisa agent chahiye jo booking system ke APIs ko tools ke taur par istemal kare. Speech synthesis, OCR aur sentiment analysis amal nahi kar sakte na booking bana sakte hain."
+  },
+  "D1-384": {
+    "q": "Compliance team ko dhoondna hai ke hazaron contracts mein se kin mein automatic renewal ki shiq hai, aur agar hai to renewal ki tareekh kya hai. Kaunsi workload munasib hai?",
+    "opts": [null, null, null, "Information extraction jo shiq ki status aur tareekh ko fields ki soorat mein de"],
+    "exp": "Team ko documents se khaas facts data ki soorat mein chahiye, jo information extraction hai, maslan shiq ke liye Yes ya No field aur tareekh ka field. Image generation tasveerein banata hai, aur speech recognition aur text to speech audio ke liye hain."
+  },
+  "D1-385": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Mukhtalif zabanein bolne wale do logon ki live guftagu translate karna speech workload hai.",
+      "Car park ki photo mein gaariyan ginna text analysis workload hai.",
+      "Features ki list se product descriptions likhna generative AI workload hai."
+    ],
+    "exp": "Pehle ka jawab Haan: speech translation bole hue alfaz pehchan kar translate karta hai. Doosre ka Nahi: tasveer mein gaariyan ginna object detection hai, jo computer vision ka kaam hai. Teesre ka Haan: features se nayi descriptions banana generative AI hai."
+  },
+  "D1-386": {
+    "q": "Har scenario ko us AI workload se milayein jise woh zahir karta hai. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Model tafseel se logo banata hai",
+      "App batati hai ke review kis zaban mein likha hai",
+      "Tool devices ki photos se serial numbers parhta hai",
+      "Assistant stock dekh kar order deta hai"
+    ],
+    "exp": "Logo banana generative AI hai, review ki zaban pehchanna text analysis, photos se serial numbers parhna OCR, aur stock dekh kar order dena agent ka tools istemal karna hai. Kisi scenario mein audio nahi, is liye speech istemal nahi hota."
+  },
+  "D1-387": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Kam nazar wale user ke liye text parh kar sunana {0} workload hai. Photo mein dog pehchanna {1} workload hai.",
+    "exp": "Text parh kar sunana text to speech istemal karta hai, jo speech workload ka hissa hai, aur tasveer mein dog pehchanna computer vision hai. Text analysis likhi hui zaban par kaam karta hai, is liye kisi khali jagah par nahi aata."
+  },
+  "D1-388": {
+    "q": "Kaunsi DO alamaat batati hain ke scenario ko ek chat model call ke bajaye AI agent chahiye? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Usay sirf user ke paste kiye hue text ke baare mein ek sawal ka jawab dena hai",
+      "Usay doosre systems mein amal karna hai",
+      "Usay sirf ek paragraph ka khulasa chahiye",
+      "Usay maqsad tak pohanchne ke liye kai qadam plan karne aur tools istemal karne hain",
+      "Usay sirf tarjuma chahiye"
+    ],
+    "exp": "Doosre systems mein amal karna aur tools ke saath kai qadam ka kaam plan karna agents ki khoobi hai. Ek sawal ka jawab, paragraph ka khulasa ya tarjuma, sab ek model call se ho sakte hain."
+  },
+  "D1-389": {
+    "q": "Factory ke gate par camera aane wale trucks ki number plates parhta hai. Yeh kaunsi workload hai?",
+    "exp": "Camera ki tasveeron se plate numbers parhna optical character recognition hai, jo computer vision ka hissa hai. Text to speech audio banata hai, generative AI naya content, aur sentiment analysis text mein raye parakhta hai."
+  },
+  "D1-390": {
+    "q": "Kaunsi technique hotel reviews ke asal mauzu ke taur par 'free Wi-Fi' aur 'breakfast' jaise phrases deti hai?",
+    "exp": "Key phrase extraction text ke asal nuqtay deta hai. Language detection zaban batata hai, PII detection zaati data dhoondta hai, aur entity linking naam wali cheezon ko knowledge base ki entries se jorta hai."
+  },
+  "D1-391": {
+    "ctx": "Ek government portal shehriyon ka feedback online shaya karta hai, lekin pehle naam, email addresses aur ID numbers hatane hain.",
+    "q": "Kaunsa text analysis feature istemal karna chahiye?",
+    "opts": [null, null, null, "Redaction ke saath PII detection"],
+    "exp": "PII detection naam, emails aur ID numbers jaisi zaati maloomat dhoond kar text ko un ke chupe hue hone ke saath deta hai. Sentiment analysis, summarization aur language detection zaati data nahi hatate."
+  },
+  "D1-392": {
+    "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Text analysis emails, chats aur documents par istemal ho sakta hai.",
+      "Named entity recognition text mein tareekhein dhoond sakta hai.",
+      "Sentiment analysis photos mein cheezein pehchan sakta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: kisi bhi likhe hue text ka jaiza liya ja sakta hai. Doosre ka Haan: DateTime entity categories mein se ek hai. Teesre ka Nahi: photos mein cheezein pehchanna computer vision hai; sentiment analysis text par kaam karta hai."
+  },
+  "D1-393": {
+    "q": "Har nateeje ko us text analysis technique se milayein jis se woh bana. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "exp": "Entity ke text ke saath category named entity recognition se aati hai, mixed ka label sentiment analysis se, ISO language code language detection se, aur chupa hua text PII detection se. Summarization chhota text deta hai, jo in mein se kisi nateeje mein nahi."
+  },
+  "D1-394": {
+    "q": "Har khali jagah ke liye sahi technique chun kar jumlay mukammal karein.",
+    "tpl": "Battery ke baare mein negative baat karne wale reviews dhoondne ke liye {0} istemal karein. Lambe review ke asal nuqton ka ek chhota paragraph banane ke liye {1} istemal karein.",
+    "exp": "Opinion mining raye ko battery jaise aspects se jorta hai, is liye battery ke negative comments mil jate hain. Abstractive summarization asal nuqton ka naya chhota paragraph likhta hai. Baqi options zabanein, zaati data, mauzu ya knowledge base ke links batate hain."
+  },
+  "D1-395": {
+    "q": "Kaunsi DO techniques customer emails mein zikr kiye gaye products ki maloomat dhoondne mein madad karti hain? Har sahi jawab mukammal hal hai.",
+    "exp": "Named entity recognition naam wali cheezein, jaise products aur companies ke naam, dhoondta hai, aur key phrase extraction asal mauzu, jaise product ke features, samne laata hai. Speech synthesis aur text to speech audio banate hain, aur image tagging tasveeron par kaam karta hai."
+  },
+  "D1-396": {
+    "q": "Language detection kisi message ke liye kam confidence score kyun de sakta hai?",
+    "opts": [
+      "Message bohat muhazzab hai",
+      "Message bohat chhota hai ya us mein kai zabanein mili hui hain",
+      "Message mein koi tasveer nahi",
+      "Message mein bare huroof hain"
+    ],
+    "exp": "Chhota text model ko kam ishare deta hai, aur mili juli zabanon wala text ek se zyada zabanon se milta hai, is liye confidence girta hai; mulk ya zaban ka hint dena madad kar sakta hai. Muhazzab lehja, tasveer ka na hona aur bare huroof zaban pehchanna mushkil nahi karte."
+  },
+  "D1-397": {
+    "q": "Doctor bol kar notes likhwata hai, aur notes ko mareez ke record mein text ki soorat mein aana hai. Kaunsa Speech feature chahiye?",
+    "exp": "Speech to text boli hui audio ko likhe hue text mein badalta hai. Text to speech aur custom voice (jise pehle custom neural voice kehte the) audio banate hain, aur keyword recognition sirf wake word sunta hai."
+  },
+  "D1-398": {
+    "q": "Call center har woh mehfooz recording dhoondna chahta hai jis mein customer ne 'cancel my account' kaha. Kaunsa tareeqa munasib hai?",
+    "opts": [null, null, null, "Recordings ki batch transcription, phir transcripts mein phrase ki talash"],
+    "exp": "Mehfooz calls ko likhne se woh text ki soorat mein talash ke qabil ho jati hain, is liye phrase har recording mein mil sakta hai. Text to speech aur custom voice (jise pehle custom neural voice kehte the) audio banate hain, aur pronunciation assessment score deta hai ke koi mutawaqqa text kitna sahi bolta hai."
+  },
+  "D1-399": {
+    "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Text to speech sirf MP3 files bana sakta hai.",
+      "Speech to text bohat si zabanein aur accents support karta hai.",
+      "Custom speech product names ki pehchan behtar kar sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: synthesized audio WAV aur MP3 jaise kai formats mein ban sakti hai, aur stream bhi ho sakti hai. Doosre ka Haan: speech to text bohat se locales support karta hai. Teesre ka Haan: domain ke text se training model ko khaas alfaz sikhati hai."
+  },
+  "D1-400": {
+    "q": "Har scenario ko us Speech feature se milayein jo woh istemal karta hai. Har feature ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Parhi jane wali kitaab sunna",
+      "Podcast ko text banana",
+      "Tourist se us ki apni zaban mein baat karna",
+      "'Hey Contoso' bol kar device ko jagana"
+    ],
+    "exp": "Kitaab parh kar sunana text to speech hai, podcast ko text banana speech to text, do zabanon ke darmiyan baat karna speech translation, aur wake phrase ke liye keyword recognition hai. Image captioning tasveeron ko bayan karta hai aur Speech feature nahi."
+  },
+  "D1-401": {
+    "q": "Azure Speech ke baare mein jumlay mukammal karein.",
+    "tpl": "Har shakhs ka label lagane wala meeting transcript speech to text aur {0} se banta hai. Synthetic awaaz ko aahista bulwane ke liye SSML ka {1} element istemal hota hai.",
+    "exp": "Speaker diarization transcript mein speakers ko alag karta aur un par label lagata hai. prosody element bolne ki raftar, pitch aur volume badalta hai. OCR aur image tagging images par kaam karte hain, say-as control karta hai ke tareekh jaisi values kaise parhi jayein, aur lang zaban badalta hai."
+  },
+  "D1-402": {
+    "q": "Kaunsa Image Analysis feature tasveer ki cheezein un ki jagah ke saath batata hai?",
+    "exp": "Objects feature cheezein pehchan kar har ek ka label aur bounding box deta hai. Caption poori tasveer ko bayan karta hai, Read text nikalta hai, aur smart crops thumbnail ke hisse tajweez karta hai."
+  },
+  "D1-403": {
+    "q": "Wildlife ke ek project ke paas trail camera ki bees lakh photos hain aur usay jaanna hai ke har ek mein kitne janwar hain. Kaunsi technique janwar ginti hai?",
+    "exp": "Object detection har janwar ko dhoond kar us ka box deta hai, is liye har photo ke boxes gine ja sakte hain. Caption poori tasveer ka ek jumla deta hai, smart crops thumbnails tajweez karta hai, aur OCR text parhta hai."
+  },
+  "D1-404": {
+    "q": "Computer vision ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Image generation aur image analysis ek hi kaam hain.",
+      "Multimodal models tasveeron ke baare mein sawalon ke jawab de sakte hain.",
+      "OCR documents ki photos se text nikal sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: generation nayi tasveerein banata hai, jab ke analysis maujood tasveeron ko bayan karta hai. Doosre ka Haan: multimodal models images le kar zaban mein jawab dete hain. Teesre ka Haan: OCR photos aur scans se chhapa hua aur haath ka likha text parhta hai."
+  },
+  "D1-405": {
+    "q": "Har kaam ko us vision capability se milayein jo usay chahiye. Har capability ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Qilay ki nayi illustration banana",
+      "Maujood photo ko ek jumlay mein bayan karna",
+      "Group photo mein tamam chehray dhoondna",
+      "Chalkboard menu ki photo par qeematein parhna"
+    ],
+    "exp": "Nayi illustration ke liye image generation chahiye, ek jumlay ka bayan image captioning hai, chehray dhoondna face detection, aur qeematein parhna OCR. Speech synthesis audio banata hai aur vision capability nahi."
+  },
+  "D1-406": {
+    "q": "Computer vision models istemal karte waqt kaunsi DO hudood ka khayal rakhna chahiye? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Models har tasveer par bilkul sahi kaam karte hain",
+      "Models ko kabhi testing nahi chahiye",
+      "Kam roshni ya ghair mamooli zaviye se accuracy gir sakti hai",
+      "Models un logon ya cheezon par kharab kaam kar sakte hain jin ki training data mein numaindagi kam thi",
+      "Models cloud mein nahi chal sakte"
+    ],
+    "exp": "Vision ki accuracy tasveer ke halaat par aur is par munhasir hai ke training data mein aap ke kaam ke log aur cheezein kitni achi tarah shamil thin, is liye asal halaat mein aur groups ke hisaab se test karein. Koi model bilkul sahi ya testing se azaad nahi, aur vision models aam taur par cloud services ki soorat mein chalte hain."
+  },
+  "D1-407": {
+    "q": "Kaunsi technique chhape hue form ki photo ko machine ke parhne wale text mein badalti hai?",
+    "exp": "OCR photo mein chhape hue huroof pehchan kar parhta hai aur unhein text ki soorat mein deta hai. Speech synthesis audio banata hai, sentiment analysis pehle se maujood text ki raye parakhta hai, aur image generation nayi tasveerein banata hai."
+  },
+  "D1-408": {
+    "ctx": "Ek logistics company ko 300 suppliers se delivery notes milte hain, aur taqreeban har supplier ka layout mukhtalif hai.",
+    "q": "Kaunsa tareeqa har supplier ke liye alag template banane se bachata hai?",
+    "opts": [
+      "Har supplier ke layout ke liye fixed template banana",
+      "Ek schema ke saath generative field extraction jo mukhtalif layouts sambhale",
+      "Staff se har delivery note dobara type karwana",
+      "Speech to text istemal karna"
+    ],
+    "exp": "Generative field extraction, jaise Content Understanding mein, har document ka content parh kar schema ke fields matlab ke hisaab se bharta hai, is liye mukhtalif layouts har supplier ke template ke baghair chal jate hain. Saikron templates sambhalna mehnga hai, dobara type karna sust hai, aur speech to text documents nahi parhta."
+  },
+  "D1-409": {
+    "q": "Extraction techniques ke baare mein jumlay mukammal karein.",
+    "tpl": "Invoice ka total bilkul usi tarah dena jaise likha hai {0} hai. Lambe contract ke content se chhota khulasa likhna {1} hai.",
+    "blanks": [
+      ["chhapi hui value ko jaisi hai waisi nikalna", null, null],
+      ["content se field banana (generate)", "sirf OCR", null]
+    ],
+    "exp": "Chhapa hua total seedha jaisa hai waisa nikala jata hai, jab ke khulasa document mein maujood nahi hota aur us ke content se banana parta hai. Image generation, translation, akela OCR aur speech synthesis in mein se koi nateeja nahi dete."
+  },
+  "D1-410": {
+    "q": "Training videos ki library ko talash ke qabil catalog banane ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Har segment ki tafseel banayein",
+      "Har video ke liye naya soundtrack banayein",
+      "Har video ko segments mein torein",
+      "Talash ke liye tafseelat aur transcripts ko index karein",
+      "Har segment ki speech likhein aur keyframes ka jaiza lein"
+    ],
+    "exp": "Pehle videos segments mein toti hain, phir har segment ki speech aur keyframes ka jaiza hota hai, us maloomat se tafseel banti hai, aur aakhir mein tafseelat aur transcripts talash ke liye index hote hain. Naya soundtrack naya content hai aur talash mein madad nahi karta."
+  }
+}

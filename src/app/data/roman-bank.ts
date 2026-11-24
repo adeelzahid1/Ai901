@@ -22,6 +22,10 @@ const LOADERS: Record<string, () => Promise<unknown>> = {
   'd1-ext8': () => import('./roman/d1-ext8.json').then((m) => m.default),
   'd1-ext9': () => import('./roman/d1-ext9.json').then((m) => m.default),
   'd1-ext10': () => import('./roman/d1-ext10.json').then((m) => m.default),
+  'd1-ext11': () => import('./roman/d1-ext11.json').then((m) => m.default),
+  'd1-ext12': () => import('./roman/d1-ext12.json').then((m) => m.default),
+  'd1-ext13': () => import('./roman/d1-ext13.json').then((m) => m.default),
+  'd1-ext14': () => import('./roman/d1-ext14.json').then((m) => m.default),
   'd2-core': () => import('./roman/d2-core.json').then((m) => m.default),
 };
 

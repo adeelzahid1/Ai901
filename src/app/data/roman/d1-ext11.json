@@ -1,0 +1,232 @@
+{
+  "D1-330": {
+    "ctx": "Ek museum app visitors ko phone painting ki taraf karne deti hai aur phir un ki apni zaban mein us ka bayan sunati hai.",
+    "q": "App AI workloads ka kaunsa jor istemal karti hai?",
+    "opts": [
+      "Sirf optical character recognition",
+      "Sirf sentiment analysis",
+      "Painting pehchanne ke liye computer vision, bayan likhne ke liye generative AI, aur parh kar sunane ke liye speech synthesis",
+      "Sirf key phrase extraction"
+    ],
+    "exp": "App ko camera ki tasveer se painting pehchanni hai, jo computer vision hai, visitor ki zaban mein bayan likhna hai, jo generative AI hai, aur usay parh kar sunana hai, jo speech synthesis hai. Akela OCR, sentiment analysis ya key phrase extraction yeh tajurba nahi de sakta."
+  },
+  "D1-331": {
+    "q": "Employees ko sirf staff handbook ke baare mein sawalon ke jawab chahiye. Solution ko kabhi doosre systems mein amal nahi karna. Sab se aasan munasib solution kya hai?",
+    "opts": [
+      "Kai tools wala agent jo HR records badal sakta hai",
+      "Handbook ke content se grounded chat app",
+      "Image-generation model",
+      "Speech translation"
+    ],
+    "exp": "Jab users ko sirf documents se jawab chahiye hon to grounded chat app, jaise RAG solution, kaafi hai. Records badalne wale tools ka agent yahan faide ke baghair pecheedgi aur khatra barhata hai, aur image generation aur speech translation handbook ke sawalon ka jawab nahi dete."
+  },
+  "D1-332": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Document ka text translate karna computer vision workload hai.",
+      "Ek solution kai AI workloads ko jor sakta hai.",
+      "Agentic AI mein aise qadam ho sakte hain jo insan ki manzoori ka intezar karein."
+    ],
+    "exp": "Pehle ka jawab Nahi: text translate karna zaban ka kaam hai; computer vision sirf tab chahiye jab text pehle tasveer se parhna ho. Doosre ka Haan: bohat si apps vision, speech, language aur generative AI ko jorti hain. Teesre ka Haan: agents hassas amal se pehle insani manzoori ke liye ruk sakte hain."
+  },
+  "D1-333": {
+    "q": "Har scenario ko us AI workload se milayein jo woh istemal karta hai. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Pehchanna ke factory ki video mein machine kab ruk jati hai",
+      "Order system mein customer ka order dekh kar us ki status ka jawab dena",
+      "Record kiye hue lecture ko aisa text banana jis mein talash ho sake",
+      "Bachon ki app ke liye chhoti kahani likhna"
+    ],
+    "exp": "Ruki hui machine ke liye video frames dekhna computer vision hai. Order dekh kar jawab dena tool istemal karta aur amal karta hai, jo agentic AI hai. Lecture ko text banana speech to text hai. Nayi kahani likhna generative AI hai. In scenarios mein sentiment analysis ki zaroorat nahi."
+  },
+  "D1-334": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Jo system emails ko Complaint, Question ya Praise mein baantta hai woh {0} istemal karta hai. Jo system har email ka jawab likhta hai woh {1} istemal karta hai.",
+    "exp": "Text ko categories mein baantna text classification hai, jo text analysis ka kaam hai. Naya jawab likhna generative AI hai. Image generation aur speech synthesis tasveerein aur audio banate hain, aur OCR aur object detection emails likhne ke bajaye images ka jaiza lete hain."
+  },
+  "D1-335": {
+    "q": "Kaunse DO scenarios mein content generation ke bajaye information extraction chahiye? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Naya advertising slogan likhna",
+      "Scan kiye hue insurance cards se policy number aur expiry date parhna",
+      "Product ki tasveer banana",
+      "Email kiye hue purchase orders se order ID aur items nikalna",
+      "Greeting card ke liye nazm likhna"
+    ],
+    "exp": "Insurance cards aur purchase orders se khaas values nikalna information extraction hai: data pehle se maujood hai aur usay sahi sahi lena hai. Slogans, product ki tasveerein aur nazmein naya content hain, jo generative AI hai."
+  },
+  "D1-336": {
+    "q": "Riwayati voice-assistant pipeline ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Jawab ko speech mein badlein",
+      "Jawab par OCR chalayein",
+      "User ki speech ko text banayein",
+      "User ko audio sunayein",
+      "Jawab lene ke liye text language model ko bhejein"
+    ],
+    "exp": "Pipeline pehle user ki baat likhti hai, phir language model se jawab leti hai, phir jawab ko speech banati hai aur sunati hai. OCR tasveeron ka text parhta hai aur jab jawab pehle se text ho to us ka koi kaam nahi."
+  },
+  "D1-337": {
+    "q": "Kaunsi technique batati hai ke 'Paris' Location hai aur 'Air France' Organization hai?",
+    "exp": "Named entity recognition text mein entities dhoond kar un ki categories, jaise Location aur Organization, batata hai. Sentiment analysis raye parakhta hai, language detection zaban batata hai, aur summarization text chhota karta hai."
+  },
+  "D1-338": {
+    "q": "Ek review bohat positive jumlay se shuru hota hai aur bohat negative jumlay par khatam. Sentiment analysis ke nateejon mein dono rayein kaise dekhenge?",
+    "opts": [
+      "Har jumlay (sentence-level) ke sentiment nateeje parhein",
+      "Language detection chalayein",
+      "Sirf key phrase extraction istemal karein",
+      "Review par OCR chalayein"
+    ],
+    "exp": "Sentiment analysis poore document ke saath har jumlay ka label aur scores deta hai, is liye positive aur negative hisse alag nazar aate hain; document par mixed ka label ho sakta hai. Language detection, key phrases aur OCR sentiment nahi batate."
+  },
+  "D1-339": {
+    "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Text analysis support tickets ko khud sahi jagah bhejne mein madad kar sakta hai.",
+      "Language detection text ke asal mauzu batata hai.",
+      "Summarization extractive ya abstractive ho sakta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: zaban, mauzu aur sentiment se khud-kaar routing ho sakti hai. Doosre ka Nahi: language detection sirf zaban batata hai; mauzu key phrase extraction se aate hain. Teesre ka Haan: extractive khulase asal jumlay istemal karte hain, jab ke abstractive khulase naye jumlay likhte hain."
+  },
+  "D1-340": {
+    "q": "Har input ko us text analysis technique se milayein jo sab se kaar-aamad hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "10,000 survey jawab: kaunse mauzu saamne aate hain?",
+      "Chat logs jo zaati data ke baghair save karne hain",
+      "40 page ki report jo manager ko jaldi samajhni hai",
+      "Product launch ke baare mein posts: log kya mehsoos karte hain?"
+    ],
+    "exp": "Mauzu key phrase extraction se aate hain, zaati data hatane ke liye PII detection chahiye, lambi report summarization se chhoti hoti hai, aur launch ke baare mein ehsaasat sentiment analysis se milte hain. Speech synthesis audio banata hai aur text ka jaiza nahi leta."
+  },
+  "D1-341": {
+    "q": "Text yeh hai: 'I'm Maria and my number is 555-0100.' Jumla mukammal karein.",
+    "tpl": "PII detection yeh categories deta hai: {0} aur {1}.",
+    "exp": "Maria kisi shakhs ka naam hai, is liye PII detection us par Person ka label lagata hai, aur 555-0100 par PhoneNumber ka. Phir dono ko redact kiya ja sakta hai. Location, Organization, DateTime aur URL doosri categories hain jo is jumlay par lagu nahi hotin."
+  },
+  "D1-342": {
+    "q": "Ek hospital clinical notes mein zikr ki gayi dawain, un ki miqdar aur tashkhees dhoondna chahta hai. Azure Language ka kaunsa feature is ke liye bana hai?",
+    "opts": ["Sirf key phrase extraction", null, null, null],
+    "exp": "Text Analytics for health clinical text se dawain, miqdar aur tashkhees jaisi medical entities nikalta hai aur mutalliqa maloomat ko jorta hai. Aam key phrases medical concepts theek se nahi pehchante, language detection sirf zaban batata hai, aur speech synthesis audio banata hai."
+  },
+  "D1-343": {
+    "q": "Neural text-to-speech voices ka bara faida kya hai?",
+    "opts": [
+      "Unhein koi text nahi chahiye",
+      "Un ki awaaz qudrati aur insan jaisi hoti hai",
+      "Woh sirf English bol sakti hain",
+      "Un se audio output ki zaroorat khatam ho jati hai"
+    ],
+    "exp": "Neural voices deep learning se qudrati utaar charhao aur rawani banati hain, is liye awaaz insan jaisi lagti hai. Unhein bolne ke liye text phir bhi chahiye, woh bohat si zabanon mein dastiyab hain, aur audio output banati hain."
+  },
+  "D1-344": {
+    "ctx": "Ek bank hazaron call recordings mehfooz karta hai. Quality reviews ke liye transcripts mein dikhna chahiye ke kaunse hisse agent ne bole aur kaunse customer ne.",
+    "q": "Kaunsi Speech capabilities munasib hain?",
+    "opts": [null, "Sirf keyword recognition", null, "Speaker diarization ke saath batch transcription"],
+    "exp": "Batch transcription mehfooz recordings ki bari tadad sambhalta hai, aur diarization speakers ko alag karta hai taake transcript dikhaye ke kis ne kya kaha. Text to speech audio banata hai, keyword recognition sirf wake word sunta hai, aur pronunciation assessment zaban seekhne walon ko score deta hai."
+  },
+  "D1-345": {
+    "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Text-to-speech voices sirf ek muqarrar raftar se bol sakti hain.",
+      "Speech to text live audio ke saath audio files bhi likh sakta hai.",
+      "Speech translation translated text aur translated speech dono bana sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: SSML ki prosody settings se awaazein tez ya aahista bol sakti hain. Doosre ka Haan: real-time aur batch transcription live audio aur recordings dono ke liye hain. Teesre ka Haan: speech translation translated text deta hai aur usay audio bhi bana sakta hai."
+  },
+  "D1-346": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "'Your table is ready' wale message ko audio banana {0} istemal karta hai. Customer ke bole hue order ko text banana {1} istemal karta hai.",
+    "exp": "Text to speech text se audio banata hai, aur speech to text audio se text banata hai. Translation zaban badalta hai aur jab message aur order dono ek hi zaban mein hon to us ki zaroorat nahi."
+  },
+  "D1-347": {
+    "q": "Kaunsi DO text to speech ki capabilities hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Meetings ko likhna",
+      "Bohat si neural voices mein se chunna",
+      "Pehchanna ke kaunsa speaker bol raha hai",
+      "SSML se talaffuz aur waqfay adjust karna",
+      "Wake word pakarna"
+    ],
+    "exp": "Text to speech aap ko bohat si neural voices mein se chunne aur SSML se un ke bolne ka andaz, jaise talaffuz aur waqfay, set karne deta hai. Transcription, speakers ko alag pehchanna (diarization) aur wake word pakarna, sab aane wali audio ka jaiza lete hain, is liye woh speech recognition ki capabilities hain."
+  },
+  "D1-348": {
+    "q": "In mein se kaunsa kaam image classification hai?",
+    "opts": [
+      "Dental X-ray mein har daant ke gird box banana",
+      "X-ray par chhapa mareez ka naam parhna",
+      "Har X-ray tasveer par normal ya abnormal ka label lagana",
+      "Nayi X-ray tasveer banana"
+    ],
+    "exp": "Image classification poori tasveer ko label deta hai, jaise normal ya abnormal. Daanton ke gird boxes banana object detection hai, naam parhna OCR hai, aur nayi tasveer banana image generation hai."
+  },
+  "D1-349": {
+    "q": "Ek kisaan drone ki photos istemal karta hai aur usay har khet ki tasveer mein jaanna hai ke har jari booti kahan hai. Kaunsi technique har jari booti ki jagah batati hai?",
+    "exp": "Object detection har cheez, yahan har jari booti, ko dhoond kar us ki jagah bounding box ki soorat mein deta hai. Image classification sirf yeh batata ke jari booti hai ya nahi, OCR text parhta hai, aur speech recognition audio par kaam karta hai."
+  },
+  "D1-350": {
+    "q": "Image generation ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Image-generation model ek hi prompt ke liye mukhtalif tasveerein bana sakta hai.",
+      "AI ki banayi tasveer hamesha copyright ya brand ke masail se pak hoti hai.",
+      "Aap prompt mein apni pasand ka art style bayan kar sakte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: generation mein randomness hoti hai, is liye wahi prompt dohrane par mukhtalif nateeje milte hain. Doosre ka Nahi: bani hui tasveerein phir bhi mehfooz content ya brands se mil sakti hain, is liye karobari istemal se pehle review zaroori hai. Teesre ka Haan: style ke alfaz, jaise watercolor ya photorealistic, output ki rahnumai karte hain."
+  },
+  "D1-351": {
+    "q": "Parinde ki photo ke baare mein har sawal ko us computer vision technique se milayein jo us ka jawab deti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Kya is photo mein parinda hai?",
+      "Is photo mein har parinda kahan hai?",
+      "Kaunse pixels parinde ke hain?",
+      "Parinde ke neeche wale sign par kya likha hai?"
+    ],
+    "exp": "Parinda hai ya nahi yeh image classification hai, har parinda kahan hai yeh object detection, kaunse pixels us ke hain yeh semantic segmentation, aur sign parhna OCR hai. Image generation nayi tasveerein banata hai aur in mein se kisi sawal ka jawab nahi deta."
+  },
+  "D1-352": {
+    "q": "Vision se mutalliq models ke baare mein jumlay mukammal karein.",
+    "tpl": "Jo model tasveer parh kar us ke baare mein tafseeli jawab likhta hai woh {0} model hai. Jo model tafseel se tasveer banata hai woh {1} model hai.",
+    "exp": "Multimodal models images aur text ko input ke taur par lete hain aur zaban mein jawab dete hain. Image-generation models text prompts se nayi tasveerein banate hain. Speech aur embedding models audio aur vectors par kaam karte hain, jab ke OCR aur classification nayi tasveerein banane ke bajaye maujood tasveeron ka jaiza lete hain."
+  },
+  "D1-353": {
+    "q": "Information extraction businesses ke liye kyun qeemti hai?",
+    "opts": [
+      "Woh documents ko lamba karta hai",
+      "Woh marketing ki nayi tasveerein banata hai",
+      "Us se files save karne ki zaroorat khatam ho jati hai",
+      "Woh documents aur media ko structured data banata hai jise systems khud istemal kar sakein"
+    ],
+    "exp": "Information extraction invoices, forms, recordings aur doosre content ko structured data banata hai, is liye systems unhein haath se type kiye baghair process kar sakte hain. Woh documents lambe nahi karta, tasveerein nahi banata aur storage ka badal nahi."
+  },
+  "D1-354": {
+    "ctx": "Insurance claims PDF forms, nuqsan ki photos aur voicemails ki soorat mein aate hain. Adjusters ko har ek se claim number, waqiay ki tareekh aur chhota khulasa chahiye.",
+    "q": "Kaunsa tareeqa sab se munasib hai?",
+    "opts": [
+      "Multimodal information extraction service jo muqarrar fields ke saath documents, images aur audio sambhale",
+      "Sirf image classification",
+      "Sirf speech synthesis",
+      "File ke naamon par key phrase extraction"
+    ],
+    "exp": "Inputs mein documents, images aur audio mile hue hain, aur adjusters ko har ek se wahi fields chahiye, is liye multimodal extraction service, jaise har type ke analyzers wala Content Understanding, munasib hai. Akela image classification text aur audio nazar andaz karta hai, speech synthesis audio banata hai, aur file ke naamon mein claim ki tafseel nahi hoti."
+  },
+  "D1-355": {
+    "q": "Record ki hui meeting ki video se maloomat nikalne par kaunse DO aam outputs milte hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Naya soundtrack",
+      "Boli gayi baat ka transcript",
+      "Kamre ka 3D model",
+      "Tafseel ke saath ahem lamhay ya segments",
+      "Actors wali nayi video"
+    ],
+    "exp": "Meeting ki video se extraction boli gayi baat ka transcript aur frames ki bunyad par ahem lamhon ya segments ki tafseel deti hai. Soundtracks, 3D models aur nayi videos banaya hua content hain, recording se nikali hui maloomat nahi."
+  },
+  "D1-356": {
+    "q": "Information extraction ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Scan kiye hue documents se fields nikalne mein OCR aksar pehla qadam hota hai.",
+      "Information extraction mein users ko values hamesha dobara type karni parti hain.",
+      "Audio se maloomat nikalna aam taur par speech likhne (transcribe) se shuru hota hai."
+    ],
+    "exp": "Pehle ka jawab Haan: fields dhoondne se pehle scan kiye hue pages ko text ki soorat mein parhna zaroori hai. Doosre ka Nahi: extraction ka maqsad hi haath se dobara type karne se bachna hai. Teesre ka Haan: transcript speech ko text banata hai jis se summary jaise fields bante hain."
+  }
+}

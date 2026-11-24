@@ -1,0 +1,219 @@
+{
+  "D1-357": {
+    "ctx": "Building mein dakhle ke liye chehra milane wala system gehri rangat wali khawateen ko doosre employees se bohat zyada baar reject karta hai.",
+    "q": "Kaunsa responsible AI principle sab se zyada mutasir hota hai?",
+    "exp": "Jab system kuch groups ke liye doosron se kharab kaam kare to un logon ko kam darje ki service milti hai, jo fairness ka nuqsan hai. Aise system ke liye transparency, accountability aur privacy bhi ahem hain, lekin yahan asal masla ghair barabar error rate hai."
+  },
+  "D1-358": {
+    "q": "Fairness ke baare mein jumlay mukammal karein.",
+    "tpl": "Jab model logon ke ek group ko kharab nateeje de to yeh {0} ka masla hai. Har group ke metrics alag check karne ko {1} evaluation kehte hain.",
+    "exp": "Mukhtalif groups ke ghair barabar nateeje fairness ka masla hain. Disaggregated evaluation metrics ko group ke hisaab se torti hai taake kul average mein chupe hue farq nazar aayein. Aggregated metrics hi woh cheez hain jo farq chupa sakte hain, aur random evaluation fairness ka tareeqa nahi."
+  },
+  "D1-359": {
+    "q": "Reliability and safety ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Driver-assistance system ke tests mein nadir halaat, jaise bhari barf, shamil hone chahiye.",
+      "Reliability sirf hardware ke liye ahem hai, AI models ke liye nahi.",
+      "Model ka naya version kharab chale to rollback plan kaam aata hai."
+    ],
+    "exp": "Pehle ka jawab Haan: nadir lekin asal halaat mein hi aksar kharabiyan aati hain. Doosre ka Nahi: AI models ko bhi musalsal aur mehfooz chalna hota hai, aur yahi is principle ka maqsad hai. Teesre ka Haan: pichle version par wapas ja sakna kharab update ka nuqsan kam karta hai."
+  },
+  "D1-360": {
+    "q": "AI app ke tamam users ko naye model version par le jane ka sab se mehfooz tareeqa kya hai?",
+    "opts": [
+      "Testing ke baghair sab ko ek saath badal dein",
+      "Naye version ko parkhein, aahista aahista laayein, monitor karein aur rollback ka raasta rakhein",
+      "Pehle purana version delete karein",
+      "Tabdeeli ke dauran monitoring band kar dein"
+    ],
+    "exp": "Pehle parakhna, aahista release karna aur monitor karna masail ko sab par asar dalne se pehle pakarta hai, aur rollback ka raasta kharabi ki soorat mein nuqsan mehdood karta hai. Aankh band kar ke badalna, purana version delete karna ya monitoring band karna yeh hifazatein khatam kar deta hai."
+  },
+  "D1-361": {
+    "ctx": "Ek smart speaker kamre ki tamam audio musalsal record kar ke upload karta hai, chahe kisi ne wake word na bola ho.",
+    "q": "Asal fikr kaunse responsible AI principle ki hai?",
+    "exp": "Aisi audio jama karna jo users share nahi karna chahte the un ki privacy mein dakhal hai aur us data ke liye security ka khatra paida karta hai. Zimmedar design sirf zaroori cheez process karta hai, maslan wake word device par hi sunna aur audio sirf us ke bolne ke baad upload karna."
+  },
+  "D1-362": {
+    "q": "Har tareeqe ko us privacy ya security concept se milayein jise woh zahir karta hai. Har concept ek baar istemal ho sakta hai, ya bilkul nahi.",
+    "items": [
+      "Mehfooz data ko encrypt karna",
+      "Sirf woh fields jama karna jo app ko chahiye",
+      "Data istemal karne se pehle users se poochna",
+      "Roles ke zariye data tak rasai mehdood karna"
+    ],
+    "exp": "Mehfooz data encrypt karna encryption hai, sirf zaroori fields jama karna data minimization, users se pehle poochna consent, aur roles wali hadein access control hain. Inclusive design accessibility ke baare mein hai, data ki hifazat ke baare mein nahi."
+  },
+  "D1-363": {
+    "q": "Ek app users ko voice input aur typed input mein se chunne deti hai. Yeh asal mein kaunse principle ko support karta hai?",
+    "exp": "Istemal ke kai tareeqay dene se mukhtalif salahiyat aur pasand wale log app istemal kar sakte hain, yahi inclusiveness hai. Accountability ownership ke baare mein hai, reliability musalsal aur mehfooz kaam ke baare mein, aur fairness barabar nateejon ke baare mein."
+  },
+  "D1-364": {
+    "q": "Inclusiveness ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Inclusive design ka faida un logon ko bhi ho sakta hai jinhein koi mazoori nahi.",
+      "App ko inclusive banane ke liye sirf development team ke saath testing kaafi hai.",
+      "Kai zabanein support karne se app zyada inclusive ho sakti hai."
+    ],
+    "exp": "Pehle ka jawab Haan: captions aur voice control jaise features bohat se logon ki madad karte hain, maslan shor mein ya jab haath masroof hon. Doosre ka Nahi: chhota aur ek jaisa group bohat si rukawatein nahi dekh pata; mukhtalif users ko shamil karna chahiye. Teesre ka Haan: zabanon ke support se zyada log app istemal kar sakte hain."
+  },
+  "D1-365": {
+    "ctx": "Ek card issuer ka AI system fraud ke shak par cards khud block kar deta hai. Customers ko sirf yeh bataya jata hai: 'Aap ka card block hai.'",
+    "q": "Kaunsi tabdeeli transparency ko sab se behtar support karti hai?",
+    "opts": [
+      "Ehtiyatan mazeed cards block karein",
+      "Wajah kabhi na batayein",
+      "Customers ko batayein ke automatic system ne transaction par nishan lagaya aur woh us ka review kaise karwa sakte hain",
+      "Card ka design badlein"
+    ],
+    "exp": "Automatic faislon se mutasir logon ko pata hona chahiye ke AI shamil tha aur nateeje par sawal kaise uthayein. Automatic nishan aur review ka tareeqa batana transparency ke saath accountability ko bhi support karta hai. Mazeed cards block karna, wajah chupana ya card ka design badalna customers ko faisla samajhne mein madad nahi deta."
+  },
+  "D1-366": {
+    "q": "Transparency ko support karne ke liye AI system ki documentation mein kaunsi DO cheezein honi chahiye? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Developers ke ghar ke pate",
+      "System ke istemal ke maqasid",
+      "Office ka Wi-Fi password",
+      "Maloom hudood aur woh halaat jin mein system fail ho sakta hai",
+      "Cafeteria ka menu"
+    ],
+    "exp": "Transparency ki documentation, jaise Transparency Note, batati hai ke system kis liye hai aur kahan fail ho sakta hai, taake log usay munasib tareeqe se istemal karein. Zaati pate aur passwords kabhi shaya nahi hone chahiye, aur menu ka AI system se koi taalluq nahi."
+  },
+  "D1-367": {
+    "q": "Ek team maujood AI system ko aise naye maqsad ke liye istemal karna chahti hai jis ke liye woh nahi bana tha. Is ki ijazat ka faisla kis ko karna chahiye?",
+    "opts": [
+      "System ke kisi bhi user ko",
+      "System ke owners ko, naye istemal ke responsible AI review ke baad",
+      "Model ko khud",
+      "Kisi ko nahi; har istemal ki ijazat hai"
+    ],
+    "exp": "Naye istemal se naye khatre aa sakte hain, is liye jawabdeh owners ko manzoori se pehle unhein idare ki responsible AI sharaait par parakhna chahiye. Alag alag users aur model jawabdeh nahi, aur review ke baghair har istemal ki ijazat khatron ko nazar andaz karti hai."
+  },
+  "D1-368": {
+    "q": "Accountability ke baare mein jumlay mukammal karein.",
+    "tpl": "Human {0} se log AI ke ahem faislon ko review ya badal sakte hain. {1} trail record karta hai ke system ne kya kiya aur kab.",
+    "exp": "Human oversight, yaani insani nigrani, ahem faislon ka control logon ke paas rakhti hai, aur audit trail amal ka record rakhta hai taake baad mein nateejon ki tehqeeq ho sake. Temperature aur quota model ki settings hain, aur color ya random trails accountability ke tareeqay nahi."
+  },
+  "D1-369": {
+    "q": "In mein se kaunsa generative AI ka output hai?",
+    "opts": ["Sensor ki temperature reading", "Database row ID", "Email ka naya likha hua draft", "File ka size bytes mein"],
+    "exp": "Generative AI naya content banata hai, jaise email ka draft. Sensor readings, row IDs aur file sizes record kiya hua ya hisaab se nikala hua data hain, model ka banaya hua content nahi."
+  },
+  "D1-370": {
+    "q": "Generative AI mein transformer kya hai?",
+    "opts": [
+      "Database jo prompts mehfooz karta hai",
+      "GPU ki ek qism",
+      "Neural network architecture jo attention istemal karta hai aur zyada tar large language models ki bunyad hai",
+      "Models ka billing plan"
+    ],
+    "exp": "Transformer attention ke gird bana neural network architecture hai, jo model ko tolne deta hai ke tokens ek doosre se kaise jure hain; GPT aur zyada tar jadeed language models isay istemal karte hain. Yeh database, hardware ya billing plan nahi."
+  },
+  "D1-371": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Bari context window se model ek waqt mein zyada text dekh sakta hai.",
+      "Har model mein har token ki qeemat ek jaisi hoti hai.",
+      "Model apni soch samjha sakta hai, lekin woh wazahat phir bhi ghalat ho sakti hai."
+    ],
+    "exp": "Pehle ka jawab Haan: context window tay karti hai ke ek request mein kitna input aur output samata hai. Doosre ka Nahi: qeematein model ke hisaab se aur aksar input aur output tokens ke darmiyan mukhtalif hoti hain. Teesre ka Haan: wazahatein bhi banaya hua text hain, is liye un mein ghaltiyan ho sakti hain aur unhein check karna chahiye."
+  },
+  "D1-372": {
+    "q": "Har term ko us ki tafseel se milayein. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "targets": [
+      "Woh text jo model jawab mein banata hai",
+      "Woh input jo aap model ko bhejte hain",
+      "Output lene ke liye train kiye hue model ko chalana",
+      "Model ke andar seekhe hue weights",
+      "Deployment ka region"
+    ],
+    "exp": "Parameters seekhe hue weights hain, inference train kiye hue model ko chalana hai, prompt input hai, aur completion banaya hua output. Deployment ka region hosting ki setting hai aur in mein se kisi term ko bayan nahi karta."
+  },
+  "D1-373": {
+    "q": "Language model ghalat jawab kyun de sakta hai, is ki kaunsi DO wajoohat hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Woh jawab se pehle hamesha database check karta hai",
+      "Woh default ke taur par live internet se jura hota hai",
+      "Us ka training data purana ya adhoora ho sakta hai",
+      "Woh kabhi probabilities istemal nahi karta",
+      "Woh facts ki tasdeeq ke bajaye mumkina text predict karta hai"
+    ],
+    "exp": "Models aise data se seekhte hain jis mein cutoff aur kamiyan hoti hain, aur woh facts check karne ke bajaye mumkina text banate hain, is liye pur-aetemad ho kar bhi ghalat ho sakte hain. Woh databases ya internet check nahi karte jab tak solution woh tools na jore, aur generation probabilities par hi chalti hai."
+  },
+  "D1-374": {
+    "q": "Kis qism ka model likhe hue text ko qudrati awaaz banata hai?",
+    "opts": ["Embedding model", "Text-to-speech model", "Image-generation model", "Classification model"],
+    "exp": "Text-to-speech models, aur Azure Speech ki neural voices, text ko boli hui audio banate hain. Embedding models vectors banate hain, image-generation models tasveerein, aur classification models labels lagate hain."
+  },
+  "D1-375": {
+    "ctx": "Ek company khufia documents ka khulasa karne wala andruni tool bana rahi hai. Company policy ke mutabiq processing EU ke andar rehni chahiye.",
+    "q": "Deployment ka kaunsa intikhab munasib hai?",
+    "opts": [
+      "Aisa model jo EU data zone mein Data Zone Standard deployment ke saath dastiyab ho",
+      "Koi bhi model Global Standard deployment ke saath",
+      "Sirf image-generation model",
+      "Manzoori ke baghair employee ke zaati laptop par chalne wala model"
+    ],
+    "exp": "Data Zone deployments processing ko EU jaise muqarrar zone ke andar rakhti hain, jo policy puri karta hai aur managed capacity bhi deta hai. Global Standard kisi bhi region mein requests process kar sakta hai, image models text ka khulasa nahi kar sakte, aur ghair manzoor zaati devices security policy torti hain."
+  },
+  "D1-376": {
+    "q": "Model settings ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Temperature is par asar dalta hai ke jawab kitne markooz ya takhleeqi hon.",
+      "Maximum tokens yeh mehdood karta hai ke jawab kitna lamba ho sakta hai.",
+      "Deployment ka naam model ke jawab dene ka andaz badal deta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: kam temperature markooz jawab deta hai, aur zyada temperature mukhtalif. Doosre ka Haan: token ki hadd aane par generation ruk jati hai. Teesre ka Nahi: deployment ka naam sirf model call karne ki pehchan hai; woh us ka rawaiya nahi badalta."
+  },
+  "D1-377": {
+    "q": "Har alamat ko us setting se milayein jo usay theek karti hai. Har setting ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Jawab wahi phrase dohrate rehte hain",
+      "Jawab STOP lafz par khatam hone chahiye",
+      "Jawab bohat random hain",
+      "Jawab beech mein kat jate hain"
+    ],
+    "targets": ["Zyada max tokens", "Region badalna", null, "Kam temperature", null],
+    "exp": "Frequency penalty takrar kam karta hai, stop sequence chune hue lafz par output khatam karta hai, kam temperature jawab ko kam random banata hai, aur max tokens ki zyada value jawab kaatne se bachati hai. Region badalne se jawabon ke content par asar nahi parta."
+  },
+  "D1-378": {
+    "q": "Reasoning model ko call karte waqt kaunsa parameter control karta hai ke woh jawab se pehle sochne par kitni mehnat kare?",
+    "exp": "Reasoning models reasoning effort ki setting lete hain, jaise low, medium ya high, jo mushkil masail par jawab ki quality aur waqt aur token ke kharche ke darmiyan tawazun rakhti hai; kuch reasoning models, zyada tar purane, temperature jaisi sampling settings support nahi karte. Presence penalty aur stop sequences soch ki gehrai control nahi karte."
+  },
+  "D1-379": {
+    "q": "Models chunne ke baare mein jumlay mukammal karein.",
+    "tpl": "Documents par semantic search ke liye aap {0} model deploy karte hain. Aise chatbot ke liye jo users ke upload kiye hue screenshots parhe, aap {1} model deploy karte hain.",
+    "exp": "Embedding models matlab wali talash ke liye text ko vectors banate hain, aur multimodal models text ke saath screenshots jaisi tasveerein lete hain. Image-generation aur speech models tasveerein ya audio banate hain, aur embedding models screenshots parh nahi sakte na guftagu kar sakte hain."
+  },
+  "D1-380": {
+    "q": "Kaunse DO bayan Global Standard deployment ko bayan karte hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Woh Azure ki global capacity istemal karti hai, jis se default throughput zyada milta hai",
+      "Woh ek hi mulk ke andar processing ki guarantee deti hai",
+      "Woh reserved capacity deti hai jis ka bill ghante ke hisaab se aata hai",
+      "Aap sirf un tokens ki qeemat dete hain jo istemal karte hain",
+      "Woh nateeje 24 ghante ki batch window mein deti hai"
+    ],
+    "exp": "Global Standard requests ko Azure ki duniya bhar ki capacity mein bhejta hai aur istemal hone wale token ki qeemat leta hai. Woh yeh mehdood nahi karta ke processing kahan ho, jo Data Zone aur geography par mabni types karti hain; ghante ke hisaab se reserved capacity Provisioned ko bayan karti hai, aur 24 ghante ki window Global Batch ko."
+  },
+  "D1-381": {
+    "q": "Naye solution ke liye model chunne ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Shortlist kiye hue models ko apne prompts aur evaluations se test karein",
+      "Sab se dilchasp naam wala model chunein",
+      "Zarooratein likhein, jaise kaam, zabanein, input ki qismein aur budget",
+      "Behtareen model deploy kar ke monitor karein",
+      "Model cards aur benchmarks se catalog ke models shortlist karein"
+    ],
+    "exp": "Zarooraton se shuru karein, model cards aur benchmarks se shortlist banayein, usay apne data par test karein, aur phir behtareen model deploy kar ke monitor karein. Model ke naam se yeh pata nahi chalta ke woh aap ki zarooraton par pura utarta hai."
+  },
+  "D1-382": {
+    "q": "tokens-per-minute (TPM) quota kya hai?",
+    "opts": [
+      "Har token ki qeemat",
+      "Ijazat yafta users ki tadad",
+      "Tokens ki zyada se zyada tadad jo deployment ek minute mein process kar sakti hai",
+      "Model ki context window ka size"
+    ],
+    "exp": "TPM quota rate limit hai ke deployment har minute kitne tokens sambhal sakti hai; us se zyada requests throttle hoti hain. Yeh qeemat, users ki tadad ya context window nahi, jo ek request ke tokens mehdood karti hai."
+  }
+}

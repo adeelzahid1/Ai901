@@ -1,0 +1,282 @@
+{
+  "D1-411": {
+    "ctx": "Ek support chatbot rasmi English likhne wale users ko tafseeli aur kaar-aamad jawab deta hai, lekin ghair rasmi English ya ilaqai lehjay mein likhne walon ko chhote aur kam faidemand jawab.",
+    "q": "Is se kaunsa responsible AI principle mutasir hota hai?",
+    "exp": "Kuch users ko sirf un ke likhne ke andaz ki wajah se kam darje ki service milti hai, jo fairness ka nuqsan hai. Team ko likhne ke mukhtalif andaz se test karna chahiye aur jin groups ko kam achi service milti hai un ke liye system behtar karna chahiye. Transparency, accountability aur privacy yahan bayan kiya gaya asal masla nahi."
+  },
+  "D1-412": {
+    "q": "Reliability and safety ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Safety ka tareeqa content filters ko insani review ke saath jor sakta hai.",
+      "AI system ek baar deploy ho jaye to usay dobara check karne ki kabhi zaroorat nahi.",
+      "Testing mein aise inputs bhi hone chahiye jin ke liye system nahi bana tha."
+    ],
+    "exp": "Pehle ka jawab Haan: kai tehon wali hifazat kisi ek control se zyada masail pakarti hai. Doosre ka Nahi: data, users aur models badalne se rawaiya badal sakta hai, is liye musalsal monitoring chahiye. Teesre ka Haan: achanak inputs dikhate hain ke system kitne mehfooz tareeqe se fail hota hai."
+  },
+  "D1-413": {
+    "q": "Microsoft generative AI solutions ke liye mitigation ki tehein (layers) bayan karta hai. Har iqdam ko us ki layer se milayein. Har layer ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Use case ke mutabiq munasib model chunna",
+      "Content filters aur abuse monitoring lagana",
+      "Prompt mein hidayaat aur bharosemand data dena",
+      "Wazeh disclosures dikhana aur users ke input ko mehdood karna"
+    ],
+    "exp": "Mitigations chaar tehon par lagti hain: munasib model chunna, platform ka safety system jaise content filters istemal karna, grounding data ke saath system messages likhna, aur disclosures aur input ki hadon ke saath user experience design karna. Billing mitigation ki layer nahi."
+  },
+  "D1-414": {
+    "q": "In mein se kya zaati data (personal data) hai?",
+    "opts": [
+      "Shehar ka ausat temperature",
+      "Public report ke pages ki tadad",
+      "Product ki list price",
+      "Kisi shakhs ka email address"
+    ],
+    "exp": "Email address kisi khaas shakhs ki pehchan karta hai, is liye woh zaati data hai jis ki hifazat zaroori hai. Shehar ka temperature, pages ki tadad aur product ki qeematein kisi fard ki pehchan nahi kartin."
+  },
+  "D1-415": {
+    "q": "Privacy and security ke tareeqon ke baare mein jumlay mukammal karein.",
+    "tpl": "Training data se naam aur doosri pehchan hatane ko {0} kehte hain. Sirf manzoor shuda staff ko logs parhne dena {1} hai.",
+    "exp": "Anonymization logon ki pehchan wali maloomat hata ya chupa deta hai, aur access control mehdood karta hai ke data kaun dekh sakta hai. Tokenization aur summarization text processing ke qadam hain, aur load balancing aur caching performance ki techniques hain, privacy ke controls nahi."
+  },
+  "D1-416": {
+    "ctx": "Ek government benefits chatbot pecheeda qanooni zaban mein jawab deta hai, aur bohat se shehri us ke jawab samajh nahi pate.",
+    "q": "Kaunsa principle mutasir hota hai, aur kya madad karega?",
+    "opts": [
+      "Inclusiveness: aasan zaban istemal karein aur alfaz samjhane ki peshkash karein",
+      "Fairness: model ko zyada data par dobara train karein",
+      "Accountability: naya owner muqarrar karein",
+      "Privacy and security: guftagu ko encrypt karein"
+    ],
+    "exp": "Jo zaban bohat se log samajh na sakein woh unhein bahar kar deti hai, is liye yeh inclusiveness ka masla hai, jo aasan zaban aur mushkil alfaz ki wazahat se hal hota hai. Dobara training, naye owners aur encryption jawabon ko samajhna aasan nahi banate."
+  },
+  "D1-417": {
+    "q": "Kaunsa amal transparency principle ko support karta hai?",
+    "opts": [
+      "Chupana ke product AI istemal karta hai",
+      "Tamam logs delete karna",
+      "Shaya karna ke system kaise kaam karta hai aur us ki hudood kya hain",
+      "Model ka size barhana"
+    ],
+    "exp": "Yeh samjhana ke system kaise kaam karta hai aur kahan fail ho sakta hai logon ko usay samajhne aur us par munasib bharosa karne mein madad deta hai, yahi transparency hai. AI ka istemal chupana transparency ke khilaf hai, logs delete karna accountability ko nuqsan deta hai, aur model ke size ka is se taalluq nahi."
+  },
+  "D1-418": {
+    "q": "AI project mein kaunse DO tareeqay accountability dikhate hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Model khud faisla karta hai ke usay kab update kiya jaye",
+      "System ka koi owner muqarrar nahi",
+      "Ek muqarrar shakhs har release ki manzoori deta hai",
+      "Logs roz delete hote hain taake koi unhein check na kar sake",
+      "Waqiat (incidents) ka review hota hai aur sabaq likhe jate hain"
+    ],
+    "exp": "Muqarrar shakhs ki manzoori aur waqiat ka review logon ko system ka jawabdeh rakhte hain aur usay waqt ke saath behtar karte hain. Model ko khud apna intizam dena, owner na hona aur logs mitana, sab accountability khatam karte hain."
+  },
+  "D1-419": {
+    "q": "Generative AI mein completion kya hota hai?",
+    "opts": ["Woh text jo model prompt ke jawab mein banata hai", "Deployment ka naam", "Training data", "Azure region"],
+    "exp": "Completion woh output hai jo model prompt ke liye banata hai, jaise jawab ya draft. Deployment ka naam, training data aur region request ke outputs nahi."
+  },
+  "D1-420": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Language models aam zaban ke saath code bhi bana sakte hain.",
+      "Generative model apni training ke har web page ki copy mehfooz rakhta aur wapas deta hai.",
+      "Prompt mein misaalein output ka andaz badal sakti hain."
+    ],
+    "exp": "Pehle ka jawab Haan: bohat se models code acha likhte hain kyunke code un ke training data ka hissa tha. Doosre ka Nahi: models patterns seekhte hain aur mehfooz pages wapas dene ke bajaye naya text banate hain. Teesre ka Haan: few-shot misaalein lehje, format aur andaz ki rahnumai karti hain."
+  },
+  "D1-421": {
+    "q": "Model har agla token kaise chunta hai, is ke baare mein jumlay mukammal karein.",
+    "tpl": "Zyada {0} kam imkan wale tokens ke chune jane ka imkan barhata hai. Intikhab ko sab se zyada imkan wale tokens tak mehdood karna {1} se hota hai.",
+    "exp": "Temperature probability distribution ki shakal badalta hai, is liye zyada values kam imkan wale tokens ko behtar mauqa deti hain. Top P sampling ko tokens ke us sab se chhote set tak mehdood karta hai jin ki mila kar probability hadd tak pohanche. Max tokens aur quota lambai aur throughput mehdood karte hain, stop sequence output khatam karta hai, aur seed output ko qabil-e-dohrai banane par asar dalta hai."
+  },
+  "D1-422": {
+    "q": "RAG solutions embeddings banane se pehle documents ko chunks (hisson) mein kyun torte hain?",
+    "opts": [
+      "Taake documents zyada khoobsurat lagein",
+      "Taake documents ka tarjuma ho",
+      "Taake deployment ka quota barhe",
+      "Taake sab se mutalliqa hisse mil sakein aur prompt mein sama jayein"
+    ],
+    "exp": "Chhote chunks se talash ko sawal ka jawab dene wale khaas hisse mil jate hain, aur sirf wohi prompt mein shamil hote hain, jis se woh context window ke andar rehta hai. Chunking se shakal, zaban ya quota nahi badalta."
+  },
+  "D1-423": {
+    "q": "Ek shopping chatbot ko customers ki upload ki hui product photos bhi samajhni hain. Kis qism ka model istemal karna chahiye?",
+    "opts": ["Multimodal chat model", "Embedding model", "Text-to-speech model", "Speech-to-text model, jaise whisper"],
+    "exp": "Multimodal chat model text ke saath tasveerein leta hai aur un ke baare mein sawalon ke jawab de sakta hai. Embedding models vectors dete hain, text-to-speech models audio banate hain, aur whisper speech likhta hai."
+  },
+  "D1-424": {
+    "q": "Foundry model catalog ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Catalog mein kai providers ke models hain.",
+      "Catalog ka har model har deployment type ko support karta hai.",
+      "Model cards istemal ke maqasid aur hudood bayan karte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: Microsoft, OpenAI aur doosre providers catalog mein models shaya karte hain. Doosre ka Nahi: dastiyab deployment types model aur region ke hisaab se mukhtalif hoti hain. Teesre ka Haan: model cards batate hain ke model kis liye hai aur us mein kahan kami hai."
+  },
+  "D1-425": {
+    "ctx": "Har raat ek job 500,000 support tickets classify karti hai. Nateeje agli subah tak chahiye, aur kharcha kam se kam hona chahiye.",
+    "q": "Kaunsi deployment type munasib hai?",
+    "exp": "Global Batch bari asynchronous workloads ko 24 ghante ke target mein kam qeemat par process karta hai, jo raat ki job ke liye munasib hai. Provisioned real-time traffic ke liye capacity reserve karta hai, aur Standard aur Data Zone Standard real-time pay-per-token options hain jo utne hi tokens ke liye mehnge parte hain."
+  },
+  "D1-426": {
+    "q": "Request parameters ke baare mein jumlay mukammal karein.",
+    "tpl": "{0} control karta hai ke output kitna random ho. {1} mehdood karta hai ke jawab kitna lamba ho sakta hai.",
+    "exp": "Temperature randomness control karta hai aur max tokens jawab ki lambai par hadd lagata hai. Stop sequence nishan par output khatam karta hai, region deployment ki khoobi hai, frequency penalty takrar kam karta hai, aur seed output ko qabil-e-dohrai banane mein madad karta hai."
+  },
+  "D1-427": {
+    "q": "Standard deployment masroof auqaat mein apni rate limit tak pohanch jati hai. Kaunse DO amal madad karte hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Temperature barhana",
+      "Quota ijazat de to deployment ki tokens-per-minute allocation barhana",
+      "Maximum output tokens ko 1 karna",
+      "Ruki hui (throttled) requests ko exponential backoff ke saath dobara bhejna",
+      "Deployment ka naam badalna"
+    ],
+    "exp": "Zyada tokens per minute ki allocation hadd barhati hai, aur backoff ke saath dobara koshish se requests thore intezar ke baad kamyab ho jati hain. Temperature aur deployment ke naam ka throttling par asar nahi, aur ek token ka output jawabon ko bekaar kar dega."
+  },
+  "D1-428": {
+    "q": "Ek language-learning app students ko jumlay buland awaaz mein parhte sunti hai aur un ke talaffuz ko score deti hai. Yeh kaunsi AI workload hai?",
+    "exp": "Boli hui audio sun kar usay parakhna speech workload hai, jis mein pronunciation assessment istemal hota hai. Computer vision images par kaam karta hai, image generation tasveerein banata hai, aur information extraction content se fields nikalta hai."
+  },
+  "D1-429": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "API call kar ke passwords reset karne wala help desk agent agentic AI ki misaal hai.",
+      "Scan kiye hue contract ka text parhna speech workload hai.",
+      "Gaane ke bol likhna generative AI workload hai."
+    ],
+    "exp": "Pehle ka jawab Haan: agent amal ka faisla karta hai aur us ke liye tool istemal karta hai. Doosre ka Nahi: scan kiya hua text parhna OCR hai, jo computer vision ka kaam hai. Teesre ka Haan: naye bol likhna content generation hai."
+  },
+  "D1-430": {
+    "q": "Har scenario ko us AI workload se milayein jise woh zahir karta hai. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Haath ke likhe field notes ko structured records banana",
+      "Customer ki shikayat ka jawab likhna (draft)",
+      "Pehchanna ke shelf ki photo mein kaunse products ghaib hain",
+      "Podcast ko talash ke qabil text banana"
+    ],
+    "exp": "Haath ke likhe notes se structured records information extraction hai, jawab ka draft generative AI, photo mein ghaib products computer vision se milte hain, aur podcast ko text banana speech hai. Kisi scenario mein agent ke amal ki zaroorat nahi."
+  },
+  "D1-431": {
+    "q": "AI workloads ko jorne ke baare mein kaunsa bayan sahi hai?",
+    "opts": [
+      "Har application sirf ek AI workload istemal kar sakti hai",
+      "Agents doosri AI services ko tools ke taur par istemal nahi kar sakte",
+      "Bohat se solutions kai capabilities ko silsile mein jorte hain, jaise speech to text, text analysis aur generative AI",
+      "Computer vision ko speech ke saath nahi jora ja sakta"
+    ],
+    "exp": "Asal solutions aksar workloads jorte hain, maslan call likhna, us ka sentiment dekhna aur follow-up email ka draft banana. Apps ek workload tak mehdood nahi, agents AI services ko tools ke taur par call kar sakte hain, aur vision aur speech saath istemal ho sakte hain, jaise museum guide app mein."
+  },
+  "D1-432": {
+    "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
+    "tpl": "Products ki photos mein nuqs pakarna {0} hai. Meeting ke transcript ka khulasa likhna {1} hai.",
+    "blanks": [null, ["generative AI ya summarization", null, null]],
+    "exp": "Nuqs ke liye product photos ka jaiza computer vision hai, aur transcript ka khulasa summarization feature ya generative model se banta hai. Speech synthesis audio banata hai, translation zaban badalta hai, aur OCR aur object detection text ka khulasa karne ke bajaye images ka jaiza lete hain."
+  },
+  "D1-433": {
+    "q": "'The service was okay.' wale review ke liye sab se mumkina sentiment kaunsa hai?",
+    "exp": "'Okay' na wazeh khushi zahir karta hai na narazgi, is liye sab se mumkina label neutral hai. Mixed tab istemal hota hai jab text mein wazeh positive aur wazeh negative dono baatein hon, jo is chhote review mein nahi."
+  },
+  "D1-434": {
+    "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Key phrase extraction text ke ahem alfaz aur phrases deta hai.",
+      "PII detection credit card numbers dhoond sakta hai.",
+      "Language detection ke liye audio input lazmi hai."
+    ],
+    "exp": "Pehle ka jawab Haan: key phrases baat ke asal nuqtay hain. Doosre ka Haan: credit card numbers PII categories mein se ek hain. Teesre ka Nahi: language detection likhe hue text ka jaiza leta hai; boli hui zaban pehchanna Speech ka feature hai."
+  },
+  "D1-435": {
+    "q": "Har karobari zaroorat ko text analysis technique se milayein. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Support tickets mein customers ke phone numbers chupana",
+      "News articles par un mein zikr kiye gaye logon ke tag lagana",
+      "Batana ke social media posts khushi wali hain ya ghusse wali"
+    ],
+    "exp": "Phone numbers chupana PII detection hai, zikr kiye gaye logon ke tag lagana named entity recognition, aur posts ko khush ya ghusse wali parakhna sentiment analysis. Speech synthesis audio banata hai aur text ka jaiza nahi leta."
+  },
+  "D1-436": {
+    "q": "Kaunse DO tareeqay text analysis ke nateejon ko zyada bharosemand banate hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Text ko tasveeron ki soorat mein bhejna",
+      "Nateejon ki ghaltiyan nazar andaz karna",
+      "Sahi zaban ka hint dena, khaas taur par chhote text ke liye",
+      "Har document se tamam punctuation hatana",
+      "Nateejon par amal se pehle confidence scores check karna"
+    ],
+    "exp": "Zaban ka hint chhote text ki ghalat pehchan se bachata hai, aur confidence scores dikhate hain ke kaunse nateejon par bharosa karein aur kinhein review karein. Tasveerein bhejna, ghaltiyan nazar andaz karna aur punctuation hatana nateeje kharab karta ya masail chupata hai."
+  },
+  "D1-437": {
+    "q": "Text to speech kis kaam ke liye istemal hota hai?",
+    "opts": [
+      "Phone calls ko likhna",
+      "Email ki zaban pehchanna",
+      "Tasveeron se text parhna",
+      "Virtual assistant ko bolne wali awaaz dena"
+    ],
+    "exp": "Text to speech text ko boli hui audio banata hai, jo assistant ko awaaz deta hai. Calls likhna speech to text hai, language detection text ka jaiza leta hai, aur tasveeron se text parhna OCR hai."
+  },
+  "D1-438": {
+    "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Speech to text kisi ke bolte waqt real time mein text bana sakta hai.",
+      "Custom voice ko voice talent ki manzoori ya razamandi ke baghair istemal kiya ja sakta hai.",
+      "SSML control kar sakta hai ke khaas lafz ka talaffuz kaise ho."
+    ],
+    "exp": "Pehle ka jawab Haan: real-time recognition logon ke bolte hi text deta hai. Doosre ka Nahi: custom voice (jise pehle custom neural voice kehte the) Limited Access feature hai jis ke liye manzoori aur record ki hui razamandi chahiye. Teesre ka Haan: phoneme jaise SSML elements talaffuz control karte hain."
+  },
+  "D1-439": {
+    "q": "SSML ke baare mein jumlay mukammal karein.",
+    "tpl": "Awaaz se tareekh jaisi values sahi parhwane ke liye SSML ka {0} element istemal karein. Kaunsi awaaz bole, yeh chunne ke liye {1} element istemal karein.",
+    "exp": "say-as service ko batata hai ke tareekh, numbers aur phone numbers jaise content ko kaise samjhe, aur voice neural voice chunta hai. break waqfay daalta hai, prosody raftar aur pitch badalta hai, lang zaban badalta hai, aur audio record kiya hua clip daalta hai."
+  },
+  "D1-440": {
+    "ctx": "Ek conference talks live stream karti hai. Shirkat karne walon ko English captions aur saath hi French aur Spanish text chahiye.",
+    "q": "Kaunsi Speech capability munasib hai?",
+    "opts": [
+      "Sirf text to speech",
+      "Speech translation jo English pehchane aur French aur Spanish ko target zabanon ke taur par shamil kare",
+      "Agle din batch transcription",
+      "Image captioning"
+    ],
+    "exp": "Speech translation English speech ko real time mein pehchanta hai aur ek saath kai target zabanon ke tarjume deta hai. Text to speech audio banata hai, agle din ki batch transcription live captions ke liye bohat der se hai, aur image captioning tasveeron ko bayan karta hai."
+  },
+  "D1-441": {
+    "q": "Kaunsi capability tasveer ko poore jumlay mein bayan karti hai?",
+    "exp": "Image captioning tasveer ko bayan karne wala aam zaban ka jumla banata hai. OCR text parhta hai, smart crops thumbnail ke hisse tajweez karta hai, aur object detection jumlay ke bajaye labels aur boxes deta hai."
+  },
+  "D1-442": {
+    "q": "Computer vision aur image generation ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Face detection chehray dhoondta hai lekin yeh nahi batata ke log kaun hain.",
+      "OCR photo mein logon ke gird bounding boxes deta hai.",
+      "Bani hui tasveerein gumrah kar sakti hain, is liye istemal se pehle unhein review karna chahiye."
+    ],
+    "exp": "Pehle ka jawab Haan: detection sirf chehron ki jagah batata hai; identification alag Limited Access capability hai. Doosre ka Nahi: OCR text aur us ki jagah deta hai; logon ke gird boxes people detection deta hai. Teesre ka Haan: bani hui tasveeron mein ghaltiyan ya dhoka dene wala content ho sakta hai."
+  },
+  "D1-443": {
+    "q": "Quality inspection ki har zaroorat ko computer vision technique se milayein. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
+    "items": [
+      "Har kharash aur us ki jagah dhoondna",
+      "Tay karna ke product ki photo mein cheez theek hai ya nuqs wali",
+      "Kharash ke bilkul sahi pixels par nishan lagana"
+    ],
+    "exp": "Har kharash ki jagah box se batana object detection hai, poori photo par theek ya nuqs wali ka label lagana image classification, aur kharash ke bilkul sahi pixels numayan karna semantic segmentation. Text to speech ka visual inspection se taalluq nahi."
+  },
+  "D1-444": {
+    "q": "Record ki hui video mein speaker ki baat kaunsi technique pakarti hai?",
+    "opts": ["Video ke audio track ki transcription", "Video frames par OCR", null, null],
+    "exp": "Bole hue alfaz audio track mein hote hain, is liye transcription unhein text banati hai. Frames par OCR screen par nazar aane wala text parhta hai, image tags visual content bayan karte hain, aur smart crops thumbnail ke hisse tajweez karta hai."
+  },
+  "D1-445": {
+    "q": "Kaghzi form se fields nikalne ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
+    "items": [
+      "Text ko schema ke fields se milayein",
+      "Naya form banayein",
+      "Form scan karein ya us ki photo lein",
+      "Kam confidence wale fields kisi shakhs se review karwayein",
+      "Page ka text aur layout parhein"
+    ],
+    "exp": "Pehle kaghzi form digital hota hai, phir us ka text aur layout parha jata hai, phir content schema ke fields se milaya jata hai, aur aakhir mein ghair yaqeeni values kisi shakhs se review hoti hain. Naya form banana content banana hai aur extraction ka hissa nahi."
+  }
+}
