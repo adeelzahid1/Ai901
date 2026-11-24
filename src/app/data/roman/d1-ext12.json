@@ -12,8 +12,8 @@
   "D1-359": {
     "q": "Reliability and safety ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Driver-assistance system ke tests mein nadir halaat, jaise bhari barf, shamil hone chahiye.",
-      "Reliability sirf hardware ke liye ahem hai, AI models ke liye nahi.",
+      "Driver-assistance system ke tests mein nayab halaat, jaise bhaari barfbari, shamil hone lazmi hain.",
+      "Reliability hardware ka masla hai aur AI models par lagu nahi hoti.",
       "Model ka naya version kharab chale to rollback plan kaam aata hai."
     ],
     "exp": "Pehle ka jawab Haan: nadir lekin asal halaat mein hi aksar kharabiyan aati hain. Doosre ka Nahi: AI models ko bhi musalsal aur mehfooz chalna hota hai, aur yahi is principle ka maqsad hai. Teesre ka Haan: pichle version par wapas ja sakna kharab update ka nuqsan kam karta hai."
@@ -51,10 +51,10 @@
     "q": "Inclusiveness ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Inclusive design ka faida un logon ko bhi ho sakta hai jinhein koi mazoori nahi.",
-      "App ko inclusive banane ke liye sirf development team ke saath testing kaafi hai.",
-      "Kai zabanein support karne se app zyada inclusive ho sakti hai."
+      "Kai zabanein support karne se app zyada inclusive ho sakti hai.",
+      "App ko inclusive banane ke liye sirf development team ke saath testing kaafi hai."
     ],
-    "exp": "Pehle ka jawab Haan: captions aur voice control jaise features bohat se logon ki madad karte hain, maslan shor mein ya jab haath masroof hon. Doosre ka Nahi: chhota aur ek jaisa group bohat si rukawatein nahi dekh pata; mukhtalif users ko shamil karna chahiye. Teesre ka Haan: zabanon ke support se zyada log app istemal kar sakte hain."
+    "exp": "Pehle ka jawab Haan: captions aur voice control jaise features bohat se logon ki madad karte hain, maslan shor mein ya jab haath masroof hon. Doosre ka Haan: zabanon ke support se zyada log app istemal kar sakte hain. Teesre ka Nahi: chhota aur ek jaisa group bohat si rukawatein nahi dekh pata; mukhtalif users ko shamil karna chahiye."
   },
   "D1-365": {
     "ctx": "Ek card issuer ka AI system fraud ke shak par cards khud block kar deta hai. Customers ko sirf yeh bataya jata hai: 'Aap ka card block hai.'",
@@ -68,15 +68,15 @@
     "exp": "Automatic faislon se mutasir logon ko pata hona chahiye ke AI shamil tha aur nateeje par sawal kaise uthayein. Automatic nishan aur review ka tareeqa batana transparency ke saath accountability ko bhi support karta hai. Mazeed cards block karna, wajah chupana ya card ka design badalna customers ko faisla samajhne mein madad nahi deta."
   },
   "D1-366": {
-    "q": "Transparency ko support karne ke liye AI system ki documentation mein kaunsi DO cheezein honi chahiye? Har sahi jawab mukammal hal hai.",
+    "q": "Transparency ko support karne ke liye AI system ki documentation mein kaunsi TEEN cheezein honi chahiye? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Developers ke ghar ke pate",
       "System ke istemal ke maqasid",
       "Office ka Wi-Fi password",
       "Maloom hudood aur woh halaat jin mein system fail ho sakta hai",
-      "Cafeteria ka menu"
+      "System kis qism ke data par train hua"
     ],
-    "exp": "Transparency ki documentation, jaise Transparency Note, batati hai ke system kis liye hai aur kahan fail ho sakta hai, taake log usay munasib tareeqe se istemal karein. Zaati pate aur passwords kabhi shaya nahi hone chahiye, aur menu ka AI system se koi taalluq nahi."
+    "exp": "Maqsad wale istemal, maloom hudood aur training data ki qism logon ko ye tay karne mein madad dete hain ke system par kab bharosa karein, is liye woh documentation ka hissa hain. Ghar ke pate aur Wi-Fi passwords zaati ya khufia hain aur system ke kaam ke baare mein kuch nahi batate."
   },
   "D1-367": {
     "q": "Ek team maujood AI system ko aise naye maqsad ke liye istemal karna chahti hai jis ke liye woh nahi bana tha. Is ki ijazat ka faisla kis ko karna chahiye?",
@@ -111,11 +111,11 @@
   "D1-371": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Bari context window se model ek waqt mein zyada text dekh sakta hai.",
       "Har model mein har token ki qeemat ek jaisi hoti hai.",
-      "Model apni soch samjha sakta hai, lekin woh wazahat phir bhi ghalat ho sakti hai."
+      "Bari context window model ke facts ko zyada taaza banati hai.",
+      "Jab model apni soch samjhaye to us par check kiye baghair bharosa kiya ja sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: context window tay karti hai ke ek request mein kitna input aur output samata hai. Doosre ka Nahi: qeematein model ke hisaab se aur aksar input aur output tokens ke darmiyan mukhtalif hoti hain. Teesre ka Haan: wazahatein bhi banaya hua text hain, is liye un mein ghaltiyan ho sakti hain aur unhein check karna chahiye."
+    "exp": "Pehle ka jawab Nahi: qeematein model ke hisaab se aur aksar input aur output tokens ke darmiyan mukhtalif hoti hain. Doosre ka Nahi: context window tay karti hai ke ek request mein kitna input aur output aa sakta hai; facts kitne taaza hain, ye training data aur grounding par munhasir hai. Teesre ka Nahi: wazahatein bhi bana hua text hain, is liye un mein ghaltiyan ho sakti hain aur unhein check karna chahiye."
   },
   "D1-372": {
     "q": "Har term ko us ki tafseel se milayein. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -158,11 +158,11 @@
   "D1-376": {
     "q": "Model settings ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Temperature is par asar dalta hai ke jawab kitne markooz ya takhleeqi hon.",
-      "Maximum tokens yeh mehdood karta hai ke jawab kitna lamba ho sakta hai.",
+      "Maximum tokens tay karta hai ke deployment fi minute kitni requests le.",
+      "Temperature tay karta hai ke jawab kitne mukhtalif hon, ye nahi ke woh kitne lambe ho sakte hain.",
       "Deployment ka naam model ke jawab dene ka andaz badal deta hai."
     ],
-    "exp": "Pehle ka jawab Haan: kam temperature markooz jawab deta hai, aur zyada temperature mukhtalif. Doosre ka Haan: token ki hadd aane par generation ruk jati hai. Teesre ka Nahi: deployment ka naam sirf model call karne ki pehchan hai; woh us ka rawaiya nahi badalta."
+    "exp": "Pehle ka jawab Nahi: maximum tokens jawab ki lambai ki had hai; requests ki raftaar deployment ke quota se tay hoti hai. Doosre ka Haan: kam temperature markooz jawab deta hai, aur zyada temperature mukhtalif. Teesre ka Nahi: deployment ka naam sirf model call karne ki pehchan hai; woh us ka rawaiya nahi badalta."
   },
   "D1-377": {
     "q": "Har alamat ko us setting se milayein jo usay theek karti hai. Har setting ek baar istemal ho sakti hai, ya bilkul nahi.",

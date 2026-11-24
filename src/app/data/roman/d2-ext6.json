@@ -17,11 +17,11 @@
   "D2-200": {
     "q": "Prompts mein tasveeron ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Vision wala model tasveer mein nazar aane wala text parh sakta hai.",
       "Vision wala model sirf PNG files leta hai.",
+      "Vision-capable model manzar bayan karta hai lekin image mein likhe text ko nazar andaz karta hai.",
       "Prompt mein tasveerein request ke tokens ki tadad barhati hain."
     ],
-    "exp": "Pehle ka jawab Haan: vision wale models signs ya screenshots jaisi tasveeron ka text parh aur samajh sakte hain. Doosre ka Nahi: JPEG, PNG, GIF aur WebP jaise aam formats support hote hain. Teesre ka Haan: tasveerein tokens mein badalti hain, is liye woh istemal aur kharche mein gini jati hain."
+    "exp": "Pehle ka jawab Nahi: JPEG, PNG, GIF aur WebP jaise aam formats support hote hain. Doosre ka Nahi: vision-capable models images mein likha text, jaise signs ya screenshots, parh aur samajh sakte hain. Teesre ka Haan: tasveerein tokens mein badalti hain, is liye woh istemal aur kharche mein gini jati hain."
   },
   "D2-201": {
     "q": "Kaunse DO kaam multimodal chat model ko tasveerein bhejne ke liye munasib hain? Har sahi jawab mukammal hal hai.",
@@ -52,12 +52,12 @@
   "D2-205": {
     "q": "Image generation ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Har prompt qabool hota hai kyunke content filters image generation par nahi lagte.",
-      "Shaya karne se pehle bani hui tasveerein review karni chahiye.",
       "Mask dene par kuch models tasveer ka sirf ek hissa badal sakte hain.",
-      "Style aur tarteeb bayan karne wala prompt aam taur par nateeja behtar karta hai."
+      "Style aur tarteeb bayan karne wala prompt aam taur par nateeja behtar karta hai.",
+      "Shaya karne se pehle bani hui tasveerein review karni chahiye.",
+      "Har prompt qabool hota hai kyunke content filters image generation par nahi lagte."
     ],
-    "exp": "Pehle ka jawab Nahi: image deployments prompts aur bani hui tasveeron dono par content filters lagati hain. Doosre ka Haan: tasveeron mein ghaltiyan ya ghair matlooba content ho sakta hai, is liye insani review acha tareeqa hai. Teesre ka Haan: mask ke saath image editing sirf mask wala hissa dobara banata hai. Chauthe ka Haan: tafseeli prompts model ki rahnumai karte hain."
+    "exp": "Pehle ka jawab Haan: mask ke saath image editing sirf mask wala hissa dobara banata hai. Doosre ka Haan: tafseeli prompts model ki rahnumai karte hain. Teesre ka Haan: tasveeron mein ghaltiyan ya ghair matlooba content ho sakta hai, is liye insani review acha tareeqa hai. Chauthe ka Nahi: image deployments prompts aur bani hui tasveeron dono par content filters lagati hain."
   },
   "D2-206": {
     "q": "Jis tasveer ka jaiza lena hai woh public web address par hai. Aap ko ImageAnalysisClient ka kaunsa method call karna chahiye?",
@@ -99,11 +99,11 @@
   "D2-212": {
     "q": "Content Understanding se documents ke jaize ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Schema mein fields ki wazeh descriptions service ko sahi values dhoondne mein madad karti hain.",
-      "Document analyzer type kiya hua text parh sakta hai lekin haath ki likhai kabhi nahi.",
-      "Content Understanding dikha sakta hai ke nikali hui value document mein kahan mili."
+      "Content Understanding nikali hui values deta hai lekin ye nahi dikhata ke woh document mein kahan milin.",
+      "Document analyzer type kiya hua text parh sakta hai, jab ke haath ki likhai ke liye insan chahiye.",
+      "Schema mein fields ki wazeh descriptions service ko sahi values dhoondne mein madad karti hain."
     ],
-    "exp": "Pehle ka jawab Haan: descriptions generative models ko batati hain ke har field ka kya matlab hai. Doosre ka Nahi: content extraction mein OCR istemal hota hai jo chhapa hua aur haath ka likha text parhta hai. Teesre ka Haan: grounding har value ki source mein jagah deti hai taake log tasdeeq kar sakein."
+    "exp": "Pehle ka jawab Nahi: grounding har value ki source jagah deta hai taake log tasdeeq kar sakein. Doosre ka Nahi: content extraction mein OCR istemal hota hai jo chhapa hua aur haath ka likha text parhta hai. Teesre ka Haan: descriptions generative models ko batati hain ke har field ka kya matlab hai."
   },
   "D2-213": {
     "q": "Invoice analyzer ke field methods ke baare mein jumlay mukammal karein.",
@@ -138,11 +138,11 @@
   "D2-217": {
     "q": "Content Understanding ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Content Understanding charts aur diagrams ka jaiza le sakta hai.",
-      "Image fields generate aur classify methods istemal kar sakte hain.",
-      "Tasveer ke jaize ke liye audio track zaroori hai."
+      "Image fields extract aur translate methods istemal karti hain.",
+      "Tasveer ke jaize ke liye audio track zaroori hai.",
+      "Content Understanding tasveeron ka jaiza le sakta hai, jab ke charts aur diagrams chhor diye jate hain."
     ],
-    "exp": "Pehle ka jawab Haan: figure analysis charts aur diagrams ko bayan kar sakta hai, jo search aur RAG mein bhi madad karta hai. Doosre ka Haan: images ke liye generate values banata aur classify categories chunta hai. Teesre ka Nahi: tasveeron ka jaiza akele hota hai; audio sirf audio aur video files ke liye ahem hai."
+    "exp": "Pehle ka jawab Nahi: image fields generate, jo values banata hai, aur classify, jo categories chunta hai, istemal karti hain; extract documents ke liye hai aur translate koi field method nahi. Doosre ka Nahi: tasveeron ka jaiza akele hota hai; audio sirf audio aur video files ke liye ahem hai. Teesre ka Nahi: figure analysis charts aur diagrams bayan kar sakta hai, jo search aur RAG mein bhi madad deta hai."
   },
   "D2-218": {
     "q": "Jab Content Understanding call ki recording ka jaiza leta hai to summary jaise fields banne se pehle analysis kis cheez se shuru hota hai?",

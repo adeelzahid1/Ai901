@@ -36,22 +36,22 @@
   "D1-008": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Agar model apne training data par acha score kare to woh khud ba khud reliability and safety principle par pura utarta hai.",
       "AI system ko ghair mamooli ya achanak inputs se test karna reliability and safety principle ko support karta hai.",
-      "Generative model ke nuqsan deh output ko block karne wale content filters reliability and safety ka iqdam hain."
+      "Content filters on ho jayein to AI system ko mazeed safety testing ki zaroorat nahi.",
+      "Agar model apne training data par acha score kare to woh reliability and safety principle par pura utarta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: training data par acha score yeh sabit nahi karta ke system asal halaat mein bharosemand hai; usay naye data, edge cases aur ghalat istemal par bhi test karna aur release ke baad monitor karna zaroori hai. Doosre ka Haan: reliability and safety chahta hai ke system achanak inputs par bhi umeed ke mutabiq chale, is liye edge-case testing is ko support karti hai. Teesre ka Haan: nuqsan deh output ko filter karne se system ke nuqsan pohanchane ka imkan kam hota hai, jo safety ka iqdam hai."
+    "exp": "Pehle ka jawab Haan: reliability and safety chahta hai ke system achanak inputs par bhi umeed ke mutabiq chale, is liye edge-case testing is ko support karti hai. Doosre ka Nahi: content filters hifazat ki ek tah hain; system ko phir bhi testing aur monitoring chahiye, kyunke nuqsan deh ya ghalat output ek hi control se bach kar nikal sakta hai. Teesre ka Nahi: training data par acha score yeh sabit nahi karta ke system asal halaat mein bharosemand hai; usay naye data, edge cases aur ghalat istemal par bhi test karna aur release ke baad monitor karna zaroori hai."
   },
   "D1-009": {
-    "q": "Ek company generative AI chat app banati hai jo customer records ko grounding data ke taur par istemal karti hai. Kaunse DO amal privacy and security principle ko support karte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Ek company generative AI chat app banati hai jo customer records ko grounding data ke taur par istemal karti hai. Kaunse TEEN amal privacy and security principle ko support karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Model ka temperature barhana",
       "Chat logs save hone se pehle zaati data dhoond kar chupana (redact)",
       "Role-based access control istemal karna taake sirf manzoor shuda identities customer data query kar sakein",
       "Yeh notice lagana ke jawab AI ne banaye hain",
-      "User interface ko mazeed zabanon mein translate karna"
+      "Customer data sirf utni dair rakhna jitni zaroorat ho"
     ],
-    "exp": "Save karne se pehle zaati data redact karna aur role-based access control se rasai mehdood karna, dono customer data ki hifazat karte hain, jo privacy and security ka maqsad hai. AI notice transparency ko support karta hai, data ki hifazat ko nahi. Interface ka tarjuma inclusiveness ko support karta hai. Temperature sirf yeh badalta hai ke model ke alfaz kitne mukhtalif hon, data ki hifazat se is ka koi taalluq nahi."
+    "exp": "Logs mehfooz hone se pehle zaati data redact karna, role-based access control se rasai mehdood karna aur zaroorat khatam hone par data hatana, teenon customers ki maloomat ki hifazat karte hain, jo privacy and security ka maqsad hai. AI ke jawabon ka notice transparency ko support karta hai, aur temperature sirf ye badalta hai ke jawab kitne mukhtalif hon."
   },
   "D1-010": {
     "q": "Jin customers ke insurance claims AI model ne reject kiye woh wajah poochte hain. Company har customer ko un ahem wajoohat ka khulasa dena shuru karti hai jin se faisla hua. Yeh kaunse principle ko SAB SE seedha support karta hai?",

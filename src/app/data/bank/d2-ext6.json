@@ -24,12 +24,12 @@
     "id": "D2-200", "sub": "visual-input", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about images in prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A vision-capable model can read text that appears in an image.",
       "A vision-capable model accepts only PNG files.",
+      "A vision-capable model describes scenes but ignores text that appears in an image.",
       "Images in a prompt add to the number of tokens that the request uses."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: vision-capable models can read and reason about text in images, such as signs or screenshots. No for the second: common formats such as JPEG, PNG, GIF and WebP are supported. Yes for the third: images are converted into tokens, so they count toward usage and cost.",
+    "ans": [false, false, true],
+    "exp": "No for the first: common formats such as JPEG, PNG, GIF and WebP are supported. No for the second: vision-capable models can read and reason about text in images, such as signs or screenshots. Yes for the third: images are converted into tokens, so they count toward usage and cost.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
@@ -84,13 +84,13 @@
     "id": "D2-205", "sub": "image-generation", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about image generation, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Every prompt is accepted because content filters do not apply to image generation.",
-      "You should review generated images before you publish them.",
       "Some models can change only part of an image when you provide a mask.",
-      "A prompt that describes style and composition usually improves the result."
+      "A prompt that describes style and composition usually improves the result.",
+      "You should review generated images before you publish them.",
+      "Every prompt is accepted because content filters do not apply to image generation."
     ],
-    "ans": [false, true, true, true],
-    "exp": "No for the first: image deployments apply content filters to prompts and generated images. Yes for the second: images can contain errors or unintended content, so human review is good practice. Yes for the third: image editing with a mask regenerates only the masked area. Yes for the fourth: detailed prompts guide the model.",
+    "ans": [true, true, true, false],
+    "exp": "Yes for the first: image editing with a mask regenerates only the masked area. Yes for the second: detailed prompts guide the model. Yes for the third: images can contain errors or unintended content, so human review is good practice. No for the fourth: image deployments apply content filters to prompts and generated images.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
@@ -171,12 +171,12 @@
     "id": "D2-212", "sub": "cu-documents", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about document analysis with Content Understanding, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Clear field descriptions in the schema help the service find the right values.",
-      "A document analyzer can read typed text but never handwriting.",
-      "Content Understanding can show where in the document an extracted value was found."
+      "Content Understanding returns extracted values without showing where in the document they were found.",
+      "A document analyzer can read typed text, while handwriting needs a person.",
+      "Clear field descriptions in the schema help the service find the right values."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: the descriptions tell the generative models what each field means. No for the second: content extraction uses OCR that reads printed and handwritten text. Yes for the third: grounding returns the source location of each value so people can verify it.",
+    "ans": [false, false, true],
+    "exp": "No for the first: grounding returns the source location of each value so people can verify it. No for the second: content extraction uses OCR that reads printed and handwritten text. Yes for the third: the descriptions tell the generative models what each field means.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview"
   },
   {
@@ -230,12 +230,12 @@
     "id": "D2-217", "sub": "cu-images", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about Content Understanding, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Content Understanding can analyze charts and diagrams.",
-      "Image fields can use the generate and classify methods.",
-      "Analyzing an image requires an audio track."
+      "Image fields use the extract and translate methods.",
+      "Analyzing an image requires an audio track.",
+      "Content Understanding can analyze photos, while charts and diagrams are skipped."
     ],
-    "ans": [true, true, false],
-    "exp": "Yes for the first: figure analysis can describe charts and diagrams, which also helps search and RAG. Yes for the second: generate creates values and classify chooses categories for images. No for the third: images are analyzed on their own; audio is only relevant for audio and video files.",
+    "ans": [false, false, false],
+    "exp": "No for the first: image fields use generate, which creates values, and classify, which chooses categories; extract is for documents and translate is not a field method. No for the second: images are analyzed on their own; audio is only relevant for audio and video files. No for the third: figure analysis can describe charts and diagrams, which also helps search and RAG.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {

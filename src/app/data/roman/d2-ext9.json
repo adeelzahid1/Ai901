@@ -18,11 +18,11 @@
   "D2-285": {
     "q": "Visual input ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Tasveer bhejne ka matlab hai ke model ka jawab bhi tasveer hoga.",
-      "Aap ek message mein ek se zyada tasveerein bhej sakte hain.",
-      "Vision wala model error message ke screenshot ko samjha sakta hai."
+      "Vision wala model error message ke screenshot ko samjha sakta hai.",
+      "Ek message mein zyada se zyada ek image ho sakti hai.",
+      "Tasveer bhejne ka matlab hai ke model ka jawab bhi tasveer hoga."
     ],
-    "exp": "Pehle ka jawab Nahi: vision wale chat models text dete hain; tasveerein banane ke liye image-generation model chahiye. Doosre ka Haan: message mein kai image parts ho sakte hain. Teesre ka Haan: model screenshot mein error ka text parh kar samjha sakta hai."
+    "exp": "Pehle ka jawab Haan: model screenshot mein error ka text parh kar samjha sakta hai. Doosre ka Nahi: message mein kai image parts ho sakte hain. Teesre ka Nahi: vision wale chat models text dete hain; tasveerein banane ke liye image-generation model chahiye."
   },
   "D2-286": {
     "q": "Visual input ke baare mein jumlay mukammal karein.",
@@ -57,15 +57,15 @@
     "exp": "Naya poster image generation se banta hai, photo ka sirf ek hissa badalne ke liye mask ke saath editing, photo bayan karne ke liye captioning ya multimodal model, aur sign ke alfaz parhne ke liye OCR istemal hota hai. Speech synthesis audio banata hai aur kisi zaroorat par nahi aata."
   },
   "D2-290": {
-    "q": "AI ki banayi tasveerein shaya karte waqt kaunse DO zimmedar tareeqay hain? Har sahi jawab mukammal hal hai.",
+    "q": "AI ki banayi tasveerein shaya karte waqt kaunse TEEN zimmedar tareeqay hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Files se provenance ki tamam maloomat hata dena",
       "Content Credentials rakhna taake dekhne wale jaan sakein ke tasveer AI ki banayi hai",
       "Daawa karna ke tasveerein asal photos hain",
       "Shaya karne se pehle ghaltiyon aur nuqsan deh content ke liye tasveerein review karna",
-      "Content filters band karna"
+      "Dekhna ke images mehfooz characters ya brands ki naqal na karein"
     ],
-    "exp": "Content Credentials rakhna AI ke content ke baare mein transparency ko support karta hai, aur insani review ghaltiyan aur na-munasib output pakarta hai. Provenance hatana, bani hui tasveeron ko asal photos bata kar dikhana aur content filters band karna, sab responsible AI ko kamzor karte hain."
+    "exp": "Content Credentials dikhate hain ke image AI se bani hai, review ghaltiyan aur nuqsan deh content pakarta hai, aur mehfooz characters ya brands ki jaanch qanooni masail se bachati hai. Provenance ki maloomat hatana aur images ko asli tasveerein kehna dekhne walon ko gumrah karta hai."
   },
   "D2-291": {
     "q": "ImageAnalysisClient se tasveer ka text lene ke liye VisualFeatures ki kaunsi value maangni chahiye?",
@@ -84,26 +84,26 @@
   "D2-293": {
     "q": "ImageAnalysisClient ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Woh bytes se ya URL se tasveer ka jaiza le sakta hai.",
-      "Woh nayi banayi hui tasveer deta hai.",
-      "Aap ek call mein kai visual features maang sakte hain."
+      "Ye nayi bani hui image de sakta hai.",
+      "Har call ek visual feature deti hai, is liye caption aur tags ke liye alag calls chahiye.",
+      "Ye image ke bytes ka jaiza le sakta hai, jab ke URL wali image pehle download karni parti hai."
     ],
-    "exp": "Pehle ka jawab Haan: analyze() tasveer ke bytes aur analyze_from_url() URL leta hai. Doosre ka Nahi: Image Analysis tasveeron ko bayan karta hai aur nayi nahi banata. Teesre ka Haan: visual_features list leta hai, jaise CAPTION, TAGS aur READ ek saath."
+    "exp": "Pehle ka jawab Nahi: Image Analysis tasveeron ko bayan karta hai aur nayi nahi banata. Doosre ka Nahi: visual_features list leta hai, jaise CAPTION, TAGS aur READ ek saath. Teesre ka Nahi: analyze() image bytes leta hai aur analyze_from_url() URL leta hai."
   },
   "D2-294": {
     "q": "Woh Python code mukammal karein jo key authentication ke saath local tasveer ka jaiza leta hai.",
     "exp": "AzureKeyCredential resource key ko rakhta hai, aur analyze() image_data ke zariye tasveer ke bytes leta hai. DefaultAzureCredential Microsoft Entra ID istemal karta hai aur key nahi leta, SpeechConfig Speech SDK ke liye hai, analyze_from_url() ko URL chahiye, aur generate Image Analysis ka method nahi."
   },
   "D2-295": {
-    "q": "Kaunsi DO zarooratein multimodal chat model ke bajaye Image Analysis ki taraf ishara karti hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunsi TEEN zarooratein multimodal chat model ke bajaye Image Analysis ki taraf ishara karti hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Dostana wazahat ke meme mazaqiya kyun hai",
       "OCR lines, page par un ki bilkul sahi jagah ke saath",
       "Photo ke baare mein aapas ki guftagu",
       "Har pehchane hue shakhs ke bounding boxes",
-      "Tasveer se mutasir nazm"
+      "Thumbnails ke liye tajweez kiye hue crop areas"
     ],
-    "exp": "Image Analysis structured aur qabil-e-andaza nateeje deta hai, jaise coordinates ke saath text ki lines aur logon ke gird boxes. Tasveeron ki wazahat, guftagu aur takhleeqi tehreer khule zaban ke kaam hain jo multimodal chat model ke liye munasib hain."
+    "exp": "OCR ki theek jagahein, logon ke bounding boxes aur smart crops structured nateeje hain jo Image Analysis deta hai. Mazaq samjhana aur tasveer par guftagu karna khuli zaban maangte hain, jo multimodal chat model ke liye munasib hai."
   },
   "D2-296": {
     "q": "Content Understanding ki content extraction document se kya banati hai?",
@@ -133,11 +133,11 @@
   "D2-299": {
     "q": "Content Understanding ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Content Understanding PDF files process kar sakta hai.",
       "Documents ka type kiya hua hona lazmi hai; scan ki hui tasveerein support nahi hotin.",
-      "Field schema mein aap un values ke naam rakh sakte hain jo wapas chahiye."
+      "Field schema mein aap un values ke naam rakh sakte hain jo wapas chahiye.",
+      "Content Understanding PDF files process karta hai."
     ],
-    "exp": "Pehle ka jawab Haan: PDFs supported document input hain. Doosre ka Nahi: OCR scan kiye hue pages aur tasveerein, haath ki likhai samet, parhta hai. Teesre ka Haan: schema field ke naam, types aur descriptions tay karta hai jo analyzer deta hai."
+    "exp": "Pehle ka jawab Nahi: OCR scan kiye hue pages aur tasveerein, haath ki likhai samet, parhta hai. Doosre ka Haan: schema field ke naam, types aur descriptions tay karta hai jo analyzer deta hai. Teesre ka Haan: PDFs supported document input hain."
   },
   "D2-300": {
     "q": "Ek RAG solution woh facts chor deta hai jo sirf PDF reports ke charts mein hain. Content Understanding ki kaunsi capability madad karti hai?",
@@ -183,11 +183,11 @@
   "D2-306": {
     "q": "Audio aur video ke jaize ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Video ka jaiza lene se pehle usay PDF mein badalna lazmi hai.",
-      "Audio analysis recording mein mukhtalif speakers ko alag pehchan sakta hai.",
+      "Audio analysis recording mein mukhtalif bolne walon ko alag pehchanta hai.",
+      "Analysis se pehle video ko PDF mein badla jata hai.",
       "Video analysis dikhayi aur boli gayi dono cheezein istemal karta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: video files ka seedha jaiza hota hai. Doosre ka Haan: transcripts mukhtalif speakers par label laga sakte hain, jo calls aur meetings ke liye kaam ka hai. Teesre ka Haan: video analysis keyframes aur visual content ko audio track ke transcript ke saath jorta hai."
+    "exp": "Pehle ka jawab Haan: transcripts mukhtalif speakers par label laga sakte hain, jo calls aur meetings ke liye kaam ka hai. Doosre ka Nahi: video files ka seedha jaiza hota hai. Teesre ka Haan: video analysis keyframes aur visual content ko audio track ke transcript ke saath jorta hai."
   },
   "D2-307": {
     "q": "Lecture aur meeting ki videos ke jaize ki har zaroorat ko us capability se milayein jo usay pura karti hai. Har capability ek baar istemal ho sakti hai, ya bilkul nahi.",

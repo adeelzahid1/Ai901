@@ -22,11 +22,11 @@
   "D2-398": {
     "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Aap output Markdown, JSON ya table ki soorat mein maang sakte hain.",
       "Few-shot misaalein tab sab se achha kaam karti hain jab woh asal sawal ke baad rakhi jayein.",
-      "Wazeh hidayaat aam taur par mubham isharon se behtar kaam karti hain.",
-      "Aap output Markdown, JSON ya table ki soorat mein maang sakte hain."
+      "Wazeh hidayaat aam taur par mubham isharon se behtar kaam karti hain."
     ],
-    "exp": "Pehle ka jawab Nahi: misaalein aam taur par asal input se pehle aati hain taake model pehle pattern seekhe. Doosre ka Haan: wazeh aur khaas hidayaat andaze kam karti hain. Teesre ka Haan: models Markdown, JSON aur tables jaise maange hue output formats follow kar sakte hain."
+    "exp": "Pehle ka jawab Haan: models Markdown, JSON aur tables jaise maange hue output formats follow kar sakte hain. Doosre ka Nahi: misaalein aam taur par asal input se pehle aati hain taake model pehle pattern seekhe. Teesre ka Haan: wazeh aur khaas hidayaat andaze kam karti hain."
   },
   "D2-399": {
     "q": "Har mubham prompt ko us ke behtar version se milayein. Har behtar prompt ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -115,10 +115,10 @@
     "q": "Microsoft Foundry ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Deployment aap ke code ko ek naam deti hai jisay woh call kar sakta hai.",
-      "Chat playground aap ki poori application khud likh deta hai.",
-      "Aap woh deployment delete kar sakte hain jis ki ab zaroorat nahi."
+      "Aap woh deployment delete kar sakte hain jis ki ab zaroorat nahi.",
+      "Chat playground sample code dikha sakta hai, lekin application aap ko khud banani hoti hai."
     ],
-    "exp": "Pehle ka jawab Haan: apps model ko us ki deployment ke naam se call karti hain. Doosre ka Nahi: playground testing ke liye hai; woh sample code dikha sakta hai, lekin application aap khud banate hain. Teesre ka Haan: ghair istemal shuda deployments delete karne se quota khali hota hai aur uljhan se bachte hain."
+    "exp": "Pehle ka jawab Haan: apps model ko us ki deployment ke naam se call karti hain. Doosre ka Haan: ghair istemal shuda deployments delete karne se quota khali hota hai aur uljhan se bachte hain. Teesre ka Haan: playground testing ke liye hai; woh sample code dikha sakta hai, lekin application aap khud banate hain."
   },
   "D2-408": {
     "q": "Microsoft Foundry ki har istilah ko us ke matlab se milayein. Har matlab ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -199,11 +199,11 @@
   "D2-417": {
     "q": "Python chat client ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Project se milne wala OpenAI client sirf ek request ke liye istemal ho sakta hai.",
-      "responses.create() ka input saada string ya messages ki list ho sakta hai.",
-      "Jo models support karte hain un ke liye responses.create() par temperature set kar sakte hain."
+      "Jo models support karte hain un ke liye responses.create() par temperature set kar sakte hain.",
+      "responses.create() ka input ek string ho sakta hai, jab ke messages ki list rad ho jati hai.",
+      "Project se milne wala OpenAI client sirf ek request ke liye istemal ho sakta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: client bohat si requests ke liye dobara istemal hota hai. Doosre ka Haan: saade prompts ke liye ek string kaafi hai, aur messages ki list roles aur history support karti hai. Teesre ka Haan: temperature ikhtiyari request parameter hai, agarche kuch models, jaise kai reasoning models, usay support nahi karte."
+    "exp": "Pehle ka jawab Haan: temperature ikhtiyari request parameter hai, agarche kuch models, jaise kai reasoning models, usay support nahi karte. Doosre ka Nahi: saade prompts ke liye ek string kaafi hai, aur messages ki list roles aur history support karti hai. Teesre ka Nahi: client bohat si requests ke liye dobara istemal hota hai."
   },
   "D2-418": {
     "q": "Har Python package ko AI app mein us ke maqsad se milayein. Har maqsad ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -218,15 +218,15 @@
     "exp": "azure-ai-projects Foundry project se jurta hai, azure-identity credentials deta hai, OpenAI-compatible client models call karta hai, aur azure-ai-textanalytics Azure Language ke features call karta hai. In mein se koi package audio files nahi bajata."
   },
   "D2-419": {
-    "q": "Chat app ka kharcha qaboo mein rakhne mein kaunse DO tareeqay madad karte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Chat app ka kharcha qaboo mein rakhne mein kaunse TEEN tareeqay madad karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Poori conversation history hamesha bhejte rehna",
       "Lambi conversation history ko kaatna ya us ka khulasa karna",
       "Hamesha sab se bara dastiyab model istemal karna",
       "Output tokens ki munasib maximum had rakhna",
-      "Har message ke liye bohat se alternative completions maangna"
+      "Jahan quality kaafi ho wahan chhota model istemal karna"
     ],
-    "exp": "Kharcha input aur output tokens par munhasir hai, is liye chhoti history aur munasib output had kharcha kam karti hain. Poori history bhejna, hamesha sab se bara model istemal karna aur har message par bohat se completions maangna, ye sab tokens aur kharcha barhate hain."
+    "exp": "Chhoti history, output tokens ki had aur saade kaam ke liye chhota model, teenon fi message kharcha kam karte hain. Poori history hamesha bhejna aur hamesha sab se bara model istemal karna usi conversation ko mehnga banata hai."
   },
   "D2-420": {
     "q": "Troubleshooting ke liye chat client ko kaunsi maloomat log karna munasib hai?",

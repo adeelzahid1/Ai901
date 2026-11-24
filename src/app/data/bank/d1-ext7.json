@@ -25,12 +25,12 @@
     "id": "D1-223", "sub": "workload-scenarios", "diff": 1, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A chatbot that writes new answers to questions is a generative AI workload.",
       "Turning text into spoken audio is speech recognition.",
-      "Detecting objects in a video stream is a computer vision workload."
+      "Detecting objects in a video stream is a text analysis workload.",
+      "A chatbot that writes new answers to questions is a generative AI workload."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: writing new answers is generative AI. No for the second: turning text into audio is speech synthesis; speech recognition converts audio into text. Yes for the third: detecting objects in frames of a video is computer vision.",
+    "ans": [false, false, true],
+    "exp": "No for the first: turning text into audio is speech synthesis; speech recognition converts audio into text. No for the second: detecting objects in video frames is computer vision, whatever form the results take. Yes for the third: writing new answers is generative AI.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {
@@ -50,16 +50,16 @@
   },
   {
     "id": "D1-225", "sub": "workload-scenarios", "diff": 1, "type": "multi",
-    "q": "Which TWO scenarios are speech workloads? Each correct answer presents a complete solution.",
+    "q": "Which THREE scenarios are speech workloads? Each correct answer presents a complete solution.",
     "opts": [
       "Detect faces in photos",
       "Show live captions during a meeting",
       "Extract key phrases from reviews",
       "Read a document aloud",
-      "Summarize a PDF"
+      "Translate a spoken announcement into another language"
     ],
-    "ans": [1, 3],
-    "exp": "Live captions use speech to text, and reading a document aloud uses text to speech; both are speech workloads. Detecting faces is computer vision, and extracting key phrases and summarizing a PDF are text analysis or generative AI tasks.",
+    "ans": [1, 3, 4],
+    "exp": "Live captions use speech recognition, reading a document aloud uses speech synthesis, and translating a spoken announcement is speech translation. Detecting faces is computer vision, and extracting key phrases from reviews is text analysis.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
   },
   {
@@ -107,12 +107,12 @@
     "id": "D1-230", "sub": "text-techniques", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Key phrase extraction returns a sentiment score for each phrase.",
-      "Named entity recognition can detect dates and quantities.",
-      "PII detection can return a version of the text with personal data masked."
+      "Named entity recognition detects dates and quantities as well as people and places.",
+      "PII detection returns a version of the text with personal data masked.",
+      "Key phrase extraction can return a sentiment score for each phrase."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: key phrase extraction returns only the phrases; scores come from sentiment analysis. Yes for the second: entity categories include DateTime and Quantity as well as Person and Location. Yes for the third: PII detection returns redacted text alongside the detected entities.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: entity categories include DateTime and Quantity as well as Person and Location. Yes for the second: PII detection returns redacted text alongside the detected entities. No for the third: key phrase extraction returns only the phrases; scores come from sentiment analysis.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -180,11 +180,11 @@
     "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "Speech to text needs the audio to be converted into an image first.",
-      "Text to speech can speak in many languages.",
-      "SSML can change how fast a voice speaks."
+      "SSML can change which words are spoken but not how fast a voice speaks.",
+      "Text to speech speaks many languages."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: speech to text processes audio directly. Yes for the second: text to speech offers voices in many languages and locales. Yes for the third: the prosody element in SSML can change the speaking rate, as well as pitch and volume.",
+    "ans": [false, false, true],
+    "exp": "No for the first: speech to text processes audio directly. No for the second: the prosody element in SSML can change the speaking rate, as well as pitch and volume. Yes for the third: text to speech offers voices in many languages and locales.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
   },
   {
@@ -234,7 +234,7 @@
     "id": "D1-241", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about image-generation models, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "An image-generation model searches the web and returns an existing photo.",
+      "An image-generation model can search the web and return an existing photo.",
       "Image-generation models learn from large collections of images paired with text descriptions.",
       "Many image-generation models create a picture by gradually turning random noise into an image."
     ],
@@ -313,12 +313,12 @@
     "id": "D1-247", "sub": "extraction-techniques", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about information extraction, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Extraction returns values from tables in documents, not only from paragraphs.",
       "Information extraction turns unstructured content into structured data.",
-      "Information extraction works only on plain text files.",
-      "Extraction can return values from tables in documents."
+      "Information extraction needs plain text files, so scanned documents and images are not supported."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: extraction produces structured output, such as named fields, from content like documents and recordings. No for the second: it also works on scanned documents, images, audio and video. Yes for the third: layout analysis finds tables, so values can be taken from their rows and cells.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: layout analysis finds tables, so values can be taken from their rows and cells. Yes for the second: extraction produces structured output, such as named fields, from content like documents and recordings. No for the third: it also works on scanned documents, images, audio and video.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   }
 ]

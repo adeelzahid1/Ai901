@@ -17,11 +17,11 @@
   "D1-223": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Sawalon ke naye jawab likhne wala chatbot generative AI workload hai.",
       "Text ko boli hui audio banana speech recognition hai.",
-      "Video stream mein cheezein pehchanna computer vision workload hai."
+      "Video stream mein cheezein pehchanna text analysis workload hai.",
+      "Sawalon ke naye jawab likhne wala chatbot generative AI workload hai."
     ],
-    "exp": "Pehle ka jawab Haan: naye jawab likhna generative AI hai. Doosre ka Nahi: text ko audio banana speech synthesis hai; speech recognition audio ko text banata hai. Teesre ka Haan: video ke frames mein cheezein pehchanna computer vision hai."
+    "exp": "Pehle ka jawab Nahi: text ko audio banana speech synthesis hai; speech recognition audio ko text banata hai. Doosre ka Nahi: video ke frames mein cheezein pehchanna computer vision hai, nateeje kisi bhi soorat mein hon. Teesre ka Haan: naye jawab likhna generative AI hai."
   },
   "D1-224": {
     "ctx": "Ek retail chain chaar hisson wala AI solution bana rahi hai.",
@@ -36,15 +36,15 @@
     "exp": "Photos mein labels parhna OCR hai, jo computer vision ka kaam hai. Policy ke sawalon ka aam zaban mein jawab dena generative AI hai. Dobara mangwane ka faisla karna aur supplier API call karna agent ka tools se amal karna hai. Calls mein shikayatein pakarne ke liye speech to text aur phir sentiment jaisa text analysis chahiye. Koi hissa tasveerein nahi banata."
   },
   "D1-225": {
-    "q": "Kaunse DO scenarios speech workloads hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN scenarios speech workloads hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Photos mein chehray pehchanna",
       "Meeting ke dauran live captions dikhana",
       "Reviews se key phrases nikalna",
       "Document buland awaaz mein parhna",
-      "PDF ka khulasa karna"
+      "Boli hui announcement ko doosri zaban mein translate karna"
     ],
-    "exp": "Live captions speech to text istemal karte hain, aur document parh kar sunana text to speech; dono speech workloads hain. Chehray pehchanna computer vision hai, aur key phrases nikalna aur PDF ka khulasa karna text analysis ya generative AI ke kaam hain."
+    "exp": "Live captions speech recognition se bante hain, document bol kar sunana speech synthesis hai, aur boli hui announcement ka tarjuma speech translation hai. Chehre pehchanna computer vision hai, aur reviews se key phrases nikalna text analysis hai."
   },
   "D1-226": {
     "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
@@ -73,11 +73,11 @@
   "D1-230": {
     "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Key phrase extraction har phrase ka sentiment score deta hai.",
-      "Named entity recognition tareekhein aur miqdar pehchan sakta hai.",
-      "PII detection text ka aisa version de sakta hai jis mein zaati data chupa ho."
+      "Named entity recognition logon aur jagahon ke saath tareekhein aur miqdar bhi pehchanta hai.",
+      "PII detection text ka aisa version deta hai jis mein zaati data chupa hota hai.",
+      "Key phrase extraction har phrase ka sentiment score de sakta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: key phrase extraction sirf phrases deta hai; scores sentiment analysis se aate hain. Doosre ka Haan: entity categories mein Person aur Location ke saath DateTime aur Quantity bhi hain. Teesre ka Haan: PII detection pehchani hui entities ke saath redacted text bhi deta hai."
+    "exp": "Pehle ka jawab Haan: entity categories mein Person aur Location ke saath DateTime aur Quantity bhi hain. Doosre ka Haan: PII detection pehchani hui entities ke saath redacted text bhi deta hai. Teesre ka Nahi: key phrase extraction sirf phrases deta hai; scores sentiment analysis se aate hain."
   },
   "D1-231": {
     "q": "Ek news site chahti hai ke har article par us ke asal mauzu aur us mein zikr ki gayi companies ke tag khud lag jayein. Kaunsi DO techniques istemal karni chahiye? Har sahi jawab hal ka ek hissa hai.",
@@ -118,10 +118,10 @@
     "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Speech to text ke liye audio ko pehle tasveer mein badalna parta hai.",
-      "Text to speech bohat si zabanon mein bol sakta hai.",
-      "SSML badal sakta hai ke awaaz kitni tez bole."
+      "SSML bole jane wale alfaaz badal sakta hai lekin awaaz ki raftaar nahi.",
+      "Text to speech bohat si zabanein bolta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: speech to text audio ko seedha process karta hai. Doosre ka Haan: text to speech bohat si zabanon aur locales mein awaazein deta hai. Teesre ka Haan: SSML ka prosody element bolne ki raftar ke saath pitch aur volume bhi badal sakta hai."
+    "exp": "Pehle ka jawab Nahi: speech to text audio ko seedha process karta hai. Doosre ka Nahi: SSML ka prosody element bolne ki raftaar, aur pitch aur volume bhi, badal sakta hai. Teesre ka Haan: text to speech bohat si zabanon aur locales mein awaazein deta hai."
   },
   "D1-237": {
     "q": "Har SSML element ko us ke kaam se milayein. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -151,7 +151,7 @@
   "D1-241": {
     "q": "Image-generation models ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Image-generation model web par talash kar ke maujood photo deta hai.",
+      "Image-generation model web par talash kar ke maujooda tasveer de sakta hai.",
       "Image-generation models text ki tafseel ke saath jori hui tasveeron ke bare majmuon se seekhte hain.",
       "Bohat se image-generation models random noise ko aahista aahista tasveer mein badal kar picture banate hain."
     ],
@@ -209,10 +209,10 @@
   "D1-247": {
     "q": "Information extraction ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Extraction documents mein tables se bhi values deta hai, sirf paragraphs se nahi.",
       "Information extraction be-tarteeb content ko structured data banata hai.",
-      "Information extraction sirf saada text files par kaam karta hai.",
-      "Extraction documents ki tables se values de sakta hai."
+      "Information extraction ko saadi text files chahiye, is liye scan shuda documents aur images support nahi hote."
     ],
-    "exp": "Pehle ka jawab Haan: extraction documents aur recordings jaise content se structured output, jaise naam wale fields, banata hai. Doosre ka Nahi: woh scan kiye hue documents, images, audio aur video par bhi kaam karta hai. Teesre ka Haan: layout analysis tables dhoondta hai, is liye un ki rows aur cells se values li ja sakti hain."
+    "exp": "Pehle ka jawab Haan: layout analysis tables dhoondta hai, is liye un ki rows aur cells se values li ja sakti hain. Doosre ka Haan: extraction documents aur recordings jaise content se structured output, jaise naam wale fields, banata hai. Teesre ka Nahi: woh scan kiye hue documents, images, audio aur video par bhi kaam karta hai."
   }
 }

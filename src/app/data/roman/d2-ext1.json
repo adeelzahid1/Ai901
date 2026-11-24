@@ -35,11 +35,11 @@
   "D2-036": {
     "q": "Foundry portal mein agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Har agent ko kam az kam teen tools istemal karne lazmi hain.",
       "Aap code likhe baghair Foundry portal mein agent bana kar us se chat kar sakte hain.",
+      "Har agent ko kam az kam teen tools istemal karne lazmi hain.",
       "Agent ki instructions ka kirdar system message jaisa hota hai."
     ],
-    "exp": "Pehle ka jawab Nahi: tools ikhtiyari hain; agent sirf model aur instructions ke saath bhi chal sakta hai, aur tools tab shamil hote hain jab kaam ko zaroorat ho. Doosre ka Haan: portal mein aap agent bana kar, usay instructions de kar chat window mein baghair code ke test kar sakte hain. Teesre ka Haan: instructions agent ka role, usool aur andaz tay karti hain, jaise chat model ka system message."
+    "exp": "Pehle ka jawab Haan: portal mein aap agent bana kar, usay instructions de kar chat window mein baghair code ke test kar sakte hain. Doosre ka Nahi: tools ikhtiyari hain; agent sirf model aur instructions ke saath bhi chal sakta hai, aur tools tab shamil hote hain jab kaam ko zaroorat ho. Teesre ka Haan: instructions agent ka role, usool aur andaz tay karti hain, jaise chat model ka system message."
   },
   "D2-037": {
     "q": "Woh Python code mukammal karein jo Foundry SDK se agent banata hai.",
@@ -98,11 +98,11 @@
   "D2-045": {
     "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Audio input aam taur par request mein base64-encoded data ki soorat mein model ko bheja jata hai.",
       "Maximum response tokens barhane se koi bhi sirf text wala chat model audio input le sakta hai.",
+      "Audio input aam taur par request mein base64-encoded data ki soorat mein model ko bheja jata hai.",
       "Audio lene wala multimodal model alag speech-to-text qadam ke baghair bole hue sawal ka jawab de sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: app audio file parhti hai, usay base64 mein encode karti hai aur us ke format, jaise wav, ke saath message ke content mein jorti hai. Doosre ka Nahi: input ki qismein model se tay hoti hain; max tokens badalne se sirf output ki lambai mehdood hoti hai, audio support nahi aata. Teesre ka Haan: audio wala model bole hue sawal ko khud process karta hai."
+    "exp": "Pehle ka jawab Nahi: input ki qismein model se tay hoti hain; max tokens badalne se sirf output ki lambai mehdood hoti hai, audio support nahi aata. Doosre ka Haan: app audio file parhti hai, usay base64 mein encode karti hai aur us ke format, jaise wav, ke saath message ke content mein jorti hai. Teesre ka Haan: audio wala model bole hue sawal ko khud process karta hai."
   },
   "D2-046": {
     "q": "Voice assistant ka design A speech to text, text model aur text to speech ko silsile mein jorta hai. Design B audio lene wala ek multimodal model istemal karta hai. Design B ka asal faida kya hai?",
@@ -154,11 +154,11 @@
   "D2-053": {
     "q": "Multimodal model ko visual input dene ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Vision-capable chat model by default pixel-level segmentation masks de sakta hai.",
       "Multimodal model ek hi prompt mein bheji gayi do tasveeron ka muqabla kar sakta hai.",
-      "Aap public URL ke bajaye tasveer ko base64-encoded data URL ki soorat mein bhej sakte hain.",
-      "Vision wala chat model default ke taur par pixel-level segmentation masks deta hai."
+      "Aap public URL ke bajaye tasveer ko base64-encoded data URL ki soorat mein bhej sakte hain."
     ],
-    "exp": "Pehle ka jawab Haan: message mein kai image parts ho sakte hain, aur model un sab par soch sakta hai, maslan farq dhoondne ke liye. Doosre ka Haan: agar tasveer public nahi to usay base64 data URL ki soorat mein encode karte hain. Teesre ka Nahi: model text deta hai, ya maangne par structured text; woh segmentation masks nahi deta."
+    "exp": "Pehle ka jawab Nahi: model text deta hai, ya maangne par structured text; woh segmentation masks nahi deta. Doosre ka Haan: message mein kai image parts ho sakte hain, aur model un sab par soch sakta hai, maslan farq dhoondne ke liye. Teesre ka Haan: agar tasveer public nahi to usay base64 data URL ki soorat mein encode karte hain."
   },
   "D2-054": {
     "q": "Marketing team ko image-generation model se bilkul 1024 by 1024 pixels ki chakor tasveerein chahiye. Request ka kaunsa parameter yeh control karta hai?",
@@ -239,11 +239,11 @@
   "D2-065": {
     "q": "Content Understanding field extraction ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "extract method audio files se seedhi values nikal sakta hai.",
-      "Content Understanding nikale hue field ki value ke liye 0 aur 1 ke darmiyan confidence score de sakta hai.",
+      "Ye option on karein to Content Understanding nikali hui field value ke liye 0 aur 1 ke darmiyan confidence score deta hai.",
+      "Extract method sirf documents ke liye support hota hai; audio fields generate ya classify istemal karti hain.",
       "Grounding source content ka woh hissa dikhata hai jahan se field ki value aayi."
     ],
-    "exp": "Pehle ka jawab Nahi: extract sirf documents ke liye support hota hai; audio ke liye generate ya classify istemal hota hai. Doosre ka Haan: document analyzers har field ke liye 0 se 1 ka confidence score andaza kar sakte hain, jo tay karne mein madad karta hai ke insani review kab chahiye. Teesre ka Haan: grounding source ke us hisse ki taraf ishara karta hai jahan value mili, taake log jaldi tasdeeq kar sakein."
+    "exp": "Pehle ka jawab Haan: document analyzers har field ke liye 0 se 1 ka confidence score andaza kar sakte hain, jo tay karne mein madad karta hai ke insani review kab chahiye. Doosre ka Haan: extract sirf documents ke liye support hota hai; audio ke liye generate ya classify istemal karte hain. Teesre ka Haan: grounding source ke us hisse ki taraf ishara karta hai jahan value mili, taake log jaldi tasdeeq kar sakein."
   },
   "D2-066": {
     "q": "Har input ko us Content Understanding analysis se milayein jo us ke liye munasib hai. Analysis ki har qism ek baar istemal ho sakti hai, ya bilkul nahi.",

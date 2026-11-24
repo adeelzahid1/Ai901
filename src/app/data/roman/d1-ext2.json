@@ -30,22 +30,22 @@
   "D1-075": {
     "q": "Privacy and security ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Chat logs ko by default ghair muayyan muddat tak rakhna privacy ka sifarish kiya hua tareeqa hai.",
       "Microsoft Foundry mein Azure OpenAI models ko bheje gaye prompts aur completions OpenAI ke public models train karne ke liye istemal hote hain.",
-      "AI app ke data tak role-based access control se rasai mehdood karna privacy and security principle ko support karta hai.",
-      "Har chat log ko default ke taur par hamesha ke liye rakhna privacy ka tajweez shuda tareeqa hai."
+      "AI app ke data tak role-based access control se rasai mehdood karna privacy and security principle ko support karta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: Microsoft kehta hai ke customers ke prompts aur completions OpenAI models train karne ke liye istemal nahi hote aur OpenAI ko dastiyab nahi. Doosre ka Haan: role-based access control yaqeeni banata hai ke sirf manzoor shuda identities data tak pohanchein, jis se data mehfooz rehta hai. Teesre ka Nahi: privacy ka tareeqa yeh hai ke zaati data sirf zaroorat tak rakha jaye, is liye har log hamesha rakhne se khatra barhta hai."
+    "exp": "Pehle ka jawab Nahi: privacy ka tareeqa yeh hai ke zaati data sirf zaroorat tak rakha jaye, is liye har log hamesha rakhne se khatra barhta hai. Doosre ka Nahi: Microsoft kehta hai ke customers ke prompts aur completions OpenAI models train karne ke liye istemal nahi hote aur OpenAI ko dastiyab nahi. Teesre ka Haan: role-based access control yaqeeni banata hai ke sirf manzoor shuda identities data tak pohanchein, jis se data mehfooz rehta hai."
   },
   "D1-076": {
-    "q": "Generative AI chatbot ke release se pehle aur baad mein kaunse DO tareeqay reliability and safety ko support karte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Generative AI chatbot ke release se pehle aur baad mein kaunse TEEN tareeqay reliability and safety ko support karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Tamam logging band kar dein taake kuch review na ho sake",
-      "Users se chupayein ke app AI istemal karti hai",
+      "Fallback rakhna, jaise user ko kisi insan ke hawale karna",
       "Chatbot ko mukhalifana aur nuqsan deh prompts se red-team karein",
       "Hamesha sab se zyada temperature rakhein",
       "Test dataset par jawab evaluate karein aur release ke baad bhi monitoring jari rakhein"
     ],
-    "exp": "Red-teaming mein jaan boojh kar system ko fail karne ki koshish ki jati hai taake masail users se pehle mil jayein, aur evaluation ke saath musalsal monitoring check karti hai ke quality aur safety umeed ke mutabiq rahein. Logging band karne se masail pakarne ki salahiyat khatam hoti hai. AI ka istemal chupana transparency ko nuqsan deta hai. Sab se zyada temperature output ko zyada random banata hai, jis se reliability aam taur par girti hai."
+    "exp": "Red teaming release se pehle kamzoriyan dhoondti hai, evaluation aur monitoring dikhate hain ke chatbot waqt ke saath kaisa chal raha hai, aur fallback us waqt nuqsan kam karta hai jab woh hifazat se jawab na de sake. Logs ke baghair masail ki tehqeeq nahi ho sakti, aur sab se zyada temperature jawabon ko kam qabil-e-peshgoi banata hai."
   },
   "D1-077": {
     "q": "Har tafseel ko Microsoft ke responsible AI principle se milayein. Har principle ek baar istemal hota hai.",
@@ -117,11 +117,11 @@
   "D1-084": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Model sirf apne training cutoff tak ke facts janta hai, jab tak aap ki app usay taaza maloomat na de.",
-      "Generative model default ke taur par har jawab ke liye internet par talash karta hai.",
-      "Temperature ko 0 ke qareeb rakhne se model ka output zyada qabil-e-andaza ho jata hai."
+      "Temperature ko 0 ke qareeb rakhne se model ka output zyada qabil-e-andaza ho jata hai.",
+      "By default generative model jawab dene se pehle internet par talash karta hai.",
+      "Model sirf apne training cutoff tak ke facts janta hai, jab tak aap ki app usay taaza maloomat na de."
     ],
-    "exp": "Pehle ka jawab Haan: model us data se seekhta hai jo training cutoff se pehle jama hua, is liye naye facts dene parte hain, maslan retrieval ya search tool se. Doosre ka Nahi: model seekhe hue se text banata hai aur web nahi dekhta jab tak solution web grounding jaisa tool na jore. Teesre ka Haan: kam temperature par model sab se mumkina tokens chunta hai, is liye jawab kam badalte hain."
+    "exp": "Pehle ka jawab Haan: kam temperature par model sab se mumkina tokens chunta hai, is liye jawab kam badalte hain. Doosre ka Nahi: model seekhe hue se text banata hai aur web nahi dekhta jab tak solution web grounding jaisa tool na jore. Teesre ka Haan: model us data se seekhta hai jo training cutoff se pehle jama hua, is liye naye facts dene parte hain, maslan retrieval ya search tool se."
   },
   "D1-085": {
     "q": "Kaunsa tareeqa is imkan ko sab se zyada kam karta hai ke chat solution company ke products ke baare mein facts khud se ghar le?",
@@ -149,15 +149,15 @@
     "exp": "Retrieval augmented generation nikala hua content prompt mein jorta hai taake model aap ke data se jawab de. Fine-tuning bohat si misaalon par training jari rakhti hai aur model ka rawaiya badalti hai. Few-shot prompting prompt ke andar chand misaalein rakhti hai. System message role aur usool tay karta hai. Tokenization sirf text ko tokens mein torti hai aur jawab dene ka andaz nahi badalti."
   },
   "D1-088": {
-    "q": "Tokens ke baare mein kaunse DO bayan sahi hain? Har sahi jawab mukammal hal hai.",
+    "q": "Tokens ke baare mein kaunse TEEN bayan sahi hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Model ka istemal aur kharcha aam taur par tokens mein naapa jata hai",
       "Token hamesha bilkul ek poora lafz hota hai",
       "Model ki context window tokens mein naapi jati hai",
       "Tokens sirf image models ke liye istemal hote hain",
-      "Token aur API key ek hi cheez hain"
+      "Token kisi lafz ka hissa ho sakta hai"
     ],
-    "exp": "Language model ka istemal tokens ke hisaab se bill aur mehdood hota hai, aur context window, yaani ek request mein input aur output ki woh miqdar jo model sambhal sakta hai, bhi tokens mein gini jati hai. Token poora lafz, lafz ka hissa ya punctuation ho sakta hai, is liye hamesha ek lafz nahi hota. Tokens text models ki bunyadi unit hain, aur API keys se un ka koi taalluq nahi."
+    "exp": "Istemal aur kharcha aam taur par tokens mein gina jata hai, context window tokens ki tadad hoti hai, aur tokenizers bohat se alfaaz ko tukron mein torte hain, is liye token lafz ka hissa ho sakta hai. Is liye token hamesha poora lafz nahi hota, aur tokens language models bhi istemal karte hain, sirf image models nahi."
   },
   "D1-089": {
     "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",

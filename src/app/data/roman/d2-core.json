@@ -29,24 +29,24 @@
     "exp": "System message mein model ko batana ke sirf diya gaya content istemal kare, aur jawab na ho to kya kahe, grounding ka aam tareeqa hai jo ghare hue jawab kam karta hai. Zyada temperature output ko zyada random banata hai aur ghara hua content barha sakta hai. System message hatane se woh hifazat hat jati hai jo aap ko chahiye. Zyada response tokens sirf lambe jawab dete hain."
   },
   "D2-005": {
-    "q": "Kaunse DO tareeqay aam taur par model ke jawabon ki quality behtar karte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN tareeqay aam taur par model ke jawabon ki quality behtar karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Maqsad mubham rakhein taake model takhleeqi ho sake",
       "Sab hidayaat bina tarteeb ke ek lambe jumlay mein likhein",
-      "Temperature hamesha sab se zyada value par rakhein",
+      "Achhe jawabon ki chand misaalein dena",
       "Output ka format wazeh batayein, maslan naam wale fields ka JSON object",
       "Mushkil kaam ko chhote, tarteeb-war qadmon mein torein"
     ],
-    "exp": "Output format ki wazeh hidayaat aur mushkil kaam ko qadmon mein torna, dono prompt engineering ke tajweez shuda tareeqay hain jo jawab zyada sahi aur istemal mein aasan banate hain. Mubham maqsad se be-mauqa jawab aate hain. Bina tarteeb ke ek lamba jumla model ke liye hidayaat samajhna mushkil karta hai. Sab se zyada temperature output ko random banata hai, jis se karobari kaamon mein sahi hone ki shrah aam taur par girti hai."
+    "exp": "Wazeh output format, chhote tarteeb-war qadam aur chand achhi misaalein, teenon model ko dikhate hain ke aap kya chahte hain. Mubham maqsad usay andaza lagane par majboor karta hai, aur ek lamba be-tarteeb jumla hidayaat ko nazar andaz hona aasan banata hai."
   },
   "D2-006": {
     "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Hidayaat ko content se alag karne ke liye delimiters, jaise ### ya XML jaise tags, istemal karne se prompt zyada wazeh ho sakta hai.",
       "Chat application mein system message aam taur par guftagu ki har request ke saath dobara bheja jata hai.",
+      "Hidayaat ko content se alag karne ke liye delimiters, jaise ### ya XML jaise tags, istemal karne se prompt zyada wazeh ho sakta hai.",
       "Achi tarah likha hua system message is baat ki guarantee hai ke model kabhi na-pasandeeda jawab nahi dega."
     ],
-    "exp": "Pehle ka jawab Haan: delimiters model ko dikhate hain ke hidayaat kahan khatam aur content kahan shuru hota hai. Doosre ka Haan: chat requests stateless hoti hain, is liye app har call par guftagu ki history ke saath system message bhi bhejti hai. Teesre ka Nahi: system message model ki mazboot rahnumai karta hai lekin rawaiye ki guarantee nahi deta, isi liye content filters, testing aur monitoring bhi chahiye."
+    "exp": "Pehle ka jawab Haan: chat requests stateless hoti hain, is liye app har call par guftagu ki history ke saath system message bhi bhejti hai. Doosre ka Haan: delimiters model ko dikhate hain ke hidayaat kahan khatam aur content kahan shuru hota hai. Teesre ka Nahi: system message model ki mazboot rahnumai karta hai lekin rawaiye ki guarantee nahi deta, isi liye content filters, testing aur monitoring bhi chahiye."
   },
   "D2-007": {
     "q": "Python code mukammal karein taake pehla message assistant ka rawaiya tay kare aur doosra message customer ka sawal ho.",
@@ -117,10 +117,10 @@
     "q": "Foundry chat playground ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Aap temperature aur maximum response tokens jaise parameters adjust kar sakte hain.",
-      "Playground mein prompt bhejne se pehle Python code likhna lazmi hai.",
-      "Aap system message edit kar ke tabdeeli foran test kar sakte hain."
+      "System message ki tabdeeli model dobara deploy karne ke baad asar karti hai.",
+      "Playground mein prompt bhejne ke liye Python code chahiye."
     ],
-    "exp": "Pehle ka jawab Haan: temperature aur max response tokens jaise parameters playground mein badle ja sakte hain. Doosre ka Nahi: playground baghair code ke test karne ka mahaul hai; code baad mein likhte hain jab application banayein. Teesre ka Haan: playground mein hidayaat badal kar foran naye prompts bhej sakte hain aur asar dekh sakte hain."
+    "exp": "Pehle ka jawab Haan: temperature aur max response tokens jaise parameters playground mein badle ja sakte hain. Doosre ka Nahi: playground nayi hidayaat aap ke agle prompt ke saath bhejta hai, is liye dobara deploy kiye baghair asar foran nazar aata hai. Teesre ka Nahi: playground baghair code ke test karne ka mahaul hai; code baad mein likhte hain jab application banayein."
   },
   "D2-016": {
     "q": "Foundry portal mein model deploy karne aur us se chat karne ke liye kaunse DO qadam zaroori hain? Har sahi jawab hal ka ek hissa hai.",
@@ -197,11 +197,11 @@
   "D2-027": {
     "q": "Foundry chat client mein authentication ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "DefaultAzureCredential woh identity istemal kar sakta hai jis se aap ne az login chala kar sign in kiya.",
-      "Microsoft Entra ID authentication istemal karne se code mein API keys rakhne ki zaroorat nahi rehti.",
-      "Project endpoint aur model deployment ka naam ek hi value hain."
+      "DefaultAzureCredential us identity ko nazar andaz karta hai jis se aap ne az login kiya.",
+      "Project endpoint aur model deployment ka naam ek hi value hain.",
+      "Microsoft Entra ID authentication istemal karne se code mein API keys rakhne ki zaroorat nahi rehti."
     ],
-    "exp": "Pehle ka jawab Haan: DefaultAzureCredential kai sources azmata hai, jin mein Azure CLI ka sign-in bhi hai, is liye development mein az login kaafi hai. Doosre ka Haan: Entra ID ke saath app apni identity ke tokens leti hai, is liye code mein koi secret key rakhne ki zaroorat nahi. Teesre ka Nahi: endpoint project ki pehchan hai, jab ke deployment ka naam batata hai ke kaunsi model deployment jawab degi."
+    "exp": "Pehle ka jawab Nahi: DefaultAzureCredential kai sources azmata hai, Azure CLI ka sign-in bhi, is liye development mein az login kaafi hai. Doosre ka Nahi: endpoint project ki pehchan hai, jab ke deployment ka naam batata hai ke kaunsi model deployment jawab degi. Teesre ka Haan: Entra ID ke saath app apni identity ke tokens leti hai, is liye code mein koi secret key rakhne ki zaroorat nahi."
   },
   "D2-028": {
     "q": "Ek chat client DefaultAzureCredential aur sahi project endpoint istemal karta hai, lekin har call permission denied (403) error ke saath fail hoti hai. Aap ko kya karna chahiye?",

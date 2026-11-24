@@ -52,7 +52,10 @@ npm run validate:bank
 ```
 
 checks ids, answers for every type, explanation length, Learn links, section mapping, duplicates and
-answer-position balance, and prints coverage per section.
+answer-position balance, and prints coverage per section. It also measures clues that give answers away
+(`scripts/fairness.mjs`, for example "the answer is the longest option") and fails when one gets worse.
+
+The next steps are in [PLAN.md](PLAN.md).
 
 ```bash
 npm run check:links

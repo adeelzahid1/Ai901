@@ -29,12 +29,12 @@
     "id": "D2-257", "sub": "agent-portal", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about agents, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Every agent must use the code interpreter tool.",
+      "Files for file search can be uploaded from code, while the Foundry portal has no upload option.",
       "An agent can answer questions with only its model and instructions, without any tools.",
-      "You can attach files to an agent for file search in the Foundry portal."
+      "Every agent must use the code interpreter tool."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: tools are optional and you add only those the agent needs. Yes for the second: a prompt agent with just a model and instructions can already hold conversations. Yes for the third: the portal lets you upload files that file search indexes for the agent.",
+    "ans": [false, true, false],
+    "exp": "No for the first: the portal lets you upload files that file search indexes for the agent. Yes for the second: a prompt agent with just a model and instructions can already hold conversations. No for the third: tools are optional and you add only those the agent needs.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
@@ -53,16 +53,16 @@
   },
   {
     "id": "D2-259", "sub": "agent-portal", "diff": 3, "type": "multi",
-    "q": "Which TWO changes make an agent's answers more reliable? Each correct answer presents a complete solution.",
+    "q": "Which THREE changes make an agent's answers more reliable? Each correct answer presents a complete solution.",
     "opts": [
       "Give the agent every available tool, whether it needs them or not",
       "Ground the agent with trusted knowledge, such as file search over approved documents",
       "Remove the instructions",
       "Write clear instructions, including what to do when information is missing",
-      "Set the temperature to its maximum"
+      "Test it with realistic questions before release"
     ],
-    "ans": [1, 3],
-    "exp": "Trusted grounding data gives the agent correct facts, and clear instructions, including saying it does not know when information is missing, reduce made-up answers. Extra tools can confuse tool selection, removing instructions removes guidance, and a maximum temperature makes answers less consistent.",
+    "ans": [1, 3, 4],
+    "exp": "Trusted knowledge grounds the answers, clear instructions cover missing information, and realistic tests reveal problems before users do. Giving every tool makes tool choice harder, and without instructions the agent has no rules to follow.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
@@ -117,11 +117,11 @@
     "q": "For each of the following statements about agent client apps, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "The agent's instructions are stored with the agent, so the client does not send them on every request.",
-      "Client apps must use the Foundry portal to send messages to an agent.",
-      "A client can show the agent's reply by reading output_text."
+      "A client can show the agent's reply by reading output_text.",
+      "Client apps send messages to an agent through the Foundry portal."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: instructions are part of the agent definition in Foundry. No for the second: apps call the agent through the SDK or REST API; the portal is for building and testing. Yes for the third: the response object exposes the reply text in output_text.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: instructions are part of the agent definition in Foundry. Yes for the second: the response object exposes the reply text in output_text. No for the third: apps call the agent through the SDK or REST API; the portal is for building and testing.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {
@@ -158,16 +158,16 @@
   },
   {
     "id": "D2-267", "sub": "agent-client", "diff": 2, "type": "multi",
-    "q": "Which TWO items belong in the agent's definition rather than in the client app's code? Each correct answer presents part of the solution.",
+    "q": "Which THREE items belong in the agent's definition rather than in the client app's code? Each correct answer presents part of the solution.",
     "opts": [
       "The user's current question",
       "The agent's instructions",
       "The color of the chat button",
       "The tools that the agent can use",
-      "The user's session ID"
+      "The model deployment that the agent uses"
     ],
-    "ans": [1, 3],
-    "exp": "Instructions and tools define how the agent behaves, so they are stored with the agent in Foundry and shared by every client. The user's question and session ID change per request and are handled by the client, and button colors are part of the user interface.",
+    "ans": [1, 3, 4],
+    "exp": "Instructions, tools and the model deployment are stored in the agent's definition and shared by all clients. The user's current question and the look of a button are handled by the client app.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
@@ -220,26 +220,26 @@
     "id": "D2-272", "sub": "text-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about calling Azure Language from Python, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "You can tell the service the language of the documents, for example language='es'.",
       "Each text analysis request must include an image.",
-      "Results are returned in the same order as the documents you sent."
+      "You can tell the service the language of the documents, for example language='es'.",
+      "Results come back in random order, so your code has to sort them by document ID."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: passing a language hint can improve results and avoids misdetection of short texts. No for the second: these features analyze text only. Yes for the third: the SDK returns one result per document in input order, each with the document's ID.",
+    "ans": [false, true, false],
+    "exp": "No for the first: these features analyze text only. Yes for the second: passing a language hint can improve results and avoids misdetection of short texts. No for the third: the SDK returns one result per document in input order, each with the document's ID.",
     "ref": "https://learn.microsoft.com/en-us/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient"
   },
   {
     "id": "D2-273", "sub": "text-app", "diff": 1, "type": "multi",
-    "q": "Which TWO are typical scenarios for an app that uses text analysis? Each correct answer presents a complete solution.",
+    "q": "Which THREE are typical scenarios for an app that uses text analysis? Each correct answer presents a complete solution.",
     "opts": [
       "Generate product photos",
       "Route support tickets by the language they are written in",
       "Transcribe phone calls",
       "Mask personal data before storing chat logs",
-      "Draw bounding boxes on images"
+      "Track the sentiment of product reviews"
     ],
-    "ans": [1, 3],
-    "exp": "Language detection supports routing tickets by language, and PII detection masks personal data in text, so both are text analysis scenarios. Photo generation and bounding boxes are vision tasks, and transcribing calls is speech recognition.",
+    "ans": [1, 3, 4],
+    "exp": "Routing tickets by language, masking personal data and tracking the sentiment of reviews all analyze written text. Creating product photos needs an image-generation model, and transcribing calls needs speech to text.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -280,12 +280,12 @@
     "id": "D2-277", "sub": "spoken-prompts", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Audio prompts do not use any tokens.",
-      "Spoken prompts are still subject to the guardrails of the model deployment.",
-      "An app can save a spoken reply to a file by decoding the base64 audio data."
+      "All audio prompts use tokens, just as text prompts do.",
+      "An app can save a spoken reply to a file by decoding the base64 audio data.",
+      "Spoken prompts are still subject to the guardrails of the model deployment."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: audio is converted into tokens that are counted and billed. Yes for the second: responsible AI protections of the deployment still apply to audio requests. Yes for the third: audio output arrives as base64 data that the app decodes and writes to a file such as a WAV file.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: audio is converted into tokens that are counted and billed. Yes for the second: audio output arrives as base64 data that the app decodes and writes to a file such as a WAV file. Yes for the third: responsible AI protections of the deployment still apply to audio requests.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
@@ -325,7 +325,7 @@
     "id": "D2-281", "sub": "speech-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about the Speech SDK, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "The Speech SDK can recognize speech from an audio file as well as from a microphone.",
+      "The Speech SDK recognizes speech from an audio file as well as from a microphone.",
       "Basic speech to text with the Speech SDK requires a model deployment name.",
       "SpeechSynthesizer can write the generated audio to a file."
     ],

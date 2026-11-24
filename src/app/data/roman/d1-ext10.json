@@ -5,15 +5,15 @@
     "exp": "Ek jaise risk wale logon se sirf rehaish ki wajah se alag qeemat lena ek jaise logon ke saath ghair barabar sulook hai, jo fairness ka masla hai. Transparency system ko samjhane ke baare mein hai, inclusiveness sab ke liye design karne ke baare mein, aur reliability and safety musalsal aur mehfooz kaam ke baare mein."
   },
   "D1-304": {
-    "q": "Kaunse DO amal machine learning model mein na-insaafi kam karne mein madad karte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN amal machine learning model mein na-insaafi kam karne mein madad karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Sirf model ki kul accuracy batana",
       "Logon ke har group ke liye karkardagi alag naapna",
       "Jaldi release ke liye evaluation ka qadam chorna",
       "Zyada numainda training data jama karna",
-      "Mazeed testing ke baghair model ko zyada logon par istemal karna"
+      "Un features ka jaiza lena jo hassas sifaat ki jagah kaam karte hain"
     ],
-    "exp": "Har group ke metrics dikhate hain ke model kahan kharab kaam karta hai, aur zyada numainda data usay kam khidmat pane wale groups ke patterns sikhata hai. Kul score bare farq chupa sakta hai, aur evaluation chorna ya testing ke baghair istemal barhana na-insaafi wale nateeje zyada logon tak pohanchata hai."
+    "exp": "Har group ko alag napne se farq nazar aata hai, numainda data usay kam karta hai, aur proxy features ka jaiza un columns, jaise postal code, ko pakarta hai jo hassas sifat ki jagah le sakte hain. Majmui accuracy groups ka farq chupa deti hai, aur evaluation chhorne se woh nazar hi nahi aata."
   },
   "D1-305": {
     "ctx": "Ek self-checkout camera din mein products achi tarah pehchanta hai lekin shaam ki kam roshni mein aksar ghalat pehchanta hai.",
@@ -42,11 +42,11 @@
   "D1-308": {
     "q": "Privacy and security ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Jab AI system logon ka data istemal kare to razamandi ahem hai.",
+      "Anonymized data ko kabhi kabhi phir bhi khaas logon se jora ja sakta hai.",
       "Security privacy and security principle ka hissa nahi.",
-      "Anonymized data ko kabhi kabhi phir bhi khaas logon se jora ja sakta hai."
+      "Jab AI system logon ka data istemal kare to razamandi ahem hai."
     ],
-    "exp": "Pehle ka jawab Haan: logon ko pata hona chahiye ke un ka data kaise istemal hota hai aur us par razamand hona chahiye. Doosre ka Nahi: yeh principle privacy ki hifazat ke saath systems ko hamlon aur ghalat istemal se mehfooz rakhna bhi shamil karta hai. Teesre ka Haan: anonymized data ko doosri maloomat se milane par log dobara pehchane ja sakte hain, is liye izafi ehtiyat chahiye."
+    "exp": "Pehle ka jawab Haan: anonymized data ko doosri maloomat se milane par log dobara pehchane ja sakte hain, is liye izafi ehtiyat chahiye. Doosre ka Nahi: yeh principle privacy ki hifazat ke saath systems ko hamlon aur ghalat istemal se mehfooz rakhna bhi shamil karta hai. Teesre ka Haan: logon ko pata hona chahiye ke un ka data kaise istemal hota hai aur us par razamand hona chahiye."
   },
   "D1-309": {
     "ctx": "Ek job-search assistant sirf mouse se istemal ho sakta hai, aur us ka text bara nahi kiya ja sakta.",
@@ -102,10 +102,10 @@
     "q": "Accountability ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Accountability ka matlab hai ke model apne har token ki wazahat kare.",
-      "Idaron ko tay karna chahiye ke release ke baad AI system kaun badal sakta hai.",
-      "Yeh record rakhna ke kaunse model versions istemal hue accountability ko support karta hai."
+      "Yeh record rakhna ke kaunse model versions istemal hue accountability ko support karta hai.",
+      "AI system release ho jaye to change control accountability ka hissa nahi rehta."
     ],
-    "exp": "Pehle ka jawab Nahi: accountability logon aur processes ke jawabdeh hone ke baare mein hai, har token ki wazahat ke baare mein nahi. Doosre ka Haan: tabdeeliyon ka wazeh control dikhata hai ke updates ka zimmedar kaun hai. Teesre ka Haan: version ke records se baad mein nateejon ki wajah dhoondi aur tehqeeq ki ja sakti hai."
+    "exp": "Pehle ka jawab Nahi: accountability logon aur processes ke jawabdeh hone ke baare mein hai, har token ki wazahat ke baare mein nahi. Doosre ka Haan: version ke records se baad mein nateejon ki wajah dhoondi aur tehqeeq ki ja sakti hai. Teesre ka Nahi: release ke baad bhi wazeh change control dikhata hai ke updates ka zimmedar kaun hai."
   },
   "D1-315": {
     "q": "Wazeh accountability ke saath AI system laane ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
@@ -152,11 +152,11 @@
   "D1-319": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Token kisi lafz ka hissa bhi ho sakta hai.",
-      "Large language models sirf tasveeron par train hote hain.",
-      "Prompt mein hidayaat aur context dono ho sakte hain."
+      "Prompt mein hidayaat aur context dono ho sakte hain.",
+      "Large language models zyada tar images par train hote hain.",
+      "Token theek ek poore lafz ke barabar hota hai."
     ],
-    "exp": "Pehle ka jawab Haan: tokenizers bohat se alfaz ko chhote hisson mein torte hain. Doosre ka Nahi: language models zyada tar bohat se text par train hote hain. Teesre ka Haan: prompts mein aam taur par hidayaat ke saath pas-manzar ki maloomat ya documents hote hain."
+    "exp": "Pehle ka jawab Haan: prompts mein aam taur par hidayaat ke saath pas-manzar ki maloomat ya documents hote hain. Doosre ka Nahi: language models zyada tar bohat se text par train hote hain. Teesre ka Nahi: tokenizers bohat se alfaaz ko chhote tukron mein torte hain, is liye token lafz ka hissa ho sakta hai."
   },
   "D1-320": {
     "q": "Model ko company ki taaza maloomat dene ke kaunse DO tareeqay hain? Har sahi jawab mukammal hal hai.",
@@ -188,11 +188,11 @@
   "D1-323": {
     "q": "Models chunne ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Tamam models ki context window ek jaisi hoti hai.",
       "Shaya shuda benchmarks apne data par testing ka badal nahi.",
-      "Kuch models code likhne mein doosron se behtar hote hain."
+      "Kuch models code likhne mein doosron se behtar hote hain.",
+      "Tamam models ki context window ek jaisi hoti hai."
     ],
-    "exp": "Pehle ka jawab Nahi: context windows models ke darmiyan bohat mukhtalif hoti hain. Doosre ka Haan: benchmarks aam datasets istemal karte hain, is liye aap ke apne tests dikhate hain ke model aap ka kaam kaise karta hai. Teesre ka Haan: models ki khoobiyan mukhtalif hoti hain, jaise coding, soch aur zabanein."
+    "exp": "Pehle ka jawab Haan: benchmarks aam datasets istemal karte hain, is liye aap ke apne tests dikhate hain ke model aap ka kaam kaise karta hai. Doosre ka Haan: models ki khoobiyan mukhtalif hoti hain, jaise coding, soch aur zabanein. Teesre ka Nahi: context windows models ke darmiyan bohat mukhtalif hoti hain."
   },
   "D1-324": {
     "q": "Request settings ke baare mein jumlay mukammal karein.",

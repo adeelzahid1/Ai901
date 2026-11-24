@@ -50,13 +50,13 @@
     "id": "D2-075", "sub": "prompts", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Clear and specific instructions in the system message usually make responses more consistent.",
-      "You can tell the model to say 'I don't know' when the provided information does not contain the answer.",
+      "Few-shot examples should use the same format that you want in the output.",
       "A longer prompt always gives a better answer than a shorter one.",
-      "Few-shot examples should use the same format that you want in the output."
+      "Vague instructions give the model more freedom and usually make responses more consistent.",
+      "You can tell the model to say 'I don't know' when the provided information does not contain the answer."
     ],
-    "ans": [true, true, false, true],
-    "exp": "Yes for the first: specific instructions remove guesswork. Yes for the second: this instruction is a common way to reduce made-up answers. No for the third: extra text that is irrelevant or unclear can distract the model and costs more tokens; what matters is clarity and relevant context. Yes for the fourth: the model copies the pattern of the examples, so they should match the desired format.",
+    "ans": [true, false, false, true],
+    "exp": "Yes for the first: the model copies the pattern of the examples, so they should match the desired format. No for the second: extra text that is irrelevant or unclear can distract the model and costs more tokens; what matters is clarity and relevant context. No for the third: clear and specific instructions remove guesswork, which is what makes responses consistent. Yes for the fourth: this instruction is a common way to reduce made-up answers.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -170,12 +170,12 @@
     "id": "D2-085", "sub": "portal-deploy", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about testing a model in the Foundry portal, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Changing the system message in the playground retrains the model's weights.",
       "The playground lets you compare how different parameter values change the responses.",
-      "Content filters check both the prompt and the generated completion."
+      "Content filters check the generated completion and skip the prompt.",
+      "Changing the system message in the playground can retrain the model's weights."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: the system message is part of each request and guides the model at run time; it does not change the model's weights, which only training or fine-tuning does. Yes for the second: you can adjust settings such as temperature and see the effect immediately. Yes for the third: filtering runs on the input prompt and on the output.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: you can adjust settings such as temperature and see the effect immediately. No for the second: filtering runs on the input prompt and on the output. No for the third: the system message is part of each request and guides the model at run time; it does not change the model's weights, which only training or fine-tuning does.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"
   },
   {
@@ -284,13 +284,13 @@
     "id": "D2-095", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about a Python chat client, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "When you use DefaultAzureCredential, you must also pass an API key.",
-      "With the Chat Completions API, the app must send earlier messages to keep the conversation context.",
-      "output_text is a property of the result returned by responses.create().",
-      "The model parameter takes the name of your deployment."
+      "output_text is a property of the result returned by chat.completions.create().",
+      "DefaultAzureCredential works together with an API key that you pass to the client.",
+      "The model parameter takes the name of your deployment.",
+      "With the Chat Completions API, the app must send earlier messages to keep the conversation context."
     ],
-    "ans": [false, true, true, true],
-    "exp": "No for the first: DefaultAzureCredential uses Microsoft Entra ID tokens, so no API key is needed. Yes for the second: chat completions are stateless, so history must be sent each time. Yes for the third: the Responses API result exposes the generated text in output_text. Yes for the fourth: requests target a deployment by its name.",
+    "ans": [false, false, true, true],
+    "exp": "No for the first: output_text belongs to the Responses API result; Chat Completions returns the text in choices[0].message.content. No for the second: DefaultAzureCredential uses Microsoft Entra ID tokens, so no API key is needed. Yes for the third: requests target a deployment by its name. Yes for the fourth: chat completions are stateless, so history must be sent each time.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {

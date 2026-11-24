@@ -25,12 +25,12 @@
     "id": "D2-542", "sub": "visual-input", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about images in prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A vision-capable model can compare a photo with a reference image in the same request.",
-      "Images must be converted to text with OCR before any vision-capable model can use them.",
-      "Image inputs count toward the token usage of the request."
+      "A request holds one image, so a photo and a reference image need separate requests.",
+      "Image inputs add nothing to the token usage of a request.",
+      "Images must be converted to text with OCR before any vision-capable model can use them."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: several images can be sent together and compared. No for the second: vision-capable models read images directly. Yes for the third: images are converted into tokens, which affects usage and cost.",
+    "ans": [false, false, false],
+    "exp": "No for the first: several images can be sent together and compared. No for the second: images are converted into tokens, which affects usage and cost. No for the third: vision-capable models read images directly.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
@@ -128,12 +128,12 @@
     "id": "D2-550", "sub": "vision-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about Image Analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Image Analysis can read text in many languages.",
-      "Smart crops creates new image content.",
-      "Dense captions describe several regions of an image."
+      "Dense captions give one longer caption for the whole image.",
+      "Smart crops can create new image content.",
+      "Image Analysis reads text in many languages."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: the Read feature supports many languages and scripts. No for the second: smart crops only suggests regions of the existing image; it does not create content. Yes for the third: dense captions return a caption for each of several regions.",
+    "ans": [false, false, true],
+    "exp": "No for the first: dense captions return a caption for each of several regions. No for the second: smart crops only suggests regions of the existing image; it does not create content. Yes for the third: the Read feature supports many languages and scripts.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
   },
   {
@@ -184,12 +184,12 @@
     "id": "D2-555", "sub": "cu-documents", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about Content Understanding, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A field schema can include text, number and date fields.",
+      "Content Understanding returns a document's content as Markdown.",
       "You must write your own OCR code before using Content Understanding.",
-      "Content Understanding can return a document's content as Markdown."
+      "A field schema can include text, number and date fields."
     ],
     "ans": [true, false, true],
-    "exp": "Yes for the first: schemas support several field types. No for the second: content extraction, including OCR, is built into the service. Yes for the third: the extracted content is returned as Markdown, which is useful for search and RAG.",
+    "exp": "Yes for the first: the extracted content is returned as Markdown, which is useful for search and RAG. No for the second: content extraction, including OCR, is built into the service. Yes for the third: schemas support several field types.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -266,12 +266,12 @@
     "id": "D2-562", "sub": "cu-audio-video", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about audio and video analyzers, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Video analyzers can return information for each segment of a video.",
-      "Video analyzers ignore the audio track completely.",
-      "Audio analyzers can produce a transcript of the recording."
+      "Audio analyzers produce a summary without creating a transcript of the recording.",
+      "Video analyzers support results for every segment of a video.",
+      "Video analyzers ignore the audio track completely."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: fields can be generated per segment. No for the second: video analysis uses both the frames and the transcribed audio. Yes for the third: transcription is the starting point of audio analysis.",
+    "ans": [false, true, false],
+    "exp": "No for the first: transcription is the starting point of audio analysis, and generated fields such as summaries are based on it. Yes for the second: fields can be generated per segment. No for the third: video analysis uses both the frames and the transcribed audio.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {

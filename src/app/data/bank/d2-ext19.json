@@ -11,12 +11,12 @@
     "id": "D2-569", "sub": "prompts", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A system message can tell the model what it must not do.",
       "Prompts have no effect on the safety of responses.",
+      "A system message can tell the model what it must not do.",
       "Including relevant context reduces the chance of made-up answers."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: restrictions are a normal part of system messages. No for the second: safety instructions in the system message are one of the mitigation layers, alongside content filters. Yes for the third: grounding the model in relevant facts reduces hallucinations.",
+    "ans": [false, true, true],
+    "exp": "No for the first: safety instructions in the system message are one of the mitigation layers, alongside content filters. Yes for the second: restrictions are a normal part of system messages. Yes for the third: grounding the model in relevant facts reduces hallucinations.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/safety-system-message-templates"
   },
   {
@@ -71,12 +71,12 @@
     "id": "D2-574", "sub": "portal-deploy", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about deployments, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Deploying a model does not create an agent; you must create agents separately.",
       "Each deployment has its own name within the resource.",
-      "You can deploy different models in the same project.",
-      "Deploying a model automatically creates an agent."
+      "You can deploy different models in the same project."
     ],
-    "ans": [true, true, false],
-    "exp": "Yes for the first: the deployment name identifies it when apps call it. Yes for the second: a project can use several models, for example a chat model and an embedding model. No for the third: agents are created separately and then use a deployment.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: agents are created separately and then use a deployment. Yes for the second: the deployment name identifies it when apps call it. Yes for the third: a project can use several models, for example a chat model and an embedding model.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
@@ -106,16 +106,16 @@
   },
   {
     "id": "D2-577", "sub": "portal-deploy", "diff": 3, "type": "multi",
-    "q": "Which TWO are good reasons to run evaluations before you release a generative AI app? Each correct answer presents a complete solution.",
+    "q": "Which THREE are good reasons to run evaluations before you release a generative AI app? Each correct answer presents a complete solution.",
     "opts": [
       "To increase the deployment quota automatically",
       "To measure quality on representative test data",
       "To change the model's weights",
-      "To choose the Azure region",
+      "To compare two prompt versions on the same data",
       "To find safety risks in the responses"
     ],
-    "ans": [1, 4],
-    "exp": "Evaluations score quality, such as relevance and groundedness, and safety, such as harmful content, before real users are affected. They do not change quota, weights or regions.",
+    "ans": [1, 3, 4],
+    "exp": "Evaluations measure quality on test data, find safety risks and make two versions of a prompt comparable, all before real users are affected. They do not raise the quota, and they never change the model's weights.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
@@ -130,12 +130,12 @@
     "id": "D2-579", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about the Responses and Chat Completions APIs, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "The Responses API can continue a conversation by using previous_response_id.",
       "Chat Completions stores the conversation on the service automatically.",
-      "Both APIs return information about token usage."
+      "The Responses API reports token usage, while Chat Completions does not.",
+      "The Responses API continues a conversation when you pass previous_response_id."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: previous_response_id links a new request to earlier context. No for the second: Chat Completions is stateless, so the app sends the history itself. Yes for the third: both return a usage object with token counts.",
+    "ans": [false, false, true],
+    "exp": "No for the first: Chat Completions is stateless, so the app sends the history itself. No for the second: both return a usage object with token counts. Yes for the third: previous_response_id links a new request to earlier context.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
@@ -211,12 +211,12 @@
     "id": "D2-586", "sub": "agent-portal", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about agents, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "An agent without any tools can still follow its instructions in a chat.",
       "An agent can combine knowledge tools and action tools.",
-      "An agent without tools can still follow its instructions in a chat.",
-      "Adding more tools always makes an agent more accurate."
+      "Adding more tools makes an agent more accurate."
     ],
     "ans": [true, true, false],
-    "exp": "Yes for the first: for example, file search for answers and function calling for actions. Yes for the second: the model and instructions alone support conversations. No for the third: unnecessary tools can confuse tool selection, so add only what the agent needs.",
+    "exp": "Yes for the first: the model and instructions alone support conversations. Yes for the second: for example, file search for answers and function calling for actions. No for the third: unnecessary tools can confuse tool selection, so add only what the agent needs.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
@@ -258,12 +258,12 @@
     "id": "D2-590", "sub": "agent-client", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about agent clients, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A client app can create a conversation for each chat session.",
+      "The client reads the agent's reply from the response object.",
       "Agents can be used only from the Foundry portal.",
-      "The client reads the agent's reply from the response object."
+      "Chat sessions share one conversation that the client creates once for its users."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: a conversation per session keeps each chat's history separate. No for the second: apps call agents through SDKs or the REST API. Yes for the third: the reply text is in the response's output_text.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: the reply text is in the response's output_text. No for the second: apps call agents through SDKs or the REST API. No for the third: a conversation per session keeps each chat's history separate.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {

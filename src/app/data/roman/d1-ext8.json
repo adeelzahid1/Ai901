@@ -33,11 +33,11 @@
   "D1-251": {
     "q": "Reliability and safety ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Fallback muqarrar karna, jaise user ko insan ke hawale karna, safety behtar karta hai.",
       "Jo system testing mein theek chale woh production mein hamesha usi tarah chalega.",
-      "Release ke baad AI system ko monitor karna reliability and safety ka hissa hai.",
-      "Fallback muqarrar karna, jaise user ko insan ke hawale karna, safety behtar karta hai."
+      "Release ke baad AI system ko monitor karna reliability and safety ka hissa hai."
     ],
-    "exp": "Pehle ka jawab Nahi: asal users naye inputs laate hain, data waqt ke saath badalta hai aur models update hote hain, is liye rawaiya testing se mukhtalif ho sakta hai. Doosre ka Haan: monitoring release ke baad kharabiyan aur drift pakarti hai. Teesre ka Haan: jab system halaat na sambhal sake to mehfooz fallback nuqsan ko mehdood karta hai."
+    "exp": "Pehle ka jawab Haan: jab system halaat na sambhal sake to mehfooz fallback nuqsan ko mehdood karta hai. Doosre ka Nahi: asal users naye inputs laate hain, data waqt ke saath badalta hai aur models update hote hain, is liye rawaiya testing se mukhtalif ho sakta hai. Teesre ka Haan: monitoring release ke baad kharabiyan aur drift pakarti hai."
   },
   "D1-252": {
     "ctx": "Ek HR chatbot tamam employee records par grounded hai. Koi bhi employee us se doosre employees ki tankhwah pooch kar jawab le sakta hai.",
@@ -66,15 +66,15 @@
     "exp": "Keyboard navigation aur screen reader support se dekhne ya harkat ki dushwari wale log app istemal kar sakte hain, yahi inclusive design hai. Sirf tasveeron wala content na-beena users ko bahar kar deta hai, raftar ki shart harkat ki dushwari walon ko, aur ek zaban doosri zabanein bolne walon ko."
   },
   "D1-255": {
-    "q": "Kaunse DO amal voice assistant ko zyada inclusive banate hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN amal voice assistant ko zyada inclusive banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Sirf ek accent support karna",
       "Bolne ki dushwari wale logon ke saath assistant test karna",
       "Jawabon se captions hatana",
       "Voice input ke badle text ka raasta dena",
-      "Users ko tez bolne par majboor karna"
+      "Kai zabanein aur lehje support karna"
     ],
-    "exp": "Bolne ki dushwari wale logon ke saath testing se rukawatein jaldi milti hain, aur text ka raasta un logon ko assistant istemal karne deta hai jo bol nahi sakte ya bolna nahi chahte. Ek accent support karna, captions hatana aur tez bolne par majboor karna, sab users ke groups ko bahar karte hain."
+    "exp": "Bolne mein mushkil wale logon ke saath test karna, text input ka option dena aur kai zabanein aur lehje support karna, teenon rukawatein hatate hain, is liye zyada log assistant istemal kar sakte hain. Sirf ek lehja support karna aur captions hatana logon ko bahar kar dete hain."
   },
   "D1-256": {
     "ctx": "Ek recruiting tool job candidates ko rank karta hai. Reject hone wale candidates poochte hain ke un ki rank kam kyun thi, aur company nateeje samjha nahi sakti.",
@@ -90,11 +90,11 @@
   "D1-257": {
     "q": "Transparency ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "System ki hudood samjhana transparency ko kam karta hai.",
       "Transparency logon ko yeh tay karne mein madad karti hai ke AI system par kitna bharosa karein.",
-      "Yeh batana ke content AI ne banaya hai transparency ka tareeqa hai.",
-      "System ki hudood samjhana transparency ko kam karta hai."
+      "Agar kisi insan ne maanga ho to AI ke bane content par label ki zaroorat nahi."
     ],
-    "exp": "Pehle ka jawab Haan: system kaise kaam karta hai aur kahan fail ho sakta hai, yeh samajhne se log us par munasib bharosa karte hain. Doosre ka Haan: AI ke content par label logon ko batata hai ke woh kya dekh rahe hain. Teesre ka Nahi: hudood bayan karna transparency ka asal hissa hai, us ki kami nahi."
+    "exp": "Pehle ka jawab Nahi: hudood bayan karna transparency ka asal hissa hai, us ki kami nahi. Doosre ka Haan: system kaise kaam karta hai aur kahan fail ho sakta hai, yeh samajhne se log us par munasib bharosa karte hain. Teesre ka Nahi: AI ke bane content par label logon ko batata hai ke woh kya dekh rahe hain, un logon ko bhi jo usay baad mein dekhein."
   },
   "D1-258": {
     "q": "Microsoft mein kaunsa group company ki responsible AI policies banata aur un ki nigrani karta hai?",
@@ -134,11 +134,11 @@
   "D1-262": {
     "q": "Language models kaise kaam karte hain, is ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Language models matlab sirf keywords ke hu-ba-hu milne se samajhte hain.",
       "Prompt mein hidayaat ki tarteeb aur alfaz jawab badal sakte hain.",
-      "Embeddings milte julte matlab wale text ko vector space mein qareeb rakhte hain."
+      "Embeddings ek jaise mani ke bajaye ek jaisi spelling wale text ko qareeb rakhti hain.",
+      "Language models hu-ba-hu keywords milate hain aur ham-mani alfaaz nahi samajhte."
     ],
-    "exp": "Pehle ka jawab Nahi: models alfaz ke aapas ke taalluq aur context seekhte hain, is liye woh hu-ba-hu keywords par munhasir hone ke bajaye hum-maani alfaz aur badli hui jumla-bandi samajh lete hain. Doosre ka Haan: models is par hassas hote hain ke prompts kaise likhe aur tarteeb diye gaye hain. Teesre ka Haan: isi wajah se embeddings semantic search ke kaam aate hain."
+    "exp": "Pehle ka jawab Haan: models is par hassas hote hain ke prompts kaise likhe aur tarteeb diye gaye hain. Doosre ka Nahi: embeddings ek jaise mani wale text ko vector space mein qareeb rakhti hain, isi liye woh semantic search ke liye mufeed hain. Teesre ka Nahi: models alfaz ke aapas ke taalluq aur context seekhte hain, is liye woh hu-ba-hu keywords par munhasir hone ke bajaye hum-maani alfaz aur badli hui jumla-bandi samajh lete hain."
   },
   "D1-263": {
     "q": "Embeddings ke baare mein jumlay mukammal karein.",
@@ -147,15 +147,15 @@
     "exp": "Mutalliqa matlab wale alfaz, jaise dog aur puppy, ke vectors milti simt mein hote hain, is liye woh ghair mutalliqa alfaz se zyada qareeb hote hain. Cosine similarity naapta hai ke do vectors kitni ek hi simt mein hain. Temperature aur top P generation ki settings hain, mushabihat naapne ke tareeqay nahi."
   },
   "D1-264": {
-    "q": "Solution design karte waqt generative models ki kaunsi DO hudood ka khayal rakhna chahiye? Har sahi jawab mukammal hal hai.",
+    "q": "Solution design karte waqt generative models ki kaunsi TEEN hudood ka khayal rakhna chahiye? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Woh hamesha apne sources cite karte hain",
       "Woh ghalat maloomat pur-aetemad andaz mein de sakte hain",
       "Unhein kabhi monitoring nahi chahiye",
       "Un ki andruni maloomat training cutoff par khatam ho jati hai",
-      "Woh code nahi likh sakte"
+      "Woh apne training data ka bias dohra sakte hain"
     ],
-    "exp": "Models hallucinate kar sakte hain, aur training cutoff ke baad ka kuch nahi jante, is liye solutions ko grounding, review aur taaza data chahiye. Models sources cite nahi karte jab tak solution unhein na de, unhein kisi bhi system ki tarah monitoring chahiye, aur bohat se models code acha likhte hain."
+    "exp": "Generative models ghalat maloomat yaqeen ke saath bata sakte hain, ground kiye baghair training cutoff ke baad ki baat nahi jaante, aur apne training data ka bias dohra sakte hain. Woh hamesha sources nahi batate, aur kisi bhi system ki tarah unhein monitoring chahiye."
   },
   "D1-265": {
     "ctx": "Ek model se un regulations ka khulasa karne ko kaha gaya jo 2026 mein badli thin, lekin woh purane usool bayan karta hai.",
@@ -191,11 +191,11 @@
   "D1-268": {
     "q": "Deployment types ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Global Batch live users ke saath interactive chat ke liye bana hai.",
       "Data Zone deployments processing ko ek geographic zone, jaise EU, ke andar rakhti hain.",
+      "Global Batch un bare kaamon ke liye bana hai jinhein foran jawab nahi chahiye.",
       "Standard deployments processing ko deployment ke region wali Azure geography ke andar rakhti hain."
     ],
-    "exp": "Pehle ka jawab Nahi: Global Batch asynchronous hai aur us ka target 24 ghante tak hai, is liye woh live chat ke nahi balke bulk jobs ke liye munasib hai. Doosre ka Haan: Data Zone types processing ko EU ya US jaise zone ke andar rakhti hain. Teesre ka Haan: Standard geography par mabni type hai, is liye prompts aur responses usi Azure geography mein process hote hain."
+    "exp": "Pehle ka jawab Haan: Data Zone types processing ko EU ya US jaise zone ke andar rakhti hain. Doosre ka Haan: Global Batch asynchronous hai aur us ka target waqt 24 ghante tak hai, is liye woh live chat ke bajaye bulk jobs ke liye munasib hai. Teesre ka Haan: Standard geography par mabni type hai, is liye prompts aur responses usi Azure geography mein process hote hain."
   },
   "D1-269": {
     "q": "Har zaroorat ko us qism ke model se milayein jo us ke liye sab se munasib hai. Model ki har qism ek baar istemal ho sakti hai, ya bilkul nahi.",

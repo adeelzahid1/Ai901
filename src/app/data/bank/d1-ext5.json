@@ -19,12 +19,12 @@
     "id": "D1-169", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Reading a license plate number from a parking camera image is a speech workload.",
       "An AI agent can ask a person for approval before it performs a sensitive action.",
-      "Summarizing a long email thread is a text analysis or generative AI task."
+      "Summarizing a long email thread is a text analysis or generative AI task.",
+      "Reading a license plate number from a parking camera image is a computer vision workload."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: reading text from an image is optical character recognition, a computer vision task. Yes for the second: agents can include human approval steps, for example before sending payments or emails. Yes for the third: summarization works on text and can be done with a summarization feature or a generative model.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: agents can include human approval steps, for example before sending payments or emails. Yes for the second: summarization works on text and can be done with a summarization feature or a generative model. Yes for the third: reading text from an image is optical character recognition, a computer vision task.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {
@@ -56,16 +56,16 @@
   },
   {
     "id": "D1-172", "sub": "workload-scenarios", "diff": 2, "type": "multi",
-    "q": "Which TWO scenarios are information extraction workloads? Each correct answer presents a complete solution.",
+    "q": "Which THREE scenarios are information extraction workloads? Each correct answer presents a complete solution.",
     "opts": [
       "Write a poem about the sea",
       "Pull the total and due date from supplier invoices",
-      "Translate a restaurant menu",
+      "Read the meter value from photos of gas meters",
       "Capture the action items and owners from a meeting recording as structured fields",
       "Design a new company logo"
     ],
-    "ans": [1, 3],
-    "exp": "Information extraction turns unstructured content, such as invoices or recordings, into structured data like totals, dates, action items and owners. Writing poems and designing logos create new content, and translating a menu changes its language without extracting fields.",
+    "ans": [1, 2, 3],
+    "exp": "Values from invoices, action items from a recording and readings from meter photos are all specific pieces of information taken from content and returned as data, which is information extraction. Writing a poem and designing a logo create new content.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -105,13 +105,13 @@
     "id": "D1-176", "sub": "text-techniques", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "PII detection finds email addresses and phone numbers automatically.",
+      "Language detection can translate text into another language.",
       "Opinion mining is part of sentiment analysis.",
-      "Entity linking connects an entity to an entry in a knowledge base.",
-      "PII detection can find email addresses and phone numbers.",
-      "Language detection translates text into another language."
+      "Entity linking connects an entity to an entry in a knowledge base."
     ],
-    "ans": [true, true, true, false],
-    "exp": "Yes for the first: opinion mining is the aspect-based option of sentiment analysis. Yes for the second: entity linking resolves which real-world thing is meant and links to a knowledge base entry. Yes for the third: PII detection finds personal data such as emails and phone numbers. No for the fourth: language detection only identifies the language; translation is a different service.",
+    "ans": [true, false, true, true],
+    "exp": "Yes for the first: PII detection finds personal data such as emails and phone numbers. No for the second: language detection only identifies the language; translation is a different service. Yes for the third: opinion mining is the aspect-based option of sentiment analysis. Yes for the fourth: entity linking resolves which real-world thing is meant and links to a knowledge base entry.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -188,11 +188,11 @@
     "q": "For each of the following statements about speech recognition, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "Batch transcription is designed for live microphone input.",
-      "Speech to text can return timestamps for each recognized word.",
-      "Speaker diarization tells you which speaker said each part of the transcript."
+      "Speech to text returns timestamps for every recognized word when you request them.",
+      "Speaker diarization can detect which language each person speaks."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: batch transcription processes stored recordings asynchronously; live input uses real-time speech to text. Yes for the second: results can include word-level timing, which is useful for subtitles. Yes for the third: diarization separates and labels speakers.",
+    "ans": [false, true, false],
+    "exp": "No for the first: batch transcription processes stored recordings asynchronously; live input uses real-time speech to text. Yes for the second: results can include word-level timing, which is useful for subtitles. No for the third: diarization separates and labels speakers; finding the spoken language is language identification.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-to-text"
   },
   {
@@ -240,13 +240,13 @@
     "id": "D1-188", "sub": "vision-imagegen", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about computer vision, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Object detection returns a bounding box for every object it finds.",
       "Optical character recognition extracts text from images.",
-      "Semantic segmentation labels individual pixels.",
-      "Image classification returns the location of each object in the image.",
-      "Object detection returns bounding boxes for the objects it finds."
+      "Image classification can return the location of each object in the image.",
+      "Semantic segmentation can draw one bounding box around the main object."
     ],
-    "ans": [true, true, false, true],
-    "exp": "Yes for the first: OCR reads printed and handwritten text. Yes for the second: segmentation assigns a class to each pixel. No for the third: classification labels the whole image without locations; locating objects is object detection. Yes for the fourth: detection returns a box for each object it finds.",
+    "ans": [true, true, false, false],
+    "exp": "Yes for the first: detection returns a box for each object it finds. Yes for the second: OCR reads printed and handwritten text. No for the third: classification labels the whole image without locations; locating objects is object detection. No for the fourth: segmentation assigns a class to each pixel; boxes around objects come from object detection.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {

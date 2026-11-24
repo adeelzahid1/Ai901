@@ -45,26 +45,26 @@
     "id": "D1-075", "sub": "privacy-security", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about privacy and security, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Keeping chat logs indefinitely by default is a recommended privacy practice.",
       "Prompts and completions sent to Azure OpenAI models in Microsoft Foundry are used to train OpenAI's public models.",
-      "Limiting access to an AI app's data with role-based access control supports the privacy and security principle.",
-      "Keeping every chat log forever by default is a recommended privacy practice."
+      "Limiting access to an AI app's data with role-based access control supports the privacy and security principle."
     ],
-    "ans": [false, true, false],
-    "exp": "No for the first: Microsoft states that customer prompts and completions are not used to train OpenAI models and are not available to OpenAI. Yes for the second: role-based access control makes sure only approved identities can reach the data, which protects it. No for the third: privacy practice is to keep personal data only as long as needed, so storing every log forever by default increases risk.",
+    "ans": [false, false, true],
+    "exp": "No for the first: privacy practice is to keep personal data only as long as needed, so storing every log forever by default increases risk. No for the second: Microsoft states that customer prompts and completions are not used to train OpenAI models and are not available to OpenAI. Yes for the third: role-based access control makes sure only approved identities can reach the data, which protects it.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy"
   },
   {
     "id": "D1-076", "sub": "reliability-safety", "diff": 2, "type": "multi",
-    "q": "Which TWO practices support reliability and safety before and after a generative AI chatbot is released? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices support reliability and safety before and after a generative AI chatbot is released? Each correct answer presents a complete solution.",
     "opts": [
       "Turn off all logging so that nothing can be reviewed",
-      "Hide from users that the app uses AI",
+      "Plan a fallback, such as handing the user over to a person",
       "Red-team the chatbot with adversarial and harmful prompts",
       "Always use the highest temperature",
       "Evaluate responses on a test dataset and keep monitoring after release"
     ],
-    "ans": [2, 4],
-    "exp": "Red-teaming tries to make the system fail on purpose so problems are found before users find them, and evaluation plus ongoing monitoring checks that quality and safety stay at the expected level. Turning off logging removes the ability to detect problems. Hiding AI use harms transparency. The highest temperature makes output more random, which usually lowers reliability.",
+    "ans": [1, 2, 4],
+    "exp": "Red teaming finds weaknesses before release, evaluation and monitoring show how the chatbot behaves over time, and a fallback limits harm when it cannot answer safely. Without logs problems cannot be investigated, and the highest temperature makes answers less predictable.",
     "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
   },
   {
@@ -164,12 +164,12 @@
     "id": "D1-084", "sub": "genai-how", "diff": 2, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A model only knows facts up to its training cutoff unless your app gives it more current information.",
-      "A generative model searches the internet for every answer by default.",
-      "Setting the temperature close to 0 makes a model's output more predictable."
+      "Setting the temperature close to 0 makes a model's output more predictable.",
+      "By default, a generative model searches the internet before it answers.",
+      "A model only knows facts up to its training cutoff unless your app gives it more current information."
     ],
     "ans": [true, false, true],
-    "exp": "Yes for the first: a model learns from data collected before its training cutoff, so newer facts must be supplied, for example through retrieval or a search tool. No for the second: a model generates text from what it learned and does not browse the web unless the solution adds a tool such as web grounding. Yes for the third: a low temperature makes the model choose the most likely tokens, so answers vary less.",
+    "exp": "Yes for the first: a low temperature makes the model choose the most likely tokens, so answers vary less. No for the second: a model generates text from what it learned and does not browse the web unless the solution adds a tool such as web grounding. Yes for the third: a model learns from data collected before its training cutoff, so newer facts must be supplied, for example through retrieval or a search tool.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
   },
   {
@@ -209,16 +209,16 @@
   },
   {
     "id": "D1-088", "sub": "genai-how", "diff": 2, "type": "multi",
-    "q": "Which TWO statements about tokens are correct? Each correct answer presents a complete solution.",
+    "q": "Which THREE statements about tokens are correct? Each correct answer presents a complete solution.",
     "opts": [
       "Model usage and cost are usually measured in tokens",
       "A token is always exactly one complete word",
       "A model's context window is measured in tokens",
       "Tokens are used only for image models",
-      "A token is the same thing as an API key"
+      "A token can be a part of a word"
     ],
-    "ans": [0, 2],
-    "exp": "Language model usage is billed and limited by tokens, and the context window, the amount of input and output the model can handle in one request, is also counted in tokens. A token can be a whole word, part of a word or punctuation, so it is not always one word. Tokens are the basic unit of text models, and they have nothing to do with API keys.",
+    "ans": [0, 2, 4],
+    "exp": "Usage and cost are usually counted in tokens, the context window is a number of tokens, and tokenizers split many words into pieces, so a token can be a part of a word. A token is therefore not always a whole word, and tokens are used by language models, not only by image models.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
   },
   {

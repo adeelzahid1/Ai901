@@ -98,16 +98,16 @@
     "type": "yesno",
     "q": "For each of the following statements about agents in the Foundry portal, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Every agent must use at least three tools.",
       "You can create an agent and chat with it in the Foundry portal without writing code.",
+      "Every agent must use at least three tools.",
       "An agent's instructions play a similar role to a system message."
     ],
     "ans": [
-      false,
       true,
+      false,
       true
     ],
-    "exp": "No for the first: tools are optional; an agent can use only a model and instructions, and you add tools when the task needs them. Yes for the second: the portal lets you create an agent, give it instructions and test it in a chat window without code. Yes for the third: instructions define the agent's role, rules and style, like a system message for a chat model.",
+    "exp": "Yes for the first: the portal lets you create an agent, give it instructions and test it in a chat window without code. No for the second: tools are optional; an agent can use only a model and instructions, and you add tools when the task needs them. Yes for the third: instructions define the agent's role, rules and style, like a system message for a chat model.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {
@@ -283,16 +283,16 @@
     "type": "yesno",
     "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Audio input is usually sent to the model in the request as base64-encoded data.",
       "Any text-only chat model can accept audio input if you raise the maximum response tokens.",
+      "Audio input is usually sent to the model in the request as base64-encoded data.",
       "A multimodal model that accepts audio can respond to a spoken question without a separate speech-to-text step."
     ],
     "ans": [
-      true,
       false,
+      true,
       true
     ],
-    "exp": "Yes for the first: the app reads the audio file, encodes it as base64 and adds it to the message content together with its format, such as wav. No for the second: input types are fixed by the model; changing max tokens only limits output length and cannot add audio support. Yes for the third: an audio-capable model processes the spoken question itself.",
+    "exp": "No for the first: input types are fixed by the model; changing max tokens only limits output length and cannot add audio support. Yes for the second: the app reads the audio file, encodes it as base64 and adds it to the message content together with its format, such as wav. Yes for the third: an audio-capable model processes the spoken question itself.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
@@ -448,16 +448,16 @@
     "type": "yesno",
     "q": "For each of the following statements about visual input to a multimodal model, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "A vision-capable chat model can return pixel-level segmentation masks by default.",
       "A multimodal model can compare two images that are sent in the same prompt.",
-      "You can send an image as a base64-encoded data URL instead of a public URL.",
-      "A vision-capable chat model returns pixel-level segmentation masks by default."
+      "You can send an image as a base64-encoded data URL instead of a public URL."
     ],
     "ans": [
+      false,
       true,
-      true,
-      false
+      true
     ],
-    "exp": "Yes for the first: a message can contain several image parts, and the model can reason across them, for example to spot differences. Yes for the second: if the image is not publicly reachable, you encode it as a base64 data URL. No for the third: the model returns text, or structured text if you ask for it; it does not return segmentation masks.",
+    "exp": "No for the first: the model returns text, or structured text if you ask for it; it does not return segmentation masks. Yes for the second: a message can contain several image parts, and the model can reason across them, for example to spot differences. Yes for the third: if the image is not publicly reachable, you encode it as a base64 data URL.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
@@ -669,16 +669,16 @@
     "type": "yesno",
     "q": "For each of the following statements about Content Understanding field extraction, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "The extract method can pull values directly from audio files.",
-      "Content Understanding can return a confidence score between 0 and 1 for an extracted field value.",
+      "Content Understanding returns a confidence score between 0 and 1 for an extracted field value when you turn that option on.",
+      "The extract method is supported only for documents; audio fields use generate or classify.",
       "Grounding shows the region of the source content where a field value came from."
     ],
     "ans": [
-      false,
+      true,
       true,
       true
     ],
-    "exp": "No for the first: extract is supported for documents only; for audio you use generate or classify. Yes for the second: document analyzers can estimate a confidence score from 0 to 1 for each field, which helps decide when human review is needed. Yes for the third: grounding points to the part of the source where the value was found, so people can verify it quickly.",
+    "exp": "Yes for the first: document analyzers can estimate a confidence score from 0 to 1 for each field, which helps decide when human review is needed. Yes for the second: extract is supported for documents only; for audio you use generate or classify. Yes for the third: grounding points to the part of the source where the value was found, so people can verify it quickly.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {

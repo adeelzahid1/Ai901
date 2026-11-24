@@ -30,12 +30,12 @@
     "id": "D2-285", "sub": "visual-input", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about visual input, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Sending an image means that the model's response will also be an image.",
-      "You can send more than one image in a single message.",
-      "A vision-capable model can explain a screenshot of an error message."
+      "A vision-capable model can explain a screenshot of an error message.",
+      "A message can contain one image at most.",
+      "Sending an image means that the model's response will also be an image."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: vision-capable chat models return text; creating images needs an image-generation model. Yes for the second: a message can contain several image parts. Yes for the third: the model can read the error text in a screenshot and explain it.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: the model can read the error text in a screenshot and explain it. No for the second: a message can contain several image parts. No for the third: vision-capable chat models return text; creating images needs an image-generation model.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
@@ -93,16 +93,16 @@
   },
   {
     "id": "D2-290", "sub": "image-generation", "diff": 2, "type": "multi",
-    "q": "Which TWO are responsible practices when you publish AI-generated images? Each correct answer presents a complete solution.",
+    "q": "Which THREE are responsible practices when you publish AI-generated images? Each correct answer presents a complete solution.",
     "opts": [
       "Remove all provenance information from the files",
       "Keep the Content Credentials so viewers can see that the image is AI-generated",
       "Claim that the images are real photographs",
       "Review the images for errors and harmful content before publishing",
-      "Turn off content filters"
+      "Check that the images do not copy protected characters or brands"
     ],
-    "ans": [1, 3],
-    "exp": "Keeping Content Credentials supports transparency about AI-generated content, and human review catches errors and inappropriate output. Removing provenance, presenting generated images as real photos and turning off content filters all undermine responsible AI.",
+    "ans": [1, 3, 4],
+    "exp": "Content Credentials show that an image is AI-generated, a review catches errors and harmful content, and a check for protected characters or brands avoids legal problems. Removing provenance information and claiming that images are real photographs mislead viewers.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/content-credentials"
   },
   {
@@ -130,12 +130,12 @@
     "id": "D2-293", "sub": "vision-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about ImageAnalysisClient, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "It can analyze an image from bytes or from a URL.",
-      "It returns a newly generated image.",
-      "You can request several visual features in one call."
+      "It can return a newly generated image.",
+      "Each call returns one visual feature, so a caption and tags need separate calls.",
+      "It can analyze image bytes, while an image at a URL must be downloaded first."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: analyze() takes image bytes and analyze_from_url() takes a URL. No for the second: Image Analysis describes images and does not create new ones. Yes for the third: visual_features accepts a list, such as CAPTION, TAGS and READ together.",
+    "ans": [false, false, false],
+    "exp": "No for the first: Image Analysis describes images and does not create new ones. No for the second: visual_features accepts a list, such as CAPTION, TAGS and READ together. No for the third: analyze() takes image bytes and analyze_from_url() takes a URL.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
   },
   {
@@ -152,16 +152,16 @@
   },
   {
     "id": "D2-295", "sub": "vision-app", "diff": 3, "type": "multi",
-    "q": "Which TWO requirements point to Image Analysis rather than a multimodal chat model? Each correct answer presents a complete solution.",
+    "q": "Which THREE requirements point to Image Analysis rather than a multimodal chat model? Each correct answer presents a complete solution.",
     "opts": [
       "A friendly explanation of why a meme is funny",
       "OCR lines with their exact positions on the page",
       "A back-and-forth conversation about a photo",
       "Bounding boxes for each detected person",
-      "A poem inspired by an image"
+      "Suggested crop areas for thumbnails"
     ],
-    "ans": [1, 3],
-    "exp": "Image Analysis returns structured, predictable results such as text lines with coordinates and boxes around people. Explanations, conversations and creative writing about images are open-ended language tasks that suit a multimodal chat model.",
+    "ans": [1, 3, 4],
+    "exp": "Exact OCR positions, person bounding boxes and smart crops are structured results that Image Analysis returns. Explaining a joke and holding a conversation about a photo need open-ended language, which suits a multimodal chat model.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
   },
   {
@@ -203,12 +203,12 @@
     "id": "D2-299", "sub": "cu-documents", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about Content Understanding, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Content Understanding can process PDF files.",
       "Documents must be typed; scanned images are not supported.",
-      "A field schema lets you name the values you want back."
+      "A field schema lets you name the values you want back.",
+      "Content Understanding processes PDF files."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: PDFs are a supported document input. No for the second: OCR reads scanned pages and images, including handwriting. Yes for the third: the schema defines the field names, types and descriptions that the analyzer returns.",
+    "ans": [false, true, true],
+    "exp": "No for the first: OCR reads scanned pages and images, including handwriting. Yes for the second: the schema defines the field names, types and descriptions that the analyzer returns. Yes for the third: PDFs are a supported document input.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -278,12 +278,12 @@
     "id": "D2-306", "sub": "cu-audio-video", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about audio and video analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A video must be converted to a PDF before it can be analyzed.",
-      "Audio analysis can distinguish different speakers in a recording.",
+      "Audio analysis distinguishes different speakers in a recording.",
+      "A video is converted to a PDF before it can be analyzed.",
       "Video analysis uses both what is shown and what is said."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: video files are analyzed directly. Yes for the second: transcripts can label different speakers, which is useful for calls and meetings. Yes for the third: video analysis combines keyframes and visual content with the transcript of the audio track.",
+    "ans": [true, false, true],
+    "exp": "Yes for the first: transcripts can label different speakers, which is useful for calls and meetings. No for the second: video files are analyzed directly. Yes for the third: video analysis combines keyframes and visual content with the transcript of the audio track.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {

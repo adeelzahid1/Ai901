@@ -7,11 +7,11 @@
   "D1-195": {
     "q": "Fairness ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Fairness ka matlab hai ke ek jaise halaat wale logon ko AI system se ek jaise nateeje milein.",
-      "Training data kaise jama kiya gaya, is ka fairness par koi asar nahi.",
-      "Model update hone ke baad fairness dobara check karni chahiye."
+      "Fairness ka matlab hai ke AI system sab ko ek hi nateeja de, un ke halaat kuch bhi hon.",
+      "Pehli release se pehle fairness check kaafi hai, chahe model baad mein update ho jaye.",
+      "Training data kaise jama kiya gaya, is ka fairness par koi asar nahi."
     ],
-    "exp": "Pehle ka jawab Haan: fairness ek jaise logon ke saath ek jaisa sulook karne ke baare mein hai. Doosre ka Nahi: adhoori numaindagi wala ya biased data unfair models ki aam wajah hai. Teesre ka Haan: model ka naya version ya naya data naye farq paida kar sakta hai, is liye fairness ki jaanch dohrani chahiye."
+    "exp": "Pehle ka jawab Nahi: fairness ka matlab ek jaise halaat wale logon ke liye ek jaise nateeje hain; mukhtalif halaat mein nateeje mukhtalif ho sakte hain. Doosre ka Nahi: model ka naya version ya naya data nayi na-barabari la sakta hai, is liye fairness checks dohrane chahiye. Teesre ka Nahi: adhoori numaindagi wala ya biased data unfair models ki aam wajah hai."
   },
   "D1-196": {
     "q": "Kaunsa bayan reliability and safety principle ko bayan karta hai?",
@@ -72,15 +72,15 @@
     "exp": "Customers ko pata hona chahiye ke woh kab AI se baat kar rahe hain aur woh kya kar sakta hai aur kya nahi, yahi transparency hai. Chat ko wazeh taur par AI batana aur us ki hudood samjhana yeh ghalat fehmi door kar dega. Scenario mein ghair barabar nateejon, accessibility ki rukawaton ya ghair mehfooz rawaiye ka koi ishara nahi."
   },
   "D1-203": {
-    "q": "Kaunse DO amal transparency principle ko support karte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN amal transparency principle ko support karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Model ki ghaltiyan users se chupana",
       "AI ke banaye hue content par label lagana",
-      "Database ko encrypt karna",
+      "Users ko batana ke woh AI system se baat kar rahe hain",
       "Users ko system ki hudood samjhana",
       "App ke AI istemal karne ka notice hatana"
     ],
-    "exp": "AI ke content par label lagana aur hudood samjhana logon ko samajhne mein madad karta hai ke woh kya istemal kar rahe hain aur us par kitna bharosa karein. Ghaltiyan chupana aur AI ka notice hatana transparency kam karte hain. Database encrypt karna transparency ka nahi balke privacy and security ka iqdam hai."
+    "exp": "Bane hue content par label lagana, hudood samjhana aur users ko batana ke woh AI se baat kar rahe hain, teenon logon ko samajhne mein madad dete hain ke unka wasta kis cheez se hai. Ghaltiyan chupana aur notice hatana ye samajh khatam kar dete hain."
   },
   "D1-204": {
     "q": "Accountability principle par chalne wale idare mein bare asar wale AI system ke release ki manzoori kis ko deni chahiye?",
@@ -95,11 +95,11 @@
   "D1-205": {
     "q": "Accountability ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Accountability ka matlab hai ke koi na koi audit kar sake ke AI system kaise istemal hua.",
       "Bahar ke vendor ka model istemal karne se us ke istemal ki aap ke idare ki jawabdehi khatam ho jati hai.",
-      "Accountability mein yeh audit kar sakna bhi shamil hai ke AI system kaise istemal hua.",
-      "Zyada khatre wale faislon mein insani nigrani accountability ka hissa hai."
+      "Jab koi insan zyada khatre wale AI faislon ka review kare to idaray ko un ke records ki zaroorat nahi rehti."
     ],
-    "exp": "Pehle ka jawab Nahi: jo idara AI system deploy karta hai woh us ke istemal ka jawabdeh rehta hai, chahe model vendor ka ho. Doosre ka Haan: audit records dikhate hain ke system ne kya kiya aur tehqeeq mein madad karte hain. Teesre ka Haan: zyada khatre wale faislon ko logon ke review karne se insan nateejon ke jawabdeh rehte hain."
+    "exp": "Pehle ka jawab Haan: audit records dikhate hain ke system ne kya kiya aur tehqeeq mein madad karte hain. Doosre ka Nahi: jo idara AI system deploy karta hai woh us ke istemal ka jawabdeh rehta hai, chahe model vendor ka ho. Teesre ka Nahi: insani nigrani aur records mil kar kaam karte hain, kyunke records se baad mein dekha ja sakta hai ke kya faisla hua aur kyun."
   },
   "D1-206": {
     "q": "Users batate hain ke company ka AI assistant nuqsan deh mashware de raha hai. Incident response ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
@@ -135,11 +135,11 @@
   "D1-209": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Grounding data request ke waqt prompt mein shamil kiya jata hai.",
-      "Fine-tuning misaalon par training se model ke weights badalti hai.",
-      "Grounding model ke weights ko hamesha ke liye badal deti hai."
+      "Fine-tuning prompt mein documents shamil karta hai aur model ke weights nahi badalta.",
+      "Agli request ko zaroorat ho to grounding data prompt mein dobara shamil karna lazmi hai.",
+      "Grounding model ke weights hamesha ke liye badal sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: grounding, jaise RAG, request ke waqt har prompt mein mutalliqa content shamil karti hai. Doosre ka Haan: fine-tuning mazeed training hai jo model ke weights update karti hai. Teesre ka Nahi: grounding sirf maujooda request par asar dalti hai; model khud nahi badalta."
+    "exp": "Pehle ka jawab Nahi: ye grounding ki tareef hai; fine-tuning mazeed training hai jo model ke weights badalti hai. Doosre ka Haan: grounding, jaise RAG, har request ke waqt prompt mein mutalliqa content shamil karta hai, aur model usay baad mein yaad nahi rakhta. Teesre ka Nahi: grounding sirf maujooda request par asar dalti hai; model khud nahi badalta."
   },
   "D1-210": {
     "q": "Har tafseel ko us term se milayein jise woh bayan karti hai. Har term ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -185,11 +185,11 @@
   "D1-215": {
     "q": "Model chunne ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Reasoning models aam taur par chhote chat models se zyada der mein jawab dete hain.",
       "Catalog ka har model har zaban ko barabar achi tarah support karta hai.",
-      "Aasan classification ke kaamon ke liye chhota model kaafi ho sakta hai.",
-      "Reasoning models aam taur par chhote chat models se zyada der mein jawab dete hain."
+      "Aasan classification ke kaamon ke liye chhota model kaafi ho sakta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: zaban ka support aur quality models ke darmiyan mukhtalif hoti hai, is liye model card dekhein aur test karein. Doosre ka Haan: aasan kaamon ko aksar sab se bare model ki zaroorat nahi hoti, aur chhote models tez aur saste hote hain. Teesre ka Haan: reasoning models jawab se pehle sochne par izafi waqt aur tokens kharch karte hain."
+    "exp": "Pehle ka jawab Haan: reasoning models jawab se pehle sochne par izafi waqt aur tokens kharch karte hain. Doosre ka Nahi: zaban ka support aur quality models ke darmiyan mukhtalif hoti hai, is liye model card dekhein aur test karein. Teesre ka Haan: aasan kaamon ko aksar sab se bare model ki zaroorat nahi hoti, aur chhote models tez aur saste hote hain."
   },
   "D1-216": {
     "q": "Aap chahte hain ke brainstorming session mein model wahi khayalat dohrane ke bajaye naye mauzu laye. Kaunsa parameter barhana chahiye?",

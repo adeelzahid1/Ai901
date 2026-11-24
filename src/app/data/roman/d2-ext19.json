@@ -7,11 +7,11 @@
   "D2-569": {
     "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "System message model ko bata sakta hai ke usay kya nahi karna.",
       "Prompts ka jawabon ki hifazat par koi asar nahi hota.",
+      "System message model ko bata sakta hai ke usay kya nahi karna.",
       "Mutalliqa context shamil karne se ghare hue jawabon ka imkan kam hota hai."
     ],
-    "exp": "Pehle ka jawab Haan: pabandiyan system messages ka aam hissa hain. Doosre ka Nahi: system message mein hifazati hidayaat, content filters ke saath, bachao ki tahon mein se ek hain. Teesre ka Haan: model ko mutalliqa facts par ground karne se hallucinations kam hoti hain."
+    "exp": "Pehle ka jawab Nahi: system message mein hifazati hidayaat, content filters ke saath, bachao ki tahon mein se ek hain. Doosre ka Haan: pabandiyan system messages ka aam hissa hain. Teesre ka Haan: model ko mutalliqa facts par ground karne se hallucinations kam hoti hain."
   },
   "D2-570": {
     "q": "Har maqsad ko us hidayat se milayein jo usay hasil karti hai. Har hidayat ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -54,11 +54,11 @@
   "D2-574": {
     "q": "Deployments ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Model deploy karne se agent nahi banta; agents alag se banane parte hain.",
       "Har deployment ka resource ke andar apna naam hota hai.",
-      "Aap ek hi project mein alag alag models deploy kar sakte hain.",
-      "Model deploy karne se khud-ba-khud agent ban jata hai."
+      "Aap ek hi project mein alag alag models deploy kar sakte hain."
     ],
-    "exp": "Pehle ka jawab Haan: apps ke call karte waqt deployment ki pehchan us ke naam se hoti hai. Doosre ka Haan: project kai models istemal kar sakta hai, maslan chat model aur embedding model. Teesre ka Nahi: agents alag se bante hain aur phir deployment istemal karte hain."
+    "exp": "Pehle ka jawab Haan: agents alag se bante hain aur phir deployment istemal karte hain. Doosre ka Haan: apps ke call karte waqt deployment ki pehchan us ke naam se hoti hai. Teesre ka Haan: project kai models istemal kar sakta hai, maslan chat model aur embedding model."
   },
   "D2-575": {
     "q": "Ek legal team chahti hai ke ek deployment tashaddud wale content ko default se zyada sakhti se block kare. Kya karna chahiye?",
@@ -76,15 +76,15 @@
     "exp": "Chat playground haath se jaldi tests ke liye hai, aur evaluations test dataset par quality napti hain. Activity log aur billing page prompts nahi bhejte, aur Azure Policy aur DNS records governance aur networking ke features hain."
   },
   "D2-577": {
-    "q": "Generative AI app release karne se pehle evaluations chalane ki kaunsi DO achhi wajuhaat hain? Har sahi jawab mukammal hal hai.",
+    "q": "Generative AI app release karne se pehle evaluations chalane ki kaunsi TEEN achhi wajuhaat hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Deployment ka quota khud-ba-khud barhana",
       "Numainda test data par quality napna",
       "Model ke weights badalna",
-      "Azure region chunna",
+      "Ek hi data par prompt ke do versions ka muqabla karne ke liye",
       "Jawabon mein hifazat ke khatre dhoondna"
     ],
-    "exp": "Evaluations asli users par asar hone se pehle quality, jaise relevance aur groundedness, aur hifazat, jaise nuqsan deh content, ko score karti hain. Woh quota, weights ya regions nahi badaltin."
+    "exp": "Evaluations test data par quality napti hain, safety ke khatre dhoondti hain aur prompt ke do versions ko muqable ke qabil banati hain, aur ye sab asli users par asar se pehle. Woh quota nahi barhatin, aur model ke weights kabhi nahi badaltin."
   },
   "D2-578": {
     "q": "Foundry SDK istemal karne wale Python chat client mein sab se pehle kaunsa object banate hain?",
@@ -93,11 +93,11 @@
   "D2-579": {
     "q": "Responses aur Chat Completions APIs ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Responses API previous_response_id istemal kar ke conversation jari rakh sakta hai.",
       "Chat Completions conversation ko service par khud-ba-khud mehfooz karta hai.",
-      "Dono APIs token usage ki maloomat deti hain."
+      "Responses API token usage batata hai, jab ke Chat Completions nahi batata.",
+      "previous_response_id dene par Responses API conversation jari rakhta hai."
     ],
-    "exp": "Pehle ka jawab Haan: previous_response_id nayi request ko pehle ke context se jorta hai. Doosre ka Nahi: Chat Completions stateless hai, is liye app history khud bhejti hai. Teesre ka Haan: dono tokens ki tadad wala usage object deti hain."
+    "exp": "Pehle ka jawab Nahi: Chat Completions stateless hai, is liye app history khud bhejti hai. Doosre ka Nahi: dono tokens ki tadad wala usage object deti hain. Teesre ka Haan: previous_response_id nayi request ko pehle ke context se jorta hai."
   },
   "D2-580": {
     "q": "Chat client ke har kaam ko us code se milayein jo usay karta hai. Code ki har line ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -141,11 +141,11 @@
   "D2-586": {
     "q": "Agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Agent knowledge tools aur action tools ko jor sakta hai.",
       "Tools ke baghair bhi agent chat mein apni instructions par chal sakta hai.",
-      "Mazeed tools shamil karne se agent hamesha zyada accurate ho jata hai."
+      "Agent knowledge tools aur action tools ko jor sakta hai.",
+      "Mazeed tools shamil karne se agent zyada accurate ho jata hai."
     ],
-    "exp": "Pehle ka jawab Haan: maslan jawabon ke liye file search aur amal ke liye function calling. Doosre ka Haan: akele model aur instructions se conversations chal sakti hain. Teesre ka Nahi: ghair zaroori tools se tool ka intikhab uljh sakta hai, is liye sirf woh shamil karein jo agent ko chahiye."
+    "exp": "Pehle ka jawab Haan: akele model aur instructions se conversations chal sakti hain. Doosre ka Haan: maslan jawabon ke liye file search aur amal ke liye function calling. Teesre ka Nahi: ghair zaroori tools se tool ka intikhab uljh sakta hai, is liye sirf woh shamil karein jo agent ko chahiye."
   },
   "D2-587": {
     "q": "Agent ki har zaroorat ko us tool se milayein jo usay pura karta hai. Har tool ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -175,11 +175,11 @@
   "D2-590": {
     "q": "Agent clients ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Client app har chat session ke liye conversation bana sakti hai.",
+      "Client agent ka jawab response object se parhta hai.",
       "Agents sirf Foundry portal se istemal ho sakte hain.",
-      "Client agent ka jawab response object se parhta hai."
+      "Chat sessions ek hi conversation istemal karte hain jo client apne users ke liye ek baar banata hai."
     ],
-    "exp": "Pehle ka jawab Haan: har session ki alag conversation se har chat ki history alag rehti hai. Doosre ka Nahi: apps agents ko SDKs ya REST API se call karti hain. Teesre ka Haan: jawab ka text response ke output_text mein hota hai."
+    "exp": "Pehle ka jawab Haan: jawab ka text response ke output_text mein hota hai. Doosre ka Nahi: apps agents ko SDKs ya REST API se call karti hain. Teesre ka Nahi: har session ki alag conversation se har chat ki history alag rehti hai."
   },
   "D2-591": {
     "q": "Woh Python code mukammal karein jo helpdesk agent ke saath conversation shuru kar ke pehla message bhejta hai.",

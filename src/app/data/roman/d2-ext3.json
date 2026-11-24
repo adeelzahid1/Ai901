@@ -22,12 +22,12 @@
   "D2-104": {
     "q": "Microsoft Foundry mein agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Agent ban jane ke baad us ki instructions tay ho jati hain aur badli nahi ja saktin.",
       "Agent ek se zyada tools istemal kar sakta hai, maslan file search aur code interpreter.",
-      "Model agent ki instructions nazar andaz karta hai.",
       "Grounding with Bing Search shamil karne se agent public web ki taaza maloomat istemal kar sakta hai.",
-      "Aap baad mein agent ki instructions badal kar tabdeeli test kar sakte hain."
+      "Model agent ki instructions nazar andaz karta hai."
     ],
-    "exp": "Pehle ka jawab Haan: agent kai tools jor sakta hai. Doosre ka Nahi: instructions agent ka role aur usool tay karti hain, aur model har guftagu mein un par chalta hai. Teesre ka Haan: web grounding taaza public maloomat laati hai. Chauthe ka Haan: agent edit karne se naya version banta hai, jise dobara test kiya ja sakta hai."
+    "exp": "Pehle ka jawab Nahi: aap agent edit kar sakte hain, jis se naya version banta hai, aur dobara test kar sakte hain. Doosre ka Haan: agent kai tools jor sakta hai. Teesre ka Haan: web grounding taaza public maloomat laati hai. Chauthe ka Nahi: instructions agent ka role aur usool tay karti hain, aur model har guftagu mein un par chalta hai."
   },
   "D2-105": {
     "q": "Har zaroorat ko us agent tool se milayein jo usay pura karta hai. Har tool ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -82,11 +82,11 @@
   "D2-114": {
     "q": "Text analysis app banane ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Ek request mein jaize ke liye kai documents ho sakte hain.",
-      "Aap ke code ko values parhne se pehle har nateeje mein error check karna chahiye.",
-      "Sentiment analysis ko input ke taur par tasveer chahiye."
+      "Sentiment analysis ko input ke taur par tasveer chahiye.",
+      "Agar batch ka ek document fail ho to poori call fail ho jati hai, is liye har nateeja check karna ghair zaroori hai.",
+      "Ek request mein jaize ke liye kai documents ho sakte hain."
     ],
-    "exp": "Pehle ka jawab Haan: Language APIs service ki hadon ke andar ek call mein documents ka batch leti hain. Doosre ka Haan: response ka har document alag kamyab ya nakaam ho sakta hai, is liye SDK nakaam nateejon par nishan lagata hai, maslan is_error se, aur aap ke code ko usay check karna chahiye. Teesre ka Nahi: sentiment analysis text par kaam karta hai."
+    "exp": "Pehle ka jawab Nahi: sentiment analysis text par kaam karta hai. Doosre ka Nahi: har document alag kamyab ya nakaam ho sakta hai, is liye SDK nakaam nateejon par nishan lagata hai, maslan is_error, aur aap ke code ko usay check karna chahiye. Teesre ka Haan: Language APIs service ki hadon ke andar ek call mein documents ka batch leti hain."
   },
   "D2-115": {
     "q": "App record kiya hua sawal audio wale chat model ko kaise bhejti hai?",
@@ -165,11 +165,11 @@
   "D2-124": {
     "q": "Microsoft Foundry mein tasveerein banane ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Image generation ke liye hamesha agent chahiye.",
       "Zyada tafseeli prompt aam taur par aap ki chahat ke zyada qareeb nateeja deta hai.",
-      "gpt-image-1 bani hui tasveerein base64-encoded data ki soorat mein de sakta hai."
+      "Image generation ke liye hamesha agent chahiye.",
+      "gpt-image-1 image ke bajaye us ki text description deta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: image-generation deployment ko code se seedha call ya image playground mein azmaya ja sakta hai. Doosre ka Haan: subject, style, mahaul aur tarteeb bayan karna model ki rahnumai karta hai. Teesre ka Haan: gpt-image-1 tasveerein base64 data ki soorat mein deta hai jise aap ki app decode kar ke save karti hai."
+    "exp": "Pehle ka jawab Haan: subject, style, mahaul aur tarteeb bayan karna model ki rahnumai karta hai. Doosre ka Nahi: image-generation deployment ko code se seedha call ya image playground mein azmaya ja sakta hai. Teesre ka Nahi: gpt-image-1 images base64 data ki soorat mein deta hai jisay aap ki app decode kar ke save karti hai."
   },
   "D2-125": {
     "q": "Design team aakhri versions se pehle gpt-image-1 se jaldi aur saste draft images chahti hai. Kaunsa parameter badalna chahiye?",
@@ -239,12 +239,12 @@
   "D2-134": {
     "q": "Content Understanding se images ke jaize ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "extract method image fields ke liye istemal ho sakta hai.",
+      "Content Understanding us Foundry model deployment ke guardrails lagu karta hai jo woh istemal karta hai.",
+      "Classify method image field ko tay shuda categories mein se ek deta hai.",
       "Aap aisa image field tay kar sakte hain jis mein banayi hui tafseel ho.",
-      "classify method image field ko muqarrar categories mein se ek de sakta hai.",
-      "Content Understanding us Foundry model deployment ke guardrails lagu karta hai jo woh istemal karta hai."
+      "extract method image fields ke liye istemal ho sakta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: extract, jo values ko jaisi hain waisi deta hai, sirf documents ke liye support hota hai. Doosre ka Haan: generate tafseel jaisi values banata hai. Teesre ka Haan: classify aap ki tay ki hui categories mein se chunta hai. Chauthe ka Haan: Content Understanding apni istemal ki hui model deployments ke guardrails apnata hai."
+    "exp": "Pehle ka jawab Haan: Content Understanding apni istemal ki hui model deployments ke guardrails apnata hai. Doosre ka Haan: classify aap ki tay ki hui categories mein se chunta hai. Teesre ka Haan: generate tafseel jaisi values banata hai. Chauthe ka Nahi: extract, jo values ko jaisi hain waisi deta hai, sirf documents ke liye support hota hai."
   },
   "D2-135": {
     "q": "Ek automated claims process Content Understanding istemal karta hai. Field ko review ke liye insan ke paas kab bhejna chahiye?",

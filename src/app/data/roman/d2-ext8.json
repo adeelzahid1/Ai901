@@ -22,11 +22,11 @@
   "D2-257": {
     "q": "Agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Har agent ko code interpreter tool istemal karna lazmi hai.",
+      "File search ki files code se upload ho sakti hain, jab ke Foundry portal mein upload ka option nahi.",
       "Agent kisi tool ke baghair, sirf apne model aur instructions se, sawalon ke jawab de sakta hai.",
-      "Aap Foundry portal mein file search ke liye agent se files attach kar sakte hain."
+      "Har agent ko code interpreter tool istemal karna lazmi hai."
     ],
-    "exp": "Pehle ka jawab Nahi: tools ikhtiyari hain aur sirf zaroori tools shamil kiye jate hain. Doosre ka Haan: sirf model aur instructions wala prompt agent bhi guftagu kar sakta hai. Teesre ka Haan: portal mein aap woh files upload kar sakte hain jinhein file search agent ke liye index karta hai."
+    "exp": "Pehle ka jawab Nahi: portal mein aap files upload kar sakte hain jinhein file search agent ke liye index karta hai. Doosre ka Haan: sirf model aur instructions wala prompt agent bhi guftagu kar sakta hai. Teesre ka Nahi: tools ikhtiyari hain aur sirf zaroori tools shamil kiye jate hain."
   },
   "D2-258": {
     "q": "User ki har request ko us tool se milayein jo agent ko usay sambhalne ke liye chahiye. Har option ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -40,15 +40,15 @@
     "exp": "Upload kiye hue documents ke sawalon ke liye file search chahiye, data ka graph banane ke liye code interpreter, live mausam ke liye web grounding, aur ticket banane ka matlab function calling ya OpenAPI tool se doosra system call karna hai. Har request aisi maloomat ya amal par munhasir hai jo akele model ke paas nahi."
   },
   "D2-259": {
-    "q": "Kaunsi DO tabdeeliyan agent ke jawabon ko zyada bharosemand banati hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunsi TEEN tabdeeliyan agent ke jawabon ko zyada bharosemand banati hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Agent ko har available tool dena, zaroorat ho ya nahi",
       "Agent ko bharosemand maloomat se ground karna, jaise manzoor shuda documents par file search",
       "Instructions hatana",
       "Wazeh instructions likhna, jin mein yeh bhi ho ke maloomat na ho to kya kare",
-      "Temperature ko sab se zyada karna"
+      "Release se pehle haqeeqi sawalon se test karna"
     ],
-    "exp": "Bharosemand grounding data agent ko sahi facts deta hai, aur wazeh instructions, jin mein maloomat na hone par na jaanne ka iqrar bhi ho, ghare hue jawab kam karti hain. Izafi tools intikhab mein uljhan paida kar sakte hain, instructions hatane se rahnumai khatam hoti hai, aur sab se zyada temperature jawab ko kam ek jaisa banata hai."
+    "exp": "Bharosemand knowledge jawabon ko bunyad deti hai, wazeh hidayaat kami wali maloomat sambhalti hain, aur haqeeqi tests users se pehle masail dikha dete hain. Har tool dene se tool chunna mushkil hota hai, aur hidayaat ke baghair agent ke paas koi usool nahi hota."
   },
   "D2-260": {
     "q": "Agent ke knowledge tools ke baare mein jumlay mukammal karein.",
@@ -84,10 +84,10 @@
     "q": "Agent client apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Agent ki instructions agent ke saath mehfooz hoti hain, is liye client unhein har request par nahi bhejta.",
-      "Client apps ko agent ko messages bhejne ke liye Foundry portal istemal karna lazmi hai.",
-      "Client output_text parh kar agent ka jawab dikha sakta hai."
+      "Client output_text parh kar agent ka jawab dikha sakta hai.",
+      "Client apps agent ko messages Foundry portal ke zariye bhejti hain."
     ],
-    "exp": "Pehle ka jawab Haan: instructions Foundry mein agent ki definition ka hissa hain. Doosre ka Nahi: apps SDK ya REST API se agent call karti hain; portal banane aur test karne ke liye hai. Teesre ka Haan: response object jawab ka text output_text mein deta hai."
+    "exp": "Pehle ka jawab Haan: instructions Foundry mein agent ki definition ka hissa hain. Doosre ka Haan: response object jawab ka text output_text mein deta hai. Teesre ka Nahi: apps SDK ya REST API se agent call karti hain; portal banane aur test karne ke liye hai."
   },
   "D2-265": {
     "q": "Client agent se kaise chat karta hai, is ke baare mein jumla mukammal karein.",
@@ -112,15 +112,15 @@
     "exp": "Hosted apps ko managed identity istemal karni chahiye, developers apne az login session par bharosa kar sakte hain, history conversation ID dobara istemal karne se rehti hai, aur jawab output_text se parha jata hai. Passwords hard-code karna kabhi acha tareeqa nahi."
   },
   "D2-267": {
-    "q": "Kaunsi DO cheezein client app ke code ke bajaye agent ki definition mein honi chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "q": "Kaunsi TEEN cheezein client app ke code ke bajaye agent ki definition mein honi chahiye? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
       "User ka maujooda sawal",
       "Agent ki instructions",
       "Chat button ka rang",
       "Woh tools jo agent istemal kar sakta hai",
-      "User ki session ID"
+      "Woh model deployment jo agent istemal karta hai"
     ],
-    "exp": "Instructions aur tools tay karte hain ke agent kaisa rawaiya rakhe, is liye woh Foundry mein agent ke saath mehfooz hote hain aur har client mein mushtarka hote hain. User ka sawal aur session ID har request mein badalte hain aur client unhein sambhalta hai, aur buttons ke rang user interface ka hissa hain."
+    "exp": "Instructions, tools aur model deployment agent ki definition mein mehfooz hote hain aur tamam clients ke liye mushtarka hain. User ka maujooda sawal aur button ki shakal client app sambhalti hai."
   },
   "D2-268": {
     "q": "Ek team agent ke liye browser mein chalne wala chat page banati hai. Page ko agent tak mehfooz tareeqe se kaise pohanchna chahiye?",
@@ -154,22 +154,22 @@
   "D2-272": {
     "q": "Python se Azure Language call karne ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Aap service ko documents ki zaban bata sakte hain, maslan language='es'.",
       "Har text analysis request mein tasveer honi lazmi hai.",
-      "Nateeje usi tarteeb mein aate hain jis mein aap ne documents bheje."
+      "Aap service ko documents ki zaban bata sakte hain, maslan language='es'.",
+      "Nateeje random tarteeb mein aate hain, is liye aap ke code ko unhein document ID se tarteeb dena parta hai."
     ],
-    "exp": "Pehle ka jawab Haan: zaban ka hint dene se nateeje behtar ho sakte hain aur chhote text ki zaban ghalat pehchanne se bacha ja sakta hai. Doosre ka Nahi: yeh features sirf text ka jaiza lete hain. Teesre ka Haan: SDK har document ka ek nateeja input ki tarteeb mein deta hai, har ek mein document ki ID ke saath."
+    "exp": "Pehle ka jawab Nahi: yeh features sirf text ka jaiza lete hain. Doosre ka Haan: zaban ka hint dene se nateeje behtar ho sakte hain aur chhote text ki zaban ghalat pehchanne se bacha ja sakta hai. Teesre ka Nahi: SDK har document ka ek nateeja input ki tarteeb mein, document ki ID ke saath deta hai."
   },
   "D2-273": {
-    "q": "Text analysis istemal karne wali app ke kaunse DO aam scenarios hain? Har sahi jawab mukammal hal hai.",
+    "q": "Text analysis istemal karne wali app ke kaunse TEEN aam scenarios hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Product photos banana",
       "Support tickets ko un ki likhi hui zaban ke hisaab se bhejna",
       "Phone calls ko likhna",
       "Chat logs save karne se pehle zaati data chupana",
-      "Tasveeron par bounding boxes banana"
+      "Product reviews ka sentiment dekhna"
     ],
-    "exp": "Language detection tickets ko zaban ke hisaab se bhejne mein madad karta hai, aur PII detection text mein zaati data chupata hai, is liye dono text analysis ke scenarios hain. Photos banana aur bounding boxes vision ke kaam hain, aur calls likhna speech recognition hai."
+    "exp": "Tickets ko zaban ke mutabiq bhejna, zaati data chupana aur reviews ka sentiment dekhna, teenon likhe hue text ka jaiza lete hain. Product photos banane ke liye image-generation model chahiye, aur calls ko text mein likhne ke liye speech to text."
   },
   "D2-274": {
     "q": "Spoken prompt kya hota hai?",
@@ -200,11 +200,11 @@
   "D2-277": {
     "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Audio prompts koi tokens istemal nahi karte.",
-      "Spoken prompts par bhi model deployment ke guardrails lagu hote hain.",
-      "App base64 audio data decode kar ke bola hua jawab file mein save kar sakti hai."
+      "Tamam audio prompts tokens istemal karte hain, jaise text prompts karte hain.",
+      "App base64 audio data decode kar ke bola hua jawab file mein save kar sakti hai.",
+      "Spoken prompts par bhi model deployment ke guardrails lagu hote hain."
     ],
-    "exp": "Pehle ka jawab Nahi: audio tokens mein badalti hai jo gine jate aur jin ka bill aata hai. Doosre ka Haan: deployment ki responsible AI hifazatein audio requests par bhi lagu rehti hain. Teesre ka Haan: audio output base64 data ki soorat mein aata hai jise app decode kar ke WAV jaisi file mein likhti hai."
+    "exp": "Pehle ka jawab Haan: audio tokens mein badalti hai jo gine jate hain aur jin ka bill aata hai. Doosre ka Haan: audio output base64 data ki soorat mein aata hai jise app decode kar ke WAV jaisi file mein likhti hai. Teesre ka Haan: deployment ki responsible AI hifazatein audio requests par bhi lagu rehti hain."
   },
   "D2-278": {
     "q": "SpeechConfig ki kaunsi property text to speech ke liye awaaz chunti hai?",
@@ -222,7 +222,7 @@
   "D2-281": {
     "q": "Speech SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Speech SDK microphone ke saath audio file se bhi speech pehchan sakta hai.",
+      "Speech SDK microphone ke saath audio file se bhi speech pehchanta hai.",
       "Speech SDK ke basic speech to text ke liye model deployment ka naam lazmi hai.",
       "SpeechSynthesizer bani hui audio file mein likh sakta hai."
     ],

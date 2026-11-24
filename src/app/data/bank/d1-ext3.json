@@ -27,13 +27,13 @@
     "id": "D1-104", "sub": "workload-scenarios", "diff": 1, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Translating spoken English into French in real time is a speech workload.",
       "Detecting the language of an email is a computer vision workload.",
+      "Translating spoken English into French in real time is a speech workload.",
       "Creating a product picture from a written description is a generative AI workload.",
       "Pulling the dates out of signed contracts is an information extraction workload."
     ],
-    "ans": [true, false, true, true],
-    "exp": "Yes for the first: speech translation recognizes spoken words and translates them. No for the second: language detection is a text analysis task, not computer vision. Yes for the third: image-generation models create new pictures from text, which is generative AI. Yes for the fourth: finding and returning specific values from documents is information extraction.",
+    "ans": [false, true, true, true],
+    "exp": "No for the first: language detection is a text analysis task, not computer vision. Yes for the second: speech translation recognizes spoken words and translates them. Yes for the third: image-generation models create new pictures from text, which is generative AI. Yes for the fourth: finding and returning specific values from documents is information extraction.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {
@@ -65,16 +65,16 @@
   },
   {
     "id": "D1-107", "sub": "workload-scenarios", "diff": 2, "type": "multi",
-    "q": "Which TWO scenarios are computer vision workloads? Each correct answer presents a complete solution.",
+    "q": "Which THREE scenarios are computer vision workloads? Each correct answer presents a complete solution.",
     "opts": [
       "Transcribe a phone call",
       "Read the text on photographed receipts",
       "Summarize a quarterly report",
       "Detect scratches in photos of products on an assembly line",
-      "Translate a web page"
+      "Count the people in a camera image"
     ],
-    "ans": [1, 3],
-    "exp": "Reading text from photos uses optical character recognition, and spotting defects in product photos uses image analysis such as object detection; both are computer vision. Transcribing a call is speech recognition, summarizing a report is text analysis or generative AI, and translating a web page is a language task.",
+    "ans": [1, 3, 4],
+    "exp": "Reading text on photographed receipts is OCR, finding scratches in product photos is visual inspection, and counting people uses object detection, so all three are computer vision. Transcribing a call is speech, and summarizing a report is a text task.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
   },
   {
@@ -148,13 +148,13 @@
     "id": "D1-114", "sub": "text-techniques", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Key phrase extraction returns the main topics of a text.",
-      "Named entity recognition tells you whether a text is positive or negative.",
       "Language detection returns a language with a confidence score.",
-      "Abstractive summarization only copies sentences from the original text."
+      "Abstractive summarization builds the summary by copying sentences from the original text.",
+      "Key phrase extraction returns the main topics of a text.",
+      "Named entity recognition can tell you whether a text is positive or negative."
     ],
     "ans": [true, false, true, false],
-    "exp": "Yes for the first: key phrases are the main talking points. No for the second: opinion is measured by sentiment analysis; entity recognition labels people, places and similar items. Yes for the third: language detection returns the detected language and a score. No for the fourth: abstractive summarization writes new sentences; copying sentences is extractive summarization.",
+    "exp": "Yes for the first: language detection returns the detected language and a score. No for the second: abstractive summarization writes new sentences; copying sentences is extractive summarization. Yes for the third: key phrases are the main talking points. No for the fourth: opinion is measured by sentiment analysis; entity recognition labels people, places and similar items.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -186,10 +186,16 @@
   },
   {
     "id": "D1-117", "sub": "text-techniques", "diff": 1, "type": "multi",
-    "q": "Which TWO are text analysis techniques? Each correct answer presents a complete solution.",
-    "opts": ["Object detection", "Key phrase extraction", "Speech synthesis", "Named entity recognition", "Image captioning"],
-    "ans": [1, 3],
-    "exp": "Key phrase extraction and named entity recognition both work on written text to find topics and entities, so they are text analysis techniques. Object detection and image captioning analyze images, and speech synthesis creates audio from text, so they belong to other workloads.",
+    "q": "Which THREE are text analysis techniques? Each correct answer presents a complete solution.",
+    "opts": [
+      "Object detection",
+      "Key phrase extraction",
+      "Speech synthesis",
+      "Named entity recognition",
+      "Sentiment analysis"
+    ],
+    "ans": [1, 3, 4],
+    "exp": "Key phrase extraction, named entity recognition and sentiment analysis all analyze written text. Object detection works on images, and speech synthesis turns text into audio instead of analyzing it.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -268,11 +274,11 @@
     "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "Text to speech can produce only one robotic-sounding voice.",
-      "Speech to text can transcribe audio from a microphone in real time.",
-      "Speech translation can turn spoken audio into text in another language."
+      "Speech to text can use recorded files, while live microphone audio needs a different service.",
+      "Speech translation turns spoken audio into text in another language."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: text to speech offers many natural neural voices in many languages and styles. Yes for the second: real-time speech to text transcribes live audio, for example from a microphone. Yes for the third: speech translation recognizes speech and returns translated text, and it can also produce translated speech.",
+    "ans": [false, false, true],
+    "exp": "No for the first: text to speech offers many natural neural voices in many languages and styles. No for the second: real-time speech to text transcribes live audio, for example from a microphone. Yes for the third: speech translation recognizes speech and returns translated text, and it can also produce translated speech.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
   },
   {
@@ -291,16 +297,16 @@
   },
   {
     "id": "D1-127", "sub": "speech-features", "diff": 2, "type": "multi",
-    "q": "Which TWO features belong to speech synthesis (text to speech)? Each correct answer presents a complete solution.",
+    "q": "Which THREE features belong to speech synthesis (text to speech)? Each correct answer presents a complete solution.",
     "opts": [
       "Speaker diarization",
       "Neural voices in many languages",
       "Batch transcription",
       "SSML control of pitch, rate and pauses",
-      "Keyword recognition"
+      "Custom voice for a brand, with approval"
     ],
-    "ans": [1, 3],
-    "exp": "Text to speech provides neural voices in many languages, and SSML lets you control how those voices speak, including pitch, rate and pauses. Diarization, batch transcription and keyword recognition all work on incoming audio, which makes them speech recognition features rather than speech synthesis features.",
+    "ans": [1, 3, 4],
+    "exp": "Neural voices, SSML control and custom voice all shape the audio that text to speech creates; custom voice is a Limited Access feature that needs approval. Speaker diarization and batch transcription work on recorded speech, so they belong to speech recognition.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech"
   },
   {
@@ -364,13 +370,13 @@
     "id": "D1-134", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about image-generation models, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Image-generation models create photorealistic images as well as illustrations.",
       "A prompt that describes subject, style and setting usually gives better results than a vague prompt.",
-      "Image-generation models can create photorealistic images as well as illustrations.",
       "Generated images are guaranteed to be free of errors such as misspelled text or extra fingers.",
-      "Content filters can block image prompts that ask for harmful content."
+      "Content filters block image prompts that ask for harmful content."
     ],
     "ans": [true, true, false, true],
-    "exp": "Yes for the first: detailed prompts guide the model toward the intended image. Yes for the second: these models can produce many styles, from photos to drawings. No for the third: generated images can contain errors such as garbled text or wrong anatomy, so they should be reviewed. Yes for the fourth: image deployments apply content filters to prompts and outputs.",
+    "exp": "Yes for the first: these models can produce many styles, from photos to drawings. Yes for the second: detailed prompts guide the model toward the intended image. No for the third: generated images can contain errors such as garbled text or wrong anatomy, so they should be reviewed. Yes for the fourth: image deployments apply content filters to prompts and outputs.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {

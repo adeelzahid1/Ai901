@@ -13,11 +13,11 @@
     "q": "For each of the following statements about reliability and safety, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "A safety approach can combine content filters with human review.",
-      "Once an AI system is deployed, it never needs to be checked again.",
-      "Testing should include inputs that the system was not designed for."
+      "Testing should include inputs that the system was not designed for.",
+      "Once an AI system is deployed, its behavior stays the same, so checks can stop."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: layered safeguards catch more problems than any single control. No for the second: behavior can change as data, users and models change, so ongoing monitoring is needed. Yes for the third: unexpected inputs reveal how safely the system fails.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: layered safeguards catch more problems than any single control. Yes for the second: unexpected inputs reveal how safely the system fails. No for the third: behavior can change as data, users and models change, so ongoing monitoring is needed.",
     "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
   },
   {
@@ -83,16 +83,16 @@
   },
   {
     "id": "D1-418", "sub": "accountability", "diff": 3, "type": "multi",
-    "q": "Which TWO practices show accountability in an AI project? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices show accountability in an AI project? Each correct answer presents a complete solution.",
     "opts": [
       "The model decides when it should be updated",
       "Nobody is assigned as the owner of the system",
       "A named person approves each release",
-      "Logs are deleted every day so that nobody can check them",
+      "Audit logs are kept so that decisions can be traced",
       "Incidents are reviewed and the lessons are recorded"
     ],
-    "ans": [2, 4],
-    "exp": "Named approval and incident reviews keep people answerable for the system and improve it over time. Letting the model govern itself, having no owner and destroying logs all remove accountability.",
+    "ans": [2, 3, 4],
+    "exp": "A named approver, reviews of incidents and audit logs all make it clear who is answerable and let people check what happened. Accountability is missing when nobody owns the system or when the model itself decides about updates.",
     "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
   },
   {
@@ -107,9 +107,9 @@
     "id": "D1-420", "sub": "genai-how", "diff": 2, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Language models can generate code as well as natural language.",
+      "Language models generate code as well as natural language.",
       "A generative model stores a copy of every web page it was trained on and returns it.",
-      "Examples in a prompt can change the style of the output."
+      "Examples in a prompt influence the style of the output."
     ],
     "ans": [true, false, true],
     "exp": "Yes for the first: many models write code well because code was part of their training data. No for the second: models learn patterns and generate new text rather than retrieving stored pages. Yes for the third: few-shot examples guide tone, format and style.",
@@ -152,12 +152,12 @@
     "id": "D1-424", "sub": "model-choice", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about the Foundry model catalog, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "The catalog includes models from several providers.",
       "Every model in the catalog supports every deployment type.",
+      "The catalog includes models from several providers.",
       "Model cards describe intended uses and limitations."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: Microsoft, OpenAI and other providers publish models in the catalog. No for the second: available deployment types differ by model and region. Yes for the third: model cards explain what a model is for and where it falls short.",
+    "ans": [false, true, true],
+    "exp": "No for the first: available deployment types differ by model and region. Yes for the second: Microsoft, OpenAI and other providers publish models in the catalog. Yes for the third: model cards explain what a model is for and where it falls short.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview"
   },
   {
@@ -207,12 +207,12 @@
     "id": "D1-429", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A help desk agent that resets passwords by calling an API is an example of agentic AI.",
-      "Reading the text of a scanned contract is a speech workload.",
-      "Drafting song lyrics is a generative AI workload."
+      "Reading the text of a scanned contract is a computer vision workload.",
+      "Drafting song lyrics is a generative AI workload.",
+      "A help desk agent that resets passwords by calling an API is an example of agentic AI."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: the agent decides to act and uses a tool to do it. No for the second: reading scanned text is OCR, a computer vision task. Yes for the third: writing new lyrics is content generation.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: reading scanned text is OCR, a computer vision task. Yes for the second: writing new lyrics is content generation. Yes for the third: the agent decides to act and uses a tool to do it.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {
@@ -266,12 +266,12 @@
     "id": "D1-434", "sub": "text-techniques", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "PII detection can find names and addresses, while credit card numbers need a custom model.",
       "Key phrase extraction returns the important words and phrases in a text.",
-      "PII detection can find credit card numbers.",
-      "Language detection requires audio input."
+      "Language detection can use audio input as well as text."
     ],
-    "ans": [true, true, false],
-    "exp": "Yes for the first: key phrases are the main talking points. Yes for the second: credit card numbers are one of the PII categories. No for the third: language detection analyzes written text; spoken language identification is a Speech feature.",
+    "ans": [false, true, false],
+    "exp": "No for the first: credit card numbers are one of the PII categories. Yes for the second: key phrases are the main talking points. No for the third: language detection analyzes written text; spoken language identification is a Speech feature.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -289,16 +289,16 @@
   },
   {
     "id": "D1-436", "sub": "text-techniques", "diff": 3, "type": "multi",
-    "q": "Which TWO practices make text analysis results more reliable? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices make text analysis results more reliable? Each correct answer presents a complete solution.",
     "opts": [
       "Send the text as images",
       "Ignore any errors in the results",
       "Pass the correct language hint, especially for short texts",
-      "Remove all punctuation from every document",
+      "Look at the error status of each document before using its result",
       "Check confidence scores before acting on results"
     ],
-    "ans": [2, 4],
-    "exp": "A language hint avoids misdetection of short texts, and confidence scores show which results to trust or review. Sending images, ignoring errors and stripping punctuation make results worse or hide problems.",
+    "ans": [2, 3, 4],
+    "exp": "A correct language hint avoids misdetection, confidence scores show which results need care, and checking the status of each document stops failed results from being used. Sending text as images adds OCR errors, and ignoring errors hides failures.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/language-detection/overview"
   },
   {
@@ -313,12 +313,12 @@
     "id": "D1-438", "sub": "speech-features", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Speech to text can produce text in real time while someone is speaking.",
-      "Custom voice can be used without any approval or consent from the voice talent.",
-      "SSML can control how a specific word is pronounced."
+      "SSML can control the speed of a voice but not how a specific word is pronounced.",
+      "Speech to text returns text after the recording ends, not while someone is speaking.",
+      "Custom voice can be used without any approval or consent from the voice talent."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: real-time recognition returns text as people speak. No for the second: custom voice (previously called custom neural voice) is a Limited Access feature that requires approval and recorded consent. Yes for the third: SSML elements such as phoneme control pronunciation.",
+    "ans": [false, false, false],
+    "exp": "No for the first: SSML elements such as phoneme control pronunciation, and prosody controls speed. No for the second: real-time recognition returns text as people speak. No for the third: custom voice (previously called custom neural voice) is a Limited Access feature that requires approval and recorded consent.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup"
   },
   {
@@ -359,12 +359,12 @@
     "id": "D1-442", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about computer vision and image generation, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Face detection finds faces without identifying who the people are.",
-      "OCR returns bounding boxes around people in a photo.",
-      "Generated images can be misleading, so they should be reviewed before use."
+      "Generated images can be misleading, so they should be reviewed before use.",
+      "Face detection can tell you the name of each person in a photo.",
+      "OCR can return bounding boxes around people in a photo."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: detection only locates faces; identification is a separate Limited Access capability. No for the second: OCR returns text and its position; people detection returns boxes around people. Yes for the third: generated images can contain errors or deceptive content.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: generated images can contain errors or deceptive content. No for the second: detection only locates faces; identification is a separate Limited Access capability. No for the third: OCR returns text and its position; people detection returns boxes around people.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/face/overview-identity"
   },
   {

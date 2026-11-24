@@ -29,12 +29,12 @@
   "D1-278": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "AI agent aisa generative model hai jis ke paas tools nahi hote.",
       "Optical character recognition computer vision ki technique hai.",
-      "AI agent generative model ko tools ke saath jor sakta hai.",
       "Sentiment analysis speech workload hai.",
       "Podcast ko likhna audio se maloomat nikalta hai."
     ],
-    "exp": "Pehle ka jawab Haan: OCR tasveeron se text parhta hai. Doosre ka Haan: agents amal ke liye model aur tools istemal karte hain. Teesre ka Nahi: sentiment analysis text par kaam karta hai, is liye woh text analysis workload hai. Chauthe ka Haan: transcript bole hue content ko aisa text banata hai jise talash aur analyze kiya ja sake."
+    "exp": "Pehle ka jawab Nahi: agents generative model ko instructions aur tools ke saath jorte hain taake woh amal kar sakein. Doosre ka Haan: OCR tasveeron se text parhta hai. Teesre ka Nahi: sentiment analysis text par kaam karta hai, is liye woh text analysis workload hai. Chauthe ka Haan: transcript bole hue content ko aisa text banata hai jise talash aur analyze kiya ja sake."
   },
   "D1-279": {
     "q": "Har scenario ko us AI workload se milayein jise woh zahir karta hai. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -88,7 +88,7 @@
     "stmts": [
       "Key phrase extraction sirf PDF files mein mehfooz text par kaam karta hai.",
       "Sentiment analysis social media posts par istemal ho sakta hai.",
-      "Summarization lambe article ko chhota kar sakta hai."
+      "Summarization lambe article ko chhota karta hai."
     ],
     "exp": "Pehle ka jawab Nahi: text analysis kisi bhi jagah ke saada text par kaam karta hai, jaise emails, chats ya posts. Doosre ka Haan: sentiment analysis aksar social media par raye par nazar rakhne ke liye istemal hota hai. Teesre ka Haan: summarization lambe text ka chhota version banata hai."
   },
@@ -130,11 +130,11 @@
   "D1-290": {
     "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Real-time speech to text us waqt bhi adhoore nateeje de sakta hai jab shakhs abhi bol raha ho.",
       "Speech translation ke liye bolne wale ko pehle apne alfaz type karne parte hain.",
-      "Text-to-speech ka output audio file ki soorat mein save ho sakta hai."
+      "Text-to-speech ka output audio file ki soorat mein save ho sakta hai.",
+      "Real-time speech to text tab text deta hai jab bolne wala poori recording khatam kar le."
     ],
-    "exp": "Pehle ka jawab Haan: darmiyani recognizing nateejon se apps bolte waqt hi text dikha sakti hain. Doosre ka Nahi: speech translation seedha boli hui audio par kaam karta hai. Teesre ka Haan: synthesized audio chalayi ja sakti hai ya WAV jaisi file mein likhi ja sakti hai."
+    "exp": "Pehle ka jawab Nahi: speech translation seedha boli hui audio par kaam karta hai. Doosre ka Haan: synthesized audio chalayi ja sakti hai ya WAV jaisi file mein likhi ja sakti hai. Teesre ka Nahi: darmiyani recognizing nateejon se apps bolne ke dauran hi text dikha sakti hain."
   },
   "D1-291": {
     "q": "Har scenario ko us Speech feature se milayein jo woh istemal karta hai. Har feature ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -147,15 +147,15 @@
     "exp": "Bol kar likhwana speech to text hai, parh kar sunana text to speech, do zabanon ki guftagu speech translation, aur seekhne wale ke bolne ko score dena pronunciation assessment hai. Image captioning tasveeron ko bayan karta hai aur Speech feature nahi."
   },
   "D1-292": {
-    "q": "Speech to text kaunsi DO cheezein de sakta hai? Har sahi jawab mukammal hal hai.",
+    "q": "Speech to text kaunsi TEEN cheezein de sakta hai? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Synthesized awaaz",
       "Bole hue alfaz ka transcript",
       "Banayi hui tasveer",
       "Pehchane hue alfaz ka timing",
-      "Translated PDF document"
+      "Transcript mein punctuation aur capitalization"
     ],
-    "exp": "Speech to text transcript deta hai aur har lafz ka timing bhi shamil kar sakta hai, jo subtitles aur talash mein kaam aata hai. Synthesized awaaz text to speech se aati hai, tasveerein image generation se, aur PDF documents ka tarjuma alag translation service hai."
+    "exp": "Speech to text transcript deta hai, alfaaz ka waqt bata sakta hai aur display text mein punctuation aur capitalization lagata hai. Synthesized voice text to speech se aati hai, aur images image-generation model se."
   },
   "D1-293": {
     "q": "Aap ko khaas alfaz wali industry ke liye custom speech model chahiye. Qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
@@ -185,11 +185,11 @@
   "D1-296": {
     "q": "Computer vision ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Image classification batata hai ke tasveer mein kitni gaariyan hain aur kahan hain.",
-      "Object detection ek tasveer mein mukhtalif qism ki kai cheezein dhoond sakta hai.",
-      "OCR mukhtalif zabanon mein likha text parh sakta hai."
+      "Object detection har image mein cheezon ki ek hi qism dhoondta hai.",
+      "OCR sirf English mein likhe text tak mehdood hai.",
+      "Image classification bata sakta hai ke image mein kitni gaariyan hain aur kahan hain."
     ],
-    "exp": "Pehle ka jawab Nahi: classification poori tasveer ke labels deta hai; cheezein ginna aur un ki jagah batana object detection hai. Doosre ka Haan: detection har mili cheez ka box aur label deta hai. Teesre ka Haan: OCR bohat si zabanein aur rasm-ul-khat support karta hai."
+    "exp": "Pehle ka jawab Nahi: detection har mili hui cheez ka box aur label deta hai, aur cheezein mukhtalif qismon ki ho sakti hain. Doosre ka Nahi: OCR bohat si zabanein aur scripts support karta hai. Teesre ka Nahi: classification poori tasveer ke labels deta hai; cheezein ginna aur un ki jagah batana object detection hai."
   },
   "D1-297": {
     "q": "Marketing team image-generation model istemal karna shuru karti hai. Unhein kaunse DO khatron ko sambhalna chahiye? Har sahi jawab mukammal hal hai.",

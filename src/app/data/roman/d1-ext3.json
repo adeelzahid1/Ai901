@@ -15,12 +15,12 @@
   "D1-104": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Boli hui English ko real time mein French mein translate karna speech workload hai.",
       "Email ki zaban pehchanna computer vision workload hai.",
+      "Boli hui English ko real time mein French mein translate karna speech workload hai.",
       "Likhi hui tafseel se product ki tasveer banana generative AI workload hai.",
       "Sign kiye hue contracts se tareekhein nikalna information extraction workload hai."
     ],
-    "exp": "Pehle ka jawab Haan: speech translation bole hue alfaz pehchan kar translate karta hai. Doosre ka Nahi: language detection text analysis ka kaam hai, computer vision ka nahi. Teesre ka Haan: image-generation models text se nayi tasveerein banate hain, jo generative AI hai. Chauthe ka Haan: documents se khaas values dhoond kar dena information extraction hai."
+    "exp": "Pehle ka jawab Nahi: language detection text analysis ka kaam hai, computer vision ka nahi. Doosre ka Haan: speech translation bole hue alfaz pehchan kar translate karta hai. Teesre ka Haan: image-generation models text se nayi tasveerein banate hain, jo generative AI hai. Chauthe ka Haan: documents se khaas values dhoond kar dena information extraction hai."
   },
   "D1-105": {
     "q": "Har scenario ko us ki AI workload se milayein. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -43,15 +43,15 @@
     "exp": "Agent un kaamon ke liye munasib hai jin mein kai qadam, faislay aur tools ke zariye amal chahiye hon, jaise inventory API call karna, order dena aur notification bhejna. Text ke ek hisse ka khulasa, tarjuma ya classification ek qadam ka kaam hai jo ek model call achi tarah kar leti hai, is liye wahan agent ka koi faida nahi."
   },
   "D1-107": {
-    "q": "Kaunse DO scenarios computer vision workloads hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN scenarios computer vision workloads hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Phone call ko likhna",
       "Photo li hui receipts ka text parhna",
       "Quarterly report ka khulasa karna",
       "Assembly line par products ki photos mein kharashein pehchanna",
-      "Web page translate karna"
+      "Camera ki image mein log ginna"
     ],
-    "exp": "Photos se text parhne mein optical character recognition istemal hota hai, aur product photos mein nuqs dhoondne mein object detection jaisa image analysis; dono computer vision hain. Call likhna speech recognition hai, report ka khulasa text analysis ya generative AI hai, aur web page translate karna zaban ka kaam hai."
+    "exp": "Tasveer wali raseedon ka text parhna OCR hai, product ki tasveeron mein kharashein dhoondna visual inspection hai, aur log ginna object detection se hota hai, is liye teenon computer vision hain. Call ko text mein likhna speech hai, aur report ka khulasa text ka kaam hai."
   },
   "D1-108": {
     "q": "Ek media company apni video library mein is bunyad par talash karna chahti hai ke har scene mein kya bola gaya aur kya dikhaya gaya. Kaunsa tareeqa sab se munasib hai?",
@@ -94,12 +94,12 @@
   "D1-114": {
     "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Key phrase extraction text ke asal mauzu deta hai.",
-      "Named entity recognition batata hai ke text positive hai ya negative.",
       "Language detection confidence score ke saath zaban batata hai.",
-      "Abstractive summarization sirf asal text ke jumlay copy karta hai."
+      "Abstractive summarization asal text ke jumlay copy kar ke khulasa banata hai.",
+      "Key phrase extraction text ke asal mauzu deta hai.",
+      "Named entity recognition bata sakta hai ke text positive hai ya negative."
     ],
-    "exp": "Pehle ka jawab Haan: key phrases baat ke asal nuqtay hote hain. Doosre ka Nahi: raye sentiment analysis se naapi jati hai; entity recognition log, jaghein aur aisi cheezein label karta hai. Teesre ka Haan: language detection pehchani hui zaban aur score deta hai. Chauthe ka Nahi: abstractive summarization naye jumlay likhta hai; jumlay copy karna extractive summarization hai."
+    "exp": "Pehle ka jawab Haan: language detection pehchani hui zaban aur score deta hai. Doosre ka Nahi: abstractive summarization naye jumlay likhta hai; jumlay copy karna extractive summarization hai. Teesre ka Haan: key phrases baat ke asal nuqtay hote hain. Chauthe ka Nahi: raye sentiment analysis se naapi jati hai; entity recognition log, jaghein aur aisi cheezein label karta hai."
   },
   "D1-115": {
     "q": "Har zaroorat ko text analysis technique se milayein. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -122,8 +122,8 @@
     "exp": "Language service ka sentiment analysis isi kaam ke liye bana feature hai jo har baar wahi labels aur confidence scores deta hai, jo zyada tadad mein ek jaisi classification ke liye munasib hai. Bara reasoning model bhi sentiment classify kar sakta hai, lekin free-form prompts sust hote hain, har item par zyada kharcha karte hain aur output ek jaisa rakhne ke liye izafi mehnat maangte hain. Speech translation aur image tags review text ka jaiza nahi lete."
   },
   "D1-117": {
-    "q": "Kaunsi DO text analysis techniques hain? Har sahi jawab mukammal hal hai.",
-    "exp": "Key phrase extraction aur named entity recognition dono likhe hue text par kaam kar ke mauzu aur entities dhoondte hain, is liye yeh text analysis techniques hain. Object detection aur image captioning images ka jaiza lete hain, aur speech synthesis text se audio banata hai, is liye yeh doosri workloads ka hissa hain."
+    "q": "Kaunsi TEEN text analysis techniques hain? Har sahi jawab mukammal hal hai.",
+    "exp": "Key phrase extraction, named entity recognition aur sentiment analysis, teenon likhe hue text ka jaiza lete hain. Object detection images par kaam karta hai, aur speech synthesis text ka jaiza lene ke bajaye usay audio mein badalta hai."
   },
   "D1-118": {
     "q": "Ek review mein likha hai: 'The battery is great but the screen scratches easily.' Jumlay mukammal karein.",
@@ -166,10 +166,10 @@
     "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Text to speech sirf ek robot jaisi awaaz bana sakta hai.",
-      "Speech to text microphone ki audio ko real time mein likh sakta hai.",
-      "Speech translation boli hui audio ko doosri zaban ke text mein badal sakta hai."
+      "Speech to text record ki hui files istemal kar sakta hai, jab ke microphone ki live audio ke liye alag service chahiye.",
+      "Speech translation boli hui audio ko doosri zaban ke text mein badalti hai."
     ],
-    "exp": "Pehle ka jawab Nahi: text to speech bohat si zabanon aur andaz mein kai qudrati neural voices deta hai. Doosre ka Haan: real-time speech to text live audio likhta hai, maslan microphone se. Teesre ka Haan: speech translation speech pehchan kar translated text deta hai, aur translated speech bhi bana sakta hai."
+    "exp": "Pehle ka jawab Nahi: text to speech bohat si zabanon aur andaz mein kai qudrati neural voices deta hai. Doosre ka Nahi: real-time speech to text live audio, maslan microphone se, ko text mein likhta hai. Teesre ka Haan: speech translation speech pehchan kar translated text deta hai, aur translated speech bhi bana sakta hai."
   },
   "D1-126": {
     "q": "Har zaroorat ko Speech feature se milayein. Har feature ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -182,9 +182,15 @@
     "exp": "Kahani parh kar sunana text to speech hai. Talaffuz ko score dena pronunciation assessment hai. Subtitles speech to text transcription se aate hain. Do speakers ko alag karna speaker diarization hai. Image captioning tasveeron ko bayan karta hai aur Speech feature nahi, is liye kisi se nahi milta."
   },
   "D1-127": {
-    "q": "Kaunse DO features speech synthesis (text to speech) ka hissa hain? Har sahi jawab mukammal hal hai.",
-    "opts": [null, "Bohat si zabanon mein neural voices", null, "SSML se pitch, raftar aur waqfon ka control", null],
-    "exp": "Text to speech bohat si zabanon mein neural voices deta hai, aur SSML se aap control karte hain ke woh awaazein kaise bolein, jaise pitch, raftar aur waqfay. Diarization, batch transcription aur keyword recognition sab aane wali audio par kaam karte hain, is liye woh speech synthesis ke nahi balke speech recognition ke features hain."
+    "q": "Kaunse TEEN features speech synthesis (text to speech) ka hissa hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      null,
+      "Bohat si zabanon mein neural voices",
+      null,
+      "SSML se pitch, raftar aur waqfon ka control",
+      "Manzoori ke saath brand ki custom voice"
+    ],
+    "exp": "Neural voices, SSML control aur custom voice, teenon text to speech ki banayi audio ki shakal tay karte hain; custom voice Limited Access feature hai jis ke liye manzoori chahiye. Speaker diarization aur batch transcription record ki hui speech par kaam karte hain, is liye woh speech recognition ka hissa hain."
   },
   "D1-128": {
     "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
@@ -220,12 +226,12 @@
   "D1-134": {
     "q": "Image-generation models ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Image-generation models illustrations ke saath asli tasveer jaisi images bhi banate hain.",
       "Jo prompt subject, style aur mahaul bayan kare woh aam taur par mubham prompt se behtar nateeja deta hai.",
-      "Image-generation models asal photo jaisi tasveerein bhi bana sakte hain aur illustrations bhi.",
       "Bani hui tasveerein ghalat spelling wale text ya izafi ungliyon jaisi ghaltiyon se pak hone ki guarantee ke saath aati hain.",
-      "Content filters aise image prompts block kar sakte hain jo nuqsan deh content maangte hain."
+      "Content filters un image prompts ko block karte hain jo nuqsan deh content maangein."
     ],
-    "exp": "Pehle ka jawab Haan: tafseeli prompt model ko matlooba tasveer ki taraf le jata hai. Doosre ka Haan: yeh models photos se le kar drawings tak bohat se andaz bana sakte hain. Teesre ka Nahi: bani hui tasveeron mein bigra hua text ya ghalat jism jaisi ghaltiyan ho sakti hain, is liye unhein review karna chahiye. Chauthe ka Haan: image deployments prompts aur outputs dono par content filters lagati hain."
+    "exp": "Pehle ka jawab Haan: yeh models photos se le kar drawings tak bohat se andaz bana sakte hain. Doosre ka Haan: tafseeli prompt model ko matlooba tasveer ki taraf le jata hai. Teesre ka Nahi: bani hui tasveeron mein bigra hua text ya ghalat jism jaisi ghaltiyan ho sakti hain, is liye unhein review karna chahiye. Chauthe ka Haan: image deployments prompts aur outputs dono par content filters lagati hain."
   },
   "D1-135": {
     "q": "Har maloomat ko us technique se milayein jo usay nikalti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",

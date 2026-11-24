@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fairness } from './fairness.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = join(root, 'src', 'app', 'data');
@@ -74,8 +75,6 @@ const POSITION = /\b(first|second|third|fourth|fifth|last) (option|choice|prompt
 const seenIds = new Set();
 const seenStems = new Map();
 const mcqPos = [];
-let yesCount = 0;
-let yesNoTotal = 0;
 
 for (const q of questions) {
   const id = q.id ?? `(no id in ${q._file})`;
@@ -118,9 +117,6 @@ for (const q of questions) {
       if (!isStrList(q.stmts, 2) || q.stmts.length > 4) err(id, 'yesno needs 2-4 statements');
       else if (!Array.isArray(q.ans) || q.ans.length !== q.stmts.length || !q.ans.every((a) => typeof a === 'boolean')) {
         err(id, 'yesno ans must be one boolean per statement');
-      } else {
-        yesNoTotal += q.ans.length;
-        yesCount += q.ans.filter(Boolean).length;
       }
       break;
     case 'order':
@@ -179,19 +175,11 @@ if (matches.length >= 8) {
   const identity = matches.filter((q) => q.ans.every((a, i) => a === i)).length / matches.length;
   if (identity > 0.25) err('balance', `${Math.round(identity * 100)}% of match questions map item 1 to target 1, 2 to 2 ... (max 25%)`);
 }
-const yesnos = questions.filter((q) => q.type === 'yesno' && Array.isArray(q.ans));
-if (yesnos.length >= 10) {
-  const patterns = new Map();
-  for (const q of yesnos) {
-    const key = q.ans.map((a) => (a ? 'Y' : 'N')).join('');
-    patterns.set(key, (patterns.get(key) ?? 0) + 1);
-  }
-  const [top, n] = [...patterns].sort((a, b) => b[1] - a[1])[0];
-  if (n / yesnos.length > 0.5) warn('balance', `${Math.round((n / yesnos.length) * 100)}% of Yes/No sets use the pattern ${top}`);
-}
-if (yesNoTotal >= 20) {
-  const yes = yesCount / yesNoTotal;
-  if (yes < 0.3 || yes > 0.7) warn('balance', `${Math.round(yes * 100)}% of Yes/No statements are Yes (aim for 40-60%)`);
+// ---- Fairness: clues that give answers away ----------------------------------------------------
+const fair = fairness(questions.filter((q) => !errors.some((e) => e.startsWith(`${q.id}:`))));
+for (const { name, value, min = 0, max } of fair.measures) {
+  const limit = min ? `${Math.round(min * 100)}-${Math.round(max * 100)}%` : `at most ${Math.round(max * 100)}%`;
+  if (value > max || value < min) err('fairness', `${name}: ${Math.round(value * 100)}% (${limit})`);
 }
 
 // ---- Roman Urdu overlays --------------------------------------------------------------------
@@ -310,6 +298,13 @@ if (mcqPos.length) {
   for (const { pos } of mcqPos) counts[pos]++;
   console.log(`MCQ answer positions: ${counts.slice(0, 5).map((c, i) => `${'ABCDE'[i]} ${c}`).join(', ')}`);
 }
+
+console.log('\nFairness (share of questions or statements)');
+for (const { name, value, min, max } of fair.measures) {
+  const limit = min ? `${Math.round(min * 100)}-${Math.round(max * 100)}%` : `max ${Math.round(max * 100)}%`;
+  console.log(`  ${name.padEnd(42)} ${String(Math.round(value * 100)).padStart(3)}%  (${limit})`);
+}
+console.log(`  Exam score from test-taking tricks alone: about ${fair.score} / 1000`);
 
 if (warnings.length) {
   console.log(`\n${warnings.length} warning(s):`);

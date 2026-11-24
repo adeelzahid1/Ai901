@@ -30,12 +30,12 @@
     "id": "D1-332", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Agentic AI runs from start to finish without a way to pause for a person's approval.",
       "Translating the text of a document is a computer vision workload.",
-      "A single solution can combine several AI workloads.",
-      "Agentic AI can include steps that wait for a person's approval."
+      "A single solution can combine several AI workloads."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: translating text is a language task; computer vision is only needed if the text must first be read from an image. Yes for the second: many apps combine vision, speech, language and generative AI. Yes for the third: agents can pause for human approval before sensitive actions.",
+    "ans": [false, false, true],
+    "exp": "No for the first: agents can pause for human approval before sensitive actions. No for the second: translating text is a language task; computer vision is only needed if the text must first be read from an image. Yes for the third: many apps combine vision, speech, language and generative AI.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {
@@ -117,12 +117,12 @@
     "id": "D1-339", "sub": "text-techniques", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Language detection can tell you the main topics of a text.",
       "Text analysis can help route support tickets automatically.",
-      "Language detection tells you the main topics of a text.",
       "Summarization can be extractive or abstractive."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: language, topics and sentiment can drive automatic routing. No for the second: language detection only identifies the language; topics come from key phrase extraction. Yes for the third: extractive summaries reuse original sentences, while abstractive summaries write new ones.",
+    "ans": [false, true, true],
+    "exp": "No for the first: language detection only identifies the language; topics come from key phrase extraction. Yes for the second: language, topics and sentiment can drive automatic routing. Yes for the third: extractive summaries reuse original sentences, while abstractive summaries write new ones.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -185,12 +185,12 @@
     "id": "D1-345", "sub": "speech-features", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Text-to-speech voices can speak at only one fixed speed.",
-      "Speech to text can transcribe audio files as well as live audio.",
-      "Speech translation can produce translated text and translated speech."
+      "Speech to text transcribes audio files as well as live audio.",
+      "Speech translation produces translated text and translated speech.",
+      "Text-to-speech voices are not limited to only one fixed speed."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: SSML prosody settings can make voices speak faster or slower. Yes for the second: real-time and batch transcription cover live audio and recordings. Yes for the third: speech translation returns translated text and can also synthesize it as audio.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: real-time and batch transcription cover live audio and recordings. Yes for the second: speech translation returns translated text and can also synthesize it as audio. Yes for the third: SSML prosody settings can make voices speak faster or slower.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
   },
   {
@@ -244,12 +244,12 @@
     "id": "D1-350", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about image generation, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "An image-generation model can produce different images for the same prompt.",
-      "An AI-generated image is always free of copyright or brand concerns.",
-      "You can describe the art style you want in the prompt."
+      "You can describe the art style you want in the prompt.",
+      "The same prompt can give different images because generation involves randomness.",
+      "An AI-generated image is free of copyright and brand concerns because no person drew it."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: generation involves randomness, so repeated prompts give different results. No for the second: generated images can still resemble protected content or brands, so they should be reviewed before commercial use. Yes for the third: style words, such as watercolor or photorealistic, guide the output.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: style words, such as watercolor or photorealistic, guide the output. Yes for the second: generation involves randomness, so repeated prompts give different results. No for the third: generated images can still resemble protected content or brands, so they should be reviewed before commercial use.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
@@ -323,12 +323,12 @@
     "id": "D1-356", "sub": "extraction-techniques", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about information extraction, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "OCR is often the first step when extracting fields from scanned documents.",
-      "Information extraction always requires users to type the values again.",
+      "OCR is needed before fields can be extracted from a plain text email.",
+      "Information extraction asks users to type the values into a form again.",
       "Extracting information from audio usually starts by transcribing the speech."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: scanned pages must be read as text before fields can be found. No for the second: the purpose of extraction is to avoid manual re-typing. Yes for the third: a transcript turns speech into text that fields such as summaries can be generated from.",
+    "ans": [false, false, true],
+    "exp": "No for the first: OCR reads text from scans and images; plain text can be analyzed directly. No for the second: the purpose of extraction is to avoid manual re-typing. Yes for the third: a transcript turns speech into text that fields such as summaries can be generated from.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   }
 ]

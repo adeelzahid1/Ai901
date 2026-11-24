@@ -25,12 +25,12 @@
     "id": "D2-314", "sub": "prompts", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A zero-shot prompt includes several worked examples.",
       "Few-shot examples use tokens in every request that includes them.",
-      "One system message can combine a persona, rules and an output format."
+      "One system message can combine a persona, rules and an output format.",
+      "A zero-shot prompt includes several worked examples."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: zero-shot means instructions without examples; examples make it few-shot. Yes for the second: examples are part of the prompt, so they are counted and billed every time. Yes for the third: system messages commonly define who the assistant is, what it may do and how it should format answers.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: examples are part of the prompt, so they are counted and billed every time. Yes for the second: system messages commonly define who the assistant is, what it may do and how it should format answers. No for the third: zero-shot means instructions without examples; examples make it few-shot.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -74,16 +74,16 @@
   },
   {
     "id": "D2-318", "sub": "prompts", "diff": 2, "type": "multi",
-    "q": "Which TWO are good practices for writing a system message? Each correct answer presents a complete solution.",
+    "q": "Which THREE are good practices for writing a system message? Each correct answer presents a complete solution.",
     "opts": [
       "Include instructions that contradict each other",
       "Be specific about what the assistant should and should not do",
       "Leave the system message empty",
       "Define the output format you expect",
-      "Put secrets, such as passwords, in the system message"
+      "Say what to do when the answer is unknown"
     ],
-    "ans": [1, 3],
-    "exp": "Clear boundaries and a defined output format make responses more predictable and useful. Contradictory instructions confuse the model, an empty system message gives no guidance, and secrets must never be placed in prompts because they can be revealed.",
+    "ans": [1, 3, 4],
+    "exp": "Specific rules, a defined output format and guidance for unknown answers make responses consistent and reduce made-up content. Contradicting instructions confuse the model, and an empty system message gives no guidance at all.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
@@ -143,12 +143,12 @@
     "id": "D2-323", "sub": "portal-deploy", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about Microsoft Foundry, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "You can apply a custom content filter to one deployment without changing the others.",
       "Only subscription owners can use the chat playground.",
-      "Evaluations can use AI-assisted evaluators to score responses."
+      "You can apply a custom content filter to one deployment without changing the others.",
+      "Evaluations measure response speed and leave quality to manual review."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: content filter configurations are assigned per deployment. No for the second: users with suitable roles on the project, such as Foundry User (formerly Azure AI User), can test models in the playground. Yes for the third: AI-assisted evaluators use a model to judge qualities such as relevance and groundedness.",
+    "ans": [false, true, false],
+    "exp": "No for the first: users with suitable roles on the project, such as Foundry User (formerly Azure AI User), can test models in the playground. Yes for the second: content filter configurations are assigned per deployment. No for the third: AI-assisted evaluators use a model to judge qualities such as relevance and groundedness.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
@@ -269,12 +269,12 @@
     "id": "D2-333", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about a Python chat client, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "You must create a new AIProjectClient for every message.",
       "The client can stream responses so the app shows text as it arrives.",
-      "One project client can be reused for many requests."
+      "You must create a new AIProjectClient for every message.",
+      "One project client can be reused for all requests in the app."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: creating clients repeatedly is wasteful; you create them once and reuse them. Yes for the second: streaming returns chunks while the model is still generating. Yes for the third: the project client and the OpenAI client it returns are designed to be reused.",
+    "ans": [true, false, true],
+    "exp": "Yes for the first: streaming returns chunks while the model is still generating. No for the second: creating clients repeatedly is wasteful; you create them once and reuse them. Yes for the third: the project client and the OpenAI client it returns are designed to be reused.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {
@@ -299,16 +299,16 @@
   },
   {
     "id": "D2-335", "sub": "sdk-chat-client", "diff": 1, "type": "multi",
-    "q": "Which TWO practices make a chat client's code easier to maintain? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices make a chat client's code easier to maintain? Each correct answer presents a complete solution.",
     "opts": [
       "Copy the endpoint into every source file",
       "Read the endpoint and deployment name from configuration",
       "Hard-code passwords in the code",
       "Keep the system message in one place that you can update",
-      "Ignore errors from the service"
+      "Create the project client once and reuse it"
     ],
-    "ans": [1, 3],
-    "exp": "Configuration values and a single system message location let you change environments and behavior without hunting through code. Copying values everywhere causes inconsistencies, hard-coded passwords are insecure, and ignoring errors hides problems.",
+    "ans": [1, 3, 4],
+    "exp": "Configuration, one place for the system message and one shared client mean that each change is made once. Copying the endpoint into every file multiplies the work, and hard-coded passwords are also a security risk.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {

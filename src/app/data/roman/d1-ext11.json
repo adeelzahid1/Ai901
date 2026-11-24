@@ -23,11 +23,11 @@
   "D1-332": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Agentic AI shuru se aakhir tak chalta hai aur insani manzoori ke liye rukne ka koi tareeqa nahi.",
       "Document ka text translate karna computer vision workload hai.",
-      "Ek solution kai AI workloads ko jor sakta hai.",
-      "Agentic AI mein aise qadam ho sakte hain jo insan ki manzoori ka intezar karein."
+      "Ek solution kai AI workloads ko jor sakta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: text translate karna zaban ka kaam hai; computer vision sirf tab chahiye jab text pehle tasveer se parhna ho. Doosre ka Haan: bohat si apps vision, speech, language aur generative AI ko jorti hain. Teesre ka Haan: agents hassas amal se pehle insani manzoori ke liye ruk sakte hain."
+    "exp": "Pehle ka jawab Nahi: agents hassas amal se pehle insani manzoori ke liye ruk sakte hain. Doosre ka Nahi: text translate karna zaban ka kaam hai; computer vision sirf tab chahiye jab text pehle tasveer se parhna ho. Teesre ka Haan: bohat si apps vision, speech, language aur generative AI ko jorti hain."
   },
   "D1-333": {
     "q": "Har scenario ko us AI workload se milayein jo woh istemal karta hai. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -83,11 +83,11 @@
   "D1-339": {
     "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Language detection text ke asal mauzuaat bata sakta hai.",
       "Text analysis support tickets ko khud sahi jagah bhejne mein madad kar sakta hai.",
-      "Language detection text ke asal mauzu batata hai.",
       "Summarization extractive ya abstractive ho sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: zaban, mauzu aur sentiment se khud-kaar routing ho sakti hai. Doosre ka Nahi: language detection sirf zaban batata hai; mauzu key phrase extraction se aate hain. Teesre ka Haan: extractive khulase asal jumlay istemal karte hain, jab ke abstractive khulase naye jumlay likhte hain."
+    "exp": "Pehle ka jawab Nahi: language detection sirf zaban batata hai; mauzu key phrase extraction se aate hain. Doosre ka Haan: zaban, mauzu aur sentiment se khud-kaar routing ho sakti hai. Teesre ka Haan: extractive khulase asal jumlay istemal karte hain, jab ke abstractive khulase naye jumlay likhte hain."
   },
   "D1-340": {
     "q": "Har input ko us text analysis technique se milayein jo sab se kaar-aamad hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -128,11 +128,11 @@
   "D1-345": {
     "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Text-to-speech voices sirf ek muqarrar raftar se bol sakti hain.",
-      "Speech to text live audio ke saath audio files bhi likh sakta hai.",
-      "Speech translation translated text aur translated speech dono bana sakta hai."
+      "Speech to text live audio ke saath audio files bhi text mein likhta hai.",
+      "Speech translation tarjuma shuda text aur tarjuma shuda speech dono deti hai.",
+      "Text-to-speech ki awaazein sirf ek tay raftaar tak mehdood nahi."
     ],
-    "exp": "Pehle ka jawab Nahi: SSML ki prosody settings se awaazein tez ya aahista bol sakti hain. Doosre ka Haan: real-time aur batch transcription live audio aur recordings dono ke liye hain. Teesre ka Haan: speech translation translated text deta hai aur usay audio bhi bana sakta hai."
+    "exp": "Pehle ka jawab Haan: real-time aur batch transcription live audio aur recordings dono ke liye hain. Doosre ka Haan: speech translation translated text deta hai aur usay audio bhi bana sakta hai. Teesre ka Haan: SSML ki prosody settings awaazon ko tez ya aahista bolne de sakti hain."
   },
   "D1-346": {
     "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
@@ -167,11 +167,11 @@
   "D1-350": {
     "q": "Image generation ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Image-generation model ek hi prompt ke liye mukhtalif tasveerein bana sakta hai.",
-      "AI ki banayi tasveer hamesha copyright ya brand ke masail se pak hoti hai.",
-      "Aap prompt mein apni pasand ka art style bayan kar sakte hain."
+      "Aap prompt mein apni pasand ka art style bayan kar sakte hain.",
+      "Ek hi prompt se mukhtalif images ban sakti hain kyunke banane mein randomness hoti hai.",
+      "AI ki bani image copyright aur brand ke masail se paak hai kyunke kisi insan ne nahi banayi."
     ],
-    "exp": "Pehle ka jawab Haan: generation mein randomness hoti hai, is liye wahi prompt dohrane par mukhtalif nateeje milte hain. Doosre ka Nahi: bani hui tasveerein phir bhi mehfooz content ya brands se mil sakti hain, is liye karobari istemal se pehle review zaroori hai. Teesre ka Haan: style ke alfaz, jaise watercolor ya photorealistic, output ki rahnumai karte hain."
+    "exp": "Pehle ka jawab Haan: style ke alfaz, jaise watercolor ya photorealistic, output ki rahnumai karte hain. Doosre ka Haan: generation mein randomness hoti hai, is liye wahi prompt dohrane par mukhtalif nateeje milte hain. Teesre ka Nahi: bani hui tasveerein phir bhi mehfooz content ya brands se mil sakti hain, is liye karobari istemal se pehle review zaroori hai."
   },
   "D1-351": {
     "q": "Parinde ki photo ke baare mein har sawal ko us computer vision technique se milayein jo us ka jawab deti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -223,10 +223,10 @@
   "D1-356": {
     "q": "Information extraction ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Scan kiye hue documents se fields nikalne mein OCR aksar pehla qadam hota hai.",
-      "Information extraction mein users ko values hamesha dobara type karni parti hain.",
+      "Saadi text email se fields nikalne se pehle OCR zaroori hai.",
+      "Information extraction users se values dobara form mein type karwata hai.",
       "Audio se maloomat nikalna aam taur par speech likhne (transcribe) se shuru hota hai."
     ],
-    "exp": "Pehle ka jawab Haan: fields dhoondne se pehle scan kiye hue pages ko text ki soorat mein parhna zaroori hai. Doosre ka Nahi: extraction ka maqsad hi haath se dobara type karne se bachna hai. Teesre ka Haan: transcript speech ko text banata hai jis se summary jaise fields bante hain."
+    "exp": "Pehle ka jawab Nahi: OCR scans aur images se text parhta hai; saade text ka seedha jaiza liya ja sakta hai. Doosre ka Nahi: extraction ka maqsad hi haath se dobara type karne se bachna hai. Teesre ka Haan: transcript speech ko text banata hai jis se summary jaise fields bante hain."
   }
 }

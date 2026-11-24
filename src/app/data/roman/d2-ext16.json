@@ -23,11 +23,11 @@
   "D2-484": {
     "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Prompt model ko bata sakta hai ke yaqeen na hone par kya kare.",
       "Achhe prompt ko asal kaam mubham rakhna chahiye.",
-      "Parhne wale batane se jawabon ki mushkil ka darja badal sakta hai."
+      "Parhne wale batane se jawabon ki mushkil ka darja badalta hai.",
+      "Prompt model ko bata sakta hai ke yaqeen na hone par kya kare."
     ],
-    "exp": "Pehle ka jawab Haan: maslan model se kehna ke wazahat ka sawal poochhe ya kahe ke usay nahi pata. Doosre ka Nahi: wazeh kaam prompt ke sab se ahem hisson mein se hai. Teesre ka Haan: bachon ke liye aur mahireen ke liye likhne se bohat mukhtalif jawab milte hain."
+    "exp": "Pehle ka jawab Nahi: wazeh kaam prompt ke sab se ahem hisson mein se hai. Doosre ka Haan: bachon ke liye aur mahireen ke liye likhne se bohat mukhtalif jawab milte hain. Teesre ka Haan: maslan model se kehna ke wazahat ka sawal poochhe ya kahe ke usay nahi pata."
   },
   "D2-485": {
     "q": "Prompt ke har hisse ko us ki misaal se milayein. Har misaal ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -112,11 +112,11 @@
   "D2-493": {
     "q": "Microsoft Foundry mein evaluations ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Aap test dataset se deploy kiye hue model ke outputs evaluate kar sakte hain.",
       "Evaluation ke nateeje zyada khatre wale scenarios mein insani review ki zaroorat khatam kar dete hain.",
-      "Evaluators quality ke saath saath safety ke khatre bhi nap sakte hain."
+      "Evaluators quality ko score karte hain aur safety ke khatre content filters par chhorte hain.",
+      "Aap test dataset se deploy kiye hue model ke outputs evaluate kar sakte hain."
     ],
-    "exp": "Pehle ka jawab Haan: evaluations dataset ke inputs chala kar outputs ko score karti hain. Doosre ka Nahi: khudkar scores madad dete hain lekin jahan faislon ka sangeen asar ho wahan insani nigrani ki jagah nahi lete. Teesre ka Haan: quality evaluators bhi hain aur risk aur safety evaluators bhi."
+    "exp": "Pehle ka jawab Nahi: khudkar scores madad dete hain lekin jahan faislon ka sangeen asar ho wahan insani nigrani ki jagah nahi lete. Doosre ka Nahi: quality evaluators bhi hain aur risk aur safety evaluators bhi. Teesre ka Haan: evaluations dataset ke inputs chala kar outputs ko score karti hain."
   },
   "D2-494": {
     "q": "Har evaluator ko us cheez se milayein jo woh napta hai. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -135,15 +135,15 @@
     "exp": "Throughput tokens-per-minute allocation se tay hoti hai, aur block karne ke usool deployment par lagi content filter configuration se aate hain. Context window model ki had hai, temperature request ki setting hai, aur system message aur region filtering ki hadein tay nahi karte."
   },
   "D2-496": {
-    "q": "Foundry portal mein model deployment ki kaunsi DO tafseelaat dekh sakte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Foundry portal mein model deployment ki kaunsi TEEN tafseelaat dekh sakte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Model ka naam aur version",
       "Model ke training data ki files",
       "Model ka source code",
       "Deployment type",
-      "Doosre customers ke prompts"
+      "Tokens-per-minute ki allocation"
     ],
-    "exp": "Deployment ki tafseelaat mein hota hai ke woh kaunsa model aur version chalati hai aur us ka deployment type, quota jaisi settings ke saath. Training data aur source code model provider ke hain, aur doosre customers ke prompts aap ko kabhi nazar nahi aate."
+    "exp": "Deployment ki tafseelaat mein model aur version, deployment type aur tokens-per-minute allocation nazar aate hain. Training data ki files aur source code model provider ke hain aur customers ko nahi dikhaye jate."
   },
   "D2-497": {
     "q": "Ek team ek hi model ki do deployments banati hai: ek production ke liye sakht content filter ke saath aur ek andruni testing ke liye. Ye achha tareeqa kyun hai?",
@@ -194,10 +194,10 @@
     "q": "Python chat client ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Python chat client terminal window mein chal sakta hai.",
-      "Model call karne ke liye web browser istemal karna lazmi hai.",
+      "Model ko kisi bhi aise program se call kiya ja sakta hai jo HTTPS requests bhej sake.",
       "Client loop chala sakta hai taake user kai sawal pooch sake."
     ],
-    "exp": "Pehle ka jawab Haan: saadi console app ek aam halka client hai. Doosre ka Nahi: models ko HTTPS par kisi bhi program se call kiya jata hai, sirf browsers se nahi. Teesre ka Haan: loop har sawal parh kar bhejta hai, aksar conversation history ke saath."
+    "exp": "Pehle ka jawab Haan: saadi console app ek aam halka client hai. Doosre ka Haan: models ko HTTPS par kisi bhi program se call kiya jata hai, sirf browsers se nahi. Teesre ka Haan: loop har sawal parh kar bhejta hai, aksar conversation history ke saath."
   },
   "D2-503": {
     "q": "Quickstart code mein har variable ko us cheez se milayein jo us mein hai. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",

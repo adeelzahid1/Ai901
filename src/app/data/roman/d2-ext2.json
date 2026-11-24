@@ -36,12 +36,12 @@
   "D2-075": {
     "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "System message mein wazeh aur makhsoos hidayaat aam taur par jawabon ko zyada ek jaisa banati hain.",
-      "Aap model ko keh sakte hain ke jab di gayi maloomat mein jawab na ho to 'I don't know' kahe.",
+      "Few-shot misaalon ka format wahi hona chahiye jo aap output mein chahte hain.",
       "Lamba prompt hamesha chhote prompt se behtar jawab deta hai.",
-      "Few-shot misaalon ka format wahi hona chahiye jo aap output mein chahte hain."
+      "Mubham hidayaat model ko zyada azaadi deti hain aur aam taur par jawab zyada yaksan banati hain.",
+      "Aap model ko keh sakte hain ke jab di gayi maloomat mein jawab na ho to 'I don't know' kahe."
     ],
-    "exp": "Pehle ka jawab Haan: makhsoos hidayaat andaze ki gunjaish khatam karti hain. Doosre ka Haan: yeh hidayat ghare hue jawab kam karne ka aam tareeqa hai. Teesre ka Nahi: ghair mutalliqa ya mubham izafi text model ko bhatka sakta hai aur zyada tokens kharch karta hai; asal cheez wazahat aur mutalliqa context hai. Chauthe ka Haan: model misaalon ka pattern apnata hai, is liye woh matlooba format mein honi chahiye."
+    "exp": "Pehle ka jawab Haan: model misaalon ka pattern apnata hai, is liye woh matlooba format mein honi chahiye. Doosre ka Nahi: ghair mutalliqa ya mubham izafi text model ko bhatka sakta hai aur zyada tokens kharch karta hai; asal cheez wazahat aur mutalliqa context hai. Teesre ka Nahi: wazeh aur khaas hidayaat andaze khatam karti hain, aur isi se jawab yaksan hote hain. Chauthe ka Haan: yeh hidayat ghare hue jawab kam karne ka aam tareeqa hai."
   },
   "D2-076": {
     "q": "Prompt ki har line ko us technique se milayein jo woh istemal karti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -117,11 +117,11 @@
   "D2-085": {
     "q": "Foundry portal mein model test karne ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Playground mein system message badalne se model ke weights dobara train hote hain.",
       "Playground mein aap dekh sakte hain ke parameters ki mukhtalif values jawabon ko kaise badalti hain.",
-      "Content filters prompt aur bane hue completion dono ko check karte hain."
+      "Content filters bana hua jawab check karte hain aur prompt chhor dete hain.",
+      "Playground mein system message badalne se model ke weights dobara train ho sakte hain."
     ],
-    "exp": "Pehle ka jawab Nahi: system message har request ka hissa hai aur chalte waqt model ki rahnumai karta hai; woh model ke weights nahi badalta, jo sirf training ya fine-tuning badalti hai. Doosre ka Haan: aap temperature jaisi settings badal kar asar foran dekh sakte hain. Teesre ka Haan: filtering input prompt aur output dono par chalti hai."
+    "exp": "Pehle ka jawab Haan: aap temperature jaisi settings badal kar asar foran dekh sakte hain. Doosre ka Nahi: filtering input prompt aur output dono par chalti hai. Teesre ka Nahi: system message har request ka hissa hai aur chalte waqt model ki rahnumai karta hai; woh model ke weights nahi badalta, jo sirf training ya fine-tuning badalti hai."
   },
   "D2-086": {
     "q": "Har kaam ko Microsoft Foundry ke us hisse se milayein jahan woh hota hai. Har hissa ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -189,12 +189,12 @@
   "D2-095": {
     "q": "Python chat client ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "DefaultAzureCredential istemal karte waqt API key bhi deni lazmi hai.",
-      "Chat Completions API ke saath guftagu ka context rakhne ke liye app ko pichle messages bhejne hote hain.",
-      "output_text us nateeje ki property hai jo responses.create() deta hai.",
-      "model parameter mein aap ki deployment ka naam aata hai."
+      "output_text chat.completions.create() ke nateeje ki property hai.",
+      "DefaultAzureCredential us API key ke saath kaam karta hai jo aap client ko dete hain.",
+      "model parameter mein aap ki deployment ka naam aata hai.",
+      "Chat Completions API ke saath guftagu ka context rakhne ke liye app ko pichle messages bhejne hote hain."
     ],
-    "exp": "Pehle ka jawab Nahi: DefaultAzureCredential Microsoft Entra ID tokens istemal karta hai, is liye API key nahi chahiye. Doosre ka Haan: chat completions stateless hain, is liye history har baar bhejni hoti hai. Teesre ka Haan: Responses API ka nateeja bana hua text output_text mein deta hai. Chauthe ka Haan: requests deployment ko us ke naam se jati hain."
+    "exp": "Pehle ka jawab Nahi: output_text Responses API ke nateeje ki property hai; Chat Completions text choices[0].message.content mein deta hai. Doosre ka Nahi: DefaultAzureCredential Microsoft Entra ID tokens istemal karta hai, is liye API key nahi chahiye. Teesre ka Haan: requests deployment ko us ke naam se jati hain. Chauthe ka Haan: chat completions stateless hain, is liye history har baar bhejni hoti hai."
   },
   "D2-096": {
     "q": "Chat app ko model ke banate hue hi jawab lafz ba lafz dikhana chahiye. Kaunsa request option istemal karna chahiye?",

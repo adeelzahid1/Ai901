@@ -8,10 +8,10 @@
     "q": "Reliability and safety ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Safety ka tareeqa content filters ko insani review ke saath jor sakta hai.",
-      "AI system ek baar deploy ho jaye to usay dobara check karne ki kabhi zaroorat nahi.",
-      "Testing mein aise inputs bhi hone chahiye jin ke liye system nahi bana tha."
+      "Testing mein aise inputs bhi hone chahiye jin ke liye system nahi bana tha.",
+      "AI system deploy ho jaye to us ka rawaiya wahi rehta hai, is liye checks band ho sakte hain."
     ],
-    "exp": "Pehle ka jawab Haan: kai tehon wali hifazat kisi ek control se zyada masail pakarti hai. Doosre ka Nahi: data, users aur models badalne se rawaiya badal sakta hai, is liye musalsal monitoring chahiye. Teesre ka Haan: achanak inputs dikhate hain ke system kitne mehfooz tareeqe se fail hota hai."
+    "exp": "Pehle ka jawab Haan: kai tehon wali hifazat kisi ek control se zyada masail pakarti hai. Doosre ka Haan: achanak inputs dikhate hain ke system kitne mehfooz tareeqe se fail hota hai. Teesre ka Nahi: data, users aur models badalne se rawaiya badal sakta hai, is liye musalsal monitoring chahiye."
   },
   "D1-413": {
     "q": "Microsoft generative AI solutions ke liye mitigation ki tehein (layers) bayan karta hai. Har iqdam ko us ki layer se milayein. Har layer ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -60,15 +60,15 @@
     "exp": "Yeh samjhana ke system kaise kaam karta hai aur kahan fail ho sakta hai logon ko usay samajhne aur us par munasib bharosa karne mein madad deta hai, yahi transparency hai. AI ka istemal chupana transparency ke khilaf hai, logs delete karna accountability ko nuqsan deta hai, aur model ke size ka is se taalluq nahi."
   },
   "D1-418": {
-    "q": "AI project mein kaunse DO tareeqay accountability dikhate hain? Har sahi jawab mukammal hal hai.",
+    "q": "AI project mein kaunse TEEN tareeqay accountability dikhate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Model khud faisla karta hai ke usay kab update kiya jaye",
       "System ka koi owner muqarrar nahi",
       "Ek muqarrar shakhs har release ki manzoori deta hai",
-      "Logs roz delete hote hain taake koi unhein check na kar sake",
+      "Audit logs rakhe jate hain taake faislon ka pata chal sake",
       "Waqiat (incidents) ka review hota hai aur sabaq likhe jate hain"
     ],
-    "exp": "Muqarrar shakhs ki manzoori aur waqiat ka review logon ko system ka jawabdeh rakhte hain aur usay waqt ke saath behtar karte hain. Model ko khud apna intizam dena, owner na hona aur logs mitana, sab accountability khatam karte hain."
+    "exp": "Muqarrar manzoori dene wala, waqiaat ka jaiza aur audit logs, teenon wazeh karte hain ke jawabdeh kaun hai aur logon ko dekhne dete hain ke kya hua. Jab system ka koi owner na ho ya model khud updates ka faisla kare to accountability nahi hoti."
   },
   "D1-419": {
     "q": "Generative AI mein completion kya hota hai?",
@@ -78,9 +78,9 @@
   "D1-420": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Language models aam zaban ke saath code bhi bana sakte hain.",
+      "Language models aam zaban ke saath code bhi banate hain.",
       "Generative model apni training ke har web page ki copy mehfooz rakhta aur wapas deta hai.",
-      "Prompt mein misaalein output ka andaz badal sakti hain."
+      "Prompt ki misaalein output ke style par asar dalti hain."
     ],
     "exp": "Pehle ka jawab Haan: bohat se models code acha likhte hain kyunke code un ke training data ka hissa tha. Doosre ka Nahi: models patterns seekhte hain aur mehfooz pages wapas dene ke bajaye naya text banate hain. Teesre ka Haan: few-shot misaalein lehje, format aur andaz ki rahnumai karti hain."
   },
@@ -108,11 +108,11 @@
   "D1-424": {
     "q": "Foundry model catalog ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Catalog mein kai providers ke models hain.",
       "Catalog ka har model har deployment type ko support karta hai.",
+      "Catalog mein kai providers ke models hain.",
       "Model cards istemal ke maqasid aur hudood bayan karte hain."
     ],
-    "exp": "Pehle ka jawab Haan: Microsoft, OpenAI aur doosre providers catalog mein models shaya karte hain. Doosre ka Nahi: dastiyab deployment types model aur region ke hisaab se mukhtalif hoti hain. Teesre ka Haan: model cards batate hain ke model kis liye hai aur us mein kahan kami hai."
+    "exp": "Pehle ka jawab Nahi: dastiyab deployment types model aur region ke hisaab se mukhtalif hoti hain. Doosre ka Haan: Microsoft, OpenAI aur doosre providers catalog mein models shaya karte hain. Teesre ka Haan: model cards batate hain ke model kis liye hai aur us mein kahan kami hai."
   },
   "D1-425": {
     "ctx": "Har raat ek job 500,000 support tickets classify karti hai. Nateeje agli subah tak chahiye, aur kharcha kam se kam hona chahiye.",
@@ -143,11 +143,11 @@
   "D1-429": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "API call kar ke passwords reset karne wala help desk agent agentic AI ki misaal hai.",
-      "Scan kiye hue contract ka text parhna speech workload hai.",
-      "Gaane ke bol likhna generative AI workload hai."
+      "Scan kiye hue contract ka text parhna computer vision workload hai.",
+      "Gaane ke bol likhna generative AI workload hai.",
+      "API call kar ke passwords reset karne wala help desk agent agentic AI ki misaal hai."
     ],
-    "exp": "Pehle ka jawab Haan: agent amal ka faisla karta hai aur us ke liye tool istemal karta hai. Doosre ka Nahi: scan kiya hua text parhna OCR hai, jo computer vision ka kaam hai. Teesre ka Haan: naye bol likhna content generation hai."
+    "exp": "Pehle ka jawab Haan: scan shuda text parhna OCR hai, jo computer vision ka kaam hai. Doosre ka Haan: naye bol likhna content generation hai. Teesre ka Haan: agent amal ka faisla karta hai aur us ke liye tool istemal karta hai."
   },
   "D1-430": {
     "q": "Har scenario ko us AI workload se milayein jise woh zahir karta hai. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -182,11 +182,11 @@
   "D1-434": {
     "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "PII detection naam aur pate dhoond sakta hai, jab ke credit card numbers ke liye custom model chahiye.",
       "Key phrase extraction text ke ahem alfaz aur phrases deta hai.",
-      "PII detection credit card numbers dhoond sakta hai.",
-      "Language detection ke liye audio input lazmi hai."
+      "Language detection text ke saath audio input bhi istemal kar sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: key phrases baat ke asal nuqtay hain. Doosre ka Haan: credit card numbers PII categories mein se ek hain. Teesre ka Nahi: language detection likhe hue text ka jaiza leta hai; boli hui zaban pehchanna Speech ka feature hai."
+    "exp": "Pehle ka jawab Nahi: credit card numbers PII ki categories mein se ek hain. Doosre ka Haan: key phrases baat ke asal nuqtay hain. Teesre ka Nahi: language detection likhe hue text ka jaiza leta hai; boli hui zaban pehchanna Speech ka feature hai."
   },
   "D1-435": {
     "q": "Har karobari zaroorat ko text analysis technique se milayein. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -198,15 +198,15 @@
     "exp": "Phone numbers chupana PII detection hai, zikr kiye gaye logon ke tag lagana named entity recognition, aur posts ko khush ya ghusse wali parakhna sentiment analysis. Speech synthesis audio banata hai aur text ka jaiza nahi leta."
   },
   "D1-436": {
-    "q": "Kaunse DO tareeqay text analysis ke nateejon ko zyada bharosemand banate hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN tareeqay text analysis ke nateejon ko zyada bharosemand banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Text ko tasveeron ki soorat mein bhejna",
       "Nateejon ki ghaltiyan nazar andaz karna",
       "Sahi zaban ka hint dena, khaas taur par chhote text ke liye",
-      "Har document se tamam punctuation hatana",
+      "Nateeja istemal karne se pehle har document ka error status dekhna",
       "Nateejon par amal se pehle confidence scores check karna"
     ],
-    "exp": "Zaban ka hint chhote text ki ghalat pehchan se bachata hai, aur confidence scores dikhate hain ke kaunse nateejon par bharosa karein aur kinhein review karein. Tasveerein bhejna, ghaltiyan nazar andaz karna aur punctuation hatana nateeje kharab karta ya masail chupata hai."
+    "exp": "Sahi language hint ghalat pehchan se bachata hai, confidence scores dikhate hain ke kaunse nateejon mein ehtiyat chahiye, aur har document ka status dekhne se nakaam nateeje istemal nahi hote. Text ko images ki soorat mein bhejne se OCR ki ghaltiyan barhti hain, aur errors nazar andaz karne se nakaamiyan chhup jati hain."
   },
   "D1-437": {
     "q": "Text to speech kis kaam ke liye istemal hota hai?",
@@ -221,11 +221,11 @@
   "D1-438": {
     "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Speech to text kisi ke bolte waqt real time mein text bana sakta hai.",
-      "Custom voice ko voice talent ki manzoori ya razamandi ke baghair istemal kiya ja sakta hai.",
-      "SSML control kar sakta hai ke khaas lafz ka talaffuz kaise ho."
+      "SSML awaaz ki raftaar control kar sakta hai lekin kisi khaas lafz ka talaffuz nahi.",
+      "Speech to text recording khatam hone ke baad text deta hai, bolne ke dauran nahi.",
+      "Custom voice ko voice talent ki manzoori ya razamandi ke baghair istemal kiya ja sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: real-time recognition logon ke bolte hi text deta hai. Doosre ka Nahi: custom voice (jise pehle custom neural voice kehte the) Limited Access feature hai jis ke liye manzoori aur record ki hui razamandi chahiye. Teesre ka Haan: phoneme jaise SSML elements talaffuz control karte hain."
+    "exp": "Pehle ka jawab Nahi: phoneme jaise SSML elements talaffuz control karte hain, aur prosody raftaar. Doosre ka Nahi: real-time recognition logon ke bolte hi text deta hai. Teesre ka Nahi: custom voice (jise pehle custom neural voice kehte the) Limited Access feature hai jis ke liye manzoori aur record ki hui razamandi chahiye."
   },
   "D1-439": {
     "q": "SSML ke baare mein jumlay mukammal karein.",
@@ -250,11 +250,11 @@
   "D1-442": {
     "q": "Computer vision aur image generation ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Face detection chehray dhoondta hai lekin yeh nahi batata ke log kaun hain.",
-      "OCR photo mein logon ke gird bounding boxes deta hai.",
-      "Bani hui tasveerein gumrah kar sakti hain, is liye istemal se pehle unhein review karna chahiye."
+      "Bani hui tasveerein gumrah kar sakti hain, is liye istemal se pehle unhein review karna chahiye.",
+      "Face detection tasveer mein har shakhs ka naam bata sakta hai.",
+      "OCR tasveer mein logon ke gird bounding boxes de sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: detection sirf chehron ki jagah batata hai; identification alag Limited Access capability hai. Doosre ka Nahi: OCR text aur us ki jagah deta hai; logon ke gird boxes people detection deta hai. Teesre ka Haan: bani hui tasveeron mein ghaltiyan ya dhoka dene wala content ho sakta hai."
+    "exp": "Pehle ka jawab Haan: bani hui tasveeron mein ghaltiyan ya dhoka dene wala content ho sakta hai. Doosre ka Nahi: detection sirf chehron ki jagah batata hai; pehchan (identification) alag Limited Access salahiyat hai. Teesre ka Nahi: OCR text aur us ki jagah deta hai; logon ke gird boxes people detection deta hai."
   },
   "D1-443": {
     "q": "Quality inspection ki har zaroorat ko computer vision technique se milayein. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",

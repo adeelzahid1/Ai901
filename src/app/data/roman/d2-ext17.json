@@ -18,10 +18,10 @@
     "q": "Agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Agent ki instructions usay bata sakti hain ke har tool kab istemal kare.",
-      "Agents sirf English mein jawab de sakte hain.",
-      "Aap Foundry portal mein agent ko follow-up sawalon se test kar sakte hain."
+      "Foundry portal mein agent ka har test ek sawal hota hai, follow-up sawalon ke baghair.",
+      "Agents sirf English mein jawab de sakte hain."
     ],
-    "exp": "Pehle ka jawab Haan: 'policy ke sawalon ke liye file search istemal karo' jaisi rahnumai tool chunne mein madad deti hai. Doosre ka Nahi: agents un zabanon mein jawab dete hain jo un ka model support karta hai. Teesre ka Haan: portal ki chat conversation yaad rakhti hai, is liye follow-up sawal test ho sakte hain."
+    "exp": "Pehle ka jawab Haan: 'policy ke sawalon ke liye file search istemal karo' jaisi rahnumai tool chunne mein madad deti hai. Doosre ka Nahi: portal ki chat conversation yaad rakhti hai, is liye follow-up sawal test ho sakte hain. Teesre ka Nahi: agents un zabanon mein jawab dete hain jo un ka model support karta hai."
   },
   "D2-513": {
     "q": "Agent ke har maqsad ko us tool se milayein jo usay chahiye. Har tool ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -95,10 +95,10 @@
     "q": "Agent client apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Client ko Foundry project endpoint tak network rasai chahiye.",
-      "Chat karne se pehle client ko agent ka model download karna lazmi hai.",
-      "Bohat se users ek hi waqt mein ek hi agent istemal kar sakte hain."
+      "Chat karne se pehle client agent ka model download karta hai.",
+      "Ek agent ek waqt mein ek user ke kaam aata hai, is liye har user ko alag agent chahiye."
     ],
-    "exp": "Pehle ka jawab Haan: requests HTTPS par project endpoint tak jati hain. Doosre ka Nahi: model Azure mein chalta hai, is liye kuch download nahi hota. Teesre ka Haan: ek agent bohat se users ki khidmat karta hai, aam taur par har ek ki apni conversation hoti hai."
+    "exp": "Pehle ka jawab Haan: requests HTTPS par project endpoint tak jati hain. Doosre ka Nahi: model Azure mein chalta hai, is liye kuch download nahi hota. Teesre ka Nahi: ek agent ek hi waqt mein bohat se users ki khidmat karta hai, aam taur par har ek ki apni conversation hoti hai."
   },
   "D2-521": {
     "q": "Agent client ke har masle ko us ke hal se milayein. Har hal ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -122,15 +122,15 @@
     "exp": "PromptAgentDefinition istemal hone wali model deployment aur agent ka kaam bayan karne wali instructions leti hai. Region aur deployment type deployment ki properties hain, aur temperature aur quota se agent ka rawaiya bayan nahi hota."
   },
   "D2-523": {
-    "q": "Client app ke conversation delete karne ki kaunsi DO durust wajuhaat hain? Har sahi jawab mukammal hal hai.",
+    "q": "Client app ke conversation delete karne ki kaunsi TEEN durust wajuhaat hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Model ko zyada hoshiyar banana",
       "User ne session khatam kar diya aur history ki ab zaroorat nahi",
       "Deployment ka quota barhana",
       "User ne apna chat data delete karne ko kaha",
-      "Agent ke tools badalna"
+      "Retention ka usool kehta hai ke purani chats hatayi jayein"
     ],
-    "exp": "Jin conversations ki zaroorat na ho unhein, ya user ke kehne par, delete karne se zaati data kam arsa rakha jata hai, jo privacy ke liye achha hai. Conversation delete karne se model, quota ya agent ke tools nahi badalte."
+    "exp": "Khatam shuda session, user ki darkhwast aur retention ka usool, teenon mehfooz history hatane ki achhi wajuhaat hain, kyunke in se zaati data kam arsa rakha jata hai. Conversation delete karne se na model badalta hai na quota."
   },
   "D2-524": {
     "ctx": "Lobby mein rakha visitor kiosk kisi ko bhi agent se sawal poochne deta hai. Visitors sign in nahi karte.",
@@ -160,11 +160,11 @@
   "D2-527": {
     "q": "Azure Language ke nateejon ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Text analysis ke nateeje hamesha 100% sahi hote hain.",
+      "Text analysis ke nateeje bilkul theek hote hain, is liye un ke confidence scores nazar andaz kiye ja sakte hain.",
       "Har document ke nateeje mein ID hoti hai jo input document se milti hai.",
-      "Ek request mein alag alag zabanon ke documents ho sakte hain."
+      "Ek request ke documents ki zaban ek hoti hai, is liye alag zabanon ke liye alag requests chahiye."
     ],
-    "exp": "Pehle ka jawab Nahi: nateeje confidence scores wale andaze hote hain aur ghalat ho sakte hain. Doosre ka Haan: ID se har nateeja us ke input se milaya ja sakta hai. Teesre ka Haan: har document ki apni zaban ho sakti hai, jisay aap har document ke liye hint ke taur par de sakte hain."
+    "exp": "Pehle ka jawab Nahi: nateeje confidence scores wale andaze hote hain aur ghalat ho sakte hain. Doosre ka Haan: ID se har nateeja us ke input se milaya ja sakta hai. Teesre ka Nahi: har document ki apni zaban ho sakti hai, jisay aap har document ke liye hint ke taur par de sakte hain."
   },
   "D2-528": {
     "q": "Woh Python code mukammal karein jo har pehchani gayi zaban ka naam aur service ka confidence print karta hai.",
@@ -203,11 +203,11 @@
   "D2-532": {
     "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Users type karne ke bajaye bol kar sawal pooch sakte hain.",
-      "Audio input ko pehle PDF mein badalna lazmi hai.",
-      "Sawal bol kar poocha gaya ho tab bhi jawab text mein dikhaya ja sakta hai."
+      "Sawal bol kar poocha gaya ho tab bhi jawab text mein dikhaya ja sakta hai.",
+      "Audio input ko model tak bhejne se pehle PDF mein badla jata hai.",
+      "Users type karne ke bajaye bol kar sawal pooch sakte hain."
     ],
-    "exp": "Pehle ka jawab Haan: spoken prompts users ko app se baat karne dete hain. Doosre ka Nahi: audio, audio data ki soorat mein hi jati hai, documents mein nahi badli jati. Teesre ka Haan: model sirf text mein, ya maangne par text aur audio dono mein, jawab de sakta hai."
+    "exp": "Pehle ka jawab Haan: model sirf text mein, ya maangne par text aur audio dono mein, jawab de sakta hai. Doosre ka Nahi: audio, audio data ki soorat mein hi jati hai, documents mein nahi badli jati. Teesre ka Haan: spoken prompts users ko app se baat karne dete hain."
   },
   "D2-533": {
     "q": "Voice feature ki har zaroorat ko us design se milayein jo us ke liye sab se munasib hai. Har design ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -246,11 +246,11 @@
   "D2-537": {
     "q": "Speech SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "SpeechRecognizer sirf WAV files se speech pehchan sakta hai.",
+      "TranslationRecognizer kai zabanon mein tarjuma deta hai agar aap unhein targets ke taur par shamil karein.",
       "SpeechSynthesizer audio output config ke zariye audio ko file mein likh sakta hai.",
-      "TranslationRecognizer kai zabanon mein tarjuma de sakta hai."
+      "SpeechRecognizer sirf WAV files se speech pehchan sakta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: woh microphone, files ya streams sun sakta hai. Doosre ka Haan: filename wala AudioOutputConfig audio mehfooz karta hai. Teesre ka Haan: configuration mein shamil har target language nateeje ki translations mein aati hai."
+    "exp": "Pehle ka jawab Haan: configuration mein shamil har target language nateeje ki translations mein aati hai. Doosre ka Haan: filename wala AudioOutputConfig audio mehfooz karta hai. Teesre ka Nahi: woh microphone, files ya streams sun sakta hai."
   },
   "D2-538": {
     "q": "Speech SDK se WAV file ko text mein likhne ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",

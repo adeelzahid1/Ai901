@@ -16,12 +16,12 @@
     "id": "D2-595", "sub": "text-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about the Language SDK, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Opinion mining results include a target, such as 'battery', and the opinion about it.",
-      "recognize_entities() returns sentiment scores.",
-      "extract_key_phrases() returns a list of phrases for each document."
+      "extract_key_phrases() returns a list of phrases for each document.",
+      "recognize_entities() returns a category and a confidence score for every entity it finds.",
+      "Opinion mining results include a target, such as 'battery', and the opinion about it."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: opinion mining pairs targets with assessments and their sentiment. No for the second: entity recognition returns entities with categories and confidence, not sentiment. Yes for the third: each successful result has a key_phrases list.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: each successful result has a key_phrases list. Yes for the second: entity recognition returns entities with categories and confidence scores; sentiment is a different feature. Yes for the third: opinion mining pairs targets with assessments and their sentiment.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview"
   },
   {
@@ -49,12 +49,12 @@
     "id": "D2-598", "sub": "spoken-prompts", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A spoken prompt is audio of a person asking a question or giving an instruction.",
+      "A spoken question can be answered in speech, while a text answer is not possible.",
       "Only image models accept spoken prompts.",
-      "An app can show a text answer to a spoken question."
+      "A spoken prompt is audio of a person asking a question or giving an instruction."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: that is what a spoken prompt is. No for the second: audio-capable chat and realtime models accept spoken prompts; image models do not. Yes for the third: the reply can be text only, or text and audio if requested.",
+    "ans": [false, false, true],
+    "exp": "No for the first: the reply can be text only, or text and audio if requested. No for the second: audio-capable chat and realtime models accept spoken prompts; image models do not. Yes for the third: that is what a spoken prompt is.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
@@ -182,12 +182,12 @@
     "id": "D2-609", "sub": "vision-app", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about ImageAnalysisClient, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "It can authenticate with AzureKeyCredential or with a Microsoft Entra credential.",
-      "It creates new images.",
-      "You choose which visual features to request in each call."
+      "It can create new images.",
+      "You choose which visual features to request in each call.",
+      "It authenticates with a key, and Microsoft Entra credentials are not supported."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: both key and Entra ID authentication are supported. No for the second: Image Analysis describes existing images; image generation is a different service. Yes for the third: the visual_features list decides what is analyzed and billed.",
+    "ans": [false, true, false],
+    "exp": "No for the first: Image Analysis describes existing images; image generation is a different service. Yes for the second: the visual_features list decides what is analyzed and billed. No for the third: both key and Entra ID authentication are supported.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
   },
   {
@@ -235,12 +235,12 @@
     "id": "D2-613", "sub": "cu-documents", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about document analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Content Understanding can process scanned documents that contain handwriting.",
+      "A document analyzer can return only one field.",
       "In high-stakes processes, fields with low confidence should usually be reviewed by a person.",
-      "A document analyzer can return only one field."
+      "Handwriting on scanned documents has to be typed in before Content Understanding can process it."
     ],
-    "ans": [true, true, false],
-    "exp": "Yes for the first: OCR reads handwriting as well as printed text. Yes for the second: confidence-based review keeps quality high where mistakes are costly. No for the third: a schema can define many fields, including arrays and objects.",
+    "ans": [false, true, false],
+    "exp": "No for the first: a schema can define many fields, including arrays and objects. Yes for the second: confidence-based review keeps quality high where mistakes are costly. No for the third: OCR reads handwriting as well as printed text.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -265,16 +265,16 @@
   },
   {
     "id": "D2-616", "sub": "cu-audio-video", "diff": 2, "type": "multi",
-    "q": "Which TWO outputs can a call-center audio analyzer produce? Each correct answer presents a complete solution.",
+    "q": "Which THREE outputs can a call-center audio analyzer produce? Each correct answer presents a complete solution.",
     "opts": [
       "A product photo",
       "A new voice recording",
       "A transcript of the call",
-      "A spreadsheet macro",
+      "The customer's sentiment as a generated field",
       "A generated summary of the call"
     ],
-    "ans": [2, 4],
-    "exp": "Audio analysis first transcribes the call, and generative fields such as a summary, the sentiment or the topics discussed are then produced from that transcript. It extracts information and does not create product photos, new voice recordings or spreadsheet macros.",
+    "ans": [2, 3, 4],
+    "exp": "Audio analysis transcribes the call, and generated fields such as a summary and the sentiment are produced from that transcript. It extracts information and does not create product photos or new voice recordings.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -303,11 +303,11 @@
     "q": "For each of the following statements about building apps with Content Understanding, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "Production apps should prefer the generally available API version.",
-      "Analyzing a file is a long-running operation.",
-      "Results are always correct, so human review is never needed."
+      "Results are always correct, so human review is never needed.",
+      "The analyze call returns the finished fields immediately."
     ],
-    "ans": [true, true, false],
-    "exp": "Yes for the first: GA versions are recommended for production, and previews for evaluation. Yes for the second: the app starts the analysis and polls for the result. No for the third: results include confidence scores precisely because some values need human review.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: GA versions are recommended for production, and previews for evaluation. No for the second: results include confidence scores precisely because some values need human review. No for the third: analyzing a file is a long-running operation, so the app starts the analysis and polls for the result.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {

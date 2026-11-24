@@ -12,11 +12,11 @@
   "D1-385": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Mukhtalif zabanein bolne wale do logon ki live guftagu translate karna speech workload hai.",
-      "Car park ki photo mein gaariyan ginna text analysis workload hai.",
-      "Features ki list se product descriptions likhna generative AI workload hai."
+      "Car park ki tasveer mein gaariyan ginna computer vision workload hai.",
+      "Features ki list se product descriptions likhna generative AI workload hai.",
+      "Mukhtalif zabanein bolne wale do logon ki live guftagu translate karna speech workload hai."
     ],
-    "exp": "Pehle ka jawab Haan: speech translation bole hue alfaz pehchan kar translate karta hai. Doosre ka Nahi: tasveer mein gaariyan ginna object detection hai, jo computer vision ka kaam hai. Teesre ka Haan: features se nayi descriptions banana generative AI hai."
+    "exp": "Pehle ka jawab Haan: image mein gaariyan ginna object detection se hota hai, jo computer vision ka kaam hai. Doosre ka Haan: features se nayi descriptions banana generative AI hai. Teesre ka Haan: speech translation bole hue alfaz pehchan kar translate karta hai."
   },
   "D1-386": {
     "q": "Har scenario ko us AI workload se milayein jise woh zahir karta hai. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -61,11 +61,11 @@
   "D1-392": {
     "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Text analysis emails, chats aur documents par istemal ho sakta hai.",
-      "Named entity recognition text mein tareekhein dhoond sakta hai.",
-      "Sentiment analysis photos mein cheezein pehchan sakta hai."
+      "Text analysis kisi bhi likhe hue text, jaise emails, chats aur documents, par istemal ho sakta hai.",
+      "Sentiment analysis photos mein cheezein pehchan sakta hai.",
+      "Named entity recognition log aur jagahein dhoond sakta hai, jab ke tareekhon ke liye alag feature chahiye."
     ],
-    "exp": "Pehle ka jawab Haan: kisi bhi likhe hue text ka jaiza liya ja sakta hai. Doosre ka Haan: DateTime entity categories mein se ek hai. Teesre ka Nahi: photos mein cheezein pehchanna computer vision hai; sentiment analysis text par kaam karta hai."
+    "exp": "Pehle ka jawab Haan: kisi bhi likhe hue text ka jaiza liya ja sakta hai. Doosre ka Nahi: photos mein cheezein pehchanna computer vision hai; sentiment analysis text par kaam karta hai. Teesre ka Nahi: DateTime entity categories mein se ek hai, Person aur Location ke saath."
   },
   "D1-393": {
     "q": "Har nateeje ko us text analysis technique se milayein jis se woh bana. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -102,11 +102,11 @@
   "D1-399": {
     "q": "Azure Speech ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Text to speech sirf MP3 files bana sakta hai.",
       "Speech to text bohat si zabanein aur accents support karta hai.",
-      "Custom speech product names ki pehchan behtar kar sakta hai."
+      "Text to speech ka output MP3 files tak mehdood hai.",
+      "Custom speech products ke naamon par train ho to un ki pehchan behtar karta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: synthesized audio WAV aur MP3 jaise kai formats mein ban sakti hai, aur stream bhi ho sakti hai. Doosre ka Haan: speech to text bohat se locales support karta hai. Teesre ka Haan: domain ke text se training model ko khaas alfaz sikhati hai."
+    "exp": "Pehle ka jawab Haan: speech to text bohat se locales support karta hai. Doosre ka Nahi: synthesized audio WAV aur MP3 jaise kai formats mein ban sakti hai, aur stream bhi ho sakti hai. Teesre ka Haan: domain ke text se training model ko khaas alfaz sikhati hai."
   },
   "D1-400": {
     "q": "Har scenario ko us Speech feature se milayein jo woh istemal karta hai. Har feature ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -135,10 +135,10 @@
     "q": "Computer vision ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Image generation aur image analysis ek hi kaam hain.",
-      "Multimodal models tasveeron ke baare mein sawalon ke jawab de sakte hain.",
-      "OCR documents ki photos se text nikal sakta hai."
+      "OCR scans ke saath documents ki tasveeron se bhi text nikalta hai.",
+      "Multimodal models images ke baare mein sawalon ke jawab dete hain."
     ],
-    "exp": "Pehle ka jawab Nahi: generation nayi tasveerein banata hai, jab ke analysis maujood tasveeron ko bayan karta hai. Doosre ka Haan: multimodal models images le kar zaban mein jawab dete hain. Teesre ka Haan: OCR photos aur scans se chhapa hua aur haath ka likha text parhta hai."
+    "exp": "Pehle ka jawab Nahi: generation nayi tasveerein banata hai, jab ke analysis maujood tasveeron ko bayan karta hai. Doosre ka Haan: OCR photos aur scans se chhapa hua aur haath ka likha text parhta hai. Teesre ka Haan: multimodal models images le kar zaban mein jawab dete hain."
   },
   "D1-405": {
     "q": "Har kaam ko us vision capability se milayein jo usay chahiye. Har capability ek baar istemal ho sakti hai, ya bilkul nahi.",

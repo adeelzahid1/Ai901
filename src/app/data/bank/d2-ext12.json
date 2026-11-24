@@ -30,12 +30,12 @@
     "id": "D2-370", "sub": "visual-input", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about sending images to models in Microsoft Foundry, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "By default, your images are used to train future public models.",
-      "A higher image detail setting can use more tokens.",
-      "Vision-capable models can read handwriting in many images."
+      "Vision-capable models can read handwriting in many images.",
+      "A higher image detail setting reduces the number of tokens that an image uses.",
+      "By default, your images are used to train future public models."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: Microsoft states that customer prompts, including images, are not used to train the foundation models. Yes for the second: high detail processes the image at higher resolution, which uses more tokens. Yes for the third: these models can often read clear handwriting, although accuracy varies.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: these models can often read clear handwriting, although accuracy varies. No for the second: high detail processes the image at higher resolution, which uses more tokens. No for the third: Microsoft states that customer prompts, including images, are not used to train the foundation models.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy"
   },
   {
@@ -125,12 +125,12 @@
     "id": "D2-378", "sub": "vision-app", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about Image Analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Image Analysis can return tags with confidence scores.",
       "Image Analysis requires a model deployment name.",
-      "Image Analysis can read printed text in images."
+      "Image Analysis returns tags with confidence scores.",
+      "Image Analysis returns tags and captions but leaves printed text to a language model."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: each tag includes a confidence score. No for the second: Image Analysis is called through the resource endpoint with a credential, not through a model deployment. Yes for the third: the Read feature extracts printed and handwritten text.",
+    "ans": [false, true, false],
+    "exp": "No for the first: Image Analysis is called through the resource endpoint with a credential, not through a model deployment. Yes for the second: each tag includes a confidence score. No for the third: the Read feature extracts printed and handwritten text.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
   },
   {
@@ -168,12 +168,12 @@
     "id": "D2-382", "sub": "cu-documents", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about document analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Content Understanding can change the text inside the original PDF.",
       "An analyzer returns the same set of fields for every document that it processes.",
-      "Content Understanding changes the text inside the original PDF.",
       "Confidence scores help decide which values need human review."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: the schema makes output consistent across documents. No for the second: the service reads the document and returns results; the source file is not modified. Yes for the third: low-confidence values can be routed to a person while high-confidence values flow straight through.",
+    "ans": [false, true, true],
+    "exp": "No for the first: the service reads the document and returns results; the source file is not modified. Yes for the second: the schema makes output consistent across documents. Yes for the third: low-confidence values can be routed to a person while high-confidence values flow straight through.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -264,11 +264,11 @@
     "q": "For each of the following statements about audio and video analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "Audio analysis requires the speakers to type what they said.",
-      "Video analysis can produce a description of each scene.",
-      "Generated fields for calls can include a summary and the sentiment."
+      "Generated fields for calls are limited to the length and date of the call.",
+      "Video analysis returns one description for the whole video and has no results per scene."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: the service transcribes the speech itself. Yes for the second: fields can be generated per segment, such as a scene description. Yes for the third: call analyzers commonly produce summaries and sentiment from the transcript.",
+    "ans": [false, false, false],
+    "exp": "No for the first: the service transcribes the speech itself. No for the second: call analyzers commonly produce summaries and sentiment from the transcript. No for the third: fields can be generated per segment, such as a scene description.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {

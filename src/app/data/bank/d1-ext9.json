@@ -44,13 +44,13 @@
     "id": "D1-278", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "An AI agent is a generative model that has no tools.",
       "Optical character recognition is a computer vision technique.",
-      "An AI agent can combine a generative model with tools.",
       "Sentiment analysis is a speech workload.",
       "Transcribing a podcast extracts information from audio."
     ],
-    "ans": [true, true, false, true],
-    "exp": "Yes for the first: OCR reads text from images. Yes for the second: agents use a model plus tools to act. No for the third: sentiment analysis works on text, so it is a text analysis workload. Yes for the fourth: a transcript turns spoken content into text that can be searched and analyzed.",
+    "ans": [false, true, false, true],
+    "exp": "No for the first: agents combine a generative model with instructions and tools so that they can act. Yes for the second: OCR reads text from images. No for the third: sentiment analysis works on text, so it is a text analysis workload. Yes for the fourth: a transcript turns spoken content into text that can be searched and analyzed.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {
@@ -126,7 +126,7 @@
     "stmts": [
       "Key phrase extraction works only on text stored in PDF files.",
       "Sentiment analysis can be used on social media posts.",
-      "Summarization can shorten a long article."
+      "Summarization shortens a long article."
     ],
     "ans": [false, true, true],
     "exp": "No for the first: text analysis works on plain text from any source, such as emails, chats or posts. Yes for the second: sentiment analysis is often used to track opinion on social media. Yes for the third: summarization produces a shorter version of long text.",
@@ -196,12 +196,12 @@
     "id": "D1-290", "sub": "speech-features", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Real-time speech to text can return partial results while the person is still speaking.",
       "Speech translation requires the speaker to type their words first.",
-      "Text-to-speech output can be saved as an audio file."
+      "Text-to-speech output can be saved as an audio file.",
+      "Real-time speech to text returns text after the speaker has finished the whole recording."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: intermediate recognizing results let apps show text as it is spoken. No for the second: speech translation works directly on spoken audio. Yes for the third: synthesized audio can be played or written to a file such as WAV.",
+    "ans": [false, true, false],
+    "exp": "No for the first: speech translation works directly on spoken audio. Yes for the second: synthesized audio can be played or written to a file such as WAV. No for the third: intermediate recognizing results let apps show text while the person is still speaking.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-to-text"
   },
   {
@@ -220,16 +220,16 @@
   },
   {
     "id": "D1-292", "sub": "speech-features", "diff": 1, "type": "multi",
-    "q": "Which TWO can be returned by speech to text? Each correct answer presents a complete solution.",
+    "q": "Which THREE can be returned by speech to text? Each correct answer presents a complete solution.",
     "opts": [
       "A synthesized voice",
       "A transcript of the spoken words",
       "A generated image",
       "Timing information for the recognized words",
-      "A translated PDF document"
+      "Punctuation and capitalization in the transcript"
     ],
-    "ans": [1, 3],
-    "exp": "Speech to text returns the transcript and can include timing for each word, which helps with subtitles and search. A synthesized voice comes from text to speech, images come from image generation, and translating PDF documents is a separate translation service.",
+    "ans": [1, 3, 4],
+    "exp": "Speech to text returns the transcript, can add timing for the words and formats the display text with punctuation and capitalization. A synthesized voice comes from text to speech, and images come from an image-generation model.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-to-text"
   },
   {
@@ -271,12 +271,12 @@
     "id": "D1-296", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about computer vision, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Image classification tells you how many cars are in an image and where they are.",
-      "Object detection can find several objects of different types in one image.",
-      "OCR can read text written in different languages."
+      "Object detection finds one type of object per image.",
+      "OCR is limited to text written in English.",
+      "Image classification can tell you how many cars are in an image and where they are."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: classification gives labels for the whole image; counting and locating objects is object detection. Yes for the second: detection returns a box and label for each object it finds. Yes for the third: OCR supports many languages and scripts.",
+    "ans": [false, false, false],
+    "exp": "No for the first: detection returns a box and label for each object it finds, and the objects can be of different types. No for the second: OCR supports many languages and scripts. No for the third: classification gives labels for the whole image; counting and locating objects is object detection.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {

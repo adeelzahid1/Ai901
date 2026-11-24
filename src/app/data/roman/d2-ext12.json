@@ -23,11 +23,11 @@
   "D2-370": {
     "q": "Microsoft Foundry mein models ko images bhejne ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "By default aap ki images mustaqbil ke public models ki training mein istemal hoti hain.",
-      "Image detail ki oonchi setting zyada tokens istemal kar sakti hai.",
-      "Vision-capable models bohat si images mein haath ki likhai parh sakte hain."
+      "Vision-capable models bohat si images mein haath ki likhai parh sakte hain.",
+      "Image detail ki oonchi setting image ke tokens ki tadad kam karti hai.",
+      "By default aap ki images mustaqbil ke public models ki training mein istemal hoti hain."
     ],
-    "exp": "Pehle ka jawab Nahi: Microsoft kehta hai ke customers ke prompts, images samet, foundation models ki training mein istemal nahi hote. Doosre ka Haan: high detail image ko zyada resolution par process karti hai, jis mein zyada tokens lagte hain. Teesre ka Haan: ye models aksar saaf haath ki likhai parh lete hain, agarche accuracy badalti rehti hai."
+    "exp": "Pehle ka jawab Haan: ye models aksar saaf haath ki likhai parh lete hain, agarche accuracy badalti rehti hai. Doosre ka Nahi: high detail image ko zyada resolution par process karti hai, jis mein zyada tokens lagte hain. Teesre ka Nahi: Microsoft kehta hai ke customers ke prompts, images samet, foundation models ki training mein istemal nahi hote."
   },
   "D2-371": {
     "q": "Chat Completions mein visual input ke baare mein jumlay mukammal karein.",
@@ -100,11 +100,11 @@
   "D2-378": {
     "q": "Image Analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Image Analysis confidence scores ke saath tags de sakta hai.",
       "Image Analysis ko model deployment ka naam chahiye hota hai.",
-      "Image Analysis images mein chhapa hua text parh sakta hai."
+      "Image Analysis confidence scores ke saath tags deta hai.",
+      "Image Analysis tags aur captions deta hai lekin chhapa hua text language model par chhorta hai."
     ],
-    "exp": "Pehle ka jawab Haan: har tag ke saath confidence score hota hai. Doosre ka Nahi: Image Analysis ko resource endpoint aur credential ke zariye call kiya jata hai, model deployment ke zariye nahi. Teesre ka Haan: Read feature chhapa hua aur haath ka likha text nikalta hai."
+    "exp": "Pehle ka jawab Nahi: Image Analysis ko resource endpoint aur credential ke zariye call kiya jata hai, model deployment ke zariye nahi. Doosre ka Haan: har tag ke saath confidence score hota hai. Teesre ka Nahi: Read feature chhapa hua aur haath ka likha text nikalta hai."
   },
   "D2-379": {
     "q": "Har visual feature ko us ke nateeje se milayein. Har nateeja ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -134,11 +134,11 @@
   "D2-382": {
     "q": "Document analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Content Understanding asal PDF ke andar ka text badal sakta hai.",
       "Analyzer jitne documents process karta hai, har ek ke liye wahi fields ka set deta hai.",
-      "Content Understanding asal PDF ke andar ka text badal deta hai.",
       "Confidence scores ye tay karne mein madad dete hain ke kaunsi values insan ko check karni chahiye."
     ],
-    "exp": "Pehle ka jawab Haan: schema ki wajah se output tamam documents mein yaksan rehta hai. Doosre ka Nahi: service document parh kar nateeje deti hai; asal file nahi badalti. Teesre ka Haan: kam confidence wali values insan ko bheji ja sakti hain, jab ke zyada confidence wali values seedhi aage chali jati hain."
+    "exp": "Pehle ka jawab Nahi: service document parh kar nateeje deti hai; asal file nahi badalti. Doosre ka Haan: schema ki wajah se output tamam documents mein yaksan rehta hai. Teesre ka Haan: kam confidence wali values insan ko bheji ja sakti hain, jab ke zyada confidence wali values seedhi aage chali jati hain."
   },
   "D2-383": {
     "q": "Content Understanding analyzers ke baare mein jumlay mukammal karein.",
@@ -200,10 +200,10 @@
     "q": "Audio aur video analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Audio analysis ke liye bolne walon ko apni kahi hui baat type karni parti hai.",
-      "Video analysis har scene ki description bana sakta hai.",
-      "Calls ki generated fields mein khulasa aur sentiment ho sakte hain."
+      "Calls ki generated fields call ki lambai aur tareekh tak mehdood hain.",
+      "Video analysis poori video ki ek description deta hai aur har scene ke nateeje nahi hote."
     ],
-    "exp": "Pehle ka jawab Nahi: service khud speech ko text mein likhti hai. Doosre ka Haan: fields har segment ke liye ban sakti hain, jaise scene ki description. Teesre ka Haan: call analyzers aam taur par transcript se khulasay aur sentiment banate hain."
+    "exp": "Pehle ka jawab Nahi: service khud speech ko text mein likhti hai. Doosre ka Nahi: call analyzers aam taur par transcript se khulasay aur sentiment banate hain. Teesre ka Nahi: fields har segment ke liye ban sakti hain, jaise scene ki description."
   },
   "D2-391": {
     "q": "Training video ke analysis ke baare mein jumla mukammal karein.",

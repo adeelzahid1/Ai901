@@ -24,12 +24,12 @@
     "id": "D2-143", "sub": "prompts", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "The model receives the system message only once, when the model is deployed.",
-      "A prompt can contain instructions, context and examples.",
-      "Asking the model to answer in a specific language usually works."
+      "The system message is stored in the deployment, so the model receives it once.",
+      "Asking the model to answer in a specific language usually works.",
+      "A prompt can contain instructions, context and examples."
     ],
     "ans": [false, true, true],
-    "exp": "No for the first: the system message is part of each request, not something stored in the deployment. Yes for the second: prompts often combine instructions, background content and examples. Yes for the third: modern language models follow instructions such as 'answer in French' well.",
+    "exp": "No for the first: the system message is part of each request, not something stored in the deployment. Yes for the second: modern language models follow instructions such as 'answer in French' well. Yes for the third: prompts often combine instructions, background content and examples.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -79,16 +79,16 @@
   },
   {
     "id": "D2-147", "sub": "prompts", "diff": 3, "type": "multi",
-    "q": "For a customer service chat solution, which TWO items belong in the system message rather than in a user message? Each correct answer presents part of the solution.",
+    "q": "For a customer service chat solution, which THREE items belong in the system message rather than in a user message? Each correct answer presents part of the solution.",
     "opts": [
       "The customer's current question",
       "Rules about which topics the assistant may discuss",
       "The order number that the customer typed",
       "The assistant's persona and tone",
-      "The customer's greeting"
+      "The format that all answers should follow"
     ],
-    "ans": [1, 3],
-    "exp": "The system message holds instructions that apply to the whole conversation, such as allowed topics and the assistant's persona and tone. The customer's question, the order number they typed and their greeting are part of the conversation, so they belong in user messages.",
+    "ans": [1, 3, 4],
+    "exp": "Topic rules, the persona and tone, and the answer format apply to the whole conversation, so they belong in the system message. The customer's question and the order number change from turn to turn and arrive in user messages.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
@@ -137,13 +137,13 @@
     "id": "D2-152", "sub": "portal-deploy", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about model deployments, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Deploying a model copies the model weights to your laptop.",
-      "Each deployment can use its own content filter configuration.",
-      "You can deploy the same model more than once under different names.",
-      "Deleting a deployment stops apps that call it from working."
+      "Each deployment can use its own content filter configuration, so a stricter filter on one does not change the others.",
+      "Deleting a deployment stops apps that call it from working.",
+      "A model can be deployed just once in a resource.",
+      "Deploying a model copies the model weights to your laptop."
     ],
-    "ans": [false, true, true, true],
-    "exp": "No for the first: the model runs in Azure, and your app calls its endpoint. Yes for the second: content filter configurations are assigned per deployment. Yes for the third: deployment names are unique, so the same model can be deployed several times with different settings. Yes for the fourth: apps that call a deleted deployment get errors.",
+    "ans": [true, true, false, false],
+    "exp": "Yes for the first: content filter configurations are assigned per deployment. Yes for the second: apps that call a deleted deployment get errors. No for the third: the same model can be deployed several times under different names and with different settings. No for the fourth: the model runs in Azure, and your app calls its endpoint.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
@@ -175,16 +175,16 @@
   },
   {
     "id": "D2-155", "sub": "portal-deploy", "diff": 2, "type": "multi",
-    "q": "Which TWO actions can you perform in the Foundry chat playground? Each correct answer presents a complete solution.",
+    "q": "Which THREE actions can you perform in the Foundry chat playground? Each correct answer presents a complete solution.",
     "opts": [
       "Change the model's training data",
       "Edit the system message",
       "Move the resource to another Azure region",
       "Adjust parameters such as temperature",
-      "Edit the model's weights"
+      "Choose a different deployment to chat with"
     ],
-    "ans": [1, 3],
-    "exp": "The playground lets you change the instructions and request parameters and immediately see the effect on responses. It does not retrain models, change their weights or move resources between regions; those require fine-tuning or redeploying resources.",
+    "ans": [1, 3, 4],
+    "exp": "In the playground you can edit the system message, adjust parameters and choose which deployment to test. Training data is fixed by the model provider, and the region belongs to the resource, so neither can be changed there.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
@@ -262,13 +262,13 @@
     "id": "D2-162", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about the Foundry SDK, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "AIProjectClient needs the project endpoint.",
       "responses.create() always requires a temperature value.",
-      "get_openai_client() returns a client that can call deployed models.",
-      "With Microsoft Entra ID authentication, the app does not need to store an API key."
+      "AIProjectClient needs the project endpoint.",
+      "With Microsoft Entra ID authentication, the app still needs an API key in its settings.",
+      "get_openai_client() returns a client that can call deployed models."
     ],
-    "ans": [true, false, true, true],
-    "exp": "Yes for the first: the endpoint identifies the project. No for the second: temperature is optional and has a default. Yes for the third: the returned OpenAI-compatible client sends requests to your deployments. Yes for the fourth: Entra ID tokens replace keys, so no secret has to be stored.",
+    "ans": [false, true, false, true],
+    "exp": "No for the first: temperature is optional and has a default. Yes for the second: the endpoint identifies the project. No for the third: Entra ID tokens replace keys, so no secret has to be stored. Yes for the fourth: the returned OpenAI-compatible client sends requests to your deployments.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {

@@ -23,11 +23,11 @@
   "D2-342": {
     "q": "Microsoft Foundry mein agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Jab model agent ke taur par kaam kare to us ki deployment ke guardrails lagu nahi rehte.",
       "Agent ko sirf public website par shaya hone ke baad test kiya ja sakta hai.",
-      "Aap model badle baghair agent ke tools badal sakte hain.",
-      "Agent ke jawabon par us model deployment ke guardrails lagu hote hain jo agent istemal karta hai."
+      "Aap model badle baghair agent ke tools badal sakte hain."
     ],
-    "exp": "Pehle ka jawab Nahi: agent ko kisi bhi waqt portal mein ya code se test kiya ja sakta hai. Doosre ka Haan: tools aur model definition ke alag hisse hain. Teesre ka Haan: model jab agent ke taur par kaam kare tab bhi deployment ki content filtering aur doosre guardrails lagu rehte hain."
+    "exp": "Pehle ka jawab Nahi: deployment ki content filtering aur doosre guardrails tab bhi lagu rehte hain jab model agent ke taur par kaam kare. Doosre ka Nahi: agent ko kisi bhi waqt portal mein ya code se test kiya ja sakta hai. Teesre ka Haan: tools aur model definition ke alag hisse hain."
   },
   "D2-343": {
     "q": "Har agent tool ko knowledge tool ya action tool mein rakhein. Har category ek se zyada baar istemal ho sakti hai.",
@@ -78,11 +78,11 @@
   "D2-349": {
     "q": "Agent client apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Client app Foundry portal mein bane agent se baat kar sakti hai.",
-      "Client ko har request ke saath agent ki tool definitions bhejni lazmi hain.",
-      "Conversation ID se client baad mein chat jari rakh sakta hai."
+      "Client ko har request ke saath agent ki tool definitions nahi bhejni partin.",
+      "Conversation ID se client baad mein chat jari rakh sakta hai.",
+      "Client app Foundry portal mein bane agent se baat kar sakti hai."
     ],
-    "exp": "Pehle ka jawab Haan: portal mein bane agents code se naam ke zariye istemal ho sakte hain. Doosre ka Nahi: tools agent ki mehfooz definition ka hissa hain. Teesre ka Haan: conversation ID dobara istemal karne se pehle ki history wapas aati hai."
+    "exp": "Pehle ka jawab Haan: tools agent ki mehfooz definition ka hissa hain. Doosre ka Haan: conversation ID dobara istemal karne se pehle ki history wapas aati hai. Teesre ka Haan: portal mein bane agents code se naam ke zariye istemal ho sakte hain."
   },
   "D2-350": {
     "q": "Agent client code ki har line ko us ke kaam se milayein. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -138,11 +138,11 @@
   "D2-356": {
     "q": "Text analysis apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Zaati data ko haath se dhoond kar chupana lazmi hai.",
       "App Azure Language features ko generative model ke saath jor sakti hai.",
-      "Azure Language bohat si zabanon ke text ka jaiza le sakta hai."
+      "Zaati data ko haath se dhoond kar chupana lazmi hai.",
+      "Azure Language English text ka jaiza leta hai aur baqi zabanon ka pehle tarjuma karna parta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: PII detection zaati data khud dhoond kar chupata hai. Doosre ka Haan: maslan app Language se sentiment maloom kar ke model se jawab likhwa sakti hai. Teesre ka Haan: Language features bohat si zabanein support karte hain, har feature ki list alag hai."
+    "exp": "Pehle ka jawab Haan: maslan app Language se sentiment maloom kar ke model se jawab likhwa sakti hai. Doosre ka Nahi: PII detection zaati data khud dhoond kar chupata hai. Teesre ka Nahi: Language features bohat si zabanein support karte hain, har feature ki list alag hai."
   },
   "D2-357": {
     "q": "Har zaroorat ko TextAnalyticsClient ke us method se milayein jo usay pura karta hai. Har method ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -183,11 +183,11 @@
   "D2-361": {
     "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Audio wala model apne bole hue jawab ke saath transcript deta hai.",
       "Agar model zaban support kare to spoken prompt English ke ilawa kisi zaban mein ho sakta hai.",
-      "Audio wale model ki har request se pehle Speech resource call karna lazmi hai.",
-      "Audio wala model apne bole hue jawab ka transcript de sakta hai."
+      "Audio wale model ki har request se pehle Speech resource call karna lazmi hai."
     ],
-    "exp": "Pehle ka jawab Haan: audio wale models bohat si boli jane wali zabanein sambhalte hain. Doosre ka Nahi: model audio khud process karta hai, is liye alag Speech call ikhtiyari hai. Teesre ka Haan: audio output ke saath text transcript aata hai jise app dikha ya log kar sakti hai."
+    "exp": "Pehle ka jawab Haan: audio output ke saath text transcript aata hai jise app dikha ya log kar sakti hai. Doosre ka Haan: audio wale models bohat si boli jane wali zabanein sambhalte hain. Teesre ka Nahi: model audio khud process karta hai, is liye alag Speech call ikhtiyari hai."
   },
   "D2-362": {
     "q": "Aap ki app se bolne wale users ko jawab dene ke kaunse DO durust tareeqay hain? Har sahi jawab mukammal hal hai.",
@@ -213,10 +213,10 @@
     "q": "Speech SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "SpeechConfig woh text rakhta hai jo bola jayega.",
-      "SpeechSynthesizer speak_ssml_async() se SSML bol sakta hai.",
-      "Audio config na di jaye to SpeechRecognizer default microphone sunta hai."
+      "Audio config ke baghair SpeechRecognizer error deta hai.",
+      "SpeechSynthesizer speak_ssml_async() ke zariye SSML bolta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: SpeechConfig connection ki tafseel aur settings rakhta hai; text synthesizer ke speak methods ko diya jata hai. Doosre ka Haan: speak_ssml_async() bareek control ke liye SSML leta hai. Teesre ka Haan: AudioConfig ke baghair default microphone istemal hota hai."
+    "exp": "Pehle ka jawab Nahi: SpeechConfig connection ki tafseel aur settings rakhta hai; text synthesizer ke speak methods ko diya jata hai. Doosre ka Nahi: AudioConfig ke baghair default microphone istemal hota hai. Teesre ka Haan: speak_ssml_async() bareek control ke liye SSML leta hai."
   },
   "D2-366": {
     "q": "Woh Python code mukammal karein jo SSML document bolta aur tasdeeq karta hai ke audio bani.",

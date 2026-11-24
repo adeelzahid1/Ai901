@@ -25,12 +25,12 @@
     "id": "D2-342", "sub": "agent-portal", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about agents in Microsoft Foundry, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "When a model works as an agent, the guardrails of its deployment no longer apply.",
       "An agent can be tested only after it is published to a public website.",
-      "You can change an agent's tools without changing its model.",
-      "Agent responses are subject to the guardrails of the model deployment that the agent uses."
+      "You can change an agent's tools without changing its model."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: you can test an agent in the portal or from code at any time. Yes for the second: tools and the model are separate parts of the definition. Yes for the third: content filtering and other guardrails on the deployment still apply when the model works as an agent.",
+    "ans": [false, false, true],
+    "exp": "No for the first: content filtering and other guardrails on the deployment still apply when the model works as an agent. No for the second: you can test an agent in the portal or from code at any time. Yes for the third: tools and the model are separate parts of the definition.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
@@ -101,12 +101,12 @@
     "id": "D2-349", "sub": "agent-client", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about agent client apps, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A client app can talk to an agent that was created in the Foundry portal.",
-      "A client must send the agent's tool definitions with every request.",
-      "A conversation ID lets a client continue a chat later."
+      "A client does not have to send the agent's tool definitions with every request.",
+      "A conversation ID lets a client continue a chat later.",
+      "A client app can talk to an agent that was created in the Foundry portal."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: agents created in the portal can be used from code by name. No for the second: tools are part of the stored agent definition. Yes for the third: reusing the conversation ID brings back the earlier history.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: tools are part of the stored agent definition. Yes for the second: reusing the conversation ID brings back the earlier history. Yes for the third: agents created in the portal can be used from code by name.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {
@@ -193,12 +193,12 @@
     "id": "D2-356", "sub": "text-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about text analysis apps, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Personal data must be found and masked by hand.",
       "An app can combine Azure Language features with a generative model.",
-      "Azure Language can analyze text in many languages."
+      "Personal data must be found and masked by hand.",
+      "Azure Language analyzes English text and needs other languages to be translated first."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: PII detection finds and masks personal data automatically. Yes for the second: for example, an app can detect sentiment with Language and then ask a model to write a reply. Yes for the third: the Language features support many languages, with coverage listed per feature.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: for example, an app can detect sentiment with Language and then ask a model to write a reply. No for the second: PII detection finds and masks personal data automatically. No for the third: the Language features support many languages, with coverage listed per feature.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -252,12 +252,12 @@
     "id": "D2-361", "sub": "spoken-prompts", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "An audio-capable model returns a transcript with its spoken reply.",
       "A spoken prompt can be in a language other than English if the model supports that language.",
-      "A Speech resource must be called before every audio-capable model request.",
-      "An audio-capable model can return a transcript of its spoken reply."
+      "A Speech resource must be called before every audio-capable model request."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: audio-capable models handle many spoken languages. No for the second: the model processes audio itself, so a separate Speech call is optional. Yes for the third: the audio output comes with a text transcript that the app can display or log.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: the audio output comes with a text transcript that the app can display or log. Yes for the second: audio-capable models handle many spoken languages. No for the third: the model processes audio itself, so a separate Speech call is optional.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart"
   },
   {
@@ -295,11 +295,11 @@
     "q": "For each of the following statements about the Speech SDK, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "SpeechConfig stores the text that will be spoken.",
-      "SpeechSynthesizer can speak SSML by using speak_ssml_async().",
-      "A SpeechRecognizer listens to the default microphone when no audio config is given."
+      "A SpeechRecognizer without an audio config raises an error.",
+      "SpeechSynthesizer speaks SSML through speak_ssml_async()."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: SpeechConfig holds connection details and settings; the text is passed to the synthesizer's speak methods. Yes for the second: speak_ssml_async() takes SSML for fine control. Yes for the third: without an AudioConfig, the default microphone is used.",
+    "ans": [false, false, true],
+    "exp": "No for the first: SpeechConfig holds connection details and settings; the text is passed to the synthesizer's speak methods. No for the second: without an AudioConfig, the default microphone is used. Yes for the third: speak_ssml_async() takes SSML for fine control.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech"
   },
   {

@@ -24,12 +24,12 @@
     "id": "D2-455", "sub": "visual-input", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about vision-capable chat models, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "An image can be sent together with a text question in the same message.",
       "You can ask a vision-capable model questions about charts, photos or screenshots.",
-      "A vision-capable model can accept only one image per Azure account.",
-      "An image can be sent together with a text question in the same message."
+      "A vision-capable model can accept more than one image in a request."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: these models understand many kinds of images. No for the second: there is no per-account image limit like this; each request can contain images, within request size limits. Yes for the third: a message can combine text and image parts.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: a message can combine text and image parts. Yes for the second: these models understand many kinds of images. Yes for the third: a request can contain several images, within request size limits.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
   },
   {
@@ -131,12 +131,12 @@
     "id": "D2-463", "sub": "vision-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about Image Analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "ImageAnalysisClient creates a vector search index automatically.",
-      "Image Analysis results include bounding boxes for detected objects.",
+      "ImageAnalysisClient can create a vector search index.",
+      "Image Analysis names the objects it detects but gives no position for them.",
       "One call can analyze the same image for several visual features."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: Image Analysis returns analysis results; building a search index is a separate step. Yes for the second: object and people detection return boxes. Yes for the third: you pass a list of visual features, and the service returns all of them in one result.",
+    "ans": [false, false, true],
+    "exp": "No for the first: Image Analysis returns analysis results; building a search index is a separate step. No for the second: object and people detection return bounding boxes that show where each one is. Yes for the third: you pass a list of visual features, and the service returns all of them in one result.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40"
   },
   {
@@ -193,12 +193,12 @@
     "id": "D2-468", "sub": "cu-documents", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about document analyzers, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Every document must have exactly the same layout for extraction to work.",
       "If a prebuilt analyzer does not return a field you need, you can create a custom analyzer with that field.",
-      "Field names in the schema should be meaningful, such as invoice_total."
+      "Field names in the schema should be meaningful, such as invoice_total.",
+      "Every document must have exactly the same layout for extraction to work."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: generative field extraction handles different layouts and wording, guided by field descriptions. Yes for the second: custom analyzers let you define exactly the fields you need. Yes for the third: clear names, together with descriptions, make the schema easier to use and maintain.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: custom analyzers let you define exactly the fields you need. Yes for the second: clear names, together with descriptions, make the schema easier to use and maintain. No for the third: generative field extraction handles different layouts and wording, guided by field descriptions.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -236,28 +236,28 @@
   },
   {
     "id": "D2-472", "sub": "cu-images", "diff": 2, "type": "multi",
-    "q": "Which TWO image scenarios are good fits for Content Understanding? Each correct answer presents a complete solution.",
+    "q": "Which THREE image scenarios are good fits for Content Understanding? Each correct answer presents a complete solution.",
     "opts": [
       "Create cartoon avatars of employees",
       "Extract the reading and ID number from photos of utility meters",
       "Compose music inspired by images",
       "Describe the condition of rental cars from their return photos",
-      "Increase the resolution of photos"
+      "List the brand names visible in shelf photos"
     ],
-    "ans": [1, 3],
-    "exp": "Content Understanding extracts and generates structured information from images, such as meter readings or descriptions of vehicle condition. Creating avatars, composing music and upscaling photos are generation or editing tasks, not information extraction.",
+    "ans": [1, 3, 4],
+    "exp": "Meter readings, vehicle condition and visible brand names are pieces of information taken from images and returned as fields. Cartoon avatars and music are new creations, not information extraction.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
     "id": "D2-473", "sub": "cu-images", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about Content Understanding, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Content Understanding can analyze photos as well as documents.",
-      "Image fields must always use the extract method.",
-      "One image analyzer can define several fields."
+      "Content Understanding analyzes photos as well as documents.",
+      "One image analyzer can define several fields.",
+      "Image fields must always use the extract method."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: images are one of the supported modalities. No for the second: extract is for documents; image fields use generate or classify. Yes for the third: a schema can hold many fields, such as a description, a category and a count.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: images are one of the supported modalities. Yes for the second: a schema can hold many fields, such as a description, a category and a count. No for the third: extract is for documents; image fields use generate or classify.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {
@@ -337,26 +337,26 @@
     "id": "D2-480", "sub": "cu-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about calling Content Understanding, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "An app can send the URL of a file instead of uploading the file's bytes.",
-      "Each call to analyze creates a new analyzer automatically.",
-      "One analyzer can be reused for many files."
+      "Each call to analyze creates a new analyzer.",
+      "One analyzer can be reused for many files.",
+      "The analyze request accepts a file's bytes and rejects a URL."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: the analyze request can reference content by URL. No for the second: you create an analyzer once, or use a prebuilt one, and then call it for each file. Yes for the third: reusing the same analyzer gives consistent fields across all files.",
+    "ans": [false, true, false],
+    "exp": "No for the first: you create an analyzer once, or use a prebuilt one, and then call it for each file. Yes for the second: reusing the same analyzer gives consistent fields across all files. No for the third: the analyze request can reference content by URL or include the file's data.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
   },
   {
     "id": "D2-481", "sub": "cu-app", "diff": 3, "type": "multi",
-    "q": "Which TWO practices help an information extraction app handle a large volume of files reliably? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices help an information extraction app handle a large volume of files reliably? Each correct answer presents a complete solution.",
     "opts": [
       "Analyze the same file several times to be sure",
       "Process files asynchronously and poll for results instead of making users wait",
       "Create a new analyzer for every file",
       "Handle 429 responses with retries and backoff",
-      "Turn off error handling"
+      "Send results with low confidence to a person"
     ],
-    "ans": [1, 3],
-    "exp": "Asynchronous processing fits the long-running analyze operation and keeps the app responsive, and backoff retries handle throttling at high volume. Repeating analysis wastes cost, a new analyzer per file is unnecessary, and removing error handling hides failures.",
+    "ans": [1, 3, 4],
+    "exp": "Asynchronous processing keeps the app responsive, backoff handles throttling and human review of low-confidence results keeps quality high as volume grows. Analyzing a file several times wastes money, and a new analyzer per file is unnecessary.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
   }
 ]

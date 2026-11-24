@@ -32,13 +32,13 @@
     "id": "D2-104", "sub": "agent-portal", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about agents in Microsoft Foundry, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "An agent's instructions are fixed once the agent is created.",
       "An agent can use more than one tool, for example file search and code interpreter.",
-      "The model ignores an agent's instructions.",
       "Adding Grounding with Bing Search lets an agent use current information from the public web.",
-      "You can change an agent's instructions later and test the change."
+      "The model ignores an agent's instructions."
     ],
-    "ans": [true, false, true, true],
-    "exp": "Yes for the first: an agent can combine several tools. No for the second: instructions define the agent's role and rules, and the model follows them for every conversation. Yes for the third: web grounding brings in current public information. Yes for the fourth: you can edit an agent, which creates a new version, and test it again.",
+    "ans": [false, true, true, false],
+    "exp": "No for the first: you can edit an agent, which creates a new version, and test it again. Yes for the second: an agent can combine several tools. Yes for the third: web grounding brings in current public information. No for the fourth: instructions define the agent's role and rules, and the model follows them for every conversation.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
@@ -152,12 +152,12 @@
     "id": "D2-114", "sub": "text-app", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about building a text analysis app, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "One request can contain several documents to analyze.",
-      "Your code should check each result for an error before reading its values.",
-      "Sentiment analysis needs an image as input."
+      "Sentiment analysis needs an image as input.",
+      "If one document in a batch fails, the whole call fails, so checking single results is unnecessary.",
+      "One request can contain several documents to analyze."
     ],
-    "ans": [true, true, false],
-    "exp": "Yes for the first: the Language APIs accept a batch of documents in one call, within service limits. Yes for the second: each document in the response can succeed or fail on its own, so the SDK marks failed results, for example with is_error, and your code should check it. No for the third: sentiment analysis works on text.",
+    "ans": [false, false, true],
+    "exp": "No for the first: sentiment analysis works on text. No for the second: each document can succeed or fail on its own, so the SDK marks failed results, for example with is_error, and your code should check it. Yes for the third: the Language APIs accept a batch of documents in one call, within service limits.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/quickstart"
   },
   {
@@ -272,12 +272,12 @@
     "id": "D2-124", "sub": "image-generation", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about generating images in Microsoft Foundry, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Image generation always requires an agent.",
       "A more detailed prompt usually gives a result closer to what you want.",
-      "gpt-image-1 can return generated images as base64-encoded data."
+      "Image generation always requires an agent.",
+      "gpt-image-1 returns a text description of the image instead of the image itself."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: you can call an image-generation deployment directly from code or try it in the image playground. Yes for the second: describing subject, style, setting and composition guides the model. Yes for the third: gpt-image-1 returns images as base64 data that your app decodes and saves.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: describing subject, style, setting and composition guides the model. No for the second: you can call an image-generation deployment directly from code or try it in the image playground. No for the third: gpt-image-1 returns images as base64 data that your app decodes and saves.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
@@ -379,13 +379,13 @@
     "id": "D2-134", "sub": "cu-images", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about analyzing images with Content Understanding, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "The extract method can be used for image fields.",
+      "Content Understanding applies the guardrails of the Foundry model deployment it uses.",
+      "The classify method assigns one of a fixed set of categories to an image field.",
       "You can define an image field that holds a generated description.",
-      "The classify method can assign one of a fixed set of categories to an image field.",
-      "Content Understanding applies the guardrails of the Foundry model deployment it uses."
+      "The extract method can be used for image fields."
     ],
-    "ans": [false, true, true, true],
-    "exp": "No for the first: extract, which returns values exactly as they appear, is supported for documents only. Yes for the second: generate creates values such as descriptions. Yes for the third: classify chooses from categories you define. Yes for the fourth: Content Understanding inherits the guardrails of the model deployments it uses.",
+    "ans": [true, true, true, false],
+    "exp": "Yes for the first: Content Understanding inherits the guardrails of the model deployments it uses. Yes for the second: classify chooses from categories you define. Yes for the third: generate creates values such as descriptions. No for the fourth: extract, which returns values exactly as they appear, is supported for documents only.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {

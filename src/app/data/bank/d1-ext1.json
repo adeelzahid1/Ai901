@@ -82,16 +82,16 @@
     "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "Reading the invoice number and total from a PDF is an information extraction workload.",
       "An AI agent can use tools, such as calling an API, to complete a task.",
-      "Generative AI can only produce text; it cannot produce images or audio.",
-      "Reading the invoice number and total from a PDF is an information extraction workload."
+      "Generative AI is not limited to text; it can also produce images, audio and code."
     ],
     "ans": [
       true,
-      false,
+      true,
       true
     ],
-    "exp": "Yes for the first: agents combine a model, instructions and tools, and they call tools such as APIs or search to complete tasks. No for the second: generative AI can create text, images, audio and code; image models and text-to-speech capable models are examples. Yes for the third: pulling specific fields from documents is information extraction, which services such as Content Understanding perform.",
+    "exp": "Yes for the first: pulling specific fields from documents is information extraction, which services such as Content Understanding perform. Yes for the second: agents combine a model, instructions and tools, and they call tools such as APIs or search to complete tasks. Yes for the third: generative AI can create text, images, audio and code; image models and text-to-speech capable models are examples.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
@@ -259,16 +259,16 @@
     "type": "yesno",
     "q": "You use the sentiment analysis feature of Azure Language in Foundry Tools. For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "A document that contains both positive and negative sentences is labeled neutral.",
       "Sentiment analysis translates the text into English before it returns a result.",
-      "Sentiment analysis can return a label and confidence scores for each sentence as well as for the whole document.",
-      "A document that contains both positive and negative sentences can be labeled mixed."
+      "Sentiment analysis returns a label and confidence scores for every sentence as well as for the whole document."
     ],
     "ans": [
       false,
-      true,
+      false,
       true
     ],
-    "exp": "No for the first: sentiment analysis works directly in the supported languages and does not translate the text; translation is a separate service. Yes for the second: the result includes positive, neutral and negative confidence scores at document level and for each sentence. Yes for the third: when sentences disagree, the document sentiment can be mixed.",
+    "exp": "No for the first: when sentences disagree, the document sentiment is mixed; neutral means that the text is neither positive nor negative. No for the second: sentiment analysis works directly in the supported languages and does not translate the text; translation is a separate service. Yes for the third: the result includes positive, neutral and negative confidence scores at document level and for each sentence.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview"
   },
   {
@@ -480,16 +480,16 @@
     "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Speech synthesis converts spoken audio into text.",
-      "Speech to text can add punctuation and capitalization to the transcript.",
-      "Speaker diarization identifies which speaker said each part of a transcript."
+      "Speech synthesis can convert spoken audio into text.",
+      "Speech to text can return the words, while your app adds the punctuation.",
+      "Speaker diarization translates the words of each speaker into one common language."
     ],
     "ans": [
       false,
-      true,
-      true
+      false,
+      false
     ],
-    "exp": "No for the first: speech synthesis turns text into audio; turning audio into text is speech recognition. Yes for the second: the transcription output includes a display form with punctuation and capitalization that is easy to read. Yes for the third: diarization separates speakers in an audio stream and labels each part of the transcript with a speaker.",
+    "exp": "No for the first: speech synthesis turns text into audio; turning audio into text is speech recognition. No for the second: the transcription output includes a display form with punctuation and capitalization that is easy to read. No for the third: diarization separates speakers in an audio stream and labels each part of the transcript with a speaker; translation is a different feature.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-to-text"
   },
   {
@@ -497,19 +497,20 @@
     "sub": "speech-features",
     "diff": 2,
     "type": "multi",
-    "q": "Which TWO are features of speech recognition (speech to text)? Each correct answer presents a complete solution.",
+    "q": "Which THREE are features of speech recognition (speech to text)? Each correct answer presents a complete solution.",
     "opts": [
       "Changing pitch and rate with SSML",
-      "Creating images from spoken words",
+      "Speaker diarization that shows who spoke when",
       "Real-time transcription of microphone input",
       "Batch transcription of stored audio files",
       "Choosing a neural voice for spoken output"
     ],
     "ans": [
+      1,
       2,
       3
     ],
-    "exp": "Speech to text supports real-time transcription of live audio and batch transcription of stored recordings. Choosing a neural voice and adjusting pitch or rate with SSML are text-to-speech features because they shape generated audio. Creating images is an image-generation task, not speech recognition.",
+    "exp": "Real-time transcription, batch transcription and speaker diarization all turn recorded or live speech into text with useful details, so they belong to speech recognition. SSML and neural voices shape synthesized audio, which is text to speech.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-to-text"
   },
   {
@@ -635,16 +636,16 @@
     "type": "yesno",
     "q": "For each of the following statements about image-generation models, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "An image-generation model can create a new image from a text description.",
-      "Some image-generation models, such as gpt-image-1, can edit an existing image based on a text instruction.",
-      "An image-generation model returns bounding boxes for the objects in an input photo."
+      "An image-generation model can return bounding boxes for the objects in an input photo.",
+      "An image-generation model creates a new image from a text description.",
+      "Image-generation models such as gpt-image-1 can create new images but not edit existing ones."
     ],
     "ans": [
-      true,
+      false,
       true,
       false
     ],
-    "exp": "Yes for the first: image-generation models create images from a text prompt. Yes for the second: gpt-image-1 supports image editing, where you provide an image and an instruction to change it. No for the third: bounding boxes come from object detection, an image analysis task; generation models create pictures and do not return coordinates of objects.",
+    "exp": "No for the first: bounding boxes come from object detection, an image analysis task; generation models create pictures and do not return coordinates of objects. Yes for the second: image-generation models create images from a text prompt. No for the third: gpt-image-1 supports image editing, where you provide an image and an instruction to change it.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
   },
   {
@@ -652,19 +653,20 @@
     "sub": "extraction-techniques",
     "diff": 2,
     "type": "multi",
-    "q": "Which TWO techniques help extract information from scanned paper forms? Each correct answer presents a complete solution.",
+    "q": "Which THREE techniques help extract information from scanned paper forms? Each correct answer presents a complete solution.",
     "opts": [
       "Language detection",
       "Optical character recognition (OCR)",
       "Field extraction that returns key-value pairs, such as Name and Date",
-      "Speech synthesis",
+      "Layout analysis that finds tables and check boxes",
       "Image generation"
     ],
     "ans": [
       1,
-      2
+      2,
+      3
     ],
-    "exp": "OCR reads the printed and handwritten text from the scanned page, and field extraction uses document layout and meaning to return labeled values such as Name or Date. Speech synthesis creates audio, image generation creates pictures, and language detection only identifies the language, so none of them pull structured data from a form.",
+    "exp": "OCR reads the printed and handwritten text, layout analysis finds structure such as tables and check boxes, and field extraction returns named values. Language detection only names a language, and image generation creates pictures instead of reading them.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"
   },
   {

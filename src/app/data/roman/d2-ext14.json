@@ -23,11 +23,11 @@
   "D2-427": {
     "q": "Agent tools ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Grounding with Bing Search agent ko company ka private intranet parhne deta hai.",
-      "File search aap ke upload kiye hue PDF aur Word jaise documents se jawab de sakta hai.",
-      "Code interpreter charts jaisi files bana sakta hai jo agent wapas deta hai."
+      "Grounding with Bing Search agent ke liye company ka private intranet parh sakta hai.",
+      "File search aap ke upload kiye hue PDF aur Word jaise documents se jawab deta hai.",
+      "Code interpreter text aur numbers de sakta hai, jab ke charts ke liye image generation tool chahiye."
     ],
-    "exp": "Pehle ka jawab Nahi: Bing grounding public web par talash karta hai; private content ke liye file search ya jura hua search index chahiye. Doosre ka Haan: file search ke liye aam document formats upload ho sakte hain. Teesre ka Haan: code interpreter charts aur doosri files output ke taur par bana sakta hai."
+    "exp": "Pehle ka jawab Nahi: Bing grounding public web par talash karta hai; private content ke liye file search ya jura hua search index chahiye. Doosre ka Haan: file search ke liye aam document formats upload ho sakte hain. Teesre ka Nahi: code interpreter charts aur doosri files output ke taur par bana sakta hai."
   },
   "D2-428": {
     "q": "Agent ke har masle ko us tabdeeli se milayein jo usay theek karti hai. Har hal ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -111,15 +111,15 @@
     "exp": "conversations.create() chat shuru karta hai, conversation ID ke saath responses.create() har message bhejta hai, conversations.delete() khatam ho chuki chat hatata hai, aur get_openai_client(agent_name=...) khaas agent ko nishana banata hai. images.generate() images banata hai aur agent se chat ka hissa nahi."
   },
   "D2-437": {
-    "q": "Kaunse DO tareeqay agent client app ko mehfooz banate hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN tareeqay agent client app ko mehfooz banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Project endpoint aur key ko public web page mein rakhna",
       "Microsoft Entra ID se Foundry par authenticate karna",
       "Poori conversations log karna, users ke type kiye passwords samet",
       "Yaqeeni banana ke har user sirf apni conversations tak pohanche",
-      "HTTPS band karna"
+      "Agent ko browser ke bajaye backend se call karna"
     ],
-    "exp": "Entra ID authentication secrets zahir hone se bachati hai, aur conversation ki milkiyat check karne se users doosron ki chats nahi parh sakte. Keys shaya karna, passwords log karna aur HTTPS band karna, ye sab sangeen security khatre paida karte hain."
+    "exp": "Entra ID secrets zahir hone se bachata hai, milkiyat ki jaanch chats ko private rakhti hai, aur backend credentials ko browser se door rakhta hai. Public page ki key koi bhi copy kar sakta hai, aur log kiye hue passwords leak ho sakte hain."
   },
   "D2-438": {
     "q": "Agent client mein ek chat session ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
@@ -155,11 +155,11 @@
   "D2-441": {
     "q": "Text analysis apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Text analysis ke nateeje reporting ke liye database mein rakhe ja sakte hain.",
-      "Prebuilt sentiment analysis istemal karne se pehle model train karna lazmi hai.",
-      "Azure Language ke features HTTPS par call kiye jate hain."
+      "Aap koi model train kiye baghair prebuilt sentiment analysis istemal kar sakte hain.",
+      "Azure Language ke features HTTPS par call kiye jate hain.",
+      "Text analysis ke nateeje reporting ke liye database mein rakhe ja sakte hain."
     ],
-    "exp": "Pehle ka jawab Haan: sentiment aur key phrases jaise nateeje data hain jo dashboards mein ja sakte hain. Doosre ka Nahi: prebuilt features foran kaam karte hain; training sirf custom features ke liye hai. Teesre ka Haan: SDKs service ka HTTPS endpoint call karte hain."
+    "exp": "Pehle ka jawab Haan: prebuilt features foran kaam karte hain; training sirf custom features ke liye hai. Doosre ka Haan: SDKs service ka HTTPS endpoint call karte hain. Teesre ka Haan: sentiment aur key phrases jaise nateeje data hain jo dashboards mein ja sakte hain."
   },
   "D2-442": {
     "q": "Woh Python code mukammal karein jo documents ke abstractive khulasay print karta hai.",
@@ -200,7 +200,7 @@
   "D2-446": {
     "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Background ka shor spoken prompts ke jawabon ki quality kam kar sakta hai.",
+      "Background ka shor spoken prompts ke jawabon ki quality kam karta hai.",
       "Spoken prompts ko conversation history ke saath nahi jora ja sakta.",
       "Spoken prompt mein 'mukhtasar jawab do' jaisi hidayaat ho sakti hain."
     ],
@@ -229,11 +229,11 @@
   "D2-450": {
     "q": "Speech SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Speech SDK sirf C# se istemal ho sakta hai.",
-      "Speech SDK speech to text aur text to speech dono support karta hai.",
-      "SDK mein speech translation ek se zyada target languages shamil kar sakti hai."
+      "Speech SDK speech to text ke liye hai, jab ke text to speech ke liye alag SDK chahiye.",
+      "SDK mein speech translation har request mein ek target language tak mehdood hai.",
+      "Speech SDK sirf C# se istemal ho sakta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: SDK Python, C#, Java, JavaScript aur doosri languages ke liye dastiyab hai. Doosre ka Haan: recognizers aur synthesizers dono us ka hissa hain. Teesre ka Haan: ek saath kai tarjumay lene ke liye add_target_language() kai baar call kar sakte hain."
+    "exp": "Pehle ka jawab Nahi: recognizers aur synthesizers dono Speech SDK ka hissa hain. Doosre ka Nahi: ek saath kai tarjumay lene ke liye add_target_language() kai baar call kar sakte hain. Teesre ka Nahi: SDK Python, C#, Java, JavaScript aur doosri languages ke liye dastiyab hai."
   },
   "D2-451": {
     "q": "Speech SDK ke baare mein jumlay mukammal karein.",

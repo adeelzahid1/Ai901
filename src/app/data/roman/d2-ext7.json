@@ -23,11 +23,11 @@
   "D2-228": {
     "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Prompt ki tabdeeli tabhi asar karti hai jab model dobara deploy ho.",
       "Prompt ki misaalein kisi training ke baghair model ko label lagane ka andaz sikha sakti hain.",
-      "System message mein yeh usool bhi ho sakte hain ke assistant kya na kare."
+      "System message mein yeh usool bhi ho sakte hain ke assistant kya na kare.",
+      "Prompt ki tabdeeli model dobara deploy karne ke baad asar karti hai."
     ],
-    "exp": "Pehle ka jawab Nahi: prompts har request ke saath jate hain, is liye tabdeeli dobara deploy kiye baghair agli call par lagu hoti hai. Doosre ka Haan: few-shot misaalein woh pattern dikhati hain jis par chalna hai. Teesre ka Haan: system messages mein aam taur par pabandiyan hoti hain, jaise woh mauzu jin se bachna hai ya woh maloomat jo kabhi zahir nahi karni."
+    "exp": "Pehle ka jawab Haan: few-shot misaalein woh pattern dikhati hain jis par chalna hai. Doosre ka Haan: system messages mein aam taur par pabandiyan hoti hain, jaise woh mauzu jin se bachna hai ya woh maloomat jo kabhi zahir nahi karni. Teesre ka Nahi: prompts har request ke saath jate hain, is liye tabdeeli dobara deploy kiye baghair agli call par lagu hoti hai."
   },
   "D2-229": {
     "q": "Har maqsad ko us prompt technique se milayein jo usay hasil karti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -107,7 +107,7 @@
   "D2-237": {
     "q": "Foundry chat playground ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Playground istemal karne ke liye alag license khareedna lazmi hai.",
+      "Playground istemal karne ke liye alag license chahiye.",
       "Code likhne se pehle jaldi testing ke liye playground kaam ka hai.",
       "Aap chun sakte hain ke playground aap ki kaunsi deployment istemal kare."
     ],
@@ -187,11 +187,11 @@
   "D2-247": {
     "q": "Python chat client ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "get_openai_client() ka diya hua client chat completions aur Responses API dono call kar sakta hai.",
-      "Aap model ki value mein koi bhi text de sakte hain, aur service aap ke liye munasib model chun leti hai.",
-      "responses.create() ki har call tokens istemal karti hai jin ka bill aata hai."
+      "responses.create() ki har call tokens istemal karti hai jin ka bill aata hai.",
+      "Aap model value mein aam tafseel de sakte hain, aur service aap ke liye munasib model chun leti hai.",
+      "get_openai_client() ka client chat completions call kar sakta hai, jab ke Responses API ke liye doosra client chahiye."
     ],
-    "exp": "Pehle ka jawab Haan: yeh OpenAI-compatible client hai jis mein dono APIs hain. Doosre ka Nahi: model ki value mein maujood deployment ka naam hona chahiye, warna request fail hoti hai. Teesre ka Haan: har call ke input aur output tokens gine jate aur un ka bill aata hai."
+    "exp": "Pehle ka jawab Haan: har call ke input aur output tokens gine jate aur un ka bill aata hai. Doosre ka Nahi: model ki value mein maujood deployment ka naam hona chahiye, warna request fail hoti hai. Teesre ka Nahi: ye OpenAI-compatible client hai jis mein dono APIs hain."
   },
   "D2-248": {
     "q": "Response ke har field ko us ke matlab se milayein. Har matlab ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -206,15 +206,15 @@
     "exp": "output_text mein Responses API ke nateeje ka bana hua text, usage mein tokens ki tadad, aur id mein response ki pehchan hoti hai taake aap previous_response_id se usay jari rakh sakein. Chat completions mein finish_reason batata hai ke output kyun ruka. Responses mein kabhi aap ki API key nahi hoti."
   },
   "D2-249": {
-    "q": "Kaunse DO tareeqay production mein chat client ko zyada mazboot banate hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN tareeqay production mein chat client ko zyada mazboot banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Troubleshooting ke liye API key logs mein print karna",
       "Ruki hui (throttled) requests ko exponential backoff ke saath dobara bhejna",
       "Request ke tamam timeouts band karna",
       "Content filter ke nateeje sambhalna aur user ko dostana message dikhana",
-      "Errors nazar andaz kar ke khali jawab dikhana"
+      "Timeouts lagana aur waqt khatam hone par wazeh message dikhana"
     ],
-    "exp": "Backoff ke saath dobara koshish aarzi 429 throttling sambhalti hai, aur filter kiye hue responses ko acchay se sambhalna users ko tooti hui app ke bajaye wazeh message deta hai. Keys log karna secrets zahir karta hai, timeouts hatane se app atak sakti hai, aur khamoshi se khali jawab dikhana masail chupata hai."
+    "exp": "Backoff ke saath retries throttling sambhalti hain, filter hue prompts ka dostana jawab uljhan se bachata hai, aur wazeh message ke saath timeouts app ko atakne nahi dete. API keys logs mein nahi aani chahiye, aur timeouts band karne se users hamesha intezar karte reh sakte hain."
   },
   "D2-250": {
     "q": "Maujooda Foundry SDK quickstart deploy kiye hue model ko prompt bhejne ke liye kaunsa API istemal karta hai?",

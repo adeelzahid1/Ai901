@@ -24,11 +24,11 @@
   "D1-035": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "PDF se invoice number aur total parhna information extraction workload hai.",
       "AI agent kaam mukammal karne ke liye tools istemal kar sakta hai, jaise API call karna.",
-      "Generative AI sirf text bana sakta hai; woh images ya audio nahi bana sakta.",
-      "PDF se invoice number aur total parhna information extraction workload hai."
+      "Generative AI sirf text tak mehdood nahi; woh images, audio aur code bhi bana sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: agents model, hidayaat aur tools ko jorte hain, aur kaam mukammal karne ke liye APIs ya search jaise tools call karte hain. Doosre ka Nahi: generative AI text, images, audio aur code bana sakta hai; image models aur text-to-speech wale models is ki misaal hain. Teesre ka Haan: documents se khaas fields nikalna information extraction hai, jo Content Understanding jaisi services karti hain."
+    "exp": "Pehle ka jawab Haan: documents se khaas fields nikalna information extraction hai, jo Content Understanding jaisi services karti hain. Doosre ka Haan: agents model, hidayaat aur tools ko jorte hain, aur kaam mukammal karne ke liye APIs ya search jaise tools call karte hain. Teesre ka Haan: generative AI text, images, audio aur code bana sakta hai; image models aur text-to-speech wale models is ki misaalein hain."
   },
   "D1-036": {
     "q": "Kaunsi DO salahiyatein AI agent ko aisi basic chat app se alag karti hain jo sirf sawalon ke jawab deti hai? Har sahi jawab mukammal hal hai.",
@@ -83,11 +83,11 @@
   "D1-045": {
     "q": "Aap Azure Language in Foundry Tools ka sentiment analysis feature istemal karte hain. Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Jis document mein positive aur negative dono jumlay hon us par neutral ka label lagta hai.",
       "Sentiment analysis nateeja dene se pehle text ko English mein translate karta hai.",
-      "Sentiment analysis poore document ke saath saath har jumlay ke liye bhi label aur confidence scores de sakta hai.",
-      "Jis document mein positive aur negative dono jumlay hon us par mixed ka label lag sakta hai."
+      "Sentiment analysis poore document ke saath har jumlay ka label aur confidence scores bhi deta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: sentiment analysis supported zabanon mein seedha kaam karta hai aur text translate nahi karta; translation alag service hai. Doosre ka Haan: nateeje mein document ki satah par aur har jumlay ke liye positive, neutral aur negative confidence scores hote hain. Teesre ka Haan: jab jumlay ek doosre se mukhtalif hon to document ka sentiment mixed ho sakta hai."
+    "exp": "Pehle ka jawab Nahi: jab jumlay mukhtalif hon to document ka sentiment mixed hota hai; neutral ka matlab hai ke text na positive hai na negative. Doosre ka Nahi: sentiment analysis supported zabanon mein seedha kaam karta hai aur text translate nahi karta; translation alag service hai. Teesre ka Haan: nateeje mein document ki satah par aur har jumlay ke liye positive, neutral aur negative confidence scores hote hain."
   },
   "D1-046": {
     "q": "Har nateeje ko us text analysis technique se milayein jis se woh bana. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -152,22 +152,22 @@
   "D1-057": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Speech synthesis boli hui audio ko text mein badalta hai.",
-      "Speech to text transcript mein punctuation aur bare huroof shamil kar sakta hai.",
-      "Speaker diarization batata hai ke transcript ka har hissa kis speaker ne bola."
+      "Speech synthesis boli hui audio ko text mein badal sakta hai.",
+      "Speech to text alfaaz de sakta hai, jab ke punctuation aap ki app lagati hai.",
+      "Speaker diarization har bolne wale ke alfaaz ko ek mushtarka zaban mein translate karta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: speech synthesis text ko audio banata hai; audio ko text banana speech recognition hai. Doosre ka Haan: transcription ke output mein punctuation aur bare huroof wali display form hoti hai jo parhne mein aasan hai. Teesre ka Haan: diarization audio stream mein speakers ko alag karta hai aur transcript ke har hisse par speaker ka label lagata hai."
+    "exp": "Pehle ka jawab Nahi: speech synthesis text ko audio banata hai; audio ko text banana speech recognition hai. Doosre ka Nahi: transcription output mein display form hoti hai jis mein punctuation aur capitalization lagi hoti hai, jo parhna aasan hai. Teesre ka Nahi: diarization audio mein bolne walon ko alag karta hai aur transcript ke har hisse par speaker ka label lagata hai; translation alag feature hai."
   },
   "D1-058": {
-    "q": "Kaunsi DO cheezein speech recognition (speech to text) ki features hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunsi TEEN cheezein speech recognition (speech to text) ki features hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "SSML se pitch aur raftar badalna",
-      "Bole hue alfaz se tasveerein banana",
+      "Speaker diarization jo dikhata hai ke kab kaun bola",
       "Microphone input ki real-time transcription",
       "Mehfooz audio files ki batch transcription",
       "Boli jane wali output ke liye neural voice chunna"
     ],
-    "exp": "Speech to text live audio ki real-time transcription aur mehfooz recordings ki batch transcription ko support karta hai. Neural voice chunna aur SSML se pitch ya raftar badalna text-to-speech ki features hain kyunke woh bani hui audio ko shakal dete hain. Tasveerein banana image-generation ka kaam hai, speech recognition ka nahi."
+    "exp": "Real-time transcription, batch transcription aur speaker diarization, teenon live ya record ki hui speech ko mufeed tafseel ke saath text mein badalte hain, is liye woh speech recognition ka hissa hain. SSML aur neural voices banayi hui audio ke liye hain, jo text to speech hai."
   },
   "D1-059": {
     "q": "Har scenario ko us speech feature se milayein jo usay chahiye. Har feature ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -203,16 +203,22 @@
   "D1-065": {
     "q": "Image-generation models ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Image-generation model text ki tafseel se nayi tasveer bana sakta hai.",
-      "Kuch image-generation models, jaise gpt-image-1, text ki hidayat par maujood tasveer edit kar sakte hain.",
-      "Image-generation model input photo mein maujood cheezon ke bounding boxes deta hai."
+      "Image-generation model input tasveer ki cheezon ke bounding boxes de sakta hai.",
+      "Image-generation model text description se nayi image banata hai.",
+      "gpt-image-1 jaise image-generation models nayi images bana sakte hain lekin maujooda images edit nahi kar sakte."
     ],
-    "exp": "Pehle ka jawab Haan: image-generation models text prompt se tasveerein banate hain. Doosre ka Haan: gpt-image-1 image editing ko support karta hai, jis mein aap tasveer aur usay badalne ki hidayat dete hain. Teesre ka Nahi: bounding boxes object detection se aate hain, jo image analysis ka kaam hai; generation models tasveerein banate hain aur cheezon ki jagah nahi dete."
+    "exp": "Pehle ka jawab Nahi: bounding boxes object detection se aate hain, jo image analysis ka kaam hai; generation models tasveerein banate hain aur cheezon ki jagah nahi dete. Doosre ka Haan: image-generation models text prompt se tasveerein banate hain. Teesre ka Nahi: gpt-image-1 image editing support karta hai, jahan aap image aur usay badalne ki hidayat dete hain."
   },
   "D1-066": {
-    "q": "Kaunsi DO techniques scan kiye hue kaghzi forms se maloomat nikalne mein madad karti hain? Har sahi jawab mukammal hal hai.",
-    "opts": [null, null, "Field extraction jo key-value pairs deta hai, jaise Name aur Date", null, null],
-    "exp": "OCR scan kiye hue page se chhapa hua aur haath ka likha text parhta hai, aur field extraction document ki layout aur matlab se Name ya Date jaise label wali values deta hai. Speech synthesis audio banata hai, image generation tasveerein banata hai, aur language detection sirf zaban batata hai, is liye koi bhi form se structured data nahi nikalta."
+    "q": "Kaunsi TEEN techniques scan kiye hue kaghzi forms se maloomat nikalne mein madad karti hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      null,
+      null,
+      "Field extraction jo key-value pairs deta hai, jaise Name aur Date",
+      "Layout analysis jo tables aur check boxes dhoondta hai",
+      null
+    ],
+    "exp": "OCR chhapa hua aur haath ka likha text parhta hai, layout analysis tables aur check boxes jaisa structure dhoondta hai, aur field extraction naam wali values deta hai. Language detection sirf zaban batata hai, aur image generation tasveerein parhne ke bajaye banata hai."
   },
   "D1-067": {
     "q": "Har content type ko us technique se milayein jo us se maloomat nikalti hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",

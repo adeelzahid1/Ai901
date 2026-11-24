@@ -11,11 +11,11 @@
   "D2-172": {
     "q": "Agent tools ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "File search upload kiye hue documents ko vector store mein rakhta hai taake agent un mein talash kar sake.",
       "Grounding with Bing Search sirf aap ki private SharePoint files mein talash karta hai.",
-      "Code interpreter code ko sandbox wale mahaul mein chalata hai."
+      "Code interpreter code user ke apne computer par chalata hai.",
+      "File search model ko mutalliqa hisson ke bajaye poore documents bhejta hai."
     ],
-    "exp": "Pehle ka jawab Haan: upload ki hui files chunks mein tor kar embed ki jati aur vector store mein rakhi jati hain jahan file search talash karta hai. Doosre ka Nahi: Bing grounding public web par talash karta hai, private files mein nahi. Teesre ka Haan: code interpreter apna likha hua Python alag sandbox mein chalata hai."
+    "exp": "Pehle ka jawab Nahi: Bing grounding public web par talash karta hai, private files mein nahi. Doosre ka Nahi: code interpreter apna likha Python cloud mein alag thalag sandbox mein chalata hai. Teesre ka Nahi: upload ki hui files chunks mein tor kar vector store mein embed hoti hain, aur file search milne wale hisse model ko deta hai."
   },
   "D2-173": {
     "q": "Agent test karte waqt aap ghalat jawab samajhne ke liye dekhna chahte hain ke us ne kaunse tools, kis tarteeb mein aur kaunse inputs ke saath call kiye. Aap ko kya dekhna chahiye?",
@@ -35,15 +35,15 @@
     "exp": "Model sochta aur text banata hai, instructions tay karti hain ke agent kaisa rawaiya rakhe, tools usay maloomat aur amal ki salahiyat dete hain, aur conversation user ke saath guftagu rakhti hai. Billing Azure sambhalta hai aur agent ke design ka hissa nahi."
   },
   "D2-175": {
-    "q": "Kaunse DO tareeqay agent ke amal ko mehfooz rakhne mein madad karte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN tareeqay agent ke amal ko mehfooz rakhne mein madad karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Agent ko tamam systems par administrator ke ikhtiyar dena",
       "Hassas tool calls se pehle insani manzoori lazmi karna",
       "Agent ke model ke content filters band karna",
       "Agent ko sirf woh tools aur ijazat dena jin ki usay zaroorat hai",
-      "Tool calls ko logs se chupana"
+      "Tool calls log karna taake amal ka audit ho sake"
     ],
-    "exp": "Hassas amal ke liye insani manzoori aur kam se kam zaroori rasai (least privilege) us nuqsan ko mehdood karte hain jo agent ghalat samajhne ya bahkaye jane par kar sakta hai. Wasee admin ikhtiyar, band content filters aur chupi hui tool calls, sab khatra barhate aur masail pakarna mushkil karte hain."
+    "exp": "Insani manzoori khatarnak calls rokti hai, kam se kam ikhtiyar nuqsan ki had mehdood karta hai, aur logs se log dekh sakte hain ke agent ne kya kiya. Tamam systems par administrator rights aur band content filters mumkina nuqsan barhate hain."
   },
   "D2-176": {
     "q": "Microsoft Foundry ke agents ke baare mein jumla mukammal karein.",
@@ -71,11 +71,11 @@
   "D2-180": {
     "q": "Agent client apps ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Agent se chat karne se pehle client ko model ke weights upload karne lazmi hain.",
       "Client app maujood agent ko dobara banaye baghair istemal kar sakti hai.",
+      "Client agent se chat karne se pehle model ke weights upload karta hai.",
       "Maujood agent ke naam ke saath create_version() call karne se us agent ka naya version banta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: agent aur us ka model Foundry mein chalte hain, is liye client sirf requests bhejta hai. Doosre ka Haan: client naam se maujood agent se jura client le kar chat shuru kar sakta hai. Teesre ka Haan: create_version() naya ho to agent, aur pehle se ho to us ka naya version banata hai."
+    "exp": "Pehle ka jawab Haan: client naam se maujood agent se jura client le kar chat shuru kar sakta hai. Doosre ka Nahi: agent aur us ka model Foundry mein chalte hain, is liye client sirf requests bhejta hai. Teesre ka Haan: create_version() naya ho to agent, aur pehle se ho to us ka naya version banata hai."
   },
   "D2-181": {
     "q": "Jab user chat session khatam kare to client app ko mehfooz conversation history hatani hai. Usay kya karna chahiye?",
@@ -131,11 +131,11 @@
   "D2-187": {
     "q": "Text analysis apps banane ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Prompt mein output format bayan karein to deploy kiya hua chat model entities nikal sakta hai.",
-      "Text analysis app ko aap ke sambhale hue GPU par chalna lazmi hai.",
-      "Language service sentiment ke nateejon ke saath confidence scores deti hai."
+      "Deploy kiye hue chat model se entities nikalne ke liye pehle usay fine-tune karna parta hai.",
+      "Language service sentiment ke nateejon ke saath confidence scores deti hai.",
+      "Text analysis app ko aap ke sambhale hue GPU par chalna lazmi hai."
     ],
-    "exp": "Pehle ka jawab Haan: jab prompt bataye ke kya dena hai to generative models extraction ke kaam kar sakte hain. Doosre ka Nahi: Language service aur Foundry models dono cloud services hain, is liye aap ki app sirf requests bhejti hai. Teesre ka Haan: sentiment ke nateejon mein positive, neutral aur negative ke scores hote hain."
+    "exp": "Pehle ka jawab Nahi: generative models fine-tuning ke baghair extraction kar sakte hain jab prompt bataye ke kya dena hai. Doosre ka Haan: sentiment ke nateejon mein positive, neutral aur negative ke scores hote hain. Teesre ka Nahi: Language service aur Foundry models dono cloud services hain, is liye aap ki app sirf requests bhejti hai."
   },
   "D2-188": {
     "q": "Language SDK mein document summarization lambe chalne wale operation ki soorat mein chalti hai. Python code khulase kaise hasil karta hai?",
@@ -160,11 +160,11 @@
   "D2-190": {
     "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Multimodal model ke istemal se pehle audio ko tasveer mein badalna lazmi hai.",
+      "Audio wala multimodal model audio ko pehle text mein badle baghair seedha istemal karta hai.",
       "Bola hua sawal ek hi request mein text hidayat ke saath bheja ja sakta hai.",
       "Agar model sirf text de to app Azure Speech se jawab ko speech bana sakti hai."
     ],
-    "exp": "Pehle ka jawab Nahi: audio wale models audio ko seedha audio content part ki soorat mein lete hain. Doosre ka Haan: ek message mein text part aur audio part dono ho sakte hain. Teesre ka Haan: model ko text to speech ke saath jorna bole hue jawab dene ka aam tareeqa hai."
+    "exp": "Pehle ka jawab Haan: audio wale models audio ko audio content part ki soorat mein seedha lete hain. Doosre ka Haan: ek message mein text part aur audio part dono ho sakte hain. Teesre ka Haan: model ko text to speech ke saath jorna bole hue jawab dene ka aam tareeqa hai."
   },
   "D2-191": {
     "q": "Woh content part mukammal karein jo record kiya hua WAV sawal Chat Completions message mein jorta hai.",

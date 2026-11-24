@@ -12,11 +12,11 @@
   "D1-142": {
     "q": "Fairness ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Data se hassas column hatana hamesha fair model ki guarantee hai.",
       "Fairness assessment dekhta hai ke model mukhtalif groups, jaise umar ya gender ke groups, ke liye kaisi karkardagi dikhata hai.",
-      "Fairness ke masail training data jama karne ke tareeqe se bhi aa sakte hain."
+      "Fairness ke masail training data jama karne ke tareeqe se bhi aa sakte hain.",
+      "Data se hassas column hata dena model ko fair banane ke liye kaafi hai."
     ],
-    "exp": "Pehle ka jawab Nahi: mutalliqa features wahi maloomat rakh sakte hain, is liye model phir bhi unfair reh sakta hai. Doosre ka Haan: groups ke darmiyan error rates ya nateejon ka muqabla karne se hi unfairness pakri jati hai. Teesre ka Haan: jis data mein kuch groups ki numaindagi kam ho ya purana bias ho, woh model ko wahi bias dohrane par le jata hai."
+    "exp": "Pehle ka jawab Haan: groups ke darmiyan error rates ya nateejon ka muqabla karne se hi unfairness pakri jati hai. Doosre ka Haan: jis data mein kuch groups ki numaindagi kam ho ya purana bias ho, woh model ko wahi bias dohrane par le jata hai. Teesre ka Nahi: mutalliqa features wahi maloomat rakh sakte hain, is liye model phir bhi unfair reh sakta hai."
   },
   "D1-143": {
     "q": "Launch se pehle ek team jaan boojh kar aise prompts bhejti hai jo us ki generative AI app se nuqsan deh ya ghalat output nikalwayein, taake kamzoriyan theek ki ja sakein. Is amal ko kya kehte hain?",
@@ -44,15 +44,15 @@
     "exp": "Sirf zaroori data jama karna, jise aksar data minimization kehte hain, data zahir hone par nuqsan kam karta hai aur logon ki privacy ka khayal rakhta hai. Ehtiyatan sab kuch jama karna, data khul kar baantna aur prompts mein secrets rakhna, teeno privacy aur security ka khatra barhate hain."
   },
   "D1-146": {
-    "q": "Kaunse DO tareeqay AI application aur us ke data ko mehfooz rakhne mein madad karte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN tareeqay AI application aur us ke data ko mehfooz rakhne mein madad karte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
-      "API keys ko prompts mein paste karna",
+      "Endpoint tak network rasai ko bharosemand networks tak mehdood karna",
       "Code mein keys ke bajaye Microsoft Entra ID aur managed identities istemal karna",
       "Training data wala storage account sab ke parhne ke liye public karna",
       "Jo secrets istemal karne hi hon unhein source code ke bajaye Azure Key Vault mein rakhna",
       "Endpoint par authentication band karna"
     ],
-    "exp": "Entra ID aur managed identities app ko secrets mehfooz kiye baghair tokens lene deti hain, aur Key Vault baqi secrets ko source code se bahar rakhta hai; dono credentials leak hone ka khatra kam karte hain. Prompts mein keys rakhna, data public karna aur authentication band karna, sab data ya services ko zahir karte hain."
+    "exp": "Managed identities code mein keys rakhne se bachati hain, Key Vault baqi secrets ki hifazat karta hai, aur network rasai mehdood karne se endpoint tak pohanchne wale kam hote hain. Sab ke liye khula training data aur authentication ke baghair endpoint application aur us ke data ko khatre mein dalte hain."
   },
   "D1-147": {
     "q": "Ek support chatbot sirf English mein kaam karta hai, halaan ke customers bohat si zabanein bolte hain. Team customers ki zabanon ka support shamil karti hai. Yeh kaunse principle ko sab se seedha support karta hai?",
@@ -71,11 +71,11 @@
   "D1-150": {
     "q": "Transparency ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Users ko batana ke woh AI system se baat kar rahe hain transparency ko support karta hai.",
       "AI ke faislay ki asal wajoohat samjhana transparency ko support karta hai.",
-      "Transparency ke liye model ka poora source code shaya karna lazmi hai."
+      "Transparency ke liye model ka poora source code shaya karna lazmi hai.",
+      "Agar jawab sahi hon to users ko ye jaanne ki zaroorat nahi ke woh AI system se baat kar rahe hain."
     ],
-    "exp": "Pehle ka jawab Haan: logon ko pata hona chahiye ke woh kab AI se kaam le rahe hain. Doosre ka Haan: nateeje par asar dalne wali cheezein samjhane se log usay samajh aur us par sawal kar sakte hain. Teesre ka Nahi: transparency is baare mein hai ke log system ka maqsad, rawaiya aur hudood samjhein; us ke liye source code shaya karna zaroori nahi."
+    "exp": "Pehle ka jawab Haan: nateeje par asar dalne wali cheezein samjhane se log usay samajh aur us par sawal kar sakte hain. Doosre ka Nahi: transparency is baare mein hai ke log system ka maqsad, rawaiya aur hudood samjhein; us ke liye source code shaya karna zaroori nahi. Teesre ka Nahi: logon ko pata hona chahiye ke woh AI se baat kar rahe hain, chahe woh kitna hi sahi ho, taake woh tay kar sakein ke us par kitna bharosa karein."
   },
   "D1-151": {
     "q": "Customers ke baare mein faislay karne wale AI system ke liye kaunsa tareeqa accountability principle ko sab se behtar dikhata hai?",
@@ -157,12 +157,12 @@
   "D1-160": {
     "q": "Model chunne ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Bara aur mehnga model saade kaamon ke liye bhi behtar intikhab hai.",
+      "Catalog ke tamam models image input nahi lete.",
       "Catalog ke benchmarks models ko quality, kharche aur raftar par compare karne mein madad dete hain.",
-      "Candidate models ko apne data se test karna tajweez kiya jata hai.",
-      "Sab se mehnga model hamesha har kaam ke liye behtareen hota hai.",
-      "Catalog ke kuch models input mein images lete hain."
+      "Shaya shuda benchmarks ki wajah se apne data par test karna ghair zaroori ho jata hai."
     ],
-    "exp": "Pehle ka jawab Haan: benchmarks aur leaderboards shuruaati muqabla dete hain. Doosre ka Haan: aap ke apne prompts aur data dikhate hain ke model aap ke kaam par kaisa hai. Teesre ka Nahi: aasan kaamon ke liye chhote aur saste models aksar kaafi aur tez hote hain. Chauthe ka Haan: multimodal models text ke saath images bhi lete hain."
+    "exp": "Pehle ka jawab Nahi: aasan kaamon ke liye chhote aur saste models aksar kaafi aur tez hote hain. Doosre ka Haan: multimodal models text ke saath images lete hain, jab ke sirf text wale models nahi lete. Teesre ka Haan: benchmarks aur leaderboards shuruaati muqabla dete hain. Chauthe ka Nahi: benchmarks sirf shuruaat hain; aap ke apne prompts aur data dikhate hain ke model aap ke kaam par kaisa chalta hai."
   },
   "D1-161": {
     "q": "Har zaroorat ko us qism ke model se milayein jo us ke liye munasib hai. Har model type ek baar istemal ho sakti hai, ya bilkul nahi.",

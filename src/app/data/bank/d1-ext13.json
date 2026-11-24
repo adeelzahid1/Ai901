@@ -24,12 +24,12 @@
     "id": "D1-385", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
     "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Translating a live conversation between two people who speak different languages is a speech workload.",
-      "Counting the cars in a photo of a car park is a text analysis workload.",
-      "Writing product descriptions from a list of features is a generative AI workload."
+      "Counting the cars in a photo of a car park is a computer vision workload.",
+      "Writing product descriptions from a list of features is a generative AI workload.",
+      "Translating a live conversation between two people who speak different languages is a speech workload."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: speech translation recognizes and translates spoken words. No for the second: counting cars in an image is object detection, a computer vision task. Yes for the third: creating new descriptions from features is generative AI.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: counting cars in an image uses object detection, a computer vision task. Yes for the second: creating new descriptions from features is generative AI. Yes for the third: speech translation recognizes and translates spoken words.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {
@@ -101,12 +101,12 @@
     "id": "D1-392", "sub": "text-techniques", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about text analysis, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Text analysis can be used on emails, chats and documents.",
-      "Named entity recognition can find dates in text.",
-      "Sentiment analysis can detect objects in photos."
+      "Text analysis can be used on any written text, such as emails, chats and documents.",
+      "Sentiment analysis can detect objects in photos.",
+      "Named entity recognition can find people and places, while dates need a different feature."
     ],
-    "ans": [true, true, false],
-    "exp": "Yes for the first: any written text can be analyzed. Yes for the second: DateTime is one of the entity categories. No for the third: detecting objects in photos is computer vision; sentiment analysis works on text.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: any written text can be analyzed. No for the second: detecting objects in photos is computer vision; sentiment analysis works on text. No for the third: DateTime is one of the entity categories, along with Person and Location.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -187,12 +187,12 @@
     "id": "D1-399", "sub": "speech-features", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about Azure Speech, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Text to speech can produce only MP3 files.",
       "Speech to text supports many languages and accents.",
-      "Custom speech can improve recognition of product names."
+      "The output of text to speech is limited to MP3 files.",
+      "Custom speech improves recognition of product names when it is trained with them."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: synthesized audio can be produced in several formats, such as WAV and MP3, and can also be streamed. Yes for the second: speech to text supports a wide range of locales. Yes for the third: training with domain text teaches the model special vocabulary.",
+    "ans": [true, false, true],
+    "exp": "Yes for the first: speech to text supports a wide range of locales. No for the second: synthesized audio can be produced in several formats, such as WAV and MP3, and can also be streamed. Yes for the third: training with domain text teaches the model special vocabulary.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"
   },
   {
@@ -242,11 +242,11 @@
     "q": "For each of the following statements about computer vision, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "Image generation and image analysis are the same task.",
-      "Multimodal models can answer questions about images.",
-      "OCR can extract text from photos of documents."
+      "OCR extracts text from photos of documents as well as from scans.",
+      "Multimodal models answer questions about images."
     ],
     "ans": [false, true, true],
-    "exp": "No for the first: generation creates new images, while analysis describes existing ones. Yes for the second: multimodal models accept images and respond in language. Yes for the third: OCR reads printed and handwritten text from photos and scans.",
+    "exp": "No for the first: generation creates new images, while analysis describes existing ones. Yes for the second: OCR reads printed and handwritten text from photos and scans. Yes for the third: multimodal models accept images and respond in language.",
     "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/"
   },
   {

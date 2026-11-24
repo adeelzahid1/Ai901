@@ -18,11 +18,11 @@
   "D2-314": {
     "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Zero-shot prompt mein kai hal shuda misaalein hoti hain.",
       "Few-shot misaalein har us request mein tokens istemal karti hain jis mein woh hon.",
-      "Ek system message persona, usool aur output format teeno ko jama kar sakta hai."
+      "Ek system message persona, usool aur output format teeno ko jama kar sakta hai.",
+      "Zero-shot prompt mein kai hal shuda misaalein hoti hain."
     ],
-    "exp": "Pehle ka jawab Nahi: zero-shot ka matlab misaalon ke baghair hidayaat hai; misaalein usay few-shot banati hain. Doosre ka Haan: misaalein prompt ka hissa hain, is liye har baar gini jati aur un ka bill aata hai. Teesre ka Haan: system messages aam taur par batate hain ke assistant kaun hai, kya kar sakta hai aur jawab kis format mein de."
+    "exp": "Pehle ka jawab Haan: misaalein prompt ka hissa hain, is liye har baar gini jati aur un ka bill aata hai. Doosre ka Haan: system messages aam taur par batate hain ke assistant kaun hai, kya kar sakta hai aur jawab kis format mein de. Teesre ka Nahi: zero-shot ka matlab misaalon ke baghair hidayaat hai; misaalein usay few-shot banati hain."
   },
   "D2-315": {
     "q": "Har prompt ko us technique se milayein jo woh istemal karta hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -51,15 +51,15 @@
     "exp": "Model ko diye gaye sources tak mehdood karna, citations maangna aur na jaanne ke iqrar ki ijazat dena, teeno hallucinations kam karte aur jawab ko check karne ke qabil banate hain. Saada hidayat grounding ka koi usool nahi deti, aur takhleeq ya zyada tafseel maangna model ko be-bunyad content jorne par amada karta hai."
   },
   "D2-318": {
-    "q": "System message likhne ke kaunse DO ache tareeqay hain? Har sahi jawab mukammal hal hai.",
+    "q": "System message likhne ke kaunse TEEN ache tareeqay hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Aapas mein takraane wali hidayaat shamil karna",
       "Wazeh batana ke assistant kya kare aur kya na kare",
       "System message khali chorna",
       "Matlooba output format tay karna",
-      "System message mein passwords jaise secrets rakhna"
+      "Batana ke jawab maloom na ho to kya kare"
     ],
-    "exp": "Wazeh hadein aur muqarrar output format jawab ko zyada qabil-e-andaza aur kaar-aamad banate hain. Takraane wali hidayaat model ko uljhati hain, khali system message koi rahnumai nahi deta, aur secrets kabhi prompts mein nahi rakhne chahiye kyunke woh zahir ho sakte hain."
+    "exp": "Khaas usool, tay shuda output format aur na-maloom jawab ke liye rahnumai jawabon ko yaksan banati hain aur ghara hua content kam karti hain. Aapas mein takrane wali hidayaat model ko uljhati hain, aur khali system message koi rahnumai nahi deta."
   },
   "D2-319": {
     "q": "Prompt engineering mein few-shot example kya hota hai?",
@@ -100,11 +100,11 @@
   "D2-323": {
     "q": "Microsoft Foundry ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Aap baqi deployments badle baghair ek deployment par custom content filter laga sakte hain.",
       "Sirf subscription owners chat playground istemal kar sakte hain.",
-      "Evaluations jawabon ko score dene ke liye AI-assisted evaluators istemal kar sakti hain."
+      "Aap baqi deployments badle baghair ek deployment par custom content filter laga sakte hain.",
+      "Evaluations jawab ki raftaar napti hain aur quality insani review par chhorti hain."
     ],
-    "exp": "Pehle ka jawab Haan: content filter configurations har deployment par alag lagti hain. Doosre ka Nahi: project par munasib roles wale users, jaise Foundry User (pehle Azure AI User), playground mein models test kar sakte hain. Teesre ka Haan: AI-assisted evaluators relevance aur groundedness jaisi khoobiyan parakhne ke liye model istemal karte hain."
+    "exp": "Pehle ka jawab Nahi: project par munasib roles wale users, jaise Foundry User (pehle Azure AI User), playground mein models test kar sakte hain. Doosre ka Haan: content filter configurations har deployment par alag lagti hain. Teesre ka Nahi: AI-assisted evaluators relevance aur groundedness jaisi khoobiyan parakhne ke liye model istemal karte hain."
   },
   "D2-324": {
     "q": "Har masle ko Microsoft Foundry ke us amal se milayein jo usay hal karta hai. Har amal ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -192,11 +192,11 @@
   "D2-333": {
     "q": "Python chat client ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Har message ke liye naya AIProjectClient banana lazmi hai.",
       "Client responses stream kar sakta hai taake app text aate hi dikhaye.",
-      "Ek project client bohat si requests ke liye dobara istemal ho sakta hai."
+      "Har message ke liye naya AIProjectClient banana lazmi hai.",
+      "Ek project client app ki tamam requests ke liye dobara istemal ho sakta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: baar baar clients banana fuzool hai; unhein ek baar bana kar dobara istemal karte hain. Doosre ka Haan: streaming model ke banate hue hi hisse deti hai. Teesre ka Haan: project client aur us ka diya hua OpenAI client dobara istemal ke liye bane hain."
+    "exp": "Pehle ka jawab Haan: streaming model ke banate hue hi hisse deti hai. Doosre ka Nahi: baar baar clients banana fuzool hai; unhein ek baar bana kar dobara istemal karte hain. Teesre ka Haan: project client aur us ka diya hua OpenAI client dobara istemal ke liye bane hain."
   },
   "D2-334": {
     "q": "Chat client ki har alamat ko us ke hal se milayein. Har hal ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -216,15 +216,15 @@
     "exp": "Kate hue jawabon ko output tokens ki zyada hadd chahiye, khoye hue context ko history ya previous_response_id, bohat zyada farq ko kam temperature, aur 429 errors ko backoff ke saath dobara koshish ya zyada quota. Deployment ka naam badalne se koi alamat theek nahi hoti."
   },
   "D2-335": {
-    "q": "Kaunse DO tareeqay chat client ka code sambhalna aasan banate hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN tareeqay chat client ka code sambhalna aasan banate hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Har source file mein endpoint copy karna",
       "Endpoint aur deployment ka naam configuration se parhna",
       "Code mein passwords hard-code karna",
       "System message ko ek jagah rakhna jahan se update ho sake",
-      "Service ke errors nazar andaz karna"
+      "Project client ek baar bana kar dobara istemal karna"
     ],
-    "exp": "Configuration ki values aur system message ki ek jagah se aap poore code mein dhoonde baghair environments aur rawaiya badal sakte hain. Har jagah values copy karne se tazaad aata hai, hard-code kiye passwords ghair mehfooz hain, aur errors nazar andaz karna masail chupata hai."
+    "exp": "Configuration, system message ki ek jagah aur ek mushtarka client ka matlab hai ke har tabdeeli ek hi baar karni parti hai. Endpoint ko har file mein copy karne se kaam barhta hai, aur code mein likhe passwords security ka khatra bhi hain."
   },
   "D2-336": {
     "q": "Ek chat app stream kiya hua response parh kar typing ka asar dikhati hai. Stream ke har chunk mein kya hota hai?",

@@ -16,12 +16,12 @@
     "id": "D1-142", "sub": "fairness", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about fairness, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Removing a sensitive column from the data always guarantees a fair model.",
       "A fairness assessment compares how a model performs for different groups, such as age groups or genders.",
-      "Fairness problems can come from the way training data was collected."
+      "Fairness problems can come from the way training data was collected.",
+      "Removing a sensitive column from the data is enough to make a model fair."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: related features can still carry the same information, so a model can remain unfair. Yes for the second: comparing error rates or outcomes across groups is how unfairness is detected. Yes for the third: data that under-represents some groups or reflects past bias leads the model to repeat that bias.",
+    "ans": [true, true, false],
+    "exp": "Yes for the first: comparing error rates or outcomes across groups is how unfairness is detected. Yes for the second: data that under-represents some groups or reflects past bias leads the model to repeat that bias. No for the third: related features can still carry the same information, so a model can remain unfair.",
     "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
   },
   {
@@ -61,16 +61,16 @@
   },
   {
     "id": "D1-146", "sub": "privacy-security", "diff": 2, "type": "multi",
-    "q": "Which TWO practices help keep an AI application and its data secure? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices help keep an AI application and its data secure? Each correct answer presents a complete solution.",
     "opts": [
-      "Paste API keys into prompts",
+      "Limit network access to the endpoint to trusted networks",
       "Use Microsoft Entra ID and managed identities instead of keys in code",
       "Make the storage account that holds training data publicly readable",
       "Keep any secrets that you must use in Azure Key Vault, not in source code",
       "Turn off authentication on the endpoint"
     ],
-    "ans": [1, 3],
-    "exp": "Entra ID and managed identities let the app get tokens without storing secrets, and Key Vault keeps any remaining secrets out of source code, both of which reduce the risk of leaked credentials. Putting keys in prompts, making data public and turning off authentication all expose data or services.",
+    "ans": [0, 1, 3],
+    "exp": "Managed identities avoid keys in code, Key Vault protects the secrets that remain, and limiting network access reduces who can reach the endpoint. Publicly readable training data and an endpoint without authentication expose the application and its data.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/authentication"
   },
   {
@@ -105,12 +105,12 @@
     "id": "D1-150", "sub": "transparency", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about transparency, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Telling users that they are interacting with an AI system supports transparency.",
       "Explaining the main factors behind an AI decision supports transparency.",
-      "Transparency requires publishing the model's full source code."
+      "Transparency requires publishing the model's full source code.",
+      "Users do not need to know that they are interacting with an AI system if its answers are accurate."
     ],
-    "ans": [true, true, false],
-    "exp": "Yes for the first: people should know when they are dealing with AI. Yes for the second: explaining what influenced a result helps people understand and question it. No for the third: transparency is about people understanding the system's purpose, behavior and limits; it does not require releasing source code.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: explaining what influenced a result helps people understand and question it. No for the second: transparency is about people understanding the system's purpose, behavior and limits; it does not require releasing source code. No for the third: people should know when they are dealing with AI, however accurate it is, so that they can judge how far to rely on it.",
     "ref": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
   },
   {
@@ -225,13 +225,13 @@
     "id": "D1-160", "sub": "model-choice", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about choosing a model, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "A larger, more expensive model is the better choice for simple tasks too.",
+      "Not all models in the catalog accept images as input.",
       "Catalog benchmarks help you compare models on quality, cost and speed.",
-      "Testing candidate models with your own data is recommended.",
-      "The most expensive model is always the best choice for every task.",
-      "Some models in the catalog accept images as input."
+      "Published benchmarks make testing with your own data unnecessary."
     ],
-    "ans": [true, true, false, true],
-    "exp": "Yes for the first: benchmarks and leaderboards give a starting comparison. Yes for the second: your own prompts and data show how a model performs on your task. No for the third: smaller, cheaper models are often good enough and faster for simple tasks. Yes for the fourth: multimodal models accept images together with text.",
+    "ans": [false, true, true, false],
+    "exp": "No for the first: smaller, cheaper models are often good enough and faster for simple tasks. Yes for the second: multimodal models accept images together with text, while text-only models do not. Yes for the third: benchmarks and leaderboards give a starting comparison. No for the fourth: benchmarks are a starting point; your own prompts and data show how a model performs on your task.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/benchmark-model-in-catalog"
   },
   {

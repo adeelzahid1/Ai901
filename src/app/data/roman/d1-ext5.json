@@ -10,11 +10,11 @@
   "D1-169": {
     "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Parking camera ki tasveer se gaari ka number plate parhna speech workload hai.",
       "AI agent hassas kaam karne se pehle insan se manzoori maang sakta hai.",
-      "Lambi email thread ka khulasa karna text analysis ya generative AI ka kaam hai."
+      "Lambi email thread ka khulasa karna text analysis ya generative AI ka kaam hai.",
+      "Parking camera ki image se license plate number parhna computer vision workload hai."
     ],
-    "exp": "Pehle ka jawab Nahi: tasveer se text parhna optical character recognition hai, jo computer vision ka kaam hai. Doosre ka Haan: agents mein insani manzoori ke qadam ho sakte hain, maslan payments ya emails bhejne se pehle. Teesre ka Haan: summarization text par kaam karta hai aur summarization feature ya generative model se ho sakta hai."
+    "exp": "Pehle ka jawab Haan: agents mein insani manzoori ke qadam ho sakte hain, maslan payments ya emails bhejne se pehle. Doosre ka Haan: summarization text par kaam karta hai aur summarization feature ya generative model se ho sakta hai. Teesre ka Haan: image se text parhna optical character recognition hai, jo computer vision ka kaam hai."
   },
   "D1-170": {
     "q": "Har scenario ko us AI workload se milayein jise woh zahir karta hai. Har workload ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -37,15 +37,15 @@
     "exp": "Generative AI prompt ke jawab mein content banata hai. Agentic AI maqsad wala rawaiya shamil karta hai: model qadmon ka mansooba banata hai, APIs ya search jaise tools chunta hai aur amal karta hai, aksar kai turns mein. Text banana, cloud mein chalna aur bara model istemal karna bohat si ghair agentic apps mein bhi hota hai."
   },
   "D1-172": {
-    "q": "Kaunse DO scenarios information extraction workloads hain? Har sahi jawab mukammal hal hai.",
+    "q": "Kaunse TEEN scenarios information extraction workloads hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Samandar par nazm likhna",
       "Supplier invoices se total aur due date nikalna",
-      "Restaurant ka menu translate karna",
+      "Gas meters ki tasveeron se meter ki value parhna",
       "Meeting ki recording se action items aur un ke owners ko structured fields ki soorat mein nikalna",
       "Company ka naya logo design karna"
     ],
-    "exp": "Information extraction be-tarteeb content, jaise invoices ya recordings, ko structured data banata hai, jaise totals, tareekhein, action items aur owners. Nazm likhna aur logo design karna naya content banate hain, aur menu translate karna fields nikale baghair zaban badalta hai."
+    "exp": "Invoices ki values, recording ke action items aur meter ki tasveeron ki readings, sab content se li gayi khaas maloomat hain jo data ki soorat mein milti hain, aur yahi information extraction hai. Nazm likhna aur logo design karna naya content banate hain."
   },
   "D1-173": {
     "q": "Har khali jagah ke liye sahi option chun kar jumla mukammal karein.",
@@ -69,12 +69,12 @@
   "D1-176": {
     "q": "Text analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "PII detection email addresses aur phone numbers khud-ba-khud dhoondta hai.",
+      "Language detection text ko doosri zaban mein translate kar sakta hai.",
       "Opinion mining sentiment analysis ka hissa hai.",
-      "Entity linking entity ko knowledge base ki entry se jorta hai.",
-      "PII detection email addresses aur phone numbers dhoond sakta hai.",
-      "Language detection text ko doosri zaban mein translate karta hai."
+      "Entity linking entity ko knowledge base ki entry se jorta hai."
     ],
-    "exp": "Pehle ka jawab Haan: opinion mining sentiment analysis ka aspect wala option hai. Doosre ka Haan: entity linking tay karta hai ke asal duniya ki kaunsi cheez murad hai aur knowledge base entry ka link deta hai. Teesre ka Haan: PII detection emails aur phone numbers jaisa zaati data dhoondta hai. Chauthe ka Nahi: language detection sirf zaban batata hai; translation alag service hai."
+    "exp": "Pehle ka jawab Haan: PII detection emails aur phone numbers jaisa zaati data dhoondta hai. Doosre ka Nahi: language detection sirf zaban batata hai; translation alag service hai. Teesre ka Haan: opinion mining sentiment analysis ka aspect wala option hai. Chauthe ka Haan: entity linking tay karta hai ke asal duniya ki kaunsi cheez murad hai aur knowledge base entry ka link deta hai."
   },
   "D1-177": {
     "q": "Har output ko us text analysis technique se milayein jis se woh banta hai. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -119,10 +119,10 @@
     "q": "Speech recognition ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Batch transcription live microphone input ke liye bana hai.",
-      "Speech to text har pehchane hue lafz ke timestamps de sakta hai.",
-      "Speaker diarization batata hai ke transcript ka har hissa kis speaker ne bola."
+      "Aap maangein to speech to text har pehchane hue lafz ke timestamps deta hai.",
+      "Speaker diarization pehchan sakta hai ke har shakhs kaunsi zaban bolta hai."
     ],
-    "exp": "Pehle ka jawab Nahi: batch transcription mehfooz recordings ko asynchronous process karta hai; live input ke liye real-time speech to text hai. Doosre ka Haan: nateejon mein lafz ki satah par timing ho sakti hai, jo subtitles ke liye kaam ki hai. Teesre ka Haan: diarization speakers ko alag karta aur un par label lagata hai."
+    "exp": "Pehle ka jawab Nahi: batch transcription mehfooz recordings ko asynchronous process karta hai; live input ke liye real-time speech to text hai. Doosre ka Haan: nateejon mein lafz ki satah par timing ho sakti hai, jo subtitles ke liye kaam ki hai. Teesre ka Nahi: diarization bolne walon ko alag kar ke label lagata hai; boli gayi zaban maloom karna language identification hai."
   },
   "D1-184": {
     "q": "Har khali jagah ke liye sahi option chun kar jumlay mukammal karein.",
@@ -150,12 +150,12 @@
   "D1-188": {
     "q": "Computer vision ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
+      "Object detection har us cheez ka bounding box deta hai jo usay milti hai.",
       "Optical character recognition tasveeron se text nikalta hai.",
-      "Semantic segmentation alag alag pixels par label lagata hai.",
-      "Image classification tasveer mein har cheez ki jagah batata hai.",
-      "Object detection mili hui cheezon ke bounding boxes deta hai."
+      "Image classification image mein har cheez ki jagah de sakta hai.",
+      "Semantic segmentation asal cheez ke gird ek bounding box bana sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: OCR chhapa hua aur haath ka likha text parhta hai. Doosre ka Haan: segmentation har pixel ko ek class deta hai. Teesre ka Nahi: classification jagah bataye baghair poori tasveer par label lagata hai; cheezon ki jagah object detection batata hai. Chauthe ka Haan: detection har mili cheez ka box deta hai."
+    "exp": "Pehle ka jawab Haan: detection har mili cheez ka box deta hai. Doosre ka Haan: OCR chhapa hua aur haath ka likha text parhta hai. Teesre ka Nahi: classification jagah bataye baghair poori tasveer par label lagata hai; cheezon ki jagah object detection batata hai. Chauthe ka Nahi: segmentation har pixel ko ek class deta hai; cheezon ke gird boxes object detection se aate hain."
   },
   "D1-189": {
     "q": "Har zaroorat ko computer vision technique se milayein. Har technique ek baar istemal ho sakti hai, ya bilkul nahi.",

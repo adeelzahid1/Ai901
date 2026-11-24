@@ -24,12 +24,12 @@
     "id": "D2-398", "sub": "prompts", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
+      "You can ask for output as Markdown, JSON or a table.",
       "Few-shot examples work best when they are placed after the real question.",
-      "Explicit instructions usually work better than vague hints.",
-      "You can ask for output as Markdown, JSON or a table."
+      "Explicit instructions usually work better than vague hints."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: examples normally come before the real input so the model learns the pattern first. Yes for the second: clear, specific instructions reduce guessing. Yes for the third: models can follow requested output formats such as Markdown, JSON and tables.",
+    "ans": [true, false, true],
+    "exp": "Yes for the first: models can follow requested output formats such as Markdown, JSON and tables. No for the second: examples normally come before the real input so the model learns the pattern first. Yes for the third: clear, specific instructions reduce guessing.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -138,11 +138,11 @@
     "q": "For each of the following statements about Microsoft Foundry, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "A deployment gives your code a name that it can call.",
-      "The chat playground automatically writes your whole application.",
-      "You can delete a deployment that you no longer need."
+      "You can delete a deployment that you no longer need.",
+      "The chat playground can show sample code, but you must build the application yourself."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: apps call a model by its deployment name. No for the second: the playground is for testing; it can show sample code, but you build the application yourself. Yes for the third: deleting unused deployments frees quota and avoids confusion.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: apps call a model by its deployment name. Yes for the second: deleting unused deployments frees quota and avoids confusion. Yes for the third: the playground is for testing; it can show sample code, but you build the application yourself.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
@@ -253,12 +253,12 @@
     "id": "D2-417", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about a Python chat client, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "The OpenAI client returned by the project can be used for only one request.",
-      "The input of responses.create() can be a plain string or a list of messages.",
-      "You can set temperature on responses.create() for models that support it."
+      "You can set temperature on responses.create() for models that support it.",
+      "The input of responses.create() can be a single string, while a list of messages is rejected.",
+      "The OpenAI client returned by the project can be used for only one request."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: the client is reusable for many requests. Yes for the second: a single string works for simple prompts, and a list of messages supports roles and history. Yes for the third: temperature is an optional request parameter, although some models, such as several reasoning models, do not support it.",
+    "ans": [true, false, false],
+    "exp": "Yes for the first: temperature is an optional request parameter, although some models, such as several reasoning models, do not support it. No for the second: a single string works for simple prompts, and a list of messages supports roles and history. No for the third: the client is reusable for many requests.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"
   },
   {
@@ -278,16 +278,16 @@
   },
   {
     "id": "D2-419", "sub": "sdk-chat-client", "diff": 3, "type": "multi",
-    "q": "Which TWO practices help keep the cost of a chat app under control? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices help keep the cost of a chat app under control? Each correct answer presents a complete solution.",
     "opts": [
       "Send the entire conversation history forever",
       "Trim or summarize long conversation history",
       "Always use the largest available model",
       "Set a sensible maximum for output tokens",
-      "Request many alternative completions for every message"
+      "Use a smaller model where its quality is good enough"
     ],
-    "ans": [1, 3],
-    "exp": "Cost depends on input and output tokens, so shorter history and a reasonable output limit reduce spending. Sending all history, always using the biggest model and asking for many completions per message all increase tokens and cost.",
+    "ans": [1, 3, 4],
+    "exp": "Shorter history, a limit on output tokens and a smaller model for simple work all reduce what you pay per message. Sending the whole history forever and always using the largest model make the same conversation more expensive.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt"
   },
   {

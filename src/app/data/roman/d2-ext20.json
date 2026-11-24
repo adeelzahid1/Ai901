@@ -6,11 +6,11 @@
   "D2-595": {
     "q": "Language SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Opinion mining ke nateejon mein target, jaise 'battery', aur us ke baare mein raye hoti hai.",
-      "recognize_entities() sentiment scores deta hai.",
-      "extract_key_phrases() har document ke liye phrases ki list deta hai."
+      "extract_key_phrases() har document ke liye phrases ki list deta hai.",
+      "recognize_entities() har mili hui entity ki category aur confidence score deta hai.",
+      "Opinion mining ke nateejon mein target, jaise 'battery', aur us ke baare mein raye hoti hai."
     ],
-    "exp": "Pehle ka jawab Haan: opinion mining targets ko assessments aur un ke sentiment ke saath jorta hai. Doosre ka Nahi: entity recognition sentiment nahi balke categories aur confidence ke saath entities deta hai. Teesre ka Haan: har kamyab nateeje mein key_phrases ki list hoti hai."
+    "exp": "Pehle ka jawab Haan: har kamyab nateeje mein key_phrases ki list hoti hai. Doosre ka Haan: entity recognition categories aur confidence scores ke saath entities deta hai; sentiment alag feature hai. Teesre ka Haan: opinion mining targets ko assessments aur un ke sentiment ke saath jorta hai."
   },
   "D2-596": {
     "q": "Woh Python code mukammal karein jo zaati data chupaye hue notes mehfooz karta hai aur mile hue zaati data ki har cheez ki qism print karta hai.",
@@ -25,11 +25,11 @@
   "D2-598": {
     "q": "Spoken prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Spoken prompt kisi shakhs ki audio hai jo sawal poochta ya hidayat deta hai.",
+      "Bole hue sawal ka jawab bol kar diya ja sakta hai, jab ke text mein jawab mumkin nahi.",
       "Sirf image models spoken prompts lete hain.",
-      "App bole hue sawal ka jawab text mein dikha sakti hai."
+      "Spoken prompt kisi shakhs ki audio hai jo sawal poochta ya hidayat deta hai."
     ],
-    "exp": "Pehle ka jawab Haan: spoken prompt yahi hota hai. Doosre ka Nahi: audio wale chat models aur realtime models spoken prompts lete hain; image models nahi. Teesre ka Haan: jawab sirf text ho sakta hai, ya maangne par text aur audio dono."
+    "exp": "Pehle ka jawab Nahi: jawab sirf text ho sakta hai, ya maangne par text aur audio dono. Doosre ka Nahi: audio wale chat models aur realtime models spoken prompts lete hain; image models nahi. Teesre ka Haan: spoken prompt yahi hota hai."
   },
   "D2-599": {
     "q": "User ki recording audio wale model ko bhejne se pehle app ko kaunse DO checks karne chahiye? Har sahi jawab mukammal hal hai.",
@@ -118,11 +118,11 @@
   "D2-609": {
     "q": "ImageAnalysisClient ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Ye AzureKeyCredential ya Microsoft Entra credential se authenticate ho sakta hai.",
-      "Ye nayi images banata hai.",
-      "Aap har call mein chunte hain ke kaunse visual features maangne hain."
+      "Ye nayi images bana sakta hai.",
+      "Aap har call mein chunte hain ke kaunse visual features maangne hain.",
+      "Ye key se authenticate hota hai, aur Microsoft Entra credentials support nahi hote."
     ],
-    "exp": "Pehle ka jawab Haan: key aur Entra ID authentication dono support hote hain. Doosre ka Nahi: Image Analysis maujooda images ko bayan karta hai; image generation alag service hai. Teesre ka Haan: visual_features ki list tay karti hai ke kya analyze ho aur kis ka bill aaye."
+    "exp": "Pehle ka jawab Nahi: Image Analysis maujooda images ko bayan karta hai; image generation alag service hai. Doosre ka Haan: visual_features ki list tay karti hai ke kya analyze ho aur kis ka bill aaye. Teesre ka Nahi: key aur Entra ID authentication dono support hote hain."
   },
   "D2-610": {
     "q": "Image Analysis ke nateeje ki har property ko us cheez se milayein jo us mein hai. Har tafseel ek baar istemal ho sakti hai, ya bilkul nahi.",
@@ -157,11 +157,11 @@
   "D2-613": {
     "q": "Document analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Content Understanding haath ki likhai wale scan shuda documents process kar sakta hai.",
+      "Document analyzer sirf ek field de sakta hai.",
       "Zyada ahem amal mein kam confidence wali fields aam taur par insan ko review karni chahiye.",
-      "Document analyzer sirf ek field de sakta hai."
+      "Content Understanding ke process karne se pehle scan shuda documents ki haath ki likhai type karni parti hai."
     ],
-    "exp": "Pehle ka jawab Haan: OCR chhape hue text ke saath haath ki likhai bhi parhta hai. Doosre ka Haan: jahan ghaltiyan mehngi hon wahan confidence par mabni review quality barqarar rakhta hai. Teesre ka Nahi: schema mein bohat si fields bayan ho sakti hain, arrays aur objects samet."
+    "exp": "Pehle ka jawab Nahi: schema mein bohat si fields bayan ho sakti hain, arrays aur objects samet. Doosre ka Haan: jahan ghaltiyan mehngi hon wahan confidence par mabni review quality barqarar rakhta hai. Teesre ka Nahi: OCR chhape hue text ke saath haath ki likhai bhi parhta hai."
   },
   "D2-614": {
     "q": "Ek insurer toofan ke nuqsan ki tasveeron ka jaiza leta hai aur usay damage_severity naam ki field chahiye jis ki value Minor, Moderate ya Severe ho. Field ko kaunsa method istemal karna chahiye?",
@@ -174,15 +174,15 @@
     "exp": "Images ke liye fields generate se banti hain jab values azad soorat wali hon, aur classify se jab values tay shuda list se hon. Extract sirf documents ke liye support hota hai, aur delete, translate aur compress field methods nahi."
   },
   "D2-616": {
-    "q": "Call center ka audio analyzer kaunse DO outputs de sakta hai? Har sahi jawab mukammal hal hai.",
+    "q": "Call center ka audio analyzer kaunse TEEN outputs de sakta hai? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Product ki tasveer",
       "Nayi voice recording",
       "Call ka transcript",
-      "Spreadsheet macro",
+      "Generated field ki soorat mein customer ka sentiment",
       "Call ka generated khulasa"
     ],
-    "exp": "Audio analysis pehle call ko text mein likhta hai, aur phir usi transcript se khulasa, sentiment ya zer-e-bahas mauzuaat jaisi generative fields banti hain. Ye maloomat nikalta hai aur product ki tasveerein, nayi voice recordings ya spreadsheet macros nahi banata."
+    "exp": "Audio analysis call ko text mein likhta hai, aur khulasa aur sentiment jaisi generated fields usi transcript se banti hain. Ye maloomat nikalta hai aur product ki tasveerein ya nayi voice recordings nahi banata."
   },
   "D2-617": {
     "q": "Content Understanding ka kis qism ka analyzer MP4 files process karta hai?",
@@ -203,10 +203,10 @@
     "q": "Content Understanding se apps banane ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
       "Production apps ko generally available API version ko tarjeeh deni chahiye.",
-      "File ka analysis lamba chalne wala operation hai.",
-      "Nateeje hamesha sahi hote hain, is liye insani review ki kabhi zaroorat nahi."
+      "Nateeje hamesha sahi hote hain, is liye insani review ki kabhi zaroorat nahi.",
+      "analyze call mukammal fields foran wapas de deti hai."
     ],
-    "exp": "Pehle ka jawab Haan: production ke liye GA versions ki sifarish hoti hai, aur azmane ke liye previews ki. Doosre ka Haan: app analysis shuru karti hai aur nateeje ke liye poll karti hai. Teesre ka Nahi: nateejon mein confidence scores isi liye hote hain ke kuch values ko insani review chahiye."
+    "exp": "Pehle ka jawab Haan: production ke liye GA versions ki sifarish hoti hai, aur azmane ke liye previews ki. Doosre ka Nahi: nateejon mein confidence scores isi liye hote hain ke kuch values ko insani review chahiye. Teesre ka Nahi: file ka analysis lamba chalne wala operation hai, is liye app analysis shuru karti hai aur nateeje ke liye poll karti hai."
   },
   "D2-620": {
     "q": "Content Understanding se claims process karne wali app banane ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",

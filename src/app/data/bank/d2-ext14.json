@@ -30,12 +30,12 @@
     "id": "D2-427", "sub": "agent-portal", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about agent tools, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Grounding with Bing Search lets an agent read the company's private intranet.",
-      "File search can answer from documents such as PDF and Word files that you upload.",
-      "Code interpreter can create files, such as charts, that the agent returns."
+      "Grounding with Bing Search can read the company's private intranet for an agent.",
+      "File search answers from documents such as PDF and Word files that you upload.",
+      "Code interpreter can return text and numbers, while charts need the image generation tool."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: Bing grounding searches the public web; private content needs file search or a connected search index. Yes for the second: common document formats can be uploaded for file search. Yes for the third: code interpreter can generate charts and other files as output.",
+    "ans": [false, true, false],
+    "exp": "No for the first: Bing grounding searches the public web; private content needs file search or a connected search index. Yes for the second: common document formats can be uploaded for file search. No for the third: code interpreter can generate charts and other files as output.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {
@@ -159,16 +159,16 @@
   },
   {
     "id": "D2-437", "sub": "agent-client", "diff": 3, "type": "multi",
-    "q": "Which TWO practices make an agent client app secure? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices make an agent client app secure? Each correct answer presents a complete solution.",
     "opts": [
       "Put the project endpoint and a key in a public web page",
       "Authenticate to Foundry with Microsoft Entra ID",
       "Log full conversations, including any passwords users type",
       "Make sure each user can access only their own conversations",
-      "Turn off HTTPS"
+      "Call the agent from a backend, not from the browser"
     ],
-    "ans": [1, 3],
-    "exp": "Entra ID authentication avoids exposing secrets, and checking conversation ownership prevents users from reading other people's chats. Publishing keys, logging passwords and turning off HTTPS all create serious security risks.",
+    "ans": [1, 3, 4],
+    "exp": "Entra ID avoids exposed secrets, ownership checks keep chats private, and a backend keeps credentials away from the browser. A key in a public page can be copied by anyone, and logged passwords can leak.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/authentication"
   },
   {
@@ -215,12 +215,12 @@
     "id": "D2-441", "sub": "text-app", "diff": 1, "type": "yesno",
     "q": "For each of the following statements about text analysis apps, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Text analysis results can be stored in a database for reporting.",
-      "You must train a model before you can use prebuilt sentiment analysis.",
-      "Azure Language features are called over HTTPS."
+      "You can use prebuilt sentiment analysis without training any model.",
+      "Azure Language features are called over HTTPS.",
+      "Text analysis results can be stored in a database for reporting."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: results such as sentiment and key phrases are data that can feed dashboards. No for the second: prebuilt features work immediately; training is only for custom features. Yes for the third: the SDKs call the service's HTTPS endpoint.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: prebuilt features work immediately; training is only for custom features. Yes for the second: the SDKs call the service's HTTPS endpoint. Yes for the third: results such as sentiment and key phrases are data that can feed dashboards.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
   },
   {
@@ -280,7 +280,7 @@
     "id": "D2-446", "sub": "spoken-prompts", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about spoken prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Background noise can reduce the quality of answers to spoken prompts.",
+      "Background noise reduces the quality of answers to spoken prompts.",
       "Spoken prompts cannot be combined with conversation history.",
       "A spoken prompt can include instructions such as 'answer briefly'."
     ],
@@ -322,12 +322,12 @@
     "id": "D2-450", "sub": "speech-app", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about the Speech SDK, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "The Speech SDK can be used only from C#.",
-      "The Speech SDK supports both speech to text and text to speech.",
-      "Speech translation in the SDK can add more than one target language."
+      "The Speech SDK covers speech to text, while text to speech needs a different SDK.",
+      "Speech translation in the SDK is limited to one target language per request.",
+      "The Speech SDK can be used only from C#."
     ],
-    "ans": [false, true, true],
-    "exp": "No for the first: the SDK is available for Python, C#, Java, JavaScript and other languages. Yes for the second: recognizers and synthesizers are both part of it. Yes for the third: you can call add_target_language() several times to get several translations at once.",
+    "ans": [false, false, false],
+    "exp": "No for the first: recognizers and synthesizers are both part of the Speech SDK. No for the second: you can call add_target_language() several times to get several translations at once. No for the third: the SDK is available for Python, C#, Java, JavaScript and other languages.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-translation"
   },
   {

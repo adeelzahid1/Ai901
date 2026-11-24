@@ -17,11 +17,11 @@
   "D2-143": {
     "q": "Prompts ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Model ko system message sirf ek baar, model deploy hote waqt, milta hai.",
-      "Prompt mein hidayaat, context aur misaalein ho sakti hain.",
-      "Model se khaas zaban mein jawab maangna aam taur par kaam karta hai."
+      "System message deployment mein mehfooz hota hai, is liye model ko ek baar milta hai.",
+      "Model se khaas zaban mein jawab maangna aam taur par kaam karta hai.",
+      "Prompt mein hidayaat, context aur misaalein ho sakti hain."
     ],
-    "exp": "Pehle ka jawab Nahi: system message har request ka hissa hai, deployment mein mehfooz cheez nahi. Doosre ka Haan: prompts mein aksar hidayaat, pas-manzar ka content aur misaalein mili hoti hain. Teesre ka Haan: jadeed language models 'answer in French' jaisi hidayaat par achi tarah chalte hain."
+    "exp": "Pehle ka jawab Nahi: system message har request ka hissa hai, deployment mein mehfooz cheez nahi. Doosre ka Haan: jadeed language models 'answer in French' jaisi hidayaat par achi tarah chalte hain. Teesre ka Haan: prompts mein aksar hidayaat, pas-manzar ka content aur misaalein mili hoti hain."
   },
   "D2-144": {
     "q": "Chat solution ke har masle ko prompt ki us tabdeeli se milayein jo usay sab se behtar theek karti hai. Har hal ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -57,15 +57,15 @@
     "exp": "Model ko na jaanne ka iqrar karne dena hallucinations kam karta hai, kyunke usay jawab gharne ki zaroorat nahi rehti. Alfaz ki hadd jawab ki lambai control karti hai. In hidayaat se latency aur fi token kharcha nahi badalta, aur data residency prompt par nahi balke deployment type par munhasir hai."
   },
   "D2-147": {
-    "q": "Customer service chat solution mein kaunsi DO cheezein user message ke bajaye system message mein honi chahiye? Har sahi jawab hal ka ek hissa hai.",
+    "q": "Customer service chat solution mein kaunsi TEEN cheezein user message ke bajaye system message mein honi chahiye? Har sahi jawab hal ka ek hissa hai.",
     "opts": [
       "Customer ka maujooda sawal",
       "Yeh usool ke assistant kaunse mauzu par baat kar sakta hai",
       "Customer ka type kiya hua order number",
       "Assistant ka persona aur lehja",
-      "Customer ka salaam"
+      "Woh format jis mein tamam jawab hone chahiye"
     ],
-    "exp": "System message mein poori guftagu par lagu hone wali hidayaat hoti hain, jaise ijazat yafta mauzu aur assistant ka persona aur lehja. Customer ka sawal, type kiya hua order number aur salaam guftagu ka hissa hain, is liye woh user messages mein aate hain."
+    "exp": "Mauzuaat ke usool, persona aur lehja, aur jawabon ka format poori conversation par lagu hote hain, is liye woh system message ka hissa hain. Customer ka sawal aur order number har turn mein badalte hain aur user messages mein aate hain."
   },
   "D2-148": {
     "q": "Kaunsi line safety ki hidayat hai jo aap system message mein shamil kar sakte hain?",
@@ -100,12 +100,12 @@
   "D2-152": {
     "q": "Model deployments ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Model deploy karne se us ke weights aap ke laptop par copy ho jate hain.",
-      "Har deployment apni content filter configuration istemal kar sakti hai.",
-      "Aap ek hi model mukhtalif naamon se kai baar deploy kar sakte hain.",
-      "Deployment delete karne se usay call karne wali apps kaam karna band kar deti hain."
+      "Har deployment apni content filter configuration istemal kar sakti hai, is liye ek par sakht filter baqi ko nahi badalta.",
+      "Deployment delete karne se usay call karne wali apps kaam karna band kar deti hain.",
+      "Resource mein model sirf ek baar deploy ho sakta hai.",
+      "Model deploy karne se us ke weights aap ke laptop par copy ho jate hain."
     ],
-    "exp": "Pehle ka jawab Nahi: model Azure mein chalta hai, aur aap ki app us ka endpoint call karti hai. Doosre ka Haan: content filter configurations har deployment par alag lagti hain. Teesre ka Haan: deployment ke naam munfarid hote hain, is liye ek model mukhtalif settings ke saath kai baar deploy ho sakta hai. Chauthe ka Haan: delete ki hui deployment ko call karne wali apps ko errors milte hain."
+    "exp": "Pehle ka jawab Haan: content filter configurations har deployment par alag lagti hain. Doosre ka Haan: delete ki hui deployment ko call karne wali apps ko errors milte hain. Teesre ka Nahi: wahi model mukhtalif naamon aur settings ke saath kai baar deploy ho sakta hai. Chauthe ka Nahi: model Azure mein chalta hai, aur aap ki app us ka endpoint call karti hai."
   },
   "D2-153": {
     "q": "Aap ne system message ke do versions likhe aur jaanna chahte hain ke kaunsa behtar jawab deta hai. Foundry mein sab se bharosemand tareeqa kya hai?",
@@ -129,15 +129,15 @@
     "exp": "Groundedness check karta hai ke jawab context se sabit hota hai, relevance ke sawal ka jawab mila, fluency zaban ki quality, aur violence jaise risk aur safety evaluators nuqsan deh content pakarte hain. Latency raftar naapta hai aur jawab ke content ka quality ya safety evaluator nahi."
   },
   "D2-155": {
-    "q": "Foundry chat playground mein aap kaunse DO kaam kar sakte hain? Har sahi jawab mukammal hal hai.",
+    "q": "Foundry chat playground mein aap kaunse TEEN kaam kar sakte hain? Har sahi jawab mukammal hal hai.",
     "opts": [
       "Model ka training data badalna",
       "System message edit karna",
       "Resource ko doosre Azure region mein le jana",
       "temperature jaise parameters adjust karna",
-      "Model ke weights edit karna"
+      "Chat ke liye doosri deployment chunna"
     ],
-    "exp": "Playground mein aap hidayaat aur request parameters badal kar jawabon par asar foran dekh sakte hain. Woh models dobara train nahi karta, un ke weights nahi badalta aur resources regions ke darmiyan nahi le jata; us ke liye fine-tuning ya resources dobara deploy karna parta hai."
+    "exp": "Playground mein aap system message edit kar sakte hain, parameters badal sakte hain aur test hone wali deployment chun sakte hain. Training data model provider ki taraf se tay hai, aur region resource ka hissa hai, is liye dono wahan nahi badal sakte."
   },
   "D2-156": {
     "q": "Microsoft Foundry mein models deploy karne ke baare mein jumlay mukammal karein.",
@@ -180,12 +180,12 @@
   "D2-162": {
     "q": "Foundry SDK ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "AIProjectClient ko project endpoint chahiye.",
       "responses.create() ko hamesha temperature ki value chahiye.",
-      "get_openai_client() aisa client deta hai jo deploy kiye hue models call kar sakta hai.",
-      "Microsoft Entra ID authentication ke saath app ko API key mehfooz rakhne ki zaroorat nahi."
+      "AIProjectClient ko project endpoint chahiye.",
+      "Microsoft Entra ID authentication ke saath bhi app ki settings mein API key chahiye.",
+      "get_openai_client() aisa client deta hai jo deploy kiye hue models call kar sakta hai."
     ],
-    "exp": "Pehle ka jawab Haan: endpoint project ki pehchan karta hai. Doosre ka Nahi: temperature ikhtiyari hai aur us ki default value hoti hai. Teesre ka Haan: mila hua OpenAI-compatible client aap ki deployments ko requests bhejta hai. Chauthe ka Haan: Entra ID tokens keys ki jagah lete hain, is liye koi secret mehfooz nahi karna parta."
+    "exp": "Pehle ka jawab Nahi: temperature ikhtiyari hai aur us ki default value hoti hai. Doosre ka Haan: endpoint project ki pehchan karta hai. Teesre ka Nahi: Entra ID tokens keys ki jagah lete hain, is liye koi secret rakhne ki zaroorat nahi. Chauthe ka Haan: mila hua OpenAI-compatible client aap ki deployments ko requests bhejta hai."
   },
   "D2-163": {
     "q": "Aap ka chat client Azure App Service mein chalta hai. Foundry project par authentication ka kaunsa tareeqa koi secret mehfooz rakhne se bachata hai?",

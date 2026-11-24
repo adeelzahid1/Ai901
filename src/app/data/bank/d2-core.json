@@ -68,19 +68,20 @@
     "sub": "prompts",
     "diff": 2,
     "type": "multi",
-    "q": "Which TWO practices usually improve the quality of model responses? Each correct answer presents a complete solution.",
+    "q": "Which THREE practices usually improve the quality of model responses? Each correct answer presents a complete solution.",
     "opts": [
       "Keep the goal vague so the model can be creative",
       "Put every instruction in one long sentence with no structure",
-      "Always set the temperature to its highest value",
+      "Give a few examples of good answers",
       "State the output format clearly, for example a JSON object with named fields",
       "Break a complex task into smaller, ordered steps"
     ],
     "ans": [
+      2,
       3,
       4
     ],
-    "exp": "Clear output format instructions and breaking a complex task into steps are both recommended prompt engineering practices that make answers more accurate and easier to use. A vague goal leads to off-target answers. One long unstructured sentence makes instructions hard for the model to follow. The highest temperature makes output more random, which usually lowers accuracy for business tasks.",
+    "exp": "A clear output format, smaller ordered steps and a few good examples all show the model what you want. A vague goal forces it to guess, and one long unstructured sentence makes instructions easy to miss.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -90,8 +91,8 @@
     "type": "yesno",
     "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "Using delimiters, such as ### or XML-style tags, to separate instructions from content can make a prompt clearer.",
       "In a chat application, the system message is usually sent again with every request in the conversation.",
+      "Using delimiters, such as ### or XML-style tags, to separate instructions from content can make a prompt clearer.",
       "A well-written system message guarantees that the model can never produce an unwanted response."
     ],
     "ans": [
@@ -99,7 +100,7 @@
       true,
       false
     ],
-    "exp": "Yes for the first: delimiters show the model where instructions end and content begins. Yes for the second: chat requests are stateless, so the app sends the system message along with the conversation history on every call. No for the third: a system message strongly guides the model but cannot guarantee behavior, which is why content filters, testing and monitoring are also needed.",
+    "exp": "Yes for the first: chat requests are stateless, so the app sends the system message along with the conversation history on every call. Yes for the second: delimiters show the model where instructions end and content begins. No for the third: a system message strongly guides the model but cannot guarantee behavior, which is why content filters, testing and monitoring are also needed.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"
   },
   {
@@ -266,15 +267,15 @@
     "q": "For each of the following statements about the Foundry chat playground, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "You can adjust parameters such as temperature and maximum response tokens.",
-      "You must write Python code before you can send a prompt in the playground.",
-      "You can edit the system message and test the change immediately."
+      "A change to the system message takes effect after you redeploy the model.",
+      "You need Python code to send a prompt in the playground."
     ],
     "ans": [
       true,
       false,
-      true
+      false
     ],
-    "exp": "Yes for the first: parameters such as temperature and max response tokens can be changed in the playground. No for the second: the playground is a no-code test environment; you write code later when you build an application. Yes for the third: the playground lets you change the instructions and send new prompts right away to see the effect.",
+    "exp": "Yes for the first: parameters such as temperature and max response tokens can be changed in the playground. No for the second: the playground sends the new instructions with your next prompt, so you see the effect right away without redeploying. No for the third: the playground is a no-code test environment; you write code later when you build an application.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds"
   },
   {
@@ -506,16 +507,16 @@
     "type": "yesno",
     "q": "For each of the following statements about authentication in a Foundry chat client, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "DefaultAzureCredential can use the identity that you signed in with by running az login.",
-      "Using Microsoft Entra ID authentication avoids storing API keys in your code.",
-      "The project endpoint and the model deployment name are the same value."
+      "DefaultAzureCredential ignores the identity that you signed in with by running az login.",
+      "The project endpoint and the model deployment name are the same value.",
+      "Using Microsoft Entra ID authentication avoids storing API keys in your code."
     ],
     "ans": [
-      true,
-      true,
-      false
+      false,
+      false,
+      true
     ],
-    "exp": "Yes for the first: DefaultAzureCredential tries several sources, including the Azure CLI sign-in, so az login is enough during development. Yes for the second: with Entra ID the app gets tokens for its identity, so no secret key needs to be stored in code. No for the third: the endpoint identifies the project, while the deployment name identifies which model deployment answers the request.",
+    "exp": "No for the first: DefaultAzureCredential tries several sources, including the Azure CLI sign-in, so az login is enough during development. No for the second: the endpoint identifies the project, while the deployment name identifies which model deployment answers the request. Yes for the third: with Entra ID the app gets tokens for its identity, so no secret key needs to be stored in code.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {

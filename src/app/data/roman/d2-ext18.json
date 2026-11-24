@@ -23,11 +23,11 @@
   "D2-542": {
     "q": "Prompts mein images ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Vision-capable model ek hi request mein tasveer ko reference image se mila sakta hai.",
-      "Kisi bhi vision-capable model ke istemal se pehle images ko OCR se text mein badalna lazmi hai.",
-      "Image inputs request ke token usage mein gine jate hain."
+      "Request mein ek image hoti hai, is liye tasveer aur reference image ke liye alag requests chahiye.",
+      "Image inputs se request ke token usage mein kuch nahi barhta.",
+      "Kisi bhi vision-capable model ke istemal se pehle images ko OCR se text mein badalna lazmi hai."
     ],
-    "exp": "Pehle ka jawab Haan: kai images ek saath bhej kar un ka muqabla ho sakta hai. Doosre ka Nahi: vision-capable models images seedhi parhte hain. Teesre ka Haan: images tokens mein badalti hain, jis ka istemal aur kharche par asar parta hai."
+    "exp": "Pehle ka jawab Nahi: kai images ek saath bhej kar un ka muqabla ho sakta hai. Doosre ka Nahi: images tokens mein badalti hain, jis ka istemal aur kharche par asar parta hai. Teesre ka Nahi: vision-capable models images seedhi parhte hain."
   },
   "D2-543": {
     "q": "Vision-capable model ko images bhejne ke baare mein jumlay mukammal karein.",
@@ -103,11 +103,11 @@
   "D2-550": {
     "q": "Image Analysis ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Image Analysis bohat si zabanon mein text parh sakta hai.",
-      "Smart crops naya image content banata hai.",
-      "Dense captions image ke kai hisson ko bayan karte hain."
+      "Dense captions poori image ka ek lamba caption dete hain.",
+      "Smart crops naya image content bana sakta hai.",
+      "Image Analysis bohat si zabanon mein text parhta hai."
     ],
-    "exp": "Pehle ka jawab Haan: Read feature bohat si zabanein aur scripts support karta hai. Doosre ka Nahi: smart crops sirf maujooda image ke hisse tajweez karta hai; content nahi banata. Teesre ka Haan: dense captions kai hisson mein se har ek ka caption dete hain."
+    "exp": "Pehle ka jawab Nahi: dense captions kai hisson mein se har ek ka caption dete hain. Doosre ka Nahi: smart crops sirf maujooda image ke hisse tajweez karta hai; content nahi banata. Teesre ka Haan: Read feature bohat si zabanein aur scripts support karta hai."
   },
   "D2-551": {
     "q": "Image Analysis istemal karne wale alt-text feature ke qadam sahi tarteeb mein rakhein. Har qadam istemal nahi hota.",
@@ -143,11 +143,11 @@
   "D2-555": {
     "q": "Content Understanding ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Field schema mein text, number aur date fields ho sakti hain.",
+      "Content Understanding document ka content Markdown ki soorat mein deta hai.",
       "Content Understanding istemal karne se pehle apna OCR code likhna lazmi hai.",
-      "Content Understanding document ka content Markdown ki soorat mein de sakta hai."
+      "Field schema mein text, number aur date fields ho sakti hain."
     ],
-    "exp": "Pehle ka jawab Haan: schemas kai field types support karte hain. Doosre ka Nahi: content extraction, OCR samet, service mein pehle se maujood hai. Teesre ka Haan: nikala hua content Markdown ki soorat mein milta hai, jo search aur RAG ke liye mufeed hai."
+    "exp": "Pehle ka jawab Haan: nikala hua content Markdown ki soorat mein milta hai, jo search aur RAG ke liye mufeed hai. Doosre ka Nahi: content extraction, OCR samet, service mein pehle se maujood hai. Teesre ka Haan: schemas kai field types support karte hain."
   },
   "D2-556": {
     "q": "Ek image analyzer ko photo_description naam ki field chahiye jis mein ye jumla ho ke image kya dikhati hai. Usay kaunsa method istemal karna chahiye?",
@@ -199,11 +199,11 @@
   "D2-562": {
     "q": "Audio aur video analyzers ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
     "stmts": [
-      "Video analyzers video ke har segment ki maloomat de sakte hain.",
-      "Video analyzers audio track ko bilkul nazar andaz karte hain.",
-      "Audio analyzers recording ka transcript bana sakte hain."
+      "Audio analyzers recording ka transcript banaye baghair khulasa banate hain.",
+      "Video analyzers video ke har segment ke nateeje support karte hain.",
+      "Video analyzers audio track ko bilkul nazar andaz karte hain."
     ],
-    "exp": "Pehle ka jawab Haan: fields har segment ke liye ban sakti hain. Doosre ka Nahi: video analysis frames aur text mein likhi hui audio dono istemal karta hai. Teesre ka Haan: transcription audio analysis ka pehla qadam hai."
+    "exp": "Pehle ka jawab Nahi: transcription audio analysis ka pehla qadam hai, aur khulasay jaisi generated fields usi par mabni hoti hain. Doosre ka Haan: fields har segment ke liye ban sakti hain. Teesre ka Nahi: video analysis frames aur text mein likhi hui audio dono istemal karta hai."
   },
   "D2-563": {
     "q": "Record kiye hue webinar ke analysis ki har zaroorat ko us output se milayein jo usay deta hai. Har output ek baar istemal ho sakta hai, ya bilkul nahi.",

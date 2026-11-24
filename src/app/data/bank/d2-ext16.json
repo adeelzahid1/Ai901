@@ -25,12 +25,12 @@
     "id": "D2-484", "sub": "prompts", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about prompts, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "A prompt can tell the model what to do when it is unsure.",
       "A good prompt should keep the actual task vague.",
-      "Stating the intended audience can change the reading level of answers."
+      "Stating the intended audience changes the reading level of answers.",
+      "A prompt can tell the model what to do when it is unsure."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: for example, telling the model to ask a clarifying question or say it does not know. No for the second: a clear task is one of the most important parts of a prompt. Yes for the third: writing for children or experts produces very different answers.",
+    "ans": [false, true, true],
+    "exp": "No for the first: a clear task is one of the most important parts of a prompt. Yes for the second: writing for children or experts produces very different answers. Yes for the third: for example, telling the model to ask a clarifying question or say it does not know.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering"
   },
   {
@@ -144,12 +144,12 @@
     "id": "D2-493", "sub": "portal-deploy", "diff": 2, "type": "yesno",
     "q": "For each of the following statements about evaluations in Microsoft Foundry, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
-      "You can evaluate a deployed model's outputs by using a test dataset.",
       "Evaluation results remove the need for human review in high-risk scenarios.",
-      "Evaluators can measure safety risks as well as quality."
+      "Evaluators score quality and leave safety risks to content filters.",
+      "You can evaluate a deployed model's outputs by using a test dataset."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: evaluations run inputs from a dataset and score the outputs. No for the second: automated scores support but do not replace human oversight where decisions have serious impact. Yes for the third: there are quality evaluators and risk and safety evaluators.",
+    "ans": [false, false, true],
+    "exp": "No for the first: automated scores support but do not replace human oversight where decisions have serious impact. No for the second: there are quality evaluators as well as risk and safety evaluators. Yes for the third: evaluations run inputs from a dataset and score the outputs.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app"
   },
   {
@@ -181,16 +181,16 @@
   },
   {
     "id": "D2-496", "sub": "portal-deploy", "diff": 2, "type": "multi",
-    "q": "Which TWO details can you see for a model deployment in the Foundry portal? Each correct answer presents a complete solution.",
+    "q": "Which THREE details can you see for a model deployment in the Foundry portal? Each correct answer presents a complete solution.",
     "opts": [
       "The model name and version",
       "The model's training data files",
       "The model's source code",
       "The deployment type",
-      "Other customers' prompts"
+      "The tokens-per-minute allocation"
     ],
-    "ans": [0, 3],
-    "exp": "A deployment's details include which model and version it runs and its deployment type, along with settings such as quota. Training data and source code belong to the model provider, and other customers' prompts are never visible to you.",
+    "ans": [0, 3, 4],
+    "exp": "A deployment's details show the model and version, the deployment type and the tokens-per-minute allocation. Training data files and source code belong to the model provider and are not shown to customers.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments"
   },
   {
@@ -254,11 +254,11 @@
     "q": "For each of the following statements about a Python chat client, select Yes if the statement is true. Otherwise, select No.",
     "stmts": [
       "A Python chat client can run in a terminal window.",
-      "You must use a web browser to call a model.",
+      "A model can be called from any program that can send HTTPS requests.",
       "The client can loop to let the user ask several questions."
     ],
-    "ans": [true, false, true],
-    "exp": "Yes for the first: a simple console app is a common lightweight client. No for the second: models are called over HTTPS from any program, not only browsers. Yes for the third: a loop reads each question and sends it, often with the conversation history.",
+    "ans": [true, true, true],
+    "exp": "Yes for the first: a simple console app is a common lightweight client. Yes for the second: models are called over HTTPS from any program, not only browsers. Yes for the third: a loop reads each question and sends it, often with the conversation history.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code"
   },
   {
