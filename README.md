@@ -18,13 +18,13 @@ Domains, official sub-skills, study sections and per-section question targets li
 ## Features
 
 - **Dashboard**: bank size, answered, accuracy, open mistakes, last exam score, domain coverage, recent tests.
-- **Study** (`/study?s=1.1`): sidebar with every section and an understood/total badge (a section picker below 860px), search, level and filters (not understood, bookmarked, due for review, mistakes), study list with Show answer, bookmarks and "I understand this", 20 at a time, and flashcards with spaced repetition (Again 10 min, Hard max(1, ivl x 1.2) days, Good 1 -> 3 -> ivl x 2.5 days). Saved in `ai901-study-v1`.
+- **Study** (`/study?s=1.1`): sidebar with every section and an understood/total badge (a section picker below 860px), search, level and filters (not understood, bookmarked, due for review, mistakes), study list with Show answer, bookmarks and "I understand this", 20 at a time, and flashcards with spaced repetition (Again 10 min, Hard max(1, ivl x 1.2) days, Good 1 -> 3 -> ivl x 2.5 days). Cards can be passed without a rating (Previous / Next) and shown full screen. Saved in `ai901-study-v1`.
 - **Practice**: filter by domain, section, level, type, new questions or mistakes; instant feedback.
 - **Mock Test**: choose sections, question types, levels, size, timer (off, exam pace or custom) and feedback mode.
 - **Exam**: 50 questions in 45 minutes, weighted 21/29 by domain, every section, real-exam type and level mix, mark for review, auto-submit.
 - **Results**: score out of 1000 (pass 700), domain and section breakdown, review with explanations.
 - **Weak areas**: accuracy per domain, section and official sub-skill.
-- **Keyboard shortcuts** in Practice, Mock Test, Exam and flashcards: `1`-`9` or `A`-`G` answer, `Enter` check / next, arrows move, `M` mark, `Space` flip a card, `1`-`3` rate it, `?` shows the list. `Enter` never submits a test by itself. They can be turned off in the list (`ai901-keys`), and the list is hidden on touch screens.
+- **Keyboard shortcuts** in Practice, Mock Test, Exam and flashcards: `1`-`9` or `A`-`G` answer, `Enter` check / next, arrows move, `M` mark, `Space` flip a card, `1`-`3` rate it, `F` full screen, `?` shows the list. `Enter` never submits a test by itself. They can be turned off in the list (`ai901-keys`), and the list is hidden on touch screens.
 - **EN | Roman** switch in the top bar: the whole interface in English or Roman Urdu (saved in `ai901-lang`, `html lang="ur-Latn"`). Switching in the middle of a test keeps the answers.
 - Options are shuffled per session (`optOrder` is kept for translations). Progress is stored in `localStorage` (`ai901-progress`, `ai901-history`).
 

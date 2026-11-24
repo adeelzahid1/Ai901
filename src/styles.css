@@ -357,3 +357,8 @@ legend {
 main {
   overflow-wrap: anywhere;
 }
+
+/* Full-screen flashcards cover the page, so it must not scroll behind them. */
+html:has(app-flashcards.full) {
+  overflow: hidden;
+}

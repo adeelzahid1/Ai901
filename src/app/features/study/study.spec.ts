@@ -134,4 +134,82 @@ describe('Study', () => {
     expect(cardsText()).toContain(`${total - 1} left in this round`);
     expect(button('Show answer')).toBeDefined();
   });
+
+  describe('flashcard navigation', () => {
+    const cards = () => el().querySelector('app-flashcards');
+    const press = async (key: string) => {
+      document.body.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true, cancelable: true }));
+      await fixture.whenStable();
+    };
+    const tap = async (text: string) => {
+      button(text)?.click();
+      await fixture.whenStable();
+    };
+    let total: number;
+
+    beforeEach(async () => {
+      fixture.componentRef.setInput('s', '1.3');
+      await fixture.whenStable();
+      total = sectionSize('1.3');
+      await tap('Flashcards');
+      await tap(`Start flashcards (${total})`);
+    });
+
+    it('passes cards without rating them, by button and by arrow key', async () => {
+      expect(button('← Previous')?.disabled).toBeTrue();
+      await tap('Next →');
+      expect(cardsText()).toContain(`Card 2 of ${total}${total} left in this round`);
+      await press('ArrowRight');
+      expect(cardsText()).toContain(`Card 3 of ${total}${total} left`);
+      await press(' ');
+      expect(button('3 Good')).toBeDefined();
+      await press('ArrowLeft');
+      expect(cardsText()).toContain(`Card 2 of ${total}`);
+      expect(button('Show answer')).withContext('the answer is closed again').toBeDefined();
+      expect(Object.keys(TestBed.inject(StudyProgress).cards()).length).toBe(0);
+    });
+
+    it('shows a rated card again without a second rating', async () => {
+      await press(' ');
+      await press('3');
+      expect(cardsText()).toContain(`Card 2 of ${total}`);
+      await press('ArrowLeft');
+      expect(cardsText()).toContain('You chose “Good” for this card.');
+      expect(cards()?.querySelector('.answer')).not.toBeNull();
+      await press('1');
+      expect(cardsText()).toContain(`${total - 1} left in this round · 0 again`);
+      expect(Object.values(TestBed.inject(StudyProgress).cards()).map((c) => c.reps)).toEqual([1]);
+    });
+
+    it('comes back to passed cards after the last one', async () => {
+      await press('ArrowRight');
+      for (let i = 1; i < total; i++) {
+        await press(' ');
+        await press('3');
+      }
+      expect(cardsText()).toContain(`Card 1 of ${total}1 left`);
+      expect(button('Next →')?.disabled).withContext('there is one more card to the right').toBeFalse();
+      await press(' ');
+      await press('3');
+      expect(cardsText()).toContain('Round complete.');
+    });
+
+    it('opens and closes full screen', async () => {
+      const host = cards() as HTMLElement;
+      const request = spyOn(host, 'requestFullscreen').and.rejectWith(new TypeError('not allowed'));
+      await press('f');
+      expect(request).toHaveBeenCalledTimes(1);
+      expect(host.classList).toContain('full');
+      expect(button('⛶ Exit full screen')).toBeDefined();
+      await press('ArrowRight');
+      expect(cardsText()).toContain(`Card 2 of ${total}`);
+      await press('Escape');
+      expect(host.classList).not.toContain('full');
+      await tap('⛶ Full screen');
+      expect(host.classList).toContain('full');
+      document.dispatchEvent(new Event('fullscreenchange'));
+      await fixture.whenStable();
+      expect(host.classList).withContext('the browser left full screen').not.toContain('full');
+    });
+  });
 });
