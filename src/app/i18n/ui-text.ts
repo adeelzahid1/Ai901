@@ -56,6 +56,7 @@ const EN = {
   dashboard: {
     lead: (date: string, min: number, n: number, pass: number, max: number) =>
       `Skills outline ${date} · ${min} minutes · about ${n} questions · pass ${pass}/${max}`,
+    checked: (date: string) => `Compared with Microsoft Learn on ${date}`,
     inBank: (planned: number) => `Questions in bank (of ${planned} planned)`,
     loading: ' · loading…',
     answered: 'Questions answered',
@@ -523,6 +524,7 @@ const ROMAN: UiText = {
   dashboard: {
     lead: (date, min, n, pass, max) =>
       `Skills outline ${date} · ${min} minute · taqreeban ${n} sawal · pass ${pass}/${max}`,
+    checked: (date) => `Microsoft Learn se ${date} ko milaya gaya`,
     inBank: (planned) => `Bank mein sawal (mansooba ${planned})`,
     loading: ' · load ho raha hai…',
     answered: 'Sawalon ke jawab diye',

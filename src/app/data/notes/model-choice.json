@@ -1,5 +1,5 @@
 {
-  "id": "model-choice", "minutes": 5,
+  "id": "model-choice", "minutes": 6,
   "main": {"en":"Choose the smallest and cheapest model that does the task with enough quality, speed and the right inputs and outputs.","ro":"Woh sab se chhota aur sasta model chunein jo kaam kaafi quality, raftaar aur sahi input/output ke saath kare."},
   "explain": [
     {"en":"Start with the task: what goes in and what must come out? Text to text needs a language model. Images as input need a multimodal model. New pictures need an image model. Speech in and out needs an audio model. Search by meaning needs an embedding model.","ro":"Kaam se shuru karein: kya andar jata hai aur kya bahar aana chahiye? Text se text ke liye language model. Image input ke liye multimodal model. Nayi tasveer ke liye image model. Awaaz ke liye audio model. Matlab se talash ke liye embedding model."},
@@ -31,6 +31,25 @@
         { "term": "Claude", "text": "Anthropic" },
         { "term": "Llama", "text": "Meta" },
         { "term": "FLUX", "text": "Black Forest Labs" }
+      ]
+    },
+    {
+      "title": {"en":"The life of a model","ro":"Model ki zindagi"},
+      "text": [
+        {"en":"Models do not stay forever. Microsoft announces the end early, so plan an evaluation with a newer model before the date. Preview models can change and may never be released: use them for tests.","ro":"Models hamesha nahi rehte. Microsoft khatma pehle bata deta hai, is liye tareekh se pehle naye model ke saath evaluation ka plan banayein. Preview models badal sakte hain aur shayad release na hon: unhein tests ke liye rakhein."}
+      ],
+      "flows": [
+        { "title": {"en":"Lifecycle stages","ro":"Zindagi ke marahil"}, "steps": [
+          { "title": "Preview", "text": {"en":"experimental","ro":"tajurbati"} },
+          { "title": "Generally available", "text": {"en":"for production","ro":"production ke liye"} },
+          { "title": {"en":"Legacy (optional)","ro":"Legacy (ho bhi sakta hai)"}, "text": {"en":"newer models exist","ro":"naye models maujood"} },
+          { "title": "Deprecated", "text": {"en":"no new customers","ro":"naye customers nahi"} },
+          { "title": "Retired", "text": "410 Gone" }
+        ] }
+      ],
+      "terms": [
+        { "term": {"en":"New models start in Global Standard","ro":"Naye models Global Standard se shuru"}, "text": {"en":"Regional deployment types come last, and some models never get them.","ro":"Regional deployment types aakhir mein aati hain, aur kuch models ko milti hi nahi."} },
+        { "term": {"en":"Existing customer","ro":"Purana customer"}, "text": {"en":"A subscription that has deployed this model version before.","ro":"Woh subscription jo ye model version pehle deploy kar chuki ho."} }
       ]
     }
   ],

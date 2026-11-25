@@ -40,7 +40,8 @@
   "traps": [
     {"en":"Key phrases do not tell you whether people like something.","ro":"Key phrases ye nahi batate ke logon ko cheez pasand hai ya nahi."},
     {"en":"Translation is a separate service and not part of these techniques.","ro":"Translation alag service hai, in techniques ka hissa nahi."},
-    {"en":"Stemming may leave a form that is no word; lemmatization returns a real word.","ro":"Stemming aisi shakal chhor sakti hai jo lafz nahi; lemmatization asal lafz deti hai."}
+    {"en":"Stemming may leave a form that is no word; lemmatization returns a real word.","ro":"Stemming aisi shakal chhor sakti hai jo lafz nahi; lemmatization asal lafz deti hai."},
+    {"en":"Sentiment, key phrases and summarization are exam techniques, but they retire from Azure Language on 31 March 2029.","ro":"Sentiment, key phrases aur summarization exam ki techniques hain, lekin 31 March 2029 ko Azure Language se retire honge."}
   ],
   "check": ["D1-115", "D1-176", "D1-394", "D1-283", "D1-047"],
   "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"

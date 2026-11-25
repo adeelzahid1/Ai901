@@ -55,9 +55,9 @@
       "Look up today's exchange rates on the web",
       "Call a function in your own code to create a support ticket"
     ],
-    "targets": ["Function calling", "Grounding with Bing Search", "Azure AI Search tool", "Code interpreter", "File search"],
+    "targets": ["Function calling", "Web search", "Azure AI Search tool", "Code interpreter", "File search"],
     "ans": [3, 2, 1, 0],
-    "exp": "Code interpreter runs Python to calculate values from data files. The Azure AI Search tool connects the agent to an existing search index. Grounding with Bing Search finds current web information. Function calling lets the agent ask your code to perform an action, such as creating a ticket. File search is for files uploaded to the agent and is not needed here.",
+    "exp": "Code interpreter runs Python to calculate values from data files. The Azure AI Search tool connects the agent to an existing search index. Web search finds current web information. Function calling lets the agent ask your code to perform an action, such as creating a ticket. File search is for files uploaded to the agent and is not needed here.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {

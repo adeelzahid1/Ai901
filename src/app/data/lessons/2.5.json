@@ -42,7 +42,7 @@
   "traps": [
     {"en":"speak_text_async does not understand SSML tags; speak_ssml_async does.","ro":"speak_text_async SSML tags nahi samajhta; speak_ssml_async samajhta hai."},
     {"en":"NoMatch means no recognizable speech; a wrong key gives Canceled.","ro":"NoMatch ka matlab pehchan ke qabil awaaz nahi; ghalat key Canceled deti hai."},
-    {"en":"Summarization and key phrases still work in Azure Language, but they retire on 31 March 2029.","ro":"Summarization aur key phrases Azure Language mein abhi chalte hain, lekin 31 March 2029 ko retire honge."}
+    {"en":"Sentiment, key phrases and summarization still work in Azure Language, but they retire on 31 March 2029.","ro":"Sentiment, key phrases aur summarization Azure Language mein abhi chalte hain, lekin 31 March 2029 ko retire honge."}
   ],
   "check": ["D2-601", "D2-532", "D2-451", "D2-594", "D2-185"],
   "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"

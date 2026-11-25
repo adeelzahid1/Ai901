@@ -3,6 +3,7 @@
     "code": "AI-901",
     "title": "Microsoft Azure AI Fundamentals",
     "outlineDate": "2026-04-15",
+    "checked": "2026-11-25",
     "minutes": 45,
     "examQuestions": 50,
     "passScore": 700,
@@ -64,11 +65,11 @@
   "sections": [
     { "id": "1.1", "domain": "D1", "en": "Responsible AI principles", "ro": "Zimmedar AI ke usool", "target": 96, "subs": ["fairness", "reliability-safety", "privacy-security", "inclusiveness", "transparency", "accountability"] },
     { "id": "1.2", "domain": "D1", "en": "How generative AI models work", "ro": "Generative AI models kaise kaam karte hain", "target": 65, "subs": ["genai-how"] },
-    { "id": "1.3", "domain": "D1", "en": "Choosing models, deployment & parameters", "ro": "Model ka intikhab, deployment aur settings", "target": 77, "subs": ["model-choice", "deploy-config"] },
+    { "id": "1.3", "domain": "D1", "en": "Choosing models, deployment & parameters", "ro": "Model ka intikhab, deployment aur settings", "target": 82, "subs": ["model-choice", "deploy-config"] },
     { "id": "1.4", "domain": "D1", "en": "AI workload scenarios (incl. agentic AI)", "ro": "AI workloads ke scenarios (agentic AI samet)", "target": 69, "subs": ["workload-scenarios"] },
-    { "id": "1.5", "domain": "D1", "en": "Text analysis techniques", "ro": "Text analysis ke tareeqay", "target": 73, "subs": ["text-techniques"] },
+    { "id": "1.5", "domain": "D1", "en": "Text analysis techniques", "ro": "Text analysis ke tareeqay", "target": 75, "subs": ["text-techniques"] },
     { "id": "1.6", "domain": "D1", "en": "Speech recognition & synthesis", "ro": "Awaaz pehchanna aur awaaz banana", "target": 66, "subs": ["speech-features"] },
-    { "id": "1.7", "domain": "D1", "en": "Vision, image generation & information extraction", "ro": "Tasveer ki samajh, tasveer banana aur maloomat nikalna", "target": 99, "subs": ["vision-imagegen", "extraction-techniques"] },
+    { "id": "1.7", "domain": "D1", "en": "Vision, image generation & information extraction", "ro": "Tasveer ki samajh, tasveer banana aur maloomat nikalna", "target": 100, "subs": ["vision-imagegen", "extraction-techniques"] },
     { "id": "2.1", "domain": "D2", "en": "Writing system & user prompts", "ro": "System aur user prompts likhna", "target": 75, "subs": ["prompts"] },
     { "id": "2.2", "domain": "D2", "en": "Deploy & test a model in the Foundry portal", "ro": "Foundry portal mein model deploy aur test karna", "target": 81, "subs": ["portal-deploy"] },
     { "id": "2.3", "domain": "D2", "en": "Chat client with the Foundry SDK", "ro": "Foundry SDK se chat client banana", "target": 106, "subs": ["sdk-chat-client"] },
@@ -78,7 +79,7 @@
     { "id": "2.7", "domain": "D2", "en": "Information extraction with Content Understanding", "ro": "Content Understanding se maloomat nikalna", "target": 130, "subs": ["cu-documents", "cu-images", "cu-audio-video", "cu-app"] }
   ],
   "bankFiles": {
-    "D1": ["d1-core", "d1-ext1", "d1-ext2", "d1-ext3", "d1-ext4", "d1-ext5", "d1-ext6", "d1-ext7", "d1-ext8", "d1-ext9", "d1-ext10", "d1-ext11", "d1-ext12", "d1-ext13", "d1-ext14", "d1-ext15", "d1-ext16", "d1-ext17", "d1-ext18"],
+    "D1": ["d1-core", "d1-ext1", "d1-ext2", "d1-ext3", "d1-ext4", "d1-ext5", "d1-ext6", "d1-ext7", "d1-ext8", "d1-ext9", "d1-ext10", "d1-ext11", "d1-ext12", "d1-ext13", "d1-ext14", "d1-ext15", "d1-ext16", "d1-ext17", "d1-ext18", "d1-ext19"],
     "D2": ["d2-core", "d2-ext1", "d2-ext2", "d2-ext3", "d2-ext4", "d2-ext5", "d2-ext6", "d2-ext7", "d2-ext8", "d2-ext9", "d2-ext10", "d2-ext11", "d2-ext12", "d2-ext13", "d2-ext14", "d2-ext15", "d2-ext16", "d2-ext17", "d2-ext18", "d2-ext19", "d2-ext20", "d2-ext21", "d2-ext22", "d2-ext23", "d2-ext24", "d2-ext25"]
   }
 }

@@ -53,7 +53,7 @@
   "D2-260": {
     "q": "Agent ke knowledge tools ke baare mein jumlay mukammal karein.",
     "tpl": "Agent ko maujood enterprise search index mein talash karne dene ke liye {0} tool shamil karein. Usay taaza public maloomat dhoondne dene ke liye {1} shamil karein.",
-    "exp": "Azure AI Search tool agent ko us index se jorta hai jise aap pehle se sambhalte hain, aur Grounding with Bing Search public web ki taaza maloomat laata hai. Code interpreter Python chalata hai, image generation tasveerein banata hai, file search agent mein upload ki hui files ke liye hai, aur function calling aap ka apna code chalati hai."
+    "exp": "Azure AI Search tool agent ko us index se jorta hai jise aap pehle se sambhalte hain, aur web search public web ki taaza maloomat laata hai. Code interpreter Python chalata hai, image generation tasveerein banata hai, file search agent mein upload ki hui files ke liye hai, aur function calling aap ka apna code chalati hai."
   },
   "D2-261": {
     "ctx": "Ek HR agent ke paas sirf Grounding with Bing Search tool hai. Jab employees company ke salary bands poochte hain to woh web ke aam figures se jawab deta hai.",

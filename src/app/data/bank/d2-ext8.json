@@ -46,7 +46,7 @@
       "'What is the weather in Paris right now?'",
       "'Create a support ticket for my broken laptop.'"
     ],
-    "targets": ["Function calling or an OpenAPI tool", "Grounding with Bing Search", "Code interpreter", "File search", "No tool needed"],
+    "targets": ["Function calling or an OpenAPI tool", "Web search", "Code interpreter", "File search", "No tool needed"],
     "ans": [3, 2, 1, 0],
     "exp": "Questions about uploaded documents need file search, plotting data needs code interpreter, live weather needs web grounding, and creating a ticket means calling another system through function calling or an OpenAPI tool. Each request depends on information or actions the model alone does not have.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
@@ -71,10 +71,10 @@
     "tpl": "To let an agent search an existing enterprise search index, add the {0} tool. To let it look up current public information, add {1}.",
     "opts": [
       ["code interpreter", "image generation", "Azure AI Search"],
-      ["file search", "Grounding with Bing Search", "function calling"]
+      ["file search", "web search", "function calling"]
     ],
     "ans": [2, 1],
-    "exp": "The Azure AI Search tool connects an agent to an index you already maintain, and Grounding with Bing Search brings in current information from the public web. Code interpreter runs Python, image generation creates pictures, file search covers files uploaded to the agent, and function calling runs your own code.",
+    "exp": "The Azure AI Search tool connects an agent to an index you already maintain, and web search brings in current information from the public web. Code interpreter runs Python, image generation creates pictures, file search covers files uploaded to the agent, and function calling runs your own code.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {

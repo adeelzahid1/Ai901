@@ -1,6 +1,6 @@
 # Plan
 
-Phases 0-21 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
+Phases 0-22 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
 a review of the portal from a teacher's point of view. Every step ends with validation, unit tests, a
 build, a browser check, a commit and a check of the live site.
 
@@ -99,3 +99,10 @@ two cheat sheet code groups and one new step in two labs.
 
 40 new questions (d1-ext18, d2-ext25) about MCP, Foundry IQ, voice agents, Voice Live, multi-agent systems and the
 groups of the model catalog, with topics in five notes, 11 glossary terms and two cheat sheet tables.
+
+## Phase 22 - Fresh content (done)
+
+`npm run check:freshness` compares the Learn pages behind the content (114 pages with the units of the course modules),
+the skills outline and the module list of the course with the last review (`scripts/freshness.json`). The first run
+led to: retirement dates of Language features, the model lifecycle (8 questions, d1-ext19) and the web search tool
+instead of Grounding with Bing Search. The dashboard shows the date of the last comparison.

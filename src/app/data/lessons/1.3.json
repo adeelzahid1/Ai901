@@ -10,7 +10,8 @@
     { "term": "Provisioned deployments", "text": {"en":"Reserved throughput units for steady traffic and predictable latency.","ro":"Mustaqil traffic aur yaksan latency ke liye mukhtas throughput units."} },
     { "term": "Batch deployments", "text": {"en":"Large files of requests at a lower price, with results within 24 hours as the target.","ro":"Requests ki bari files kam qeemat par, jin ke nateejon ka hadaf 24 ghante hai."} },
     { "term": "Parameters", "text": {"en":"temperature and top_p control variety, max output tokens limits length, stop sequences end the text, penalties reduce repetition.","ro":"temperature aur top_p variety, max output tokens lambai, stop sequences ikhtitam, aur penalties dohrao control karti hain."} },
-    { "term": {"en":"Two groups of models","ro":"Models ke do groups"}, "text": {"en":"Sold directly by Azure: Microsoft terms and service level agreements. Partners and community: other vendors and open source.","ro":"Sold directly by Azure: Microsoft ki terms aur service level agreements. Partners and community: doosre vendors aur open source."} }
+    { "term": {"en":"Two groups of models","ro":"Models ke do groups"}, "text": {"en":"Sold directly by Azure: Microsoft terms and service level agreements. Partners and community: other vendors and open source.","ro":"Sold directly by Azure: Microsoft ki terms aur service level agreements. Partners and community: doosre vendors aur open source."} },
+    { "term": {"en":"Life of a model","ro":"Model ki zindagi"}, "text": {"en":"Preview, generally available, deprecated (closed to new customers), retired (410 Gone).","ro":"Preview, generally available, deprecated (naye customers ke liye band), retired (410 Gone)."} }
   ],
   "example": {
     "title": {"en":"Example: three apps of one company","ro":"Misaal: ek company ki teen apps"},

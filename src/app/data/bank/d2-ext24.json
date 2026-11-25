@@ -350,7 +350,7 @@
       "Opinion mining with a low threshold"
     ],
     "ans": 2,
-    "exp": "Summarization retires from Azure Language on 31 March 2029, and Microsoft directs new projects to Foundry models. Key phrases are only topics and also retire then, and opinion mining finds targets and feelings but writes no summary.",
+    "exp": "Summarization, key phrase extraction and opinion mining retire from Azure Language on 31 March 2029, and Microsoft directs new projects to Foundry models. Key phrases are only topics, and opinion mining finds targets and feelings but writes no summary.",
     "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/summarization/overview"
   },
   {

@@ -32,6 +32,9 @@ jobs:
       - name: Validate question bank
         run: npm run validate:bank
 
+      - name: Test scripts
+        run: npm run test:scripts
+
       # Ubuntu 24.04 blocks the user namespaces that headless Chrome's sandbox needs.
       # Images without this setting don't need the change.
       - name: Allow headless Chrome to start

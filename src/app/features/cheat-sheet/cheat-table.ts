@@ -44,6 +44,9 @@ import { LessonText } from '../../data/lessons';
     td:first-child {
       overflow-wrap: break-word;
     }
+    td:last-child {
+      min-width: 78px;
+    }
     th {
       color: var(--muted);
       font-size: 0.8rem;
@@ -52,6 +55,9 @@ import { LessonText } from '../../data/lessons';
       border-bottom: 0;
     }
     @media print {
+      td:last-child {
+        min-width: 0;
+      }
       table {
         font-size: 7.5pt;
       }

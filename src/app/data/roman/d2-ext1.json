@@ -20,7 +20,7 @@
   "D2-034": {
     "q": "Foundry mein bane travel agent ko apne jawabon mein public web se aaj ki flight rukawatein aur khabrein shamil karni hain. Kaunsa tool shamil karna chahiye?",
     "opts": [null, null, "Local file ke saath function calling", null],
-    "exp": "Grounding with Bing Search agent ko taaza maloomat ke liye public web par talash karne aur jawab mein sources cite karne deta hai. File search sirf aap ki upload ki hui files istemal karta hai, code interpreter Python chalata hai, aur local file parhne wala function live web khabrein nahi de sakta. Model akela sirf wahi janta hai jo us ne training mein seekha."
+    "exp": "Web search agent ko public web par taaza maloomat dhoondne aur sources cite karne deta hai; Microsoft shuru mein yahi tool tajweez karta hai. Grounding with Bing Search doosra tareeqa hai jise apna Bing resource chahiye aur jis mein zyada parameters hain. File search sirf aap ki upload ki hui files istemal karta hai, code interpreter Python chalata hai, aur local file parhne wala function live web khabrein nahi de sakta. Model akela sirf wahi janta hai jo us ne training mein seekha."
   },
   "D2-035": {
     "q": "Har zaroorat ko us agent tool se milayein jo usay pura karta hai. Har tool ek baar istemal ho sakta hai, ya bilkul nahi.",
@@ -30,7 +30,7 @@
       "Company ka order-status API call karna jo OpenAPI specification mein bayan hai",
       "Public web par taaza maloomat dhoondna"
     ],
-    "exp": "File search upload kiye hue documents se hisse nikalta hai. Code interpreter upload kiye hue data par Python chalata hai. OpenAPI tool agent ko aisa bahar ka API call karne deta hai jo OpenAPI specification mein bayan ho. Grounding with Bing Search web ke taaza nateeje laata hai. Image generation tasveerein banata hai aur in mein se koi zaroorat puri nahi karta."
+    "exp": "File search upload kiye hue documents se hisse nikalta hai. Code interpreter upload kiye hue data par Python chalata hai. OpenAPI tool agent ko aisa bahar ka API call karne deta hai jo OpenAPI specification mein bayan ho. Web search web ke taaza nateeje laata hai. Image generation tasveerein banata hai aur in mein se koi zaroorat puri nahi karta."
   },
   "D2-036": {
     "q": "Foundry portal mein agents ke baare mein neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",

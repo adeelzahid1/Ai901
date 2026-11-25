@@ -42,9 +42,9 @@
       "Book a meeting room through the facilities API",
       "Find this week's industry news"
     ],
-    "targets": ["No tool", "Grounding with Bing Search", "Code interpreter", "OpenAPI tool", "File search"],
+    "targets": ["No tool", "Web search", "Code interpreter", "OpenAPI tool", "File search"],
     "ans": [2, 4, 3, 1],
-    "exp": "Analyzing spreadsheet data needs code interpreter, answering from internal PDFs needs file search, booking through an API needs the OpenAPI tool, and current news needs Bing grounding. Every goal depends on data or actions beyond the model, so none can be done without a tool.",
+    "exp": "Analyzing spreadsheet data needs code interpreter, answering from internal PDFs needs file search, booking through an API needs the OpenAPI tool, and current news needs web search. Every goal depends on data or actions beyond the model, so none can be done without a tool.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {

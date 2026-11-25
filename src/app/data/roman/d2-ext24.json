@@ -219,7 +219,7 @@
       "Microsoft Foundry mein deploy kiya model",
       "Kam threshold ke saath opinion mining"
     ],
-    "exp": "Summarization 31 March 2029 ko Azure Language se retire hogi, aur Microsoft naye projects ko Foundry models ki taraf bhejta hai. Key phrases sirf topics hain aur woh bhi tab retire honge, aur opinion mining targets aur jazbat dhoondta hai, khulasa nahi likhta."
+    "exp": "Summarization, key phrase extraction aur opinion mining 31 March 2029 ko Azure Language se retire honge, aur Microsoft naye projects ko Foundry models ki taraf bhejta hai. Key phrases sirf topics hain, aur opinion mining targets aur jazbat dhoondta hai, khulasa nahi likhta."
   },
   "D2-720": {
     "q": "Aadmi bolta rahe aur har mukammal phrase print ho: Python code mukammal karein.",

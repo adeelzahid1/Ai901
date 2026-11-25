@@ -1,4 +1,4 @@
-import { DOMAINS, SECTIONS, domainOf, sectionOf, weightMid } from './schema';
+import { DOMAINS, EXAM, SECTIONS, domainOf, sectionOf, weightMid } from './schema';
 
 describe('schema', () => {
   it('maps every official sub-skill to exactly one study section', () => {
@@ -18,6 +18,11 @@ describe('schema', () => {
         expect(domain?.subs.some((x) => x.id === sub)).withContext(`${s.id}|${sub}`).toBeTrue();
       }
     }
+  });
+
+  it('knows the date of the skills outline and of the last review', () => {
+    expect(EXAM.outlineDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(EXAM.checked >= EXAM.outlineDate).toBeTrue();
   });
 
   it('reads the domain from the question id', () => {

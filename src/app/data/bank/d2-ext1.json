@@ -57,11 +57,11 @@
       "File search",
       "Code interpreter",
       "Function calling with a local file",
-      "Grounding with Bing Search"
+      "Web search"
     ],
     "ans": 3,
-    "exp": "Grounding with Bing Search lets an agent search the public web for current information and cite the sources in its answer. File search only uses files you uploaded, code interpreter runs Python, and a function that reads a local file cannot provide live web news. The model alone only knows what it learned during training.",
-    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/bing-tools"
+    "exp": "Web search lets an agent find current information on the public web and cite the sources; it is the tool that Microsoft recommends to start with. Grounding with Bing Search is the alternative that needs a Bing resource of your own and offers more parameters. File search only uses files you uploaded, code interpreter runs Python, and a function that reads a local file cannot provide live web news. The model alone only knows what it learned during training.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/web-overview"
   },
   {
     "id": "D2-035",
@@ -78,7 +78,7 @@
     "targets": [
       "Code interpreter",
       "OpenAPI tool",
-      "Grounding with Bing Search",
+      "Web search",
       "Image generation",
       "File search"
     ],
@@ -88,7 +88,7 @@
       1,
       2
     ],
-    "exp": "File search retrieves passages from uploaded documents. Code interpreter runs Python on uploaded data. The OpenAPI tool lets an agent call an external API that is described by an OpenAPI specification. Grounding with Bing Search brings in current web results. Image generation creates pictures and does not meet any of these requirements.",
+    "exp": "File search retrieves passages from uploaded documents. Code interpreter runs Python on uploaded data. The OpenAPI tool lets an agent call an external API that is described by an OpenAPI specification. Web search brings in current web results. Image generation creates pictures and does not meet any of these requirements.",
     "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
   },
   {

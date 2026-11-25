@@ -37,7 +37,7 @@
       "Web par aaj ke exchange rates dekhna",
       "Support ticket banane ke liye aap ke apne code ka function call karna"
     ],
-    "exp": "Code interpreter data files se values nikalne ke liye Python chalata hai. Azure AI Search tool agent ko maujood search index se jorta hai. Grounding with Bing Search web ki taaza maloomat dhoondta hai. Function calling se agent aap ke code se koi amal, jaise ticket banana, karwa sakta hai. File search agent mein upload ki hui files ke liye hai aur yahan zaroorat nahi."
+    "exp": "Code interpreter data files se values nikalne ke liye Python chalata hai. Azure AI Search tool agent ko maujood search index se jorta hai. Web search web ki taaza maloomat dhoondta hai. Function calling se agent aap ke code se koi amal, jaise ticket banana, karwa sakta hai. File search agent mein upload ki hui files ke liye hai aur yahan zaroorat nahi."
   },
   "D2-106": {
     "q": "Python ke maujooda Foundry SDK mein kaunsi call aisa client deti hai jo order-helper naam ke maujood agent ko messages bhejta hai?",

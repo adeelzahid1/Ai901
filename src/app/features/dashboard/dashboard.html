@@ -2,6 +2,7 @@
 <h1>{{ exam.code }}: {{ exam.title }}</h1>
 <p class="lead">
   {{ t.dashboard.lead(exam.outlineDate, exam.minutes, exam.examQuestions, exam.passScore, exam.maxScore) }}
+  <span class="checked">{{ t.dashboard.checked(exam.checked) }}</span>
 </p>
 
 <div class="stack">

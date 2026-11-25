@@ -1,0 +1,81 @@
+[
+  {
+    "id": "D1-546", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "q": "A company plans a new text solution for the next ten years. Which Azure Language feature does Microsoft recommend for new development?",
+    "opts": ["Key phrase extraction", "Sentiment analysis", "Named entity recognition", "Summarization"],
+    "ans": 2,
+    "exp": "Named entity recognition is a core capability, together with PII detection, language detection and text analytics for health. Key phrase extraction, sentiment analysis and summarization are legacy features that retire from Azure Language on 31 March 2029.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-547", "sub": "text-techniques", "diff": 2, "type": "match",
+    "q": "Match each Azure Language feature to its status. Each status can be used more than once.",
+    "items": ["Language detection", "Opinion mining", "PII detection", "Key phrase extraction"],
+    "targets": ["Retires from Azure Language in 2029", "Core capability for new projects"],
+    "ans": [1, 0, 1, 0],
+    "exp": "PII detection and language detection are core capabilities that Microsoft keeps developing. Opinion mining and key phrase extraction belong to the legacy group; new projects should use a model in Microsoft Foundry for these tasks.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+  },
+  {
+    "id": "D1-548", "sub": "model-choice", "diff": 2, "type": "order",
+    "q": "Put the lifecycle stages of a model in Microsoft Foundry in order.",
+    "items": ["Deprecated", "Generally available", "Retired", "Preview"],
+    "ans": [3, 1, 0, 2],
+    "exp": "A preview model is experimental, a generally available model is ready for production, a deprecated model is closed to new customers, and a retired model no longer answers. An optional legacy stage can come between generally available and deprecated.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements"
+  },
+  {
+    "id": "D1-549", "sub": "model-choice", "diff": 2, "type": "mcq",
+    "q": "An app that worked for a long time now gets \"410 Gone\" for each request to its model deployment. What is the most likely reason?",
+    "opts": [
+      "The API key has expired",
+      "The model was retired",
+      "The prompt was too long for the model",
+      "Too many requests were sent in one minute"
+    ],
+    "ans": 1,
+    "exp": "After retirement all inference requests return 410 Gone, so the app must move to another model. A wrong or expired key gives 401, a prompt that is too long gives 400, and too many requests give 429.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements"
+  },
+  {
+    "id": "D1-550", "sub": "model-choice", "diff": 3, "type": "yesno",
+    "q": "For each of the following statements about the model lifecycle in Foundry, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A subscription that already used a deprecated model can still call its deployments.",
+      "Each preview model becomes generally available.",
+      "A retired model can still be deployed by existing customers."
+    ],
+    "ans": [true, false, false],
+    "exp": "Yes for the first: deprecation closes a model to new customers, and existing ones keep working. No for the second: preview models may end without a general release. No for the third: after retirement there are no new deployments, and existing ones stop working.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements"
+  },
+  {
+    "id": "D1-551", "sub": "model-choice", "diff": 1, "type": "mcq",
+    "q": "Which lifecycle stage of a model is meant for production apps?",
+    "opts": ["Preview", "Deprecated", "Retired", "Generally available"],
+    "ans": 3,
+    "exp": "Generally available means that the model and its API are fixed and supported for production. Preview models can change and may never be released, deprecated models are on their way out, and retired models do not answer any more.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements"
+  },
+  {
+    "id": "D1-552", "sub": "deploy-config", "diff": 3, "type": "mcq",
+    "q": "In which deployment type do new Foundry models usually appear first?",
+    "opts": ["Standard in one region", "Global Standard", "Data Zone Provisioned", "Provisioned in one region"],
+    "ans": 1,
+    "exp": "New models start in Global Standard, which has the broadest availability. Global Provisioned and the data zone types follow, and regional types come last because they need capacity that older models free up. Not every model reaches all types.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements"
+  },
+  {
+    "id": "D1-553", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
+    "q": "An old app creates pictures with a DALL-E 3 deployment, and its requests now fail. What should the team do?",
+    "opts": [
+      "Ask for more quota for the DALL-E 3 deployment",
+      "Send the prompts in a different language",
+      "Create a second DALL-E 3 deployment in a new region",
+      "Move to a model of the gpt-image series"
+    ],
+    "ans": 3,
+    "exp": "DALL-E 3 was retired on 4 March 2026, so existing deployments no longer work and new ones cannot be created. Microsoft recommends the gpt-image series. Quota, language and region do not bring a retired model back.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"
+  }
+]

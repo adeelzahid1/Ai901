@@ -51,7 +51,7 @@
       "Add a length rule to the instructions",
       "Increase the deployment quota",
       "Add file search over the policy documents and tell the agent to use them",
-      "Add Grounding with Bing Search",
+      "Add web search",
       "Require human approval before the email tool runs"
     ],
     "ans": [2, 4, 3, 0],

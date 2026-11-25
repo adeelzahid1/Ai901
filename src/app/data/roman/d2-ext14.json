@@ -41,7 +41,7 @@
       "Instructions mein lambai ka usool shamil karna",
       "Deployment ka quota barhana",
       "Policy documents par file search shamil karna aur agent ko unhein istemal karne ka kehna",
-      "Grounding with Bing Search shamil karna",
+      "Web search shamil karna",
       "Email tool chalne se pehle insani manzoori lazmi karna"
     ],
     "exp": "Ghare hue policy jawabon ke liye policy documents par grounding chahiye, baghair manzoori emails ke liye approval ka qadam, taza waqiaat ke liye web grounding, aur lambe jawabon ke liye lambai ka usool. Quota throughput par asar dalta hai aur in mein se koi masla hal nahi karta."

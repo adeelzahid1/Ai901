@@ -1,9 +1,9 @@
 {
-  "id": "text-techniques", "minutes": 8,
+  "id": "text-techniques", "minutes": 9,
   "main": {"en":"Each technique returns a different kind of result: a language, topics, entities, masked text, a mood, opinions or a summary.","ro":"Har technique alag nateeja deti hai: zabaan, topics, entities, chhupa hua text, mood, raaye ya khulasa."},
   "explain": [
     {"en":"Azure Language provides these as ready-made features with consistent output and confidence scores between 0 and 1. You send documents and get one result per document.","ro":"Azure Language ye tayyar features yaksan output aur 0 se 1 tak confidence ke saath deta hai. Aap documents bhejte hain aur har document ka ek nateeja milta hai."},
-    {"en":"Microsoft now groups them. Core capabilities for new projects are PII detection, language detection, named entity recognition and text analytics for health. Key phrases, sentiment and opinion mining, summarization and entity linking are legacy capabilities: still supported, and still in the exam outline. For new apps a chat model can do those tasks with a prompt.","ro":"Microsoft ne inhein groups mein baanta hai. Naye projects ke liye core: PII detection, language detection, named entity recognition aur text analytics for health. Key phrases, sentiment aur opinion mining, summarization aur entity linking legacy hain: ab bhi supported aur ab bhi exam mein. Nayi apps mein ye kaam chat model prompt se kar sakta hai."},
+    {"en":"Microsoft now groups them. Core capabilities for new projects are PII detection, language detection, named entity recognition and text analytics for health. Key phrases, sentiment and opinion mining, summarization and entity linking are legacy capabilities: still supported until they retire (most of them on 31 March 2029), and still in the exam outline. For new apps a model can do those tasks with a prompt.","ro":"Microsoft ne inhein groups mein baanta hai. Naye projects ke liye core: PII detection, language detection, named entity recognition aur text analytics for health. Key phrases, sentiment aur opinion mining, summarization aur entity linking legacy hain: retire hone tak supported (zyada tar 31 March 2029) aur ab bhi exam mein. Nayi apps mein ye kaam model prompt se kar sakta hai."},
     {"en":"Two kinds of summaries exist: extractive picks the most important existing sentences, abstractive writes new sentences.","ro":"Khulasay do qisam ke hain: extractive aham maujooda jumlay chunta hai, abstractive naye jumlay likhta hai."}
   ],
   "deep": [
@@ -33,6 +33,18 @@
         { "term": "Bag-of-words + Naive Bayes", "text": {"en":"Word counts without order, used by a probability classifier, for example for spam.","ro":"Alfaaz ki ginti baghair tarteeb, jise probability classifier istemal karta hai, jaise spam ke liye."} },
         { "term": "TextRank", "text": {"en":"Ranks sentences (or words) in a graph by their connections: extractive summary or key terms.","ro":"Graph mein jumlon (ya alfaaz) ko connections se rank karta hai: extractive khulasa ya aham terms."} },
         { "term": {"en":"Embeddings and cosine similarity","ro":"Embeddings aur cosine similarity"}, "text": {"en":"Vectors with meaning; a cosine near 1 means similar. Word2Vec and GloVe give one vector per word, attention gives one per context.","ro":"Matlab wale vectors; cosine 1 ke qareeb ho to milte hain. Word2Vec aur GloVe har lafz ka ek vector dete hain, attention har context ka alag."} }
+      ]
+    },
+    {
+      "title": {"en":"What stays and what retires","ro":"Kya rahega aur kya retire hoga"},
+      "text": [
+        {"en":"The exam outline still names keyword extraction, sentiment analysis and summarization as techniques, so learn them. For a new app, know that Azure Language keeps only its core features; the others move to models in Microsoft Foundry.","ro":"Exam outline mein keyword extraction, sentiment analysis aur summarization ab bhi techniques hain, is liye seekhein. Nayi app ke liye yaad rakhein ke Azure Language sirf core features rakhegi; baqi Microsoft Foundry ke models par ja rahi hain."}
+      ],
+      "terms": [
+        { "term": {"en":"Core, for new projects","ro":"Core, naye projects ke liye"}, "text": {"en":"PII detection, language detection, named entity recognition (also custom), text analytics for health.","ro":"PII detection, language detection, named entity recognition (custom bhi), text analytics for health."} },
+        { "term": {"en":"Retire on 31 March 2029","ro":"31 March 2029 ko retire"}, "text": {"en":"Sentiment analysis and opinion mining, key phrase extraction, summarization, custom text classification.","ro":"Sentiment analysis aur opinion mining, key phrase extraction, summarization, custom text classification."} },
+        { "term": "Entity linking", "text": {"en":"Retires too (its page names 1 September 2028); use named entity recognition or a model.","ro":"Ye bhi retire hogi (us ke page par 1 September 2028); named entity recognition ya model istemal karein."} },
+        { "term": "Language Studio", "text": {"en":"Retires on 20 March 2027; the Foundry portal replaces it.","ro":"20 March 2027 ko retire; us ki jagah Foundry portal."} }
       ]
     }
   ],

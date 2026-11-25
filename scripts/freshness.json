@@ -1,0 +1,724 @@
+{
+ "checked": "2026-11-25",
+ "modules": [
+  "learn.wwl.get-started-ai-fundamentals",
+  "learn.wwl.fundamentals-generative-ai",
+  "learn.wwl.introduction-language",
+  "learn.wwl.introduction-ai-speech",
+  "learn.wwl.introduction-computer-vision",
+  "learn.wwl.introduction-information-extraction",
+  "learn.wwl.rag-fundamentals",
+  "learn.wwl.get-started-with-ai-in-azure",
+  "learn.wwl.get-started-with-generative-ai-and-agents",
+  "learn.wwl.get-started-with-text-analysis-in-azure",
+  "learn.wwl.get-started-with-speech-in-azure",
+  "learn.wwl.get-started-with-computer-vision-in-azure",
+  "learn.wwl.get-started-information-extraction",
+  "learn.wwl.get-started-foundry-iq",
+  "learn.wwl.get-started-foundry-voice-agents"
+ ],
+ "pages": {
+  "https://learn.microsoft.com/en-us/azure/ai-services/authentication": {
+   "updated": "2026-11-24",
+   "hash": "c197fb7468526f53",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/call-analyze-image-40": {
+   "updated": "2026-10-19",
+   "hash": "b4db4979c5067688",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis": {
+   "updated": "2026-10-19",
+   "hash": "b840b1447aabc6d0",
+   "notices": [
+    "7b1fd3081b9f6c41",
+    "4713b4bf829cb5b5",
+    "f1184e1aa93248f4",
+    "3f8a95e884ebf34f",
+    "8f8d754bcd4dcca6",
+    "3dcaf7cea617ba84",
+    "b63c1b8a22dcfd1d"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-ocr": {
+   "updated": "2026-10-19",
+   "hash": "912344eb6aa6e56f",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40": {
+   "updated": "2026-10-19",
+   "hash": "a2fecf6311622097",
+   "notices": [
+    "b4d41e20da8ca5d9"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection": {
+   "updated": "2026-11-24",
+   "hash": "9bb8b38cd5a87f7d",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/protected-material": {
+   "updated": "2026-11-24",
+   "hash": "881a2d48ce56c7cb",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/audio/overview": {
+   "updated": "2026-11-17",
+   "hash": "7fc4e11e805662a8",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/classifier": {
+   "updated": "2026-10-19",
+   "hash": "8f98fc0b5e43f26e",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers": {
+   "updated": "2026-10-30",
+   "hash": "2df5a0c5fd917dc0",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview": {
+   "updated": "2026-10-19",
+   "hash": "3b5a7bbf013760a3",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/image/overview": {
+   "updated": "2026-10-19",
+   "hash": "d0ed9f37ada3338d",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview": {
+   "updated": "2026-10-30",
+   "hash": "5b25f1a38c253eef",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api": {
+   "updated": "2026-10-19",
+   "hash": "85cb457e49b3efeb",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/tutorial/create-custom-analyzer": {
+   "updated": "2026-10-30",
+   "hash": "0e1b3fe920d7f72f",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview": {
+   "updated": "2026-10-19",
+   "hash": "4e25ecaeb8d22363",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/face/overview-identity": {
+   "updated": "2026-11-12",
+   "hash": "bdaa5635013654c1",
+   "notices": [
+    "fd2863ca972652b5",
+    "76899c89cf33e846"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/custom-named-entity-recognition/overview": {
+   "updated": "2026-11-24",
+   "hash": "d77b254e2602c468",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/custom-text-classification/overview": {
+   "updated": "2026-11-24",
+   "hash": "f8d0351d4fed8543",
+   "notices": [
+    "92aff09d589d22b8"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/entity-linking/overview": {
+   "updated": "2026-11-24",
+   "hash": "8bdf3c33c080bc8c",
+   "notices": [
+    "e5561d49be2c2a83"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/overview": {
+   "updated": "2026-11-24",
+   "hash": "e0b0d1dddbd9247e",
+   "notices": [
+    "16017cf5a9fb7b77"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/key-phrase-extraction/quickstart": {
+   "updated": "2026-11-24",
+   "hash": "4b8a6b0764872047",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/language-detection/overview": {
+   "updated": "2026-11-24",
+   "hash": "d90f9275b3e88e2b",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/named-entity-recognition/overview": {
+   "updated": "2026-11-24",
+   "hash": "247008d2a5f7edc0",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview": {
+   "updated": "2026-11-23",
+   "hash": "f1fcd3547cde4675",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview": {
+   "updated": "2026-11-24",
+   "hash": "5611959558e71535",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/overview": {
+   "updated": "2026-11-24",
+   "hash": "1ff0b374ba45d31a",
+   "notices": [
+    "648b63831a109458"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/quickstart": {
+   "updated": "2026-11-24",
+   "hash": "85871b616484f8db",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/summarization/overview": {
+   "updated": "2026-11-24",
+   "hash": "76c54bd82b04027a",
+   "notices": [
+    "aa9471e67251a025"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/language-service/text-analytics-for-health/overview": {
+   "updated": "2026-11-24",
+   "hash": "5e75c1b74f18d6af",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription": {
+   "updated": "2026-07-07",
+   "hash": "b09c9dffc45bb3c6",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/custom-neural-voice": {
+   "updated": "2026-09-23",
+   "hash": "255edde56b6aa188",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/custom-speech-overview": {
+   "updated": "2026-06-05",
+   "hash": "e1c86e57a3e86c87",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text": {
+   "updated": "2026-06-05",
+   "hash": "46033ef522b09e06",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-translation": {
+   "updated": "2026-06-05",
+   "hash": "65b9fbabebd98eb8",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-stt-diarization": {
+   "updated": "2026-06-05",
+   "hash": "659e0d1c537a4cc4",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech": {
+   "updated": "2026-06-05",
+   "hash": "83af5b59d9e9b5f7",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-pronunciation-assessment": {
+   "updated": "2026-07-03",
+   "hash": "0e271410e8d68bce",
+   "notices": [
+    "671dba796da4bee9"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-recognize-speech": {
+   "updated": "2026-11-01",
+   "hash": "8d38fbe2af99f616",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/improve-accuracy-phrase-list": {
+   "updated": "2026-11-01",
+   "hash": "a0cb564f822da14e",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/keyword-recognition-overview": {
+   "updated": "2026-06-05",
+   "hash": "efc64a5c96fd4835",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-identification": {
+   "updated": "2026-11-04",
+   "hash": "f2ec459a5f4b0726",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview": {
+   "updated": "2026-11-02",
+   "hash": "19dd37ccd309f90b",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup": {
+   "updated": "2026-06-05",
+   "hash": "852eebd9d63c3f4d",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup-voice": {
+   "updated": "2026-08-18",
+   "hash": "bdd700d6dff97713",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-to-text": {
+   "updated": "2026-11-02",
+   "hash": "858d6759cac422d4",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-translation": {
+   "updated": "2026-11-12",
+   "hash": "022877416681fa37",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech": {
+   "updated": "2026-10-30",
+   "hash": "3c68fab5217c0cc7",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/concepts/content-credentials": {
+   "updated": "2026-11-24",
+   "hash": "d02110cb74055713",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/code-interpreter": {
+   "updated": "2026-11-24",
+   "hash": "2400d8e092902724",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search": {
+   "updated": "2026-11-24",
+   "hash": "18ef4484445a010b",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/function-calling": {
+   "updated": "2026-11-24",
+   "hash": "d24481985fc5e7b4",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/model-context-protocol": {
+   "updated": "2026-11-24",
+   "hash": "f1f2719fe05cb788",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/openapi": {
+   "updated": "2026-11-24",
+   "hash": "22a154ab7765ab4d",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/web-overview": {
+   "updated": "2026-11-24",
+   "hash": "499567a5323f0260",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/agents/overview": {
+   "updated": "2026-11-24",
+   "hash": "4b32a478053c7fbb",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/concepts/concept-playgrounds": {
+   "updated": "2026-11-24",
+   "hash": "bd8ae9b1e5d040c8",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview": {
+   "updated": "2026-11-24",
+   "hash": "da4da6a55746ecb0",
+   "notices": [
+    "fa8a7217391930ce",
+    "65130bdcac2a1575",
+    "2438b132918e4941",
+    "19b90a83f87c2eb7"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry": {
+   "updated": "2026-11-19",
+   "hash": "e1ee18fb249f22fa",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation": {
+   "updated": "2026-11-17",
+   "hash": "296ce6b76b46fd07",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/fine-tuning/deploy-fine-tuned-models": {
+   "updated": "2026-11-17",
+   "hash": "ef76d8c6e066f2cf",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types": {
+   "updated": "2026-08-12",
+   "hash": "50528190c6569e33",
+   "notices": [
+    "fe83ccf80443d01e"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/model-versions": {
+   "updated": "2026-11-24",
+   "hash": "ac536f2a1903f354",
+   "notices": [
+    "2a7f10e3ae4f5e63",
+    "33904b7c21605907",
+    "5d4df05a8227ecce",
+    "baae4bee9dc0027b",
+    "b17f13759b6e62ff",
+    "373a1a8bdc34d27b",
+    "8f1ca887c6536e67",
+    "cd7bdaeec1e9314a"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure": {
+   "updated": "2026-11-24",
+   "hash": "cd0692842a77bcb9",
+   "notices": [
+    "4dc0fd0d6d464f0e",
+    "a6bfda4ce4d4e584",
+    "22f33bf961ac567a",
+    "cddab6caaf418c67",
+    "a75443913793f692",
+    "b4276068157dff82",
+    "62523b5927932f40",
+    "30c3e80f1d5c2b62",
+    "76d4e5790105a28c",
+    "488c236f1e174568",
+    "df58714c5b529175",
+    "fdd096d480f5fcf6",
+    "494d96e56ebd8485",
+    "f0ca15c057b4674a",
+    "f1081c35522e98cb",
+    "44396af09a4ad9a5"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments": {
+   "updated": "2026-11-24",
+   "hash": "6c844694cb79685a",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/monitor-models": {
+   "updated": "2026-10-19",
+   "hash": "3283b768e95c80ee",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/guardrails/default-safety-policies": {
+   "updated": "2026-10-09",
+   "hash": "18c9fc7b2782261b",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview": {
+   "updated": "2026-11-17",
+   "hash": "71f0ab02088784af",
+   "notices": [
+    "a3e7992a0c48f8c2",
+    "2fda1ed06dd8fd67"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/how-to/benchmark-model-in-catalog": {
+   "updated": "2026-11-24",
+   "hash": "78e3ff10d9a0b25f",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/how-to/create-projects": {
+   "updated": "2026-11-17",
+   "hash": "af25e7223d072324",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/how-to/deploy-models-managed": {
+   "updated": "2026-11-17",
+   "hash": "99655ce8ecdb3605",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/how-to/develop/sdk-overview": {
+   "updated": "2026-10-19",
+   "hash": "3f6e4deee46c71a9",
+   "notices": [
+    "b6dc5559fda79fc0",
+    "5771fe910a0d646d",
+    "a52e9c7f12a17bc6",
+    "a2df028cf9e721f1",
+    "c6e812b937dfd156",
+    "b417a7e9e0255944",
+    "b417a7e9e0255944",
+    "5a6bf98b67034868"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/how-to/evaluate-generative-ai-app": {
+   "updated": "2026-11-24",
+   "hash": "02e1dd89e251f61b",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart": {
+   "updated": "2026-11-24",
+   "hash": "8302922ba68f449e",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements": {
+   "updated": "2026-11-24",
+   "hash": "d601a7c559f3998e",
+   "notices": [
+    "cb7571e50080012a",
+    "ce038b298bd3bc34",
+    "d7c8959d2992e853",
+    "83387191846bc5df",
+    "79a0f9bdd471260a",
+    "49c2ef4f9d2a3f9d",
+    "7875bcc3a2f17823",
+    "44396af09a4ad9a5",
+    "ca7b443639c41f07",
+    "4c8910ac23a86daa",
+    "3a5580ffe0ac0a6a",
+    "8a2542f578f9efe8",
+    "434db9d43315cd74",
+    "e372537f345b5bb2",
+    "6b58ee1cd1763043",
+    "1943603a735b554d",
+    "788df4825001af10",
+    "a6f982907ebe84ee",
+    "5e8adc100634dfa7",
+    "dae0acb0f6ca97b5",
+    "d926533193322a45",
+    "96ddbd3b1dfbdb73",
+    "0a1e74a79fc436f2",
+    "458f7dfa50f3796d",
+    "1e6cec7ff1de38c3",
+    "f0d25606c08e578f",
+    "30a954b50e3e149f",
+    "a0f5f6228623c466",
+    "2ca7ec399ef1daf0",
+    "0449b59d04fd4832",
+    "93e302dbfb4597c7",
+    "cd37688ca36fb51f",
+    "7f696b81a2ad6283",
+    "c2d1a8dca774fd03",
+    "7aae920f09f2589d",
+    "679e7d75cbd3e0f3",
+    "b3660e38626dc3df",
+    "b53d90708d7949f4",
+    "ca36b2547e1af5a1",
+    "3ab4c254aaf5700e",
+    "45712c6aaed87875",
+    "0fd75fcdbaeb7777",
+    "1b521980300347e7",
+    "6294a218058b88c9",
+    "e240f273ca1901c9",
+    "2b45540a8d292230",
+    "b8f13f3b125bb785",
+    "cc7ba7c766c7376a",
+    "adcbb624d4bac223",
+    "bdffb9779d34fbb5",
+    "0680c2785820f139",
+    "391e2e04e65093af",
+    "64e7cfad964b0d52",
+    "b5c6c83e0959e790",
+    "c882a367c215a3c3",
+    "74d7579e3f796423"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering": {
+   "updated": "2026-06-05",
+   "hash": "4643694fa14c65f8",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/safety-system-message-templates": {
+   "updated": "2026-11-24",
+   "hash": "1fb14d14e3c1986a",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message": {
+   "updated": "2026-06-05",
+   "hash": "7ca192a66502b465",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/chatgpt": {
+   "updated": "2026-08-24",
+   "hash": "dd2ae28f7cc0b06e",
+   "notices": [
+    "40c40ffb72ef77b9",
+    "8e7e1e0e5231de3c",
+    "200b6ebefdf7a7ed"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e": {
+   "updated": "2026-11-24",
+   "hash": "e7f8c33f7eeb62d1",
+   "notices": [
+    "77060c937ae24c9d"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision": {
+   "updated": "2026-11-24",
+   "hash": "2b945d56c7fc7afc",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota": {
+   "updated": "2026-08-13",
+   "hash": "edab35d4b736618c",
+   "notices": [
+    "b8329636d2aad1a4"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/realtime-audio": {
+   "updated": "2026-11-24",
+   "hash": "83ed99b561a7b054",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning": {
+   "updated": "2026-11-20",
+   "hash": "608e3f3228445cff",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses": {
+   "updated": "2026-08-18",
+   "hash": "aa3f94a3e1e7a2ef",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs": {
+   "updated": "2026-08-24",
+   "hash": "a2afae95fae40de3",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/reference": {
+   "updated": "2026-06-24",
+   "hash": "c32d18de975ff985",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/openai/whisper-quickstart": {
+   "updated": "2026-11-24",
+   "hash": "e65bc0a8feb5cfe7",
+   "notices": [
+    "ec54ccd850ed55bb"
+   ]
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code": {
+   "updated": "2026-10-19",
+   "hash": "ff9911a7d26b22a0",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy": {
+   "updated": "2026-06-05",
+   "hash": "5536b5b4ed06ecf2",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/transparency-note": {
+   "updated": "2026-09-24",
+   "hash": "2821861e51f4df18",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml": {
+   "updated": "2026-10-19",
+   "hash": "5c4353cd96dcf9dc",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai": {
+   "updated": "2026-10-19",
+   "hash": "bfbc0734e1fb50a4",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai-dashboard": {
+   "updated": "2026-10-19",
+   "hash": "1ba63ad562b8aa2f",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient": {
+   "updated": "2026-08-12",
+   "hash": "4b952efe566d8646",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/python/api/overview/azure/identity-readme": {
+   "updated": "2026-10-27",
+   "hash": "14b4b613d8610854",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/embrace-responsible-ai-principles-practices/": {
+   "updated": "2026-10-28",
+   "hash": "57bc19190d770247",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/": {
+   "updated": "2026-10-28",
+   "hash": "460a6d2a9931d9b8",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/": {
+   "updated": "2026-10-28",
+   "hash": "4a0e6242c182e2da",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/": {
+   "updated": "2026-11-20",
+   "hash": "f2063d7f78dd8a6b",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/": {
+   "updated": "2026-11-11",
+   "hash": "ecf30d69256ea67e",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/": {
+   "updated": "2026-10-28",
+   "hash": "f9e6df1d5767663b",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/": {
+   "updated": "2026-10-28",
+   "hash": "7afc6de850a6a086",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/": {
+   "updated": "2026-10-28",
+   "hash": "70ac4b40b22749b9",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/": {
+   "updated": "2026-10-28",
+   "hash": "7d0ac2b542b5dfeb",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-with-ai-in-azure/": {
+   "updated": "2026-10-28",
+   "hash": "a41815549f84f779",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/": {
+   "updated": "2026-11-19",
+   "hash": "a2d2f0d3896e0213",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/": {
+   "updated": "2026-10-28",
+   "hash": "60f21e55ff81641c",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/": {
+   "updated": "2026-10-28",
+   "hash": "6a3f25bc1c6880ff",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/": {
+   "updated": "2026-10-28",
+   "hash": "e421229719ff02d3",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/introduction-language/": {
+   "updated": "2026-10-28",
+   "hash": "2fcf6c406a9960b4",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/": {
+   "updated": "2026-10-28",
+   "hash": "60c0767210ec335b",
+   "notices": []
+  },
+  "https://learn.microsoft.com/en-us/training/modules/responsible-ai-studio/": {
+   "updated": "2026-10-28",
+   "hash": "fa2fc1990cfb34cb",
+   "notices": []
+  }
+ }
+}

@@ -32,7 +32,7 @@
       "Is hafte ki industry ki khabrein dhoondna"
     ],
     "targets": ["Koi tool nahi", null, null, null, null],
-    "exp": "Spreadsheet data ke analysis ke liye code interpreter chahiye, andruni PDFs se jawab ke liye file search, API se booking ke liye OpenAPI tool, aur taza khabron ke liye Bing grounding. Har maqsad model se bahar ke data ya amal par munhasir hai, is liye koi bhi tool ke baghair nahi ho sakta."
+    "exp": "Spreadsheet data ke analysis ke liye code interpreter chahiye, andruni PDFs se jawab ke liye file search, API se booking ke liye OpenAPI tool, aur taza khabron ke liye web search. Har maqsad model se bahar ke data ya amal par munhasir hai, is liye koi bhi tool ke baghair nahi ho sakta."
   },
   "D2-514": {
     "q": "Agent tools ke baare mein jumlay mukammal karein.",

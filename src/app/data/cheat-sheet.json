@@ -152,6 +152,17 @@
         [{"en":"hard to understand","ro":"samajhna mushkil"},{"en":"Voice, playback speed","ro":"Awaaz, playback speed"}],
         [{"en":"silence while a tool runs","ro":"tool chalte waqt khamoshi"},"Interim response"]
       ]
+    },
+    {
+      "id": "retirements", "domain": "D1", "title": {"en":"Retirements to know","ro":"Retirements jo yaad rakhein"},
+      "head": [{"en":"What","ro":"Kya"},{"en":"When","ro":"Kab"},{"en":"Use","ro":"Istemal karein"}],
+      "rows": [
+        ["DALL-E 3",{"en":"4 Mar 2026 (done)","ro":"4 Mar 2026 (ho gaya)"},"gpt-image"],
+        ["Language Studio","20 Mar 2027","Foundry portal"],
+        ["Groundedness detection (guardrail preview)","30 Apr 2027",{"en":"tests in Foundry","ro":"Foundry ke tests"}],
+        ["Image Analysis 4.0","25 Sep 2028",{"en":"vision-capable model","ro":"vision wala model"}],
+        ["Sentiment, opinion mining, key phrases, summarization","31 Mar 2029",{"en":"model in Foundry","ro":"Foundry ka model"}]
+      ]
     }
   ],
   "code": [

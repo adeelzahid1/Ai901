@@ -1,0 +1,52 @@
+{
+  "D1-546": {
+    "q": "Company agle das saal ke liye nayi text solution banati hai. Microsoft naye kaam ke liye Azure Language ki kaunsi feature tajweez karta hai?",
+    "exp": "Named entity recognition core capability hai, PII detection, language detection aur text analytics for health ke saath. Key phrase extraction, sentiment analysis aur summarization legacy features hain jo 31 March 2029 ko Azure Language se retire honge."
+  },
+  "D1-547": {
+    "q": "Azure Language ki har feature ko us ki haisiyat se milayein. Har haisiyat ek se zyada dafa istemal ho sakti hai.",
+    "targets": ["2029 mein Azure Language se retire hogi", "Naye projects ke liye core capability"],
+    "exp": "PII detection aur language detection core capabilities hain jinhein Microsoft behtar karta rehta hai. Opinion mining aur key phrase extraction legacy group mein hain; naye projects in kaamon ke liye Microsoft Foundry ka model istemal karein."
+  },
+  "D1-548": {
+    "q": "Microsoft Foundry mein model ki zindagi ke marahil tarteeb se lagayein.",
+    "exp": "Preview model tajurbati hota hai, generally available model production ke liye tayyar, deprecated model naye customers ke liye band, aur retired model jawab nahi deta. Generally available aur deprecated ke darmiyan legacy marhala bhi aa sakta hai."
+  },
+  "D1-549": {
+    "q": "Arse se chalti app ko ab model deployment ki har request par \"410 Gone\" milta hai. Sab se mumkin wajah kya hai?",
+    "opts": [
+      "API key ki muddat khatam ho gayi",
+      "Model retire ho gaya",
+      "Prompt model ke liye bohat lamba tha",
+      "Ek minute mein bohat zyada requests bheji gayin"
+    ],
+    "exp": "Retirement ke baad tamam requests 410 Gone deti hain, is liye app ko doosre model par jana hota hai. Ghalat ya khatam key 401 deti hai, bohat lamba prompt 400, aur bohat zyada requests 429."
+  },
+  "D1-550": {
+    "q": "Foundry mein model lifecycle ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Jo subscription deprecated model pehle istemal kar chuki ho woh apni deployments call kar sakti hai.",
+      "Har preview model generally available ban jata hai.",
+      "Purane customers retired model ko ab bhi deploy kar sakte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: deprecation model ko naye customers ke liye band karti hai, purane chalate rehte hain. Doosre ka Nahi: preview model aam release ke baghair khatam ho sakta hai. Teesre ka Nahi: retirement ke baad nayi deployments nahi banti, aur purani band ho jati hain."
+  },
+  "D1-551": {
+    "q": "Model ki zindagi ka kaunsa marhala production apps ke liye hai?",
+    "exp": "Generally available ka matlab hai ke model aur us ki API mukarrar hain aur production ke liye supported hain. Preview models badal sakte hain aur shayad release na hon, deprecated models ja rahe hain, aur retired models jawab nahi dete."
+  },
+  "D1-552": {
+    "q": "Foundry ke naye models aam tor par sab se pehle kis deployment type mein aate hain?",
+    "exp": "Naye models Global Standard se shuru hote hain, jis ki dastyabi sab se zyada hai. Phir Global Provisioned aur data zone types aati hain, aur regional types aakhir mein kyunke unhein woh capacity chahiye jo purane models khali karte hain. Har model tamam types tak nahi pohanchta."
+  },
+  "D1-553": {
+    "q": "Ek purani app DALL-E 3 deployment se tasveerein banati hai aur us ki requests ab fail hoti hain. Team ko kya karna chahiye?",
+    "opts": [
+      "DALL-E 3 deployment ke liye zyada quota maangna",
+      "Prompts doosri zabaan mein bhejna",
+      "Nayi region mein doosri DALL-E 3 deployment banana",
+      "gpt-image series ke model par jana"
+    ],
+    "exp": "DALL-E 3 4 March 2026 ko retire hua, is liye purani deployments nahi chaltin aur nayi nahi ban saktin. Microsoft gpt-image series tajweez karta hai. Quota, zabaan aur region retired model ko wapas nahi late."
+  }
+}

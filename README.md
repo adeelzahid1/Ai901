@@ -38,7 +38,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 
 ## Question bank
 
-**1,314 original questions** across 14 study sections and all 29 official sub-skills (D1: 545, D2: 769), including code, REST and CLI questions and business scenarios. Mix: Basic 30%, Intermediate 52%, Advanced 18%; multiple choice 50%, Yes/No 13%, drop-down 12%, matching 10%, multi-select 9%, ordering 5%.
+**1,322 original questions** across 14 study sections and all 29 official sub-skills (D1: 553, D2: 769), including code, REST and CLI questions and business scenarios. Mix: Basic 30%, Intermediate 52%, Advanced 18%; multiple choice 50%, Yes/No 13%, drop-down 12%, matching 10%, multi-select 9%, ordering 5%.
 
 - Questions are JSON files in `src/app/data/bank/` (`d1-core.json`, `d1-ext1.json`, ...), listed in
   `blueprint.json` under `bankFiles` and registered in `question-bank.ts`. Each file is a lazy chunk.
@@ -51,7 +51,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 - Interface text: [`src/app/i18n/ui-text.ts`](src/app/i18n/ui-text.ts), an English and a Roman Urdu object with the same shape.
 - Section, domain and sub-skill names: `ro` fields in `blueprint.json`.
 - Questions: `src/app/data/roman/<bank file>.json` maps question ids to translated text and is registered in `roman-bank.ts` (lazy chunks, loaded only when Roman Urdu is on). Fields that are left out and `null` list entries stay in English, so Azure terms, commands and code are not translated. Drop-down choices go in `blanks`. A question without a translation is shown in English with a label.
-- All 1,314 questions are translated. `npm run validate:bank` prints the coverage per section and checks the translations.
+- All 1,322 questions are translated. `npm run validate:bank` prints the coverage per section and checks the translations.
 
 ### Validation
 
@@ -73,6 +73,17 @@ opens every Microsoft Learn reference and reports links that are broken or redir
 access, so it is not part of CI). `npm run check:links -- --write` replaces redirected links with
 their final address, except redirects to the classic Foundry docs, which need a current page chosen
 by hand.
+
+```bash
+npm run check:freshness
+```
+
+reads every Microsoft Learn page behind the content (training modules with all their units), the study guide and the
+list of modules in the official course, and compares them with the last review in
+[`scripts/freshness.json`](scripts/freshness.json). It lists pages whose text changed, new retirement notices, a new
+skills outline and new modules, each with the questions, notes, lessons and labs to look at. After the review,
+`npm run check:freshness -- --write` saves the new state and the date on the dashboard; `-- --notices` prints all
+retirement notices. `npm run test:scripts` tests the comparison.
 
 The bank was last checked against Microsoft Learn in November 2026: deployment types, default
 guardrails (content filters), Foundry role names (Foundry User, formerly Azure AI User), agent

@@ -112,6 +112,8 @@ export interface ExamInfo {
   code: string;
   title: string;
   outlineDate: string;
+  /** Last comparison with Microsoft Learn (`npm run check:freshness`). */
+  checked: string;
   minutes: number;
   examQuestions: number;
   passScore: number;

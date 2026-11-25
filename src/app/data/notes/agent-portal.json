@@ -83,7 +83,7 @@
   ],
   "compare": [
     { "terms": {"en":"Prompt agent and hosted agent","ro":"Prompt agent aur hosted agent"}, "text": {"en":"Prompt agent: configuration, run by Foundry. Hosted agent: your own code in a container.","ro":"Prompt agent: configuration, Foundry chalata hai. Hosted agent: aap ka apna code container mein."} },
-    { "terms": {"en":"File search and web search","ro":"File search aur web search"}, "text": {"en":"File search reads your documents; web search reads current public pages.","ro":"File search aap ke documents parhta hai; web search taza awami pages."} }
+    { "terms": {"en":"File search and web search","ro":"File search aur web search"}, "text": {"en":"File search reads your documents; web search reads current public pages. Start with web search (it needs no extra resource); Grounding with Bing Search needs a Bing resource and has more parameters; Bing Custom Search limits the search to chosen domains.","ro":"File search aap ke documents parhta hai; web search taza awami pages. Web search se shuru karein (koi alag resource nahi); Grounding with Bing Search ko Bing resource chahiye aur us mein zyada parameters hain; Bing Custom Search talash ko chune hue domains tak rakhta hai."} }
   ],
   "exam": [
     {"en":"Need → tool: documents, exact math, current information, own function.","ro":"Zaroorat → tool: documents, bilkul sahi hisaab, taza maloomat, apna function."},
