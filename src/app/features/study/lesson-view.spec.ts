@@ -84,8 +84,6 @@ describe('Lessons', () => {
       fixture = TestBed.createComponent(LessonView);
       fixture.componentRef.setInput('section', SECTIONS[0]);
       await fixture.whenStable();
-      await loadLesson(SECTIONS[0].id);
-      await fixture.whenStable();
     });
 
     it('shows the lesson and switches it to Roman Urdu', async () => {

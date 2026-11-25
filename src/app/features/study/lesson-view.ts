@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, inject, input, linkedSignal, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, PendingTasks, computed, effect, inject, input, linkedSignal, output, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Language } from '../../core/language';
 import { LessonProgress } from '../../core/lesson-progress';
@@ -38,9 +38,11 @@ export class LessonView {
   protected readonly result = linkedSignal<{ correct: number; total: number } | null>(() => (this.section(), null));
 
   constructor() {
+    const pending = inject(PendingTasks);
     effect(() => {
       const id = this.section().id;
-      void loadLesson(id).then((lesson) => {
+      pending.run(async () => {
+        const lesson = await loadLesson(id);
         if (this.section().id === id) this.loaded.set(lesson);
       });
     });

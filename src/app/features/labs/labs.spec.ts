@@ -19,7 +19,6 @@ describe('Labs', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(Labs);
     fixture.componentRef.setInput('l', 'chat-client');
-    await loadLabs();
     await fixture.whenStable();
   });
 
@@ -49,6 +48,14 @@ describe('Labs', () => {
     expect(TestBed.inject(LabProgress).count('chat-client')).toBe(1);
     expect(JSON.parse(localStorage.getItem('ai901-labs') ?? '{}')).toEqual({ 'chat-client': [0] });
     expect(open[0].querySelector('summary')?.textContent).toContain('1 of 6');
+  });
+
+  it('can be left before the labs are loaded', async () => {
+    const other = TestBed.createComponent(Labs);
+    other.detectChanges();
+    other.destroy();
+    await expectAsync(loadLabs()).toBeResolved();
+    await fixture.whenStable();
   });
 
   it('shows the labs in Roman Urdu', async () => {

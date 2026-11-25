@@ -1,4 +1,16 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Injector, afterNextRender, computed, inject, input, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Injector,
+  PendingTasks,
+  afterNextRender,
+  computed,
+  effect,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 import { LabProgress } from '../../core/lab-progress';
 import { Language } from '../../core/language';
 import { Lab, loadLabs } from '../../data/labs';
@@ -57,9 +69,10 @@ export class Labs {
   );
 
   constructor() {
-    void loadLabs().then((labs) => {
-      this.labs.set(labs);
-      // Show the requested lab, which can be far down the page.
+    inject(PendingTasks).run(async () => this.labs.set(await loadLabs()));
+    // Show the requested lab, which can be far down the page. An effect stops when the page is left.
+    effect(() => {
+      if (!this.labs().length) return;
       afterNextRender(() => this.host.nativeElement.querySelector('details[open]')?.scrollIntoView(), { injector: this.injector });
     });
   }
