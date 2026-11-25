@@ -1,0 +1,32 @@
+{
+  "id": "cu-images", "minutes": 3,
+  "main": {"en":"An image analyzer looks at a picture and returns the fields that you described, such as category, count or description.","ro":"Image analyzer tasveer dekhta hai aur aap ki bayan ki hui fields deta hai, jaise category, tadad ya tafseel."},
+  "explain": [
+    {"en":"Image fields use generate and classify, because there is usually no printed value to copy. Typical uses: quality control (scratch, dent, none), shelf checks (product, count), charts (title, trend), property photos (room type, condition).","ro":"Image fields generate aur classify istemal karti hain, kyunke aksar nakal karne ko chhapi value nahi hoti. Aam istemal: quality control (scratch, dent, none), shelf check (product, tadad), charts (title, trend), property photos (kamra, haalat)."},
+    {"en":"If the goal is the text in the picture, for example a photographed letter, use a document analyzer. Microsoft says image analyzers are not optimized for text extraction.","ro":"Agar maqsad tasveer ka text hai, jaise khat ki photo, to document analyzer istemal karein. Microsoft kehta hai image analyzers text nikalne ke liye optimized nahi."}
+  ],
+  "deep": [
+    {"en":"Under the hood a generative model looks at the picture with your field descriptions as instructions. That is why the wording of a description changes the result more than anything else. Say what counts and what does not: \"Count only whole pallets; ignore boxes on the floor\". Add the unit, the allowed values and what to return when the thing is missing.","ro":"Andar ek generative model aap ki field descriptions ko hidayat samajh kar tasveer dekhta hai. Isi liye description ke alfaaz nateeje ko sab se zyada badalte hain. Likhein kya gina jaye aur kya nahi: \"Count only whole pallets; ignore boxes on the floor\". Unit, qabil e qabool values aur cheez na hone par kya dena hai, ye bhi likhein."},
+    {"en":"Compare the options before you build. For free questions by a person, a multimodal chat model is enough. For fixed tags and boxes in millions of pictures, Image Analysis is cheaper today. For business fields that go into a database, an image analyzer is the natural choice, because the schema guarantees the same keys for every picture.","ro":"Banane se pehle options muqabla karein. Insan ke khule sawalon ke liye multimodal chat model kaafi hai. Lakhon tasveeron ke mukarrar tags aur boxes ke liye aaj Image Analysis sasta hai. Database mein jane wali karobari fields ke liye image analyzer munasib hai, kyunke schema har tasveer ke liye wahi keys deta hai."},
+    {"en":"Do not skip the review. Pictures with several possible answers, bad light or unusual objects should go to a person, and their corrections show which description needs more work.","ro":"Review na chhorein. Kai mumkin jawab, kam roshni ya ghair mamooli cheez wali tasveerein insan ko jayein, aur un ki islaah batati hai ke kaunsi description par kaam chahiye."},
+    {"en":"Costs depend on the model and the number of pictures, so try twenty pictures first.","ro":"Kharcha model aur tasveeron ki tadad par hai, is liye pehle bees tasveerein azmayein."}
+  ],
+  "how": [
+    {"en":"Give a closed list for classify and include \"Other\" or \"None\".","ro":"classify ke liye band list dein aur \"Other\" ya \"None\" shamil karein."},
+    {"en":"Describe visible evidence: \"Rust: brown or orange spots on metal\".","ro":"Nazar aane wali nishani likhein: \"Rust: brown or orange spots on metal\"."},
+    {"en":"Test with bad light, angles and empty pictures.","ro":"Kam roshni, zaviye aur khali tasveeron se test karein."}
+  ],
+  "example": { "text": {"en":"Car rental return photos: damageType (classify: Scratch, Dent, Glass, None), location (generate, \"left front door\"), severity (classify: Low, Medium, High).","ro":"Car rental wapsi ki photos: damageType (classify: Scratch, Dent, Glass, None), location (generate, \"left front door\"), severity (classify: Low, Medium, High)."} },
+  "mistakes": [
+    { "wrong": {"en":"\"Use extract for the damage type.\"","ro":"\"Damage type ke liye extract.\""}, "right": {"en":"Nothing is printed. Use classify.","ro":"Kuch chhapa nahi. classify istemal karein."} },
+    { "wrong": {"en":"\"An image analyzer is best for scanned invoices.\"","ro":"\"Scan ki hui invoices ke liye image analyzer behtar.\""}, "right": {"en":"Use a document analyzer.","ro":"Document analyzer istemal karein."} }
+  ],
+  "compare": [
+    { "terms": {"en":"classify and generate","ro":"classify aur generate"}, "text": {"en":"classify: one of your values. generate: free text or a number.","ro":"classify: aap ki values mein se ek. generate: khula text ya number."} }
+  ],
+  "exam": [
+    {"en":"Match each image field with generate or classify.","ro":"Har image field ko generate ya classify se milana."},
+    {"en":"Photo of text → document. Photo of a thing → image.","ro":"Text ki photo → document. Cheez ki photo → image."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/image/overview"]
+}

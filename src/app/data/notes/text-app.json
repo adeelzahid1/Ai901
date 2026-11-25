@@ -1,0 +1,34 @@
+{
+  "id": "text-app", "minutes": 4,
+  "main": {"en":"Create a TextAnalyticsClient, send a list of documents, check each result for an error, then read its properties.","ro":"TextAnalyticsClient banayein, documents ki list bhejein, har nateeje mein error dekhein, phir us ki properties parhein."},
+  "explain": [
+    {"en":"The package is azure-ai-textanalytics. The client needs an endpoint and a credential (key or Entra ID). Every method takes a list and returns a list in the same order, and each item can fail on its own. So the pattern is always: call, loop, check is_error, read.","ro":"Package azure-ai-textanalytics hai. Client ko endpoint aur credential (key ya Entra ID) chahiye. Har method list leta hai aur usi tarteeb mein list deta hai, aur har item alag fail ho sakta hai. Is liye tareeqa hamesha: call, loop, is_error dekhein, parhein."},
+    {"en":"Short methods answer at once. Summaries and combined actions run longer: begin_abstract_summary, begin_extract_summary and begin_analyze_actions return a poller; result() waits for the end.","ro":"Chhote methods foran jawab dete hain. Khulasay aur jama actions der lete hain: begin_abstract_summary, begin_extract_summary aur begin_analyze_actions poller dete hain; result() ikhtitam tak intezar karta hai."}
+  ],
+  "deep": [
+    {"en":"Texts have limits per document and per request, so long texts are split and large collections are sent in batches. Detect the language first when it is unknown, and pass it to the other methods; a wrong language lowers quality. For mixed needs, begin_analyze_actions runs several actions over the same documents in one job.","ro":"Text ki fi document aur fi request had hoti hai, is liye lambe text baant kar aur bare majmue batches mein bheje jate hain. Zabaan maloom na ho to pehle detect karein aur baqi methods ko dein; ghalat zabaan quality kam karti hai. Kai kaam ek saath hon to begin_analyze_actions unhi documents par ek job mein kai actions chalata hai."},
+    {"en":"A typical small app has three steps. First mask personal data. Then analyze sentiment and opinions. Then write the result with the scores into a database or a report. Keep the original text only when you really need it, because it may contain personal data.","ro":"Aam chhoti app ke teen qadam hain. Pehle zaati data chhupana. Phir sentiment aur opinions. Phir nateeja scores ke saath database ya report mein. Asal text sirf zaroorat ho to rakhein, kyunke us mein zaati data ho sakta hai."},
+    {"en":"Low scores deserve a rule as well. If no label reaches, for example, 0.6, treat the text as unclear and show it to a person instead of forcing a decision. Test the threshold with real texts from your users.","ro":"Kam scores ke liye bhi usool rakhein. Agar koi label, jaise 0.6, tak na pohanche to text ko ghair wazeh samjhein aur zabardasti faislay ke bajaye insan ko dikhayein. Had ko apne users ke asal text se test karein."},
+    {"en":"The exam likes small traps in loops: a document without text, a property that belongs to another method, or a list that is read with the wrong index.","ro":"Exam loops mein chhote dhokay pasand karta hai: baghair text ka document, doosre method ki property, ya ghalat index se parhi list."}
+  ],
+  "how": [
+    "detect_language → primary_language.name, iso6391_name, confidence_score",
+    "extract_key_phrases → key_phrases; recognize_entities → entities (text, category)",
+    {"en":"recognize_pii_entities → entities and redacted_text","ro":"recognize_pii_entities → entities aur redacted_text"},
+    {"en":"analyze_sentiment → sentiment, confidence_scores, sentences; show_opinion_mining=True adds mined_opinions","ro":"analyze_sentiment → sentiment, confidence_scores, sentences; show_opinion_mining=True mined_opinions deta hai"}
+  ],
+  "example": { "text": {"en":"Mask personal data before saving a support note:","ro":"Support note save karne se pehle zaati data chhupana:"}, "code": "client = TextAnalyticsClient(ENDPOINT, DefaultAzureCredential())\nnote = \"Call Sara at 0301-555 0199 about the refund.\"\ndoc = client.recognize_pii_entities([note])[0]\nif not doc.is_error:\n    print(doc.redacted_text)\n    # Call **** at ************* about the refund." },
+  "mistakes": [
+    { "wrong": {"en":"\"One bad document stops the batch.\"","ro":"\"Ek kharab document poora batch rok deta hai.\""}, "right": {"en":"Only that item has is_error = True.","ro":"Sirf us item ka is_error True hota hai."} },
+    { "wrong": {"en":"\"sentiment returns a number.\"","ro":"\"sentiment number deta hai.\""}, "right": {"en":"It is a label; the numbers are in confidence_scores.","ro":"Woh label hai; numbers confidence_scores mein hain."} }
+  ],
+  "compare": [
+    { "terms": {"en":"document and sentence sentiment","ro":"document aur sentence sentiment"}, "text": {"en":"A document can be mixed; a sentence is positive, neutral or negative.","ro":"Document mixed ho sakta hai; jumla positive, neutral ya negative hota hai."} },
+    { "terms": {"en":"Normal method and begin_ method","ro":"Aam method aur begin_ method"}, "text": {"en":"The first returns the result; the second returns a poller for a longer job.","ro":"Pehla nateeja deta hai; doosra lambe kaam ka poller."} }
+  ],
+  "exam": [
+    {"en":"Complete the method or the property in Python.","ro":"Python mein method ya property mukammal karein."},
+    {"en":"Predict the output of a loop with an empty or foreign-language document.","ro":"Khali ya doosri zabaan wale document ke loop ka output batayein."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/language-service/sentiment-opinion-mining/quickstart", "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview"]
+}

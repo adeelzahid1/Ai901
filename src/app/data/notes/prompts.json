@@ -1,0 +1,42 @@
+{
+  "id": "prompts", "minutes": 6,
+  "main": {"en":"A good prompt states role, task, data, format and limits. Lasting rules go in the system message, the changing task in the user message.","ro":"Acha prompt role, kaam, data, format aur hadein batata hai. Mustaqil usool system message mein, badalta kaam user message mein."},
+  "explain": [
+    {"en":"The model sees only text. Anything that you do not write, it guesses. So a prompt works like a short briefing for a new colleague: who you are, what to do, with which material, for whom, in which form, and what to do when something is missing.","ro":"Model sirf text dekhta hai. Jo aap nahi likhte, woh andaza karta hai. Is liye prompt naye colleague ko di gayi mukhtasar hidayat jaisa hai: aap kaun hain, kya karna hai, kis mawad se, kis ke liye, kis shakal mein, aur kuch kam ho to kya karna hai."},
+    {"en":"Techniques build on each other. Zero-shot: only instructions. Few-shot: a few examples of input and ideal output. Delimiters separate instructions and data. Step-by-step instructions help with complex tasks. Grounding gives the source text. Structured outputs force a JSON schema.","ro":"Techniques ek doosre par banti hain. Zero-shot: sirf hidayat. Few-shot: input aur ideal output ki chand misalein. Delimiters hidayat aur data alag karte hain. Qadam ba qadam hidayat mushkil kaam mein madad karti hai. Grounding source text deti hai. Structured outputs JSON schema lazmi karte hain."},
+    {"en":"Data can contain orders (\"ignore the rules\"). This is prompt injection. Say that text between the delimiters is data, limit what the app can do, and turn on Prompt Shields.","ro":"Data mein hukm ho sakte hain (\"usool nazar andaz karo\"). Ye prompt injection hai. Likhein ke delimiters ke beech ka text data hai, app ke ikhtiyar mehdood karein, aur Prompt Shields on karein."}
+  ],
+  "flow": {
+    "title": {"en":"Improve a prompt","ro":"Prompt behtar karna"},
+    "steps": [
+      { "title": {"en":"Write","ro":"Likhein"}, "text": {"en":"Role, task, format","ro":"Role, kaam, format"} },
+      { "title": "Test", "text": {"en":"Real and hard cases","ro":"Asal aur mushkil cases"} },
+      { "title": {"en":"Find the pattern","ro":"Pattern dhoondein"}, "text": {"en":"What goes wrong?","ro":"Kya ghalat hota hai?"} },
+      { "title": {"en":"Change one thing","ro":"Ek cheez badlein"}, "text": {"en":"Rule, example, data","ro":"Usool, misaal, data"} },
+      { "title": {"en":"Test again","ro":"Dobara test"} }
+    ]
+  },
+  "deep": [
+    {"en":"Position matters a little: put the most important rule early and repeat it at the end of a long prompt. Cue the answer by starting it, for example \"Summary:\" or an opening brace for JSON. Keep facts and instructions apart so a later change is easy. Save good prompts with their test cases, because a new model version can need small changes.","ro":"Jagah ka thora asar hai: sab se aham usool shuru mein likhein aur lambe prompt ke aakhir mein dohrayein. Jawab ka ishara shuru kar ke dein, jaise \"Summary:\" ya JSON ki opening brace. Haqaiq aur hidayat alag rakhein taake badalna aasan ho. Ache prompts test cases ke saath save karein, kyunke naye model version mein choti tabdeeli lag sakti hai."}
+  ],
+  "how": [
+    {"en":"Positive instructions work better: \"Answer in two sentences\" instead of \"Do not write too much\".","ro":"Musbat hidayat behtar hai: \"Do jumlon mein jawab do\", \"Zyada mat likho\" ke bajaye."},
+    {"en":"Give a way out: \"If the text does not say it, answer: not stated\".","ro":"Raasta dein: \"Text mein na ho to likho: not stated\"."},
+    {"en":"Show the format with one example instead of describing it at length.","ro":"Format lambi tafseel ke bajaye ek misaal se dikhayein."}
+  ],
+  "example": { "text": {"en":"The same request, weak and strong:","ro":"Wahi request, kamzor aur mazboot:"}, "code": "Weak:   Write about our new bike.\n\nStrong: You write product texts for parents.\n        Write 40-60 words about the bike below.\n        Mention weight and safety. Do not invent prices.\n        ---\n        Name: Kiddo 16, weight: 6.8 kg, brakes: two, light: no\n        ---" },
+  "mistakes": [
+    { "wrong": {"en":"\"The system message makes it safe.\"","ro":"\"System message se mehfooz ho gaya.\""}, "right": {"en":"It guides. Real limits are guardrails, permissions and code.","ro":"Woh rehnumai karta hai. Asal hadein guardrails, permissions aur code hain."} },
+    { "wrong": {"en":"\"More words are better.\"","ro":"\"Zyada alfaaz behtar.\""}, "right": {"en":"Clear and complete is better. Contradicting rules hurt.","ro":"Wazeh aur mukammal behtar hai. Takraate usool nuqsan dete hain."} },
+    { "wrong": {"en":"\"JSON in the prompt guarantees JSON.\"","ro":"\"Prompt mein JSON likhne se JSON pakka hai.\""}, "right": {"en":"Only structured outputs guarantee the schema.","ro":"Schema ki guarantee sirf structured outputs dete hain."} }
+  ],
+  "compare": [
+    { "terms": {"en":"System and user message","ro":"System aur user message"}, "text": {"en":"System: who the assistant is and what always applies. User: what is wanted now.","ro":"System: assistant kaun hai aur kya hamesha lagu hai. User: abhi kya chahiye."} },
+    { "terms": {"en":"Few-shot and fine-tuning","ro":"Few-shot aur fine-tuning"}, "text": {"en":"Few-shot examples travel in each prompt; fine-tuning puts many examples into the model.","ro":"Few-shot misalein har prompt mein jati hain; fine-tuning bohat si misalein model mein dal deti hai."} }
+  ],
+  "exam": [
+    {"en":"A weak prompt and four changes: choose the one that fixes exactly the named problem.","ro":"Kamzor prompt aur chaar tabdeeliyan: woh chunein jo bataya hua masla theek kare."},
+    {"en":"Recognize few-shot, delimiters, persona and grounding in sample lines.","ro":"Misali lines mein few-shot, delimiters, persona aur grounding pehchanein."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering", "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/system-message"]
+}

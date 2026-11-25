@@ -1,0 +1,32 @@
+{
+  "id": "vision-imagegen", "minutes": 5,
+  "main": {"en":"Vision reads facts from existing pictures; image generation makes new pixels from words.","ro":"Vision maujooda tasveeron se maloomat nikalta hai; image generation alfaaz se naye pixels banata hai."},
+  "explain": [
+    {"en":"Vision techniques differ in detail. Classification gives a label for the whole picture. Object detection adds boxes, so you can count and locate. Semantic segmentation labels each pixel. OCR reads text. Captions describe the picture in a sentence, tags list what is visible.","ro":"Vision techniques tafseel mein mukhtalif hain. Classification poori tasveer ka label deta hai. Object detection boxes deta hai, is liye gin aur jagah dhoond sakte hain. Semantic segmentation har pixel ka label deta hai. OCR text parhta hai. Caption tasveer ko jumlay mein bayan karta hai, tags nazar aane wali cheezein batate hain."},
+    {"en":"A multimodal chat model can answer open questions about a picture. It is flexible, but gives free text and no boxes with fixed scores. Image Analysis 4.0 gives fixed features with confidence; Microsoft has announced its retirement for 25 September 2028, so new projects should check the migration guide.","ro":"Multimodal chat model tasveer par khule sawalon ke jawab deta hai. Woh lachakdar hai, lekin khula text deta hai, mukarrar scores wale boxes nahi. Image Analysis 4.0 confidence ke saath mukarrar features deta hai; Microsoft ne is ki retirement 25 September 2028 batayi hai, is liye naye projects migration guide dekhein."},
+    {"en":"Image models of the gpt-image series create a picture from a prompt or change an existing one. Prompts and results pass content filters, and the images carry content credentials.","ro":"gpt-image series ke models prompt se tasveer banate ya maujooda tasveer badalte hain. Prompts aur nateeje content filters se guzarte hain, aur images mein content credentials hote hain."}
+  ],
+  "deep": [
+    {"en":"Every detection comes with a confidence, and you choose the threshold. A low threshold finds more objects and more false ones; a high threshold misses some but is cleaner. In a safety system you accept false alarms, in an automatic payment you do not.","ro":"Har detection ke saath confidence aata hai aur had aap chunte hain. Kam had zyada objects aur zyada ghalat objects dhoondti hai; zyada had kuch chhor deti hai lekin saaf hoti hai. Safety system mein ghalat alarm qabool hain, automatic payment mein nahi."},
+    {"en":"Training data decides what a vision model can see. If it was trained with clean product photos, it may fail with shaky phone pictures. Test with pictures from the real place.","ro":"Vision model kya dekh sakta hai, ye training data tay karta hai. Saaf product photos par train hua to hilti hui phone tasveeron par nakaam ho sakta hai. Asal jagah ki tasveeron se test karein."}
+  ],
+  "how": [
+    {"en":"Say subject, style, setting, light and what to avoid in an image prompt.","ro":"Image prompt mein mauzu, andaz, jagah, roshni aur kis se bachna hai likhein."},
+    {"en":"Use a mask to limit an edit to one area.","ro":"Edit ko ek hisse tak rakhne ke liye mask istemal karein."},
+    {"en":"Face detection finds faces; face identification and verification need limited access approval.","ro":"Face detection chehre dhoondta hai; face identification aur verification ke liye limited access ki manzoori chahiye."}
+  ],
+  "example": { "text": {"en":"A parking photo. Classification: \"parking lot\". Detection: 14 cars with boxes. Segmentation: every road pixel marked. OCR: the plate numbers. Caption: \"a busy parking lot at night\". Generation: a new picture of the same lot, empty.","ro":"Parking ki tasveer. Classification: \"parking lot\". Detection: 14 gaariyan boxes ke saath. Segmentation: sarak ka har pixel. OCR: plate numbers. Caption: \"a busy parking lot at night\". Generation: usi parking ki nayi khali tasveer."} },
+  "mistakes": [
+    { "wrong": {"en":"\"Classification can count objects.\"","ro":"\"Classification objects gin sakta hai.\""}, "right": {"en":"Counting needs detection.","ro":"Ginne ke liye detection chahiye."} },
+    { "wrong": {"en":"\"Detecting a face tells me who it is.\"","ro":"\"Chehra dhoondne se pata chalta hai kaun hai.\""}, "right": {"en":"That is identification, a separate, restricted feature.","ro":"Woh identification hai, alag aur mehdood feature."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Caption and tags","ro":"Caption aur tags"}, "text": {"en":"A caption is one sentence for people; tags are words for search.","ro":"Caption logon ke liye ek jumla hai; tags talash ke liye alfaaz hain."} },
+    { "terms": {"en":"Face detection and identification","ro":"Face detection aur identification"}, "text": {"en":"Detection: there is a face here. Identification: this is a known person, and it needs approval.","ro":"Detection: yahan chehra hai. Identification: ye maloom shakhs hai, aur is ke liye manzoori chahiye."} }
+  ],
+  "exam": [
+    {"en":"Where? → detection. Which pixels? → segmentation. What does it say? → OCR. Make a new one → generation.","ro":"Kahan? → detection. Kaunse pixels? → segmentation. Kya likha hai? → OCR. Nayi banao → generation."},
+    {"en":"Yes/No about content credentials and filters for generated images.","ro":"Generated images ke content credentials aur filters par Haan/Nahi."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis", "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"]
+}

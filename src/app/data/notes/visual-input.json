@@ -1,0 +1,32 @@
+{
+  "id": "visual-input", "minutes": 4,
+  "main": {"en":"A multimodal model receives text and image parts in one message and answers questions about what it sees.","ro":"Multimodal model ek message mein text aur image parts leta hai aur jo dekhta hai us par jawab deta hai."},
+  "explain": [
+    {"en":"The image arrives as a public URL or as a data URL with base64 content. In Chat Completions the parts are text and image_url; in the Responses API they are input_text and input_image. You can send several images and ask for a comparison.","ro":"Image khule URL ya base64 wale data URL ki soorat mein aati hai. Chat Completions mein parts text aur image_url hain; Responses API mein input_text aur input_image. Kai images bhej kar muqabla bhi poocha ja sakta hai."},
+    {"en":"detail controls how closely the model looks: low is cheap and enough for \"Is there a dog?\", high costs more tokens and is needed for small text or fine details. Images count as input tokens.","ro":"detail batata hai ke model kitne ghaur se dekhe: low sasta hai aur \"Kutta hai?\" ke liye kaafi, high zyada tokens leta hai aur chhote text ya bareek cheezon ke liye chahiye. Images input tokens mein gini jati hain."},
+    {"en":"The model can be wrong: it may misread numbers, count badly or describe things that are not there. For important values ask for a structured answer and have a person check it.","ro":"Model ghalat ho sakta hai: numbers ghalat parhna, ghalat ginna, ya aisi cheez batana jo nahi. Aham values ke liye structured jawab maangein aur insan se check karwayein."}
+  ],
+  "deep": [
+    {"en":"Combine pictures with rules. Example: \"Compare photo A with photo B. List differences as JSON with the keys part and change. If you are unsure, use the value unsure.\" With two or three images the order matters, so name them in the text. Very large images are scaled down, so cut out the important part when details count.","ro":"Tasveeron ko usoolon ke saath milayein. Misaal: \"Photo A ko photo B se milao. Farq JSON mein part aur change keys ke saath do. Shak ho to unsure likho.\" Do teen images mein tarteeb aham hai, is liye text mein naam dein. Bohat bari images chhoti ki jati hain, is liye tafseel chahiye to aham hissa kaat lein."},
+    {"en":"Content filters also look at images. A blocked picture returns an error that the app should explain. Pictures can contain hidden instructions as text (\"ignore the rules\"), so treat what is written in a picture as data.","ro":"Content filters images bhi dekhte hain. Roki gayi tasveer error deti hai jise app samjhaye. Tasveeron mein text ki soorat chhupi hidayat ho sakti hai (\"usool nazar andaz karo\"), is liye tasveer mein likhi baat ko data samjhein."}
+  ],
+  "how": [
+    {"en":"Ask a precise question: \"List the text on the label\" instead of \"What is this?\".","ro":"Wazeh sawal karein: \"Label ka text likho\", \"Ye kya hai?\" ke bajaye."},
+    {"en":"Use structured outputs when a program reads the answer.","ro":"Jab program jawab parhe to structured outputs."},
+    {"en":"Do not send faces or personal documents without a reason and permission.","ro":"Baghair wajah aur ijazat chehre ya zaati documents na bhejein."}
+  ],
+  "example": { "text": {"en":"Chat Completions with a local picture:","ro":"Local tasveer ke saath Chat Completions:"}, "code": "{\"role\": \"user\", \"content\": [\n  {\"type\": \"text\", \"text\": \"Which products are on the shelf?\"},\n  {\"type\": \"image_url\", \"image_url\": {\n     \"url\": \"data:image/jpeg;base64,/9j/4AAQ...\",\n     \"detail\": \"high\"}}\n]}" },
+  "mistakes": [
+    { "wrong": {"en":"\"The URL can be a path on my disk.\"","ro":"\"URL mere disk ka path ho sakta hai.\""}, "right": {"en":"The service cannot read it. Use a data URL.","ro":"Service usay nahi parh sakti. Data URL istemal karein."} },
+    { "wrong": {"en":"\"The model draws on the picture.\"","ro":"\"Model tasveer par banata hai.\""}, "right": {"en":"It answers with text. Drawing needs an image model.","ro":"Woh text mein jawab deta hai. Banane ke liye image model."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Vision model and OCR","ro":"Vision model aur OCR"}, "text": {"en":"OCR returns the exact characters with positions; a vision model understands and may paraphrase.","ro":"OCR bilkul huroof aur jagah deta hai; vision model samajhta hai aur alfaaz badal sakta hai."} },
+    { "terms": {"en":"Public URL and data URL","ro":"Khula URL aur data URL"}, "text": {"en":"Public: the service downloads it. Data URL: the bytes are inside the request.","ro":"Khula: service download karti hai. Data URL: bytes request ke andar hain."} }
+  ],
+  "exam": [
+    {"en":"Find the wrong part type or URL in a message.","ro":"Message mein ghalat part ya URL dhoondna."},
+    {"en":"Tiny text not read → detail high.","ro":"Chhota text nahi parha → detail high."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"]
+}

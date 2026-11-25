@@ -4,10 +4,10 @@
   "concepts": [
     { "term": "Analyzer", "text": {"en":"Defines the kind of content, the fields and the models. Prebuilt ones exist for common cases.","ro":"Content ki qism, fields aur models tay karta hai. Aam cases ke liye prebuilt analyzers hain."} },
     { "term": "Field schema", "text": {"en":"Name, type, description and method of each field. Clear descriptions improve results.","ro":"Har field ka naam, type, description aur method. Wazeh description nateeje behtar karti hai."} },
-    { "term": "extract", "text": {"en":"Value that is literally in the content.","ro":"Woh value jo content mein lafz ba lafz maujood hai."} },
+    { "term": "extract", "text": {"en":"Value that is literally in the content (documents only).","ro":"Woh value jo content mein lafz ba lafz maujood hai (sirf documents)."} },
     { "term": "generate", "text": {"en":"New text from the content, such as a summary.","ro":"Content se naya text, jaise khulasa."} },
     { "term": "classify", "text": {"en":"One value from a fixed list (enum).","ro":"Mukarrar list (enum) se ek value."} },
-    { "term": {"en":"Confidence and source","ro":"Confidence aur source"}, "text": {"en":"How sure the service is, and where on the page or in the recording the value was found.","ro":"Service ko kitna yaqeen hai, aur value page ya recording mein kahan mili."} },
+    { "term": {"en":"Confidence and source","ro":"Confidence aur source"}, "text": {"en":"For documents: how sure the service is, and where on the page the value was found.","ro":"Documents mein: service ko kitna yaqeen hai, aur value page par kahan mili."} },
     { "term": {"en":"Content types","ro":"Content ki qismein"}, "text": {"en":"Documents, images, audio (transcript, speakers) and video (segments, key frames).","ro":"Documents, images, audio (transcript, speakers) aur video (segments, key frames)."} },
     { "term": "Asynchronous REST", "text": {"en":"POST :analyze returns 202 and Operation-Location; GET that URL until Succeeded.","ro":"POST :analyze 202 aur Operation-Location deta hai; Succeeded tak us URL par GET."} }
   ],

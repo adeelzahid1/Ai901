@@ -1,0 +1,41 @@
+{
+  "id": "extraction-techniques", "minutes": 4,
+  "main": {"en":"Information extraction turns unstructured files into structured data that a program can use.","ro":"Information extraction be-tarteeb files ko aise structured data mein badalta hai jo program istemal kar sake."},
+  "explain": [
+    {"en":"Much office work is reading: invoices, emails, calls, photos. Extraction has three layers. First content: text with OCR, speech with transcription, frames from video. Then structure: tables, paragraphs, speakers, scenes. Then meaning: the fields that you asked for, with a confidence and a source.","ro":"Bohat se daftaron mein zyada kaam parhna hai: invoices, emails, calls, tasveerein. Extraction ki teen tahein hain. Pehle content: OCR se text, transcription se awaaz, video se frames. Phir structure: tables, paragraphs, speakers, scenes. Phir matlab: aap ki maangi hui fields, confidence aur source ke saath."},
+    {"en":"Azure Content Understanding does all three for documents, images, audio and video. Older single services such as OCR, speech to text or Document Intelligence still exist and are fine when you need only one layer.","ro":"Azure Content Understanding documents, images, audio aur video ke liye teenon karta hai. Purani alag services, jaise OCR, speech to text ya Document Intelligence, ab bhi hain aur jab sirf ek tah chahiye to theek hain."}
+  ],
+  "flow": {
+    "title": {"en":"From file to data","ro":"File se data tak"},
+    "steps": [
+      { "title": "File", "text": "Document, image, audio, video" },
+      { "title": "Content", "text": "OCR, transcript, frames" },
+      { "title": "Structure", "text": "Tables, speakers, scenes" },
+      { "title": "Fields", "text": "Extract, generate, classify" },
+      { "title": {"en":"Check","ro":"Jaanch"}, "text": {"en":"Confidence, people","ro":"Confidence, insan"} }
+    ]
+  },
+  "deep": [
+    {"en":"Grounding is the reason extraction can be trusted. Each extracted value points to its source: a region on a page, a sentence, a time in the recording. A reviewer clicks on the value and sees the evidence, which takes seconds instead of minutes. Values without evidence, such as a generated summary, need another check, for example a comparison with the original text.","ro":"Grounding ki wajah se extraction par bharosa hota hai. Har nikali gayi value apne source ki taraf ishara karti hai: page ka hissa, jumla, recording ka waqt. Review karne wala value par click kar ke saboot dekhta hai, minute ke bajaye second lagte hain. Jin values ka saboot nahi, jaise generate kiya khulasa, un ki alag jaanch chahiye, jaise asal text se muqabla."},
+    {"en":"Straight-through processing means that a document goes through without a person. The share of such documents is the business value of a solution, and the threshold controls it: higher threshold, more review, fewer mistakes.","ro":"Straight-through processing ka matlab document baghair insan ke guzar jaye. Aise documents ka hissa hal ki karobari qeemat hai, aur had usay control karti hai: zyada had, zyada review, kam ghaltiyan."}
+  ],
+  "how": [
+    {"en":"Describe each field clearly: name, type, meaning, example.","ro":"Har field wazeh bayan karein: naam, type, matlab, misaal."},
+    {"en":"Set a confidence threshold and send the rest to people.","ro":"Confidence ki had rakhein aur baqi insanon ko bhejein."},
+    {"en":"Use Markdown output for search and RAG, JSON fields for automation.","ro":"Talash aur RAG ke liye Markdown, automation ke liye JSON fields."}
+  ],
+  "example": { "text": {"en":"A call recording: transcript (content), agent and customer (structure), reason = Billing, summary = one sentence, refund promised = yes (fields). The CRM receives the fields, the manager reads the low-confidence ones.","ro":"Call recording: transcript (content), agent aur customer (structure), wajah = Billing, khulasa = ek jumla, refund ka wada = yes (fields). CRM ko fields milti hain, manager kam confidence wali dekhta hai."} },
+  "mistakes": [
+    { "wrong": {"en":"\"OCR gives me the invoice total.\"","ro":"\"OCR mujhe invoice ka total deta hai.\""}, "right": {"en":"OCR gives all text. A field schema finds the total.","ro":"OCR saara text deta hai. Total field schema se milta hai."} },
+    { "wrong": {"en":"\"High confidence means correct.\"","ro":"\"Zyada confidence ka matlab sahi.\""}, "right": {"en":"It means likely correct. Important values still need checks.","ro":"Is ka matlab ghaliban sahi. Aham values ki jaanch phir bhi chahiye."} }
+  ],
+  "compare": [
+    { "terms": {"en":"OCR, layout and fields","ro":"OCR, layout aur fields"}, "text": {"en":"OCR: the characters. Layout: tables and paragraphs. Fields: the meaning you asked for.","ro":"OCR: huroof. Layout: tables aur paragraphs. Fields: woh matlab jo aap ne maanga."} },
+    { "terms": {"en":"Content Understanding and a chat model","ro":"Content Understanding aur chat model"}, "text": {"en":"Content Understanding adds schema, confidence, source and all media types; a chat model is freer but gives no confidence.","ro":"Content Understanding schema, confidence, source aur har qisam ka media deta hai; chat model azad hai lekin confidence nahi deta."} }
+  ],
+  "exam": [
+    {"en":"Several file types and the same fields → Content Understanding.","ro":"Kai qism ki files aur yaksan fields → Content Understanding."},
+    {"en":"Only text from a photo → OCR. Only text from audio → speech to text.","ro":"Tasveer se sirf text → OCR. Audio se sirf text → speech to text."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"]
+}

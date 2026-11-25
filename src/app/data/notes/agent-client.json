@@ -1,0 +1,43 @@
+{
+  "id": "agent-client", "minutes": 5,
+  "main": {"en":"The client signs in, opens a conversation for each user, sends input to the agent by name and shows the answer.","ro":"Client sign in karta hai, har user ke liye conversation kholta hai, agent ko naam se input bhejta hai aur jawab dikhata hai."},
+  "explain": [
+    {"en":"The agent already contains model, instructions and tools. The client stays small: credential, project endpoint, agent name, conversation ID. When the team improves the agent, the client does not change.","ro":"Agent mein model, instructions aur tools pehle se hain. Client chhota rehta hai: credential, project endpoint, agent ka naam, conversation ID. Team agent behtar kare to client nahi badalta."},
+    {"en":"A conversation keeps the history on the server. Use one per user session, save its ID, and delete it when it is no longer needed. With function calling the agent asks your app to run a function; the app runs it and sends the result back.","ro":"Conversation history server par rakhti hai. Har user session ki alag, us ki ID save karein, aur kaam khatam hone par delete. Function calling mein agent aap ki app se function chalane ko kehta hai; app chala kar nateeja wapas bhejti hai."},
+    {"en":"For end users who only talk to the agent, the role Foundry Agent Consumer gives exactly that and nothing more.","ro":"Jo users sirf agent se baat karte hain, un ke liye Foundry Agent Consumer role bas itna hi deta hai."}
+  ],
+  "flow": {
+    "title": {"en":"Calls of the client","ro":"Client ki calls"},
+    "steps": [
+      { "title": "Sign in", "text": "DefaultAzureCredential" },
+      { "title": {"en":"Open a conversation","ro":"Conversation kholein"} },
+      { "title": {"en":"Send input","ro":"Input bhejein"}, "text": {"en":"To the agent by name","ro":"Agent ko naam se"} },
+      { "title": {"en":"Show output_text","ro":"output_text dikhayein"} },
+      { "title": {"en":"Repeat, then delete","ro":"Dohrayein, phir delete"} }
+    ]
+  },
+  "deep": [
+    {"en":"Errors look like those of any API: 401 and 403 for identity and role, 404 for a wrong agent name or project, 429 for limits. Add a timeout, because an agent with tools needs longer than a plain model call. Show progress, for example \"Searching the policies\", so people know that something happens.","ro":"Errors kisi bhi API jaise hain: shanakht aur role ke liye 401 aur 403, ghalat agent name ya project ke liye 404, hadon ke liye 429. Timeout lagayein, kyunke tools wala agent saadi model call se zyada waqt leta hai. Progress dikhayein, jaise \"Policies mein talash\", taake logon ko pata ho kuch ho raha hai."},
+    {"en":"Keep business rules out of the client where you can. If a discount limit is only in the client, another client can ignore it. Put it into the function or the system that the agent calls.","ro":"Jahan ho sake karobari usool client se bahar rakhein. Discount ki had sirf client mein ho to doosra client usay nazar andaz kar dega. Usay us function ya system mein rakhein jise agent call karta hai."}
+  ],
+  "how": [
+    {"en":"Print a friendly message for errors and log the details.","ro":"Errors par dostana paigham dein aur tafseel log karein."},
+    {"en":"Stream long answers.","ro":"Lambe jawab stream karein."},
+    {"en":"Pin a version when every change must be tested first; otherwise the latest version answers.","ro":"Jab har tabdeeli pehle test honi ho to version mukarrar karein; warna taza version jawab deta hai."}
+  ],
+  "example": { "text": {"en":"The core of a client:","ro":"Client ka asal hissa:"}, "code": "openai = project.get_openai_client(agent_name=\"hr-helper\")\nconversation = openai.conversations.create()\nwhile (text := input(\"You: \")):\n    r = openai.responses.create(\n        conversation=conversation.id, input=text)\n    print(\"Agent:\", r.output_text)\nopenai.conversations.delete(conversation_id=conversation.id)" },
+  "mistakes": [
+    { "wrong": {"en":"\"One conversation for the whole website.\"","ro":"\"Poori website ke liye ek conversation.\""}, "right": {"en":"Users would see each other's context.","ro":"Users ek doosre ka context dekhenge."} },
+    { "wrong": {"en":"\"The client must send the instructions.\"","ro":"\"Client ko instructions bhejni hain.\""}, "right": {"en":"They are stored with the agent.","ro":"Woh agent ke saath mehfooz hain."} },
+    { "wrong": {"en":"\"The agent runs my function in Azure.\"","ro":"\"Agent mera function Azure mein chalata hai.\""}, "right": {"en":"With function calling, your app runs it.","ro":"Function calling mein aap ki app chalati hai."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Agent and conversation","ro":"Agent aur conversation"}, "text": {"en":"One agent definition, many conversations: one for each user session.","ro":"Ek agent definition, bohat si conversations: har user session ki ek."} },
+    { "terms": {"en":"Model call and agent call","ro":"Model call aur agent call"}, "text": {"en":"Model: you send model and instructions. Agent: you send the name and the input.","ro":"Model: model aur instructions aap bhejte hain. Agent: naam aur input bhejte hain."} }
+  ],
+  "exam": [
+    {"en":"Where does the history live, and who runs a function? These two ideas answer many questions.","ro":"History kahan hai, aur function kaun chalata hai? Ye do baatein bohat se sawal hal karti hain."},
+    {"en":"Order: credential → client → conversation → input → output.","ro":"Tarteeb: credential → client → conversation → input → output."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code", "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry"]
+}

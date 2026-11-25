@@ -1,0 +1,42 @@
+{
+  "id": "cu-documents", "minutes": 5,
+  "main": {"en":"An analyzer reads a document, finds its layout and returns your fields with confidence and source.","ro":"Analyzer document parhta hai, us ka layout dhoondta hai aur aap ki fields confidence aur source ke saath deta hai."},
+  "explain": [
+    {"en":"Prebuilt analyzers cover common cases: prebuilt-read for text, prebuilt-layout for structure, prebuilt-invoice, receipts, IDs, tax forms and more. For your own forms you create a custom analyzer from a base analyzer such as prebuilt-document and add a field schema.","ro":"Prebuilt analyzers aam cases ke liye hain: text ke liye prebuilt-read, layout ke liye prebuilt-layout, prebuilt-invoice, receipts, IDs, tax forms waghera. Apne forms ke liye prebuilt-document jaise base analyzer se custom analyzer banayein aur field schema dein."},
+    {"en":"Each field has a name, type, description and method. extract takes a value exactly as it appears, and is available only for documents. generate writes something new, such as a summary. classify picks from a list. Types can be string, number, date, boolean, arrays (for line items) and objects.","ro":"Har field ka naam, type, description aur method hota hai. extract value ko bilkul waisa leta hai jaisi likhi hai, aur sirf documents ke liye hai. generate nayi cheez likhta hai, jaise khulasa. classify list se chunta hai. Types: string, number, date, boolean, arrays (line items) aur objects."},
+    {"en":"With estimateFieldSourceAndConfidence you get a confidence from 0 to 1 and the place on the page. That makes review fast: people see only uncertain fields, with the spot highlighted.","ro":"estimateFieldSourceAndConfidence ke saath 0 se 1 tak confidence aur page par jagah milti hai. Is se review tez hota hai: log sirf mashkook fields dekhte hain, jagah numayan hoti hai."}
+  ],
+  "flow": {
+    "title": {"en":"Build a custom analyzer","ro":"Custom analyzer banana"},
+    "steps": [
+      { "title": {"en":"Collect samples","ro":"Namoone jama"} },
+      { "title": {"en":"Define fields","ro":"Fields define"}, "text": {"en":"Name, type, method","ro":"Naam, type, method"} },
+      { "title": "Test", "text": {"en":"Seen and unseen files","ro":"Dekhi aur andekhi files"} },
+      { "title": {"en":"Improve","ro":"Behtar karein"}, "text": "Descriptions, labels" },
+      { "title": {"en":"Build and use","ro":"Build aur istemal"}, "text": {"en":"REST or SDK","ro":"REST ya SDK"} }
+    ]
+  },
+  "deep": [
+    {"en":"Improve an analyzer in a fixed order. First read the Markdown output: was the text recognized at all? Then sharpen the description of the weak field. Then add labeled examples in Content Understanding Studio. Only then consider another model. Always keep some documents that you never use for improving, so that the test stays honest.","ro":"Analyzer ko mukarrar tarteeb se behtar karein. Pehle Markdown output parhein: text pehchana bhi gaya? Phir kamzor field ki description wazeh karein. Phir Content Understanding Studio mein label wali misalein dein. Us ke baad hi doosra model sochein. Kuch documents behtari mein kabhi istemal na karein, taake test sachcha rahe."},
+    {"en":"The result also contains the whole document as Markdown with tables and headings, which you can index for search while the fields go into your system.","ro":"Nateeje mein poora document Markdown mein, tables aur headings ke saath, bhi hota hai. Usay talash ke liye index karein jab ke fields aap ke system mein jayein."}
+  ],
+  "how": [
+    {"en":"Write descriptions like instructions: \"Total amount including tax, at the bottom right\".","ro":"Description hidayat ki tarah likhein: \"Tax samet kul raqam, neeche dayein\"."},
+    {"en":"Use a classifier first when a file mixes several document types.","ro":"Jab file mein kai qisam ke documents hon to pehle classifier."},
+    {"en":"Choose a threshold from tests, for example 0.8, and review below it.","ro":"Test se had chunein, jaise 0.8, aur us se kam ka review karein."}
+  ],
+  "example": { "text": {"en":"Delivery notes: sealNumber (extract, string), arrivalTemperature (extract, number), condition (classify: Good, Damaged), remark (generate, one sentence).","ro":"Delivery notes: sealNumber (extract, string), arrivalTemperature (extract, number), condition (classify: Good, Damaged), remark (generate, ek jumla)."} },
+  "mistakes": [
+    { "wrong": {"en":"\"Every document needs a custom analyzer.\"","ro":"\"Har document ko custom analyzer chahiye.\""}, "right": {"en":"Try the prebuilt one first.","ro":"Pehle prebuilt azmayein."} },
+    { "wrong": {"en":"\"The value must be printed for classify.\"","ro":"\"classify ke liye value chhapi honi chahiye.\""}, "right": {"en":"classify judges the content; only extract needs the text itself.","ro":"classify content dekhta hai; text sirf extract ko chahiye."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Prebuilt and custom analyzer","ro":"Prebuilt aur custom analyzer"}, "text": {"en":"Prebuilt: known document types, no setup. Custom: your fields, based on a base analyzer.","ro":"Prebuilt: maloom documents, setup nahi. Custom: aap ki fields, base analyzer par."} },
+    { "terms": {"en":"Confidence and source","ro":"Confidence aur source"}, "text": {"en":"Confidence: how sure. Source: where it was found.","ro":"Confidence: kitna yaqeen. Source: kahan mila."} }
+  ],
+  "exam": [
+    {"en":"Which method fits the field? Printed value, new text or fixed list.","ro":"Field ke liye kaunsa method? Chhapi value, naya text ya mukarrar list."},
+    {"en":"What to do with confidence 0.4: human review.","ro":"0.4 confidence ka kya karein: insani review."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/overview", "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers"]
+}

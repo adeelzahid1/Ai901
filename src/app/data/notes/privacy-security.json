@@ -1,0 +1,41 @@
+{
+  "id": "privacy-security", "minutes": 4,
+  "main": {"en":"Personal data is used only with permission and for its purpose, and it is protected against access and attacks.","ro":"Zaati data sirf ijazat aur apne maqsad ke liye istemal hota hai, aur rasai aur hamlon se mehfooz hota hai."},
+  "explain": [
+    {"en":"Privacy answers: which data do we collect, why, for how long, and who may see it? Security answers: how do we stop others from reading or changing it? An AI system needs both, because data can leak through training data, prompts, logs and answers.","ro":"Privacy batati hai: kaunsa data, kyun, kitne arse ke liye, aur kaun dekh sakta hai? Security batati hai: doosron ko parhne ya badalne se kaise rokein? AI system ko dono chahiye, kyunke data training, prompts, logs aur jawabon se bahar ja sakta hai."},
+    {"en":"In Azure the main tools are Microsoft Entra ID for identity, roles for permissions, encryption in transit and at rest, private networks, and PII detection to find and mask personal data in text.","ro":"Azure mein bare auzaar hain: shanakht ke liye Microsoft Entra ID, ijazat ke liye roles, safar aur storage mein encryption, private networks, aur text mein zaati data dhoondne aur chhupane ke liye PII detection."}
+  ],
+  "flow": {
+    "title": {"en":"Protect data on its way","ro":"Data ki hifazat, qadam ba qadam"},
+    "steps": [
+      { "title": {"en":"Collect less","ro":"Kam lein"}, "text": {"en":"Only what is needed","ro":"Sirf zaroori"} },
+      { "title": {"en":"Mask","ro":"Chhupayein"}, "text": "PII detection" },
+      { "title": {"en":"Limit access","ro":"Rasai mehdood"}, "text": "Entra ID, roles" },
+      { "title": "Encrypt", "text": {"en":"In transit, at rest","ro":"Safar aur storage"} },
+      { "title": "Delete", "text": {"en":"After the retention time","ro":"Muddat ke baad"} }
+    ]
+  },
+  "deep": [
+    {"en":"Privacy laws usually ask for transparency about which data is collected and for control by the person: see it, correct it, delete it. For AI this includes training data, prompts, retrieved documents, logs and evaluation data. A technique called differential privacy adds a little noise so that statistics stay useful while single people cannot be recognized.","ro":"Privacy ke qawaneen aam tor par kehte hain ke jama kiye gaye data ka bataya jaye aur insan ka control ho: dekhna, theek karna, delete karna. AI mein is mein training data, prompts, nikale gaye documents, logs aur evaluation data shamil hain. Differential privacy thora shor milati hai taake statistics kaam aayein lekin koi akela shakhs pehchana na jaye."},
+    {"en":"Keys are the most common leak. A key in source code gives everyone with the code full access. Entra ID tokens expire, can be limited by roles and show in the audit log who did what. That is why the exam prefers managed identities and roles.","ro":"Keys sab se aam leak hain. Source code ki key har code wale ko poori rasai de deti hai. Entra ID tokens khatam ho jate hain, roles se mehdood hote hain aur audit log mein batate hain kis ne kya kiya. Isi liye exam managed identity aur roles ko tarjeeh deta hai."}
+  ],
+  "how": [
+    {"en":"Ask for consent and say what the data is used for.","ro":"Ijazat lein aur batayein ke data kis kaam ka hai."},
+    {"en":"Check the user's role before an assistant retrieves documents, so it cannot show what the user may not read.","ro":"Assistant documents nikalne se pehle user ka role check kare, taake woh cheez na dikhaye jo user nahi parh sakta."},
+    {"en":"Use managed identities instead of keys in code; store remaining secrets in Key Vault.","ro":"Code mein keys ke bajaye managed identity; baqi secrets Key Vault mein."},
+    {"en":"Read the data, privacy and security page of the model: prompts to models sold by Azure are not used to train the foundation models.","ro":"Model ka data, privacy aur security page parhein: Azure ke models ko bheje gaye prompts foundation models ki training mein istemal nahi hote."}
+  ],
+  "example": { "text": {"en":"An HR assistant answers \"What does my colleague earn?\" because it can read all files. The fix is not a better prompt. The retrieval step must use the permissions of the person who asks.","ro":"HR assistant \"Mera colleague kitna kamata hai?\" ka jawab de deta hai kyunke woh sab files parh sakta hai. Hal behtar prompt nahi. Retrieval ka qadam poochne wale ki permissions istemal kare."} },
+  "mistakes": [
+    { "wrong": {"en":"\"Encryption solves privacy.\"","ro":"\"Encryption se privacy poori ho jati hai.\""}, "right": {"en":"Encrypted data can still be collected without permission or kept too long.","ro":"Encrypted data bhi baghair ijazat liya ja sakta hai ya zyada arsa rakha ja sakta hai."} },
+    { "wrong": {"en":"\"We tell the model to keep secrets.\"","ro":"\"Hum model ko raaz rakhne ka kehte hain.\""}, "right": {"en":"A prompt is not access control. Do not give the model data the user may not see.","ro":"Prompt access control nahi. Model ko woh data hi na dein jo user nahi dekh sakta."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Authentication and authorization","ro":"Authentication aur authorization"}, "text": {"en":"Authentication proves who you are (401 when it fails). Authorization decides what you may do (403 when it fails).","ro":"Authentication sabit karti hai aap kaun hain (nakaam ho to 401). Authorization tay karti hai kya kar sakte hain (nakaam ho to 403)."} }
+  ],
+  "exam": [
+    {"en":"Clue words: personal data, consent, recordings, encryption, who can access, retention.","ro":"Ishare: zaati data, ijazat, recordings, encryption, kis ki rasai, muddat."},
+    {"en":"If the problem is that users do not know that AI is used, the answer is transparency, not privacy.","ro":"Agar masla ye hai ke users ko AI ka pata nahi, to jawab privacy nahi, transparency hai."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai", "https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview"]
+}

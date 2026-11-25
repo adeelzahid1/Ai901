@@ -1,0 +1,81 @@
+@let t = language.ui().notes;
+@if (note(); as n) {
+  <article class="card">
+    <p class="meta">
+      <span class="chip">{{ t.minutes(n.minutes) }}</span>
+      @if (progress.isRead(n.id)) {
+        <span class="chip done">✓ {{ t.done }}</span>
+      }
+    </p>
+    <p class="main">{{ language.pick(n.main) }}</p>
+
+    <h2>{{ t.explain }}</h2>
+    @for (p of n.explain; track $index) {
+      <p>{{ language.pick(p) }}</p>
+    }
+    @if (n.flow; as f) {
+      <app-flow-diagram [title]="f.title" [steps]="f.steps" />
+    }
+
+    <h2>{{ t.deep }}</h2>
+    @for (p of n.deep; track $index) {
+      <p>{{ language.pick(p) }}</p>
+    }
+
+    <h2>{{ t.how }}</h2>
+    <ul>
+      @for (h of n.how; track $index) {
+        <li>{{ language.pick(h) }}</li>
+      }
+    </ul>
+
+    <h2>{{ t.example }}</h2>
+    <p>{{ language.pick(n.example.text) }}</p>
+    @if (n.example.code) {
+      <pre class="code" tabindex="0">{{ n.example.code }}</pre>
+    }
+
+    <h2>{{ t.compare }}</h2>
+    <dl>
+      @for (c of n.compare; track $index) {
+        <div>
+          <dt>{{ language.pick(c.terms) }}</dt>
+          <dd>{{ language.pick(c.text) }}</dd>
+        </div>
+      }
+    </dl>
+
+    <h2>{{ t.mistakes }}</h2>
+    <ul class="plain mistakes">
+      @for (m of n.mistakes; track $index) {
+        <li>
+          <span class="wrong"><span class="sr">{{ t.wrong }}: </span><span aria-hidden="true">✗</span> {{ language.pick(m.wrong) }}</span>
+          <span class="right"><span class="sr">{{ t.right }}: </span><span aria-hidden="true">✓</span> {{ language.pick(m.right) }}</span>
+        </li>
+      }
+    </ul>
+
+    <div class="exam">
+      <h2>{{ t.exam }}</h2>
+      <ul>
+        @for (e of n.exam; track $index) {
+          <li>{{ language.pick(e) }}</li>
+        }
+      </ul>
+    </div>
+
+    <p class="links">
+      <a routerLink="/study" [queryParams]="{ s: section(), m: 'lesson' }">{{ t.lesson(section()) }}</a>
+      <a routerLink="/study" [queryParams]="{ s: section() }">{{ t.questions(section()) }}</a>
+      @for (ref of n.refs; track ref; let i = $index) {
+        <a [href]="ref" target="_blank" rel="noopener">{{ language.ui().common.learn }}{{ n.refs.length > 1 ? ' (' + (i + 1) + ')' : '' }}</a>
+      }
+    </p>
+    <label class="read">
+      <input type="checkbox" [checked]="progress.isRead(n.id)" (change)="progress.toggle(n.id)" />
+      {{ t.read }}
+    </label>
+  </article>
+} @else {
+  <p class="card muted">{{ t.loading }}</p>
+}

@@ -1,0 +1,32 @@
+{
+  "id": "inclusiveness", "minutes": 3,
+  "main": {"en":"AI should help and engage everyone, including people with disabilities, different languages, accents, ages and levels of access.","ro":"AI sab ke kaam aaye: mazoor log, mukhtalif zabaanein, lehje, umrein aur mukhtalif sahulat wale log."},
+  "explain": [
+    {"en":"A system can be accurate and still exclude people. A voice-only assistant excludes deaf people. A mouse-only website excludes people who use a keyboard. A speech model that knows one accent excludes everyone who speaks differently.","ro":"System durust ho kar bhi logon ko bahar rakh sakta hai. Sirf awaaz wala assistant behre logon ko, sirf mouse wali website keyboard walon ko, aur ek lehje wala speech model baqi sab ko bahar rakhta hai."},
+    {"en":"Inclusive design asks people with different needs early, and offers more than one way to do the same thing. Features made for a few often help many: captions are also useful in a noisy train.","ro":"Inclusive design shuru mein mukhtalif zarooraton wale logon se poochta hai aur ek kaam ke ek se zyada tareeqay deta hai. Chand logon ke liye bane features bohat logon ke kaam aate hain: captions shor wali train mein bhi mufeed hain."}
+  ],
+  "deep": [
+    {"en":"Microsoft describes disability as a mismatch between a person and an environment. It can be permanent (one arm), temporary (a broken arm) or situational (holding a baby). A design that solves the permanent case also helps in the other two. The same thinking applies to language: plain words help people who read slowly, people who learn the language and people in a hurry.","ro":"Microsoft mazoori ko insan aur mahaul ke darmiyan be-jor hone ki soorat kehta hai. Ye mustaqil (ek bazu), waqti (toota bazu) ya halaat ki wajah se (god mein bacha) ho sakti hai. Mustaqil case ka hal baqi do mein bhi kaam aata hai. Zabaan mein bhi yahi soch: aasan alfaaz aahista parhne walon, zabaan seekhne walon aur jaldi walon sab ke kaam aate hain."},
+    {"en":"AI itself can increase inclusion: live captions, image descriptions for blind people, translation, reading aloud, and control by voice. Many scenarios in the exam ask which of these features helps which person.","ro":"AI khud shamooliat barha sakta hai: live captions, nabeena logon ke liye tasveer ki tafseel, tarjuma, awaaz mein sunana, aur awaaz se control. Exam ke kai scenarios poochte hain ke kaunsa feature kis ki madad karta hai."}
+  ],
+  "how": [
+    {"en":"Offer text and voice, images with alt text, video with captions.","ro":"Text aur awaaz dono, images ke saath alt text, video ke saath captions dein."},
+    {"en":"Follow accessibility standards: contrast, keyboard use, screen readers, text size.","ro":"Accessibility ke usool: contrast, keyboard, screen reader, text ka size."},
+    {"en":"Test speech with accents, dialects and speech differences of the real users.","ro":"Speech ko asal users ke lehjon, boliyon aur bolne ke farq ke saath test karein."},
+    {"en":"Keep a route to a person.","ro":"Insan tak pohanchne ka raasta rakhein."}
+  ],
+  "example": { "text": {"en":"A bank replaces its form with a chatbot that understands only English. Many customers speak Urdu. Adding a second language, simple wording and a phone number makes the service inclusive; more English training data would not.","ro":"Bank apne form ki jagah aisa chatbot lagata hai jo sirf English samajhta hai. Bohat se customers Urdu bolte hain. Doosri zabaan, aasan alfaaz aur phone number service ko inclusive banate hain; zyada English data se ye nahi hota."} },
+  "mistakes": [
+    { "wrong": {"en":"\"Most users are fine.\"","ro":"\"Zyada tar users theek hain.\""}, "right": {"en":"Inclusiveness is about the ones who are not.","ro":"Inclusiveness un ke baare mein hai jo theek nahi."} },
+    { "wrong": {"en":"\"Accessibility can be added at the end.\"","ro":"\"Accessibility aakhir mein lag jayegi.\""}, "right": {"en":"Later it costs more and works worse. Include people from the start.","ro":"Baad mein mehnga aur kamzor hota hai. Logon ko shuru se shamil karein."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Inclusiveness and fairness","ro":"Inclusiveness aur fairness"}, "text": {"en":"Inclusiveness: can everybody use it? Fairness: do all users get equally good results?","ro":"Inclusiveness: kya sab istemal kar sakte hain? Fairness: kya sab ko barabar acha nateeja milta hai?"} },
+    { "terms": {"en":"Help for one and help for all","ro":"Ek ki madad aur sab ki madad"}, "text": {"en":"A feature built for a few people often improves the product for everybody.","ro":"Chand logon ke liye bana feature aksar sab ke liye product behtar karta hai."} }
+  ],
+  "exam": [
+    {"en":"Clue words: disability, screen reader, captions, accent, language, cannot use.","ro":"Ishare: mazoori, screen reader, captions, lehja, zabaan, istemal nahi kar sakte."},
+    {"en":"Worse results for a group that can use the system is fairness.","ro":"Jo group istemal kar sakta hai lekin nateeja kharab hai, woh fairness hai."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"]
+}

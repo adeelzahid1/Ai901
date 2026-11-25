@@ -1,0 +1,42 @@
+{
+  "id": "speech-features", "minutes": 5,
+  "main": {"en":"Recognition turns audio into text, synthesis turns text into audio, and translation changes the language on the way.","ro":"Recognition audio ko text, synthesis text ko audio banata hai, aur translation raste mein zabaan badal deta hai."},
+  "explain": [
+    {"en":"For speech to text, choose by situation: real-time transcription for live audio, fast transcription for a recorded file that is needed quickly, batch transcription for many stored files. Diarization labels the speakers; language identification picks the language from your list of candidates.","ro":"Speech to text mein surat e haal ke mutabiq chunein: live audio ke liye real-time, jaldi chahiye record file ke liye fast, bohat si mehfooz files ke liye batch transcription. Diarization bolne walon ko label karta hai; language identification aap ki list mein se zabaan chunta hai."},
+    {"en":"For text to speech, standard neural voices are ready to use, and a custom voice is your own brand voice with limited access and the consent of the speaker. SSML controls how it sounds.","ro":"Text to speech mein standard neural voices tayyar hain, aur custom voice aap ki apni brand awaaz hai jis ke liye limited access aur bolne wale ki ijazat chahiye. SSML awaaz ka andaz control karta hai."}
+  ],
+  "flow": {
+    "title": {"en":"A voice assistant","ro":"Voice assistant"},
+    "steps": [
+      { "title": "Microphone" },
+      { "title": "Speech to text", "text": "Recognition" },
+      { "title": "Language model", "text": {"en":"Answer as text","ro":"Text mein jawab"} },
+      { "title": "Text to speech", "text": "Synthesis, SSML" },
+      { "title": "Speaker" }
+    ]
+  },
+  "deep": [
+    {"en":"Recognition quality depends on audio quality, language, accent and vocabulary. Measure it with the word error rate (WER): the share of words that are wrong, missing or added. Lower is better. If the rate is high because of rare words, a phrase list helps. If it is high because of noise or a special environment, train custom speech with matching recordings.","ro":"Recognition ki quality audio, zabaan, lehje aur alfaaz par hai. Isay word error rate (WER) se naapein: ghalat, gaib ya izafi alfaaz ka hissa. Kam behtar hai. Agar nayab alfaaz ki wajah se zyada hai to phrase list. Agar shor ya khaas mahaul ki wajah se hai to waisi recordings se custom speech train karein."},
+    {"en":"Voice Live and speech-capable models combine recognition, a model and synthesis for conversations. Choose the separate Speech features when you need control over each step.","ro":"Voice Live aur awaaz wale models guftagu ke liye recognition, model aur synthesis milate hain. Har qadam par control chahiye to alag Speech features chunein."}
+  ],
+  "how": [
+    {"en":"Special words are misheard: add a phrase list first; train custom speech for heavy jargon or noise.","ro":"Khaas alfaaz ghalat sune jate hain: pehle phrase list; zyada jargon ya shor ke liye custom speech train karein."},
+    {"en":"Wrong pronunciation or speed: use SSML elements such as phoneme, sub, prosody, break, say-as.","ro":"Talaffuz ya raftaar ghalat: SSML ke elements jaise phoneme, sub, prosody, break, say-as."},
+    {"en":"Pronunciation assessment scores a learner's accuracy and fluency.","ro":"Pronunciation assessment seekhne wale ki durusti aur rawani ko number deta hai."},
+    {"en":"Containers run Speech close to the data when audio must stay on site.","ro":"Audio ko apne paas rakhna ho to containers Speech ko data ke qareeb chalate hain."}
+  ],
+  "example": { "text": {"en":"A TV station: live news captions (real-time), one interview within a minute (fast), 20 years of archive (batch), who spoke (diarization), Spanish subtitles (speech translation), a narrator for the weather (text to speech).","ro":"TV station: live news captions (real-time), ek interview ek minute mein (fast), 20 saal ka archive (batch), kaun bola (diarization), Spanish subtitles (speech translation), mausam ka narrator (text to speech)."} },
+  "mistakes": [
+    { "wrong": {"en":"\"SSML improves recognition.\"","ro":"\"SSML recognition behtar karta hai.\""}, "right": {"en":"SSML is for synthesis. Recognition uses phrase lists and custom speech.","ro":"SSML synthesis ke liye hai. Recognition phrase list aur custom speech istemal karta hai."} },
+    { "wrong": {"en":"\"Diarization knows the names.\"","ro":"\"Diarization naam janta hai.\""}, "right": {"en":"It only says Speaker 1, Speaker 2.","ro":"Woh sirf Speaker 1, Speaker 2 batata hai."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Language identification and translation","ro":"Language identification aur translation"}, "text": {"en":"Identification says which language is spoken; translation changes it into another one.","ro":"Identification batata hai kaunsi zabaan boli ja rahi hai; translation usay doosri mein badalta hai."} },
+    { "terms": {"en":"Standard voice and custom voice","ro":"Standard voice aur custom voice"}, "text": {"en":"Standard voices are ready for everybody; a custom voice belongs to one brand and needs approval.","ro":"Standard voices sab ke liye tayyar hain; custom voice ek brand ki hai aur manzoori chahiye."} }
+  ],
+  "exam": [
+    {"en":"Live, recorded or many stored files? That word decides the transcription type.","ro":"Live, record ya bohat si mehfooz files? Yahi lafz transcription ki qism tay karta hai."},
+    {"en":"Order questions: audio in → text → processing → text → audio out.","ro":"Tarteeb wale sawal: audio andar → text → processing → text → audio bahar."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview", "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup"]
+}

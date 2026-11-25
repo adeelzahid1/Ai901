@@ -1,0 +1,42 @@
+{
+  "id": "cu-app", "minutes": 5,
+  "main": {"en":"The REST flow is asynchronous: POST starts the analysis, GET polls the result URL until it succeeds.","ro":"REST ka tareeqa asynchronous hai: POST analysis shuru karta hai, GET kamyabi tak result URL poll karta hai."},
+  "explain": [
+    {"en":"POST {endpoint}/contentunderstanding/analyzers/{analyzer}:analyze with the API version, a key or token and a body with the input URLs. The answer is 202 with the header Operation-Location. GET that address: the status goes from NotStarted or Running to Succeeded or Failed.","ro":"POST {endpoint}/contentunderstanding/analyzers/{analyzer}:analyze, API version, key ya token aur input URLs wali body ke saath. Jawab 202 aur Operation-Location header hai. Us pate par GET: status NotStarted ya Running se Succeeded ya Failed hota hai."},
+    {"en":"The result has contents. Each content has markdown (good for search and RAG) and fields. A field value is stored by type: valueString, valueNumber, valueDate, valueArray. Confidence and source come with it when they are enabled.","ro":"Nateeje mein contents hote hain. Har content mein markdown (talash aur RAG ke liye) aur fields. Field ki value type ke mutabiq hoti hai: valueString, valueNumber, valueDate, valueArray. Confidence aur source on hon to saath aate hain."},
+    {"en":"The stable API version is 2025-11-01. Newer preview versions exist for trying out features.","ro":"Stable API version 2025-11-01 hai. Naye features azmane ke liye preview versions hain."}
+  ],
+  "flow": {
+    "title": "REST calls",
+    "steps": [
+      { "title": "POST :analyze", "text": "Input URL" },
+      { "title": "202 Accepted", "text": "Operation-Location" },
+      { "title": {"en":"GET, wait, repeat","ro":"GET, intezar, dohrana"}, "text": "Running" },
+      { "title": "Succeeded", "text": "contents" },
+      { "title": {"en":"Check confidence","ro":"Confidence dekhein"}, "text": {"en":"Store or review","ro":"Save ya review"} }
+    ]
+  },
+  "deep": [
+    {"en":"Before the first call the resource needs model deployments that Content Understanding may use, for example a chat model and an embedding model, set as defaults. Without them an analyzer with fields fails although the key is right. A complete app then does more than one call: it stores the request ID, polls with a limit, saves the JSON, compares confidence with the threshold and creates a task for a person when needed.","ro":"Pehli call se pehle resource ko aisi model deployments chahiye jo Content Understanding istemal kar sake, jaise chat model aur embedding model, default ke tor par. In ke baghair fields wala analyzer sahi key ke bawajood fail hota hai. Mukammal app ek call se zyada karti hai: request ID save, had ke saath poll, JSON save, confidence ka muqabla, aur zaroorat par insan ke liye kaam."},
+    {"en":"Plan for the unhappy path. The file cannot be downloaded, the status is Failed, the result has warnings from a guardrail, or a required field is missing. Each of these needs a clear message, and the original file must stay available for a second try. Many teams also save the raw JSON, so they can explain later where a value came from.","ro":"Nakaami ka raasta bhi sochein. File download nahi hoti, status Failed hai, guardrail ki warnings hain, ya zaroori field nahi. Har ek ke liye wazeh paigham chahiye, aur asal file dobara koshish ke liye maujood rahe. Bohat si teams raw JSON bhi save karti hain taake baad mein bata sakein value kahan se aayi."}
+  ],
+  "how": [
+    {"en":"Wait one or two seconds between polls and stop after a time limit.","ro":"Poll ke darmiyan ek do second rukein aur waqt ki had rakhein."},
+    {"en":"Handle Failed, warnings and missing fields, not only the good case.","ro":"Failed, warnings aur gaib fields bhi sambhalein, sirf acha case nahi."},
+    {"en":"Send low-confidence values to a person with the source highlighted.","ro":"Kam confidence wali values source ke saath insan ko bhejein."}
+  ],
+  "example": { "text": {"en":"Polling and reading one field in Python:","ro":"Python mein polling aur ek field parhna:"}, "code": "first = requests.post(url, headers=headers, json={\"inputs\": [{\"url\": pdf_url}]})\nresult_url = first.headers[\"Operation-Location\"]\nwhile True:\n    body = requests.get(result_url, headers=headers).json()\n    if body[\"status\"] in (\"Succeeded\", \"Failed\"):\n        break\n    time.sleep(2)\nfields = body[\"result\"][\"contents\"][0][\"fields\"]\nprint(fields[\"InvoiceId\"][\"valueString\"])" },
+  "mistakes": [
+    { "wrong": {"en":"\"202 contains the fields.\"","ro":"\"202 mein fields hain.\""}, "right": {"en":"It only confirms the start.","ro":"Woh sirf shuru hone ki tasdeeq hai."} },
+    { "wrong": {"en":"\"Send the POST again until it is done.\"","ro":"\"Mukammal hone tak POST dobara bhejein.\""}, "right": {"en":"That starts new analyses. Poll with GET.","ro":"Is se naye analysis shuru hote hain. GET se poll karein."} }
+  ],
+  "compare": [
+    { "terms": {"en":"markdown and fields","ro":"markdown aur fields"}, "text": {"en":"markdown: readable content for search and RAG. fields: values for programs.","ro":"markdown: talash aur RAG ke liye content. fields: programs ke liye values."} },
+    { "terms": {"en":"POST and GET","ro":"POST aur GET"}, "text": {"en":"POST starts one analysis; GET asks how far it is.","ro":"POST ek analysis shuru karta hai; GET poochta hai kahan tak pohancha."} }
+  ],
+  "exam": [
+    {"en":"Order the REST steps; choose the header; read the JSON value.","ro":"REST ke qadam tarteeb dein; header chunein; JSON ki value parhein."},
+    {"en":"Decide what an app does with a confidence below the threshold.","ro":"Had se kam confidence par app kya kare, ye tay karein."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"]
+}

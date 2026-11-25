@@ -1,0 +1,41 @@
+{
+  "id": "cu-audio-video", "minutes": 5,
+  "main": {"en":"Audio analyzers transcribe and describe conversations; video analyzers add scenes and key frames.","ro":"Audio analyzers guftagu transcribe aur bayan karte hain; video analyzers scenes aur key frames bhi dete hain."},
+  "explain": [
+    {"en":"Audio: the transcript comes in WebVTT format with times. Diarization separates speakers, role detection can name agent and customer in contact center calls, and language detection handles several languages. Fields such as summary, sentiment or topics are generated or classified from the transcript.","ro":"Audio: transcript WebVTT format mein waqt ke saath aata hai. Diarization speakers alag karta hai, role detection contact center calls mein agent aur customer bata sakta hai, aur language detection kai zabaanein sambhalta hai. Khulasa, sentiment ya topics jaisi fields transcript se generate ya classify hoti hain."},
+    {"en":"Video: the result has the transcript, key frames and a description per segment. You can define your own segments, for example one per news story, and fields per segment. The output is ready for search or RAG.","ro":"Video: nateeje mein transcript, key frames aur har segment ki tafseel hoti hai. Aap apne segments bana sakte hain, jaise har khabar ka ek, aur har segment ki fields. Output talash ya RAG ke liye tayyar hai."}
+  ],
+  "flow": {
+    "title": {"en":"From recording to insight","ro":"Recording se maloomat"},
+    "steps": [
+      { "title": "Upload", "text": {"en":"Audio or video","ro":"Audio ya video"} },
+      { "title": "Transcribe", "text": {"en":"Language, speakers","ro":"Zabaan, speakers"} },
+      { "title": "Segment", "text": "Scenes (video)" },
+      { "title": "Fields", "text": {"en":"Summary, topic, mood","ro":"Khulasa, topic, mood"} },
+      { "title": {"en":"Use","ro":"Istemal"}, "text": {"en":"Search, report, CRM","ro":"Talash, report, CRM"} }
+    ]
+  },
+  "deep": [
+    {"en":"Quality starts before the analysis. Record agent and customer on separate channels when you can, avoid music, and keep the original file instead of a compressed copy. Files have limits in size and length, which are higher when a single language is set. Long files take longer, so the app must poll and not wait in one request.","ro":"Quality analysis se pehle shuru hoti hai. Ho sake to agent aur customer alag channels par record karein, music se bachein, aur compressed copy ke bajaye asal file rakhein. Files ki size aur lambai ki had hai, jo ek zabaan tay karne par zyada hoti hai. Lambi files waqt leti hain, is liye app poll kare, ek request mein intezar na kare."},
+    {"en":"For a call center the result is a small record per call: reason, mood, promise, next step and the quote that proves it. Supervisors filter these records instead of listening to every call, and they listen only to the interesting minutes. Prebuilt analyzers for call centers and for video search are a fast start before you define your own fields.","ro":"Call center ke liye nateeja har call ka chhota record hai: wajah, mood, wada, agla qadam aur woh jumla jo saboot hai. Supervisors har call sunne ke bajaye in records ko filter karte hain aur sirf aham minute sunte hain. Apni fields banane se pehle call center aur video search ke prebuilt analyzers jaldi shuruat dete hain."}
+  ],
+  "how": [
+    {"en":"Set locales when you know the language; leave it on auto for mixed languages.","ro":"Zabaan maloom ho to locales dein; mili juli zabaanon ke liye auto."},
+    {"en":"Ask for evidence, for example the quote that shows the complaint.","ro":"Saboot maangein, jaise woh jumla jo shikayat dikhata hai."},
+    {"en":"Tell people that calls are recorded and analyzed.","ro":"Logon ko batayein ke calls record aur analyze hoti hain."}
+  ],
+  "example": { "text": {"en":"Training video: segments by topic, title (generate), difficulty (classify), summary (generate). Employees search \"fire exit\" and jump to minute 14.","ro":"Training video: topic ke hisaab se segments, title (generate), difficulty (classify), summary (generate). Employees \"fire exit\" dhoond kar minute 14 par jate hain."} },
+  "mistakes": [
+    { "wrong": {"en":"\"Speech to text alone is enough for call reasons.\"","ro":"\"Call ki wajah ke liye sirf speech to text kaafi.\""}, "right": {"en":"It gives text. Fields need an analyzer or a model.","ro":"Woh text deta hai. Fields ke liye analyzer ya model chahiye."} },
+    { "wrong": {"en":"\"Use extract for a call summary.\"","ro":"\"Call ke khulasay ke liye extract.\""}, "right": {"en":"extract is for documents. Use generate.","ro":"extract documents ke liye hai. generate istemal karein."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Diarization and role detection","ro":"Diarization aur role detection"}, "text": {"en":"Diarization: Speaker 1 and 2. Role detection: agent and customer.","ro":"Diarization: Speaker 1 aur 2. Role detection: agent aur customer."} },
+    { "terms": {"en":"Speech service and Content Understanding","ro":"Speech service aur Content Understanding"}, "text": {"en":"Speech: the transcript. Content Understanding: transcript plus your fields.","ro":"Speech: transcript. Content Understanding: transcript aur aap ki fields."} }
+  ],
+  "exam": [
+    {"en":"Who said what → diarization. Agent or customer → role detection. Chapters → segments.","ro":"Kis ne kya kaha → diarization. Agent ya customer → role detection. Chapters → segments."},
+    {"en":"Choose the analyzer for recordings with summary and category.","ro":"Khulasa aur category wali recordings ke liye analyzer chunein."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/audio/overview", "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/video/overview"]
+}

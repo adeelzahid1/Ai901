@@ -1,0 +1,40 @@
+{
+  "id": "reliability-safety", "minutes": 4,
+  "main": {"en":"The system works as designed, also in unexpected conditions, resists manipulation and does not cause harm.","ro":"System apne design ke mutabiq chalta hai, ghair mutawaqqe halaat mein bhi, chhed chhaar ka muqabla karta hai aur nuqsan nahi karta."},
+  "explain": [
+    {"en":"Reliability is about behaving the same way tomorrow as in the test. Safety is about what happens when it does not. Both start with a clear statement of what the system is for and where it must not be used.","ro":"Reliability ka matlab hai ke kal bhi waisa hi chale jaisa test mein chala. Safety ka matlab hai ke jab na chale to kya hoga. Dono ki shuruat is se hoti hai ke system kis liye hai aur kahan istemal nahi hona chahiye."},
+    {"en":"For generative AI the typical harms are harmful text, made-up facts, instructions hidden in documents and attempts to bypass the rules (jailbreaks). Guardrails detect these risks in the input and in the output.","ro":"Generative AI mein aam nuqsan hain: nuqsan dah text, gharay hue haqaiq, documents mein chhupi hidayat aur usool torne ki koshishein (jailbreak). Guardrails ye khatre input aur output dono mein pehchante hain."}
+  ],
+  "flow": {
+    "title": {"en":"Four steps to a safer app","ro":"Mehfooz app ke chaar qadam"},
+    "steps": [
+      { "title": "Map", "text": {"en":"Which harms are possible?","ro":"Kaunse nuqsan mumkin hain?"} },
+      { "title": "Measure", "text": {"en":"Test with bad inputs","ro":"Kharab inputs se test"} },
+      { "title": "Mitigate", "text": "Guardrails, prompts, design" },
+      { "title": "Manage", "text": {"en":"Monitor, respond, roll back","ro":"Nigrani, jawab, wapsi"} }
+    ]
+  },
+  "deep": [
+    {"en":"In Foundry a guardrail is a set of controls. Hate, sexual, violence and self-harm are rated by severity, and you choose from which level content is blocked: High is the strictest, because it blocks low, medium and high severity. Other controls detect user prompt attacks (jailbreaks), indirect attacks hidden in documents, protected material and personal data. A control can annotate (report only) or annotate and block.","ro":"Foundry mein guardrail controls ka set hai. Hate, sexual, violence aur self-harm ko severity di jati hai, aur aap chunte hain ke kis level se content ruke: High sab se sakht hai, kyunke low, medium aur high severity teenon rokta hai. Baqi controls user prompt attacks (jailbreak), documents mein chhupe indirect attacks, protected material aur zaati data pehchante hain. Control annotate (sirf batana) ya annotate and block kar sakta hai."},
+    {"en":"Monitoring completes the picture. Track error rates, blocked requests and complaints, and define who reacts and how the previous version is restored. Data changes over time (drift), so a system that was reliable last year may not be today.","ro":"Nigrani tasveer mukammal karti hai. Ghaltiyan, roki gayi requests aur shikayatein dekhein, aur tay karein ke kaun jawab dega aur pichla version kaise wapas aayega. Data waqt ke saath badalta hai (drift), is liye jo system pichle saal reliable tha, aaj shayad na ho."}
+  ],
+  "how": [
+    {"en":"Test edge cases: rare inputs, noise, bad light, other languages, very long text.","ro":"Edge cases test karein: nayab inputs, shor, kam roshni, doosri zabaanein, bohat lamba text."},
+    {"en":"Red-team the app: let people try to break it before others do.","ro":"Red teaming karein: doosron se pehle apne log app ko torne ki koshish karein."},
+    {"en":"Give a safe fallback: say \"I do not know\", hand over to a person, or stop.","ro":"Mehfooz mutabadil rakhein: \"mujhe nahi pata\" kehna, insan ko dena, ya ruk jana."},
+    {"en":"Release in stages and watch the errors.","ro":"Marhala war launch karein aur ghaltiyan dekhein."}
+  ],
+  "example": { "text": {"en":"A drug-dose assistant is tested with typical adults only. In use, a nurse asks about a newborn. A reliable design would have tested this case or refused it and shown a doctor's number.","ro":"Dawai ki miqdar wala assistant sirf aam baligh cases par test hua. Istemal mein nurse ne naumolood ke baare mein poocha. Reliable design mein ye case test hota, ya assistant inkaar kar ke doctor ka number dikhata."} },
+  "mistakes": [
+    { "wrong": {"en":"\"The demo went well, so it is ready.\"","ro":"\"Demo acha gaya, is liye tayyar hai.\""}, "right": {"en":"A demo shows normal cases. Reliability is shown by unusual ones.","ro":"Demo aam cases dikhata hai. Reliability ghair mamooli cases se pata chalti hai."} },
+    { "wrong": {"en":"\"Filters make the system safe.\"","ro":"\"Filters system ko mehfooz bana dete hain.\""}, "right": {"en":"Filters are one layer. You also need testing, monitoring and people.","ro":"Filters ek tah hain. Testing, nigrani aur insan bhi chahiye."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Safety and security","ro":"Safety aur security"}, "text": {"en":"Safety protects people from harm by the system; security protects the system and its data from attackers.","ro":"Safety logon ko system ke nuqsan se bachati hai; security system aur data ko hamla awaron se."} }
+  ],
+  "exam": [
+    {"en":"Clue words: unexpected conditions, fails in rain, edge cases, rollback, harmful output, guardrails.","ro":"Ishare: ghair mutawaqqe halaat, barish mein nakaami, edge cases, rollback, nuqsan dah output, guardrails."},
+    {"en":"The four steps map, measure, mitigate, manage appear as an ordering question.","ro":"Chaar qadam map, measure, mitigate, manage tarteeb wale sawal mein aate hain."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai", "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"]
+}

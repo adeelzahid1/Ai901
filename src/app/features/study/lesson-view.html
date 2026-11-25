@@ -64,6 +64,7 @@
     </div>
 
     <p class="links">
+      <a routerLink="/notes" [queryParams]="{ n: section().subs[0] }">{{ t.notes }}</a>
       @if (l.lab) {
         <a routerLink="/labs" [queryParams]="{ l: l.lab }">{{ t.lab }}</a>
       }

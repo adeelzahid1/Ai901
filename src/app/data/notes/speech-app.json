@@ -1,0 +1,44 @@
+{
+  "id": "speech-app", "minutes": 5,
+  "main": {"en":"SpeechConfig says which resource, AudioConfig says which sound, and a recognizer or synthesizer does the work.","ro":"SpeechConfig resource, AudioConfig awaaz batata hai, aur recognizer ya synthesizer kaam karta hai."},
+  "explain": [
+    {"en":"The package is azure-cognitiveservices-speech. SpeechConfig holds key and region (or an endpoint with a token), the recognition language and the voice name. AudioConfig is for input (microphone or file), AudioOutputConfig for output (speaker or file).","ro":"Package azure-cognitiveservices-speech hai. SpeechConfig mein key aur region (ya token ke saath endpoint), recognition language aur voice ka naam hota hai. AudioConfig input (microphone ya file) ke liye, AudioOutputConfig output (speaker ya file) ke liye."},
+    {"en":"recognize_once_async listens to one utterance, up to a pause. Longer audio needs continuous recognition: you attach handlers to the events recognizing (partial) and recognized (final), start, and stop it.","ro":"recognize_once_async ek baat, waqfe tak, sunta hai. Lambi audio ke liye continuous recognition: recognizing (adhoora) aur recognized (mukammal) events ke handlers lagayein, shuru karein, rokein."},
+    {"en":"Always look at result.reason. RecognizedSpeech means text is there, NoMatch means nothing understandable was heard, Canceled means an error such as a wrong key; the details say why.","ro":"Hamesha result.reason dekhein. RecognizedSpeech: text hai. NoMatch: samajh aane wali awaaz nahi. Canceled: error jaise ghalat key; details wajah batati hain."}
+  ],
+  "flow": {
+    "title": {"en":"Recognize one sentence","ro":"Ek jumla pehchanna"},
+    "steps": [
+      { "title": "SpeechConfig", "text": "AudioConfig" },
+      { "title": "SpeechRecognizer" },
+      { "title": "recognize_once_async()" },
+      { "title": {"en":"Check reason","ro":"reason dekhein"} },
+      { "title": {"en":"Use text","ro":"Text istemal"} }
+    ]
+  },
+  "deep": [
+    {"en":"Events drive continuous recognition. recognizing fires many times with partial text, which is good for live captions. recognized fires with the final sentence. canceled and session_stopped tell you that it ended. A common bug is to end the program at once: start_continuous_recognition_async returns immediately, so the program must wait.","ro":"Continuous recognition events se chalti hai. recognizing bar bar adhoora text deta hai, jo live captions ke liye acha hai. recognized mukammal jumla deta hai. canceled aur session_stopped batate hain ke khatam hua. Aam ghalti: program foran khatam karna. start_continuous_recognition_async foran wapas aata hai, is liye program ko rukna hota hai."},
+    {"en":"Use Microsoft Entra ID for production and keep keys in environment variables while learning. The region of the key must match the region in SpeechConfig. If nothing is heard, check the microphone permission and the AudioConfig before you change the code.","ro":"Production mein Microsoft Entra ID, aur seekhte waqt keys environment variables mein rakhein. Key ka region SpeechConfig ke region jaisa ho. Kuch sunai na de to code badalne se pehle microphone ki ijazat aur AudioConfig dekhein."},
+    {"en":"For voice output, choose the voice by its full name and check that its language matches the text. An English voice reads Urdu text badly. Cache sentences that are spoken often, such as greetings, to save time and cost.","ro":"Awaaz ke liye voice poore naam se chunein aur dekhein ke us ki zabaan text jaisi ho. English voice Urdu text kharab parhti hai. Bar bar bole jane wale jumlay, jaise salaam, cache karein taake waqt aur kharcha bache."},
+    {"en":"The same code works with a Foundry resource. What changes is how you authenticate: a key with its region, or a token from Entra ID with the endpoint of the resource.","ro":"Yahi code Foundry resource ke saath chalta hai. Farq authenticate karne ka hai: key apne region ke saath, ya Entra ID ka token resource ki endpoint ke saath."}
+  ],
+  "how": [
+    {"en":"Text to speech: SpeechSynthesizer.speak_text_async; with SSML: speak_ssml_async.","ro":"Text to speech: SpeechSynthesizer.speak_text_async; SSML ke saath: speak_ssml_async."},
+    "Translation: SpeechTranslationConfig, add_target_language, TranslationRecognizer, result.translations[\"fr\"].",
+    {"en":"Special words: PhraseListGrammar.from_recognizer(recognizer).addPhrase(\"Contoso\").","ro":"Khaas alfaaz: PhraseListGrammar.from_recognizer(recognizer).addPhrase(\"Contoso\")."}
+  ],
+  "example": { "text": {"en":"Speak a sentence with a chosen voice:","ro":"Chuni hui awaaz mein jumla bolna:"}, "code": "config = speechsdk.SpeechConfig(subscription=KEY, region=REGION)\nconfig.speech_synthesis_voice_name = \"en-US-AvaNeural\"\nsynth = speechsdk.SpeechSynthesizer(speech_config=config)\nresult = synth.speak_text_async(\"Your order is ready.\").get()\nif result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:\n    print(\"done\")" },
+  "mistakes": [
+    { "wrong": {"en":"\"recognize_once transcribes a one-hour file.\"","ro":"\"recognize_once ek ghante ki file transcribe karta hai.\""}, "right": {"en":"It stops after one utterance.","ro":"Woh ek baat ke baad rukta hai."} },
+    { "wrong": {"en":"\"speak_text_async reads SSML.\"","ro":"\"speak_text_async SSML parhta hai.\""}, "right": {"en":"It would speak the tags. Use speak_ssml_async.","ro":"Woh tags bol dega. speak_ssml_async istemal karein."} }
+  ],
+  "compare": [
+    { "terms": {"en":"AudioConfig and AudioOutputConfig","ro":"AudioConfig aur AudioOutputConfig"}, "text": {"en":"The first is where sound comes from; the second is where it goes.","ro":"Pehla batata hai awaaz kahan se aati hai; doosra kahan jati hai."} },
+    { "terms": {"en":"recognizing and recognized","ro":"recognizing aur recognized"}, "text": {"en":"Partial text while speaking; final text after the sentence.","ro":"Bolte waqt adhoora text; jumlay ke baad mukammal text."} }
+  ],
+  "exam": [
+    {"en":"Match goal with class: SpeechRecognizer, SpeechSynthesizer, TranslationRecognizer.","ro":"Maqsad ko class se milana: SpeechRecognizer, SpeechSynthesizer, TranslationRecognizer."},
+    {"en":"Reason codes: wrong key → Canceled, silence → NoMatch.","ro":"Reason: ghalat key → Canceled, khamoshi → NoMatch."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text", "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-text-to-speech"]
+}

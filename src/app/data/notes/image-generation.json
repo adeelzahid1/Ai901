@@ -1,0 +1,42 @@
+{
+  "id": "image-generation", "minutes": 4,
+  "main": {"en":"Deploy an image model, send a prompt with size and quality, decode the base64 result and save it.","ro":"Image model deploy karein, size aur quality ke saath prompt bhejein, base64 nateeja decode kar ke save karein."},
+  "explain": [
+    {"en":"Azure uses the gpt-image series; DALL-E 3 was retired in March 2026. The models create pictures from text and can edit existing ones. Some need an access request, so check availability before you plan.","ro":"Azure gpt-image series istemal karta hai; DALL-E 3 March 2026 mein retire ho gaya. Ye models text se tasveer banate aur maujooda tasveer edit karte hain. Kuch ke liye access ki darkhwast chahiye, is liye pehle availability dekhein."},
+    {"en":"Main parameters: prompt, size (for example 1024x1024), quality (low for drafts, high for final pictures), n for the number, background for transparency where supported, and output_format. The result holds b64_json, so decode before saving.","ro":"Bare parameters: prompt, size (jaise 1024x1024), quality (draft ke liye low, aakhri tasveer ke liye high), n tadad, background transparency (jahan support ho), aur output_format. Nateeje mein b64_json hota hai, is liye save se pehle decode karein."},
+    {"en":"Prompts and pictures pass content filters. A blocked request returns an error and no picture. Pictures carry content credentials that say they were made with AI.","ro":"Prompts aur tasveerein content filters se guzarti hain. Roki gayi request error deti hai, tasveer nahi. Tasveeron mein content credentials hote hain jo AI se banne ka batate hain."}
+  ],
+  "flow": {
+    "title": {"en":"Generate and save","ro":"Banana aur save karna"},
+    "steps": [
+      { "title": "Prompt", "text": {"en":"Subject, style, light","ro":"Mauzu, andaz, roshni"} },
+      { "title": "images.generate", "text": "size, quality, n" },
+      { "title": "Filter", "text": {"en":"Input and output","ro":"Input aur output"} },
+      { "title": "Decode", "text": "b64_json" },
+      { "title": "Save", "text": {"en":"PNG or JPEG","ro":"PNG ya JPEG"} }
+    ]
+  },
+  "deep": [
+    {"en":"Think like a photographer when you write the prompt: subject, action, place, style, light, camera angle, colors, mood. \"A red bicycle leaning on a blue wall, morning light, wide angle, flat illustration\" gives more control than \"nice bicycle\". Change one part at a time and keep the best version of the prompt.","ro":"Prompt photographer ki tarah likhein: mauzu, kaam, jagah, andaz, roshni, camera ka zaviya, rang, mood. \"A red bicycle leaning on a blue wall, morning light, wide angle, flat illustration\" \"nice bicycle\" se zyada control deta hai. Ek waqt mein ek hissa badlein aur prompt ki behtareen shakal rakhein."},
+    {"en":"Responsible use belongs to the task: no deceptive pictures of real people, no protected characters or logos of others, a label for viewers, and a person who approves pictures before they are published.","ro":"Zimmedar istemal kaam ka hissa hai: asal logon ki dhokay wali tasveer nahi, doosron ke mehfooz kirdar ya logo nahi, dekhne walon ke liye nishan, aur shaya karne se pehle insan ki manzoori."}
+  ],
+  "how": [
+    {"en":"Draft with quality low and n 2 or 3, then create the final picture with high.","ro":"quality low aur n 2 ya 3 se draft, phir high se aakhri tasveer."},
+    {"en":"To keep a product unchanged, edit its photo with a mask instead of generating a new one.","ro":"Product waisa hi rakhna ho to nayi banane ke bajaye us ki photo mask ke saath edit karein."},
+    {"en":"Write what should be visible; long stories in the prompt help less.","ro":"Jo nazar aana chahiye woh likhein; prompt mein lambi kahani kam kaam aati hai."}
+  ],
+  "example": { "text": {"en":"Create one draft and save it:","ro":"Ek draft bana kar save karna:"}, "code": "result = openai.images.generate(\n    model=\"images-prod\", size=\"1024x1024\", quality=\"low\",\n    prompt=\"A red bicycle on a white background, studio light\")\npng = base64.b64decode(result.data[0].b64_json)\nopen(\"bike.png\", \"wb\").write(png)" },
+  "mistakes": [
+    { "wrong": {"en":"\"The result is a URL.\"","ro":"\"Nateeja URL hai.\""}, "right": {"en":"gpt-image models return base64.","ro":"gpt-image models base64 dete hain."} },
+    { "wrong": {"en":"\"A vision model can create it.\"","ro":"\"Vision model bana sakta hai.\""}, "right": {"en":"Vision understands; image models create.","ro":"Vision samajhta hai; image models banate hain."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Generate and edit","ro":"Generate aur edit"}, "text": {"en":"Generate starts from words; edit starts from a picture and can use a mask.","ro":"Generate alfaaz se shuru hota hai; edit tasveer se, aur mask istemal kar sakta hai."} },
+    { "terms": {"en":"quality and size","ro":"quality aur size"}, "text": {"en":"quality sets the effort and cost; size sets the dimensions.","ro":"quality mehnat aur kharcha tay karti hai; size lambai chaurai."} }
+  ],
+  "exam": [
+    {"en":"Match the need with a parameter: cheap draft → quality low, three ideas → n=3, logo without background → background transparent.","ro":"Zaroorat ko parameter se milana: sasta draft → quality low, teen ideas → n=3, baghair background logo → background transparent."},
+    {"en":"Change only one area → images.edit with a mask.","ro":"Sirf ek hissa badalna → mask ke saath images.edit."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/dall-e"]
+}

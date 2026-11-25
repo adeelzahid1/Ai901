@@ -6,7 +6,7 @@
     { "term": "Reasoning models", "text": {"en":"They think in steps before answering: good for math, planning and code, but slower and more expensive.","ro":"Jawab se pehle qadam ba qadam sochte hain: hisaab, planning aur code ke liye achay, lekin slow aur mehnge."} },
     { "term": {"en":"Multimodal, image, audio and embedding models","ro":"Multimodal, image, audio aur embedding models"}, "text": {"en":"Choose by input and output: images in, pictures out, speech in and out, or vectors for search.","ro":"Input aur output ke mutabiq chunein: image andar, tasveer bahar, awaaz andar aur bahar, ya talash ke liye vectors."} },
     { "term": {"en":"Model catalog and benchmarks","ro":"Model catalog aur benchmarks"}, "text": {"en":"Compare quality, safety, cost and throughput before deploying, then evaluate with your own data.","ro":"Deploy se pehle quality, safety, kharcha aur throughput muqabla karein, phir apne data par evaluate karein."} },
-    { "term": "Standard deployments", "text": {"en":"Pay per token. Global routes worldwide, Data Zone stays in the EU or US zone, Regional stays in one region.","ro":"Fi token adaigi. Global duniya bhar mein, Data Zone EU ya US zone mein, Regional ek region mein process karta hai."} },
+    { "term": "Standard deployments", "text": {"en":"Pay per token. Global can use any Azure region, Data Zone stays in the EU, US or Asia Pacific zone, Standard stays in one Azure geography.","ro":"Fi token adaigi. Global kisi bhi Azure region mein, Data Zone EU, US ya Asia Pacific zone mein, Standard ek Azure geography mein process karta hai."} },
     { "term": "Provisioned deployments", "text": {"en":"Reserved throughput units for steady traffic and predictable latency.","ro":"Mustaqil traffic aur yaksan latency ke liye mukhtas throughput units."} },
     { "term": "Batch deployments", "text": {"en":"Large files of requests at a lower price, with results within 24 hours as the target.","ro":"Requests ki bari files kam qeemat par, jin ke nateejon ka hadaf 24 ghante hai."} },
     { "term": "Parameters", "text": {"en":"temperature and top_p control variety, max output tokens limits length, stop sequences end the text, penalties reduce repetition.","ro":"temperature aur top_p variety, max output tokens lambai, stop sequences ikhtitam, aur penalties dohrao control karti hain."} }
@@ -20,8 +20,8 @@
     "head": [{"en":"Requirement","ro":"Zaroorat"}, {"en":"Choice","ro":"Intikhab"}],
     "rows": [
       [{"en":"Start quickly, changing traffic","ro":"Jaldi shuru, badalta traffic"}, "Global Standard"],
-      [{"en":"Data processed only in the EU (or US) zone","ro":"Data sirf EU (ya US) zone mein process ho"}, "Data Zone Standard"],
-      [{"en":"Data processed in one region","ro":"Data ek region mein process ho"}, "Standard (regional)"],
+      [{"en":"Data processed only in the EU, US or Asia Pacific zone","ro":"Data sirf EU, US ya Asia Pacific zone mein process ho"}, "Data Zone Standard"],
+      [{"en":"Data processed in one Azure geography","ro":"Data ek Azure geography mein process ho"}, "Standard"],
       [{"en":"Steady, high load with predictable latency","ro":"Mustaqil, zyada load aur yaksan latency"}, "Provisioned"],
       [{"en":"Nobody waits, lowest price","ro":"Koi intezar nahi karta, sab se kam qeemat"}, "Global Batch"],
       [{"en":"Same wording every time","ro":"Har baar ek jaisi ibarat"}, {"en":"Low temperature","ro":"Kam temperature"}],

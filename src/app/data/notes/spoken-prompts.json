@@ -1,0 +1,42 @@
+{
+  "id": "spoken-prompts", "minutes": 5,
+  "main": {"en":"An audio-capable model hears a spoken question and can answer with text, audio or both.","ro":"Audio wala model bola hua sawal sunta hai aur text, audio ya dono mein jawab de sakta hai."},
+  "explain": [
+    {"en":"With Chat Completions and a model such as gpt-audio, you send a content part of type input_audio with base64 data and its format. modalities says what you want back; for speech you also choose a voice and a format. The answer audio is base64 again, and a transcript comes with it.","ro":"Chat Completions aur gpt-audio jaise model ke saath aap input_audio qism ka content part bhejte hain jis mein base64 data aur format hota hai. modalities batata hai ke wapas kya chahiye; awaaz ke liye voice aur format bhi chunein. Jawab ki audio bhi base64 hoti hai, aur us ke saath transcript aata hai."},
+    {"en":"For a live conversation use the Realtime API. It streams audio both ways with low delay and lets the user interrupt. WebRTC fits browsers and mobile apps, WebSocket fits servers, SIP fits telephone systems.","ro":"Live guftagu ke liye Realtime API. Woh dono taraf audio kam dair se stream karta hai aur user ko beech mein bolne deta hai. WebRTC browser aur mobile apps, WebSocket servers, SIP telephone systems ke liye hai."},
+    {"en":"The older way is a chain: speech to text, language model, text to speech. It gives more control and a transcript for each step, but takes longer.","ro":"Purana tareeqa silsila hai: speech to text, language model, text to speech. Is mein zyada control aur har qadam ka transcript hai, lekin dair zyada hai."}
+  ],
+  "flow": {
+    "title": {"en":"One spoken question","ro":"Ek bola hua sawal"},
+    "steps": [
+      { "title": "Record", "text": {"en":"WAV or MP3","ro":"WAV ya MP3"} },
+      { "title": "Encode", "text": "base64" },
+      { "title": {"en":"Send","ro":"Bhejein"}, "text": "input_audio + modalities" },
+      { "title": "Model", "text": {"en":"Hears and answers","ro":"Sunta aur jawab deta hai"} },
+      { "title": {"en":"Decode and play","ro":"Decode aur chalayein"} }
+    ]
+  },
+  "deep": [
+    {"en":"Choose the way by three questions. Is it live? Then Realtime API. Do you need a transcript or your own text model in between? Then the chain with Speech. Is it one recording and a quick answer? Then an audio chat model. Audio tokens cost more than text tokens, so long recordings are often cheaper through transcription.","ro":"Teen sawalon se raasta chunein. Live hai? To Realtime API. Transcript ya beech mein apna text model chahiye? To Speech wala silsila. Ek recording aur jaldi jawab? To audio chat model. Audio tokens text tokens se mehnge hain, is liye lambi recordings aksar transcription se sasti parti hain."},
+    {"en":"Spoken input is informal: pauses, corrections, background voices. Tell the model in the system message to ask back when it did not understand, to keep spoken answers short and to repeat numbers.","ro":"Boli hui baat ghair rasmi hoti hai: waqfe, islaah, peeche ki awaazein. System message mein model ko batayein ke samajh na aaye to dobara poochhe, bole gaye jawab chhote rakhe aur numbers dohraye."}
+  ],
+  "how": [
+    {"en":"Match the format value to the real file type.","ro":"format ki value asal file ke mutabiq rakhein."},
+    {"en":"Add a text part or system message to steer tone and length.","ro":"Andaz aur lambai ke liye text part ya system message dein."},
+    {"en":"Long or many files: use batch transcription instead.","ro":"Lambi ya bohat si files: batch transcription istemal karein."}
+  ],
+  "example": { "text": {"en":"Send a recorded question and get text and speech back:","ro":"Record sawal bhej kar text aur awaaz dono lena:"}, "code": "r = openai.chat.completions.create(\n    model=\"audio-prod\",\n    modalities=[\"text\", \"audio\"],\n    audio={\"voice\": \"alloy\", \"format\": \"wav\"},\n    messages=[{\"role\": \"user\", \"content\": [\n        {\"type\": \"input_audio\",\n         \"input_audio\": {\"data\": audio_base64, \"format\": \"wav\"}}]}])\nprint(r.choices[0].message.audio.transcript)" },
+  "mistakes": [
+    { "wrong": {"en":"\"Every chat model hears audio.\"","ro":"\"Har chat model audio sunta hai.\""}, "right": {"en":"Only audio-capable models do.","ro":"Sirf audio wale models."} },
+    { "wrong": {"en":"\"Send the file path.\"","ro":"\"File ka path bhejein.\""}, "right": {"en":"Send the bytes as base64.","ro":"Bytes base64 mein bhejein."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Audio chat model and Speech service","ro":"Audio chat model aur Speech service"}, "text": {"en":"The model understands and answers in one step; the service only converts between audio and text.","ro":"Model ek qadam mein samajh kar jawab deta hai; service sirf audio aur text badalti hai."} },
+    { "terms": {"en":"modalities and format","ro":"modalities aur format"}, "text": {"en":"modalities: which kinds of output. format: which file type the audio has.","ro":"modalities: output ki qismein. format: audio ki file type."} }
+  ],
+  "exam": [
+    {"en":"Live talk without pauses → Realtime API. One recorded question → audio chat model.","ro":"Waqfe ke baghair live guftagu → Realtime API. Ek record sawal → audio chat model."},
+    {"en":"Which part type, which modalities, which format?","ro":"Kaunsa part, kaunse modalities, kaunsa format?"}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/openai/audio-completions-quickstart", "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/realtime-audio"]
+}

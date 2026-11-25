@@ -1,0 +1,40 @@
+{
+  "id": "fairness", "minutes": 4,
+  "main": {"en":"A fair AI system treats similar people in a similar way and does not give one group worse results than another.","ro":"Insaaf wala AI system ek jaise logon ke saath ek jaisa sulook karta hai aur kisi group ko doosre se kharab nateeja nahi deta."},
+  "explain": [
+    {"en":"A model learns from past data. If people were treated unfairly in that data, the model learns the same habit and repeats it for thousands of cases. Bias can also enter when a group is missing from the data, when a label is subjective, or when the system is used for a purpose it was not built for.","ro":"Model purane data se seekhta hai. Agar us data mein logon ke saath na-insaafi hui thi to model wahi aadat seekh kar hazaron cases mein dohrata hai. Bias tab bhi aata hai jab koi group data mein kam ho, label kisi ki raaye par ho, ya system aise kaam mein lage jis ke liye bana nahi tha."},
+    {"en":"Fairness is measured, not felt. You split the results by group, for example by gender, age or region, and compare error rates and approval rates. A good average can hide a bad result for a small group.","ro":"Fairness naapi jati hai, sirf mehsoos nahi ki jati. Nateeje groups mein baantein, jaise gender, umar ya ilaqa, aur ghalti aur manzoori ki shareh muqabla karein. Acha average chhote group ka kharab nateeja chhupa sakta hai."}
+  ],
+  "flow": {
+    "title": {"en":"Find and reduce bias","ro":"Bias dhoondna aur kam karna"},
+    "steps": [
+      { "title": {"en":"Check the data","ro":"Data dekhein"}, "text": {"en":"Who is missing?","ro":"Kaun nahi hai?"} },
+      { "title": {"en":"Split the results","ro":"Nateeje baantein"}, "text": {"en":"Per group","ro":"Har group ke"} },
+      { "title": {"en":"Compare","ro":"Muqabla karein"}, "text": {"en":"Error and approval rates","ro":"Ghalti aur manzoori ki shareh"} },
+      { "title": {"en":"Fix","ro":"Theek karein"}, "text": "Data, features, thresholds" },
+      { "title": {"en":"Monitor","ro":"Nigrani"}, "text": {"en":"After launch too","ro":"Launch ke baad bhi"} }
+    ]
+  },
+  "deep": [
+    {"en":"There are several ways to say \"fair\", and they can contradict each other. Equal approval rates mean that every group is approved equally often. Equal error rates mean that qualified people are wrongly rejected equally often in every group. The team must choose the measure that fits the decision and write down why. Harm also has kinds: an allocation harm takes away a chance, such as a job or a loan; a quality-of-service harm makes the product work worse for some people.","ro":"\"Insaaf\" ke kai matlab hain aur woh ek doosre se takra sakte hain. Barabar manzoori ka matlab har group barabar manzoor ho. Barabar ghalti ka matlab qabil log har group mein barabar ghalat reject hon. Team ko faislay ke mutabiq paimana chun kar wajah likhni chahiye. Nuqsan bhi do qisam ke hain: allocation harm mauqa cheenta hai, jaise naukri ya loan; quality-of-service harm mein product kuch logon ke liye kharab chalta hai."}
+  ],
+  "how": [
+    {"en":"Collect data that represents everyone the system will serve.","ro":"Aisa data lein jis mein woh sab log hon jin par system chalega."},
+    {"en":"Look for proxy columns: a postal code or a gap in a job history can stand for a sensitive attribute.","ro":"Proxy columns dhoondein: postal code ya job history ka waqfa hassas baat ki jagah le sakta hai."},
+    {"en":"Use the fairness assessment of the Responsible AI dashboard in Azure Machine Learning to compare groups.","ro":"Groups ke muqable ke liye Azure Machine Learning ke Responsible AI dashboard ka fairness assessment istemal karein."},
+    {"en":"Keep a way for people to complain and have a decision checked.","ro":"Logon ke liye shikayat aur faisla dobara dekhwane ka raasta rakhein."}
+  ],
+  "example": { "text": {"en":"A loan model approves 70% of all requests. Split by age, it approves 74% of people under 40 and 41% of people over 60 with the same income. The average looked good; the comparison shows the problem.","ro":"Ek loan model 70% requests manzoor karta hai. Umar ke hisaab se 40 se kam walon ki 74% aur barabar income wale 60 se zyada walon ki 41%. Average acha laga; muqable ne masla dikhaya."} },
+  "mistakes": [
+    { "wrong": {"en":"\"We removed the gender column, so the model is fair.\"","ro":"\"Hum ne gender ka column hata diya, is liye model insaaf karta hai.\""}, "right": {"en":"Other columns can act as a proxy. Compare the results per group.","ro":"Doosre columns proxy ban sakte hain. Har group ke nateeje muqabla karein."} },
+    { "wrong": {"en":"\"The accuracy is 95%, so nobody is treated badly.\"","ro":"\"Accuracy 95% hai, is liye kisi ke saath bura nahi hota.\""}, "right": {"en":"The 5% errors may all fall on one group.","ro":"5% ghaltiyan sab ek hi group par ho sakti hain."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Fairness and accuracy","ro":"Fairness aur accuracy"}, "text": {"en":"A model can be accurate on average and still unfair to a small group.","ro":"Model ausatan durust ho kar bhi chhote group ke saath na-insaafi kar sakta hai."} }
+  ],
+  "exam": [
+    {"en":"Clue words: one group, gender, ethnicity, age, skin tone, worse results, biased data.","ro":"Ishare: ek group, gender, nasal, umar, rang, kharab nateeje, biased data."},
+    {"en":"Often placed next to inclusiveness. Ask: are results unequal (fairness), or can some people not use it (inclusiveness)?","ro":"Aksar inclusiveness ke saath aata hai. Poochein: nateeje ghair barabar hain (fairness), ya kuch log istemal hi nahi kar sakte (inclusiveness)?"}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai", "https://learn.microsoft.com/en-us/azure/machine-learning/concept-fairness-ml"]
+}

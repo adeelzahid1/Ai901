@@ -1,0 +1,32 @@
+{
+  "id": "transparency", "minutes": 4,
+  "main": {"en":"People should know that AI is used, understand how it reaches results, and know its limits.","ro":"Logon ko pata ho ke AI istemal ho raha hai, nateeja kaise bana, aur us ki hadein kya hain."},
+  "explain": [
+    {"en":"Transparency has three levels. Disclosure: this is an AI. Interpretability: these factors led to the result. Limits: here it works, here it does not. Each level needs its own words for customers, developers and managers.","ro":"Transparency ke teen darje hain. Batana: ye AI hai. Wazahat: in asbab se ye nateeja aaya. Hadein: yahan chalta hai, yahan nahi. Har darje ke alfaaz customers, developers aur managers ke liye alag hote hain."},
+    {"en":"A global explanation describes the model in general, for example which factors count most for loans. A local explanation describes one case, for example why this request was rejected. A counterfactual says what would have to change for another result.","ro":"Global explanation model ko aam tor par bayan karti hai, jaise loans mein kaunse asbab aham hain. Local explanation ek case batati hai, jaise ye request kyun reject hui. Counterfactual batata hai ke doosre nateeje ke liye kya badalna hota."}
+  ],
+  "deep": [
+    {"en":"Tools help with the explanation. The Responsible AI dashboard in Azure Machine Learning shows feature importance for the whole model, for a group and for a single case, and a what-if view. For language models the practical tools are citations, shown sources, confidence values and clear wording about limits. A transparency note from Microsoft tells builders what a model was made for and where it fails.","ro":"Wazahat ke liye auzaar hain. Azure Machine Learning ka Responsible AI dashboard poore model, ek group aur ek case ke aham asbab aur what-if dikhata hai. Language models mein amli auzaar citations, sources, confidence aur hadon ki saaf ibarat hain. Microsoft ka transparency note banane walon ko batata hai ke model kis liye bana aur kahan nakaam hota hai."},
+    {"en":"Too much information can hide the truth as well. A long legal text at registration is not transparency. Short information at the moment of use is.","ro":"Bohat zyada maloomat bhi sach chhupa sakti hai. Registration par lamba qanooni text transparency nahi. Istemal ke waqt mukhtasar maloomat transparency hai."},
+    {"en":"Transparency also helps the team: when people can see why a result came out, they report errors that testing missed.","ro":"Transparency team ki bhi madad karti hai: jab log dekh sakein ke nateeja kyun aaya to woh aisi ghaltiyan batate hain jo test mein reh gayin."}
+  ],
+  "how": [
+    {"en":"Show a clear notice: \"You are chatting with an AI assistant\".","ro":"Saaf notice dikhayein: \"Aap AI assistant se baat kar rahe hain\"."},
+    {"en":"Cite the sources of an answer so people can check them.","ro":"Jawab ke sources dikhayein taake log check kar sakein."},
+    {"en":"Mark generated images and text; image models add content credentials.","ro":"Banayi gayi images aur text par nishan lagayein; image models content credentials lagate hain."},
+    {"en":"Read and publish transparency notes: intended use, limits, known errors.","ro":"Transparency notes parhein aur shaya karein: maqsad, hadein, maloom ghaltiyan."}
+  ],
+  "example": { "text": {"en":"A card is blocked. \"Your card is blocked\" is not transparent. \"An automated check stopped this payment because it was made in a new country at night. Call us to release it\" tells people what happened and what they can do.","ro":"Card block hua. \"Your card is blocked\" shaffaf nahi. \"Automated check ne ye payment roki kyunke ye naye mulk se raat ko hui. Kholne ke liye call karein\" batata hai ke kya hua aur kya kar sakte hain."} },
+  "mistakes": [
+    { "wrong": {"en":"\"We publish the source code, so we are transparent.\"","ro":"\"Source code shaya kar diya, is liye shaffaf hain.\""}, "right": {"en":"Customers need an explanation in their words.","ro":"Customers ko apne alfaaz mein wazahat chahiye."} },
+    { "wrong": {"en":"\"An explained decision is a fair decision.\"","ro":"\"Samjhaya hua faisla insaaf wala faisla hai.\""}, "right": {"en":"Explaining and being fair are two different checks.","ro":"Samjhana aur insaaf do alag jaanch hain."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Global and local explanation","ro":"Global aur local explanation"}, "text": {"en":"Global: how does the model work in general? Local: why this one result?","ro":"Global: model aam tor par kaise chalta hai? Local: ye ek nateeja kyun?"} }
+  ],
+  "exam": [
+    {"en":"Clue words: explain, why, users do not know, AI-generated, limits, transparency note.","ro":"Ishare: samjhana, kyun, users ko pata nahi, AI se bana, hadein, transparency note."},
+    {"en":"\"Who is responsible?\" is accountability; \"How was it decided?\" is transparency.","ro":"\"Zimmedar kaun hai?\" accountability hai; \"Faisla kaise hua?\" transparency hai."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai", "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/transparency-note"]
+}

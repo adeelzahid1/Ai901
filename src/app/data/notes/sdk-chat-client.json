@@ -1,0 +1,43 @@
+{
+  "id": "sdk-chat-client", "minutes": 6,
+  "main": {"en":"Connect to the project, get an OpenAI client, call your deployment and keep the conversation.","ro":"Project se juren, OpenAI client lein, apni deployment call karein aur guftagu rakhein."},
+  "explain": [
+    {"en":"Two packages are enough: azure-ai-projects and azure-identity. AIProjectClient gets the project endpoint and a credential. DefaultAzureCredential tries several sources: environment, managed identity, az login. get_openai_client() returns an authenticated OpenAI client.","ro":"Do packages kaafi hain: azure-ai-projects aur azure-identity. AIProjectClient ko project endpoint aur credential milta hai. DefaultAzureCredential kai sources azmata hai: environment, managed identity, az login. get_openai_client() authenticated OpenAI client deta hai."},
+    {"en":"The Responses API is the newer one: you send input and instructions and read output_text. For the next turn, pass previous_response_id or a conversation. Chat Completions takes a list of messages with roles and is stateless, so your code appends every answer with the assistant role.","ro":"Responses API naya hai: input aur instructions bhejein, output_text parhein. Agle turn ke liye previous_response_id ya conversation dein. Chat Completions roles wale messages ki list leta hai aur stateless hai, is liye code har jawab assistant role ke saath append karta hai."},
+    {"en":"Real programs handle failures: 429 and temporary server errors with increasing waits, 400 with content_filter by a friendly message, 401/403/404 by fixing settings. Streaming shows the text while it is written.","ro":"Asal programs ghaltiyan sambhalte hain: 429 aur waqti server errors par barhta intezar, content_filter wale 400 par dostana paigham, 401/403/404 par settings theek karna. Streaming likhte waqt text dikhata hai."}
+  ],
+  "flow": {
+    "title": {"en":"One turn of a chat client","ro":"Chat client ka ek turn"},
+    "steps": [
+      { "title": {"en":"Read input","ro":"Input parhein"} },
+      { "title": {"en":"Add history","ro":"History shamil"}, "text": {"en":"Messages or response ID","ro":"Messages ya response ID"} },
+      { "title": {"en":"Call the deployment","ro":"Deployment call"}, "text": {"en":"With Entra ID","ro":"Entra ID ke saath"} },
+      { "title": {"en":"Show the answer","ro":"Jawab dikhayein"}, "text": {"en":"Or stream it","ro":"Ya stream"} },
+      { "title": {"en":"Save the turn","ro":"Turn save"} }
+    ]
+  },
+  "deep": [
+    {"en":"Exponential backoff means waiting 1, 2, 4, 8 seconds after each 429, with a maximum number of tries. Retrying at once makes the overload worse. A content filter block is different: retrying the same prompt never helps, so show a message and let the user rephrase. Log the request ID and status, but never the key.","ro":"Exponential backoff ka matlab har 429 ke baad 1, 2, 4, 8 second rukna, koshishon ki had ke saath. Foran dobara koshish overload barhati hai. Content filter ki rok alag hai: wahi prompt dohrane se kabhi faida nahi, is liye paigham dikhayein aur user ko alfaaz badalne dein. Request ID aur status log karein, key kabhi nahi."},
+    {"en":"Test the client in three situations: a normal question, a very long conversation and a wrong deployment name. If all three end with a clear message, the client is ready for users.","ro":"Client ko teen halaat mein test karein: aam sawal, bohat lambi guftagu aur ghalat deployment name. Teenon wazeh paigham par khatam hon to client users ke liye tayyar hai."}
+  ],
+  "how": [
+    {"en":"Put endpoint and deployment name in environment variables.","ro":"Endpoint aur deployment ka naam environment variables mein rakhein."},
+    {"en":"Keep history short: last turns plus a summary of older ones.","ro":"History mukhtasar: aakhri turns aur purane turns ka khulasa."},
+    {"en":"Read usage to see input and output tokens.","ro":"usage parhein taake input aur output tokens pata hon."}
+  ],
+  "example": { "text": {"en":"A small chat loop with the Responses API:","ro":"Responses API ke saath chhota chat loop:"}, "code": "openai = AIProjectClient(\n    endpoint=os.environ[\"PROJECT_ENDPOINT\"],\n    credential=DefaultAzureCredential()).get_openai_client()\n\nlast_id = None\nwhile (text := input(\"You: \")):\n    r = openai.responses.create(\n        model=\"chat-prod\", instructions=\"Be brief and friendly.\",\n        input=text, previous_response_id=last_id)\n    last_id = r.id\n    print(\"AI:\", r.output_text)" },
+  "mistakes": [
+    { "wrong": {"en":"\"choices[0] works for the Responses API.\"","ro":"\"choices[0] Responses API mein chalta hai.\""}, "right": {"en":"It belongs to Chat Completions. Use output_text.","ro":"Woh Chat Completions ka hai. output_text istemal karein."} },
+    { "wrong": {"en":"\"The key goes into the code for testing.\"","ro":"\"Test ke liye key code mein.\""}, "right": {"en":"Use Entra ID from the start; keys in code end up in repositories.","ro":"Shuru se Entra ID istemal karein; code ki keys repositories mein pohanch jati hain."} },
+    { "wrong": {"en":"\"The second request remembers the first.\"","ro":"\"Doosri request ko pehli yaad hai.\""}, "right": {"en":"Only with previous_response_id, a conversation or the sent history.","ro":"Sirf previous_response_id, conversation ya bheji hui history ke saath."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Project endpoint and OpenAI endpoint","ro":"Project endpoint aur OpenAI endpoint"}, "text": {"en":"Project: …services.ai.azure.com/api/projects/name for AIProjectClient. OpenAI: …openai.azure.com/openai/v1 for the plain OpenAI client.","ro":"Project: …services.ai.azure.com/api/projects/name, AIProjectClient ke liye. OpenAI: …openai.azure.com/openai/v1, saade OpenAI client ke liye."} },
+    { "terms": {"en":"previous_response_id and messages","ro":"previous_response_id aur messages"}, "text": {"en":"With the first, the server keeps the history; with the second, your app does.","ro":"Pehle mein history server rakhta hai; doosre mein aap ki app."} }
+  ],
+  "exam": [
+    {"en":"Complete code: class, method, property. Know AIProjectClient, get_openai_client, responses.create, output_text.","ro":"Code mukammal karna: class, method, property. AIProjectClient, get_openai_client, responses.create, output_text yaad rakhein."},
+    {"en":"Find the error: wrong endpoint, missing assistant message, wrong property, no retry.","ro":"Ghalti dhoondna: ghalat endpoint, assistant message nahi, ghalat property, retry nahi."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code", "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses"]
+}

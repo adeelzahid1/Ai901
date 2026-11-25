@@ -1,0 +1,40 @@
+{
+  "id": "deploy-config", "minutes": 6,
+  "main": {"en":"The deployment type decides where requests are processed, how you pay and how much capacity you get. Parameters shape one request.","ro":"Deployment type tay karta hai ke requests kahan process hon, kaise paise dein aur kitni capacity ho. Parameters ek request ki shakal banate hain."},
+  "explain": [
+    {"en":"Two questions lead to the type. Where may data be processed: anywhere (Global), inside a data zone such as the EU, US or Asia Pacific (Data Zone), or inside one Azure geography (Standard, Regional Provisioned)? And how does traffic look: changing (Standard, pay per token), steady and high (Provisioned, reserved units) or not urgent (Batch, 50% cheaper, 24-hour target)?","ro":"Do sawal type tak le jate hain. Data kahan process ho sakta hai: kahin bhi (Global), EU, US ya Asia Pacific jaise data zone mein (Data Zone), ya ek Azure geography mein (Standard, Regional Provisioned)? Aur traffic kaisa hai: badalta (Standard, fi token), mustaqil aur zyada (Provisioned, mukhtas units) ya ghair fauri (Batch, 50% sasta, 24 ghante ka hadaf)?"},
+    {"en":"Stored data stays in the chosen Azure geography for every type; the difference is where prompts are processed. Microsoft recommends to start with Global Standard, because it has the newest models, the lowest price and the highest quota.","ro":"Mehfooz data har type mein chuni hui Azure geography mein rehta hai; farq ye hai ke prompts kahan process hote hain. Microsoft Global Standard se shuru karne ka kehta hai, kyunke us mein naye models, sab se kam qeemat aur sab se zyada quota hai."},
+    {"en":"Parameters: temperature and top_p control variety (change one of them), max output tokens cuts the length, stop sequences end the text, and frequency and presence penalties reduce repetition. Reasoning models use reasoning effort instead and do not accept every sampling parameter.","ro":"Parameters: temperature aur top_p variety control karte hain (ek badlein), max output tokens lambai kaat deta hai, stop sequences text khatam karti hain, aur frequency aur presence penalties dohrao kam karti hain. Reasoning models reasoning effort istemal karte hain aur har sampling parameter qabool nahi karte."}
+  ],
+  "flow": {
+    "title": {"en":"Choose a deployment type","ro":"Deployment type chunna"},
+    "steps": [
+      { "title": {"en":"Urgent?","ro":"Fauri?"}, "text": {"en":"No → Batch","ro":"Nahi → Batch"} },
+      { "title": {"en":"Data limits?","ro":"Data ki had?"}, "text": "Zone → Data Zone; geography → Standard" },
+      { "title": {"en":"Steady high load?","ro":"Mustaqil zyada load?"}, "text": {"en":"Yes → Provisioned","ro":"Haan → Provisioned"} },
+      { "title": {"en":"Otherwise","ro":"Warna"}, "text": "Global Standard" }
+    ]
+  },
+  "deep": [
+    {"en":"Capacity is a number per deployment. With --sku-capacity 20 a standard deployment gets 20,000 tokens per minute, taken from the quota of the subscription. A requests-per-minute limit is set with it. When an app grows, you raise the capacity, spread the load or move to provisioned throughput.","ro":"Capacity har deployment ka number hai. --sku-capacity 20 se standard deployment ko fi minute 20,000 tokens milte hain, jo subscription ke quota se aate hain. Is ke saath requests-per-minute ki had bhi lagti hai. App barhe to capacity barhayein, load baantein ya provisioned throughput par jayein."}
+  ],
+  "how": [
+    {"en":"Quota is tokens per minute per region, model and deployment type. HTTP 429 means the limit is reached.","ro":"Quota region, model aur deployment type ke hisaab se tokens per minute hai. HTTP 429 ka matlab had aa gayi."},
+    {"en":"Low temperature for facts and classification, higher for ideas.","ro":"Haqaiq aur classification ke liye kam temperature, ideas ke liye zyada."},
+    {"en":"Managed compute runs open models on virtual machines that you choose and pay for per hour.","ro":"Managed compute open models ko aap ki chuni virtual machines par chalata hai, fi ghanta qeemat par."}
+  ],
+  "example": { "text": {"en":"A bank in Germany: live chat with EU processing → Data Zone Standard. The same chat with a guaranteed response time at peak → Data Zone Provisioned. Nightly summaries in the zone → Data Zone Batch.","ro":"Germany ka bank: EU mein process hone wala live chat → Data Zone Standard. Wahi chat rush mein pakki raftaar ke saath → Data Zone Provisioned. Zone mein raat ke khulasay → Data Zone Batch."} },
+  "mistakes": [
+    { "wrong": {"en":"\"Global moves my stored data around the world.\"","ro":"\"Global mera mehfooz data duniya mein ghumata hai.\""}, "right": {"en":"Only processing may happen elsewhere; data at rest stays in its geography.","ro":"Sirf processing kahin aur ho sakti hai; mehfooz data apni geography mein rehta hai."} },
+    { "wrong": {"en":"\"Temperature zero makes answers true.\"","ro":"\"Temperature zero jawab sach banata hai.\""}, "right": {"en":"It makes them consistent.","ro":"Woh unhein yaksan banata hai."} },
+    { "wrong": {"en":"\"Max tokens makes answers short and complete.\"","ro":"\"Max tokens jawab mukhtasar aur mukammal karta hai.\""}, "right": {"en":"It cuts them off. Ask for a short answer in the prompt.","ro":"Woh kaat deta hai. Mukhtasar jawab prompt mein maangein."} }
+  ],
+  "compare": [
+    { "terms": {"en":"temperature and top_p","ro":"temperature aur top_p"}, "text": {"en":"temperature changes how bold the choice is; top_p limits how many likely tokens may be chosen. Change one, not both.","ro":"temperature tay karta hai intikhab kitna azad ho; top_p ke kitne mumkina tokens mein se chuna jaye. Ek badlein, dono nahi."} }
+  ],
+  "exam": [
+    {"en":"Read the requirement words: overnight, within the EU, predictable latency, no commitment.","ro":"Zaroorat ke alfaaz dekhein: raat bhar mein, EU ke andar, yaksan latency, koi paband nahi."},
+    {"en":"Code questions show sku-name GlobalStandard and sku-capacity in thousands of tokens per minute.","ro":"Code wale sawalon mein sku-name GlobalStandard aur sku-capacity (hazar tokens per minute) aata hai."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types", "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/quota"]
+}

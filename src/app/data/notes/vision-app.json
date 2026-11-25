@@ -1,0 +1,33 @@
+{
+  "id": "vision-app", "minutes": 4,
+  "main": {"en":"ImageAnalysisClient returns the visual features that you request: caption, tags, objects, people, text.","ro":"ImageAnalysisClient aap ke maange hue visual features deta hai: caption, tags, objects, people, text."},
+  "explain": [
+    {"en":"The package is azure-ai-vision-imageanalysis. Create the client with endpoint and credential and call analyze with image_data (bytes) or analyze_from_url. visual_features lists what you want; anything else in the result is None.","ro":"Package azure-ai-vision-imageanalysis hai. Endpoint aur credential se client banayein aur image_data (bytes) ke saath analyze ya analyze_from_url call karein. visual_features mein jo chahiye likhein; baqi nateeje mein None hota hai."},
+    {"en":"Results have confidence values, and objects, people and text have positions. Image Analysis 4.0 is marked as deprecated and retires on 25 September 2028, so learn it for the exam and check the alternatives for new projects.","ro":"Nateejon mein confidence hota hai, aur objects, people aur text ki jagah hoti hai. Image Analysis 4.0 deprecated hai aur 25 September 2028 ko retire hoga, is liye exam ke liye seekhein aur naye projects mein mutabadil dekhein."},
+    {"en":"When you need open questions, reasoning or a mix of text and pictures, a multimodal model is the better building block.","ro":"Khule sawal, soch bichar ya text aur tasveer ka mila jula kaam ho to multimodal model behtar hai."}
+  ],
+  "deep": [
+    {"en":"The result object has one attribute per feature: result.caption.text and confidence, result.tags.list, result.objects.list with bounding_box, result.people.list, result.read.blocks with lines and words. Filter by confidence before you show or store values. Boxes use pixel coordinates of the original image, so scale them when you draw on a smaller preview.","ro":"Result object mein har feature ka attribute hai: result.caption.text aur confidence, result.tags.list, result.objects.list bounding_box ke saath, result.people.list, result.read.blocks lines aur words ke saath. Dikhane ya save karne se pehle confidence se filter karein. Boxes asal image ke pixels mein hote hain, is liye chhoti preview par scale karein."},
+    {"en":"Images must be readable for the service: common formats, not too small, not too large, and reachable when you send a URL. A 400 error often means a wrong format or an image that cannot be downloaded.","ro":"Image service ke liye qabil e qabool ho: aam formats, na bohat chhoti, na bohat bari, aur URL ho to khuli. 400 error ka matlab aksar ghalat format ya download na hone wali image."},
+    {"en":"A typical app for a photo archive runs in three steps. It requests tags and people for each picture, saves values above a confidence of 0.7 with the file name, and puts pictures with low values into a review list. Later the archive can be searched by tag without analyzing again. Keep the model version and the date with the result, because a later version may give other tags.","ro":"Photo archive ki aam app teen qadam mein chalti hai. Har tasveer ke tags aur people maangti hai, 0.7 se zyada confidence wali values file name ke saath save karti hai, aur kam wali tasveerein review list mein dalti hai. Baad mein archive dobara analysis ke baghair tag se dhoonda ja sakta hai. Nateeje ke saath model version aur tareekh rakhein, kyunke naya version doosre tags de sakta hai."}
+  ],
+  "how": [
+    {"en":"CAPTION one sentence, DENSE_CAPTIONS several regions, TAGS words, OBJECTS boxes, PEOPLE boxes, READ text, SMART_CROPS crops.","ro":"CAPTION ek jumla, DENSE_CAPTIONS kai hisse, TAGS alfaaz, OBJECTS boxes, PEOPLE boxes, READ text, SMART_CROPS crop."},
+    {"en":"Request only needed features: less time and lower cost.","ro":"Sirf zaroori features maangein: kam waqt aur kharcha."},
+    {"en":"Captions work only in some regions; check before you create the resource.","ro":"Captions sirf kuch regions mein hain; resource banane se pehle dekhein."}
+  ],
+  "example": { "text": {"en":"Read the text on a sign:","ro":"Sign ka text parhna:"}, "code": "client = ImageAnalysisClient(ENDPOINT, AzureKeyCredential(KEY))\nresult = client.analyze(\n    image_data=open(\"sign.jpg\", \"rb\").read(),\n    visual_features=[VisualFeatures.READ])\nfor block in result.read.blocks:\n    for line in block.lines:\n        print(line.text)" },
+  "mistakes": [
+    { "wrong": {"en":"\"result.caption is always there.\"","ro":"\"result.caption hamesha hota hai.\""}, "right": {"en":"Only when CAPTION was requested.","ro":"Sirf jab CAPTION maanga gaya."} },
+    { "wrong": {"en":"\"PEOPLE recognizes who they are.\"","ro":"\"PEOPLE batata hai kaun hain.\""}, "right": {"en":"It returns boxes and confidence only.","ro":"Woh sirf boxes aur confidence deta hai."} }
+  ],
+  "compare": [
+    { "terms": {"en":"analyze and analyze_from_url","ro":"analyze aur analyze_from_url"}, "text": {"en":"The first sends bytes; the second sends a public address.","ro":"Pehla bytes bhejta hai; doosra khula pata."} },
+    { "terms": {"en":"TAGS and OBJECTS","ro":"TAGS aur OBJECTS"}, "text": {"en":"TAGS are words for the whole picture; OBJECTS have positions.","ro":"TAGS poori tasveer ke alfaaz hain; OBJECTS ki jagah hoti hai."} }
+  ],
+  "exam": [
+    {"en":"Complete VisualFeatures and the result property.","ro":"VisualFeatures aur nateeje ki property mukammal karein."},
+    {"en":"Image Analysis or multimodal model? Fixed features or open question?","ro":"Image Analysis ya multimodal model? Mukarrar features ya khula sawal?"}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40", "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"]
+}

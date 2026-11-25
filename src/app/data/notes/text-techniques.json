@@ -1,0 +1,32 @@
+{
+  "id": "text-techniques", "minutes": 5,
+  "main": {"en":"Each technique returns a different kind of result: a language, topics, entities, masked text, a mood, opinions or a summary.","ro":"Har technique alag nateeja deti hai: zabaan, topics, entities, chhupa hua text, mood, raaye ya khulasa."},
+  "explain": [
+    {"en":"Azure Language provides these as ready-made features with consistent output and confidence scores between 0 and 1. You send documents and get one result per document.","ro":"Azure Language ye tayyar features yaksan output aur 0 se 1 tak confidence ke saath deta hai. Aap documents bhejte hain aur har document ka ek nateeja milta hai."},
+    {"en":"Microsoft now groups them. Core capabilities for new projects are PII detection, language detection, named entity recognition and text analytics for health. Key phrases, sentiment and opinion mining, summarization and entity linking are legacy capabilities: still supported, and still in the exam outline. For new apps a chat model can do those tasks with a prompt.","ro":"Microsoft ne inhein groups mein baanta hai. Naye projects ke liye core: PII detection, language detection, named entity recognition aur text analytics for health. Key phrases, sentiment aur opinion mining, summarization aur entity linking legacy hain: ab bhi supported aur ab bhi exam mein. Nayi apps mein ye kaam chat model prompt se kar sakta hai."},
+    {"en":"Two kinds of summaries exist: extractive picks the most important existing sentences, abstractive writes new sentences.","ro":"Khulasay do qisam ke hain: extractive aham maujooda jumlay chunta hai, abstractive naye jumlay likhta hai."}
+  ],
+  "deep": [
+    {"en":"Choose between a ready-made feature and a chat model by asking what the program needs. Fixed categories, the same result every time, scores and low cost per document: use the Language feature. Unusual categories, several tasks in one step or a free explanation: use a chat model, if possible with structured outputs.","ro":"Tayyar feature aur chat model mein program ki zaroorat se chunein. Mukarrar categories, har baar wahi nateeja, scores aur fi document kam kharcha: Language feature. Ghair aam categories, ek qadam mein kai kaam ya khuli wazahat: chat model, ho sake to structured outputs ke saath."}
+  ],
+  "how": [
+    {"en":"Sentiment labels a document and each sentence positive, neutral, negative; a document can also be mixed.","ro":"Sentiment document aur har jumlay ko positive, neutral, negative label deta hai; document mixed bhi ho sakta hai."},
+    {"en":"Opinion mining adds the target and the words about it: battery → weak.","ro":"Opinion mining target aur us ke alfaaz deta hai: battery → weak."},
+    {"en":"Custom NER learns your own categories from labeled examples, for example part numbers.","ro":"Custom NER label wali misalon se aap ki apni categories seekhta hai, jaise part numbers."},
+    {"en":"Entity linking connects a name to a Wikipedia page, so Mars the planet differs from Mars the company.","ro":"Entity linking naam ko Wikipedia page se jorta hai, taake Mars planet aur Mars company alag hon."}
+  ],
+  "example": { "text": "\"Ali from Lahore called on Monday: the new phone is fast, but the battery is weak.\" Entities: Ali (person), Lahore (location), Monday (date). Key phrases: new phone, battery. Opinions: phone → fast, battery → weak. Sentiment: mixed." },
+  "mistakes": [
+    { "wrong": {"en":"\"Key phrases tell me whether people are happy.\"","ro":"\"Key phrases batate hain ke log khush hain.\""}, "right": {"en":"They name topics. Sentiment tells the mood.","ro":"Woh topics batate hain. Mood sentiment batata hai."} },
+    { "wrong": {"en":"\"A confidence of 0.9 means a very positive text.\"","ro":"\"0.9 confidence ka matlab bohat positive text.\""}, "right": {"en":"It means the service is 90% sure of its label.","ro":"Is ka matlab service apne label par 90% yaqeen rakhti hai."} }
+  ],
+  "compare": [
+    { "terms": {"en":"NER and PII detection","ro":"NER aur PII detection"}, "text": {"en":"NER finds many kinds of names and quantities. PII detection finds personal data and can mask it.","ro":"NER kai qisam ke naam aur miqdar dhoondta hai. PII detection zaati data dhoond kar chhupa sakta hai."} },
+    { "terms": {"en":"Sentiment and opinion mining","ro":"Sentiment aur opinion mining"}, "text": {"en":"Sentiment labels the whole text; opinion mining explains which part is liked or disliked.","ro":"Sentiment poore text ka label hai; opinion mining batata hai kaunsa hissa pasand ya napasand hai."} }
+  ],
+  "exam": [
+    {"en":"Match a need with a technique; PII and NER are placed side by side.","ro":"Zaroorat ko technique se milana; PII aur NER saath diye jate hain."},
+    {"en":"Same sentences kept → extractive. New short text → abstractive.","ro":"Wahi jumlay → extractive. Naya chhota text → abstractive."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview", "https://learn.microsoft.com/en-us/azure/ai-services/language-service/summarization/overview"]
+}

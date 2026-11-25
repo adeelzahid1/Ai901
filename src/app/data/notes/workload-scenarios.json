@@ -1,0 +1,41 @@
+{
+  "id": "workload-scenarios", "minutes": 4,
+  "main": {"en":"Name the workload from the input and the output, then look for words about acting, speaking, seeing or extracting.","ro":"Input aur output se workload pehchanein, phir kaam karne, bolne, dekhne ya nikalne ke alfaaz dekhein."},
+  "explain": [
+    {"en":"The exam uses six groups: generative AI creates content, agentic AI acts with tools, text analysis finds facts in text, speech converts between audio and text, computer vision understands pictures, and information extraction turns files into fields.","ro":"Exam mein chhe group hain: generative AI content banata hai, agentic AI tools se kaam karta hai, text analysis text mein maloomat dhoondta hai, speech audio aur text badalta hai, computer vision tasveerein samajhta hai, aur information extraction files ko fields banata hai."},
+    {"en":"Agentic AI is the newest group. An agent gets a goal, plans steps, calls tools such as a calendar or a database, looks at the result and continues until the goal is reached. A chatbot that only answers is generative AI.","ro":"Agentic AI sab se naya group hai. Agent ko maqsad milta hai, woh qadam plan karta hai, calendar ya database jaise tools call karta hai, nateeja dekhta hai aur maqsad tak chalta rehta hai. Sirf jawab dene wala chatbot generative AI hai."}
+  ],
+  "flow": {
+    "title": {"en":"The loop of an agent","ro":"Agent ka silsila"},
+    "steps": [
+      { "title": {"en":"Goal","ro":"Maqsad"} },
+      { "title": "Plan", "text": {"en":"Next step","ro":"Agla qadam"} },
+      { "title": {"en":"Act","ro":"Kaam"}, "text": {"en":"Call a tool","ro":"Tool call"} },
+      { "title": {"en":"Observe","ro":"Dekhna"}, "text": {"en":"Read the result","ro":"Nateeja parhna"} },
+      { "title": {"en":"Repeat or finish","ro":"Dohrana ya khatam"} }
+    ]
+  },
+  "deep": [
+    {"en":"Prediction workloads also exist: regression predicts a number, classification predicts a category, clustering groups similar items. In this exam they appear mostly as wrong answers next to the generative and perception workloads, so you should recognize that a price forecast is not generative AI.","ro":"Prediction workloads bhi hote hain: regression number, classification category batata hai, clustering milti cheezein group karta hai. Is exam mein ye zyada tar ghalat jawab ke tor par aate hain, is liye pehchanein ke qeemat ki peshgoi generative AI nahi."},
+    {"en":"A good way to think about an agent is a new colleague. It needs a task description (instructions), tools, limits, and somebody who checks important actions. The more it may do alone, the more you need approval steps, logs and least privilege.","ro":"Agent ko naye colleague ki tarah sochein. Usay kaam ki tafseel (instructions), tools, hadein, aur aham kaam check karne wala chahiye. Jitna woh akela kar sakta hai, utni hi manzoori, logs aur kam se kam ikhtiyar chahiye."}
+  ],
+  "how": [
+    {"en":"Underline the verbs: write, book, classify, transcribe, count, extract.","ro":"Fail (verbs) dekhein: likhna, book karna, classify, transcribe, ginna, nikalna."},
+    {"en":"Combine workloads when a scenario has several steps.","ro":"Scenario mein kai qadam hon to workloads milayein."},
+    {"en":"Ask whether AI is needed at all: fixed rules or a barcode may be exact and cheaper.","ro":"Poochein ke AI chahiye bhi ya nahi: mukarrar usool ya barcode zyada sahi aur saste ho sakte hain."}
+  ],
+  "example": { "text": {"en":"A hotel: reviews are sorted by mood (text analysis), a reply is drafted (generative AI), phone calls become text (speech), passports become fields (information extraction), a photo shows a full parking lot (computer vision), and a room is booked in the system (agentic AI).","ro":"Hotel: reviews mood ke hisaab se (text analysis), jawab ka draft (generative AI), phone calls text mein (speech), passport fields mein (information extraction), photo mein bhari parking (computer vision), aur system mein kamra book (agentic AI)."} },
+  "mistakes": [
+    { "wrong": {"en":"\"It uses a language model, so it is an agent.\"","ro":"\"Language model hai, is liye agent hai.\""}, "right": {"en":"An agent also has instructions, tools and acts.","ro":"Agent ke paas instructions aur tools hote hain aur woh kaam karta hai."} },
+    { "wrong": {"en":"\"Reading a form is OCR.\"","ro":"\"Form parhna OCR hai.\""}, "right": {"en":"OCR gives text. Getting the total into a field is extraction.","ro":"OCR text deta hai. Total ko field mein lana extraction hai."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Chatbot and agent","ro":"Chatbot aur agent"}, "text": {"en":"A chatbot answers. An agent answers and acts in other systems.","ro":"Chatbot jawab deta hai. Agent jawab deta hai aur doosre systems mein kaam karta hai."} },
+    { "terms": {"en":"Text analysis and generative AI","ro":"Text analysis aur generative AI"}, "text": {"en":"Analysis finds what is in a text; generation writes new text.","ro":"Analysis text mein maujood cheez dhoondta hai; generation naya text likhta hai."} }
+  ],
+  "exam": [
+    {"en":"Matching questions: scenario → workload, with one workload left over.","ro":"Matching sawal: scenario → workload, jis mein ek workload bach jata hai."},
+    {"en":"Yes/No questions about the difference between an agent and a chatbot.","ro":"Agent aur chatbot ke farq par Haan/Nahi sawal."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/", "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"]
+}

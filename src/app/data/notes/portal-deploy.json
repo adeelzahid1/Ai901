@@ -1,0 +1,43 @@
+{
+  "id": "portal-deploy", "minutes": 6,
+  "main": {"en":"Create a Foundry project, choose a model from the catalog, deploy it under a name, test it in the playground, evaluate it and set guardrails.","ro":"Foundry project banayein, catalog se model chunein, naam ke saath deploy karein, playground mein test, evaluation aur guardrails."},
+  "explain": [
+    {"en":"A Foundry resource belongs to a subscription and a region and holds model deployments. Projects inside it organize the work: agents, files, evaluations, connections. Your app uses the project endpoint and the deployment name.","ro":"Foundry resource subscription aur region mein hota hai aur us mein model deployments hoti hain. Us ke andar projects kaam munazzam karte hain: agents, files, evaluations, connections. Aap ki app project endpoint aur deployment ka naam istemal karti hai."},
+    {"en":"Guardrails are named sets of controls. Each control has a risk (hate, sexual, violence, self-harm, prompt attacks, protected material and others), an intervention point (user input and output; for agents also tool call and tool response in preview) and an action (annotate, or annotate and block). A higher blocking level is stricter: High blocks low, medium and high severity.","ro":"Guardrails controls ke naam wale set hain. Har control mein khatra (hate, sexual, violence, self-harm, prompt attacks, protected material waghera), jagah (user input aur output; agents ke liye tool call aur tool response preview mein) aur kaam (annotate, ya annotate and block) hota hai. Zyada blocking level zyada sakht hai: High low, medium aur high severity teenon rokta hai."},
+    {"en":"Roles: Foundry User can build in a project but cannot deploy models; Foundry Account Owner manages models and resources but cannot build; Foundry Owner can do both. The old names started with Azure AI.","ro":"Roles: Foundry User project mein bana sakta hai lekin models deploy nahi; Foundry Account Owner models aur resources sambhalta hai lekin bana nahi sakta; Foundry Owner dono. Purane naam Azure AI se shuru hote thay."}
+  ],
+  "flow": {
+    "title": {"en":"From catalog to app","ro":"Catalog se app tak"},
+    "steps": [
+      { "title": "Project" },
+      { "title": "Catalog", "text": {"en":"Compare models","ro":"Models muqabla"} },
+      { "title": "Deploy", "text": {"en":"Name, type, capacity","ro":"Naam, type, capacity"} },
+      { "title": "Playground", "text": "Prompt, parameters" },
+      { "title": "Evaluate", "text": "Dataset, metrics" },
+      { "title": "Guardrails", "text": {"en":"Then use in the app","ro":"Phir app mein"} }
+    ]
+  },
+  "deep": [
+    {"en":"Evaluation needs a dataset with questions and, for some metrics, expected answers or context. Quality evaluators use a model as a judge, so they cost tokens and need a deployment. Safety evaluators check for harmful content and attacks. Run the same evaluation before and after a change; a single number without a comparison says little.","ro":"Evaluation ko sawalon ka dataset chahiye, aur kuch metrics ke liye mutawaqqe jawab ya context. Quality evaluators model ko judge banate hain, is liye tokens aur deployment chahiye. Safety evaluators nuqsan dah content aur hamle dekhte hain. Tabdeeli se pehle aur baad wahi evaluation chalayein; muqable ke baghair akela number kam batata hai."}
+  ],
+  "how": [
+    {"en":"Evaluators: groundedness (follows the source), relevance (answers the question), coherence (logical), fluency (good language), plus safety evaluators.","ro":"Evaluators: groundedness (source ke mutabiq), relevance (sawal ka jawab), coherence (mantiqi), fluency (achi zabaan), aur safety evaluators."},
+    {"en":"The playground shows sample code for the current settings.","ro":"Playground maujooda settings ka sample code dikhata hai."},
+    {"en":"Version upgrades can change answers: evaluate again before and after.","ro":"Version badalne se jawab badal sakte hain: pehle aur baad evaluate karein."}
+  ],
+  "example": { "text": {"en":"A deployment named helpdesk-prod uses gpt-5-mini, type Data Zone Standard, 60,000 tokens per minute and a guardrail that blocks from medium severity. The code only says model=\"helpdesk-prod\".","ro":"helpdesk-prod naam ki deployment gpt-5-mini, Data Zone Standard, 60,000 tokens per minute aur medium severity se block karne wala guardrail istemal karti hai. Code mein sirf model=\"helpdesk-prod\" hai."} },
+  "mistakes": [
+    { "wrong": {"en":"\"The model name goes into the code.\"","ro":"\"Code mein model ka naam aata hai.\""}, "right": {"en":"The deployment name does.","ro":"Deployment ka naam aata hai."} },
+    { "wrong": {"en":"\"Low is the strictest blocking level.\"","ro":"\"Low sab se sakht level hai.\""}, "right": {"en":"Low blocks only high severity. High is the strictest.","ro":"Low sirf high severity rokta hai. High sab se sakht hai."} },
+    { "wrong": {"en":"\"The agent uses the guardrail of its model.\"","ro":"\"Agent apne model ka guardrail istemal karta hai.\""}, "right": {"en":"A guardrail assigned to the agent fully replaces it.","ro":"Agent ko diya guardrail usay poori tarah badal deta hai."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Playground and evaluation","ro":"Playground aur evaluation"}, "text": {"en":"Playground: one person tries some prompts. Evaluation: many cases with measured results.","ro":"Playground: ek shakhs chand prompts azmata hai. Evaluation: bohat se cases, naape hue nateeje."} },
+    { "terms": {"en":"Groundedness and relevance","ro":"Groundedness aur relevance"}, "text": {"en":"Groundedness: does it follow the source? Relevance: does it answer the question?","ro":"Groundedness: source ke mutabiq hai? Relevance: sawal ka jawab hai?"} }
+  ],
+  "exam": [
+    {"en":"Symptoms: 429 quota, 404 deployment name, 401 key or token, 403 role, content_filter guardrail.","ro":"Alamat: 429 quota, 404 deployment ka naam, 401 key ya token, 403 role, content_filter guardrail."},
+    {"en":"Order questions: project → deploy → playground → evaluate → app.","ro":"Tarteeb: project → deploy → playground → evaluate → app."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/create-model-deployments", "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview"]
+}

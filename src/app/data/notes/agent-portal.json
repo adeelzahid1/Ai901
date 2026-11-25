@@ -1,0 +1,43 @@
+{
+  "id": "agent-portal", "minutes": 6,
+  "main": {"en":"A prompt agent is a saved combination of model, instructions and tools that Foundry runs for you.","ro":"Prompt agent model, instructions aur tools ka mehfooz majmua hai jise Foundry aap ke liye chalata hai."},
+  "explain": [
+    {"en":"Foundry Agent Service offers three agent types. Prompt agents are configured without code, the fastest way. Voice-based prompt agents talk in real time. Hosted agents run your own code as a container. For this exam, the single prompt agent is the important one.","ro":"Foundry Agent Service mein teen qisam ke agents hain. Prompt agents baghair code ke configure hote hain, sab se tez raasta. Voice-based prompt agents real time mein baat karte hain. Hosted agents aap ka apna code container mein chalate hain. Is exam ke liye akela prompt agent aham hai."},
+    {"en":"Instructions describe role, scope, steps and when to use a tool. Tools give knowledge (file search, web search) or actions (code interpreter, functions, MCP servers). A toolbox bundles tools so several agents can share them.","ro":"Instructions role, daira, qadam aur tool kab istemal karna hai batati hain. Tools ilm (file search, web search) ya kaam (code interpreter, functions, MCP servers) dete hain. Toolbox tools ko jama karta hai taake kai agents bant sakein."},
+    {"en":"File search splits files into chunks, creates embeddings and stores them in a vector store. At run time the agent searches it and answers with citations.","ro":"File search files ko chunks mein baantta, embeddings banata aur vector store mein rakhta hai. Chalte waqt agent us mein dhoond kar citations ke saath jawab deta hai."}
+  ],
+  "flow": {
+    "title": {"en":"Create a single agent","ro":"Akela agent banana"},
+    "steps": [
+      { "title": {"en":"Deploy a model","ro":"Model deploy"} },
+      { "title": {"en":"Create the agent","ro":"Agent banayein"}, "text": {"en":"Name, model","ro":"Naam, model"} },
+      { "title": "Instructions", "text": {"en":"Role, scope, limits","ro":"Role, daira, hadein"} },
+      { "title": "Tools", "text": "File search, code …" },
+      { "title": "Test", "text": "Playground, traces" },
+      { "title": {"en":"Save a version","ro":"Version save"} }
+    ]
+  },
+  "deep": [
+    {"en":"Instructions work best with a clear order: who you are, what you do, what you never do, when to use which tool, how to answer, what to do when you are unsure. Short sentences beat long paragraphs. If the agent picks the wrong tool, improve the description of the tool before you add more rules.","ro":"Instructions wazeh tarteeb mein behtar chalti hain: aap kaun hain, kya karte hain, kya kabhi nahi, kaunsa tool kab, jawab kaise, shak ho to kya. Chhote jumlay lambe paragraphs se behtar hain. Agent ghalat tool chune to usool barhane se pehle tool ki description behtar karein."}
+  ],
+  "how": [
+    {"en":"Start with one tool and add more only when a test needs it.","ro":"Ek tool se shuru karein, aur tab barhayein jab test ko zaroorat ho."},
+    {"en":"Test questions that it must refuse, not only the easy ones.","ro":"Woh sawal bhi test karein jin se inkaar karna hai, sirf aasan nahi."},
+    {"en":"Look at the tool calls in the playground: did it search, and with which words?","ro":"Playground mein tool calls dekhein: kya us ne talash ki, aur kin alfaaz se?"},
+    {"en":"Require human approval for actions that change data or cost money.","ro":"Data badalne ya paise lagne wale kaam ke liye insani manzoori lazmi karein."}
+  ],
+  "example": { "text": {"en":"An HR agent: instructions \"Answer only from the HR files; otherwise say you do not know\", file search with 12 policies, code interpreter for vacation days. Test: \"How many days after 3 years?\" uses both tools; \"Who wins the match?\" is refused.","ro":"HR agent: instructions \"Answer only from the HR files; otherwise say you do not know\", 12 policies wala file search, chhuttiyon ke hisaab ke liye code interpreter. Test: \"3 saal baad kitne din?\" dono tools; \"Match kaun jeetega?\" par inkaar."} },
+  "mistakes": [
+    { "wrong": {"en":"\"Instructions can replace file search.\"","ro":"\"Instructions file search ki jagah le sakti hain.\""}, "right": {"en":"Sixty documents do not fit, and they change.","ro":"Saath documents nahi aate, aur woh badalte hain."} },
+    { "wrong": {"en":"\"More tools make a better agent.\"","ro":"\"Zyada tools behtar agent banate hain.\""}, "right": {"en":"Extra tools add risk and wrong choices.","ro":"Izafi tools khatra aur ghalat intikhab barhate hain."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Prompt agent and hosted agent","ro":"Prompt agent aur hosted agent"}, "text": {"en":"Prompt agent: configuration, run by Foundry. Hosted agent: your own code in a container.","ro":"Prompt agent: configuration, Foundry chalata hai. Hosted agent: aap ka apna code container mein."} },
+    { "terms": {"en":"File search and web search","ro":"File search aur web search"}, "text": {"en":"File search reads your documents; web search reads current public pages.","ro":"File search aap ke documents parhta hai; web search taza awami pages."} }
+  ],
+  "exam": [
+    {"en":"Need → tool: documents, exact math, current information, own function.","ro":"Zaroorat → tool: documents, bilkul sahi hisaab, taza maloomat, apna function."},
+    {"en":"Why does it invent answers? Usually no knowledge tool or no instruction to use it.","ro":"Jawab kyun gharta hai? Aksar ilm wala tool nahi, ya us ke istemal ki hidayat nahi."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/agents/overview", "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search"]
+}

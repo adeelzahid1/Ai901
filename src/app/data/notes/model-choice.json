@@ -1,0 +1,41 @@
+{
+  "id": "model-choice", "minutes": 4,
+  "main": {"en":"Choose the smallest and cheapest model that does the task with enough quality, speed and the right inputs and outputs.","ro":"Woh sab se chhota aur sasta model chunein jo kaam kaafi quality, raftaar aur sahi input/output ke saath kare."},
+  "explain": [
+    {"en":"Start with the task: what goes in and what must come out? Text to text needs a language model. Images as input need a multimodal model. New pictures need an image model. Speech in and out needs an audio model. Search by meaning needs an embedding model.","ro":"Kaam se shuru karein: kya andar jata hai aur kya bahar aana chahiye? Text se text ke liye language model. Image input ke liye multimodal model. Nayi tasveer ke liye image model. Awaaz ke liye audio model. Matlab se talash ke liye embedding model."},
+    {"en":"Then compare capability with cost. Small models are fast and cheap for clear, narrow tasks. Large models handle broad and complex tasks. Reasoning models think in hidden steps; those reasoning tokens are billed as output tokens, so they are slower and more expensive.","ro":"Phir salahiyat aur kharcha muqabla karein. Chhote models wazeh aur mehdood kaam ke liye tez aur saste hain. Bare models wasee aur mushkil kaam karte hain. Reasoning models chhupe qadmon mein sochte hain; un ke reasoning tokens output tokens ki tarah bill hote hain, is liye slow aur mehnge hain."}
+  ],
+  "flow": {
+    "title": {"en":"From task to model","ro":"Kaam se model tak"},
+    "steps": [
+      { "title": {"en":"Define the task","ro":"Kaam tay karein"}, "text": {"en":"Input, output, languages","ro":"Input, output, zabaanein"} },
+      { "title": {"en":"Filter the catalog","ro":"Catalog filter"}, "text": {"en":"Capability, region","ro":"Salahiyat, region"} },
+      { "title": {"en":"Compare","ro":"Muqabla"}, "text": {"en":"Quality, safety, cost, speed","ro":"Quality, safety, kharcha, raftaar"} },
+      { "title": "Evaluate", "text": {"en":"With your own data","ro":"Apne data par"} },
+      { "title": "Deploy", "text": {"en":"And keep measuring","ro":"Aur naapte rahein"} }
+    ]
+  },
+  "deep": [
+    {"en":"Benchmarks in the catalog compare models by quality, safety, cost and throughput. They use public test sets, so they show a direction and not your result. A small evaluation with 50 to 100 of your own cases tells more. Also check practical limits: is the model offered in your region and deployment type, does it accept your language, how large is the context window, which license applies?","ro":"Catalog ke benchmarks models ko quality, safety, kharcha aur throughput par muqabla karte hain. Woh aam test sets istemal karte hain, is liye simt batate hain, aap ka nateeja nahi. Apne 50 se 100 cases ki chhoti evaluation zyada batati hai. Amli hadein bhi dekhein: model aap ke region aur deployment type mein hai, aap ki zabaan leta hai, context window kitni hai, license kaunsa hai?"},
+    {"en":"Often the best answer is not one model. A small model can sort the requests and pass only the difficult ones to a large model. This keeps quality and lowers cost.","ro":"Aksar behtareen jawab ek model nahi. Chhota model requests baant kar sirf mushkil wali bare model ko de sakta hai. Is se quality rehti hai aur kharcha kam hota hai."}
+  ],
+  "how": [
+    {"en":"Read the model card: intended use, limits, license, languages, lifecycle.","ro":"Model card parhein: maqsad, hadein, license, zabaanein, lifecycle."},
+    {"en":"Use the leaderboards and benchmarks of the Foundry model catalog for a first shortlist.","ro":"Pehli list ke liye Foundry model catalog ke leaderboards aur benchmarks dekhein."},
+    {"en":"Decide with your own test data, because public benchmarks are not your task.","ro":"Faisla apne test data se karein, kyunke public benchmark aap ka kaam nahi."},
+    {"en":"Plan for retirement: models have an end date, so keep the evaluation ready for the next one.","ro":"Retirement ka plan rakhein: models ki aakhri tareekh hoti hai, is liye agle model ke liye evaluation tayyar rakhein."}
+  ],
+  "example": { "text": {"en":"Sorting emails into three groups: a small model reaches 96%, a reasoning model 97% at twenty times the price. The small model wins. Checking a contract for contradictions: the small model misses half of them, so the reasoning model is worth its price.","ro":"Emails ko teen group mein baantna: chhota model 96%, reasoning model 97% lekin bees guna qeemat. Chhota model behtar. Contract mein tazaad dhoondna: chhota model aadhe chhor deta hai, is liye reasoning model ki qeemat jaiz hai."} },
+  "mistakes": [
+    { "wrong": {"en":"\"The newest model is always right.\"","ro":"\"Sab se naya model hamesha sahi hai.\""}, "right": {"en":"It may cost more without being better for your task.","ro":"Woh mehnga ho sakta hai, aap ke kaam mein behtar hue baghair."} },
+    { "wrong": {"en":"\"An embedding model can answer questions.\"","ro":"\"Embedding model sawalon ke jawab de sakta hai.\""}, "right": {"en":"It returns vectors. Another model writes the answer.","ro":"Woh vectors deta hai. Jawab doosra model likhta hai."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Benchmark and evaluation","ro":"Benchmark aur evaluation"}, "text": {"en":"Benchmark: public tests before choosing. Evaluation: your data and your criteria.","ro":"Benchmark: chunne se pehle aam tests. Evaluation: aap ka data aur aap ke mayar."} }
+  ],
+  "exam": [
+    {"en":"Look for input and output words first, then for limits such as budget or latency.","ro":"Pehle input aur output ke alfaaz, phir budget ya latency jaisi hadein dekhein."},
+    {"en":"\"Compare before deploying\" → catalog and benchmarks. \"Compare for our data\" → evaluation.","ro":"\"Deploy se pehle muqabla\" → catalog aur benchmarks. \"Hamare data par muqabla\" → evaluation."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview", "https://learn.microsoft.com/en-us/azure/foundry/how-to/benchmark-model-in-catalog"]
+}

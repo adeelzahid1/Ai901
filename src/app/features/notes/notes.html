@@ -1,0 +1,70 @@
+@let t = language.ui().notes;
+<div class="layout">
+  <aside class="sidebar" [attr.aria-label]="t.list">
+    <p class="muted">{{ t.progress(progress.count(), total) }}</p>
+    <ul class="plain">
+      <li>
+        <a routerLink="/notes" [queryParams]="{ n: glossaryId }" [class.active]="glossary()" [attr.aria-current]="glossary() ? 'page' : null">{{ t.glossary }}</a>
+      </li>
+    </ul>
+    @for (d of nav; track d.id) {
+      <h2>{{ d.id }} · {{ language.domainShort(d) }}</h2>
+      @for (s of d.sections; track s.id) {
+        <h3>{{ s.id }} {{ language.section(s) }}</h3>
+        <ul class="plain">
+          @for (id of s.subs; track id) {
+            @let active = !glossary() && id === current().id;
+            <li>
+              <a routerLink="/notes" [queryParams]="{ n: id }" [class.active]="active" [attr.aria-current]="active ? 'page' : null">
+                {{ language.pick(titles[id]) }}
+                @if (progress.isRead(id)) {
+                  <span class="read" role="img" [attr.aria-label]="t.done" [title]="t.done">✓</span>
+                }
+              </a>
+            </li>
+          }
+        </ul>
+      }
+    }
+  </aside>
+
+  <section class="content stack">
+    <label class="field mobile-select">
+      <span>{{ t.list }}</span>
+      <select #pick (change)="open(pick.value)">
+        <option [value]="glossaryId" [selected]="glossary()">{{ t.glossary }}</option>
+        @for (d of nav; track d.id) {
+          @for (s of d.sections; track s.id) {
+            <optgroup [label]="s.id + ' ' + language.section(s)">
+              @for (id of s.subs; track id) {
+                <option [value]="id" [selected]="!glossary() && id === current().id">{{ progress.isRead(id) ? '✓ ' : '' }}{{ language.pick(titles[id]) }}</option>
+              }
+            </optgroup>
+          }
+        }
+      </select>
+    </label>
+
+    @if (glossary()) {
+      <div>
+        <h1>{{ t.glossary }}</h1>
+        <p class="lead">{{ t.glossaryLead }}</p>
+      </div>
+      <app-glossary-view />
+    } @else {
+      <div>
+        <h1>{{ language.pick(titles[current().id]) }}</h1>
+        <p class="lead">{{ current().section }} · {{ language.pick(official()) }}</p>
+      </div>
+      <app-note-view [skill]="current().id" [section]="current().section" />
+      <div class="pager">
+        @if (previous(); as p) {
+          <button type="button" class="btn" (click)="open(p.id)">← {{ language.pick(titles[p.id]) }}</button>
+        }
+        @if (next(); as x) {
+          <button type="button" class="btn primary next" (click)="open(x.id)">{{ language.pick(titles[x.id]) }} →</button>
+        }
+      </div>
+    }
+  </section>
+</div>

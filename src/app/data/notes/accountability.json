@@ -1,0 +1,31 @@
+{
+  "id": "accountability", "minutes": 3,
+  "main": {"en":"People and organizations answer for how their AI systems work. A model cannot be responsible.","ro":"AI system kaise chalta hai, is ke jawabdeh log aur idare hain. Model zimmedar nahi ho sakta."},
+  "explain": [
+    {"en":"Accountability turns the other five principles into daily work: somebody owns the system, somebody approves changes, somebody reads the logs, and somebody can stop it. AI should not be the final authority on decisions that affect people's lives; humans keep meaningful control.","ro":"Accountability baqi paanch usoolon ko roz ka kaam banati hai: koi system ka maalik hai, koi tabdeeli manzoor karta hai, koi logs dekhta hai, aur koi usay rok sakta hai. Logon ki zindagi par asar wale faislon mein AI aakhri ikhtiyar nahi; insan ka asal control rehta hai."},
+    {"en":"In practice this means governance: roles, rules, review boards, impact assessments, audit logs and incident plans. Buying a model from a vendor does not move the accountability to the vendor.","ro":"Amal mein is ka matlab governance hai: roles, usool, review boards, impact assessment, audit logs aur hadsay ka plan. Vendor se model khareedne se jawabdehi vendor ko nahi jati."}
+  ],
+  "deep": [
+    {"en":"A useful test is the question \"Who gets the phone call at three in the morning?\" If nobody knows, there is no accountability. A governance body, for example a responsible AI council, sets rules, approves sensitive uses and collects lessons from incidents. An impact assessment before the project asks who could be harmed and what will be done about it.","ro":"Ek mufeed sawal: \"Raat teen baje phone kis ko aayega?\" Agar kisi ko nahi pata to accountability nahi. Governance body, jaise responsible AI council, usool banati hai, hassas istemal manzoor karti hai aur hadson se sabaq jama karti hai. Project se pehle impact assessment poochta hai ke kis ko nuqsan ho sakta hai aur us ka kya hoga."},
+    {"en":"Technology supports accountability but does not replace it. Machine learning operations (MLOps) keep track of which model version was trained with which data, who released it and how it behaves. With agents, identities and roles show which agent did what on whose behalf. The final decision on matters such as health, work or money stays with a person who has the time and the right to say no.","ro":"Technology accountability ki madad karti hai, us ki jagah nahi leti. MLOps yaad rakhta hai ke kaunsa model version kis data se train hua, kis ne release kiya aur kaise chalta hai. Agents mein identities aur roles batate hain ke kis agent ne kis ki taraf se kya kiya. Sehat, kaam ya paise jaise mamlon mein aakhri faisla us insan ka rehta hai jis ke paas inkaar ka waqt aur haq ho."}
+  ],
+  "how": [
+    {"en":"Name an owner for each AI system and publish a contact.","ro":"Har AI system ka maalik mukarrar karein aur rabta batayein."},
+    {"en":"Require human approval for high-impact actions (human in the loop).","ro":"Bare asar wale kaam ke liye insani manzoori lazmi karein (human in the loop)."},
+    {"en":"Keep logs: model version, prompt, sources, decision, approver.","ro":"Logs rakhein: model version, prompt, sources, faisla, manzoor karne wala."},
+    {"en":"Review regularly, also after launch, and correct mistakes.","ro":"Launch ke baad bhi baqaida review karein aur ghaltiyan theek karein."}
+  ],
+  "example": { "text": {"en":"A pricing model doubles the price of medicine overnight. With accountability there is an alert, an owner who can roll back, a log that shows the version and a process to refund customers.","ro":"Pricing model raat mein dawai ki qeemat dugni kar deta hai. Accountability ho to alert aata hai, maalik wapas kar sakta hai, log version dikhata hai aur customers ko raqam wapas karne ka tareeqa hota hai."} },
+  "mistakes": [
+    { "wrong": {"en":"\"The AI decided.\"","ro":"\"AI ne faisla kiya.\""}, "right": {"en":"Somebody chose to use it. That person or organization answers for it.","ro":"Kisi ne usay istemal karne ka faisla kiya. Wahi jawabdeh hai."} },
+    { "wrong": {"en":"\"The vendor is responsible.\"","ro":"\"Vendor zimmedar hai.\""}, "right": {"en":"Your organization stays accountable for its use.","ro":"Istemal ka jawabdeh aap ka idara rehta hai."} }
+  ],
+  "compare": [
+    { "terms": {"en":"Accountability and transparency","ro":"Accountability aur transparency"}, "text": {"en":"Accountability: who answers for it? Transparency: how was it decided?","ro":"Accountability: jawabdeh kaun? Transparency: faisla kaise hua?"} }
+  ],
+  "exam": [
+    {"en":"Clue words: governance, review board, owner, human approval, audit, oversight.","ro":"Ishare: governance, review board, maalik, insani manzoori, audit, nigrani."},
+    {"en":"A human reviewing decisions can also support safety. Choose accountability when the question asks who answers.","ro":"Insani review safety ki bhi madad karta hai. Jab sawal jawabdeh ka ho to accountability chunein."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"]
+}

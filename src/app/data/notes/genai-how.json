@@ -1,0 +1,42 @@
+{
+  "id": "genai-how", "minutes": 6,
+  "main": {"en":"A language model predicts the next token again and again, based on patterns from training and on the text in its context window.","ro":"Language model baar baar agla token andaza karta hai, training ke patterns aur context window ke text ki buniyad par."},
+  "explain": [
+    {"en":"Text is split into tokens, and each token becomes a vector (embedding) that carries meaning. The transformer uses attention to decide which other tokens matter for the next one. The model then gives a probability to every possible next token, one is chosen, and the process repeats.","ro":"Text tokens mein bantta hai aur har token vector (embedding) banta hai jis mein matlab hota hai. Transformer attention se tay karta hai ke agle token ke liye kaunse tokens aham hain. Phir model har mumkin token ko imkaan deta hai, ek chuna jata hai, aur silsila chalta rehta hai."},
+    {"en":"Because it predicts likely text, a model can produce false statements that sound right (hallucinations). It does not look anything up, has no memory between requests and knows only the data up to its training cutoff. Grounding with your own data reduces this problem.","ro":"Model mumkina text banata hai, is liye ghalat baat bhi sach jaisi likh sakta hai (hallucination). Woh kahin se kuch nahi dekhta, requests ke darmiyan yaad nahi rakhta aur sirf training cutoff tak ka data janta hai. Apne data se grounding ye masla kam karti hai."},
+    {"en":"RAG has three steps: retrieve passages that match the question, augment the prompt with them, generate the answer. Agentic retrieval goes further: a model splits a complex question into several searches.","ro":"RAG ke teen qadam hain: sawal se milte hisse retrieve karna, prompt mein shamil karna (augment), jawab generate karna. Agentic retrieval mein model mushkil sawal ko kai talashon mein baantta hai."}
+  ],
+  "flow": {
+    "title": {"en":"From question to answer with RAG","ro":"RAG ke saath sawal se jawab tak"},
+    "steps": [
+      { "title": {"en":"Question","ro":"Sawal"} },
+      { "title": "Embedding", "text": {"en":"Meaning as numbers","ro":"Matlab numbers mein"} },
+      { "title": "Retrieve", "text": {"en":"Best passages from the index","ro":"Index se behtareen hisse"} },
+      { "title": "Augment", "text": {"en":"Question + passages","ro":"Sawal + hisse"} },
+      { "title": "Generate", "text": {"en":"Answer with sources","ro":"Sources ke saath jawab"} }
+    ]
+  },
+  "deep": [
+    {"en":"Training happens in stages. Pre-training reads huge amounts of text and learns to predict tokens. Instruction tuning and feedback from people then teach the model to follow requests and to be helpful and safe. Using the finished model is called inference, and the weights do not change during it. This explains why a model cannot learn from your chat.","ro":"Training marhalon mein hoti hai. Pre-training bohat sa text parh kar tokens ka andaza seekhti hai. Phir instruction tuning aur logon ki raaye model ko hidayat maan-na aur mufeed aur mehfooz hona sikhati hai. Tayyar model ka istemal inference hai aur us mein weights nahi badalte. Isi liye model aap ki chat se nahi seekhta."}
+  ],
+  "how": [
+    {"en":"Count tokens, not words: price, speed and limits depend on them.","ro":"Alfaaz nahi, tokens ginein: qeemat, raftaar aur hadein unhi par hain."},
+    {"en":"Use RAG for private or changing facts, fine-tuning for style or task behavior.","ro":"Zaati ya badalte haqaiq ke liye RAG, andaz ya kaam ke rawaiye ke liye fine-tuning."},
+    {"en":"Send the history again with each request, or use a server-side conversation.","ro":"Har request ke saath history dobara bhejein, ya server-side conversation istemal karein."}
+  ],
+  "example": { "text": {"en":"\"The capital of France is\" is followed by \"Paris\" with a very high probability. \"My favorite color is\" has many likely continuations, so the output varies from run to run.","ro":"\"The capital of France is\" ke baad \"Paris\" ka imkaan bohat zyada hai. \"My favorite color is\" ke baad bohat se imkaan hain, is liye output har baar badalta hai."} },
+  "mistakes": [
+    { "wrong": {"en":"\"The model searches the internet.\"","ro":"\"Model internet par dhoondta hai.\""}, "right": {"en":"Only if it has a tool for it. By itself it only predicts text.","ro":"Sirf tab jab us ka tool ho. Khud woh sirf text andaza karta hai."} },
+    { "wrong": {"en":"\"It remembers our last chat.\"","ro":"\"Usay hamari pichli chat yaad hai.\""}, "right": {"en":"Without history in the request, it does not.","ro":"Request mein history na ho to nahi."} },
+    { "wrong": {"en":"\"Fine-tune it with the new price list.\"","ro":"\"Nayi price list par fine-tune karo.\""}, "right": {"en":"Changing facts belong in RAG.","ro":"Badalte haqaiq RAG mein hote hain."} }
+  ],
+  "compare": [
+    { "terms": {"en":"RAG and fine-tuning","ro":"RAG aur fine-tuning"}, "text": {"en":"RAG adds knowledge at question time; fine-tuning changes the behavior of the model beforehand.","ro":"RAG sawal ke waqt ilm deta hai; fine-tuning model ka rawaiya pehle se badalti hai."} },
+    { "terms": {"en":"Token and word","ro":"Token aur lafz"}, "text": {"en":"A word is one or several tokens; other languages often need more tokens than English.","ro":"Lafz ek ya kai tokens ka hota hai; doosri zabaanein aksar English se zyada tokens leti hain."} }
+  ],
+  "exam": [
+    {"en":"Match terms: token, embedding, attention, context window, grounding, hallucination.","ro":"Terms milana: token, embedding, attention, context window, grounding, hallucination."},
+    {"en":"\"Answers must come from company documents\" → RAG. \"Must always write in our style\" → fine-tuning.","ro":"\"Jawab company documents se aayein\" → RAG. \"Hamesha hamare andaz mein likhe\" → fine-tuning."}
+  ],
+  "refs": ["https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/", "https://learn.microsoft.com/en-us/azure/foundry/concepts/retrieval-augmented-generation"]
+}
