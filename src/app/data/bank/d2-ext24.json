@@ -1,0 +1,573 @@
+[
+  {
+    "id": "D2-693", "sub": "cu-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that creates a Content Understanding client with a key.",
+    "tpl": "from azure.ai.{0} import ContentUnderstandingClient\nfrom azure.core.credentials import AzureKeyCredential\n\nclient = ContentUnderstandingClient(\n    endpoint=os.environ[\"FOUNDRY_ENDPOINT\"],\n    credential={1}(os.environ[\"FOUNDRY_KEY\"]),\n)",
+    "opts": [
+      ["textanalytics", "contentunderstanding", "projects"],
+      ["DefaultAzureCredential", "AzureKeyCredential", "SpeechConfig"]
+    ],
+    "ans": [1, 1],
+    "exp": "ContentUnderstandingClient comes from azure.ai.contentunderstanding, and a key is wrapped in AzureKeyCredential. DefaultAzureCredential takes no key, SpeechConfig belongs to the Speech SDK, and the other packages are for text analysis and Foundry projects.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-694", "sub": "cu-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that analyzes an invoice and waits for the result.",
+    "tpl": "poller = client.{0}(\n    analyzer_id=\"prebuilt-invoice\",\n    inputs=[AnalysisInput(url=pdf_url)],\n)\nresult = poller.{1}()\nfor content in result.{2}:\n    print(content.markdown)",
+    "opts": [
+      ["analyze_sentiment", "begin_analyze", "create_version"],
+      ["result", "status", "cancel"],
+      ["choices", "output", "contents"]
+    ],
+    "ans": [1, 0, 2],
+    "exp": "begin_analyze starts the long-running operation and returns a poller, result() waits until it is finished, and the result holds a list of contents. choices belongs to chat completions, output to the Responses API, and status() would only report the state.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-695", "sub": "cu-app", "diff": 1, "type": "mcq",
+    "q": "In the Content Understanding SDK for Python, what does poller.result() do?",
+    "opts": [
+      "It uploads the file to the analyzer",
+      "It waits for the operation and returns its result",
+      "It deletes the result from the service",
+      "It returns the confidence of the first field"
+    ],
+    "ans": 1,
+    "exp": "The analysis is asynchronous. result() polls for you until the operation has finished and then returns the analysis result. The file is sent by begin_analyze, deletion is a separate call, and a confidence is stored with each field.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-696", "sub": "cu-app", "diff": 2, "type": "order",
+    "q": "Put the steps of a Python app that reads fields from an invoice in order. Not every step is used.",
+    "items": [
+      "Call result() on the poller",
+      "Read the fields of the first content",
+      "Create a ContentUnderstandingClient",
+      "Train a custom neural voice",
+      "Install azure-ai-contentunderstanding",
+      "Call begin_analyze with the analyzer and the URL"
+    ],
+    "ans": [4, 2, 5, 0, 1],
+    "exp": "The package is installed first, the client needs the endpoint and a credential, begin_analyze starts the operation, result() waits for it and the fields are part of each content. A custom neural voice belongs to speech.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-697", "sub": "cu-app", "diff": 2, "type": "mcq",
+    "ctx": "poller = client.begin_analyze(\n    analyzer_id=\"prebuilt-documentSearch\",\n    inputs=[AnalysisInput(url=pdf_url)],\n)\nprint(poller.contents[0].markdown)   # AttributeError",
+    "q": "How do you correct the last line?",
+    "opts": [
+      "Use poller.result().contents[0].markdown",
+      "Use poller.choices[0].message.content",
+      "Use client.contents[0].markdown after a pause",
+      "Use poller.output_text"
+    ],
+    "ans": 0,
+    "exp": "begin_analyze returns a poller for the operation, not the result. result() waits and returns the object that has contents. choices and output_text belong to model responses, and the client itself stores no results.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-698", "sub": "cu-app", "diff": 2, "type": "match",
+    "q": "Match each task to the prebuilt analyzer that fits. Each analyzer is used once or not at all.",
+    "items": [
+      "Get the total and the vendor of a bill",
+      "Prepare PDF reports as Markdown for search",
+      "Get a transcript and a summary of voicemails",
+      "Make training films searchable"
+    ],
+    "targets": [
+      "prebuilt-imageSearch",
+      "prebuilt-videoSearch",
+      "prebuilt-invoice",
+      "prebuilt-audioSearch",
+      "prebuilt-documentSearch"
+    ],
+    "ans": [2, 4, 3, 1],
+    "exp": "prebuilt-invoice returns invoice fields, and the search analyzers prepare content of one media type: documents, audio or video. prebuilt-imageSearch is for pictures, which none of the tasks needs.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-699", "sub": "cu-app", "diff": 3, "type": "mcq",
+    "ctx": "total = content.fields[\"InvoiceTotal\"].value",
+    "q": "Some documents have no total, and this line stops the app. Which code handles the missing field?",
+    "opts": [
+      "total = content.fields[\"InvoiceTotal\"].confidence",
+      "f = content.fields.get(\"InvoiceTotal\"); total = f.value if f else None",
+      "total = poller.fields[\"InvoiceTotal\"].value",
+      "total = content.fields[\"InvoiceTotal\"].value.result()"
+    ],
+    "ans": 1,
+    "exp": "get() returns None when the key is missing, so the app can check before it reads the value. Square brackets raise an error for a missing key, the poller has no fields, and result() belongs to the poller and not to a value.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-700", "sub": "cu-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about the Content Understanding SDK for Python, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "It polls the Operation-Location address for you.",
+      "It works without a Microsoft Foundry resource.",
+      "It accepts a key or a Microsoft Entra ID credential.",
+      "It can call the same analyzers as the REST API."
+    ],
+    "ans": [true, false, true, true],
+    "exp": "Yes, No, Yes, Yes. The SDK is a layer over the REST API, so it hides the polling and uses the same analyzers. It still needs a Foundry resource, and you can authenticate with AzureKeyCredential or DefaultAzureCredential.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  },
+  {
+    "id": "D2-701", "sub": "cu-app", "diff": 3, "type": "mcq",
+    "q": "The first call to prebuilt-invoice fails with \"Default model deployment not configured\". The key and the endpoint are right. What is missing?",
+    "opts": [
+      "A fine-tuned model that was trained with invoices",
+      "A public address for the Foundry resource",
+      "The mapping of deployed models as defaults of the resource",
+      "A second API key"
+    ],
+    "ans": 2,
+    "exp": "Analyzers with fields use models such as gpt-4.1 and an embedding model. You deploy them once and map the deployments as defaults of the Foundry resource. No fine-tuning is needed, and a second key or public address does not create the mapping.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  },
+  {
+    "id": "D2-702", "sub": "cu-app", "diff": 3, "type": "mcq",
+    "q": "A developer is Owner of a Foundry resource, but Content Understanding calls with DefaultAzureCredential are denied. Which role is missing?",
+    "opts": ["Reader", "Contributor", "Billing Reader", "Cognitive Services User"],
+    "ans": 3,
+    "exp": "Calling the service is a data action, and Cognitive Services User grants it even when somebody already owns the resource. Reader and Contributor concern the management of resources, and Billing Reader only shows costs.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/quickstart/use-rest-api"
+  },
+  {
+    "id": "D2-703", "sub": "cu-app", "diff": 1, "type": "mcq",
+    "q": "Which command installs the Content Understanding SDK for Python?",
+    "opts": [
+      "pip install azure-ai-textanalytics",
+      "pip install azure-ai-contentunderstanding",
+      "az extension add --name ai-content",
+      "pip install azure-cognitiveservices-speech"
+    ],
+    "ans": 1,
+    "exp": "The package azure-ai-contentunderstanding contains ContentUnderstandingClient. azure-ai-textanalytics is for Azure Language, azure-cognitiveservices-speech is the Speech SDK, and an az extension adds commands to the CLI but no Python library.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-704", "sub": "cu-app", "diff": 2, "type": "mcq",
+    "ctx": "poller = client.begin_analyze(\n    analyzer_id=\"prebuilt-audioSearch\",\n    inputs=[AnalysisInput(url=voicemail_url)],\n)\nfor content in poller.result().contents:\n    print(content.markdown)",
+    "q": "What does this code print?",
+    "opts": [
+      "The sound file as Base64 text",
+      "The names of all analyzers in the resource",
+      "The transcript of the voicemail",
+      "A spoken answer to the caller"
+    ],
+    "ans": 2,
+    "exp": "An audio analyzer turns speech into text, and the markdown of the content holds the transcript. The service does not return the audio file, listing analyzers is another operation, and a spoken answer would need speech synthesis.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-information-extraction/"
+  },
+  {
+    "id": "D2-705", "sub": "vision-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that asks a deployed multimodal model about an image.",
+    "tpl": "response = client.responses.create(\n    model=os.environ[\"MODEL_NAME\"],\n    input=[{\n        \"role\": \"user\",\n        \"content\": [\n            {\"type\": \"{0}\", \"text\": \"List the damaged parts.\"},\n            {\"type\": \"{1}\", \"image_url\": image_url},\n        ],\n    }],\n)\nprint(response.{2})",
+    "opts": [
+      ["text", "output_text", "input_text"],
+      ["input_image", "image_generation", "image_url"],
+      ["choices", "output_text", "caption"]
+    ],
+    "ans": [2, 0, 1],
+    "exp": "The Responses API uses input_text and input_image for the parts of a message and output_text for the reply. text and image_url are the part types of chat completions, image_generation is a tool, and caption is a result of Image Analysis.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-706", "sub": "vision-app", "diff": 3, "type": "mcq",
+    "ctx": "client.responses.create(\n    model=deployment,\n    input=[{\"role\": \"user\", \"content\": [\n        {\"type\": \"input_text\", \"text\": \"What is this?\"},\n        {\"type\": \"image_url\", \"image_url\": {\"url\": url}},\n    ]}],\n)   # 400 Bad Request",
+    "q": "Why does the request fail?",
+    "opts": [
+      "An image needs a system message of its own",
+      "The image part has the format of chat completions",
+      "A request can contain an image or a text but not both",
+      "The image was not uploaded to Blob Storage"
+    ],
+    "ans": 1,
+    "exp": "The Responses API expects {\"type\": \"input_image\", \"image_url\": url}. The nested image_url object belongs to chat completions. Text and image can be sent together, no extra system message is needed, and any reachable URL or a data URL works.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-707", "sub": "vision-app", "diff": 1, "type": "order",
+    "q": "Put the steps to build a small app that describes photos with a multimodal model in order. Not every step is used.",
+    "items": [
+      "Send the question and the image in one user message",
+      "Train a convolutional network with labeled photos",
+      "Deploy a vision-capable model",
+      "Show the reply text",
+      "Create the client with the endpoint and a credential"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "The model is deployed first, the client connects to the endpoint, one message carries text and image, and the app shows the reply. The model is already trained, so no network has to be trained with your photos.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-708", "sub": "vision-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that turns a local photo into a data URL.",
+    "tpl": "with open(\"shelf.jpg\", \"{0}\") as f:\n    data = base64.b64encode(f.read()).{1}()\nimage_url = \"data:image/jpeg;{2},\" + data",
+    "opts": [
+      ["rb", "w", "r"],
+      ["encode", "decode", "strip"],
+      ["utf-8", "url", "base64"]
+    ],
+    "ans": [0, 1, 2],
+    "exp": "A picture is binary, so the file is opened with rb. b64encode returns bytes, and decode() turns them into text. A data URL names the media type and then base64. The modes r and w are for text, and encode() works in the other direction.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-709", "sub": "vision-app", "diff": 2, "type": "mcq",
+    "q": "A company starts a new app that answers free questions about photos and must run for many years. Which choice fits best?",
+    "opts": [
+      "Image Analysis 4.0 with the tags feature",
+      "A text-only small language model",
+      "The READ feature with a list of keywords",
+      "A vision-capable model in Foundry"
+    ],
+    "ans": 3,
+    "exp": "A vision-capable model answers open questions about images. Image Analysis 4.0 returns fixed features and retires on 25 September 2028, so it is no base for a new long-lived app. A text-only model accepts no images, and READ only returns text.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-710", "sub": "vision-app", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Azure Vision Image Analysis 4.0 is deprecated and retires in September 2028.",
+      "A multimodal chat model adds a fixed confidence score to each object that it names.",
+      "Structured outputs can make a model return its description of a photo as JSON.",
+      "An image that is sent as Base64 must also have a public address."
+    ],
+    "ans": [true, false, true, false],
+    "exp": "Yes, No, Yes, No. Microsoft announced the retirement of Image Analysis 4.0. Chat models return generated text without fixed scores. Structured outputs force a JSON schema. A Base64 data URL carries the image itself, so no public address is needed.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview-image-analysis"
+  },
+  {
+    "id": "D2-711", "sub": "vision-app", "diff": 3, "type": "mcq",
+    "ctx": "if response.output_text == \"Yes\":\n    flag(photo)\n# The model sometimes answers \"Yes.\", \"It does\" or \"There is a crack\".",
+    "q": "Which change makes the check reliable?",
+    "opts": [
+      "Compare the text with a longer list of words",
+      "Ask for structured output with a boolean field",
+      "Send the same photo two times",
+      "Raise the temperature so that answers vary more"
+    ],
+    "ans": 1,
+    "exp": "A JSON schema with a boolean field gives the program one value that it can test. A word list never covers all answers, sending the photo twice costs tokens and solves nothing, and a higher temperature makes the wording vary even more.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/structured-outputs"
+  },
+  {
+    "id": "D2-712", "sub": "vision-app", "diff": 2, "type": "multi",
+    "q": "Which TWO measures lower the token cost of an app that sends photos to a multimodal model? Each correct answer presents a complete solution.",
+    "opts": [
+      "Convert each photo to a Base64 string before it is sent",
+      "Set the detail of the image to low",
+      "Ask the model to think about the photo in several long steps",
+      "Send smaller versions of the photos"
+    ],
+    "ans": [1, 3],
+    "exp": "Low detail and smaller pictures need fewer image tokens. Base64 is only a way to send the same image and changes no token count, and long reasoning steps add output tokens.",
+    "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"
+  },
+  {
+    "id": "D2-713", "sub": "vision-app", "diff": 2, "type": "mcq",
+    "ctx": "client = OpenAI(\n    api_key=os.getenv(\"FOUNDRY_KEY\"),\n    base_url=os.getenv(\"ENDPOINT\"),\n)\n# Error: the api_key option must be set",
+    "q": "What is the most likely cause?",
+    "opts": [
+      "The environment variable FOUNDRY_KEY is not set",
+      "The deployed model cannot read images",
+      "The photo is too large for the context window",
+      "The prompt was blocked by a content filter"
+    ],
+    "ans": 0,
+    "exp": "os.getenv returns None for a variable that does not exist, so the client gets no key. The error appears before any request is sent, so the model, the photo size and the content filter cannot be the reason.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-714", "sub": "text-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that lets a deployed model label the sentiment of a review.",
+    "tpl": "response = client.responses.create(\n    model=deployment,\n    {0}=\"Answer with one word: positive, neutral or negative.\",\n    {1}=review,\n)\nprint(response.{2})",
+    "opts": [
+      ["documents", "instructions", "features"],
+      ["input", "analyzer_id", "language"],
+      ["sentiment", "primary_language", "output_text"]
+    ],
+    "ans": [1, 0, 2],
+    "exp": "With a general model, the rule goes into instructions, the review is the input, and output_text holds the answer. documents and language are parameters of the Language SDK, sentiment and primary_language are its results, and analyzer_id belongs to Content Understanding.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-715", "sub": "text-app", "diff": 2, "type": "match",
+    "q": "Match each Python package to the class that it provides. Each class is used once.",
+    "items": ["openai", "azure-ai-textanalytics", "azure-ai-contentunderstanding", "azure-ai-projects"],
+    "targets": ["AIProjectClient", "TextAnalyticsClient", "OpenAI", "ContentUnderstandingClient"],
+    "ans": [2, 1, 3, 0],
+    "exp": "openai provides OpenAI for the model API, azure-ai-textanalytics the client of Azure Language, azure-ai-contentunderstanding the client for analyzers, and azure-ai-projects AIProjectClient for a Foundry project.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-716", "sub": "text-app", "diff": 1, "type": "mcq",
+    "ctx": "text = \"Hola, me llamo Josefina.\"\nresult = client.detect_language([text])[0]\nprint(result.primary_language.name)",
+    "q": "Why does the code contain [0]?",
+    "opts": [
+      "The most likely language has the number 0",
+      "0 is the lowest confidence that is accepted",
+      "The method returns a list with one result per document",
+      "It removes the greeting from the text"
+    ],
+    "ans": 2,
+    "exp": "detect_language takes a list of documents and returns a list of results in the same order, so [0] picks the result of the only document. The number is a list position and not a language, a confidence or a text operation.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-717", "sub": "text-app", "diff": 2, "type": "mcq",
+    "ctx": "# .env\nAZURE_LANGUAGE_ENDPOINT=https://my-res.cognitiveservices.azure.com/\n\n# app.py\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\nprint(os.getenv(\"AZURE_LANGUAGE_ENDPOINT\"))",
+    "q": "On a laptop where the variable is not set anywhere else, what is printed if load_dotenv() is removed?",
+    "opts": ["None", "An empty line", ".env", "https://my-res.cognitiveservices.azure.com/"],
+    "ans": 0,
+    "exp": "load_dotenv reads the .env file and puts its values into the environment. Without it, os.getenv finds no variable and returns None, which print shows as the word None. The file is not read automatically.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-718", "sub": "text-app", "diff": 2, "type": "yesno",
+    "q": "A Python app keeps its key in a .env file. For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "load_dotenv() stores the key in Azure Key Vault.",
+      "The .env file should be listed in .gitignore.",
+      "os.environ[\"NAME\"] raises an error when the variable is missing.",
+      "os.getenv(\"NAME\") returns None when the variable is missing."
+    ],
+    "ans": [false, true, true, true],
+    "exp": "No for the first: load_dotenv only fills environment variables of the local program. Yes for the second: secrets do not belong in source control. Yes for the third and fourth: square brackets raise KeyError, getenv returns None.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-719", "sub": "text-app", "diff": 2, "type": "mcq",
+    "q": "A team starts a new app that summarizes long documents. Which approach does Microsoft recommend for new projects?",
+    "opts": [
+      "Summarization of Azure Language",
+      "Key phrase extraction, joined to sentences",
+      "A model deployed in Microsoft Foundry",
+      "Opinion mining with a low threshold"
+    ],
+    "ans": 2,
+    "exp": "Summarization retires from Azure Language on 31 March 2029, and Microsoft directs new projects to Foundry models. Key phrases are only topics and also retire then, and opinion mining finds targets and feelings but writes no summary.",
+    "ref": "https://learn.microsoft.com/en-us/azure/ai-services/language-service/summarization/overview"
+  },
+  {
+    "id": "D2-720", "sub": "speech-app", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that prints each finished phrase while a person keeps talking.",
+    "tpl": "recognizer = speechsdk.SpeechRecognizer(\n    speech_config=config, audio_config=audio)\nrecognizer.{0}.connect(lambda e: print(e.result.text))\nrecognizer.start_{1}_recognition()\ninput(\"Press Enter to stop\")\nrecognizer.{2}_continuous_recognition()",
+    "opts": [
+      ["canceled", "recognized", "session_started"],
+      ["keyword", "continuous", "batch"],
+      ["stop", "pause", "close"]
+    ],
+    "ans": [1, 1, 0],
+    "exp": "The recognized event fires for each final phrase, continuous recognition keeps listening, and the matching stop call ends it. canceled reports errors, session_started only marks the beginning, and batch transcription is a separate API.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-721", "sub": "speech-app", "diff": 2, "type": "mcq",
+    "q": "A caption app should show words while a sentence is still being spoken, even if they change later. Which SpeechRecognizer event gives this partial text?",
+    "opts": ["recognized", "session_stopped", "recognizing", "canceled"],
+    "ans": 2,
+    "exp": "recognizing fires with intermediate results that can still change. recognized gives the final text of a phrase, session_stopped marks the end of the session, and canceled reports an error or the end of the audio.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-722", "sub": "speech-app", "diff": 2, "type": "mcq",
+    "q": "How does a batch transcription job get the recordings from Azure Storage?",
+    "opts": [
+      "The app plays them through the default microphone",
+      "Each recording is sent as part of the prompt",
+      "From a URI with a shared access signature (SAS)",
+      "They are copied into the Python package"
+    ],
+    "ans": 2,
+    "exp": "Batch transcription works asynchronously with files in storage, and a SAS URI gives the service limited access to them. A microphone is for real-time recognition, prompts belong to models, and packages contain code.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-723", "sub": "speech-app", "diff": 1, "type": "dropdown",
+    "q": "Complete the Python code that connects to Azure Speech with the endpoint of a Foundry resource and listens to the microphone.",
+    "tpl": "config = speechsdk.SpeechConfig(subscription=key, {0}=url)\naudio = speechsdk.audio.AudioConfig({1}=True)",
+    "opts": [
+      ["endpoint", "deployment", "model"],
+      ["use_default_speaker", "use_default_microphone", "filename"]
+    ],
+    "ans": [0, 1],
+    "exp": "SpeechConfig takes the key together with a region or with the endpoint of the resource. AudioConfig with use_default_microphone listens to the microphone. use_default_speaker is for output, filename expects a path, and deployment or model are settings of model calls.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-724", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
+    "ctx": "messages = [\n    {\"role\": \"system\", \"content\": \"Be brief.\"},\n    {\"role\": \"user\", \"content\": \"What is RAG?\"},\n]\nprint(messages[1][\"content\"])",
+    "q": "What is printed?",
+    "opts": ["Be brief.", "What is RAG?", "user", "system"],
+    "ans": 1,
+    "exp": "messages is a list of dictionaries, and positions start at 0, so messages[1] is the user message. [\"content\"] reads the value of the key content. \"Be brief.\" is in messages[0], and user is the value of the key role.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D2-725", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
+    "ctx": "city = \"Lahore\"\nprompt = f\"Write one sentence about {city}.\"\nprint(prompt)",
+    "q": "What is printed?",
+    "opts": [
+      "Write one sentence about {city}.",
+      "Write one sentence about city.",
+      "f\"Write one sentence about Lahore.\"",
+      "Write one sentence about Lahore."
+    ],
+    "ans": 3,
+    "exp": "An f-string replaces the name in curly braces with its value, so {city} becomes Lahore. Without the f, the braces would be printed as they are, and the letter f and the quotation marks are not part of the text.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D2-726", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
+    "ctx": "try:\n    reply = ask(\"Hello\")\n    print(\"A\")\nexcept RateLimitError:\n    print(\"B\")\nprint(\"C\")",
+    "q": "The function ask raises RateLimitError. What is printed?",
+    "opts": ["A and C", "B and C", "Only B", "A, B and C"],
+    "ans": 1,
+    "exp": "The error stops the try block before print(\"A\"), the except block handles it and prints B, and the program goes on with print(\"C\"), which is outside both blocks. Without a matching except block the program would stop.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D2-727", "sub": "sdk-chat-client", "diff": 2, "type": "dropdown",
+    "q": "Complete the Python code that asks several questions and collects the answers.",
+    "tpl": "def ask(question):\n    r = client.responses.create(model=deployment, input=question)\n    {0} r.output_text\n\nanswers = []\nfor q {1} questions:\n    answers.{2}(ask(q))",
+    "opts": [
+      ["print", "return", "yield from"],
+      ["of", "in", "to"],
+      ["append", "push", "insert"]
+    ],
+    "ans": [1, 1, 0],
+    "exp": "return gives the text back to the caller, \"for q in questions\" goes through the list, and append adds an item at its end. print would show the text but return nothing, \"of\" and push are JavaScript, and insert also needs a position.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D2-728", "sub": "sdk-chat-client", "diff": 2, "type": "mcq",
+    "ctx": "total = 0\nfor r in responses:        # three responses\n    total += r.usage.output_tokens\nprint(total)",
+    "q": "The responses used 10, 20 and 30 output tokens. What is printed?",
+    "opts": ["10, 30 and 60 on three lines", "30", "60 one time", "60 three times"],
+    "ans": 2,
+    "exp": "The loop adds all three numbers, and print is not indented, so it runs once after the loop. If print were indented, it would run in each round and show 10, 30 and 60.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D2-729", "sub": "sdk-chat-client", "diff": 2, "type": "match",
+    "q": "Match each address to the client that uses it. Each client is used once or not at all.",
+    "items": [
+      "https://my-res.services.ai.azure.com/api/projects/chat",
+      "https://my-res.openai.azure.com/openai/v1/",
+      "https://my-res.cognitiveservices.azure.com/"
+    ],
+    "targets": [
+      "OpenAI(base_url=...)",
+      "SpeechRecognizer(audio_config=...)",
+      "AIProjectClient(endpoint=...)",
+      "TextAnalyticsClient(endpoint=...)"
+    ],
+    "ans": [2, 0, 3],
+    "exp": "A project endpoint contains /api/projects/ and is used by AIProjectClient. The address that ends with /openai/v1/ is the model endpoint for the OpenAI client. The cognitiveservices address is the resource endpoint of tools such as Azure Language.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-ai-in-azure/"
+  },
+  {
+    "id": "D2-730", "sub": "sdk-chat-client", "diff": 2, "type": "dropdown",
+    "q": "Complete the REST request that sends a prompt to a Foundry project with a Microsoft Entra ID token.",
+    "tpl": "curl -X POST \"$PROJECT_ENDPOINT/openai/v1/responses\" \\\n  -H \"Content-Type: application/json\" \\\n  -H \"{0}: {1} $TOKEN\" \\\n  -d '{\"model\": \"chat-prod\", \"{2}\": \"What is an AI app?\"}'",
+    "opts": [
+      ["api-key", "Authorization", "Accept"],
+      ["Bearer", "Basic", "Key"],
+      ["documents", "input", "question"]
+    ],
+    "ans": [1, 0, 1],
+    "exp": "A token goes into the header \"Authorization: Bearer ...\", and the Responses API reads the prompt from input. The api-key header is for keys, Basic sends a user name and a password, and documents belongs to Azure Language.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-ai-in-azure/"
+  },
+  {
+    "id": "D2-731", "sub": "sdk-chat-client", "diff": 3, "type": "mcq",
+    "ctx": "{\n  \"object\": \"response\",\n  \"status\": \"completed\",\n  \"output\": [\n    {\n      \"type\": \"message\",\n      \"content\": [\n        {\"type\": \"output_text\", \"text\": \"Hello!\"}\n      ]\n    }\n  ]\n}",
+    "q": "The JSON body was read into the dictionary data. Which expression returns \"Hello!\"?",
+    "opts": [
+      "data[\"output_text\"]",
+      "data[\"output\"][0][\"content\"][0][\"text\"]",
+      "data[\"choices\"][0][\"message\"][\"content\"]",
+      "data[\"output\"][\"content\"][\"text\"]"
+    ],
+    "ans": 1,
+    "exp": "output and content are lists, so each needs [0] before the next key. output_text is a convenience property of the SDK and not a key of this JSON, choices belongs to chat completions, and a list cannot be read with a text key.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-ai-in-azure/"
+  },
+  {
+    "id": "D2-732", "sub": "sdk-chat-client", "diff": 1, "type": "mcq",
+    "ctx": "def ask(question, temperature=0.2):\n    return client.responses.create(\n        model=deployment, input=question, temperature=temperature)\n\nask(\"Summarize this text.\")",
+    "q": "Which temperature does the call use?",
+    "opts": ["0.2", "The call fails because a value is missing", "0", "The text of the question"],
+    "ans": 0,
+    "exp": "temperature=0.2 in the definition is a default value, so it is used when the caller gives no other value. The call does not fail, because only question is required, and a positional argument fills question first.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D2-733", "sub": "sdk-chat-client", "diff": 2, "type": "yesno",
+    "ctx": "settings = {\"model\": \"chat-prod\", \"temperature\": 0.2}",
+    "q": "For each of the following statements about this Python dictionary, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "settings.get(\"top_p\") raises an error.",
+      "settings[\"model\"] returns \"chat-prod\".",
+      "settings[\"temperature\"] = 0 changes the stored value.",
+      "len(settings) is 4."
+    ],
+    "ans": [false, true, true, false],
+    "exp": "No for the first: get returns None for a missing key. Yes for the second and third: brackets read a value or set a new one. No for the fourth: the dictionary has two pairs of key and value, so its length is 2.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D2-734", "sub": "portal-deploy", "diff": 1, "type": "match",
+    "q": "Match each level of Azure to its description. Each description is used once or not at all.",
+    "items": ["Tenant", "Subscription", "Resource group", "Foundry project"],
+    "targets": [
+      "Billing container with cost and quota limits",
+      "Workspace for agents, files and evaluations",
+      "Identity home of an organization",
+      "A list of the models in the catalog",
+      "Folder for related resources"
+    ],
+    "ans": [2, 0, 4, 1],
+    "exp": "A tenant holds the users and policies of an organization, a subscription is the billing boundary, a resource group keeps related resources together, and a project is the workspace inside a Foundry resource. The model catalog is a part of Foundry.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-ai-in-azure/"
+  },
+  {
+    "id": "D2-735", "sub": "portal-deploy", "diff": 2, "type": "mcq",
+    "q": "A department wants three AI apps that are kept apart but share model hosting and governance. Which setup fits?",
+    "opts": [
+      "Three Azure tenants with one project each",
+      "One Foundry resource with three projects",
+      "One project with three subscriptions",
+      "Three resource groups without a Foundry resource"
+    ],
+    "ans": 1,
+    "exp": "A Foundry resource provides hosting, quotas and governance, and projects inside it separate the use cases. Tenants separate whole organizations, a project belongs to one resource and not to several subscriptions, and without a Foundry resource there is no project.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-ai-in-azure/"
+  },
+  {
+    "id": "D2-736", "sub": "portal-deploy", "diff": 2, "type": "multi",
+    "q": "Which TWO things happen when you deploy a model in Foundry? Each correct answer presents one of them.",
+    "opts": [
+      "The model is trained again with the files of the project",
+      "Apps can call the model at an endpoint",
+      "The model is copied to the computers of all the users",
+      "Usage, latency and errors are monitored"
+    ],
+    "ans": [1, 3],
+    "exp": "A deployment makes the model available at an endpoint and activates monitoring of usage, performance and errors. It does not train the model with your files, and the model stays in Azure.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D2-737", "sub": "portal-deploy", "diff": 2, "type": "mcq",
+    "q": "A chat app on Azure App Service gets more users every day. Azure adds more copies of the app when the load rises. What is this called?",
+    "opts": ["Scaling up", "Throttling", "Scaling out", "Fine-tuning"],
+    "ans": 2,
+    "exp": "Scaling out (horizontal) adds instances of the app. Scaling up gives one instance more CPU or memory, throttling slows down requests to protect a service, and fine-tuning changes a model.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-ai-in-azure/"
+  }
+]

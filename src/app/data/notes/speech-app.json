@@ -1,5 +1,5 @@
 {
-  "id": "speech-app", "minutes": 5,
+  "id": "speech-app", "minutes": 6,
   "main": {"en":"SpeechConfig says which resource, AudioConfig says which sound, and a recognizer or synthesizer does the work.","ro":"SpeechConfig resource, AudioConfig awaaz batata hai, aur recognizer ya synthesizer kaam karta hai."},
   "explain": [
     {"en":"The package is azure-cognitiveservices-speech. SpeechConfig holds key and region (or an endpoint with a token), the recognition language and the voice name. AudioConfig is for input (microphone or file), AudioOutputConfig for output (speaker or file).","ro":"Package azure-cognitiveservices-speech hai. SpeechConfig mein key aur region (ya token ke saath endpoint), recognition language aur voice ka naam hota hai. AudioConfig input (microphone ya file) ke liye, AudioOutputConfig output (speaker ya file) ke liye."},
@@ -21,6 +21,15 @@
     {"en":"Use Microsoft Entra ID for production and keep keys in environment variables while learning. The region of the key must match the region in SpeechConfig. If nothing is heard, check the microphone permission and the AudioConfig before you change the code.","ro":"Production mein Microsoft Entra ID, aur seekhte waqt keys environment variables mein rakhein. Key ka region SpeechConfig ke region jaisa ho. Kuch sunai na de to code badalne se pehle microphone ki ijazat aur AudioConfig dekhein."},
     {"en":"For voice output, choose the voice by its full name and check that its language matches the text. An English voice reads Urdu text badly. Cache sentences that are spoken often, such as greetings, to save time and cost.","ro":"Awaaz ke liye voice poore naam se chunein aur dekhein ke us ki zabaan text jaisi ho. English voice Urdu text kharab parhti hai. Bar bar bole jane wale jumlay, jaise salaam, cache karein taake waqt aur kharcha bache."},
     {"en":"The same code works with a Foundry resource. What changes is how you authenticate: a key with its region, or a token from Entra ID with the endpoint of the resource.","ro":"Yahi code Foundry resource ke saath chalta hai. Farq authenticate karne ka hai: key apne region ke saath, ya Entra ID ka token resource ki endpoint ke saath."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"Continuous recognition with events","ro":"Events ke saath continuous recognition"},
+      "text": [
+        {"en":"recognizing fires while a phrase is spoken and its text can still change. recognized fires with the final text. Batch transcription does not listen at all: it reads files from storage through a SAS address and returns the result later.","ro":"recognizing bolte waqt aata hai aur us ka text badal sakta hai. recognized aakhri text ke saath aata hai. Batch transcription sunti hi nahi: storage ki files SAS address se parhti hai aur nateeja baad mein deti hai."}
+      ],
+      "code": "config = speechsdk.SpeechConfig(subscription=key, endpoint=endpoint)\naudio = speechsdk.audio.AudioConfig(use_default_microphone=True)\nrecognizer = speechsdk.SpeechRecognizer(speech_config=config, audio_config=audio)\n\nrecognizer.recognizing.connect(lambda e: print(\"...\", e.result.text))\nrecognizer.recognized.connect(lambda e: print(\"Final:\", e.result.text))\n\nrecognizer.start_continuous_recognition()\ninput(\"Press Enter to stop\")\nrecognizer.stop_continuous_recognition()"
+    }
   ],
   "how": [
     {"en":"Text to speech: SpeechSynthesizer.speak_text_async; with SSML: speak_ssml_async.","ro":"Text to speech: SpeechSynthesizer.speak_text_async; SSML ke saath: speak_ssml_async."},

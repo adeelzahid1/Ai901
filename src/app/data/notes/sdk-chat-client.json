@@ -1,5 +1,5 @@
 {
-  "id": "sdk-chat-client", "minutes": 6,
+  "id": "sdk-chat-client", "minutes": 10,
   "main": {"en":"Connect to the project, get an OpenAI client, call your deployment and keep the conversation.","ro":"Project se juren, OpenAI client lein, apni deployment call karein aur guftagu rakhein."},
   "explain": [
     {"en":"Two packages are enough: azure-ai-projects and azure-identity. AIProjectClient gets the project endpoint and a credential. DefaultAzureCredential tries several sources: environment, managed identity, az login. get_openai_client() returns an authenticated OpenAI client.","ro":"Do packages kaafi hain: azure-ai-projects aur azure-identity. AIProjectClient ko project endpoint aur credential milta hai. DefaultAzureCredential kai sources azmata hai: environment, managed identity, az login. get_openai_client() authenticated OpenAI client deta hai."},
@@ -19,6 +19,35 @@
   "deep": [
     {"en":"Exponential backoff means waiting 1, 2, 4, 8 seconds after each 429, with a maximum number of tries. Retrying at once makes the overload worse. A content filter block is different: retrying the same prompt never helps, so show a message and let the user rephrase. Log the request ID and status, but never the key.","ro":"Exponential backoff ka matlab har 429 ke baad 1, 2, 4, 8 second rukna, koshishon ki had ke saath. Foran dobara koshish overload barhati hai. Content filter ki rok alag hai: wahi prompt dohrane se kabhi faida nahi, is liye paigham dikhayein aur user ko alfaaz badalne dein. Request ID aur status log karein, key kabhi nahi."},
     {"en":"Test the client in three situations: a normal question, a very long conversation and a wrong deployment name. If all three end with a clear message, the client is ready for users.","ro":"Client ko teen halaat mein test karein: aam sawal, bohat lambi guftagu aur ghalat deployment name. Teenon wazeh paigham par khatam hon to client users ke liye tayyar hai."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"Python that you need for the exam","ro":"Exam ke liye zaroori Python"},
+      "text": [
+        {"en":"The exam expects that you can read short Python programs. You do not write code from nothing; you complete a line, find the error or say what is printed. These pieces appear again and again.","ro":"Exam chahta hai ke aap chhote Python programs parh sakein. Code shuru se nahi likhna; line mukammal karni, ghalti dhoondni ya batana ke kya print hota hai. Ye cheezein bar bar aati hain."}
+      ],
+      "terms": [
+        { "term": {"en":"List and dictionary","ro":"List aur dictionary"}, "text": {"en":"[ ] keeps an order and is read by position. { } keeps pairs and is read by key; get() gives None for a missing key.","ro":"[ ] tarteeb rakhti hai aur position se parhi jati hai. { } jore rakhti hai aur key se parhi jati hai; get() ghaib key par None deta hai."} },
+        { "term": "f-string", "text": {"en":"f\"Hello {name}\" puts the value of name into the text.","ro":"f\"Hello {name}\" name ki value text mein rakhta hai."} },
+        { "term": "Indentation", "text": {"en":"Spaces at the start of a line show what belongs to a loop, a function or an if.","ro":"Line ke shuru ki spaces batati hain kya loop, function ya if ka hissa hai."} },
+        { "term": "try / except", "text": {"en":"The except block runs only when the named error happens; then the program continues.","ro":"except block sirf us error par chalta hai; phir program aage chalta hai."} },
+        { "term": "import / pip install", "text": {"en":"pip install gets the package once; import uses it in the file.","ro":"pip install package ek dafa lata hai; import usay file mein istemal karta hai."} }
+      ],
+      "code": "import os                                   # a module\nfrom dotenv import load_dotenv              # one name of a package\n\nload_dotenv()                               # .env -> environment variables\nmodel = os.environ[\"MODEL_NAME\"]            # KeyError if missing\nkey = os.getenv(\"FOUNDRY_KEY\")              # None if missing\n\nmessages = [                                # a list [ ] of dictionaries { }\n    {\"role\": \"system\", \"content\": \"Be brief.\"},\n    {\"role\": \"user\", \"content\": \"Hi\"},\n]\nprint(messages[0][\"content\"])               # Be brief.   (positions start at 0)\nmessages.append({\"role\": \"user\", \"content\": \"Bye\"})\n\ndef ask(question, temperature=0.2):         # 0.2 is the default value\n    r = client.responses.create(model=model, input=question,\n                                temperature=temperature)\n    return r.output_text                    # back to the caller\n\nfor city in [\"Lahore\", \"Multan\"]:           # the indented lines repeat\n    print(f\"{city}: {ask(f'One fact about {city}')}\")\n\ntry:\n    print(ask(\"Hello\"))\nexcept RateLimitError:                      # runs only for this error\n    print(\"Please wait\")\n\nwith open(\"photo.jpg\", \"rb\") as f:          # rb = read bytes; closed at the end\n    data = f.read()"
+    },
+    {
+      "title": {"en":"Endpoints, keys and REST","ro":"Endpoints, keys aur REST"},
+      "text": [
+        {"en":"An endpoint is a web address for programs. A request has a method, headers (who you are, which format) and a JSON body. An SDK builds the same request for you.","ro":"Endpoint programs ke liye web address hai. Request mein method, headers (aap kaun hain, kaunsa format) aur JSON body hota hai. SDK yahi request aap ke liye banata hai."}
+      ],
+      "terms": [
+        { "term": "…/api/projects/<project>", "text": "Project endpoint: AIProjectClient, agents, files." },
+        { "term": "…openai.azure.com/openai/v1/", "text": {"en":"Model endpoint: OpenAI client with base_url.","ro":"Model endpoint: base_url ke saath OpenAI client."} },
+        { "term": "…cognitiveservices.azure.com/", "text": {"en":"Endpoint of tools such as Azure Language.","ro":"Azure Language jaise tools ka endpoint."} },
+        { "term": {"en":"Token or key","ro":"Token ya key"}, "text": {"en":"Entra ID token: header Authorization: Bearer. Key: header api-key. Keep keys in Key Vault or environment variables.","ro":"Entra ID token: header Authorization: Bearer. Key: header api-key. Keys Key Vault ya environment variables mein rakhein."} }
+      ],
+      "code": "curl -X POST \"https://my-res.services.ai.azure.com/api/projects/chat/openai/v1/responses\" \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer $TOKEN\" \\\n  -d '{\"model\": \"chat-prod\", \"input\": \"What is an AI app?\"}'\n\n# the text is at output[0].content[0].text"
+    }
   ],
   "how": [
     {"en":"Put endpoint and deployment name in environment variables.","ro":"Endpoint aur deployment ka naam environment variables mein rakhein."},

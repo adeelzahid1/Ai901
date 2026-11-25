@@ -1,5 +1,5 @@
 {
-  "id": "2.3", "minutes": 8, "lab": "chat-client",
+  "id": "2.3", "minutes": 10, "lab": "chat-client",
   "intro": {"en":"A chat client needs four things: the project endpoint, a credential, the deployment name and a loop that keeps the conversation.","ro":"Chat client ko chaar cheezein chahiye: project endpoint, credential, deployment ka naam aur guftagu rakhne wala loop."},
   "concepts": [
     { "term": "AIProjectClient", "text": {"en":"Connects to the project endpoint: https://<resource>.services.ai.azure.com/api/projects/<project>.","ro":"Project endpoint se judta hai: https://<resource>.services.ai.azure.com/api/projects/<project>."} },
@@ -8,7 +8,9 @@
     { "term": "Responses API", "text": {"en":"input + instructions; result in output_text; previous_response_id continues on the server.","ro":"input + instructions; nateeja output_text mein; previous_response_id server par guftagu jari rakhta hai."} },
     { "term": "Chat Completions API", "text": {"en":"List of messages with roles; result in choices[0].message.content; you send the history.","ro":"Roles wale messages ki list; nateeja choices[0].message.content mein; history aap bhejte hain."} },
     { "term": "Streaming", "text": {"en":"stream=True delivers pieces while the model writes, so waiting feels shorter.","ro":"stream=True model ke likhte waqt tukre deta hai, is liye intezar kam lagta hai."} },
-    { "term": {"en":"Errors and retries","ro":"Errors aur retries"}, "text": {"en":"For 429 and temporary 5xx errors wait longer after each try; fix 401, 403 and 404 in code or settings.","ro":"429 aur waqti 5xx errors par har dafa zyada intezar; 401, 403 aur 404 code ya settings mein theek karein."} }
+    { "term": {"en":"Errors and retries","ro":"Errors aur retries"}, "text": {"en":"For 429 and temporary 5xx errors wait longer after each try; fix 401, 403 and 404 in code or settings.","ro":"429 aur waqti 5xx errors par har dafa zyada intezar; 401, 403 aur 404 code ya settings mein theek karein."} },
+    { "term": {"en":"Reading Python","ro":"Python parhna"}, "text": {"en":"Lists start at 0, dictionaries are read by key, f-strings insert values, indentation shows what repeats. The note of this skill has an example of each.","ro":"Lists 0 se shuru hoti hain, dictionaries key se parhi jati hain, f-strings value rakhti hain, indentation batati hai kya dohrata hai. Is skill ke note mein har ek ki misaal hai."} },
+    { "term": {"en":"Three endpoints","ro":"Teen endpoints"}, "text": {"en":"/api/projects/ for AIProjectClient, /openai/v1/ for the OpenAI client, cognitiveservices for tools.","ro":"/api/projects/ AIProjectClient ke liye, /openai/v1/ OpenAI client ke liye, cognitiveservices tools ke liye."} }
   ],
   "example": {
     "title": {"en":"Example: a complete client","ro":"Misaal: mukammal client"},

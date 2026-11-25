@@ -1,5 +1,5 @@
 {
-  "id": "2.2", "minutes": 7, "lab": "deploy",
+  "id": "2.2", "minutes": 9, "lab": "deploy",
   "intro": {"en":"In the Foundry portal you create a project, deploy a model from the catalog, test it in the playground, evaluate it and protect it with guardrails.","ro":"Foundry portal mein aap project banate hain, catalog se model deploy karte hain, playground mein test, evaluation aur guardrails se hifazat karte hain."},
   "concepts": [
     { "term": {"en":"Foundry resource and project","ro":"Foundry resource aur project"}, "text": {"en":"The resource holds deployments and settings; projects organize the work of a team in it.","ro":"Resource mein deployments aur settings hoti hain; projects us mein team ka kaam munazzam karte hain."} },
@@ -8,7 +8,8 @@
     { "term": "Playground", "text": {"en":"Try prompts, parameters and files, then view the sample code.","ro":"Prompts, parameters aur files azmayein, phir sample code dekhein."} },
     { "term": "Evaluation", "text": {"en":"Measures quality (such as groundedness, relevance) and safety over a dataset.","ro":"Dataset par quality (jaise groundedness, relevance) aur safety naapta hai."} },
     { "term": "Guardrails", "text": {"en":"Content filters, Prompt Shields, blocklists and protected-material checks for input and output.","ro":"Input aur output ke liye content filters, Prompt Shields, blocklists aur protected material ki jaanch."} },
-    { "term": "Roles", "text": {"en":"Foundry User (formerly Azure AI User) is enough to build and call; managing resources needs more.","ro":"Banane aur call karne ke liye Foundry User (pehle Azure AI User) kaafi hai; resources sambhalne ko zyada chahiye."} }
+    { "term": "Roles", "text": {"en":"Foundry User (formerly Azure AI User) is enough to build and call; managing resources needs more.","ro":"Banane aur call karne ke liye Foundry User (pehle Azure AI User) kaafi hai; resources sambhalne ko zyada chahiye."} },
+    { "term": {"en":"Azure levels","ro":"Azure ke levels"}, "text": {"en":"Tenant, subscription, resource group, Foundry resource, project: each one is inside the one before it.","ro":"Tenant, subscription, resource group, Foundry resource, project: har ek pichhle ke andar hai."} }
   ],
   "example": {
     "title": {"en":"Example: deploy from the command line","ro":"Misaal: command line se deploy"},

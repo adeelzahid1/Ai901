@@ -1,5 +1,5 @@
 {
-  "id": "text-app", "minutes": 4,
+  "id": "text-app", "minutes": 6,
   "main": {"en":"Create a TextAnalyticsClient, send a list of documents, check each result for an error, then read its properties.","ro":"TextAnalyticsClient banayein, documents ki list bhejein, har nateeje mein error dekhein, phir us ki properties parhein."},
   "explain": [
     {"en":"The package is azure-ai-textanalytics. The client needs an endpoint and a credential (key or Entra ID). Every method takes a list and returns a list in the same order, and each item can fail on its own. So the pattern is always: call, loop, check is_error, read.","ro":"Package azure-ai-textanalytics hai. Client ko endpoint aur credential (key ya Entra ID) chahiye. Har method list leta hai aur usi tarteeb mein list deta hai, aur har item alag fail ho sakta hai. Is liye tareeqa hamesha: call, loop, is_error dekhein, parhein."},
@@ -10,6 +10,16 @@
     {"en":"A typical small app has three steps. First mask personal data. Then analyze sentiment and opinions. Then write the result with the scores into a database or a report. Keep the original text only when you really need it, because it may contain personal data.","ro":"Aam chhoti app ke teen qadam hain. Pehle zaati data chhupana. Phir sentiment aur opinions. Phir nateeja scores ke saath database ya report mein. Asal text sirf zaroorat ho to rakhein, kyunke us mein zaati data ho sakta hai."},
     {"en":"Low scores deserve a rule as well. If no label reaches, for example, 0.6, treat the text as unclear and show it to a person instead of forcing a decision. Test the threshold with real texts from your users.","ro":"Kam scores ke liye bhi usool rakhein. Agar koi label, jaise 0.6, tak na pohanche to text ko ghair wazeh samjhein aur zabardasti faislay ke bajaye insan ko dikhayein. Had ko apne users ke asal text se test karein."},
     {"en":"The exam likes small traps in loops: a document without text, a property that belongs to another method, or a list that is read with the wrong index.","ro":"Exam loops mein chhote dhokay pasand karta hai: baghair text ka document, doosre method ki property, ya ghalat index se parhi list."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"The same task with a general model","ro":"Yahi kaam aam model se"},
+      "text": [
+        {"en":"The official course shows two ways: Azure Language (TextAnalyticsClient) and a general model with a prompt. Language gives fixed categories and scores and needs no prompt. A model can do several tasks at once and write free text.","ro":"Official course do tareeqay dikhata hai: Azure Language (TextAnalyticsClient) aur prompt ke saath aam model. Language mukarrar categories aur scores deti hai aur prompt nahi maangti. Model kai kaam ek saath kar sakta aur khula text likh sakta hai."},
+        {"en":"Plan for changes: summarization and key phrase extraction retire from Azure Language on 31 March 2029. Microsoft sends new projects to models in Foundry.","ro":"Tabdeeliyan zehen mein rakhein: summarization aur key phrase extraction 31 March 2029 ko Azure Language se retire honge. Microsoft naye projects ko Foundry ke models ki taraf bhejta hai."}
+      ],
+      "code": "client = OpenAI(base_url=os.getenv(\"AZURE_OPENAI_ENDPOINT\"), api_key=os.getenv(\"API_KEY\"))\n\nr = client.responses.create(\n    model=os.getenv(\"MODEL_DEPLOYMENT_NAME\"),\n    instructions=\"Answer with one word: positive, neutral or negative.\",\n    input=\"The room was clean, but the staff was rude.\",\n)\nprint(r.output_text)"
+    }
   ],
   "how": [
     "detect_language → primary_language.name, iso6391_name, confidence_score",

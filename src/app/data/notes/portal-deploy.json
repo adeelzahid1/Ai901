@@ -1,5 +1,5 @@
 {
-  "id": "portal-deploy", "minutes": 6,
+  "id": "portal-deploy", "minutes": 8,
   "main": {"en":"Create a Foundry project, choose a model from the catalog, deploy it under a name, test it in the playground, evaluate it and set guardrails.","ro":"Foundry project banayein, catalog se model chunein, naam ke saath deploy karein, playground mein test, evaluation aur guardrails."},
   "explain": [
     {"en":"A Foundry resource belongs to a subscription and a region and holds model deployments. Projects inside it organize the work: agents, files, evaluations, connections. Your app uses the project endpoint and the deployment name.","ro":"Foundry resource subscription aur region mein hota hai aur us mein model deployments hoti hain. Us ke andar projects kaam munazzam karte hain: agents, files, evaluations, connections. Aap ki app project endpoint aur deployment ka naam istemal karti hai."},
@@ -19,6 +19,28 @@
   },
   "deep": [
     {"en":"Evaluation needs a dataset with questions and, for some metrics, expected answers or context. Quality evaluators use a model as a judge, so they cost tokens and need a deployment. Safety evaluators check for harmful content and attacks. Run the same evaluation before and after a change; a single number without a comparison says little.","ro":"Evaluation ko sawalon ka dataset chahiye, aur kuch metrics ke liye mutawaqqe jawab ya context. Quality evaluators model ko judge banate hain, is liye tokens aur deployment chahiye. Safety evaluators nuqsan dah content aur hamle dekhte hain. Tabdeeli se pehle aur baad wahi evaluation chalayein; muqable ke baghair akela number kam batata hai."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"Azure levels around a Foundry project","ro":"Foundry project ke gird Azure ke levels"},
+      "text": [
+        {"en":"You should be familiar with Azure resources. Think of boxes inside boxes: the tenant is the organization, a subscription pays, a resource group keeps things together, the Foundry resource hosts models, and the project is where you work.","ro":"Aap ko Azure resources ka pata hona chahiye. Dabbon ke andar dabbay sochein: tenant idara hai, subscription paise deti hai, resource group cheezein saath rakhta hai, Foundry resource models host karta hai, aur project mein aap kaam karte hain."}
+      ],
+      "flows": [
+        { "title": {"en":"From outside to inside","ro":"Bahar se andar"}, "steps": [
+          { "title": "Tenant", "text": {"en":"users and policies","ro":"users aur policies"} },
+          { "title": "Subscription", "text": "billing, quota" },
+          { "title": "Resource group", "text": {"en":"folder of resources","ro":"resources ka folder"} },
+          { "title": "Foundry resource", "text": "models, governance" },
+          { "title": "Foundry project", "text": "agents, files, evaluations" }
+        ] }
+      ],
+      "terms": [
+        { "term": "Scale out / scale up", "text": {"en":"Out: more copies of the app. Up: more CPU or memory for one copy.","ro":"Out: app ki zyada copies. Up: ek copy ko zyada CPU ya memory."} },
+        { "term": "Key Vault", "text": {"en":"Keeps keys and other secrets; the app reads them with a managed identity.","ro":"Keys aur doosre secrets rakhta hai; app unhein managed identity se parhti hai."} },
+        { "term": {"en":"App Service and AKS","ro":"App Service aur AKS"}, "text": {"en":"App Service hosts web apps; AKS runs many containers.","ro":"App Service web apps host karta hai; AKS bohat se containers chalata hai."} }
+      ]
+    }
   ],
   "how": [
     {"en":"Evaluators: groundedness (follows the source), relevance (answers the question), coherence (logical), fluency (good language), plus safety evaluators.","ro":"Evaluators: groundedness (source ke mutabiq), relevance (sawal ka jawab), coherence (mantiqi), fluency (achi zabaan), aur safety evaluators."},

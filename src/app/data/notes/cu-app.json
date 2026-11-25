@@ -1,5 +1,5 @@
 {
-  "id": "cu-app", "minutes": 5,
+  "id": "cu-app", "minutes": 7,
   "main": {"en":"The REST flow is asynchronous: POST starts the analysis, GET polls the result URL until it succeeds.","ro":"REST ka tareeqa asynchronous hai: POST analysis shuru karta hai, GET kamyabi tak result URL poll karta hai."},
   "explain": [
     {"en":"POST {endpoint}/contentunderstanding/analyzers/{analyzer}:analyze with the API version, a key or token and a body with the input URLs. The answer is 202 with the header Operation-Location. GET that address: the status goes from NotStarted or Running to Succeeded or Failed.","ro":"POST {endpoint}/contentunderstanding/analyzers/{analyzer}:analyze, API version, key ya token aur input URLs wali body ke saath. Jawab 202 aur Operation-Location header hai. Us pate par GET: status NotStarted ya Running se Succeeded ya Failed hota hai."},
@@ -19,6 +19,28 @@
   "deep": [
     {"en":"Before the first call the resource needs model deployments that Content Understanding may use, for example a chat model and an embedding model, set as defaults. Without them an analyzer with fields fails although the key is right. A complete app then does more than one call: it stores the request ID, polls with a limit, saves the JSON, compares confidence with the threshold and creates a task for a person when needed.","ro":"Pehli call se pehle resource ko aisi model deployments chahiye jo Content Understanding istemal kar sake, jaise chat model aur embedding model, default ke tor par. In ke baghair fields wala analyzer sahi key ke bawajood fail hota hai. Mukammal app ek call se zyada karti hai: request ID save, had ke saath poll, JSON save, confidence ka muqabla, aur zaroorat par insan ke liye kaam."},
     {"en":"Plan for the unhappy path. The file cannot be downloaded, the status is Failed, the result has warnings from a guardrail, or a required field is missing. Each of these needs a clear message, and the original file must stay available for a second try. Many teams also save the raw JSON, so they can explain later where a value came from.","ro":"Nakaami ka raasta bhi sochein. File download nahi hoti, status Failed hai, guardrail ki warnings hain, ya zaroori field nahi. Har ek ke liye wazeh paigham chahiye, aur asal file dobara koshish ke liye maujood rahe. Bohat si teams raw JSON bhi save karti hain taake baad mein bata sakein value kahan se aayi."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"The same with the Python SDK","ro":"Yahi kaam Python SDK se"},
+      "text": [
+        {"en":"The official course uses the package azure-ai-contentunderstanding. begin_analyze starts the operation and returns a poller; result() polls Operation-Location for you. Each content has markdown and fields, the same as in REST.","ro":"Official course azure-ai-contentunderstanding package istemal karta hai. begin_analyze operation shuru karke poller deta hai; result() aap ke liye Operation-Location poll karta hai. Har content mein markdown aur fields hain, jaise REST mein."}
+      ],
+      "flows": [
+        { "title": {"en":"SDK steps","ro":"SDK ke qadam"}, "steps": [
+          { "title": "Client", "text": {"en":"endpoint + key or Entra ID","ro":"endpoint + key ya Entra ID"} },
+          { "title": "begin_analyze", "text": "analyzer + input URL" },
+          { "title": "result()", "text": {"en":"waits for the operation","ro":"operation ka intezar"} },
+          { "title": "contents", "text": {"en":"markdown and fields","ro":"markdown aur fields"} }
+        ] }
+      ],
+      "terms": [
+        { "term": "Prebuilt analyzers", "text": {"en":"prebuilt-invoice for invoice fields; prebuilt-documentSearch, -imageSearch, -audioSearch and -videoSearch for one media type each.","ro":"prebuilt-invoice invoice ki fields ke liye; prebuilt-documentSearch, -imageSearch, -audioSearch aur -videoSearch ek ek media ke liye."} },
+        { "term": "\"Default model deployment not configured\"", "text": {"en":"Deploy the needed models and map them as defaults of the resource.","ro":"Zaroori models deploy karke resource ke defaults mein map karein."} },
+        { "term": {"en":"Access denied with Entra ID","ro":"Entra ID ke saath access denied"}, "text": {"en":"Give the role Cognitive Services User, even to an owner.","ro":"Cognitive Services User role dein, owner ko bhi."} }
+      ],
+      "code": "from azure.ai.contentunderstanding import ContentUnderstandingClient\nfrom azure.ai.contentunderstanding.models import AnalysisInput\nfrom azure.core.credentials import AzureKeyCredential\n\nclient = ContentUnderstandingClient(\n    endpoint=os.environ[\"FOUNDRY_ENDPOINT\"],\n    credential=AzureKeyCredential(os.environ[\"FOUNDRY_KEY\"]))\n\npoller = client.begin_analyze(\n    analyzer_id=\"prebuilt-invoice\",\n    inputs=[AnalysisInput(url=pdf_url)])\nresult = poller.result()\n\ncontent = result.contents[0]\nprint(content.markdown)\nfield = content.fields.get(\"InvoiceTotal\")\nprint(field.value if field else \"no total\")"
+    }
   ],
   "how": [
     {"en":"Wait one or two seconds between polls and stop after a time limit.","ro":"Poll ke darmiyan ek do second rukein aur waqt ki had rakhein."},

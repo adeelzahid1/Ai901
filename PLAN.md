@@ -1,6 +1,6 @@
 # Plan
 
-Phases 0-19 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
+Phases 0-20 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
 a review of the portal from a teacher's point of view. Every step ends with validation, unit tests, a
 build, a browser check, a commit and a check of the live site.
 
@@ -88,3 +88,9 @@ three questions of its skill.
 Phases 19-22 close the gaps to the official course AI-901T00 (15 modules, compared on 2026-11-25). Phase 19: 76 new
 questions (d1-ext16, d1-ext17, d2-ext23), topics inside six notes, 29 glossary terms and two cheat sheet tables about
 text analysis, speech, vision, OCR, RAG and video generation from the inside.
+
+## Phase 20 - Code like in the official course (done)
+
+45 new questions (d2-ext24): Content Understanding SDK for Python, vision with the Responses API, speech events,
+reading Python, endpoints and Azure levels. New topics in six notes (with the Python primer), 13 glossary terms,
+two cheat sheet code groups and one new step in two labs.

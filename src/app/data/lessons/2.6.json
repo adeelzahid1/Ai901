@@ -9,7 +9,8 @@
     { "term": "Image editing", "text": {"en":"images.edit with an image and optional mask changes only part of it.","ro":"images.edit image aur mask ke saath sirf ek hissa badalta hai."} },
     { "term": "ImageAnalysisClient", "text": {"en":"analyze or analyze_from_url with visual_features such as CAPTION, TAGS, OBJECTS, PEOPLE, READ.","ro":"analyze ya analyze_from_url, visual_features jaise CAPTION, TAGS, OBJECTS, PEOPLE, READ ke saath."} },
     { "term": "Safety", "text": {"en":"Prompts and images pass content filters; generated images carry content credentials.","ro":"Prompts aur images content filters se guzarti hain; generated images mein content credentials hote hain."} },
-    { "term": "Video generation", "text": {"en":"Sora 2 creates videos from text, image or video as an asynchronous job: POST, poll the status, download.","ro":"Sora 2 text, image ya video se asynchronous job ke taur par video banata hai: POST, status poochna, download."} }
+    { "term": "Video generation", "text": {"en":"Sora 2 creates videos from text, image or video as an asynchronous job: POST, poll the status, download.","ro":"Sora 2 text, image ya video se asynchronous job ke taur par video banata hai: POST, status poochna, download."} },
+    { "term": {"en":"Vision app with a model","ro":"Model ke saath vision app"}, "text": {"en":"Responses API: one user message with input_text and input_image, the answer is output_text.","ro":"Responses API: ek user message mein input_text aur input_image, jawab output_text hai."} }
   ],
   "example": {
     "title": {"en":"Example: ask about a local photo","ro":"Misaal: local tasveer ke baare mein sawal"},
@@ -38,7 +39,8 @@
   "traps": [
     {"en":"A vision model describes; an image model draws. The deployment must match.","ro":"Vision model bayan karta hai; image model banata hai. Deployment us ke mutabiq ho."},
     {"en":"A caption is one sentence; dense captions describe regions.","ro":"Caption ek jumla hai; dense captions hisse bayan karte hain."},
-    {"en":"The answer to the POST request of a video job holds an id, not the video.","ro":"Video job ki POST request ke jawab mein id hoti hai, video nahi."}
+    {"en":"The answer to the POST request of a video job holds an id, not the video.","ro":"Video job ki POST request ke jawab mein id hoti hai, video nahi."},
+    {"en":"input_image belongs to the Responses API, image_url to chat completions.","ro":"input_image Responses API ka hai, image_url chat completions ka."}
   ],
   "check": ["D2-546", "D2-609", "D2-052", "D2-127", "D2-458"],
   "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"

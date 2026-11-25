@@ -1,5 +1,5 @@
 {
-  "id": "vision-app", "minutes": 4,
+  "id": "vision-app", "minutes": 6,
   "main": {"en":"ImageAnalysisClient returns the visual features that you request: caption, tags, objects, people, text.","ro":"ImageAnalysisClient aap ke maange hue visual features deta hai: caption, tags, objects, people, text."},
   "explain": [
     {"en":"The package is azure-ai-vision-imageanalysis. Create the client with endpoint and credential and call analyze with image_data (bytes) or analyze_from_url. visual_features lists what you want; anything else in the result is None.","ro":"Package azure-ai-vision-imageanalysis hai. Endpoint aur credential se client banayein aur image_data (bytes) ke saath analyze ya analyze_from_url call karein. visual_features mein jo chahiye likhein; baqi nateeje mein None hota hai."},
@@ -10,6 +10,20 @@
     {"en":"The result object has one attribute per feature: result.caption.text and confidence, result.tags.list, result.objects.list with bounding_box, result.people.list, result.read.blocks with lines and words. Filter by confidence before you show or store values. Boxes use pixel coordinates of the original image, so scale them when you draw on a smaller preview.","ro":"Result object mein har feature ka attribute hai: result.caption.text aur confidence, result.tags.list, result.objects.list bounding_box ke saath, result.people.list, result.read.blocks lines aur words ke saath. Dikhane ya save karne se pehle confidence se filter karein. Boxes asal image ke pixels mein hote hain, is liye chhoti preview par scale karein."},
     {"en":"Images must be readable for the service: common formats, not too small, not too large, and reachable when you send a URL. A 400 error often means a wrong format or an image that cannot be downloaded.","ro":"Image service ke liye qabil e qabool ho: aam formats, na bohat chhoti, na bohat bari, aur URL ho to khuli. 400 error ka matlab aksar ghalat format ya download na hone wali image."},
     {"en":"A typical app for a photo archive runs in three steps. It requests tags and people for each picture, saves values above a confidence of 0.7 with the file name, and puts pictures with low values into a review list. Later the archive can be searched by tag without analyzing again. Keep the model version and the date with the result, because a later version may give other tags.","ro":"Photo archive ki aam app teen qadam mein chalti hai. Har tasveer ke tags aur people maangti hai, 0.7 se zyada confidence wali values file name ke saath save karti hai, aur kam wali tasveerein review list mein dalti hai. Baad mein archive dobara analysis ke baghair tag se dhoonda ja sakta hai. Nateeje ke saath model version aur tareekh rakhein, kyunke naya version doosre tags de sakta hai."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"The way of the official course: a multimodal model","ro":"Official course ka tareeqa: multimodal model"},
+      "text": [
+        {"en":"The current AI-901 course builds its vision app with a vision-capable model and the Responses API, not with Image Analysis. Image Analysis 4.0 retires on 25 September 2028. Know both: the exam can show the features of Image Analysis, and it can ask you to send an image to a model.","ro":"Maujooda AI-901 course vision app vision wale model aur Responses API se banata hai, Image Analysis se nahi. Image Analysis 4.0 25 September 2028 ko retire hoga. Dono jaanein: exam Image Analysis ke features dikha sakta hai, aur model ko image bhejne ka bhi pooch sakta hai."}
+      ],
+      "terms": [
+        { "term": "input_text / input_image", "text": {"en":"Parts of the Responses API. Chat completions uses text and image_url instead.","ro":"Responses API ke hissay. Chat completions un ki jagah text aur image_url istemal karta hai."} },
+        { "term": {"en":"URL or data URL","ro":"URL ya data URL"}, "text": {"en":"A reachable web address, or the picture itself as Base64.","ro":"Qabil e rasai web address, ya tasveer khud Base64 mein."} },
+        { "term": {"en":"For a program, not a person","ro":"Program ke liye, insan ke liye nahi"}, "text": {"en":"Ask for structured output with a schema; do not compare free text.","ro":"Schema ke saath structured output maangein; khule text ka muqabla na karein."} }
+      ],
+      "code": "with open(\"shelf.jpg\", \"rb\") as f:\n    data = base64.b64encode(f.read()).decode()\n\nresponse = client.responses.create(\n    model=os.environ[\"MODEL_NAME\"],        # name of the deployment\n    input=[{\"role\": \"user\", \"content\": [\n        {\"type\": \"input_text\", \"text\": \"List the empty places on the shelf.\"},\n        {\"type\": \"input_image\", \"image_url\": f\"data:image/jpeg;base64,{data}\"},\n    ]}],\n)\nprint(response.output_text)"
+    }
   ],
   "how": [
     {"en":"CAPTION one sentence, DENSE_CAPTIONS several regions, TAGS words, OBJECTS boxes, PEOPLE boxes, READ text, SMART_CROPS crops.","ro":"CAPTION ek jumla, DENSE_CAPTIONS kai hisse, TAGS alfaaz, OBJECTS boxes, PEOPLE boxes, READ text, SMART_CROPS crop."},

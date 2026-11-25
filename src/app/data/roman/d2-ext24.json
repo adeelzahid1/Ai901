@@ -1,0 +1,342 @@
+{
+  "D2-693": {
+    "q": "Key ke saath Content Understanding client banane wala Python code mukammal karein.",
+    "exp": "ContentUnderstandingClient azure.ai.contentunderstanding se aata hai, aur key AzureKeyCredential mein di jati hai. DefaultAzureCredential key nahi leta, SpeechConfig Speech SDK ka hai, aur baqi packages text analysis aur Foundry projects ke hain."
+  },
+  "D2-694": {
+    "q": "Invoice ka jaiza lekar nateeje ka intezar karne wala Python code mukammal karein.",
+    "exp": "begin_analyze lamba operation shuru karke poller deta hai, result() khatam hone ka intezar karta hai, aur nateeje mein contents ki list hoti hai. choices chat completions ka hai, output Responses API ka, aur status() sirf haalat batata."
+  },
+  "D2-695": {
+    "q": "Python ke Content Understanding SDK mein poller.result() kya karta hai?",
+    "opts": [
+      "File ko analyzer par upload karta hai",
+      "Operation ka intezar karke us ka nateeja deta hai",
+      "Service se nateeja delete karta hai",
+      "Pehli field ka confidence deta hai"
+    ],
+    "exp": "Jaiza asynchronous hai. result() aap ke liye operation khatam hone tak poll karta hai aur phir nateeja deta hai. File begin_analyze bhejta hai, delete alag call hai, aur confidence har field ke saath hota hai."
+  },
+  "D2-696": {
+    "q": "Invoice se fields parhne wali Python app ke qadam tarteeb se lagayein. Har qadam istemal nahi hoga.",
+    "items": [
+      "Poller par result() call karna",
+      "Pehle content ki fields parhna",
+      "ContentUnderstandingClient banana",
+      "Custom neural voice train karna",
+      "azure-ai-contentunderstanding install karna",
+      "Analyzer aur URL ke saath begin_analyze call karna"
+    ],
+    "exp": "Pehle package install hota hai, client ko endpoint aur credential chahiye, begin_analyze operation shuru karta hai, result() intezar karta hai aur fields har content ka hissa hain. Custom neural voice speech ka hissa hai."
+  },
+  "D2-697": {
+    "q": "Aakhri line kaise theek karenge?",
+    "ctx": "poller = client.begin_analyze(\n    analyzer_id=\"prebuilt-documentSearch\",\n    inputs=[AnalysisInput(url=pdf_url)],\n)\nprint(poller.contents[0].markdown)   # AttributeError",
+    "opts": [
+      "poller.result().contents[0].markdown likhna",
+      "poller.choices[0].message.content likhna",
+      "Waqfay ke baad client.contents[0].markdown likhna",
+      "poller.output_text likhna"
+    ],
+    "exp": "begin_analyze operation ka poller deta hai, nateeja nahi. result() intezar karke woh object deta hai jis mein contents hain. choices aur output_text model ke jawabon ke hain, aur client khud nateeje nahi rakhta."
+  },
+  "D2-698": {
+    "q": "Har kaam ko munasib prebuilt analyzer se milayein. Har analyzer ek dafa ya bilkul istemal nahi hoga.",
+    "items": [
+      "Bill ka total aur vendor nikalna",
+      "PDF reports ko search ke liye Markdown banana",
+      "Voicemails ka transcript aur khulasa lena",
+      "Training films mein talash mumkin banana"
+    ],
+    "exp": "prebuilt-invoice invoice ki fields deta hai, aur search analyzers ek media ka content tayyar karte hain: documents, audio ya video. prebuilt-imageSearch tasveeron ke liye hai, jis ki yahan zaroorat nahi."
+  },
+  "D2-699": {
+    "q": "Kuch documents mein total nahi, aur ye line app rok deti hai. Kaunsa code ghaib field sambhalta hai?",
+    "ctx": "total = content.fields[\"InvoiceTotal\"].value",
+    "opts": [null, "f = content.fields.get(\"InvoiceTotal\"); total = f.value if f else None", null, null],
+    "exp": "get() key na ho to None deta hai, is liye app value parhne se pehle check kar sakti hai. Square brackets ghaib key par error dete hain, poller ki fields nahi hotin, aur result() poller ka hai, value ka nahi."
+  },
+  "D2-700": {
+    "q": "Python ke Content Understanding SDK ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Woh aap ke liye Operation-Location address poll karta hai.",
+      "Woh Microsoft Foundry resource ke baghair chalta hai.",
+      "Woh key ya Microsoft Entra ID credential leta hai.",
+      "Woh wahi analyzers call kar sakta hai jo REST API."
+    ],
+    "exp": "Haan, Nahi, Haan, Haan. SDK REST API ke upar ek layer hai, is liye polling chupata hai aur wahi analyzers istemal karta hai. Foundry resource phir bhi chahiye, aur AzureKeyCredential ya DefaultAzureCredential se authenticate kar sakte hain."
+  },
+  "D2-701": {
+    "q": "prebuilt-invoice ki pehli call \"Default model deployment not configured\" ke saath fail hoti hai. Key aur endpoint sahi hain. Kya kami hai?",
+    "opts": [
+      "Invoices par train kiya hua fine-tuned model",
+      "Foundry resource ka public address",
+      "Deploy kiye models ki resource ke defaults ke taur par mapping",
+      "Doosri API key"
+    ],
+    "exp": "Fields wale analyzers gpt-4.1 jaise model aur embedding model istemal karte hain. Unhein ek dafa deploy karke Foundry resource ke defaults mein map karte hain. Fine-tuning nahi chahiye, aur doosri key ya public address mapping nahi banate."
+  },
+  "D2-702": {
+    "q": "Developer Foundry resource ka Owner hai, lekin DefaultAzureCredential ke saath Content Understanding calls deny hoti hain. Kaunsa role nahi hai?",
+    "exp": "Service ko call karna data action hai, aur Cognitive Services User ye ijazat deta hai chahe koi resource ka owner ho. Reader aur Contributor resources sambhalne ke liye hain, aur Billing Reader sirf kharcha dikhata hai."
+  },
+  "D2-703": {
+    "q": "Kaunsi command Python ke liye Content Understanding SDK install karti hai?",
+    "exp": "Package azure-ai-contentunderstanding mein ContentUnderstandingClient hai. azure-ai-textanalytics Azure Language ke liye, azure-cognitiveservices-speech Speech SDK hai, aur az extension CLI mein commands jorta hai, Python library nahi."
+  },
+  "D2-704": {
+    "q": "Ye code kya print karta hai?",
+    "ctx": "poller = client.begin_analyze(\n    analyzer_id=\"prebuilt-audioSearch\",\n    inputs=[AnalysisInput(url=voicemail_url)],\n)\nfor content in poller.result().contents:\n    print(content.markdown)",
+    "opts": [
+      "Sound file Base64 text mein",
+      "Resource ke tamam analyzers ke naam",
+      "Voicemail ka transcript",
+      "Caller ke liye bola gaya jawab"
+    ],
+    "exp": "Audio analyzer awaaz ko text banata hai, aur content ke markdown mein transcript hota hai. Service audio file wapas nahi deti, analyzers ki list alag operation hai, aur bole gaye jawab ke liye speech synthesis chahiye."
+  },
+  "D2-705": {
+    "q": "Deploy kiye hue multimodal model se image ke baare mein poochne wala Python code mukammal karein.",
+    "exp": "Responses API message ke hisson ke liye input_text aur input_image, aur jawab ke liye output_text istemal karta hai. text aur image_url chat completions ke part types hain, image_generation ek tool hai, aur caption Image Analysis ka nateeja hai."
+  },
+  "D2-706": {
+    "q": "Request kyun fail hoti hai?",
+    "ctx": "client.responses.create(\n    model=deployment,\n    input=[{\"role\": \"user\", \"content\": [\n        {\"type\": \"input_text\", \"text\": \"What is this?\"},\n        {\"type\": \"image_url\", \"image_url\": {\"url\": url}},\n    ]}],\n)   # 400 Bad Request",
+    "opts": [
+      "Image ko apna alag system message chahiye",
+      "Image ka hissa chat completions ke format mein hai",
+      "Request mein image ya text ho sakta hai, dono nahi",
+      "Image Blob Storage par upload nahi hui"
+    ],
+    "exp": "Responses API {\"type\": \"input_image\", \"image_url\": url} chahta hai. Andar wala image_url object chat completions ka hai. Text aur image saath ja sakte hain, alag system message nahi chahiye, aur koi bhi qabil e rasai URL ya data URL chalta hai."
+  },
+  "D2-707": {
+    "q": "Multimodal model se photos bayan karne wali chhoti app ke qadam tarteeb se lagayein. Har qadam istemal nahi hoga.",
+    "items": [
+      "Ek user message mein sawal aur image bhejna",
+      "Label wali photos se convolutional network train karna",
+      "Vision wala model deploy karna",
+      "Jawab ka text dikhana",
+      "Endpoint aur credential ke saath client banana"
+    ],
+    "exp": "Pehle model deploy hota hai, client endpoint se jurta hai, ek message mein text aur image jate hain, aur app jawab dikhati hai. Model pehle se train hai, is liye apni photos se network train nahi karna."
+  },
+  "D2-708": {
+    "q": "Local photo ko data URL banane wala Python code mukammal karein.",
+    "exp": "Tasveer binary hai, is liye file rb se khulti hai. b64encode bytes deta hai, aur decode() unhein text banata hai. Data URL mein media type aur phir base64 aata hai. r aur w text ke modes hain, aur encode() ulti simt mein kaam karta hai."
+  },
+  "D2-709": {
+    "q": "Company nayi app shuru karti hai jo photos ke baare mein khule sawalon ka jawab degi aur kai saal chalegi. Kaunsa intikhab sab se munasib hai?",
+    "opts": [
+      "Tags feature ke saath Image Analysis 4.0",
+      "Sirf text wala chhota language model",
+      "Keywords ki list ke saath READ feature",
+      "Foundry mein vision wala model"
+    ],
+    "exp": "Vision wala model images ke khule sawalon ka jawab deta hai. Image Analysis 4.0 mukarrar features deta hai aur 25 September 2028 ko retire hoga, is liye nayi lambi app ki bunyad nahi. Text wala model images nahi leta, aur READ sirf text deta hai."
+  },
+  "D2-710": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Azure Vision Image Analysis 4.0 deprecated hai aur September 2028 mein retire hoga.",
+      "Multimodal chat model har bataye gaye object ke saath mukarrar confidence score deta hai.",
+      "Structured outputs model se photo ki description JSON mein dilwa sakte hain.",
+      "Base64 mein bheji gayi image ka public address bhi hona zaroori hai."
+    ],
+    "exp": "Haan, Nahi, Haan, Nahi. Microsoft ne Image Analysis 4.0 ki retirement ka elaan kiya hai. Chat models baghair mukarrar scores ke text dete hain. Structured outputs JSON schema lazmi karte hain. Base64 data URL mein image khud hoti hai, is liye public address nahi chahiye."
+  },
+  "D2-711": {
+    "q": "Kaunsi tabdeeli check ko qabil e bharosa banati hai?",
+    "ctx": "if response.output_text == \"Yes\":\n    flag(photo)\n# The model sometimes answers \"Yes.\", \"It does\" or \"There is a crack\".",
+    "opts": [
+      "Text ko alfaaz ki lambi list se milana",
+      "Boolean field ke saath structured output maangna",
+      "Wahi photo do dafa bhejna",
+      "Temperature barhana taake jawab zyada mukhtalif hon"
+    ],
+    "exp": "Boolean field wala JSON schema program ko ek value deta hai jise test kiya ja sake. Alfaaz ki list tamam jawab nahi gher sakti, photo do dafa bhejna tokens leta hai aur masla hal nahi karta, aur zyada temperature alfaaz aur badalta hai."
+  },
+  "D2-712": {
+    "q": "Multimodal model ko photos bhejne wali app ka token kharcha kaunse DO iqdamat kam karte hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Har photo bhejne se pehle Base64 string banana",
+      "Image ki detail low karna",
+      "Model se photo par kai lambe marahil mein sochne ko kehna",
+      "Photos ke chhote versions bhejna"
+    ],
+    "exp": "Low detail aur chhoti tasveerein kam image tokens leti hain. Base64 sirf wahi image bhejne ka tareeqa hai aur tokens nahi badalta, aur lambe soch ke marahil output tokens barhate hain."
+  },
+  "D2-713": {
+    "q": "Sab se mumkin wajah kya hai?",
+    "ctx": "client = OpenAI(\n    api_key=os.getenv(\"FOUNDRY_KEY\"),\n    base_url=os.getenv(\"ENDPOINT\"),\n)\n# Error: the api_key option must be set",
+    "opts": [
+      "Environment variable FOUNDRY_KEY set nahi",
+      "Deploy kiya model images nahi parh sakta",
+      "Photo context window ke liye bohat bari hai",
+      "Prompt content filter ne block kiya"
+    ],
+    "exp": "os.getenv ghaib variable par None deta hai, is liye client ko key nahi milti. Error kisi request se pehle aati hai, is liye model, photo ka size aur content filter wajah nahi ho sakte."
+  },
+  "D2-714": {
+    "q": "Deploy kiye hue model se review ka sentiment label karwane wala Python code mukammal karein.",
+    "exp": "Aam model ke saath usool instructions mein, review input mein jata hai, aur jawab output_text mein hota hai. documents aur language Language SDK ke parameters hain, sentiment aur primary_language us ke nateeje, aur analyzer_id Content Understanding ka hai."
+  },
+  "D2-715": {
+    "q": "Har Python package ko us ki class se milayein. Har class ek dafa istemal hogi.",
+    "exp": "openai model API ke liye OpenAI deta hai, azure-ai-textanalytics Azure Language ka client, azure-ai-contentunderstanding analyzers ka client, aur azure-ai-projects Foundry project ke liye AIProjectClient."
+  },
+  "D2-716": {
+    "q": "Code mein [0] kyun hai?",
+    "ctx": "text = \"Hola, me llamo Josefina.\"\nresult = client.detect_language([text])[0]\nprint(result.primary_language.name)",
+    "opts": [
+      "Sab se mumkin zabaan ka number 0 hai",
+      "0 sab se kam confidence hai jo qubool hota hai",
+      "Method har document ke ek nateeje ki list deta hai",
+      "Ye text se salam hata deta hai"
+    ],
+    "exp": "detect_language documents ki list leta hai aur usi tarteeb mein nateejon ki list deta hai, is liye [0] wahid document ka nateeja leta hai. Number list ki jagah hai, zabaan, confidence ya text ka kaam nahi."
+  },
+  "D2-717": {
+    "q": "Laptop par variable kahin aur set nahi. load_dotenv() hata dein to kya print hoga?",
+    "ctx": "# .env\nAZURE_LANGUAGE_ENDPOINT=https://my-res.cognitiveservices.azure.com/\n\n# app.py\nimport os\nfrom dotenv import load_dotenv\nload_dotenv()\nprint(os.getenv(\"AZURE_LANGUAGE_ENDPOINT\"))",
+    "exp": "load_dotenv .env file parh kar us ki values environment mein rakhta hai. Us ke baghair os.getenv ko variable nahi milta aur None deta hai, jise print lafz None dikhata hai. File khud ba khud nahi parhi jati."
+  },
+  "D2-718": {
+    "q": "Python app apni key .env file mein rakhti hai. Har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "load_dotenv() key ko Azure Key Vault mein rakhta hai.",
+      ".env file .gitignore mein honi chahiye.",
+      "Variable na ho to os.environ[\"NAME\"] error deta hai.",
+      "Variable na ho to os.getenv(\"NAME\") None deta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: load_dotenv sirf local program ke environment variables bharta hai. Doosre ka Haan: secrets source control mein nahi hone chahiyein. Teesre aur chauthe ka Haan: square brackets KeyError dete hain, getenv None deta hai."
+  },
+  "D2-719": {
+    "q": "Team nayi app shuru karti hai jo lambe documents ka khulasa kare. Microsoft naye projects ke liye kaunsa tareeqa tajweez karta hai?",
+    "opts": [
+      "Azure Language ki summarization",
+      "Key phrase extraction, jumlon mein jori hui",
+      "Microsoft Foundry mein deploy kiya model",
+      "Kam threshold ke saath opinion mining"
+    ],
+    "exp": "Summarization 31 March 2029 ko Azure Language se retire hogi, aur Microsoft naye projects ko Foundry models ki taraf bhejta hai. Key phrases sirf topics hain aur woh bhi tab retire honge, aur opinion mining targets aur jazbat dhoondta hai, khulasa nahi likhta."
+  },
+  "D2-720": {
+    "q": "Aadmi bolta rahe aur har mukammal phrase print ho: Python code mukammal karein.",
+    "exp": "recognized event har mukammal phrase par aata hai, continuous recognition sunti rehti hai, aur stop call usay khatam karti hai. canceled errors batata hai, session_started sirf shuruat hai, aur batch transcription alag API hai."
+  },
+  "D2-721": {
+    "q": "Caption app ko jumla poora hone se pehle alfaaz dikhane hain, chahe baad mein badlein. SpeechRecognizer ka kaunsa event ye adhoora text deta hai?",
+    "exp": "recognizing darmiyani nateeje deta hai jo badal sakte hain. recognized phrase ka aakhri text deta hai, session_stopped session ka khatma hai, aur canceled error ya audio ka khatma batata hai."
+  },
+  "D2-722": {
+    "q": "Batch transcription job Azure Storage se recordings kaise leta hai?",
+    "opts": [
+      "App unhein default microphone se bajati hai",
+      "Har recording prompt ke hissay ke taur par bheji jati hai",
+      "Shared access signature (SAS) wale URI se",
+      "Unhein Python package mein copy kiya jata hai"
+    ],
+    "exp": "Batch transcription storage ki files ke saath asynchronously chalti hai, aur SAS URI service ko mehdood rasai deta hai. Microphone real-time recognition ke liye hai, prompts models ke liye, aur packages mein code hota hai."
+  },
+  "D2-723": {
+    "q": "Foundry resource ki endpoint se Azure Speech se jurne aur microphone sunne wala Python code mukammal karein.",
+    "exp": "SpeechConfig key ke saath region ya resource ki endpoint leta hai. use_default_microphone wala AudioConfig microphone sunta hai. use_default_speaker output ke liye hai, filename ko path chahiye, aur deployment ya model model calls ki settings hain."
+  },
+  "D2-724": {
+    "q": "Kya print hota hai?",
+    "ctx": "messages = [\n    {\"role\": \"system\", \"content\": \"Be brief.\"},\n    {\"role\": \"user\", \"content\": \"What is RAG?\"},\n]\nprint(messages[1][\"content\"])",
+    "exp": "messages dictionaries ki list hai, aur positions 0 se shuru hoti hain, is liye messages[1] user message hai. [\"content\"] key content ki value parhta hai. \"Be brief.\" messages[0] mein hai, aur user key role ki value hai."
+  },
+  "D2-725": {
+    "q": "Kya print hota hai?",
+    "ctx": "city = \"Lahore\"\nprompt = f\"Write one sentence about {city}.\"\nprint(prompt)",
+    "exp": "f-string curly braces wale naam ko us ki value se badalta hai, is liye {city} Lahore ban jata hai. f ke baghair braces waise hi print hote, aur f aur quotation marks text ka hissa nahi."
+  },
+  "D2-726": {
+    "q": "Function ask RateLimitError deta hai. Kya print hota hai?",
+    "ctx": "try:\n    reply = ask(\"Hello\")\n    print(\"A\")\nexcept RateLimitError:\n    print(\"B\")\nprint(\"C\")",
+    "exp": "Error try block ko print(\"A\") se pehle rok deti hai, except block usay sambhal kar B print karta hai, aur program print(\"C\") ke saath chalta hai jo dono blocks se bahar hai. Munasib except block na ho to program ruk jata."
+  },
+  "D2-727": {
+    "q": "Kai sawal pooch kar jawab jama karne wala Python code mukammal karein.",
+    "exp": "return text caller ko deta hai, \"for q in questions\" list par chalta hai, aur append aakhir mein item jorta hai. print text dikhata lekin wapas kuch nahi deta, \"of\" aur push JavaScript ke hain, aur insert ko position bhi chahiye."
+  },
+  "D2-728": {
+    "q": "Responses ne 10, 20 aur 30 output tokens istemal kiye. Kya print hota hai?",
+    "ctx": "total = 0\nfor r in responses:        # three responses\n    total += r.usage.output_tokens\nprint(total)",
+    "opts": ["Teen lines mein 10, 30 aur 60", "30", "60 ek dafa", "60 teen dafa"],
+    "exp": "Loop teenon numbers jorta hai, aur print indent nahi, is liye loop ke baad ek dafa chalta hai. Agar print indent hota to har round mein chalta aur 10, 30 aur 60 dikhata."
+  },
+  "D2-729": {
+    "q": "Har address ko us client se milayein jo usay istemal karta hai. Har client ek dafa ya bilkul istemal nahi hoga.",
+    "targets": [
+      "OpenAI(base_url=...)",
+      "SpeechRecognizer(audio_config=...)",
+      "AIProjectClient(endpoint=...)",
+      "TextAnalyticsClient(endpoint=...)"
+    ],
+    "exp": "Project endpoint mein /api/projects/ hota hai aur AIProjectClient usay istemal karta hai. /openai/v1/ par khatam hone wala address OpenAI client ka model endpoint hai. cognitiveservices address Azure Language jaise tools ka resource endpoint hai."
+  },
+  "D2-730": {
+    "q": "Microsoft Entra ID token ke saath Foundry project ko prompt bhejne wali REST request mukammal karein.",
+    "exp": "Token \"Authorization: Bearer ...\" header mein jata hai, aur Responses API prompt ko input se parhta hai. api-key header keys ke liye hai, Basic user name aur password bhejta hai, aur documents Azure Language ka hai."
+  },
+  "D2-731": {
+    "q": "JSON body dictionary data mein hai. Kaunsa expression \"Hello!\" deta hai?",
+    "ctx": "{\n  \"object\": \"response\",\n  \"status\": \"completed\",\n  \"output\": [\n    {\n      \"type\": \"message\",\n      \"content\": [\n        {\"type\": \"output_text\", \"text\": \"Hello!\"}\n      ]\n    }\n  ]\n}",
+    "exp": "output aur content lists hain, is liye agli key se pehle [0] chahiye. output_text SDK ki sahulat hai, is JSON ki key nahi, choices chat completions ka hai, aur list ko text key se nahi parha ja sakta."
+  },
+  "D2-732": {
+    "q": "Call kaunsa temperature istemal karti hai?",
+    "ctx": "def ask(question, temperature=0.2):\n    return client.responses.create(\n        model=deployment, input=question, temperature=temperature)\n\nask(\"Summarize this text.\")",
+    "opts": ["0.2", "Call fail hoti hai kyunke ek value nahi", "0", "Sawal ka text"],
+    "exp": "Definition mein temperature=0.2 default value hai, is liye caller koi aur value na de to yahi istemal hoti hai. Call fail nahi hoti kyunke sirf question lazmi hai, aur pehla argument question ko jata hai."
+  },
+  "D2-733": {
+    "q": "Is Python dictionary ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "ctx": "settings = {\"model\": \"chat-prod\", \"temperature\": 0.2}",
+    "stmts": [
+      "settings.get(\"top_p\") error deta hai.",
+      "settings[\"model\"] \"chat-prod\" deta hai.",
+      "settings[\"temperature\"] = 0 rakhi hui value badalta hai.",
+      "len(settings) 4 hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: get ghaib key par None deta hai. Doosre aur teesre ka Haan: brackets value parhte ya nayi value rakhte hain. Chauthe ka Nahi: dictionary mein key aur value ke do jore hain, is liye length 2 hai."
+  },
+  "D2-734": {
+    "q": "Azure ke har level ko us ki description se milayein. Har description ek dafa ya bilkul istemal nahi hogi.",
+    "targets": [
+      "Kharche aur quota ki hadon wala billing container",
+      "Agents, files aur evaluations ki jagah",
+      "Idare ki identity ka ghar",
+      "Catalog ke models ki list",
+      "Mutaalliq resources ka folder"
+    ],
+    "exp": "Tenant mein idare ke users aur policies hote hain, subscription billing ki had hai, resource group mutaalliq resources saath rakhta hai, aur project Foundry resource ke andar kaam ki jagah hai. Model catalog Foundry ka hissa hai."
+  },
+  "D2-735": {
+    "q": "Department ko teen AI apps chahiyein jo alag hon lekin model hosting aur governance mushtarka ho. Kaunsa setup munasib hai?",
+    "opts": [
+      "Teen Azure tenants, har ek mein ek project",
+      "Ek Foundry resource mein teen projects",
+      "Ek project mein teen subscriptions",
+      "Foundry resource ke baghair teen resource groups"
+    ],
+    "exp": "Foundry resource hosting, quota aur governance deta hai, aur us ke andar projects use cases alag rakhte hain. Tenants poore idaron ko alag karte hain, project ek resource ka hota hai, kai subscriptions ka nahi, aur Foundry resource ke baghair project nahi hota."
+  },
+  "D2-736": {
+    "q": "Foundry mein model deploy karne par kaunsi DO cheezein hoti hain? Har sahi jawab un mein se ek hai.",
+    "opts": [
+      "Model project ki files se dobara train hota hai",
+      "Apps model ko endpoint par call kar sakti hain",
+      "Model tamam users ke computers par copy hota hai",
+      "Istemal, latency aur errors ki nigrani hoti hai"
+    ],
+    "exp": "Deployment model ko endpoint par dastyab karti hai aur istemal, performance aur errors ki nigrani shuru karti hai. Ye model ko aap ki files se train nahi karti, aur model Azure mein rehta hai."
+  },
+  "D2-737": {
+    "q": "Azure App Service par chat app ke users roz barhte hain. Load barhne par Azure app ki zyada copies chalata hai. Isay kya kehte hain?",
+    "exp": "Scaling out (horizontal) app ke instances barhata hai. Scaling up ek instance ko zyada CPU ya memory deta hai, throttling service bachane ke liye requests aahista karta hai, aur fine-tuning model badalti hai."
+  }
+}

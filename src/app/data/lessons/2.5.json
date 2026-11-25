@@ -1,5 +1,5 @@
 {
-  "id": "2.5", "minutes": 8, "lab": "speech",
+  "id": "2.5", "minutes": 9, "lab": "speech",
   "intro": {"en":"Text apps use TextAnalyticsClient, speech apps use the Speech SDK, and spoken prompts go to an audio-capable model.","ro":"Text apps TextAnalyticsClient, speech apps Speech SDK istemal karti hain, aur bole gaye prompts audio wale model ko jate hain."},
   "concepts": [
     { "term": "TextAnalyticsClient", "text": {"en":"Takes a list of documents and returns one result per document; check is_error first.","ro":"Documents ki list leta hai aur har document ka nateeja deta hai; pehle is_error dekhein."} },
@@ -8,7 +8,8 @@
     { "term": "AudioConfig / AudioOutputConfig", "text": {"en":"Where audio comes from or goes to: microphone, speaker or file.","ro":"Audio kahan se aati ya jati hai: microphone, speaker ya file."} },
     { "term": "SpeechRecognizer", "text": {"en":"recognize_once_async for one sentence; continuous recognition with events for long audio.","ro":"Ek jumlay ke liye recognize_once_async; lambi audio ke liye events wali continuous recognition."} },
     { "term": "SpeechSynthesizer", "text": {"en":"speak_text_async for plain text, speak_ssml_async for SSML.","ro":"Saade text ke liye speak_text_async, SSML ke liye speak_ssml_async."} },
-    { "term": "Audio models", "text": {"en":"Chat with input_audio parts; modalities [\"text\", \"audio\"] return speech; Realtime API for live talk.","ro":"input_audio parts wala chat; modalities [\"text\", \"audio\"] awaaz deti hain; live guftagu ke liye Realtime API."} }
+    { "term": "Audio models", "text": {"en":"Chat with input_audio parts; modalities [\"text\", \"audio\"] return speech; Realtime API for live talk.","ro":"input_audio parts wala chat; modalities [\"text\", \"audio\"] awaaz deti hain; live guftagu ke liye Realtime API."} },
+    { "term": {"en":"recognizing and recognized","ro":"recognizing aur recognized"}, "text": {"en":"Partial text that can change, and the final text of a phrase.","ro":"Adhoora text jo badal sakta hai, aur phrase ka aakhri text."} }
   ],
   "example": {
     "title": {"en":"Example: sentiment of two reviews","ro":"Misaal: do reviews ka sentiment"},
@@ -38,7 +39,8 @@
   ],
   "traps": [
     {"en":"speak_text_async does not understand SSML tags; speak_ssml_async does.","ro":"speak_text_async SSML tags nahi samajhta; speak_ssml_async samajhta hai."},
-    {"en":"NoMatch means no recognizable speech; a wrong key gives Canceled.","ro":"NoMatch ka matlab pehchan ke qabil awaaz nahi; ghalat key Canceled deti hai."}
+    {"en":"NoMatch means no recognizable speech; a wrong key gives Canceled.","ro":"NoMatch ka matlab pehchan ke qabil awaaz nahi; ghalat key Canceled deti hai."},
+    {"en":"Summarization and key phrases still work in Azure Language, but they retire on 31 March 2029.","ro":"Summarization aur key phrases Azure Language mein abhi chalte hain, lekin 31 March 2029 ko retire honge."}
   ],
   "check": ["D2-601", "D2-532", "D2-451", "D2-594", "D2-185"],
   "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/get-started-speech-to-text"

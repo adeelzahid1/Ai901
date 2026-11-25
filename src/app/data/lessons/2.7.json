@@ -1,5 +1,5 @@
 {
-  "id": "2.7", "minutes": 8, "lab": "cu",
+  "id": "2.7", "minutes": 9, "lab": "cu",
   "intro": {"en":"Content Understanding turns files into structured data. You choose or build an analyzer, send a file and read fields with confidence.","ro":"Content Understanding files ko structured data banata hai. Aap analyzer chunte ya banate hain, file bhejte hain aur confidence wali fields parhte hain."},
   "concepts": [
     { "term": "Analyzer", "text": {"en":"Defines the kind of content, the fields and the models. Prebuilt ones exist for common cases.","ro":"Content ki qism, fields aur models tay karta hai. Aam cases ke liye prebuilt analyzers hain."} },
@@ -9,7 +9,8 @@
     { "term": "classify", "text": {"en":"One value from a fixed list (enum).","ro":"Mukarrar list (enum) se ek value."} },
     { "term": {"en":"Confidence and source","ro":"Confidence aur source"}, "text": {"en":"For documents: how sure the service is, and where on the page the value was found.","ro":"Documents mein: service ko kitna yaqeen hai, aur value page par kahan mili."} },
     { "term": {"en":"Content types","ro":"Content ki qismein"}, "text": {"en":"Documents, images, audio (transcript, speakers) and video (segments, key frames).","ro":"Documents, images, audio (transcript, speakers) aur video (segments, key frames)."} },
-    { "term": "Asynchronous REST", "text": {"en":"POST :analyze returns 202 and Operation-Location; GET that URL until Succeeded.","ro":"POST :analyze 202 aur Operation-Location deta hai; Succeeded tak us URL par GET."} }
+    { "term": "Asynchronous REST", "text": {"en":"POST :analyze returns 202 and Operation-Location; GET that URL until Succeeded.","ro":"POST :analyze 202 aur Operation-Location deta hai; Succeeded tak us URL par GET."} },
+    { "term": "Python SDK", "text": {"en":"ContentUnderstandingClient, begin_analyze, result(), contents with markdown and fields.","ro":"ContentUnderstandingClient, begin_analyze, result(), contents mein markdown aur fields."} }
   ],
   "example": {
     "title": {"en":"Example: the two calls","ro":"Misaal: do calls"},
@@ -37,7 +38,8 @@
   ],
   "traps": [
     {"en":"High confidence is not proof; keep a check for important fields.","ro":"Zyada confidence saboot nahi; aham fields ki jaanch rakhein."},
-    {"en":"generate fields can contain words that are not in the file; extract fields cannot.","ro":"generate fields mein aise alfaaz ho sakte hain jo file mein nahi; extract fields mein nahi."}
+    {"en":"generate fields can contain words that are not in the file; extract fields cannot.","ro":"generate fields mein aise alfaaz ho sakte hain jo file mein nahi; extract fields mein nahi."},
+    {"en":"begin_analyze returns a poller and not the result; call result() first.","ro":"begin_analyze poller deta hai, nateeja nahi; pehle result() call karein."}
   ],
   "check": ["D2-386", "D2-065", "D2-615", "D2-561", "D2-649"],
   "ref": "https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview"

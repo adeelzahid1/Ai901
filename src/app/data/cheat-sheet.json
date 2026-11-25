@@ -168,7 +168,8 @@
         {"title":"Text analysis","code":"client = TextAnalyticsClient(ENDPOINT, AzureKeyCredential(KEY))\nclient.detect_language(docs)            # primary_language.name\nclient.extract_key_phrases(docs)        # key_phrases\nclient.recognize_entities(docs)         # entities\nclient.recognize_pii_entities(docs)     # redacted_text\nclient.analyze_sentiment(docs, show_opinion_mining=True)\n# check doc.is_error first"},
         {"title":{"en":"Speech to text","ro":"Awaaz se text"},"code":"config = speechsdk.SpeechConfig(subscription=KEY, region=REGION)\nresult = speechsdk.SpeechRecognizer(\n    speech_config=config).recognize_once_async().get()\n# result.reason: RecognizedSpeech, NoMatch, Canceled"},
         {"title":{"en":"Text to speech","ro":"Text se awaaz"},"code":"config.speech_synthesis_voice_name = \"en-US-AvaMultilingualNeural\"\nspeechsdk.SpeechSynthesizer(\n    speech_config=config).speak_text_async(\"Hello\").get()\n# SSML: speak_ssml_async(ssml)"},
-        {"title":{"en":"Translate speech","ro":"Awaaz ka tarjuma"},"code":"config = speechsdk.translation.SpeechTranslationConfig(\n    subscription=KEY, region=REGION)\nconfig.speech_recognition_language = \"en-US\"\nconfig.add_target_language(\"fr\")\n# TranslationRecognizer → result.translations[\"fr\"]"}
+        {"title":{"en":"Translate speech","ro":"Awaaz ka tarjuma"},"code":"config = speechsdk.translation.SpeechTranslationConfig(\n    subscription=KEY, region=REGION)\nconfig.speech_recognition_language = \"en-US\"\nconfig.add_target_language(\"fr\")\n# TranslationRecognizer → result.translations[\"fr\"]"},
+        { "title": {"en":"Continuous speech to text","ro":"Continuous awaaz se text"}, "code": "rec.recognized.connect(lambda e: print(e.result.text))\nrec.start_continuous_recognition()\nrec.stop_continuous_recognition()" }
       ]
     },
     {
@@ -176,7 +177,8 @@
       "snippets": [
         {"title":{"en":"Ask about an image","ro":"Image par sawal"},"code":"{\"role\": \"user\", \"content\": [\n  {\"type\": \"text\", \"text\": \"What is shown?\"},\n  {\"type\": \"image_url\", \"image_url\": {\n    \"url\": \"data:image/jpeg;base64,...\", \"detail\": \"high\"}}]}"},
         {"title":{"en":"Create an image","ro":"Image banana"},"code":"r = openai.images.generate(model=\"images-prod\", prompt=text,\n    size=\"1024x1024\", quality=\"low\", n=1)\npng = base64.b64decode(r.data[0].b64_json)\n# change a part: openai.images.edit(..., mask=...)"},
-        {"title":"Image Analysis","code":"client = ImageAnalysisClient(ENDPOINT, AzureKeyCredential(KEY))\nresult = client.analyze(\n    image_data=data,\n    visual_features=[VisualFeatures.CAPTION,\n                     VisualFeatures.READ])\nprint(result.caption.text, result.caption.confidence)"}
+        {"title":"Image Analysis","code":"client = ImageAnalysisClient(ENDPOINT, AzureKeyCredential(KEY))\nresult = client.analyze(\n    image_data=data,\n    visual_features=[VisualFeatures.CAPTION,\n                     VisualFeatures.READ])\nprint(result.caption.text, result.caption.confidence)"},
+        { "title": {"en":"Image with the Responses API","ro":"Responses API mein image"}, "code": "client.responses.create(model=m, input=[{\"role\": \"user\", \"content\": [\n    {\"type\": \"input_text\", \"text\": \"What is this?\"},\n    {\"type\": \"input_image\", \"image_url\": url}]}]).output_text" }
       ]
     },
     {
@@ -185,6 +187,20 @@
         {"title":"Responses API","code":"POST https://<resource>.openai.azure.com/openai/v1/responses\nAuthorization: Bearer <token>        # or  api-key: <key>\n{\"model\": \"chat-prod\", \"input\": \"Hello\"}"},
         {"title":{"en":"Content Understanding: start","ro":"Content Understanding: shuru"},"code":"POST {endpoint}/contentunderstanding/analyzers/\n     prebuilt-invoice:analyze?api-version=2025-11-01\nOcp-Apim-Subscription-Key: {key}\n{\"inputs\": [{\"url\": \"https://...\"}]}\n→ 202, Operation-Location: .../analyzerResults/{id}"},
         {"title":{"en":"Content Understanding: result","ro":"Content Understanding: nateeja"},"code":"GET {Operation-Location}\n→ status: NotStarted, Running, Succeeded, Failed\n→ result.contents[0].fields, .markdown"}
+      ]
+    },
+    {
+      "id": "python", "domain": "D2", "title": {"en":"Python basics","ro":"Python ki bunyad"},
+      "snippets": [
+        { "title": "List, dictionary, f-string", "code": "messages = [{\"role\": \"user\", \"content\": \"Hi\"}]\nmessages[0][\"content\"]        # Hi\nmessages.append({\"role\": \"assistant\", \"content\": \"Hello\"})\nf\"Dear {name}\"                # inserts the value" },
+        { "title": "Settings", "code": "load_dotenv()                 # reads .env\nos.environ[\"KEY\"]             # KeyError if missing\nos.getenv(\"KEY\")              # None if missing" },
+        { "title": "Loop, function, error", "code": "def ask(q, temperature=0.2):\n    return client.responses.create(model=m, input=q, temperature=temperature).output_text\nfor q in questions:\n    answers.append(ask(q))\ntry:\n    ask(\"Hi\")\nexcept RateLimitError:\n    time.sleep(10)" }
+      ]
+    },
+    {
+      "id": "cu-sdk", "domain": "D2", "title": "Python: Content Understanding",
+      "snippets": [
+        { "title": {"en":"Analyze and read a field","ro":"Jaiza aur field parhna"}, "code": "client = ContentUnderstandingClient(endpoint=endpoint, credential=AzureKeyCredential(key))\npoller = client.begin_analyze(analyzer_id=\"prebuilt-invoice\",\n                              inputs=[AnalysisInput(url=url)])\ncontent = poller.result().contents[0]\nfield = content.fields.get(\"InvoiceTotal\")\nprint(content.markdown, field.value if field else None)" }
       ]
     }
   ]

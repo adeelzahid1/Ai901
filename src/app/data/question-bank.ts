@@ -49,6 +49,7 @@ const LOADERS: Record<string, BankLoader> = {
   'd2-ext21': () => import('./bank/d2-ext21.json').then((m) => m.default),
   'd2-ext22': () => import('./bank/d2-ext22.json').then((m) => m.default),
   'd2-ext23': () => import('./bank/d2-ext23.json').then((m) => m.default),
+  'd2-ext24': () => import('./bank/d2-ext24.json').then((m) => m.default),
 };
 
 /** Loads the question bank one domain at a time and keeps it in signals. */
