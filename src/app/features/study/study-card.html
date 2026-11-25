@@ -98,6 +98,7 @@
     <h4>{{ t.study.why }}</h4>
     <p>{{ q.exp }}</p>
     <a [href]="q.ref" target="_blank" rel="noopener">{{ t.common.learn }}</a>
+    <app-note-peek [skill]="question().sub" />
     <app-own-note kind="q" [target]="question().id" />
   </div>
 }

@@ -5,11 +5,12 @@ import { NoteProgress } from '../../core/note-progress';
 import { Note, loadNote } from '../../data/notes';
 import { OwnNote } from '../../shared/own-note/own-note';
 import { FlowDiagram } from './flow-diagram';
+import { SkillCheck } from './skill-check';
 
 /** The detailed note of one official skill. */
 @Component({
   selector: 'app-note-view',
-  imports: [RouterLink, FlowDiagram, OwnNote],
+  imports: [RouterLink, FlowDiagram, OwnNote, SkillCheck],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './note-view.html',
   styleUrl: './note-view.css',

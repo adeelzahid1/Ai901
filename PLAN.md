@@ -1,6 +1,6 @@
 # Plan
 
-Phases 0-14 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-14 come from
+Phases 0-18 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
 a review of the portal from a teacher's point of view. Every step ends with validation, unit tests, a
 build, a browser check, a commit and a check of the live site.
 
@@ -77,3 +77,8 @@ One page with numbers, tables, status codes and commands, an A4 print layout, an
 ## Phase 17 - Own notes and backup (done)
 
 Own notes at questions, sections and skills, a page for all of them, and a backup file for the saved progress.
+
+## Phase 18 - Notes and questions linked (done)
+
+The note of a skill opens under every shown answer, weak areas link to lessons and notes, and each note ends with
+three questions of its skill.

@@ -16,7 +16,10 @@
           @for (r of focus(); track r.id) {
             <li>
               <span><strong>{{ r.id }}</strong> {{ r.label }} · {{ t.weak.percentCorrect(r.stats.accuracy) }}</span>
-              <a class="btn small" routerLink="/practice" [queryParams]="{ section: r.sectionId }">{{ t.weak.practice }}</a>
+              <span class="links">
+                <a class="btn small" routerLink="/study" [queryParams]="{ s: r.sectionId, m: 'lesson' }">{{ t.weak.lesson }}</a>
+                <a class="btn small" routerLink="/practice" [queryParams]="{ section: r.sectionId }">{{ t.weak.practice }}</a>
+              </span>
             </li>
           }
         </ul>
@@ -61,7 +64,10 @@
               <td class="num">{{ r.stats.attempts }}</td>
               <td class="num">{{ r.stats.seen }} / {{ r.stats.total }}</td>
               <td class="num">{{ r.stats.mistakes }}</td>
-              <td class="num"><a class="btn small" routerLink="/practice" [queryParams]="{ section: r.sectionId }">{{ t.weak.practice }}</a></td>
+              <td class="num">
+                <a class="btn small" routerLink="/study" [queryParams]="{ s: r.sectionId, m: 'lesson' }">{{ t.weak.lesson }}</a>
+                <a class="btn small" routerLink="/practice" [queryParams]="{ section: r.sectionId }">{{ t.weak.practice }}</a>
+              </td>
             </tr>
           }
         </tbody>
@@ -80,6 +86,7 @@
             <th scope="col" class="num">{{ t.weak.accuracy }}</th>
             <th scope="col" class="num">{{ t.weak.answers }}</th>
             <th scope="col" class="num">{{ t.weak.seen }}</th>
+            <th scope="col"><span class="sr">{{ t.weak.action }}</span></th>
           </tr>
         </thead>
         <tbody>
@@ -90,6 +97,7 @@
               <td class="num"><span class="acc" [class]="level(r.stats)">{{ r.stats.accuracy === null ? '–' : r.stats.accuracy + '%' }}</span></td>
               <td class="num">{{ r.stats.attempts }}</td>
               <td class="num">{{ r.stats.seen }} / {{ r.stats.total }}</td>
+              <td class="num"><a class="btn small" routerLink="/notes" [queryParams]="{ n: r.skill }">{{ t.weak.note }}</a></td>
             </tr>
           }
         </tbody>

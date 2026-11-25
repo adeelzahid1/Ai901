@@ -171,6 +171,7 @@
       <h4>{{ t.question.why }}</h4>
       <p>{{ q.exp }}</p>
       <a [href]="q.ref" target="_blank" rel="noopener">{{ t.common.learn }}</a>
+      <app-note-peek [skill]="question().sub" [strong]="score() < 1" />
       <app-own-note kind="q" [target]="question().id" />
     </section>
   }

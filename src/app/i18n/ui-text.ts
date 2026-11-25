@@ -307,6 +307,21 @@ const EN = {
     questions: (id: string) => `Questions for ${id}`,
     loading: 'Loading the note…',
   },
+  notePeek: {
+    read: 'Read the note for this',
+    hide: 'Hide the note',
+    full: 'Open the full note in a new tab',
+  },
+  skillCheck: {
+    heading: 'Check this note',
+    lead: (n: number) => `${n} questions about this skill: new ones first, then the ones you got wrong.`,
+    start: 'Start',
+    again: 'Three more questions',
+    result: (n: number, total: number) => `${n} of ${total} correct.`,
+    allRight: 'Well done.',
+    readAgain: 'Read “Know the difference” and “Common mistakes” again.',
+    more: (id: string) => `Practice section ${id}`,
+  },
   ownNotes: {
     heading: 'My notes',
     lead: 'Everything you wrote at questions, sections and skills. Notes are saved by themselves in this browser.',
@@ -427,6 +442,8 @@ const EN = {
     focus: 'Focus next',
     percentCorrect: (pct: number | null) => `${pct}% correct`,
     practice: 'Practice',
+    lesson: 'Lesson',
+    note: 'Note',
     domainStats: (answers: number, seen: number, total: number, mistakes: number) =>
       `correct · ${answers} answers · ${seen} of ${total} questions seen · ${mistakes} open mistakes`,
     sections: 'Sections (weakest first)',
@@ -756,6 +773,21 @@ const ROMAN: UiText = {
     questions: (id) => `${id} ke sawal`,
     loading: 'Note load ho raha hai…',
   },
+  notePeek: {
+    read: 'Is ka note parhein',
+    hide: 'Note chupayein',
+    full: 'Poora note naye tab mein kholein',
+  },
+  skillCheck: {
+    heading: 'Is note ki jaanch',
+    lead: (n) => `Is skill ke ${n} sawal: pehle naye, phir jo ghalat hue thay.`,
+    start: 'Shuru karein',
+    again: 'Teen aur sawal',
+    result: (n, total) => `${total} mein se ${n} sahi.`,
+    allRight: 'Bohat khoob.',
+    readAgain: '“Farq samjhein” aur “Aam ghaltiyan” dobara parhein.',
+    more: (id) => `Section ${id} ki mashq`,
+  },
   ownNotes: {
     heading: 'Mere notes',
     lead: 'Jo kuch aap ne sawalon, sections aur skills par likha. Notes isi browser mein khud save hote hain.',
@@ -876,6 +908,8 @@ const ROMAN: UiText = {
     focus: 'Pehle in par tawajjo dein',
     percentCorrect: (pct) => `${pct}% sahi`,
     practice: 'Mashq',
+    lesson: 'Sabaq',
+    note: 'Note',
     domainStats: (answers, seen, total, mistakes) =>
       `sahi · ${answers} jawab · ${total} mein se ${seen} sawal dekhe · ${mistakes} baqi ghaltiyan`,
     sections: 'Section (sab se kamzor pehle)',

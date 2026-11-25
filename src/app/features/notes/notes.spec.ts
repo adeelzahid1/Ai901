@@ -5,6 +5,7 @@ import { Language } from '../../core/language';
 import { NoteProgress } from '../../core/note-progress';
 import { LessonText } from '../../data/lessons';
 import { NOTE_TITLES, Note, loadGlossary, loadNote } from '../../data/notes';
+import { QuestionBank } from '../../data/question-bank';
 import { DOMAINS, SECTIONS } from '../../data/schema';
 import { Notes } from './notes';
 
@@ -88,6 +89,25 @@ describe('Notes', () => {
     expect(TestBed.inject(NoteProgress).isRead('prompts')).toBeTrue();
     expect(JSON.parse(localStorage.getItem('ai901-notes') ?? '[]')).toEqual(['prompts']);
     expect(el().querySelector('.sidebar p')?.textContent).toContain(`1 of ${SKILLS.length}`);
+  });
+
+  it('asks three questions about the skill', async () => {
+    localStorage.removeItem('ai901-progress');
+    fixture.componentRef.setInput('n', 'prompts');
+    await fixture.whenStable();
+    const start = () => [...el().querySelectorAll<HTMLButtonElement>('app-skill-check button')].find((b) => b.textContent?.trim() === 'Start');
+    start()?.click();
+    await TestBed.inject(QuestionBank).loadDomain('D2');
+    await fixture.whenStable();
+    expect(el().querySelector('app-skill-check')?.textContent).toContain('of 3');
+    [...el().querySelectorAll<HTMLButtonElement>('app-skill-check button')].find((b) => b.textContent?.trim() === 'End practice')?.click();
+    await fixture.whenStable();
+    el().querySelector<HTMLButtonElement>('app-skill-check .confirm .btn.primary')?.click();
+    await fixture.whenStable();
+    expect(el().querySelector('app-skill-check [role=status]')?.textContent).toContain('0 of 3 correct.');
+    fixture.componentRef.setInput('n', 'genai-how');
+    await fixture.whenStable();
+    expect(start()).withContext('another note starts fresh').toBeDefined();
   });
 
   it('moves to the next note', async () => {

@@ -14,6 +14,8 @@ interface Row {
   id: string;
   label: string;
   sectionId: string;
+  /** Skill id of a sub-skill row. */
+  skill?: string;
   stats: AreaStats;
 }
 
@@ -63,6 +65,7 @@ export class WeakAreas {
           id: `${s.domain}|${id}`,
           label: sub ? this.language.sub(sub) : id,
           sectionId: s.id,
+          skill: id,
           stats: m.get(`${s.domain}|${id}`) ?? EMPTY,
         };
       });

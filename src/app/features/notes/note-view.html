@@ -77,6 +77,7 @@
       {{ t.read }}
     </label>
   </article>
+  <app-skill-check class="no-print" [skill]="n.id" [section]="section()" />
 } @else {
   <p class="card muted">{{ t.loading }}</p>
 }

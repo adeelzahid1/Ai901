@@ -88,3 +88,7 @@ dd {
   gap: 8px;
   cursor: pointer;
 }
+app-skill-check {
+  display: block;
+  margin-top: 16px;
+}
