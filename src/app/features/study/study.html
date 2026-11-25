@@ -13,7 +13,7 @@
           <li>
             <a
               routerLink="/study"
-              [queryParams]="{ s: s.id }"
+              [queryParams]="{ s: s.id, q: null }"
               queryParamsHandling="merge"
               [class.active]="s.id === section().id"
               [attr.aria-current]="s.id === section().id ? 'page' : null"
@@ -54,6 +54,8 @@
         {{ t.study.lead(sectionStats().total, sectionStats().understood, sectionStats().bookmarked, sectionStats().due) }}
       </p>
     </div>
+
+    <app-own-note kind="s" [target]="section().id" />
 
     <details class="card how">
       <summary>{{ t.study.how }}</summary>

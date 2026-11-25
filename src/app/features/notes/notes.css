@@ -55,7 +55,7 @@
   font: inherit;
 }
 .mobile-select,
-.cheat {
+.top-links {
   display: none;
 }
 .mobile-select select {
@@ -82,8 +82,10 @@
   .mobile-select {
     display: grid;
   }
-  .cheat {
-    display: inline-flex;
+  .top-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 }
 @media print {

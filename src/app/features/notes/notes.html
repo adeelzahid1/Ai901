@@ -4,6 +4,9 @@
     <p class="muted">{{ t.progress(progress.count(), total) }}</p>
     <ul class="plain">
       <li>
+        <a routerLink="/my-notes">{{ t.myNotes }}</a>
+      </li>
+      <li>
         <a routerLink="/cheat-sheet">{{ t.cheatSheet }}</a>
       </li>
       <li>
@@ -32,7 +35,10 @@
   </aside>
 
   <section class="content stack">
-    <a class="btn cheat no-print" routerLink="/cheat-sheet">{{ t.cheatSheet }}</a>
+    <div class="top-links no-print">
+      <a class="btn" routerLink="/my-notes">{{ t.myNotes }}</a>
+      <a class="btn" routerLink="/cheat-sheet">{{ t.cheatSheet }}</a>
+    </div>
     <label class="field mobile-select no-print">
       <span>{{ t.list }}</span>
       <select #pick (change)="open(pick.value)">

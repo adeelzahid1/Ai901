@@ -3,10 +3,12 @@ import { correctLines, templateParts } from '../../core/grading';
 import { Language } from '../../core/language';
 import { RomanBank } from '../../data/roman-bank';
 import { Question } from '../../data/schema';
+import { OwnNote } from '../../shared/own-note/own-note';
 
 /** Read-only view of a question for studying; the answer and explanation appear when `showAnswer` is on. */
 @Component({
   selector: 'app-study-card',
+  imports: [OwnNote],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './study-card.html',
   styleUrl: './study-card.css',

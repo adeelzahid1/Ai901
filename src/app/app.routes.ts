@@ -47,6 +47,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/cheat-sheet/cheat-sheet').then((m) => m.CheatSheet),
   },
   {
+    path: 'my-notes',
+    title: 'My notes · AI-901 Prep',
+    loadComponent: () => import('./features/my-notes/my-notes').then((m) => m.MyNotes),
+  },
+  {
     path: 'labs',
     title: 'Labs · AI-901 Prep',
     loadComponent: () => import('./features/labs/labs').then((m) => m.Labs),

@@ -1,0 +1,46 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+.grow {
+  flex: 1 1 220px;
+}
+.toolbar input {
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+.count {
+  margin: 0;
+}
+.head,
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+.head .muted {
+  font-size: 0.85rem;
+}
+h2 {
+  margin: 8px 0 4px;
+  font-size: 1rem;
+}
+.text {
+  margin: 0 0 10px;
+  white-space: pre-wrap;
+}
+.row {
+  margin-top: 8px;
+}
+.danger {
+  border-color: var(--bad);
+  color: var(--bad);
+}

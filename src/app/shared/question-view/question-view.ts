@@ -14,12 +14,14 @@ import { Language } from '../../core/language';
 import { PreparedQuestion } from '../../core/prepare';
 import { answerForKey, digitIndex, toggleChoice } from '../../core/shortcuts';
 import { RomanBank } from '../../data/roman-bank';
+import { OwnNote } from '../own-note/own-note';
 
 type Of<T extends Answer['type']> = Extract<Answer, { type: T }>;
 
 /** Renders one question of any type. After `revealed` it shows the answer, the learner's answer and why. */
 @Component({
   selector: 'app-question-view',
+  imports: [OwnNote],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './question-view.html',
   styleUrl: './question-view.css',

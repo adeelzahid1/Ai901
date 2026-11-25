@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, linkedSignal, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, input, linkedSignal, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -12,6 +12,7 @@ import { StudyProgress } from '../../core/study-progress';
 import { QuestionBank } from '../../data/question-bank';
 import { RomanBank } from '../../data/roman-bank';
 import { DOMAINS, Difficulty, EXAM, Question, SECTIONS, sectionOf } from '../../data/schema';
+import { OwnNote } from '../../shared/own-note/own-note';
 import { Flashcards } from './flashcards';
 import { LessonView } from './lesson-view';
 import { StudyCard } from './study-card';
@@ -23,7 +24,7 @@ export const PAGE_SIZE = 20;
 
 @Component({
   selector: 'app-study',
-  imports: [ReactiveFormsModule, RouterLink, StudyCard, Flashcards, LessonView],
+  imports: [ReactiveFormsModule, RouterLink, StudyCard, Flashcards, LessonView, OwnNote],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './study.html',
   styleUrl: './study.css',
@@ -41,6 +42,8 @@ export class Study {
   readonly s = input<string>();
   /** Mode to open, e.g. /study?s=2.3&m=lesson */
   readonly m = input<string>();
+  /** Search text to start with, e.g. a question id. */
+  readonly q = input<string>();
 
   protected readonly exam = EXAM;
   protected readonly levels: Difficulty[] = [1, 2, 3];
@@ -135,10 +138,14 @@ export class Study {
 
   constructor() {
     void this.bank.loadAll();
+    effect(() => {
+      const q = this.q();
+      if (q !== undefined) this.form.controls.search.setValue(q);
+    });
   }
 
   protected goTo(sectionId: string): void {
-    void this.router.navigate(['/study'], { queryParams: { s: sectionId }, queryParamsHandling: 'merge' });
+    void this.router.navigate(['/study'], { queryParams: { s: sectionId, q: null }, queryParamsHandling: 'merge' });
   }
 
   protected toggleOpen(id: string): void {

@@ -74,4 +74,6 @@ glossary, checked against Microsoft Learn on 2026-11-25.
 
 One page with numbers, tables, status codes and commands, an A4 print layout, and a search over all notes.
 
-Later ideas that are not approved yet: own notes and backup (17), links between questions and notes (18).
+## Phase 17 - Own notes and backup (done)
+
+Own notes at questions, sections and skills, a page for all of them, and a backup file for the saved progress.

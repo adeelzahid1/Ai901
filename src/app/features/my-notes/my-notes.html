@@ -1,0 +1,59 @@
+@let t = language.ui().ownNotes;
+<h1>{{ t.heading }}</h1>
+<p class="lead">{{ t.lead }}</p>
+
+<div class="stack">
+  @if (notes.count()) {
+    <div class="card toolbar">
+      <label class="field grow">
+        <span>{{ t.search }}</span>
+        <input type="search" [formControl]="search" />
+      </label>
+      <label class="field">
+        <span>{{ t.kind }}</span>
+        <select [formControl]="kind">
+          <option value="all">{{ language.ui().common.all }}</option>
+          <option value="q">{{ t.kinds.q }}</option>
+          <option value="s">{{ t.kinds.s }}</option>
+          <option value="n">{{ t.kinds.n }}</option>
+        </select>
+      </label>
+    </div>
+    <p class="muted count" role="status">{{ t.shown(rows().length, notes.count()) }}</p>
+  }
+
+  @for (n of rows(); track n.key) {
+    <article class="card">
+      <div class="head">
+        <span class="chip">{{ n.source.detail }}</span>
+        <span class="muted">{{ n.at | date: 'medium' }}</span>
+      </div>
+      <h2>
+        @if (n.source.link) {
+          <a [routerLink]="n.source.link" [queryParams]="n.source.params">{{ n.source.title }}</a>
+        } @else {
+          {{ n.source.title }}
+        }
+      </h2>
+      @if (editing() === n.key) {
+        <app-own-note [kind]="n.kind" [target]="n.id" />
+      } @else {
+        <p class="text">{{ n.text }}</p>
+      }
+      <div class="row">
+        <button type="button" class="btn small" (click)="editing.set(editing() === n.key ? null : n.key)">{{ editing() === n.key ? t.done : t.edit }}</button>
+        @if (confirming() === n.key) {
+          <span>{{ t.sure }}</span>
+          <button type="button" class="btn small danger" (click)="remove(n.key)">{{ t.yes }}</button>
+          <button type="button" class="btn small" (click)="confirming.set(null)">{{ t.no }}</button>
+        } @else {
+          <button type="button" class="btn small" (click)="confirming.set(n.key)">{{ t.remove }}</button>
+        }
+      </div>
+    </article>
+  } @empty {
+    <p class="card muted">{{ notes.count() ? t.nothing : t.empty }}</p>
+  }
+
+  <app-backup-card />
+</div>

@@ -71,7 +71,7 @@ describe('Notes', () => {
   it('opens the first note, lists all skills and shows the requested one', async () => {
     await fixture.whenStable();
     expect(el().querySelector('h1')?.textContent).toContain('Fairness');
-    expect(el().querySelectorAll('.sidebar a').length).toBe(SKILLS.length + 2);
+    expect(el().querySelectorAll('.sidebar a').length).toBe(SKILLS.length + 3);
     expect(el().querySelectorAll('.sidebar h3').length).toBe(SECTIONS.length);
     fixture.componentRef.setInput('n', 'genai-how');
     await fixture.whenStable();

@@ -82,6 +82,7 @@ dd {
   margin: 16px 0 12px;
 }
 .read {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   gap: 8px;

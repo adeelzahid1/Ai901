@@ -71,6 +71,7 @@
         <a [href]="ref" target="_blank" rel="noopener">{{ language.ui().common.learn }}{{ n.refs.length > 1 ? ' (' + (i + 1) + ')' : '' }}</a>
       }
     </p>
+    <app-own-note kind="n" [target]="n.id" />
     <label class="read no-print">
       <input type="checkbox" [checked]="progress.isRead(n.id)" (change)="progress.toggle(n.id)" />
       {{ t.read }}
