@@ -1,6 +1,6 @@
 # Plan
 
-Phases 0-18 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
+Phases 0-19 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
 a review of the portal from a teacher's point of view. Every step ends with validation, unit tests, a
 build, a browser check, a commit and a check of the live site.
 
@@ -82,3 +82,9 @@ Own notes at questions, sections and skills, a page for all of them, and a backu
 
 The note of a skill opens under every shown answer, weak areas link to lessons and notes, and each note ends with
 three questions of its skill.
+
+## Phase 19 - Concepts in depth (done)
+
+Phases 19-22 close the gaps to the official course AI-901T00 (15 modules, compared on 2026-11-25). Phase 19: 76 new
+questions (d1-ext16, d1-ext17, d2-ext23), topics inside six notes, 29 glossary terms and two cheat sheet tables about
+text analysis, speech, vision, OCR, RAG and video generation from the inside.

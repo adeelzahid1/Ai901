@@ -60,6 +60,23 @@ describe('Notes', () => {
     }
   });
 
+  it('has complete topics in both languages', async () => {
+    const both = (t: LessonText) => (typeof t === 'string' ? !!t : !!t.en && !!t.ro);
+    for (const id of SKILLS) {
+      for (const topic of (await loadNote(id))?.topics ?? []) {
+        const texts = [
+          topic.title,
+          ...topic.text,
+          ...(topic.terms ?? []).flatMap((c) => [c.term, c.text]),
+          ...(topic.flows ?? []).flatMap((f) => [f.title, ...f.steps.flatMap((s) => (s.text ? [s.title, s.text] : [s.title]))]),
+        ];
+        expect(texts.every(both)).withContext(id).toBeTrue();
+        expect(topic.text.every((t) => typeof t === 'object' && t.en !== t.ro)).withContext(id).toBeTrue();
+        expect((topic.flows ?? []).every((f) => f.steps.length >= 3)).withContext(id).toBeTrue();
+      }
+    }
+  });
+
   it('has a sorted glossary whose terms point to existing notes', async () => {
     const entries = await loadGlossary();
     const terms = entries.map((e) => e.term.toLowerCase());
@@ -77,7 +94,8 @@ describe('Notes', () => {
     fixture.componentRef.setInput('n', 'genai-how');
     await fixture.whenStable();
     expect(el().querySelector('h1')?.textContent).toContain('How generative models work');
-    expect(el().querySelectorAll('app-flow-diagram li').length).toBe(5);
+    expect(el().querySelector('app-flow-diagram')?.querySelectorAll('li').length).toBe(5);
+    expect([...el().querySelectorAll('.topic h2')].map((h) => h.textContent?.trim())).toContain('The RAG pipeline in detail');
     expect(el().querySelector('.sidebar a.active')?.textContent).toContain('How generative models work');
   });
 

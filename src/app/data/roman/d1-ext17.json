@@ -1,0 +1,214 @@
+{
+  "D1-512": {
+    "q": "Computer vision program ke liye grayscale image kaise likhi jati hai?",
+    "opts": [
+      "Un cheezon ki list jo insan ko us mein nazar aati hain",
+      "Roshni ki values ki grid",
+      "Manzar bayan karne wala jumla",
+      "Red, green aur blue ki teen grids"
+    ],
+    "exp": "Grayscale image 0 (kala) se 255 (safed) tak pixel values ki ek array hai. Red, green aur blue ki teen arrays rangeen images ke liye hain, aur objects ki list ya captions model pixels se banata hai."
+  },
+  "D1-513": {
+    "q": "Aam RGB photo mein pixel values ki kitni layers hoti hain?",
+    "exp": "RGB image mein red, green aur blue ki ek ek layer, yani channel, hoti hai, is liye teen hain. Ek channel grayscale image hai, aur 255 channel mein pixel ki sab se bari value hai, layers ki tadad nahi."
+  },
+  "D1-514": {
+    "q": "Numbers ki chhoti grid tasveer par chalti hai. Har patch ka wazan wala jor nikalti hai, aur nateeja cheezon ke kinare dikhata hai. Is chhoti grid ko kya kehte hain?",
+    "exp": "Filter kernel tasveer par convolve hota hai; Laplace kernel misal ke taur par kinare numaya karta hai. Bounding box object ki jagah batata hai, softmax scores ko probabilities banata hai, aur positional encoding tokens ki tarteeb rakhti hai."
+  },
+  "D1-515": {
+    "q": "Convolutional neural network jin marahil se image classify karta hai, unhein tarteeb se lagayein.",
+    "items": [
+      "Har class ki probability dena",
+      "Feature maps ko ek list mein badalna",
+      "Filters se feature maps nikalna",
+      "Values ko fully connected network mein dena",
+      "Pooling se feature maps chhote karna"
+    ],
+    "exp": "Filters feature maps banate hain, pooling unhein aham features tak chhota karti hai, flattening ek list banati hai, fully connected network us par kaam karta hai, aur softmax output har class ki probability deta hai."
+  },
+  "D1-516": {
+    "q": "Classification model is image ke liye kya batata hai?",
+    "ctx": "Classes: [apple, banana, orange]\nSoftmax output: [0.08, 0.21, 0.71]",
+    "opts": ["Kela, tasveer ke beech mein", "Teenon phal", "Seb", "Orange"],
+    "exp": "Output har class ki ek probability usi tarteeb mein deta hai, aur sab se bari value (0.71) orange ki hai. Classification poori tasveer ka ek label deti hai; ye nahi batati ke cheez kahan hai ya tamam classes maujood hain."
+  },
+  "D1-517": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "ctx": "Ek team phalon ki label wali tasveeron se convolutional neural network train karti hai.",
+    "stmts": [
+      "Filters ke weights random values se shuru hote hain.",
+      "Team ko haath se chunna parta hai ke filters kaunse kinare aur rang dekhein.",
+      "Loss batata hai ke predictions maloom labels se kitni door hain.",
+      "Weights kai epochs mein adjust hote hain."
+    ],
+    "exp": "Pehle ka jawab Haan: random weights training mein behtar hote hain. Doosre ka Nahi: network khud seekhta hai ke kaunse features kaam aate hain. Teesre aur chauthe ka Haan: loss predictions ka labels se muqabla karta hai, aur weights har epoch mein usay kam karne ke liye badalte hain."
+  },
+  "D1-518": {
+    "q": "Language transformer text ke tokens se kaam karta hai. Vision transformer un ki jagah kya istemal karta hai?",
+    "opts": [
+      "Logon ke likhe hue captions",
+      "Pixel values ke patches",
+      "Files ke naam",
+      "Poori image ka ek vector"
+    ],
+    "exp": "Vision transformer image ko patches mein baantta hai, har patch ko vector banata hai aur attention se patches ka aapas mein taalluq dekhta hai. Captions image ko zabaan se jorne ke liye hain, aur ek hi vector ho to jorne ko kuch nahi rehta."
+  },
+  "D1-519": {
+    "q": "Multimodal model aisi photo kaise bayan kar sakta hai jo training data mein nahi thi?",
+    "opts": [
+      "Woh wahi photo internet par dhoond kar us ka text copy karta hai",
+      "Woh description parhta hai jo camera file mein save karta hai",
+      "Woh visual features aur alfaaz ko mushtarka vector space mein jorta hai",
+      "Woh kisi insan se poochta hai"
+    ],
+    "exp": "Images aur text ke encoders jore jate hain, aur cross-model attention dono embeddings ko ek space mein rakhti hai. Model nayi photo ke features pehchan kar un se mutaalliq alfaaz dhoondta hai. Usay wahi photo, file ke notes ya insan nahi chahiye."
+  },
+  "D1-520": {
+    "q": "Diffusion model prompt se image kaise banata hai?",
+    "opts": [
+      "Woh photo library mein sab se milti julti tasveer dhoondta hai",
+      "Woh noise se shuru karke qadam ba qadam saaf karta hai",
+      "Woh training ki tasveeron se kaate hue hissay jorta hai",
+      "Woh har cheez ek mukarrar template se banata hai"
+    ],
+    "exp": "Diffusion random pixel values se shuru hoti hai aur kai iterations mein noise hatati hai, aur prompt har ek ki rehnumai karta hai. Model photos nahi dhoondta, hissay nahi jorta aur templates istemal nahi karta; nayi pixel values banata hai."
+  },
+  "D1-521": {
+    "q": "Vision models ke jumlay mukammal karein.",
+    "tpl": "Convolutional neural network features {0} se nikalta hai.\nVision transformer image ke hisson ko {1} se jorta hai.\nDiffusion model image ko {2} hata kar behtar karta hai.",
+    "exp": "Filters CNN ke feature maps banate hain, attention vision transformer mein patches ko jorti hai, aur diffusion iterations mein noise hatati hai. Phonemes speech ke liye, stop words text analysis ke liye hain, aur bounding boxes object detection ka nateeja hain."
+  },
+  "D1-522": {
+    "q": "Har kaam ko sab se munasib model se milayein. Har model ek dafa ya bilkul istemal nahi hoga.",
+    "items": [
+      "Har X-ray image par paanch mein se ek label lagana",
+      "Photo ke baare mein khule sawalon ka jawab dena",
+      "Text description se poster banana"
+    ],
+    "targets": ["Diffusion model", "Acoustic model", "Image classification CNN", "Multimodal chat model"],
+    "exp": "Classification ke liye train CNN maloom labels mein se ek deta hai. Multimodal chat model image aur sawal saath leta hai. Diffusion model text se nayi image banata hai. Acoustic model awaaz ko phonemes se milata hai."
+  },
+  "D1-523": {
+    "q": "Video generation model ko kaunsa pehlu sambhalna hota hai jo ek image mein nahi hota?",
+    "opts": [
+      "Prompt ke alfaaz ka matlab",
+      "Waqt ke saath waqiat ki tarteeb",
+      "Manzar ke rang aur style",
+      "Output ki resolution"
+    ],
+    "exp": "Video mein waqt ke saath mantiqi tarteeb aur asal dunya jaisa bartao hona chahiye, jaise paaon zameen par rahein. Prompt ka matlab, rang, style aur resolution images mein bhi aham hain."
+  },
+  "D1-524": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Object detection models CNN ke feature extraction par ban sakte hain.",
+      "Multimodal model topi ko usi tarah samajhta hai jaise insan.",
+      "Vision transformer mein aksar saath aane wale features ke vectors mutaalliq hote hain."
+    ],
+    "exp": "Pehle ka jawab Haan: detection CNN features mein regions of interest jorti hai. Doosre ka Nahi: model sirf un features ka taalluq nikalta hai jo us ne saath dekhe. Teesre ka Haan: attention patches ko jorti hai, is liye ek jaise context wale features ki simt milti hai."
+  },
+  "D1-525": {
+    "q": "Image editor mein convolutional filter kaunse DO asar paida kar sakta hai? Har sahi jawab ek asar hai.",
+    "opts": [
+      "Image mein nazar aane wale road sign ke text ka tarjuma",
+      "Image ko tez (sharp) karna",
+      "Image ke manzar ka caption likhna",
+      "Cheezon ke kinare numaya karna"
+    ],
+    "exp": "Filter kernel se pixel values badalta hai, is liye sharp, blur ya kinare dikha sakta hai. Text ka tarjuma OCR aur language model maangta hai, aur caption ke liye aisa model chahiye jo images ko zabaan se jore."
+  },
+  "D1-526": {
+    "q": "Optical character recognition (OCR) ke marahil tarteeb se lagayein.",
+    "items": [
+      "Characters pehchanna",
+      "Image saaf aur seedhi karna",
+      "Text check karke dena",
+      "Scan ya photo lena",
+      "Text wale hissay dhoondna"
+    ],
+    "exp": "Image aati hai, preprocessing usay behtar karti hai, text ke hissay dhoonde jate hain, characters pehchane jate hain, aur output marhala alfaaz banata, jagah rakhta aur jaanchta hai. Safai se pehle pehchan mein zyada ghaltiyan hotin."
+  },
+  "D1-527": {
+    "q": "Scan ke har masle ko us preprocessing qadam se milayein jo madad karta hai. Har qadam ek dafa istemal hoga.",
+    "items": [
+      "Safha terha hai",
+      "Gard ke daagh kuch huroof par hain",
+      "Grey huroof grey background par hain",
+      "Huroof sirf chand pixels oonche hain"
+    ],
+    "exp": "Skew correction safha seedha karti hai, noise reduction daagh hatati hai, contrast adjustment text ko background se alag karti hai, aur resolution optimization chhote text ko parhne ke qabil size mein lati hai."
+  },
+  "D1-528": {
+    "q": "Do columns wale safhe ka OCR nateeja baayen aur daayen column ki lines mila deta hai. Tamam huroof sahi hain. Kaunsa qadam nakaam hua?",
+    "exp": "Reading order tay karti hai ke text ke blocks kis tarteeb mein parhe jayein, aur columns mein ek column poora karke agla aata hai. Huroof sahi hain, is liye recognition aur noise reduction theek rahe, aur confidence score tarteeb nahi badalta."
+  },
+  "D1-529": {
+    "q": "OCR \"12345\" aur safhe par us ki jagah deta hai. Kaunsa qadam tay karta hai ke ye invoice number hai ya phone number?",
+    "exp": "OCR batata hai kaunsa text hai; field extraction batati hai us ka matlab aur jagah kya hai, aksar qareeb ke labels aur positions se. Skew correction image tayyar karti hai, layout analysis hissay alag karti hai, aur speech recognition audio ke liye hai."
+  },
+  "D1-530": {
+    "q": "Ek daftar mukarrar layout ka ek tax form parhta hai. Usay tez aur asaan samajh aane wale nateeje chahiyein. Kaunsa tareeqa sab se munasib hai?",
+    "opts": [
+      "Aisa model jo kai qisam ke layouts par train ho",
+      "Template-based detection",
+      "Lambe khule prompt ke saath large language model",
+      "Scan shuda safhon ko rang ke mutabiq groups mein baantna"
+    ],
+    "exp": "Templates maloom jagah aur labels istemal karte hain, is liye mukarrar layout par durust, tez aur samajhne mein asaan hain. Train shuda ya generative models mukhtalif layouts mein faida dete hain, aur rang se groups fields nahi parhte."
+  },
+  "D1-531": {
+    "q": "Suppliers saikron layouts mein aur total ke liye mukhtalif alfaaz ke saath invoices bhejte hain. Label wali misalein nahi hain. Kaunsa tareeqa sab se munasib hai?",
+    "opts": [
+      "Har layout ke liye ek template",
+      "Regular expression jo lafz \"Total\" dhoonde",
+      "Schema ke saath generative model",
+      "Label wali invoices se supervised training"
+    ],
+    "exp": "Generative model ko text aur fields ka schema milta hai aur woh matlab se values milata hai, is liye naye layouts aur naam sambhal leta hai. Saikron templates mehnge hain, ek mukarrar lafz doosre naam chhor deta hai, aur supervised training ko labels chahiyein."
+  },
+  "D1-532": {
+    "q": "System nikali gayi line items ka jor karke nikale gaye invoice total se milata hai. Is check ko kya kehte hain?",
+    "exp": "Cross-field validation dekhti hai ke mutaalliq fields aapas mein milti hain. Reading order text ki tarteeb hai, key-value pairing label ko value se jorti hai, aur date normalization tareekhon ko ek format deti hai."
+  },
+  "D1-533": {
+    "q": "Nikali gayi tareekhein \"03.04.2026\" aur \"April 3, 2026\" jaisi hain. Target system ek format leta hai. Kaunsa marhala ye hal karta hai?",
+    "exp": "Normalization tareekh, currency aur numbers jaisi raw values ko ek jaise format mein badalti hai. Acquisition aur noise reduction image par kaam karte hain, aur text region detection sirf text ki jagah dhoondti hai."
+  },
+  "D1-534": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Field extraction text ke saath us ki jagah bhi istemal karti hai.",
+      "Layout badle to template ko badalna parta hai.",
+      "OCR ko kuch text mil jaye to aham applications insani review chhor sakti hain.",
+      "OCR ki confidence values field ki confidence mein shamil ho sakti hain."
+    ],
+    "exp": "Pehle ka jawab Haan: jagah milti julti values alag karne mein madad karti hai. Doosre ka Haan: templates maloom layout par hain. Teesre ka Nahi: text milna sahi hone ka saboot nahi, is liye aham cases ko review chahiye. Chauthe ka Haan: field scores OCR scores le sakte hain."
+  },
+  "D1-535": {
+    "q": "OCR \"c1ient\" parh kar \"client\" theek karta hai. Kaunsi DO techniques aisi durusti kar sakti hain? Har sahi jawab ek technique hai.",
+    "opts": [
+      "Skew correction jo safhe ko chand degrees ghumati hai",
+      "Dictionary lookup",
+      "Text aur background ke darmiyan contrast adjustment",
+      "Context istemal karne wala language model"
+    ],
+    "exp": "Context analysis dictionaries aur language models se ghair mumkin characters badalti hai. Skew correction aur contrast adjustment pehchan se pehle image behtar karte hain, lekin unhein nahi pata kaunse alfaaz maujood hain."
+  },
+  "D1-536": {
+    "q": "Receipt mein table hai. Extraction solution ko kaise pata chalta hai ke \"2\" quantity hai aur \"4.50\" price?",
+    "opts": [
+      "Woh column headers dhoond kar har cell ko un se jorta hai",
+      "Woh maan leta hai ke table ki har row ka sab se chhota number price hai",
+      "Woh speech service se poochta hai",
+      "Woh ginta hai ke receipt par har number kitni dafa aaya"
+    ],
+    "exp": "Header detection aur row-column association cell ko us ke column ke matlab se jorti hain. Sab se chhote number ka usool bharose ke qabil nahi, numbers ginna matlab nahi batata, aur speech ka yahan kaam nahi."
+  },
+  "D1-537": {
+    "q": "Maloomat nikalne ke jumlay mukammal karein.",
+    "tpl": "{0} batata hai document mein kaunsa text hai.\n{1} batati hai value ka matlab kya hai.\n{2} values ko ek format deti hai.",
+    "exp": "OCR text ki tasveer ko characters banata hai, field extraction values ko label wali fields deti hai, aur normalization tareekh, currency aur numbers ko ek format deti hai. Baqi terms image tayyar karti hain ya nateeja doosre system ko bhejti hain."
+  }
+}

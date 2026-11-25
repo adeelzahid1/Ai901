@@ -1,5 +1,5 @@
 {
-  "id": "1.6", "minutes": 6, "lab": "speech",
+  "id": "1.6", "minutes": 8, "lab": "speech",
   "intro": {"en":"Speech recognition turns audio into text. Speech synthesis turns text into audio. Most questions ask which feature fits.","ro":"Speech recognition audio ko text banata hai. Speech synthesis text ko audio banata hai. Zyada tar sawal poochte hain ke kaunsa feature munasib hai."},
   "concepts": [
     { "term": "Real-time transcription", "text": {"en":"Text while people speak: captions, dictation, voice commands.","ro":"Bolte waqt text: captions, dictation, voice commands."} },
@@ -9,7 +9,9 @@
     { "term": "Language identification", "text": {"en":"Detects which of several candidate languages is spoken.","ro":"Di gayi zabaanon mein se boli gayi zabaan pehchanta hai."} },
     { "term": {"en":"Neural voices and custom voice","ro":"Neural voices aur custom voice"}, "text": {"en":"Natural ready-made voices, or an own brand voice with limited access and consent of the speaker.","ro":"Qudrati tayyar awaazein, ya apni brand awaaz jis ke liye limited access aur speaker ki ijazat chahiye."} },
     { "term": "SSML", "text": {"en":"XML that controls voice, speed, pitch, pauses and pronunciation.","ro":"XML jo awaaz, raftaar, pitch, waqfe aur talaffuz control karta hai."} },
-    { "term": "Speech translation", "text": {"en":"Speech in one language, text or speech in others.","ro":"Ek zabaan ki awaaz, doosri zabaanon ka text ya awaaz."} }
+    { "term": "Speech translation", "text": {"en":"Speech in one language, text or speech in others.","ro":"Ek zabaan ki awaaz, doosri zabaanon ka text ya awaaz."} },
+    { "term": "Recognition pipeline", "text": {"en":"Capture, MFCC features, acoustic model (phonemes), language model (words), decoding, post-processing.","ro":"Capture, MFCC features, acoustic model (phonemes), language model (alfaaz), decoding, post-processing."} },
+    { "term": "Synthesis pipeline", "text": {"en":"Text normalization, phonemes, prosody, vocoder.","ro":"Text normalization (poore alfaaz), phonemes, prosody, vocoder."} }
   ],
   "example": {
     "title": {"en":"Example: SSML for a slow, clear announcement","ro":"Misaal: aahista aur saaf elaan ke liye SSML"},
@@ -36,7 +38,8 @@
   ],
   "traps": [
     {"en":"Diarization separates speakers; it does not know their names.","ro":"Diarization speakers alag karta hai; un ke naam nahi janta."},
-    {"en":"Language identification picks from candidates that you give; it does not translate.","ro":"Language identification aap ki di hui zabaanon mein se chunta hai; tarjuma nahi karta."}
+    {"en":"Language identification picks from candidates that you give; it does not translate.","ro":"Language identification aap ki di hui zabaanon mein se chunta hai; tarjuma nahi karta."},
+    {"en":"The vocoder belongs to synthesis, the acoustic model of phonemes to recognition.","ro":"Vocoder synthesis ka hissa hai, phonemes wala acoustic model recognition ka."}
   ],
   "check": ["D1-291", "D1-345", "D1-401", "D1-344", "D1-440"],
   "ref": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/overview"

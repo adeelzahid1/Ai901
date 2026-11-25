@@ -38,7 +38,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 
 ## Question bank
 
-**1,153 original questions** across 14 study sections and all 29 official sub-skills (D1: 469, D2: 684), including code, REST and CLI questions and business scenarios. Mix: Basic 31%, Intermediate 50%, Advanced 19%; multiple choice 50%, Yes/No 13%, drop-down 13%, matching 10%, multi-select 10%, ordering 4%.
+**1,229 original questions** across 14 study sections and all 29 official sub-skills (D1: 537, D2: 692), including code, REST and CLI questions and business scenarios. Mix: Basic 30%, Intermediate 51%, Advanced 19%; multiple choice 50%, Yes/No 13%, drop-down 12%, matching 10%, multi-select 10%, ordering 5%.
 
 - Questions are JSON files in `src/app/data/bank/` (`d1-core.json`, `d1-ext1.json`, ...), listed in
   `blueprint.json` under `bankFiles` and registered in `question-bank.ts`. Each file is a lazy chunk.
@@ -51,7 +51,7 @@ Domains, official sub-skills, study sections and per-section question targets li
 - Interface text: [`src/app/i18n/ui-text.ts`](src/app/i18n/ui-text.ts), an English and a Roman Urdu object with the same shape.
 - Section, domain and sub-skill names: `ro` fields in `blueprint.json`.
 - Questions: `src/app/data/roman/<bank file>.json` maps question ids to translated text and is registered in `roman-bank.ts` (lazy chunks, loaded only when Roman Urdu is on). Fields that are left out and `null` list entries stay in English, so Azure terms, commands and code are not translated. Drop-down choices go in `blanks`. A question without a translation is shown in English with a label.
-- All 1,153 questions are translated. `npm run validate:bank` prints the coverage per section and checks the translations.
+- All 1,229 questions are translated. `npm run validate:bank` prints the coverage per section and checks the translations.
 
 ### Validation
 

@@ -75,8 +75,14 @@ export function searchNotes(notes: Note[], titles: Record<string, LessonText>, q
         ...note.mistakes.flatMap((m) => [m.wrong, m.right]),
         ...note.exam,
         ...(note.flow ? [note.flow.title, ...note.flow.steps.flatMap((s) => (s.text ? [s.title, s.text] : [s.title]))] : []),
+        ...(note.topics ?? []).flatMap((topic) => [
+          topic.title,
+          ...topic.text,
+          ...(topic.terms ?? []).flatMap((c) => [c.term, c.text]),
+          ...(topic.flows ?? []).flatMap((f) => [f.title, ...f.steps.flatMap((s) => (s.text ? [s.title, s.text] : [s.title]))]),
+        ]),
       ].map(pick);
-      const code = note.example.code ?? '';
+      const code = [note.example.code, ...(note.topics ?? []).map((topic) => topic.code)].filter(Boolean).join('\n');
       if (hits([title, ...texts, code].join(' '), words) < words.length) return [];
       // The text with the most different words; the earlier one wins.
       const best = [...texts, code].reduce((a, b) => (hits(b, words) > hits(a, words) ? b : a));

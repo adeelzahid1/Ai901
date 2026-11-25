@@ -1,5 +1,5 @@
 {
-  "id": "1.7", "minutes": 8, "lab": "vision",
+  "id": "1.7", "minutes": 10, "lab": "vision",
   "intro": {"en":"Three groups: understanding pictures, creating pictures, and extracting information from documents, images, audio and video.","ro":"Teen group: tasveerein samajhna, tasveerein banana, aur documents, images, audio aur video se maloomat nikalna."},
   "concepts": [
     { "term": "Image classification", "text": {"en":"One or more labels for the whole image.","ro":"Poori image ke liye ek ya zyada labels."} },
@@ -10,7 +10,10 @@
     { "term": "Multimodal models", "text": {"en":"Answer free questions about an image together with text.","ro":"Text ke saath image ke baare mein khule sawalon ke jawab dete hain."} },
     { "term": "Face", "text": {"en":"Detects and compares faces; identification features need limited access approval.","ro":"Chehre dhoondta aur muqabla karta hai; identification ke liye limited access ki manzoori chahiye."} },
     { "term": "Image generation", "text": {"en":"Creates or edits images from a prompt; a mask limits an edit to one area.","ro":"Prompt se images banata ya edit karta hai; mask edit ko ek hisse tak mehdood karta hai."} },
-    { "term": "Content Understanding", "text": {"en":"Analyzers turn documents, images, audio and video into fields with confidence.","ro":"Analyzers documents, images, audio aur video ko confidence wali fields mein badalte hain."} }
+    { "term": "Content Understanding", "text": {"en":"Analyzers turn documents, images, audio and video into fields with confidence.","ro":"Analyzers documents, images, audio aur video ko confidence wali fields mein badalte hain."} },
+    { "term": "CNN", "text": {"en":"Filters extract feature maps; softmax returns a probability per class.","ro":"Filters feature maps nikalte hain; softmax har class ki probability deta hai."} },
+    { "term": {"en":"Vision transformer and diffusion","ro":"Vision transformer aur diffusion"}, "text": {"en":"ViT relates image patches with attention. Diffusion removes noise step by step to create a picture.","ro":"ViT image patches ko attention se jorta hai. Diffusion qadam ba qadam noise hata kar tasveer banati hai."} },
+    { "term": {"en":"OCR and field extraction","ro":"OCR aur field extraction"}, "text": {"en":"OCR finds the text, field extraction finds its meaning, normalization gives one format.","ro":"OCR text dhoondta hai, field extraction us ka matlab, normalization ek format deti hai."} }
   ],
   "example": {
     "title": {"en":"Example: one street photo","ro":"Misaal: sarak ki ek tasveer"},

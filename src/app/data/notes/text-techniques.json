@@ -1,5 +1,5 @@
 {
-  "id": "text-techniques", "minutes": 5,
+  "id": "text-techniques", "minutes": 8,
   "main": {"en":"Each technique returns a different kind of result: a language, topics, entities, masked text, a mood, opinions or a summary.","ro":"Har technique alag nateeja deti hai: zabaan, topics, entities, chhupa hua text, mood, raaye ya khulasa."},
   "explain": [
     {"en":"Azure Language provides these as ready-made features with consistent output and confidence scores between 0 and 1. You send documents and get one result per document.","ro":"Azure Language ye tayyar features yaksan output aur 0 se 1 tak confidence ke saath deta hai. Aap documents bhejte hain aur har document ka ek nateeja milta hai."},
@@ -8,6 +8,33 @@
   ],
   "deep": [
     {"en":"Choose between a ready-made feature and a chat model by asking what the program needs. Fixed categories, the same result every time, scores and low cost per document: use the Language feature. Unusual categories, several tasks in one step or a free explanation: use a chat model, if possible with structured outputs.","ro":"Tayyar feature aur chat model mein program ki zaroorat se chunein. Mukarrar categories, har baar wahi nateeja, scores aur fi document kam kharcha: Language feature. Ghair aam categories, ek qadam mein kai kaam ya khuli wazahat: chat model, ho sake to structured outputs ke saath."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"How text analysis works inside","ro":"Text analysis andar se kaise chalti hai"},
+      "text": [
+        {"en":"Before a program can analyze text, it splits it into tokens and often cleans them. Then it either counts words (statistical techniques) or turns them into vectors that carry meaning (semantic models). The official course covers both, so the exam can ask for each name.","ro":"Jaize se pehle program text ko tokens mein baantta aur aksar saaf karta hai. Phir ya to alfaaz ginta hai (statistical techniques) ya unhein matlab wale vectors banata hai (semantic models). Official course dono parhata hai, is liye exam har naam pooch sakta hai."},
+        {"en":"TF-IDF example: a collection has 4 documents and \"refund\" is in 1 of them, 5 times. The score is 5 × log(4 / 1). \"the\" is in all 4, so its score is 0 however often it appears: log(4 / 4) = 0.","ro":"TF-IDF misaal: collection mein 4 documents hain aur \"refund\" un mein se 1 mein 5 dafa hai. Score 5 × log(4 / 1) hai. \"the\" chaaron mein hai, is liye us ka score 0 hai chahe kitni dafa aaye: log(4 / 4) = 0."}
+      ],
+      "flows": [
+        { "title": {"en":"From text to result","ro":"Text se nateeje tak"}, "steps": [
+          { "title": "Tokenize", "text": {"en":"split into words and word parts","ro":"alfaaz aur hisson mein baantna"} },
+          { "title": {"en":"Prepare","ro":"Tayyar karna"}, "text": {"en":"normalize, remove stop words, stem or lemmatize","ro":"normalize, stop words nikalna, stem ya lemmatize"} },
+          { "title": {"en":"Represent","ro":"Numbers banana"}, "text": {"en":"counts, TF-IDF or embeddings","ro":"ginti, TF-IDF ya embeddings"} },
+          { "title": {"en":"Use","ro":"Istemal"}, "text": {"en":"key terms, class, summary, similarity","ro":"aham terms, class, khulasa, mushabihat"} }
+        ] }
+      ],
+      "terms": [
+        { "term": "Stop words", "text": {"en":"Frequent words with little meaning (the, a, it). They are removed before counting.","ro":"Aam alfaaz jin mein kam matlab ho (the, a, it). Ginne se pehle nikal diye jate hain."} },
+        { "term": "N-grams", "text": {"en":"Words that belong together: bigram = 2 words, trigram = 3 words.","ro":"Saath wale alfaaz: bigram = 2 alfaaz, trigram = 3 alfaaz."} },
+        { "term": "Stemming / lemmatization", "text": {"en":"Stemming cuts endings and may leave no real word. Lemmatization finds the dictionary form.","ro":"Stemming aakhri hissa kaatti hai aur asal lafz na bhi rahe. Lemmatization dictionary wali shakal dhoondti hai."} },
+        { "term": "Part-of-speech tagging", "text": {"en":"Labels each token as noun, verb, adjective and so on.","ro":"Har token ko noun, verb, adjective waghera ka label deti hai."} },
+        { "term": "TF-IDF", "text": {"en":"Words that are frequent in one document and rare in the rest get a high score.","ro":"Jo lafz ek document mein zyada aur baqi mein kam ho us ka score zyada hota hai."} },
+        { "term": "Bag-of-words + Naive Bayes", "text": {"en":"Word counts without order, used by a probability classifier, for example for spam.","ro":"Alfaaz ki ginti baghair tarteeb, jise probability classifier istemal karta hai, jaise spam ke liye."} },
+        { "term": "TextRank", "text": {"en":"Ranks sentences (or words) in a graph by their connections: extractive summary or key terms.","ro":"Graph mein jumlon (ya alfaaz) ko connections se rank karta hai: extractive khulasa ya aham terms."} },
+        { "term": {"en":"Embeddings and cosine similarity","ro":"Embeddings aur cosine similarity"}, "text": {"en":"Vectors with meaning; a cosine near 1 means similar. Word2Vec and GloVe give one vector per word, attention gives one per context.","ro":"Matlab wale vectors; cosine 1 ke qareeb ho to milte hain. Word2Vec aur GloVe har lafz ka ek vector dete hain, attention har context ka alag."} }
+      ]
+    }
   ],
   "how": [
     {"en":"Sentiment labels a document and each sentence positive, neutral, negative; a document can also be mixed.","ro":"Sentiment document aur har jumlay ko positive, neutral, negative label deta hai; document mixed bhi ho sakta hai."},

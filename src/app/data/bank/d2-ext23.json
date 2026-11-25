@@ -1,0 +1,107 @@
+[
+  {
+    "id": "D2-685", "sub": "image-generation", "diff": 2, "type": "order",
+    "q": "A script creates a video with the REST interface of a Sora 2 deployment. Which FOUR steps does it perform, in which order?",
+    "items": [
+      "Ask for the status until it is completed",
+      "Send a POST request with the prompt",
+      "Decode the video from the POST response",
+      "Download the video file",
+      "Read the video id from the response"
+    ],
+    "ans": [1, 4, 0, 3],
+    "exp": "Video generation is an asynchronous job: the POST request returns an id, the script polls the status with that id and downloads the file when the status is completed. The POST response does not contain the video, so there is nothing to decode.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-686", "sub": "image-generation", "diff": 3, "type": "dropdown",
+    "q": "Complete the request that starts a video job.",
+    "tpl": "curl -X {0} \"https://my-res.openai.azure.com/openai/v1/{1}\" \\\n  -H \"Content-Type: application/json\" \\\n  -H \"api-key: $KEY\" \\\n  -d '{\n    \"model\": \"sora-2\",\n    \"prompt\": \"A paper boat on a calm lake at sunrise.\",\n    \"size\": \"1280x720\",\n    \"{2}\": \"8\"\n  }'",
+    "opts": [
+      ["GET", "POST", "DELETE"],
+      ["embeddings", "audio", "videos"],
+      ["seconds", "temperature", "voice"]
+    ],
+    "ans": [1, 2, 0],
+    "exp": "A new job is created with POST on the videos path, and \"seconds\" sets the length of the video. GET reads the status of an existing job, the embeddings and audio paths belong to other tasks, and temperature or voice are not settings of a video job.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-687", "sub": "image-generation", "diff": 1, "type": "mcq",
+    "q": "Why does an app call the status endpoint several times after it starts a video job?",
+    "opts": [
+      "Each call adds one more second to the video",
+      "Creating a video takes time and runs as an asynchronous job",
+      "The first call checks the key and the next call checks the region",
+      "The status endpoint returns the prompt"
+    ],
+    "ans": 1,
+    "exp": "Rendering often takes minutes, so the job runs in the background and the app polls until the status is completed or failed. The length is set when the job is created, and the status calls do not test the key and region one by one.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-688", "sub": "image-generation", "diff": 3, "type": "mcq",
+    "ctx": "job = create_video(prompt)        # returns {\"id\": \"vid_42\", \"status\": \"queued\"}\nsave_file(download(job[\"id\"]))     # error: content is not ready",
+    "q": "What is missing between the two lines?",
+    "opts": [
+      "A second deployment for the download",
+      "A step that converts the prompt to Base64",
+      "A loop that waits for the status completed",
+      "A higher temperature for the next request"
+    ],
+    "ans": 2,
+    "exp": "The job is still queued, so its content does not exist yet. The code has to poll until the status is completed (or failed) and then download. The same deployment serves the download, and Base64 or temperature have no effect on readiness.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-689", "sub": "image-generation", "diff": 2, "type": "yesno",
+    "q": "A team plans to use Sora 2 in Microsoft Foundry. For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "It can start from an image as well as from text.",
+      "Its videos are silent and need a separate audio model.",
+      "It has to be deployed before an app can call it."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: text, an image or an existing video can be the input. No for the second: Sora 2 also generates audio. Yes for the third: like other models, it is called through the name of its deployment.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-690", "sub": "image-generation", "diff": 2, "type": "mcq",
+    "q": "A generated video is right except for the color of a car. Which Sora 2 feature changes this without creating a new scene from nothing?",
+    "opts": [
+      "Image to video with a photo of another car",
+      "Remix",
+      "A longer duration",
+      "A different size in the request"
+    ],
+    "ans": 1,
+    "exp": "Remix takes an existing video and applies a targeted edit. Image to video starts a new clip from a still picture, and duration or size change the format of the result but not the color of one object.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-691", "sub": "image-generation", "diff": 2, "type": "match",
+    "q": "Match each need to the model that fits best. Each model is used once.",
+    "items": [
+      "Many simple icons at low cost",
+      "Precise edits of product pictures at high quality",
+      "A short promotional clip",
+      "Photorealistic images from a third-party model"
+    ],
+    "targets": ["sora-2", "FLUX", "gpt-image-1.5", "gpt-image-1-mini"],
+    "ans": [3, 2, 0, 1],
+    "exp": "The mini model is optimized for cost and speed, gpt-image-1.5 is the more capable model for quality and precise editing, Sora 2 generates video, and FLUX is a family of image models from Black Forest Labs in the catalog.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  },
+  {
+    "id": "D2-692", "sub": "image-generation", "diff": 3, "type": "dropdown",
+    "q": "Complete the Python code that generates an image with the Responses API and saves it.",
+    "tpl": "response = client.responses.create(\n    model=deployment,\n    input=\"A pastel drawing of a robot with a plant.\",\n    tools=[{\"type\": \"{0}\"}],\n)\nimage = next(i.result for i in response.output\n             if i.type == \"image_generation_call\")\nwith open(\"robot.png\", \"wb\") as f:\n    f.write(base64.{1}(image))",
+    "opts": [
+      ["file_search", "image_generation", "code_interpreter"],
+      ["b64encode", "b64decode", "b64search"]
+    ],
+    "ans": [1, 1],
+    "exp": "The image_generation tool tells the model to create an image, and the result is a Base64 string, so it is decoded before it is written as bytes. File search and code interpreter are other tools, and b64encode would encode the text a second time.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-vision-azure/"
+  }
+]

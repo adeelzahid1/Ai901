@@ -1,5 +1,5 @@
 {
-  "id": "2.6", "minutes": 7, "lab": "images",
+  "id": "2.6", "minutes": 8, "lab": "images",
   "intro": {"en":"Three ways to work with pictures: ask a multimodal model about them, create them with an image model, or analyze them with Image Analysis.","ro":"Tasveeron ke saath kaam ke teen tareeqay: multimodal model se poochna, image model se banana, ya Image Analysis se jaiza."},
   "concepts": [
     { "term": "Content parts", "text": {"en":"One message holds a text part and one or more image parts.","ro":"Ek message mein text part aur ek ya zyada image parts hote hain."} },
@@ -8,7 +8,8 @@
     { "term": "Image generation", "text": {"en":"images.generate(model, prompt, size, quality, n); gpt-image models return base64.","ro":"images.generate(model, prompt, size, quality, n); gpt-image models base64 dete hain."} },
     { "term": "Image editing", "text": {"en":"images.edit with an image and optional mask changes only part of it.","ro":"images.edit image aur mask ke saath sirf ek hissa badalta hai."} },
     { "term": "ImageAnalysisClient", "text": {"en":"analyze or analyze_from_url with visual_features such as CAPTION, TAGS, OBJECTS, PEOPLE, READ.","ro":"analyze ya analyze_from_url, visual_features jaise CAPTION, TAGS, OBJECTS, PEOPLE, READ ke saath."} },
-    { "term": "Safety", "text": {"en":"Prompts and images pass content filters; generated images carry content credentials.","ro":"Prompts aur images content filters se guzarti hain; generated images mein content credentials hote hain."} }
+    { "term": "Safety", "text": {"en":"Prompts and images pass content filters; generated images carry content credentials.","ro":"Prompts aur images content filters se guzarti hain; generated images mein content credentials hote hain."} },
+    { "term": "Video generation", "text": {"en":"Sora 2 creates videos from text, image or video as an asynchronous job: POST, poll the status, download.","ro":"Sora 2 text, image ya video se asynchronous job ke taur par video banata hai: POST, status poochna, download."} }
   ],
   "example": {
     "title": {"en":"Example: ask about a local photo","ro":"Misaal: local tasveer ke baare mein sawal"},
@@ -36,7 +37,8 @@
   ],
   "traps": [
     {"en":"A vision model describes; an image model draws. The deployment must match.","ro":"Vision model bayan karta hai; image model banata hai. Deployment us ke mutabiq ho."},
-    {"en":"A caption is one sentence; dense captions describe regions.","ro":"Caption ek jumla hai; dense captions hisse bayan karte hain."}
+    {"en":"A caption is one sentence; dense captions describe regions.","ro":"Caption ek jumla hai; dense captions hisse bayan karte hain."},
+    {"en":"The answer to the POST request of a video job holds an id, not the video.","ro":"Video job ki POST request ke jawab mein id hoti hai, video nahi."}
   ],
   "check": ["D2-546", "D2-609", "D2-052", "D2-127", "D2-458"],
   "ref": "https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/gpt-with-vision"

@@ -1,5 +1,5 @@
 {
-  "id": "1.2", "minutes": 7,
+  "id": "1.2", "minutes": 8,
   "intro": {"en":"A generative model predicts what comes next. Most questions here are about tokens, embeddings, context and why a model can be confidently wrong.","ro":"Generative model andaza lagata hai ke aage kya aayega. Yahan zyada tar sawal tokens, embeddings, context aur is baare mein hain ke model yaqeen ke saath ghalat kyun ho sakta hai."},
   "concepts": [
     { "term": "Token", "text": {"en":"A piece of text, often part of a word. Models read and write tokens, and price and limits are counted in tokens.","ro":"Text ka tukra, aksar lafz ka hissa. Models tokens parhte aur likhte hain, aur qeemat aur hadein tokens mein gini jati hain."} },
@@ -9,7 +9,10 @@
     { "term": "Context window", "text": {"en":"The maximum number of tokens for input plus output in one request. Nothing outside it is seen.","ro":"Ek request mein input aur output ke tokens ki had. Is se bahar ki koi cheez nazar nahi aati."} },
     { "term": {"en":"Hallucination and grounding","ro":"Hallucination aur grounding"}, "text": {"en":"A model can write convincing but false text. Grounding gives it trusted data to answer from.","ro":"Model yaqeen dilane wala ghalat text likh sakta hai. Grounding usay jawab ke liye qabil e bharosa data deta hai."} },
     { "term": "Retrieval-augmented generation (RAG)", "text": {"en":"Search finds passages that match the question, adds them to the prompt, and the model answers from them.","ro":"Talash sawal se milte hisse dhoond kar prompt mein dalti hai, aur model unhi se jawab deta hai."} },
-    { "term": "Fine-tuning", "text": {"en":"Extra training with examples to teach a style, format or task. It is not the tool for changing facts.","ro":"Andaz, format ya kaam sikhane ke liye misalon se mazeed training. Badalte haqaiq ke liye ye tareeqa nahi."} }
+    { "term": "Fine-tuning", "text": {"en":"Extra training with examples to teach a style, format or task. It is not the tool for changing facts.","ro":"Andaz, format ya kaam sikhane ke liye misalon se mazeed training. Badalte haqaiq ke liye ye tareeqa nahi."} },
+    { "term": "RAG pipeline", "text": {"en":"Extract, chunk, embed and index the documents; then search, augment the prompt and generate.","ro":"Documents nikalna, chunk, embed aur index karna; phir talash, prompt mein jorna aur jawab banana."} },
+    { "term": {"en":"Encoder and decoder","ro":"Encoder aur decoder"}, "text": {"en":"The encoder creates embeddings with context; the decoder predicts the next token. Positional encoding keeps the order.","ro":"Encoder context wale embeddings banata hai; decoder agla token batata hai. Positional encoding tarteeb rakhti hai."} },
+    { "term": {"en":"Keyword, vector and hybrid search","ro":"Keyword, vector aur hybrid search"}, "text": {"en":"Exact words, meaning, or both in one query.","ro":"Exact alfaaz, matlab, ya ek query mein dono."} }
   ],
   "example": {
     "title": {"en":"Example: one answer, step by step","ro":"Misaal: ek jawab, qadam ba qadam"},

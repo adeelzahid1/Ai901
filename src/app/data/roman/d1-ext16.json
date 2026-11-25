@@ -1,0 +1,355 @@
+{
+  "D1-470": {
+    "q": "Ek program customer emails ko alfaaz aur alfaaz ke hisson mein baantta hai aur jaize se pehle har ek ko number deta hai. Is qadam ko kya kehte hain?",
+    "exp": "Tokenization text ko alfaaz, alfaaz ke hisson aur punctuation mein baantti hai aur har ek ko number deti hai. Lemmatization lafz ko dictionary wali shakal mein badalti hai, entity linking naam ko kisi article se jorti hai, aur summarization text chhota karti hai."
+  },
+  "D1-471": {
+    "q": "Text tayyar karne ke har tareeqe ko us ke kaam se milayein. Har description ek dafa ya bilkul istemal nahi hogi.",
+    "targets": [
+      "Lafz ki dictionary wali shakal dhoondta hai",
+      "Har lafz ko noun, verb ya adjective ka label deta hai",
+      "The, a aur it jaise alfaaz nikal deta hai",
+      "Sada usoolon se lafz ka aakhri hissa kaat deta hai",
+      "Saath aane wale alfaaz ko ek unit rakhta hai"
+    ],
+    "exp": "Stop words mein kam matlab hota hai, is liye nikal diye jate hain. Stemming -ing jaise aakhri hissay kaat deti hai. Lemmatization lughat aur usool istemal karti hai, is liye nateeja asal lafz hota hai. N-grams \"machine learning\" jaise phrases ko saath rakhte hain. Noun aur verb ka label part-of-speech tagging hai, jo list mein nahi."
+  },
+  "D1-472": {
+    "q": "Jaize mein \"supply chain\" ko do alag alfaaz nahi balke ek term ginna hai. Kaunsi technique chahiye?",
+    "opts": ["Stop words nikalna", "Bigrams nikalna", "Alfaaz ko lower case karna", "Dono alfaaz ki stemming"],
+    "exp": "Bigram do saath aane wale alfaaz ka unit hai, is liye \"supply chain\" ek term ginti mein aata hai. Stop words nikalna, lower case aur stemming akele alfaaz ko badalte hain, unhein jorte nahi."
+  },
+  "D1-473": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Stemming aisi shakal bana sakti hai jo asal lafz nahi.",
+      "Lemmatization sirf punctuation aur bare huroof hatati hai.",
+      "Text ko lower case karne se naam \"Mr. Banks\" aur lafz \"banks\" mil sakte hain."
+    ],
+    "exp": "Pehle ka jawab Haan: stemming baghair jaanch ke aakhri hissa kaatti hai, is liye baqi hissa lafz na bhi ho. Doosre ka Nahi: lemmatization zabaan ke usoolon se dictionary wali shakal dhoondti hai; punctuation aur bare huroof hatana normalization hai. Teesre ka Haan: normalization se matlab kho sakta hai."
+  },
+  "D1-474": {
+    "q": "Kaunsi technique woh terms dhoondti hai jo ek report ko baqi reports se alag karti hain?",
+    "ctx": "Ek company ke paas solar panels ki 500 reports hain. Alfaaz ginne se har report ke liye \"solar\" aur \"panel\" milta hai.",
+    "opts": [
+      "Stemming ke baad alfaaz dobara ginna",
+      "Part-of-speech tagging",
+      "Har report ki zabaan pehchanna",
+      "TF-IDF"
+    ],
+    "exp": "TF-IDF dekhta hai ke term ek document mein kitni dafa aur kitne documents mein aati hai, is liye har jagah wali terms ka score kam hota hai. Stemming ke baad ginti phir aam alfaaz deti hai, aur part-of-speech tags ya zabaan report ki khaas baat nahi batate."
+  },
+  "D1-475": {
+    "q": "Is document mein is term ka TF-IDF score kya hai?",
+    "ctx": "tfidf = tf * log(N / df)\n\ntf = 9      (count in this document)\nN  = 200    (documents)\ndf = 200    (documents that contain the term)",
+    "exp": "Term tamam documents mein hai, is liye N / df = 1 aur log(1) = 0. Nau zarb zero 0 hai: jo term har jagah ho woh document ko alag nahi karti, chahe kitni dafa aaye. Baqi values logarithm ya documents ki tadad chhor deti hain."
+  },
+  "D1-476": {
+    "q": "TF-IDF ke baare mein jumla mukammal karein.",
+    "tpl": "Term ka score zyada hota hai jab woh ek document mein {0} aur collection ke {1} mein aaye.",
+    "blanks": [["bilkul nahi","kai dafa"], ["tamam documents","zyada tar documents","chand documents"]],
+    "exp": "Term frequency score barhati hai jab term document mein kai dafa aaye. Inverse document frequency score barhati hai jab term chand documents mein ho. Zyada tar ya tamam documents wali term aam hai aur us ka wazan kam hota hai."
+  },
+  "D1-477": {
+    "q": "Bag-of-words model \"good service, not bad\" aur \"bad service, not good\" parhta hai. Model ko dono texts kaise nazar aate hain?",
+    "opts": [
+      "Ek positive aur ek negative text jaise",
+      "Do zabaanon ke texts jaise",
+      "Bilkul ek jaise",
+      "Mukhtalif lambai ke do texts jaise"
+    ],
+    "exp": "Bag-of-words sirf ye rakhta hai ke har lafz kitni dafa aaya, grammar aur tarteeb nahi. Dono texts mein wahi alfaaz ek ek dafa hain, is liye vectors ek jaise hain jab ke matlab ulta hai. Model nahi bata sakta ke kaunsa positive hai."
+  },
+  "D1-478": {
+    "q": "Spam filter \"winner\" aur \"free\" jaise alfaaz ginta hai aur probability se batata hai ke message spam hai ya nahi. Ye kaunsa jor hai?",
+    "opts": [
+      "TextRank aur abstractive summarization",
+      "Bag-of-words aur Naive Bayes",
+      "Entity linking aur key phrase extraction",
+      "OCR aur convolutional neural network"
+    ],
+    "exp": "Alfaaz ki ginti bag-of-words features hain, aur Naive Bayes un se sab se mumkin class batata hai. TextRank jumlon ko rank karta hai, entity linking aur key phrases topics batate hain, aur OCR ke saath CNN tasveeron ka text parhta hai."
+  },
+  "D1-479": {
+    "q": "Ek tool TextRank se report ka khulasa banata hai. Woh kaunse CHAAR qadam kis tarteeb mein karta hai?",
+    "items": [
+      "Scores update karna jab tak woh badalna band na karein",
+      "Naye jumlay likhna jo aham baatein jorein",
+      "Har jumlay ko graph ka node banana",
+      "Sab se zyada score wale jumlay chunna",
+      "Edges ko jumlon ki mushabihat ke mutabiq wazan dena"
+    ],
+    "exp": "TextRank jumlon ka graph banata hai, connections ko mushabihat ka wazan deta hai, scores bar bar nikalta hai jab tak woh theher jayein, aur behtareen jumlay baghair tabdeeli leta hai. Naye jumlay likhna abstractive summarization hai, jo TextRank nahi karta."
+  },
+  "D1-480": {
+    "q": "Ek tool TextRank ko jumlon ke bajaye alfaaz par lagata hai. Nodes alfaaz hain aur edges batate hain kaunse alfaaz qareeb aate hain. Tool kya deta hai?",
+    "opts": ["Har jumlay ka mood", "Document ka tarjuma", "Aham terms", "Chhupe hue zaati data ki list"],
+    "exp": "Jab nodes alfaaz hon to sab se upar wale nodes document ki aham terms hain, yani keyword extraction. Sentiment, translation aur PII detection alag techniques hain jo alfaaz ke graph ki ranking se nahi aatin."
+  },
+  "D1-481": {
+    "q": "Kaunse DO bayan word embeddings ke baare mein sahi hain? Har sahi jawab mukammal bayan hai.",
+    "opts": [
+      "Woh document ke alfaaz ko huroof e tahajji ki tarteeb mein rakhte hain",
+      "Woh har token ko numbers ki list mein likhte hain",
+      "Woh ginte hain ke poore document mein har lafz kitni dafa aaya",
+      "Milte julte matlab ke vectors ki simt milti julti hai"
+    ],
+    "exp": "Embedding ek vector hai, aur milte julte matlab wale alfaaz ke vectors ek jaisi simt mein hote hain, is liye muqabla mumkin hai. Alphabetical list mein matlab nahi hota, aur sirf ginti frequency analysis ya bag-of-words hai."
+  },
+  "D1-482": {
+    "q": "Is model ke mutabiq kaunsa lafz matlab mein \"invoice\" ke sab se qareeb hai?",
+    "ctx": "\"invoice\" ke saath cosine similarity:\nriver 0.11\npayment 0.81\nbill 0.94\nmountain 0.07",
+    "exp": "Cosine similarity do vectors ki simt ka muqabla karti hai, aur 1 ke qareeb value ka matlab simt taqreeban ek hai. \"bill\" ki value sab se zyada (0.94) hai, is liye woh sab se qareeb hai. 0 ke qareeb values, jaise river aur mountain, be-taalluq alfaaz hain."
+  },
+  "D1-483": {
+    "q": "Ek purane model mein \"river bank\" aur \"savings bank\" dono mein \"bank\" ka ek hi vector hai. Kaunsi taraqqi har jumlay mein alag vector deti hai?",
+    "opts": [
+      "Model ke liye stop words ki lambi list",
+      "Attention, jo aas paas ke tokens dekhti hai",
+      "Stemming, jo training se pehle lafz chhota karti hai",
+      "Alfaaz ki ginti ki bari table"
+    ],
+    "exp": "Attention lafz ke aas paas ke tokens ko tolti hai, is liye model contextualized embeddings banata hai. Word2Vec aur GloVe har lafz ka ek vector dete hain. Stop words, stemming aur ginti ki table jumla nahi dekhte, is liye \"bank\" ke dono istemal ek jaise rehte hain."
+  },
+  "D1-484": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "\"dog\" ke vector mein \"young\" ka vector jorne se \"puppy\" ke qareeb ka point mil sakta hai.",
+      "Document ke alfaaz ke vectors ka average classifier ka input ho sakta hai.",
+      "Vector arithmetic hamesha kisi maloom lafz ke vector par hi khatam hoti hai.",
+      "Word2Vec apne numbers lafz ki alphabetical jagah se deta hai."
+    ],
+    "exp": "Pehle do ka jawab Haan: vectors mein matlab hota hai, is liye jor aur average kaam aate hain. Teesre ka Nahi: nateeja kam hi bilkul barabar hota hai, is liye sab se qareeb lafz liya jata hai. Chauthe ka Nahi: numbers is se seekhe jate hain ke training text mein alfaaz kaise istemal hue."
+  },
+  "D1-485": {
+    "q": "Likhne ke ek tool ko har jumlay mein jaanna hai ke \"book\" noun hai ya verb. Ye maloomat kaunsi technique deti hai?",
+    "exp": "Part-of-speech tagging har token ko us ki grammar ki category deti hai, token aur us ke context se. Sentiment mood ke baare mein hai, entity recognition naam aur miqdar dhoondti hai, aur stop word removal aam alfaaz hatati hai."
+  },
+  "D1-486": {
+    "q": "Speech recognition ke marahil tarteeb se lagayein.",
+    "items": [
+      "Features se phonemes ka andaza lagana",
+      "Text ko punctuation aur numbers ke saath sanwarna",
+      "Awaaz ko digital samples mein lena",
+      "Alfaaz ki behtareen tarteeb chunna",
+      "Chhote frames se features nikalna"
+    ],
+    "exp": "Awaaz li jati hai, chhote frames features bante hain, acoustic model phonemes batata hai, decoding language model ke saath behtareen alfaaz chunti hai, aur post-processing text sanwarti hai. Har marhale ko pichhle ka nateeja chahiye."
+  },
+  "D1-487": {
+    "q": "Speech recognizer ka acoustic model kis cheez ka andaza lagata hai?",
+    "opts": [
+      "Kaunse alfaaz aik doosre ke baad aane ka imkan hai",
+      "Audio features kaunse phonemes ko zahir karte hain",
+      "Comma aur bare huroof kahan aane chahiyein",
+      "Kaunsa khulasa recording ke mutabiq hai"
+    ],
+    "exp": "Acoustic model seekhta hai ke audio features ka phonemes, yani awaaz ke sab se chhote units, se kya taalluq hai. Alfaaz ki mumkin tarteeb language model deta hai, comma aur bare huroof post-processing, aur khulasa alag text ka kaam hai."
+  },
+  "D1-488": {
+    "q": "\"Their\" aur \"there\" ki awaaz ek jaisi hai. Speech recognizer ka kaunsa hissa sahi lafz chunta hai?",
+    "opts": ["Vocoder", "Microphone ka noise filter", "Language model", "Sampling rate"],
+    "exp": "Language model lughat, grammar aur aam tarteeb jaanta hai, is liye jumlay ke mutabiq lafz chunta hai. Vocoder speech synthesis ka hissa hai, aur noise filter ya sampling rate signal badalte hain, ek jaisi awaaz wale alfaaz mein intikhab nahi karte."
+  },
+  "D1-489": {
+    "q": "Speech recognition ke har marhale ko misaal se milayein. Har misaal ek dafa ya bilkul istemal nahi hogi.",
+    "targets": [
+      "\"three p m\" ko \"3 PM\" banata hai",
+      "Awaaz ko har second 16,000 dafa naapta hai",
+      "Bolne se pehle \"Dr.\" ko \"Doctor\" banata hai",
+      "Chhote frames ko MFCC vectors mein badalta hai",
+      "Beam search se behtareen adhoore transcripts rakhta hai"
+    ],
+    "exp": "Capture signal ke samples leta hai, pre-processing MFCC jaise features nikalti hai, decoding behtareen tarteeb dhoondti hai, aur post-processing text sanwarti hai. \"Dr.\" ko \"Doctor\" banana text normalization hai, jo speech synthesis ka marhala hai."
+  },
+  "D1-490": {
+    "q": "Speech recognizer MFCC features kyun nikalta hai?",
+    "opts": [
+      "Recording ka har sample baghair nuqsan ke rakhne ke liye",
+      "Masnooi awaaz mein zor aur waqfay dalne ke liye",
+      "Har frame ki awaaz chand numbers mein bayan karne ke liye",
+      "Recording ka tarjuma karne ke liye"
+    ],
+    "exp": "MFCC har chhote frame ko chand numbers mein badalta hai jo awaaz ko insani sunne ke andaz mein bayan karte hain. Ye acoustic model ka mukhtasar input hai. Ye har sample nahi rakhta, synthesis ka qadam nahi, aur tarjuma nahi karta."
+  },
+  "D1-491": {
+    "q": "Recognizer \"twenty five dollars\" sunta hai, lekin app ko \"$25\" chahiye. Post-processing ka kaunsa kaam ye tabdeeli karta hai?",
+    "exp": "Inverse text normalization bole gaye alfaaz ko likhne wali shakal mein badalti hai. Grapheme-to-phoneme conversion aur prosody speech synthesis ka hissa hain, aur beam search text sanwarne se pehle alfaaz chunta hai."
+  },
+  "D1-492": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Phoneme alphabet ka likha hua harf hai.",
+      "Zyada sampling rate zyada tafseel leta hai aur zyada processing maangta hai.",
+      "English ka acoustic model nayi training ke baghair Mandarin pehchanta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: phoneme awaaz ka unit hai; harf grapheme hai. Doosre ka Haan: speech ke liye 8 se 16 kHz munasib tawazun hai. Teesre ka Nahi: phonemes zabaan par munhasir hain, is liye model ko us zabaan ki training chahiye."
+  },
+  "D1-493": {
+    "q": "Kaunse CHAAR marahil text ko awaaz mein badalte hain, kis tarteeb mein?",
+    "items": [
+      "Audio waveform banana",
+      "Pitch, duration aur waqfon ka andaza lagana",
+      "Behtareen transcript dhoondna",
+      "Numbers aur mukhaffaf ko alfaaz mein badalna",
+      "Alfaaz ko phonemes se milana"
+    ],
+    "exp": "Pehle text normalization, phir linguistic analysis phonemes dhoondti hai, prosody generation tay karti hai ke kaise bole jayein, aur neural vocoder waveform banata hai. Transcript dhoondna speech recognition ka hissa hai."
+  },
+  "D1-494": {
+    "q": "Bolne se pehle system \"Dr. Khan, 3 items, $25\" ko poore alfaaz mein badalta hai. Ye speech synthesis ka kaunsa marhala hai?",
+    "exp": "Text normalization mukhaffaf, numbers, tareekhein aur symbols ko poore alfaaz banati hai taake bole ja sakein. Prosody rhythm aur intonation tay karti hai, acoustic features banne wali awaaz bayan karte hain, aur vocoding unhein audio banati hai."
+  },
+  "D1-495": {
+    "q": "\"Though\", \"through\" aur \"cough\" ke huroof milte hain lekin awaaz alag hai. Har lafz ki sahi awaaz kaun dhoondta hai?",
+    "exp": "Grapheme-to-phoneme conversion likhe huroof ko dictionaries, usoolon aur neural models se awaazon mein badalti hai. Inverse text normalization transcript sanwarti hai, beam search recognition mein alfaaz chunta hai, aur noise filter recorded audio saaf karta hai."
+  },
+  "D1-496": {
+    "q": "Masnooi awaaz har lafz sahi bolti hai lekin seedhi aur robot jaisi lagti hai. Team kya behtar kare?",
+    "opts": [
+      "Woh pronunciation dictionary jo linguistic analysis istemal karti hai",
+      "Prosody",
+      "Customer ke microphone ka sampling rate",
+      "Stop words ki list"
+    ],
+    "exp": "Prosody awaaz ki pitch, duration, intensity, waqfay aur zor hai, aur seedhi prosody robot jaisi awaaz ki aam wajah hai. Talaffuz pehle hi sahi hai, synthesis mein microphone istemal nahi hota, aur stop words text analysis ka hissa hain."
+  },
+  "D1-497": {
+    "q": "Neural vocoder kya banata hai?",
+    "opts": [
+      "Likhe hue text se phonemes ki list",
+      "Phone call ka transcript",
+      "Mel-spectrogram se audio waveform",
+      "Kachay alfaaz se punctuation wala text"
+    ],
+    "exp": "Vocoder speech synthesis ka aakhri qadam hai: mel-spectrogram ko audio samples mein badalta hai. Phonemes linguistic analysis se aate hain, transcript speech recognition se, aur punctuation us ki post-processing se."
+  },
+  "D1-498": {
+    "q": "Speech pipelines ke jumlay mukammal karein.",
+    "tpl": "Speech recognition mein {0} model awaazon ko phonemes se milata hai aur {1} model alfaaz ki tarteeb batata hai.\nSpeech synthesis mein {2} rhythm aur intonation tay karti hai.",
+    "exp": "Acoustic model audio features ko phonemes se jorta hai, aur language model jaanta hai kaunse alfaaz aik doosre ke baad aate hain. Prosody generation pitch, duration aur waqfay batati hai. Decoding aur sampling recognition ka hissa hain, aur diffusion aur vision models tasveeron ke liye hain."
+  },
+  "D1-499": {
+    "q": "Kaunsi TEEN cheezein prosody ka hissa hain? Har sahi jawab ek hissa hai.",
+    "opts": [
+      "Language model ki lughat",
+      "Phrases ke darmiyan waqfay",
+      "Recorded audio ka file format",
+      "Pitch ka charhna aur utarna",
+      "Awaaz kitni der tak rakhi jaye"
+    ],
+    "exp": "Prosody ye hai ke baat kaise kahi jaye: pitch, duration, intensity, waqfay aur zor. Lughat language model ka hissa hai, aur file format sirf audio rakhne ka tareeqa hai."
+  },
+  "D1-500": {
+    "q": "Transformer har token vector ke saath positional encoding kyun jorta hai?",
+    "opts": [
+      "Aam tokens ko nayab tokens se chhota vector chahiye",
+      "Model ke har user ki apni lughat hoti hai",
+      "Tokens ki tarteeb aham hai",
+      "Training ke dauran zaati data chhupana hota hai"
+    ],
+    "exp": "\"Dog bites man\" aur \"man bites dog\" ke tokens wahi hain, is liye model ko vector ke saath har token ki jagah bhi chahiye. Vector ki lambai frequency par nahi, users ki lughat ek hoti hai, aur positional encoding data ki hifazat nahi karti."
+  },
+  "D1-501": {
+    "q": "Transformer model ke har hissay ko us ke kaam se milayein. Har kaam ek dafa ya bilkul istemal nahi hoga.",
+    "targets": [
+      "Tokens ke kai pehlu ek saath tolta hai",
+      "Kam matlab wale alfaaz hatata hai",
+      "Agla sab se mumkin token batata hai",
+      "Batata hai token tarteeb mein kahan hai",
+      "Aise embeddings banata hai jin mein context ho"
+    ],
+    "exp": "Encoder embeddings banata hai, decoder un se agla token batata hai, multi-head attention mukhtalif elements ek saath dekhti hai, aur positional encoding tarteeb rakhti hai. Alfaaz hatana stop word removal hai, jo transformer ka hissa nahi."
+  },
+  "D1-502": {
+    "q": "Training ke dauran decoder ko us token ke baad ke tokens nahi dekhne chahiyein jis ka andaza laga raha hai. Ye kaunsi technique yaqeeni banati hai?",
+    "exp": "Masked attention baad ke tokens chhupati hai, is liye model ko un ka andaza lagana parta hai aur woh maloom text se muqabla kar sakta hai. RAG prompt mein bahar ka content jorta hai, cosine similarity vectors ka muqabla karti hai, aur positional encoding tarteeb batati hai."
+  },
+  "D1-503": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Chhota language model kisi khaas kaam ke liye bare model se kam kharche mein munasib ho sakta hai.",
+      "\"unlikely\" ka \"un\" apna alag token ho sakta hai.",
+      "Training text mein lafz jab bhi aaye, usay naya token number milta hai."
+    ],
+    "exp": "Pehle ka jawab Haan: chhote models ko kam resources chahiyein aur aksar ek kaam ke liye kaafi hote hain. Doosre ka Haan: tokens alfaaz ke hissay ho sakte hain. Teesre ka Nahi: token ka number wahi rehta hai, is liye dobara aane wala lafz wahi number leta hai."
+  },
+  "D1-504": {
+    "q": "Sab se mumkin wajah kya hai?",
+    "ctx": "RAG assistant ye hissa nikalta hai: \"The limit is 200 euros.\" Woh heading jo batati hai ke limit kis cheez ki hai, ghaib hai, is liye jawab wazeh nahi.",
+    "opts": [
+      "Model ka temperature sawal ke liye bohat kam hai",
+      "Index passages ke embeddings rakhta hai",
+      "Chunks bohat chhote hain",
+      "Sawal passage se alag zabaan mein poocha gaya"
+    ],
+    "exp": "Bohat chhote chunks jumlay ko us ki heading ya tareef se alag kar dete hain. Bare chunks ya thora overlap context rakhte hain. Temperature alfaaz par asar dalta hai, index mein embeddings aam baat hai, aur case mein doosri zabaan ka koi ishara nahi."
+  },
+  "D1-505": {
+    "q": "Bohat bare chunks se kaunse DO masle hote hain? Har sahi jawab ek masla hai.",
+    "opts": [
+      "Embedding model chunks ke vectors bana hi nahi sakta",
+      "Woh context window ka zyada hissa bharte hain",
+      "Woh ghair mutaalliq text saath late hain",
+      "Model apne jawabon ka source dikhane ki salahiyat kho deta hai"
+    ],
+    "exp": "Bare chunks context window ke tokens lete hain aur kaam ke hissay ke saath ghair mutaalliq text milate hain. Un ke embeddings phir bhi ban sakte hain, aur citations chunk ke saath rakhe metadata par hain, size par nahi."
+  },
+  "D1-506": {
+    "q": "Retrieval ki har zaroorat ko sab se munasib tareeqe se milayein. Har tareeqa ek dafa istemal hoga.",
+    "items": [
+      "Bilkul part number BX-4410 dhoondna",
+      "Doosre alfaaz mein wahi matlab wale hissay dhoondna",
+      "Ek query mein exact terms aur matlab dono istemal karna",
+      "Sirf ek region ke documents dena"
+    ],
+    "targets": ["Metadata filter", "Hybrid search", "Keyword search", "Vector search"],
+    "exp": "Keyword search exact codes mein mazboot hai, vector search embeddings se matlab ka muqabla karti hai, hybrid search dono ko milati hai, aur metadata filter region ya ijazat jaisi properties se nateeje mehdood karta hai."
+  },
+  "D1-507": {
+    "q": "RAG solution ke liye documents tayyar karne hain. Indexing pipeline kaunse CHAAR qadam kis tarteeb mein karti hai?",
+    "items": [
+      "Har chunk ka embedding banana",
+      "Documents se chat model ko fine-tune karna",
+      "Chunks, embeddings aur metadata ko index mein rakhna",
+      "Text nikalna aur saaf karna",
+      "Text ko chunks mein baantna"
+    ],
+    "exp": "Text nikala aur saaf kiya jata hai, chunks mein baanta jata hai, embeddings bante hain aur aise index mein rakha jata hai jis mein talash ho sake. Fine-tuning model ko badalti hai aur RAG ka hissa nahi, kyunke RAG nikala hua text prompt mein jorta hai."
+  },
+  "D1-508": {
+    "q": "RAG test mein sahi hissa prompt mein hai, lekin jawab mein aisi baat hai jo us hissay se sabit nahi. Ye masla kaunsa measure dikhata hai?",
+    "opts": ["Retrieval ki coverage", "Groundedness", "Nikale gaye hisson ki ranking", "Latency"],
+    "exp": "Groundedness dekhti hai ke har baat nikale gaye content se sabit hai ya nahi. Coverage aur ranking talash ke nateejon ko parakhti hain, jo yahan sahi thay, aur latency sirf waqt naapti hai."
+  },
+  "D1-509": {
+    "q": "Bohat se sawalon mein RAG app ki talash sahi hissa nahi deti. Team pehle kahan dekhe?",
+    "opts": [
+      "Un instructions mein jo model ko jawab ke alfaaz batati hain",
+      "Output tokens ki zyada se zyada tadad mein",
+      "Chunk ki hadon, metadata aur talash ke tareeqe mein",
+      "Application ki awaaz mein"
+    ],
+    "exp": "Agar hissa nikla hi nahi to model usay nahi dekhta, is liye alfaaz ki instructions aur output limit madad nahi kar saktin. Source ki quality, chunk ki hadein, metadata, query aur talash ka tareeqa tay karte hain ke kya milega."
+  },
+  "D1-510": {
+    "q": "Neeche diye gaye har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Zyada passages jorne se har soorat mein jawab behtar hota hai.",
+      "Nikale gaye document ka text data samjha jaye, instructions nahi.",
+      "RAG be-buniyad jawab bilkul khatam kar deta hai.",
+      "Test set mein aise sawal bhi hon jin ka jawab documents mein nahi."
+    ],
+    "exp": "Pehle ka jawab Nahi: zyada text waqt leta hai aur model ko bhatka sakta hai. Doosre ka Haan: document mein aisa text ho sakta hai jo model ko mor de. Teesre ka Nahi: RAG khatra kam karta hai, khatam nahi. Chauthe ka Haan: app ko maan lena chahiye ke usay kya maloom nahi."
+  },
+  "D1-511": {
+    "q": "Team RAG app mein user ke sawalon ke liye naya embedding model lagati hai lekin purane model ke vectors rakhti hai. Kya hota hai?",
+    "opts": [
+      "Chat model purane vectors se dobara train hota hai",
+      "Queries aur chunks ka muqabla theek se nahi ho sakta",
+      "Keyword search index mein exact part numbers dhoondna band kar deti hai",
+      "Jawab lambe ho jate hain"
+    ],
+    "exp": "Vectors ka muqabla tabhi hota hai jab ek hi qisam ke embedding model ne banaye hon, is liye chunks dobara embed karne honge. Keyword search vectors istemal nahi karti, index chat model ko train nahi karta, aur jawab ki lambai kahin aur tay hoti hai."
+  }
+}

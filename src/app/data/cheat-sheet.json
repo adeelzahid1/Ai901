@@ -106,6 +106,31 @@
         ["classify",{"en":"one value from a list","ro":"list se ek value"},"documents, images, audio, video"],
         ["confidence, source",{"en":"how sure, where found","ro":"kitna yaqeen, kahan mila"},"document analyzers"]
       ]
+    },
+    {
+      "id": "text-inside", "domain": "D1", "title": {"en":"Text analysis inside","ro":"Text analysis ke andar"},
+      "head": [{"en":"Name","ro":"Naam"},{"en":"What it does","ro":"Kya karta hai"}],
+      "rows": [
+        ["Stemming / lemmatization",{"en":"cuts endings / finds the dictionary form","ro":"aakhri hissa kaatta / dictionary shakal dhoondta hai"}],
+        ["N-grams",{"en":"keeps words together","ro":"alfaaz saath rakhta hai"}],
+        ["TF-IDF",{"en":"special terms of one document; 0 when in all","ro":"ek document ki khaas terms; sab mein ho to 0"}],
+        ["Bag-of-words",{"en":"counts without order","ro":"baghair tarteeb ginti"}],
+        ["TextRank",{"en":"extractive summary, key terms","ro":"extractive khulasa, aham terms"}],
+        ["Embeddings",{"en":"meaning as vectors, compared by cosine","ro":"matlab vectors mein, cosine se muqabla"}]
+      ]
+    },
+    {
+      "id": "pipelines", "domain": "D1", "title": {"en":"Pipelines in order","ro":"Pipelines tarteeb se"},
+      "head": ["Pipeline",{"en":"Steps","ro":"Qadam"}],
+      "rows": [
+        ["Speech recognition","capture → MFCC → acoustic model → language model → decoding → post-processing"],
+        ["Speech synthesis","text normalization → phonemes → prosody → vocoder"],
+        ["CNN","filters → pooling → flattening → fully connected → softmax"],
+        ["OCR","input → preprocessing → text regions → characters → output"],
+        ["Field extraction","OCR output → candidates → mapping → normalization → integration"],
+        ["RAG","extract → chunk → embed → index; search → augment → generate"],
+        ["Video job","POST → id → GET status → GET content"]
+      ]
     }
   ],
   "code": [

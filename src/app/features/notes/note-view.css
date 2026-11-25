@@ -22,6 +22,7 @@ h2 {
   margin: 24px 0 8px;
   font-size: 1.1rem;
 }
+.topic > p,
 article > p {
   margin: 0 0 10px;
 }
@@ -40,6 +41,9 @@ dl {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 10px;
   margin: 0;
+}
+.topic dl {
+  margin-top: 12px;
 }
 dl > div {
   padding: 10px 12px;

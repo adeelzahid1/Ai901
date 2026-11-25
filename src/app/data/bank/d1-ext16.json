@@ -1,0 +1,515 @@
+[
+  {
+    "id": "D1-470", "sub": "text-techniques", "diff": 1, "type": "mcq",
+    "q": "A program splits customer emails into words and word parts and gives each one a number before it analyzes the text. What is this step called?",
+    "opts": ["Lemmatization", "Entity linking", "Tokenization", "Summarization"],
+    "ans": 2,
+    "exp": "Tokenization breaks a body of text into units such as words, word parts and punctuation and gives each a number. Lemmatization changes a word to its dictionary form, entity linking connects a name to a known article, and summarization shortens a text.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-471", "sub": "text-techniques", "diff": 2, "type": "match",
+    "q": "Match each text preparation technique to what it does. Each description is used once or not at all.",
+    "items": ["Stop word removal", "Stemming", "Lemmatization", "N-gram extraction"],
+    "targets": [
+      "Finds the dictionary form of a word",
+      "Labels each word as a noun, verb or adjective",
+      "Drops words such as the, a and it",
+      "Cuts off word endings by simple rules",
+      "Keeps words that appear together as one unit"
+    ],
+    "ans": [2, 3, 0, 4],
+    "exp": "Stop words carry little meaning, so they are dropped. Stemming chops endings such as -ing. Lemmatization uses vocabulary and rules, so its result is a real word. N-grams keep phrases such as \"machine learning\" together. Labeling nouns and verbs is part-of-speech tagging, which is not in the list.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-472", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "q": "An analysis must count \"supply chain\" as one term and not as two separate words. Which technique does it need?",
+    "opts": [
+      "Removing the stop words",
+      "Extracting the bigrams",
+      "Changing words to lower case",
+      "Stemming both of the words"
+    ],
+    "ans": 1,
+    "exp": "A bigram is a unit of two words that appear together, so \"supply chain\" is counted as one term. Removing stop words, lower case and stemming change single words, but they do not join them.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-473", "sub": "text-techniques", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Stemming can produce a form that is not a real word.",
+      "Lemmatization only removes punctuation and capital letters.",
+      "Lower-casing a text can mix up the name \"Mr. Banks\" with the word \"banks\"."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: stemming cuts endings without a check, so the rest may be no word. No for the second: lemmatization finds the dictionary form with language rules; removing punctuation and capitals is normalization. Yes for the third: normalization can lose meaning.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-474", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "ctx": "A company has 500 reports about solar panels. Counting words returns \"solar\" and \"panel\" for each report.",
+    "q": "Which technique finds the terms that set one report apart from the others?",
+    "opts": [
+      "Counting the words again after stemming",
+      "Part-of-speech tagging",
+      "Detecting the language of each report",
+      "TF-IDF"
+    ],
+    "ans": 3,
+    "exp": "TF-IDF compares how often a term appears in one document with how many documents contain it, so terms that are everywhere get a low score. Counting after stemming still returns the common words, and part-of-speech tags or the language say nothing about what is special in a report.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-475", "sub": "text-techniques", "diff": 3, "type": "mcq",
+    "ctx": "tfidf = tf * log(N / df)\n\ntf = 9      (count in this document)\nN  = 200    (documents)\ndf = 200    (documents that contain the term)",
+    "q": "What is the TF-IDF score of this term in this document?",
+    "opts": ["0", "9", "200", "1800"],
+    "ans": 0,
+    "exp": "The term is in all documents, so N / df is 1 and log(1) is 0. Nine times zero is 0: a term that appears everywhere does not distinguish a document, however often it occurs. The other values leave out the logarithm or the document count.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-476", "sub": "text-techniques", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentence about TF-IDF.",
+    "tpl": "A term gets a high score when it appears {0} in one document and in {1} of the collection.",
+    "opts": [
+      ["not at all", "many times"],
+      ["all documents", "most documents", "few documents"]
+    ],
+    "ans": [1, 2],
+    "exp": "Term frequency raises the score when the term is used many times in the document. Inverse document frequency raises it when few documents contain the term. A term in most or all documents is common and gets a low weight.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-477", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "q": "A bag-of-words model reads \"good service, not bad\" and \"bad service, not good\". How do the two texts look to the model?",
+    "opts": [
+      "Like a positive and a negative text",
+      "Like texts in two languages",
+      "Exactly the same",
+      "Like two texts of different length"
+    ],
+    "ans": 2,
+    "exp": "Bag-of-words keeps only how often each word occurs and ignores grammar and word order. Both texts contain the same words once each, so their vectors are identical although the meaning is opposite. The model cannot tell which one is positive.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-478", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "q": "A spam filter counts words such as \"winner\" and \"free\" and uses probability to predict whether a message is spam. Which combination is this?",
+    "opts": [
+      "TextRank and abstractive summarization",
+      "Bag-of-words and Naive Bayes",
+      "Entity linking and key phrase extraction",
+      "OCR and a convolutional neural network"
+    ],
+    "ans": 1,
+    "exp": "Word counts are bag-of-words features, and Naive Bayes is a classifier that predicts the most probable class from them. TextRank ranks sentences, entity linking and key phrases name topics, and OCR with a CNN reads text in images.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-479", "sub": "text-techniques", "diff": 2, "type": "order",
+    "q": "A tool summarizes a report with TextRank. Which FOUR steps does it perform, in which order?",
+    "items": [
+      "Update the scores until they stop changing",
+      "Write new sentences that combine the main ideas",
+      "Make each sentence a node of a graph",
+      "Select the sentences with the highest scores",
+      "Weight the edges by the similarity of the sentences"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "TextRank builds a graph of sentences, weights the connections by similarity, calculates the scores again and again until they settle, and takes the best sentences unchanged. Writing new sentences is abstractive summarization, which TextRank does not do.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-480", "sub": "text-techniques", "diff": 2, "type": "mcq",
+    "q": "A tool applies TextRank to words and not to sentences. The nodes are words, and the edges show which words appear near each other. What does the tool return?",
+    "opts": [
+      "A mood for each sentence",
+      "A translation of the document",
+      "The key terms",
+      "A list of masked personal data"
+    ],
+    "ans": 2,
+    "exp": "With words as nodes, the highest-ranked nodes are the key terms of the document, so the result is keyword extraction. Sentiment, translation and PII detection are different techniques that do not come from ranking a word graph.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-481", "sub": "text-techniques", "diff": 2, "type": "multi",
+    "q": "Which TWO statements describe word embeddings? Each correct answer presents a complete statement.",
+    "opts": [
+      "They keep the words of a document in alphabetical order",
+      "They represent each token as a list of numbers",
+      "They count how often each word appears in the whole document",
+      "Similar meanings give vectors with similar directions"
+    ],
+    "ans": [1, 3],
+    "exp": "An embedding is a vector, and the vectors of words with related meaning point in similar directions, which makes comparison possible. An alphabetical list has no meaning in it, and pure counts are frequency analysis or bag-of-words.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-482", "sub": "text-techniques", "diff": 1, "type": "mcq",
+    "ctx": "Cosine similarity with \"invoice\":\nriver 0.11\npayment 0.81\nbill 0.94\nmountain 0.07",
+    "q": "Which word is closest in meaning to \"invoice\" for this model?",
+    "opts": ["mountain", "payment", "river", "bill"],
+    "ans": 3,
+    "exp": "Cosine similarity compares the directions of two vectors, and a value near 1 means that they point almost the same way. \"bill\" has the highest value (0.94), so it is closest. Values near 0, such as river and mountain, mean unrelated words.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-483", "sub": "text-techniques", "diff": 3, "type": "mcq",
+    "q": "In an older model, \"bank\" has one vector in \"river bank\" and \"savings bank\". Which development gives it a different vector in each sentence?",
+    "opts": [
+      "A longer list of stop words for the model",
+      "Attention, which looks at the surrounding tokens",
+      "Stemming, which shortens the word before the training",
+      "A larger table of word frequencies"
+    ],
+    "ans": 1,
+    "exp": "Attention weighs the tokens around a word, so the model creates contextualized embeddings. Word2Vec and GloVe give one vector per word. Stop word lists, stemming and frequency tables do not look at the sentence, so both uses of \"bank\" stay the same.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-484", "sub": "text-techniques", "diff": 3, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Adding the vector of \"young\" to the vector of \"dog\" can lead to a point near \"puppy\".",
+      "The mean of the word vectors of a document can be the input of a classifier.",
+      "Vector arithmetic always ends exactly on the vector of a known word.",
+      "Word2Vec assigns its numbers by the alphabetical position of a word."
+    ],
+    "ans": [true, true, false, false],
+    "exp": "Yes for the first two: vectors carry meaning, so sums and averages are useful. No for the third: results are rarely exact, so the nearest word is used. No for the fourth: the numbers are learned from how words are used in the training text.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-485", "sub": "text-techniques", "diff": 1, "type": "mcq",
+    "q": "A writing tool must know whether \"book\" is a noun or a verb in each sentence. Which technique gives this information?",
+    "opts": ["Sentiment analysis", "Part-of-speech tagging", "Named entity recognition", "Stop word removal"],
+    "ans": 1,
+    "exp": "Part-of-speech tagging labels each token with its grammatical category by using the token and its context. Sentiment is about mood, entity recognition finds names and quantities, and stop word removal deletes frequent words.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-language/"
+  },
+  {
+    "id": "D1-486", "sub": "speech-features", "diff": 2, "type": "order",
+    "q": "Put the stages of speech recognition in order.",
+    "items": [
+      "Predict phonemes from the features",
+      "Format the text with punctuation and numbers",
+      "Capture the sound as digital samples",
+      "Choose the best word sequence",
+      "Extract features from short frames"
+    ],
+    "ans": [2, 4, 0, 3, 1],
+    "exp": "The audio is captured, short frames are turned into features, the acoustic model predicts phonemes, decoding with the language model selects the best words, and post-processing formats the text. Each stage needs the result of the one before it.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-487", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "q": "What does the acoustic model of a speech recognizer predict?",
+    "opts": [
+      "Which words are likely to follow each other",
+      "Which phonemes the audio features stand for",
+      "Where commas and capital letters belong",
+      "Which summary fits the recording"
+    ],
+    "ans": 1,
+    "exp": "The acoustic model learns how audio features relate to phonemes, the smallest units of sound. Likely word sequences come from the language model, commas and capitals from post-processing, and a summary is a separate text task.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-488", "sub": "speech-features", "diff": 1, "type": "mcq",
+    "q": "\"Their\" and \"there\" have the same sounds. Which part of a speech recognizer chooses the right word?",
+    "opts": ["The vocoder", "The noise filter of the microphone", "The language model", "The sampling rate"],
+    "ans": 2,
+    "exp": "The language model knows vocabulary, grammar and common word patterns, so it picks the word that fits the sentence. A vocoder belongs to speech synthesis, and a noise filter or sampling rate changes the signal but not the choice between words that sound alike.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-489", "sub": "speech-features", "diff": 2, "type": "match",
+    "q": "Match each stage of speech recognition to an example. Each example is used once or not at all.",
+    "items": ["Audio capture", "Pre-processing", "Decoding", "Post-processing"],
+    "targets": [
+      "Changes \"three p m\" to \"3 PM\"",
+      "Measures the sound 16,000 times per second",
+      "Expands \"Dr.\" to \"Doctor\" before it is spoken",
+      "Turns short frames into MFCC vectors",
+      "Keeps the best partial transcripts with beam search"
+    ],
+    "ans": [1, 3, 4, 0],
+    "exp": "Capture samples the signal, pre-processing extracts features such as MFCC, decoding searches for the best sequence, and post-processing formats the text. Expanding \"Dr.\" to \"Doctor\" is text normalization, a stage of speech synthesis.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-490", "sub": "speech-features", "diff": 3, "type": "mcq",
+    "q": "Why does a speech recognizer calculate MFCC features?",
+    "opts": [
+      "To store every sample of the recording without any loss",
+      "To add stress and pauses to a synthetic voice",
+      "To describe the sound of each frame with few numbers",
+      "To translate the recording"
+    ],
+    "ans": 2,
+    "exp": "MFCC turns every short frame into a small set of numbers that describes its sound in a way similar to human hearing. That is a compact input for the acoustic model. It does not keep every sample, it is not a synthesis step, and it does not translate.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-491", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "q": "A recognizer hears \"twenty five dollars\", but an app needs \"$25\". Which post-processing task makes this change?",
+    "opts": [
+      "Grapheme-to-phoneme conversion",
+      "Beam search decoding",
+      "Inverse text normalization",
+      "Prosody generation"
+    ],
+    "ans": 2,
+    "exp": "Inverse text normalization converts spoken forms into the written form that people expect. Grapheme-to-phoneme conversion and prosody belong to speech synthesis, and beam search selects the words before the text is formatted.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-492", "sub": "speech-features", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A phoneme is a written letter of the alphabet.",
+      "A higher sampling rate captures more detail and needs more processing.",
+      "An acoustic model for English recognizes Mandarin without new training."
+    ],
+    "ans": [false, true, false],
+    "exp": "No for the first: a phoneme is a unit of sound; a letter is a grapheme. Yes for the second: rates of 8 to 16 kHz are a balance for speech. No for the third: phonemes depend on the language, so the model must be trained for it.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-493", "sub": "speech-features", "diff": 2, "type": "order",
+    "q": "Which FOUR stages turn text into speech, in which order?",
+    "items": [
+      "Generate the audio waveform",
+      "Predict pitch, duration and pauses",
+      "Search for the best transcript",
+      "Expand numbers and abbreviations into words",
+      "Map the words to phonemes"
+    ],
+    "ans": [3, 4, 1, 0],
+    "exp": "Text normalization comes first, then linguistic analysis finds the phonemes, prosody generation decides how they are spoken, and a neural vocoder creates the waveform. Searching for a transcript is part of speech recognition.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-494", "sub": "speech-features", "diff": 1, "type": "mcq",
+    "q": "Before it speaks, a system changes \"Dr. Khan, 3 items, $25\" into full words. Which stage of speech synthesis is this?",
+    "opts": ["Text normalization", "Vocoding", "Prosody generation", "Acoustic feature generation"],
+    "ans": 0,
+    "exp": "Text normalization expands abbreviations, numbers, dates and symbols so that they can be pronounced. Prosody decides rhythm and intonation, acoustic features describe the sound to create, and vocoding turns them into audio.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-495", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "q": "\"Though\", \"through\" and \"cough\" share letters but sound different. What finds the right sounds for each word?",
+    "opts": ["Inverse text normalization", "Beam search", "A noise filter", "Grapheme-to-phoneme conversion"],
+    "ans": 3,
+    "exp": "Grapheme-to-phoneme conversion maps written letters to sounds with dictionaries, rules and neural models. Inverse text normalization formats a transcript, beam search selects words during recognition, and a noise filter cleans recorded audio.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-496", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "q": "A synthetic voice pronounces each word correctly but sounds flat and robotic. What should the team improve?",
+    "opts": [
+      "The pronunciation dictionary that the linguistic analysis uses",
+      "The prosody",
+      "The sampling rate of the customer's microphone",
+      "The list of stop words"
+    ],
+    "ans": 1,
+    "exp": "Prosody is the pitch, duration, intensity, pauses and stress of speech, and flat prosody is the usual reason for a robotic sound. Pronunciation is already correct, the microphone is not used in synthesis, and stop words belong to text analysis.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-497", "sub": "speech-features", "diff": 2, "type": "mcq",
+    "q": "What does a neural vocoder create?",
+    "opts": [
+      "A list of phonemes from written text",
+      "A transcript of a phone call",
+      "An audio waveform from a mel-spectrogram",
+      "A written text with punctuation from raw words"
+    ],
+    "ans": 2,
+    "exp": "The vocoder is the last step of speech synthesis: it converts the mel-spectrogram into audio samples. Phonemes come from linguistic analysis, a transcript from speech recognition, and punctuation from its post-processing.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-498", "sub": "speech-features", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about the speech pipelines.",
+    "tpl": "In speech recognition, the {0} model maps sounds to phonemes and the {1} model predicts word sequences.\nIn speech synthesis, {2} decides rhythm and intonation.",
+    "opts": [
+      ["language", "acoustic", "diffusion"],
+      ["acoustic", "vision", "language"],
+      ["decoding", "prosody generation", "sampling"]
+    ],
+    "ans": [1, 2, 1],
+    "exp": "The acoustic model connects audio features with phonemes, and the language model knows which words follow each other. Prosody generation predicts pitch, duration and pauses. Decoding and sampling belong to recognition, and diffusion and vision models work with images.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-499", "sub": "speech-features", "diff": 1, "type": "multi",
+    "q": "Which THREE are elements of prosody? Each correct answer presents one element.",
+    "opts": [
+      "The vocabulary of the language model",
+      "Pauses between phrases",
+      "The file format of the recorded audio",
+      "The rise and fall of pitch",
+      "How long a sound is held"
+    ],
+    "ans": [1, 3, 4],
+    "exp": "Prosody is how something is said: pitch contours, duration, intensity, pauses and stress. The vocabulary belongs to a language model, and the file format is only how audio is stored.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-ai-speech/"
+  },
+  {
+    "id": "D1-500", "sub": "genai-how", "diff": 2, "type": "mcq",
+    "q": "Why does a transformer combine each token vector with a positional encoding?",
+    "opts": [
+      "Frequent tokens need a shorter vector than rare tokens",
+      "Each user of the model has a vocabulary of their own",
+      "The order of the tokens matters",
+      "Personal data has to be hidden during the training"
+    ],
+    "ans": 2,
+    "exp": "\"Dog bites man\" and \"man bites dog\" have the same tokens, so the model needs the position of each token as well as its vector. Vector length does not depend on frequency, users share one vocabulary, and positional encoding does not protect data.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-501", "sub": "genai-how", "diff": 2, "type": "match",
+    "q": "Match each part of a transformer model to its job. Each job is used once or not at all.",
+    "items": ["Encoder block", "Decoder block", "Multi-head attention", "Positional encoding"],
+    "targets": [
+      "Weighs several aspects of the tokens in parallel",
+      "Deletes words that carry little meaning",
+      "Predicts the next most probable token",
+      "Marks where a token is in the sequence",
+      "Creates embeddings that include context"
+    ],
+    "ans": [4, 2, 0, 3],
+    "exp": "The encoder creates the embeddings, the decoder uses them to predict the next token, multi-head attention evaluates different elements in parallel, and positional encoding keeps the order. Deleting words is stop word removal, which is not part of a transformer.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-502", "sub": "genai-how", "diff": 3, "type": "mcq",
+    "q": "While it is trained, a decoder must not see the tokens after the one that it predicts. Which technique ensures this?",
+    "opts": ["Retrieval augmented generation", "Masked attention", "Cosine similarity", "Positional encoding"],
+    "ans": 1,
+    "exp": "Masked attention hides the later tokens, so the model has to predict them and can compare the prediction with the known text. RAG adds outside content to a prompt, cosine similarity compares vectors, and positional encoding marks the order.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-503", "sub": "genai-how", "diff": 1, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "A small language model can fit a focused task at lower cost than a large one.",
+      "The \"un\" in \"unlikely\" can be a token of its own.",
+      "Each time a word appears in the training text, it gets a new token number."
+    ],
+    "ans": [true, true, false],
+    "exp": "Yes for the first: small models need fewer resources and are often enough for one task. Yes for the second: tokens can be parts of words. No for the third: a token keeps its number, so a repeated word uses the same one.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-504", "sub": "genai-how", "diff": 2, "type": "mcq",
+    "ctx": "A RAG assistant retrieves the passage \"The limit is 200 euros.\" The heading that says what the limit is for is missing, so the answer is unclear.",
+    "q": "What is the most likely cause?",
+    "opts": [
+      "The temperature of the model is too low for the question",
+      "The index stores the embeddings of the passages",
+      "The chunks are too small",
+      "The question was asked in another language than the passage"
+    ],
+    "ans": 2,
+    "exp": "Chunks that are too small separate a statement from its heading or definition. Larger chunks or a small overlap keep the context. Temperature affects wording, embeddings in the index are normal, and nothing in the case points to another language.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/"
+  },
+  {
+    "id": "D1-505", "sub": "genai-how", "diff": 2, "type": "multi",
+    "q": "Which TWO problems come from chunks that are too large? Each correct answer presents one problem.",
+    "opts": [
+      "The embedding model can no longer create any vectors for the chunks",
+      "They fill more of the context window",
+      "They bring in text that is not relevant",
+      "The model loses the ability to show the source of its answers"
+    ],
+    "ans": [1, 2],
+    "exp": "Large chunks cost tokens in the context window and mix the useful passage with unrelated text. They can still be embedded, and citations depend on the metadata that is stored with a chunk, not on its size.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/"
+  },
+  {
+    "id": "D1-506", "sub": "genai-how", "diff": 2, "type": "match",
+    "q": "Match each retrieval need to the method that fits best. Each method is used once.",
+    "items": [
+      "Find the exact part number BX-4410",
+      "Find passages with the same meaning in other words",
+      "Use exact terms and meaning in one query",
+      "Return only documents for one region"
+    ],
+    "targets": ["Metadata filter", "Hybrid search", "Keyword search", "Vector search"],
+    "ans": [2, 3, 1, 0],
+    "exp": "Keyword search is strong with exact codes, vector search compares the meaning through embeddings, hybrid search combines both, and a metadata filter limits results by properties such as region or permission.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/"
+  },
+  {
+    "id": "D1-507", "sub": "genai-how", "diff": 2, "type": "order",
+    "q": "Documents must be prepared for a RAG solution. Which FOUR steps does the indexing pipeline perform, in which order?",
+    "items": [
+      "Create an embedding for each chunk",
+      "Fine-tune the chat model with the documents",
+      "Store chunks, embeddings and metadata in an index",
+      "Extract and clean the text",
+      "Split the text into chunks"
+    ],
+    "ans": [3, 4, 0, 2],
+    "exp": "The text is extracted and cleaned, divided into chunks, encoded as embeddings and stored in an index that can be searched. Fine-tuning changes the model itself and is not part of RAG, which adds retrieved text to the prompt.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/"
+  },
+  {
+    "id": "D1-508", "sub": "genai-how", "diff": 2, "type": "mcq",
+    "q": "In a RAG test, the right passage is in the prompt, but the answer contains a claim that the passage does not support. Which measure reveals this problem?",
+    "opts": ["Coverage of the retrieval", "Groundedness", "Ranking of the retrieved passages", "Latency"],
+    "ans": 1,
+    "exp": "Groundedness checks whether each claim is supported by the retrieved content. Coverage and ranking judge the search results, which were right here, and latency measures only how long the answer takes.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/"
+  },
+  {
+    "id": "D1-509", "sub": "genai-how", "diff": 3, "type": "mcq",
+    "q": "For many questions, the search step of a RAG app does not return the correct passage. Where should the team look first?",
+    "opts": [
+      "At the instructions that tell the model how to word its answer",
+      "At the maximum number of output tokens",
+      "At chunk boundaries, metadata and search strategy",
+      "At the voice of the application"
+    ],
+    "ans": 2,
+    "exp": "If the passage is not retrieved, the model never sees it, so wording instructions and output limits cannot help. Source quality, chunk boundaries, metadata, the query and the search strategy decide what is found.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/"
+  },
+  {
+    "id": "D1-510", "sub": "genai-how", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Adding more retrieved passages improves the answer in every case.",
+      "Text in a retrieved document should be treated as data and not as instructions.",
+      "RAG completely removes unsupported answers.",
+      "A test set should include questions that the documents cannot answer."
+    ],
+    "ans": [false, true, false, true],
+    "exp": "No for the first: more text costs time and can distract the model. Yes for the second: a document may contain text that tries to redirect the model. No for the third: RAG lowers the risk but does not remove it. Yes for the fourth: the app should admit what it does not know.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/"
+  },
+  {
+    "id": "D1-511", "sub": "genai-how", "diff": 3, "type": "mcq",
+    "q": "A team switches its RAG app to a new embedding model for user questions but keeps the stored vectors of the old model. What happens?",
+    "opts": [
+      "The chat model is retrained with the old vectors",
+      "Queries and chunks can no longer be compared properly",
+      "Keyword search stops finding exact part numbers in the index",
+      "Answers become longer"
+    ],
+    "ans": 1,
+    "exp": "Vectors are comparable only when the same kind of embedding model made them, so the chunks must be embedded again. Keyword search does not use vectors, the chat model is not trained by the index, and the length of answers is set elsewhere.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/rag-fundamentals/"
+  }
+]

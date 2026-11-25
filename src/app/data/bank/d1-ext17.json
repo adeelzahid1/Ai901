@@ -1,0 +1,319 @@
+[
+  {
+    "id": "D1-512", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
+    "q": "How is a grayscale image represented for a computer vision program?",
+    "opts": [
+      "As a list of the objects that a person sees in it",
+      "As a grid of brightness values",
+      "As a sentence that describes the scene",
+      "As three grids for red, green and blue"
+    ],
+    "ans": 1,
+    "exp": "A grayscale image is one array of pixel values between 0 (black) and 255 (white). Three arrays for red, green and blue are used for color images, and object lists or captions are results that a model creates from the pixels.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-513", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
+    "q": "How many layers of pixel values does a normal RGB photo contain?",
+    "opts": ["1", "2", "3", "255"],
+    "ans": 2,
+    "exp": "An RGB image has one layer, or channel, for red, one for green and one for blue, so there are three. One channel is a grayscale image, and 255 is the highest value that a pixel can have in a channel, not a number of layers.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-514", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
+    "q": "A small grid of numbers moves across an image. For each patch it calculates a weighted sum, and the result shows the edges of objects. What is the small grid called?",
+    "opts": ["A bounding box", "A softmax function", "A filter kernel", "A positional encoding"],
+    "ans": 2,
+    "exp": "A filter kernel is convolved across the image; a Laplace kernel, for example, highlights edges. A bounding box marks an object, softmax turns scores into probabilities, and positional encoding keeps the order of tokens.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-515", "sub": "vision-imagegen", "diff": 2, "type": "order",
+    "q": "Put the steps in which a convolutional neural network classifies an image in order.",
+    "items": [
+      "Return a probability for each class",
+      "Flatten the feature maps into one list",
+      "Extract feature maps with filters",
+      "Feed the values into a fully connected network",
+      "Make the feature maps smaller by pooling"
+    ],
+    "ans": [2, 4, 1, 3, 0],
+    "exp": "Filters create feature maps, pooling reduces them to the key features, flattening makes one list of values, the fully connected network processes it, and a softmax output gives a probability per class.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-516", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
+    "ctx": "Classes: [apple, banana, orange]\nSoftmax output: [0.08, 0.21, 0.71]",
+    "q": "What does the classification model predict for this image?",
+    "opts": ["A banana, at the center of the image", "All three kinds of fruit", "An apple", "An orange"],
+    "ans": 3,
+    "exp": "The output lists one probability per class in the same order, and the highest value (0.71) belongs to orange. Classification gives one label for the whole image; it does not say where something is or that all classes are present.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-517", "sub": "vision-imagegen", "diff": 2, "type": "yesno",
+    "ctx": "A team trains a convolutional neural network with labeled photos of fruit.",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "The weights of the filters start with random values.",
+      "The team has to choose by hand which edges and colors the filters look for.",
+      "The loss shows how far the predictions are from the known labels.",
+      "The weights are adjusted over several epochs."
+    ],
+    "ans": [true, false, true, true],
+    "exp": "Yes for the first: random weights are improved during the training. No for the second: the network learns which features help. Yes for the third and fourth: the loss compares predictions with labels, and the weights are adjusted epoch after epoch to reduce it.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-518", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
+    "q": "A language transformer works with tokens of text. What does a vision transformer use in their place?",
+    "opts": [
+      "Captions that people wrote for the image",
+      "Patches of pixel values",
+      "The names of the files",
+      "One vector for the complete image"
+    ],
+    "ans": 1,
+    "exp": "A vision transformer cuts the image into patches, turns each patch into a vector and uses attention to relate the patches to each other. Captions are needed to connect images with language, and a single vector would leave nothing to relate.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-519", "sub": "vision-imagegen", "diff": 3, "type": "mcq",
+    "q": "Why can a multimodal model describe a photo that was not in its training data?",
+    "opts": [
+      "It finds the same photo on the internet and copies the text next to it",
+      "It reads a description that the camera saves in the file",
+      "It relates visual features and words in a shared vector space",
+      "It asks a person"
+    ],
+    "ans": 2,
+    "exp": "Encoders for images and text are combined, and cross-model attention places both kinds of embeddings in one space. The model recognizes features in the new photo and finds the language that belongs to them. It does not need the same photo, file notes or a person.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-520", "sub": "vision-imagegen", "diff": 1, "type": "mcq",
+    "q": "How does a diffusion model create an image from a prompt?",
+    "opts": [
+      "It searches a photo library for the closest match",
+      "It starts with noise and refines it step by step",
+      "It joins parts that are cut out of its training pictures",
+      "It draws every object from a fixed template"
+    ],
+    "ans": 1,
+    "exp": "Diffusion begins with random pixel values and removes noise in many iterations, and the prompt guides each of them. The model does not look up photos, paste parts together or use templates; it creates new pixel values.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-521", "sub": "vision-imagegen", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about vision models.",
+    "tpl": "A convolutional neural network extracts features with {0}.\nA vision transformer relates parts of an image with {1}.\nA diffusion model improves an image by removing {2}.",
+    "opts": [
+      ["phonemes", "filters", "captions"],
+      ["attention", "bounding boxes", "stop words"],
+      ["channels", "labels", "noise"]
+    ],
+    "ans": [1, 0, 2],
+    "exp": "Filters produce the feature maps of a CNN, attention relates the patches in a vision transformer, and diffusion removes noise in iterations. Phonemes belong to speech, stop words to text analysis, and bounding boxes are a result of object detection.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-522", "sub": "vision-imagegen", "diff": 2, "type": "match",
+    "q": "Match each task to the kind of model that fits best. Each model is used once or not at all.",
+    "items": [
+      "Put one of five labels on each X-ray image",
+      "Answer free questions about a photo",
+      "Create a poster from a text description"
+    ],
+    "targets": ["Diffusion model", "Acoustic model", "Image classification CNN", "Multimodal chat model"],
+    "ans": [2, 3, 0],
+    "exp": "A CNN trained for classification returns one of the known labels. A multimodal chat model accepts an image and a question together. A diffusion model generates a new image from text. An acoustic model maps sound to phonemes.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-523", "sub": "vision-imagegen", "diff": 2, "type": "mcq",
+    "q": "Which aspect must a video generation model handle that does not exist for a single image?",
+    "opts": [
+      "The meaning of the words in the prompt",
+      "The sequence of events over time",
+      "The colors and the style of the scene",
+      "The resolution of the output"
+    ],
+    "ans": 1,
+    "exp": "A video must show a logical sequence over time and behavior that fits the real world, such as feet that stay on the ground. Prompt meaning, colors, style and resolution matter for images as well.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-524", "sub": "vision-imagegen", "diff": 3, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Object detection models can build on the feature extraction of a CNN.",
+      "A multimodal model understands what a hat is in the way that a person does.",
+      "In a vision transformer, features that often occur together get related vectors."
+    ],
+    "ans": [true, false, true],
+    "exp": "Yes for the first: detection adds regions of interest to CNN features. No for the second: the model only infers relations between features that it has seen together. Yes for the third: attention relates patches, so features with similar contexts get similar directions.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-525", "sub": "vision-imagegen", "diff": 2, "type": "multi",
+    "q": "Which TWO effects can a convolutional filter create in an image editor? Each correct answer presents one effect.",
+    "opts": [
+      "Translate the text on a road sign that the image shows",
+      "Sharpen the image",
+      "Write a caption that describes the scene in the image",
+      "Highlight the edges of objects"
+    ],
+    "ans": [1, 3],
+    "exp": "A filter changes pixel values with a kernel, so it can sharpen, blur or show edges. Translating text needs OCR and a language model, and writing a caption needs a model that relates images with language.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-computer-vision/"
+  },
+  {
+    "id": "D1-526", "sub": "extraction-techniques", "diff": 2, "type": "order",
+    "q": "Put the stages of optical character recognition (OCR) in order.",
+    "items": [
+      "Recognize the characters",
+      "Clean up and straighten the image",
+      "Check and output the text",
+      "Take in the scan or photo",
+      "Find the regions that contain text"
+    ],
+    "ans": [3, 1, 4, 0, 2],
+    "exp": "The image comes in, preprocessing improves it, text regions are detected, characters are recognized, and the output stage builds words, keeps positions and validates them. Recognition before cleaning would make more mistakes.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-527", "sub": "extraction-techniques", "diff": 2, "type": "match",
+    "q": "Match each scanning problem to the preprocessing step that helps. Each step is used once.",
+    "items": [
+      "The page lies at an angle",
+      "Dust spots cover some letters",
+      "Gray letters stand on a gray background",
+      "The letters are only a few pixels high"
+    ],
+    "targets": ["Noise reduction", "Resolution optimization", "Skew correction", "Contrast adjustment"],
+    "ans": [2, 0, 3, 1],
+    "exp": "Skew correction straightens the page, noise reduction removes spots, contrast adjustment separates text from its background, and resolution optimization brings small text to a size that the recognizer can read.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-528", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
+    "q": "An OCR result of a page with two columns mixes lines of the left and the right column. All letters are correct. Which step failed?",
+    "opts": ["Character recognition", "Confidence scoring", "Reading order detection", "Noise reduction"],
+    "ans": 2,
+    "exp": "Reading order decides in which sequence text blocks are read, and with columns it has to follow one column before the next. The letters are right, so recognition and noise reduction worked, and a confidence score does not change the order.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-529", "sub": "extraction-techniques", "diff": 1, "type": "mcq",
+    "q": "OCR returns \"12345\" with its position on the page. Which step decides whether it is an invoice number or a phone number?",
+    "opts": [
+      "Skew correction",
+      "Field extraction and mapping",
+      "Speech recognition",
+      "Layout analysis of the images"
+    ],
+    "ans": 1,
+    "exp": "OCR says what text exists; field extraction says what it means and where it belongs, often by using labels and positions nearby. Skew correction prepares the image, layout analysis separates regions, and speech recognition works with audio.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-530", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
+    "q": "An office reads one tax form with a fixed layout. It wants fast results that are easy to explain. Which approach fits best?",
+    "opts": [
+      "A model that is trained on many kinds of layouts",
+      "Template-based detection",
+      "A large language model with a long free-form prompt",
+      "Clustering of the scanned pages by color"
+    ],
+    "ans": 1,
+    "exp": "Templates use known positions and labels, so they are accurate, fast and explainable when the layout is fixed. Trained or generative models pay off when layouts differ, and grouping pages by color does not read fields.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-531", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
+    "q": "Suppliers send invoices in hundreds of layouts and with different words for the total. There are no labeled examples. Which approach fits best?",
+    "opts": [
+      "A template for each of the layouts",
+      "A regular expression that looks for the word \"Total\"",
+      "A generative model with a schema",
+      "Supervised training with labeled invoices"
+    ],
+    "ans": 2,
+    "exp": "A generative model gets the text and a schema of the fields and matches values by meaning, so it copes with new layouts and other names. Hundreds of templates are expensive to maintain, a fixed word misses synonyms, and supervised training needs labels.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-532", "sub": "extraction-techniques", "diff": 2, "type": "mcq",
+    "q": "A system adds up the extracted line items and compares the sum with the extracted invoice total. What is this check called?",
+    "opts": [
+      "Cross-field validation",
+      "Reading order detection",
+      "Key-value pairing by proximity",
+      "Date normalization"
+    ],
+    "ans": 0,
+    "exp": "Cross-field validation checks whether related fields agree with each other. Reading order concerns the sequence of text, key-value pairing connects a label with a value, and date normalization gives dates one format.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-533", "sub": "extraction-techniques", "diff": 1, "type": "mcq",
+    "q": "Extracted dates look like \"03.04.2026\" and \"April 3, 2026\". The target system accepts one format. Which stage solves this?",
+    "opts": ["Image acquisition", "Noise reduction", "Text region detection", "Data normalization"],
+    "ans": 3,
+    "exp": "Normalization converts raw values such as dates, currencies and numbers into consistent formats. Acquisition and noise reduction work on the image, and text region detection only finds where text is.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-534", "sub": "extraction-techniques", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Field extraction uses the position of text as well as the text itself.",
+      "When a layout changes, a template needs to be adapted.",
+      "Critical applications can skip human review if OCR finds some text.",
+      "Confidence values of OCR can flow into the confidence of a field."
+    ],
+    "ans": [true, true, false, true],
+    "exp": "Yes for the first: positions help to tell similar values apart. Yes for the second: templates rely on a known layout. No for the third: finding text does not mean that it is right, so critical cases need review. Yes for the fourth: field scores can inherit OCR scores.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-535", "sub": "extraction-techniques", "diff": 3, "type": "multi",
+    "q": "OCR reads \"c1ient\" and corrects it to \"client\". Which TWO techniques can make such a correction? Each correct answer presents one technique.",
+    "opts": [
+      "Skew correction that turns the page by some degrees",
+      "Dictionary lookup",
+      "Contrast adjustment between the text and its background",
+      "A language model that uses the context"
+    ],
+    "ans": [1, 3],
+    "exp": "Context analysis uses dictionaries and language models to replace unlikely character sequences. Skew correction and contrast adjustment improve the image before recognition, but they do not know which words exist.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-536", "sub": "extraction-techniques", "diff": 3, "type": "mcq",
+    "q": "A receipt contains a table. How does an extraction solution know that \"2\" is a quantity and \"4.50\" a price?",
+    "opts": [
+      "It detects the column headers and links each cell to them",
+      "It assumes that the smallest number in each row of the table is a price",
+      "It asks the speech service",
+      "It counts how often each of the numbers occurs on the receipt"
+    ],
+    "ans": 0,
+    "exp": "Header detection and row-column association connect a cell with the meaning of its column. A rule about the smallest number is unreliable, counting numbers says nothing about their meaning, and speech is not involved.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  },
+  {
+    "id": "D1-537", "sub": "extraction-techniques", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about information extraction.",
+    "tpl": "{0} tells which text a document contains.\n{1} tells what a value means.\n{2} gives values the same format.",
+    "opts": [
+      ["OCR", "Normalization", "Schema mapping"],
+      ["Noise reduction", "Field extraction", "Image acquisition"],
+      ["Skew correction", "Layout analysis", "Normalization"]
+    ],
+    "ans": [0, 1, 2],
+    "exp": "OCR turns pictures of text into characters, field extraction assigns the values to labeled fields, and normalization converts dates, currencies and numbers into one format. The other terms prepare the image or send the result to another system.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/introduction-information-extraction/"
+  }
+]

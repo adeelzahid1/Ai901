@@ -6,6 +6,15 @@ export interface FlowStep {
   text?: LessonText;
 }
 
+/** A closer look at one subject inside a note, e.g. how text analysis works inside. */
+export interface NoteTopic {
+  title: LessonText;
+  text: LessonText[];
+  flows?: { title: LessonText; steps: FlowStep[] }[];
+  terms?: { term: LessonText; text: LessonText }[];
+  code?: string;
+}
+
 /** The detailed note of one official skill. */
 export interface Note {
   /** Skill id from the blueprint, e.g. genai-how. */
@@ -15,6 +24,7 @@ export interface Note {
   explain: LessonText[];
   flow?: { title: LessonText; steps: FlowStep[] };
   deep: LessonText[];
+  topics?: NoteTopic[];
   how: LessonText[];
   example: { text: LessonText; code?: string };
   mistakes: { wrong: LessonText; right: LessonText }[];

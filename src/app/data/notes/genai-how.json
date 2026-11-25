@@ -1,5 +1,5 @@
 {
-  "id": "genai-how", "minutes": 6,
+  "id": "genai-how", "minutes": 9,
   "main": {"en":"A language model predicts the next token again and again, based on patterns from training and on the text in its context window.","ro":"Language model baar baar agla token andaza karta hai, training ke patterns aur context window ke text ki buniyad par."},
   "explain": [
     {"en":"Text is split into tokens, and each token becomes a vector (embedding) that carries meaning. The transformer uses attention to decide which other tokens matter for the next one. The model then gives a probability to every possible next token, one is chosen, and the process repeats.","ro":"Text tokens mein bantta hai aur har token vector (embedding) banta hai jis mein matlab hota hai. Transformer attention se tay karta hai ke agle token ke liye kaunse tokens aham hain. Phir model har mumkin token ko imkaan deta hai, ek chuna jata hai, aur silsila chalta rehta hai."},
@@ -18,6 +18,45 @@
   },
   "deep": [
     {"en":"Training happens in stages. Pre-training reads huge amounts of text and learns to predict tokens. Instruction tuning and feedback from people then teach the model to follow requests and to be helpful and safe. Using the finished model is called inference, and the weights do not change during it. This explains why a model cannot learn from your chat.","ro":"Training marhalon mein hoti hai. Pre-training bohat sa text parh kar tokens ka andaza seekhti hai. Phir instruction tuning aur logon ki raaye model ko hidayat maan-na aur mufeed aur mehfooz hona sikhati hai. Tayyar model ka istemal inference hai aur us mein weights nahi badalte. Isi liye model aap ki chat se nahi seekhta."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"Inside a transformer","ro":"Transformer ke andar"},
+      "text": [
+        {"en":"An encoder block creates embeddings, a decoder block predicts the next token. Both use attention. During training the decoder uses masked attention: tokens after the current one are hidden, so it has to predict them, and the error improves the weights.","ro":"Encoder block embeddings banata hai, decoder block agla token batata hai. Dono attention istemal karte hain. Training mein decoder masked attention istemal karta hai: agle tokens chhupe hote hain, is liye andaza lagana parta hai, aur ghalti weights behtar karti hai."}
+      ],
+      "terms": [
+        { "term": "Positional encoding", "text": {"en":"Adds the position, because word order changes the meaning.","ro":"Jagah jorti hai, kyunke alfaaz ki tarteeb matlab badalti hai."} },
+        { "term": "Multi-head attention", "text": {"en":"Looks at several aspects of the tokens in parallel.","ro":"Tokens ke kai pehlu ek saath dekhti hai."} },
+        { "term": "Small language model (SLM)", "text": {"en":"Fewer parameters: cheaper and faster, good for a focused task or a small device.","ro":"Kam parameters: sasta aur tez, khaas kaam ya chhoti device ke liye acha."} }
+      ]
+    },
+    {
+      "title": {"en":"The RAG pipeline in detail","ro":"RAG pipeline tafseel se"},
+      "text": [
+        {"en":"RAG has two phases. Before anybody asks, an indexing pipeline prepares the documents. At run time the app searches the index, adds the best passages to the prompt and asks the model. RAG lowers the risk of unsupported answers; it does not remove it.","ro":"RAG ke do marahil hain. Sawal se pehle indexing pipeline documents tayyar karti hai. Run time par app index mein talash karti hai, behtareen hissay prompt mein jorti hai aur model se poochti hai. RAG be-buniyad jawab ka khatra kam karta hai, khatam nahi."},
+        {"en":"Treat retrieved text as data and not as instructions, because a document can contain text that tries to redirect the model. Return only passages that the user may read.","ro":"Nikale gaye text ko data samjhein, instructions nahi, kyunke document mein aisa text ho sakta hai jo model ko morne ki koshish kare. Sirf woh hissay dein jo user parh sakta hai."}
+      ],
+      "flows": [
+        { "title": {"en":"Prepare (once, then on changes)","ro":"Tayyari (ek dafa, phir tabdeeli par)"}, "steps": [
+          { "title": {"en":"Extract","ro":"Nikalna"}, "text": {"en":"load and clean the text","ro":"text lena aur saaf karna"} },
+          { "title": {"en":"Chunk","ro":"Chunks"}, "text": {"en":"focused passages, small overlap","ro":"markooz hissay, thora overlap"} },
+          { "title": "Embed", "text": {"en":"one vector per chunk","ro":"har chunk ka vector"} },
+          { "title": "Index", "text": "chunks, vectors, metadata" }
+        ] },
+        { "title": {"en":"Answer (for each question)","ro":"Jawab (har sawal par)"}, "steps": [
+          { "title": {"en":"Search","ro":"Talash"}, "text": {"en":"keyword, vector or hybrid","ro":"keyword, vector ya hybrid"} },
+          { "title": {"en":"Augment","ro":"Jorna"}, "text": {"en":"question + passages + rules","ro":"sawal + hissay + usool"} },
+          { "title": {"en":"Generate","ro":"Jawab banana"}, "text": {"en":"grounded answer with citations","ro":"citations ke saath grounded jawab"} }
+        ] }
+      ],
+      "terms": [
+        { "term": {"en":"Chunk size","ro":"Chunk ka size"}, "text": {"en":"Too large: cost and noise. Too small: context is lost.","ro":"Bohat bara: kharcha aur shor. Bohat chhota: context kho jata hai."} },
+        { "term": "Keyword, vector, hybrid", "text": {"en":"Exact codes; meaning; both together.","ro":"Exact codes; matlab; dono saath."} },
+        { "term": {"en":"Judge the retrieval","ro":"Retrieval parakhna"}, "text": {"en":"Relevance, coverage, ranking, security and freshness.","ro":"Relevance, coverage, ranking, security aur tazgi."} },
+        { "term": {"en":"Judge the answer","ro":"Jawab parakhna"}, "text": {"en":"Groundedness, relevance, completeness, citation quality, honest uncertainty.","ro":"Groundedness, relevance, completeness, citation quality, na pata hone ka iqrar."} }
+      ]
+    }
   ],
   "how": [
     {"en":"Count tokens, not words: price, speed and limits depend on them.","ro":"Alfaaz nahi, tokens ginein: qeemat, raftaar aur hadein unhi par hain."},

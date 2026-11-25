@@ -1,5 +1,5 @@
 {
-  "id": "image-generation", "minutes": 4,
+  "id": "image-generation", "minutes": 6,
   "main": {"en":"Deploy an image model, send a prompt with size and quality, decode the base64 result and save it.","ro":"Image model deploy karein, size aur quality ke saath prompt bhejein, base64 nateeja decode kar ke save karein."},
   "explain": [
     {"en":"Azure uses the gpt-image series; DALL-E 3 was retired in March 2026. The models create pictures from text and can edit existing ones. Some need an access request, so check availability before you plan.","ro":"Azure gpt-image series istemal karta hai; DALL-E 3 March 2026 mein retire ho gaya. Ye models text se tasveer banate aur maujooda tasveer edit karte hain. Kuch ke liye access ki darkhwast chahiye, is liye pehle availability dekhein."},
@@ -19,6 +19,29 @@
   "deep": [
     {"en":"Think like a photographer when you write the prompt: subject, action, place, style, light, camera angle, colors, mood. \"A red bicycle leaning on a blue wall, morning light, wide angle, flat illustration\" gives more control than \"nice bicycle\". Change one part at a time and keep the best version of the prompt.","ro":"Prompt photographer ki tarah likhein: mauzu, kaam, jagah, andaz, roshni, camera ka zaviya, rang, mood. \"A red bicycle leaning on a blue wall, morning light, wide angle, flat illustration\" \"nice bicycle\" se zyada control deta hai. Ek waqt mein ek hissa badlein aur prompt ki behtareen shakal rakhein."},
     {"en":"Responsible use belongs to the task: no deceptive pictures of real people, no protected characters or logos of others, a label for viewers, and a person who approves pictures before they are published.","ro":"Zimmedar istemal kaam ka hissa hai: asal logon ki dhokay wali tasveer nahi, doosron ke mehfooz kirdar ya logo nahi, dekhne walon ke liye nishan, aur shaya karne se pehle insan ki manzoori."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"Create videos with Sora 2","ro":"Sora 2 se videos banana"},
+      "text": [
+        {"en":"\"New visual outputs\" also means video. Sora 2 in Foundry creates a clip from text, from an image or from an existing video (remix), and it can add sound. You can try it in the video playground or call it through REST.","ro":"\"Naye visual outputs\" mein video bhi hai. Foundry mein Sora 2 text, image ya maujooda video (remix) se clip banata hai aur awaaz bhi de sakta hai. Video playground mein azmayein ya REST se call karein."},
+        {"en":"Rendering takes minutes, so the API is asynchronous. The POST answer holds an id and a status, not the video.","ro":"Rendering mein minute lagte hain, is liye API asynchronous hai. POST ke jawab mein id aur status hota hai, video nahi."}
+      ],
+      "flows": [
+        { "title": {"en":"A video job","ro":"Video job"}, "steps": [
+          { "title": "POST /openai/v1/videos", "text": "model, prompt, size, seconds" },
+          { "title": {"en":"Read the id","ro":"id parhna"} },
+          { "title": {"en":"GET the status","ro":"Status GET karna"}, "text": {"en":"until completed or failed","ro":"completed ya failed tak"} },
+          { "title": {"en":"GET the content","ro":"Content GET karna"}, "text": {"en":"save the MP4 file","ro":"MP4 file save karna"} }
+        ] }
+      ],
+      "terms": [
+        { "term": "Remix", "text": {"en":"A targeted edit of an existing video, for example the color of a car.","ro":"Maujooda video mein khaas tabdeeli, jaise gaari ka rang."} },
+        { "term": "gpt-image-1.5 / gpt-image-1-mini", "text": {"en":"More quality and precise edits; lower cost and faster.","ro":"Zyada quality aur bareek editing; kam kharcha aur tez."} },
+        { "term": "image_generation", "text": {"en":"Tool of the Responses API that creates an image inside a conversation.","ro":"Responses API ka tool jo guftagu ke andar image banata hai."} }
+      ],
+      "code": "curl -X POST \"https://my-res.openai.azure.com/openai/v1/videos\" \\\n  -H \"Content-Type: application/json\" -H \"api-key: $KEY\" \\\n  -d '{\"model\": \"sora-2\", \"prompt\": \"A paper boat at sunrise.\", \"size\": \"1280x720\", \"seconds\": \"8\"}'\n\ncurl \"https://my-res.openai.azure.com/openai/v1/videos/$ID\" -H \"api-key: $KEY\"\n\ncurl -L \"https://my-res.openai.azure.com/openai/v1/videos/$ID/content?variant=video\" \\\n  -H \"api-key: $KEY\" --output boat.mp4"
+    }
   ],
   "how": [
     {"en":"Draft with quality low and n 2 or 3, then create the final picture with high.","ro":"quality low aur n 2 ya 3 se draft, phir high se aakhri tasveer."},

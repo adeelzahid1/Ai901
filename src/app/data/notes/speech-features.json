@@ -1,5 +1,5 @@
 {
-  "id": "speech-features", "minutes": 5,
+  "id": "speech-features", "minutes": 8,
   "main": {"en":"Recognition turns audio into text, synthesis turns text into audio, and translation changes the language on the way.","ro":"Recognition audio ko text, synthesis text ko audio banata hai, aur translation raste mein zabaan badal deta hai."},
   "explain": [
     {"en":"For speech to text, choose by situation: real-time transcription for live audio, fast transcription for a recorded file that is needed quickly, batch transcription for many stored files. Diarization labels the speakers; language identification picks the language from your list of candidates.","ro":"Speech to text mein surat e haal ke mutabiq chunein: live audio ke liye real-time, jaldi chahiye record file ke liye fast, bohat si mehfooz files ke liye batch transcription. Diarization bolne walon ko label karta hai; language identification aap ki list mein se zabaan chunta hai."},
@@ -18,6 +18,37 @@
   "deep": [
     {"en":"Recognition quality depends on audio quality, language, accent and vocabulary. Measure it with the word error rate (WER): the share of words that are wrong, missing or added. Lower is better. If the rate is high because of rare words, a phrase list helps. If it is high because of noise or a special environment, train custom speech with matching recordings.","ro":"Recognition ki quality audio, zabaan, lehje aur alfaaz par hai. Isay word error rate (WER) se naapein: ghalat, gaib ya izafi alfaaz ka hissa. Kam behtar hai. Agar nayab alfaaz ki wajah se zyada hai to phrase list. Agar shor ya khaas mahaul ki wajah se hai to waisi recordings se custom speech train karein."},
     {"en":"Voice Live and speech-capable models combine recognition, a model and synthesis for conversations. Choose the separate Speech features when you need control over each step.","ro":"Voice Live aur awaaz wale models guftagu ke liye recognition, model aur synthesis milate hain. Har qadam par control chahiye to alag Speech features chunein."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"Inside speech recognition and synthesis","ro":"Speech recognition aur synthesis ke andar"},
+      "text": [
+        {"en":"Recognition goes from sound to text in six stages, synthesis from text to sound in four. When a result is bad, ask which stage failed: noise is audio capture, wrong rare words are the language model, \"three p m\" is post-processing, a flat voice is prosody.","ro":"Recognition awaaz se text tak chhe marahil mein jati hai, synthesis text se awaaz tak chaar mein. Nateeja kharab ho to poochein kaunsa marhala nakaam hua: shor audio capture hai, nayab alfaaz ghalat hon to language model, \"three p m\" post-processing, seedhi awaaz prosody."}
+      ],
+      "flows": [
+        { "title": "Speech recognition", "steps": [
+          { "title": "Audio capture", "text": {"en":"samples, often 16 kHz","ro":"samples, aksar 16 kHz"} },
+          { "title": "Pre-processing", "text": {"en":"frames become MFCC features","ro":"frames se MFCC features"} },
+          { "title": "Acoustic model", "text": {"en":"features become phonemes","ro":"features se phonemes"} },
+          { "title": "Language model", "text": {"en":"which words fit together","ro":"kaunse alfaaz saath aate hain"} },
+          { "title": "Decoding", "text": {"en":"beam search picks the best sequence","ro":"beam search behtareen tarteeb chunta hai"} },
+          { "title": "Post-processing", "text": {"en":"punctuation, numbers, capitals","ro":"punctuation, numbers, bare huroof"} }
+        ] },
+        { "title": "Speech synthesis", "steps": [
+          { "title": "Text normalization", "text": {"en":"\"Dr.\" becomes \"Doctor\"","ro":"\"Dr.\" se \"Doctor\""} },
+          { "title": "Linguistic analysis", "text": {"en":"graphemes become phonemes","ro":"graphemes se phonemes"} },
+          { "title": "Prosody generation", "text": {"en":"pitch, duration, pauses","ro":"pitch, duration, waqfay"} },
+          { "title": "Speech synthesis", "text": {"en":"a neural vocoder creates the waveform","ro":"neural vocoder waveform banata hai"} }
+        ] }
+      ],
+      "terms": [
+        { "term": "Phoneme / grapheme", "text": {"en":"Phoneme = smallest unit of sound; grapheme = written letter. English has about 44 phonemes.","ro":"Phoneme = awaaz ka sab se chhota unit; grapheme = likha harf. English mein taqreeban 44 phonemes hain."} },
+        { "term": "MFCC", "text": {"en":"A few numbers that describe the sound of a 20–30 ms frame, similar to human hearing.","ro":"Chand numbers jo 20–30 ms frame ki awaaz insani sunne ki tarah bayan karte hain."} },
+        { "term": "Beam search", "text": {"en":"Keeps a short list of the best partial transcripts while decoding.","ro":"Decoding ke dauran behtareen adhoore transcripts ki chhoti list rakhta hai."} },
+        { "term": "Text normalization / inverse", "text": {"en":"Synthesis expands \"$25\" into words; recognition changes words back into \"$25\".","ro":"Synthesis \"$25\" ko alfaaz banati hai; recognition alfaaz ko wapas \"$25\" banati hai."} },
+        { "term": "Vocoder", "text": {"en":"Turns a mel-spectrogram into an audio waveform.","ro":"Mel-spectrogram ko audio waveform mein badalta hai."} }
+      ]
+    }
   ],
   "how": [
     {"en":"Special words are misheard: add a phrase list first; train custom speech for heavy jargon or noise.","ro":"Khaas alfaaz ghalat sune jate hain: pehle phrase list; zyada jargon ya shor ke liye custom speech train karein."},

@@ -1,5 +1,5 @@
 {
-  "id": "extraction-techniques", "minutes": 4,
+  "id": "extraction-techniques", "minutes": 7,
   "main": {"en":"Information extraction turns unstructured files into structured data that a program can use.","ro":"Information extraction be-tarteeb files ko aise structured data mein badalta hai jo program istemal kar sake."},
   "explain": [
     {"en":"Much office work is reading: invoices, emails, calls, photos. Extraction has three layers. First content: text with OCR, speech with transcription, frames from video. Then structure: tables, paragraphs, speakers, scenes. Then meaning: the fields that you asked for, with a confidence and a source.","ro":"Bohat se daftaron mein zyada kaam parhna hai: invoices, emails, calls, tasveerein. Extraction ki teen tahein hain. Pehle content: OCR se text, transcription se awaaz, video se frames. Phir structure: tables, paragraphs, speakers, scenes. Phir matlab: aap ki maangi hui fields, confidence aur source ke saath."},
@@ -18,6 +18,36 @@
   "deep": [
     {"en":"Grounding is the reason extraction can be trusted. Each extracted value points to its source: a region on a page, a sentence, a time in the recording. A reviewer clicks on the value and sees the evidence, which takes seconds instead of minutes. Values without evidence, such as a generated summary, need another check, for example a comparison with the original text.","ro":"Grounding ki wajah se extraction par bharosa hota hai. Har nikali gayi value apne source ki taraf ishara karti hai: page ka hissa, jumla, recording ka waqt. Review karne wala value par click kar ke saboot dekhta hai, minute ke bajaye second lagte hain. Jin values ka saboot nahi, jaise generate kiya khulasa, un ki alag jaanch chahiye, jaise asal text se muqabla."},
     {"en":"Straight-through processing means that a document goes through without a person. The share of such documents is the business value of a solution, and the threshold controls it: higher threshold, more review, fewer mistakes.","ro":"Straight-through processing ka matlab document baghair insan ke guzar jaye. Aise documents ka hissa hal ki karobari qeemat hai, aur had usay control karti hai: zyada had, zyada review, kam ghaltiyan."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"The two pipelines: OCR and field extraction","ro":"Do pipelines: OCR aur field extraction"},
+      "text": [
+        {"en":"OCR answers which text exists. Field extraction answers what it means. The second pipeline needs more than the words: it uses positions, layout and confidence, because \"12345\" can be an invoice number or a phone number.","ro":"OCR batata hai kaunsa text hai. Field extraction batati hai us ka matlab kya hai. Doosri pipeline ko alfaaz se zyada chahiye: jagah, layout aur confidence, kyunke \"12345\" invoice number ya phone number ho sakta hai."}
+      ],
+      "flows": [
+        { "title": "OCR", "steps": [
+          { "title": "Input", "text": "scan, photo, PDF page" },
+          { "title": "Preprocessing", "text": "noise, contrast, skew, resolution" },
+          { "title": {"en":"Text regions","ro":"Text ke hissay"}, "text": {"en":"layout and reading order","ro":"layout aur reading order"} },
+          { "title": "Characters", "text": {"en":"recognition with context","ro":"context ke saath pehchan"} },
+          { "title": "Output", "text": "text, positions, confidence" }
+        ] },
+        { "title": "Field extraction", "steps": [
+          { "title": "OCR output" },
+          { "title": "Candidates", "text": {"en":"template, trained model or generative AI","ro":"template, train shuda model ya generative AI"} },
+          { "title": "Mapping", "text": "key-value pairs, table headers" },
+          { "title": "Normalization", "text": {"en":"one format for dates and numbers","ro":"tareekh aur numbers ka ek format"} },
+          { "title": "Integration", "text": "database, API, workflow" }
+        ] }
+      ],
+      "terms": [
+        { "term": "Template-based", "text": {"en":"Fixed layout, known labels. Fast and explainable, but each new layout needs work.","ro":"Mukarrar layout, maloom labels. Tez aur wazeh, lekin har naya layout kaam maangta hai."} },
+        { "term": {"en":"Trained model","ro":"Train shuda model"}, "text": {"en":"Learns from labeled documents and handles variations.","ro":"Label wale documents se seekhta hai aur farq sambhalta hai."} },
+        { "term": {"en":"Generative with a schema","ro":"Schema ke saath generative"}, "text": {"en":"Matches text to fields by meaning, without labeled examples.","ro":"Text ko matlab se fields se milata hai, label wali misalon ke baghair."} },
+        { "term": "Cross-field validation", "text": {"en":"Checks related fields, for example line items against the total.","ro":"Mutaalliq fields check karta hai, jaise line items aur total."} }
+      ]
+    }
   ],
   "how": [
     {"en":"Describe each field clearly: name, type, meaning, example.","ro":"Har field wazeh bayan karein: naam, type, matlab, misaal."},

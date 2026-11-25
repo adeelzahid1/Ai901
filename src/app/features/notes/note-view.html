@@ -22,6 +22,31 @@
       <p>{{ language.pick(p) }}</p>
     }
 
+    @for (topic of n.topics ?? []; track $index) {
+      <section class="topic">
+        <h2>{{ language.pick(topic.title) }}</h2>
+        @for (p of topic.text; track $index) {
+          <p>{{ language.pick(p) }}</p>
+        }
+        @for (f of topic.flows ?? []; track $index) {
+          <app-flow-diagram [title]="f.title" [steps]="f.steps" />
+        }
+        @if (topic.code) {
+          <pre class="code" tabindex="0">{{ topic.code }}</pre>
+        }
+        @if (topic.terms; as terms) {
+          <dl>
+            @for (c of terms; track $index) {
+              <div>
+                <dt>{{ language.pick(c.term) }}</dt>
+                <dd>{{ language.pick(c.text) }}</dd>
+              </div>
+            }
+          </dl>
+        }
+      </section>
+    }
+
     <h2>{{ t.how }}</h2>
     <ul>
       @for (h of n.how; track $index) {

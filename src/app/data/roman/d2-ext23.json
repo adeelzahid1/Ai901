@@ -1,0 +1,71 @@
+{
+  "D2-685": {
+    "q": "Script Sora 2 deployment ke REST interface se video banata hai. Woh kaunse CHAAR qadam kis tarteeb mein karta hai?",
+    "items": [
+      "Status poochna jab tak completed na ho",
+      "Prompt ke saath POST request bhejna",
+      "POST response se video decode karna",
+      "Video file download karna",
+      "Response se video id parhna"
+    ],
+    "exp": "Video generation asynchronous job hai: POST request id deti hai, script us id se status poochta hai aur completed hone par file download karta hai. POST response mein video nahi hoti, is liye decode karne ko kuch nahi."
+  },
+  "D2-686": {
+    "q": "Video job shuru karne wali request mukammal karein.",
+    "exp": "Naya job videos path par POST se banta hai, aur \"seconds\" video ki lambai deta hai. GET maujooda job ka status parhta hai, embeddings aur audio doosre kaamon ke path hain, aur temperature ya voice video job ki settings nahi."
+  },
+  "D2-687": {
+    "q": "Video job shuru karne ke baad app status endpoint ko kai dafa kyun call karti hai?",
+    "opts": [
+      "Har call video mein ek second barhati hai",
+      "Video banne mein waqt lagta hai aur ye asynchronous job hai",
+      "Pehli call key aur agli call region check karti hai",
+      "Status endpoint prompt deta hai"
+    ],
+    "exp": "Rendering mein aksar kai minute lagte hain, is liye job background mein chalta hai aur app completed ya failed hone tak poochti hai. Lambai job banate waqt tay hoti hai, aur status calls key aur region ko bari bari check nahi kartin."
+  },
+  "D2-688": {
+    "q": "In do lines ke darmiyan kya kami hai?",
+    "ctx": "job = create_video(prompt)        # returns {\"id\": \"vid_42\", \"status\": \"queued\"}\nsave_file(download(job[\"id\"]))     # error: content is not ready",
+    "opts": [
+      "Download ke liye doosri deployment",
+      "Prompt ko Base64 mein badalne ka qadam",
+      "Status completed ka intezar karne wala loop",
+      "Agli request ke liye zyada temperature"
+    ],
+    "exp": "Job abhi queued hai, is liye content bana hi nahi. Code ko status completed (ya failed) hone tak poochna aur phir download karna hai. Download usi deployment se hota hai, aur Base64 ya temperature tayyari par asar nahi dalte."
+  },
+  "D2-689": {
+    "q": "Team Microsoft Foundry mein Sora 2 istemal karna chahti hai. Har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Woh text ke saath image se bhi shuru kar sakta hai.",
+      "Us ki videos khamosh hain aur alag audio model chahiye.",
+      "App ke call karne se pehle usay deploy karna hota hai."
+    ],
+    "exp": "Pehle ka jawab Haan: text, image ya maujooda video input ho sakti hai. Doosre ka Nahi: Sora 2 audio bhi banata hai. Teesre ka Haan: doosre models ki tarah usay deployment ke naam se call kiya jata hai."
+  },
+  "D2-690": {
+    "q": "Bani hui video theek hai, sirf gaari ka rang ghalat hai. Sora 2 ki kaunsi feature naya manzar banaye baghair ye badalti hai?",
+    "opts": [
+      "Doosri gaari ki photo ke saath image to video",
+      "Remix",
+      "Zyada lambi duration",
+      "Request mein doosra size"
+    ],
+    "exp": "Remix maujooda video lekar khaas tabdeeli karta hai. Image to video ek tasveer se naya clip banata hai, aur duration ya size nateeje ka format badalte hain, ek cheez ka rang nahi."
+  },
+  "D2-691": {
+    "q": "Har zaroorat ko sab se munasib model se milayein. Har model ek dafa istemal hoga.",
+    "items": [
+      "Kam kharche mein bohat se sada icons",
+      "Product tasveeron mein aala quality ki bareek tabdeeliyan",
+      "Chhota tashheeri clip",
+      "Third-party model se photorealistic images"
+    ],
+    "exp": "Mini model kharche aur raftar ke liye hai, gpt-image-1.5 quality aur bareek editing ke liye behtar model hai, Sora 2 video banata hai, aur FLUX catalog mein Black Forest Labs ke image models hain."
+  },
+  "D2-692": {
+    "q": "Responses API se image bana kar save karne wala Python code mukammal karein.",
+    "exp": "image_generation tool model ko image banane ko kehta hai, aur nateeja Base64 string hota hai, is liye bytes likhne se pehle decode kiya jata hai. File search aur code interpreter doosre tools hain, aur b64encode text ko dobara encode karta."
+  }
+}

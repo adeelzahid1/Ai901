@@ -1,5 +1,5 @@
 {
-  "id": "vision-imagegen", "minutes": 5,
+  "id": "vision-imagegen", "minutes": 8,
   "main": {"en":"Vision reads facts from existing pictures; image generation makes new pixels from words.","ro":"Vision maujooda tasveeron se maloomat nikalta hai; image generation alfaaz se naye pixels banata hai."},
   "explain": [
     {"en":"Vision techniques differ in detail. Classification gives a label for the whole picture. Object detection adds boxes, so you can count and locate. Semantic segmentation labels each pixel. OCR reads text. Captions describe the picture in a sentence, tags list what is visible.","ro":"Vision techniques tafseel mein mukhtalif hain. Classification poori tasveer ka label deta hai. Object detection boxes deta hai, is liye gin aur jagah dhoond sakte hain. Semantic segmentation har pixel ka label deta hai. OCR text parhta hai. Caption tasveer ko jumlay mein bayan karta hai, tags nazar aane wali cheezein batate hain."},
@@ -9,6 +9,31 @@
   "deep": [
     {"en":"Every detection comes with a confidence, and you choose the threshold. A low threshold finds more objects and more false ones; a high threshold misses some but is cleaner. In a safety system you accept false alarms, in an automatic payment you do not.","ro":"Har detection ke saath confidence aata hai aur had aap chunte hain. Kam had zyada objects aur zyada ghalat objects dhoondti hai; zyada had kuch chhor deti hai lekin saaf hoti hai. Safety system mein ghalat alarm qabool hain, automatic payment mein nahi."},
     {"en":"Training data decides what a vision model can see. If it was trained with clean product photos, it may fail with shaky phone pictures. Test with pictures from the real place.","ro":"Vision model kya dekh sakta hai, ye training data tay karta hai. Saaf product photos par train hua to hilti hui phone tasveeron par nakaam ho sakta hai. Asal jagah ki tasveeron se test karein."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"From pixels to meaning","ro":"Pixels se matlab tak"},
+      "text": [
+        {"en":"An image is a grid of numbers. A grayscale picture has one value per pixel from 0 (black) to 255 (white); a color picture has three channels: red, green and blue. Filters change these numbers, networks learn which filters help.","ro":"Image numbers ki grid hai. Grayscale mein har pixel ki ek value 0 (kala) se 255 (safed) tak hoti hai; rangeen tasveer ke teen channels hain: red, green aur blue. Filters ye numbers badalte hain, networks seekhte hain kaunse filters kaam ke hain."},
+        {"en":"A CNN starts with random filter weights. For each labeled picture it compares its output with the label; the difference is the loss. The weights are adjusted over many epochs until the loss is small.","ro":"CNN random filter weights se shuru hota hai. Har label wali tasveer par apna output label se milata hai; farq loss hai. Weights kai epochs mein badalte hain jab tak loss chhota na ho."}
+      ],
+      "flows": [
+        { "title": {"en":"Image classification with a CNN","ro":"CNN se image classification"}, "steps": [
+          { "title": "Filters", "text": {"en":"extract feature maps","ro":"feature maps nikalte hain"} },
+          { "title": "Pooling", "text": {"en":"keeps the key features","ro":"aham features rakhti hai"} },
+          { "title": "Flattening", "text": {"en":"one list of values","ro":"values ki ek list"} },
+          { "title": "Fully connected network", "text": {"en":"combines the values","ro":"values ko jorta hai"} },
+          { "title": "Softmax", "text": {"en":"a probability per class","ro":"har class ki probability"} }
+        ] }
+      ],
+      "terms": [
+        { "term": "Filter kernel", "text": {"en":"A small grid of weights that is convolved across the image. A Laplace kernel shows edges; others blur or sharpen.","ro":"Weights ki chhoti grid jo image par convolve hoti hai. Laplace kernel kinare dikhata hai; doosre blur ya sharp karte hain."} },
+        { "term": "Vision transformer (ViT)", "text": {"en":"Cuts the image into patches and relates them with attention.","ro":"Image ko patches mein baantta hai aur attention se jorta hai."} },
+        { "term": "Multimodal model", "text": {"en":"Combines text and image encoders; cross-model attention places both in one vector space, so it can describe new pictures.","ro":"Text aur image encoders jorta hai; cross-model attention dono ko ek vector space mein rakhti hai, is liye nayi tasveerein bayan kar sakta hai."} },
+        { "term": "Diffusion", "text": {"en":"Starts with random pixels and removes noise in steps, guided by the prompt.","ro":"Random pixels se shuru hoti hai aur prompt ki rehnumai mein qadam ba qadam noise hatati hai."} },
+        { "term": "Video generation", "text": {"en":"The same idea, plus the sequence of events and the physics of the scene.","ro":"Wahi khayal, saath waqiat ki tarteeb aur manzar ki physics."} }
+      ]
+    }
   ],
   "how": [
     {"en":"Say subject, style, setting, light and what to avoid in an image prompt.","ro":"Image prompt mein mauzu, andaz, jagah, roshni aur kis se bachna hai likhein."},

@@ -21,6 +21,9 @@ describe('note search', () => {
     expect(ids('hallucination')).toContain('genai-how');
     expect(ids('Operation-Location')[0]).toBe('cu-app');
     expect(ids('speak_ssml_async')).toContain('speech-app');
+    expect(ids('TF-IDF')[0]).toBe('text-techniques');
+    expect(ids('beam search')[0]).toBe('speech-features');
+    expect(ids('sora-2')[0]).toBe('image-generation');
   });
 
   it('needs every word and ignores case', () => {
