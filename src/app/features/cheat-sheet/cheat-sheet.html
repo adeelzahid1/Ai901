@@ -1,0 +1,113 @@
+@let t = language.ui().cheat;
+<div class="title">
+  <h1>{{ t.heading }}</h1>
+  <p class="lead no-print">{{ t.lead }}</p>
+</div>
+
+<form class="card toolbar no-print" [formGroup]="form" (submit)="$event.preventDefault()">
+  <label class="field">
+    <span>{{ t.domain }}</span>
+    <select formControlName="domain">
+      <option value="all">{{ language.ui().common.all }}</option>
+      @for (d of domains; track d.id) {
+        <option [value]="d.id">{{ d.id }} · {{ language.domainShort(d) }}</option>
+      }
+    </select>
+  </label>
+  <fieldset>
+    <legend>{{ t.parts }}</legend>
+    <label><input type="checkbox" formControlName="numbers" /> {{ t.numbers }}</label>
+    <label><input type="checkbox" formControlName="when" /> {{ t.when }}</label>
+    <label><input type="checkbox" formControlName="reference" /> {{ t.reference }}</label>
+    <label><input type="checkbox" formControlName="commands" /> {{ t.commands }}</label>
+    <label><input type="checkbox" formControlName="points" /> {{ t.points }}</label>
+  </fieldset>
+  <div class="buttons">
+    <button type="button" class="btn primary" [disabled]="!sheet()" (click)="print()">{{ t.print }}</button>
+    <a class="btn" routerLink="/notes">{{ t.toNotes }}</a>
+  </div>
+  <p class="muted">{{ t.printHint }}</p>
+</form>
+
+@if (sheet(); as s) {
+  @if (show().numbers) {
+    <section>
+      <h2>{{ t.numbers }}</h2>
+      <dl class="numbers">
+        @for (n of s.numbers; track n.value) {
+          <div>
+            <dt>{{ n.value }}</dt>
+            <dd>{{ language.pick(n.label) }}</dd>
+          </div>
+        }
+      </dl>
+    </section>
+  }
+
+  @if (show().when) {
+    <section>
+      <h2>{{ t.when }}</h2>
+      <div class="columns">
+        @for (l of s.lessons; track l.id) {
+          <article class="block">
+            <h3>{{ l.id }} {{ language.pick(l.table.title) }}</h3>
+            <app-cheat-table [head]="l.table.head" [rows]="l.table.rows" />
+          </article>
+        }
+      </div>
+    </section>
+  }
+
+  @if (show().reference && s.tables.length) {
+    <section>
+      <h2>{{ t.reference }}</h2>
+      <div class="columns">
+        @for (x of s.tables; track x.id) {
+          <article class="block">
+            <h3>{{ language.pick(x.title) }}</h3>
+            <app-cheat-table [head]="x.head" [rows]="x.rows" />
+          </article>
+        }
+      </div>
+    </section>
+  }
+
+  @if (show().commands && s.code.length) {
+    <section>
+      <h2>{{ t.commands }}</h2>
+      <div class="columns">
+        @for (c of s.code; track c.id) {
+          @for (x of c.snippets; track $index) {
+            <article class="block">
+              <h3>{{ language.pick(c.title) }} · {{ language.pick(x.title) }}</h3>
+              <pre class="code" tabindex="0">{{ x.code }}</pre>
+            </article>
+          }
+        }
+      </div>
+    </section>
+  }
+
+  @if (show().points) {
+    <section>
+      <h2>{{ t.points }}</h2>
+      <div class="columns">
+        @for (l of s.lessons; track l.id) {
+          <article class="block points">
+            <h3>{{ l.id }} {{ l.name }}</h3>
+            <ul>
+              @for (r of l.remember; track $index) {
+                <li>{{ language.pick(r) }}</li>
+              }
+              @for (r of l.traps; track $index) {
+                <li class="trap">{{ language.pick(r) }}</li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </section>
+  }
+} @else {
+  <p class="card muted">{{ t.loading }}</p>
+}

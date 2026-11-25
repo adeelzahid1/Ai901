@@ -1,10 +1,13 @@
 @let t = language.ui().notes;
 <div class="layout">
-  <aside class="sidebar" [attr.aria-label]="t.list">
+  <aside class="sidebar no-print" [attr.aria-label]="t.list">
     <p class="muted">{{ t.progress(progress.count(), total) }}</p>
     <ul class="plain">
       <li>
-        <a routerLink="/notes" [queryParams]="{ n: glossaryId }" [class.active]="glossary()" [attr.aria-current]="glossary() ? 'page' : null">{{ t.glossary }}</a>
+        <a routerLink="/cheat-sheet">{{ t.cheatSheet }}</a>
+      </li>
+      <li>
+        <a routerLink="/notes" [queryParams]="{ n: glossaryId }" (click)="clearSearch()" [class.active]="glossary()" [attr.aria-current]="glossary() ? 'page' : null">{{ t.glossary }}</a>
       </li>
     </ul>
     @for (d of nav; track d.id) {
@@ -15,7 +18,7 @@
           @for (id of s.subs; track id) {
             @let active = !glossary() && id === current().id;
             <li>
-              <a routerLink="/notes" [queryParams]="{ n: id }" [class.active]="active" [attr.aria-current]="active ? 'page' : null">
+              <a routerLink="/notes" [queryParams]="{ n: id }" (click)="clearSearch()" [class.active]="active" [attr.aria-current]="active ? 'page' : null">
                 {{ language.pick(titles[id]) }}
                 @if (progress.isRead(id)) {
                   <span class="read" role="img" [attr.aria-label]="t.done" [title]="t.done">✓</span>
@@ -29,7 +32,8 @@
   </aside>
 
   <section class="content stack">
-    <label class="field mobile-select">
+    <a class="btn cheat no-print" routerLink="/cheat-sheet">{{ t.cheatSheet }}</a>
+    <label class="field mobile-select no-print">
       <span>{{ t.list }}</span>
       <select #pick (change)="open(pick.value)">
         <option [value]="glossaryId" [selected]="glossary()">{{ t.glossary }}</option>
@@ -45,7 +49,14 @@
       </select>
     </label>
 
-    @if (glossary()) {
+    <label class="field no-print">
+      <span>{{ t.searchAll }}</span>
+      <input type="search" [formControl]="search" [placeholder]="t.searchAllHint" />
+    </label>
+
+    @if (query()) {
+      <app-note-results [query]="query()" (opened)="clearSearch()" />
+    } @else if (glossary()) {
       <div>
         <h1>{{ t.glossary }}</h1>
         <p class="lead">{{ t.glossaryLead }}</p>
@@ -57,7 +68,7 @@
         <p class="lead">{{ current().section }} · {{ language.pick(official()) }}</p>
       </div>
       <app-note-view [skill]="current().id" [section]="current().section" />
-      <div class="pager">
+      <div class="pager no-print">
         @if (previous(); as p) {
           <button type="button" class="btn" (click)="open(p.id)">← {{ language.pick(titles[p.id]) }}</button>
         }

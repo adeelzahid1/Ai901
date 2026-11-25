@@ -1,0 +1,166 @@
+{
+  "numbers": [
+    {"value":"45 min","label":{"en":"exam time, 65 minutes in total","ro":"exam ka waqt, kul 65 minute"}},
+    {"value":"40-60","label":{"en":"questions in most exams","ro":"sawal zyada tar exams mein"}},
+    {"value":"700 / 1000","label":{"en":"to pass (scaled score)","ro":"pass ke liye (scaled score)"}},
+    {"value":"40-45%","label":"D1: AI concepts"},
+    {"value":"55-60%","label":"D2: Foundry solutions"},
+    {"value":"0","label":{"en":"points lost for a wrong answer","ro":"number kam ghalat jawab par"}},
+    {"value":"24 h / 14 d / 5","label":{"en":"retake: first wait, later waits, attempts in 12 months","ro":"dobara exam: pehla intezar, baad ke intezar, 12 mahine mein koshishein"}},
+    {"value":"50% / 24 h","label":{"en":"Batch: price cut and target time","ro":"Batch: kam qeemat aur hadaf ka waqt"}},
+    {"value":"20 → 20,000","label":{"en":"sku-capacity to tokens per minute (most chat models)","ro":"sku-capacity se tokens per minute (zyada tar chat models)"}},
+    {"value":"0 to 1","label":"confidence scores"},
+    {"value":"2025-11-01","label":"Content Understanding API version (stable)"},
+    {"value":"25 Sep 2028","label":{"en":"Image Analysis 4.0 retires","ro":"Image Analysis 4.0 retire hoga"}},
+    {"value":"4 Mar 2026","label":{"en":"DALL-E 3 retired; use the gpt-image series","ro":"DALL-E 3 retire hua; gpt-image series istemal karein"}}
+  ],
+  "tables": [
+    {
+      "id": "deployment-types", "domain": "D1", "title": "Deployment types",
+      "head": ["Type","SKU",{"en":"Processed in","ro":"Kahan process"},{"en":"Pay","ro":"Adaigi"}],
+      "rows": [
+        ["Global Standard","GlobalStandard",{"en":"any Azure region","ro":"koi bhi Azure region"},{"en":"per token","ro":"fi token"}],
+        ["Data Zone Standard","DataZoneStandard",{"en":"EU, US or Asia Pacific zone","ro":"EU, US ya Asia Pacific zone"},{"en":"per token","ro":"fi token"}],
+        ["Standard","Standard",{"en":"one Azure geography","ro":"ek Azure geography"},{"en":"per token","ro":"fi token"}],
+        ["Global Provisioned","GlobalProvisionedManaged",{"en":"any Azure region","ro":"koi bhi Azure region"},{"en":"reserved PTU","ro":"mukhtas PTU"}],
+        ["Data Zone Provisioned","DataZoneProvisionedManaged","data zone",{"en":"reserved PTU","ro":"mukhtas PTU"}],
+        ["Regional Provisioned","ProvisionedManaged",{"en":"one Azure geography","ro":"ek Azure geography"},{"en":"reserved PTU","ro":"mukhtas PTU"}],
+        ["Global / Data Zone Batch","GlobalBatch / DataZoneBatch",{"en":"any region / data zone","ro":"koi bhi region / data zone"},{"en":"50% less, 24 h","ro":"50% kam, 24 ghante"}]
+      ]
+    },
+    {
+      "id": "parameters", "domain": "D1", "title": "Request parameters",
+      "head": ["Parameter",{"en":"Effect","ro":"Asar"}],
+      "rows": [
+        ["temperature",{"en":"low = same wording, high = variety","ro":"kam = yaksan ibarat, zyada = variety"}],
+        ["top_p",{"en":"share of likely tokens to choose from; change this or temperature","ro":"kitne mumkina tokens mein se chunna; ye ya temperature badlein"}],
+        ["max_output_tokens / max_completion_tokens",{"en":"cuts the answer at this length","ro":"jawab is lambai par kaat deta hai"}],
+        ["stop",{"en":"ends the text when the string appears","ro":"ye string aane par text khatam"}],
+        ["frequency_penalty",{"en":"less repetition of the same words","ro":"wahi alfaaz kam dohrana"}],
+        ["presence_penalty",{"en":"more new topics","ro":"zyada naye topics"}],
+        ["reasoning_effort",{"en":"how long a reasoning model thinks","ro":"reasoning model kitni der sochta hai"}],
+        ["stream=True",{"en":"answer piece by piece","ro":"jawab tukron mein"}]
+      ]
+    },
+    {
+      "id": "http", "domain": "D2", "title": "HTTP status codes",
+      "head": ["Code",{"en":"Meaning","ro":"Matlab"},{"en":"Do this","ro":"Ye karein"}],
+      "rows": [
+        ["200",{"en":"success","ro":"kamyab"},{"en":"read the body","ro":"body parhein"}],
+        ["202",{"en":"started, not finished (Content Understanding)","ro":"shuru hua, mukammal nahi (Content Understanding)"},{"en":"GET the Operation-Location URL","ro":"Operation-Location URL par GET"}],
+        ["400",{"en":"bad request; content_filter = blocked prompt","ro":"ghalat request; content_filter = roka gaya prompt"},{"en":"fix the request or rephrase; do not retry","ro":"request theek karein ya alfaaz badlein; dobara na bhejein"}],
+        ["401",{"en":"key or token missing or wrong","ro":"key ya token nahi ya ghalat"},{"en":"sign in, check the key","ro":"sign in, key dekhein"}],
+        ["403",{"en":"no permission","ro":"ijazat nahi"},{"en":"assign a role","ro":"role dein"}],
+        ["404",{"en":"deployment, agent or path not found","ro":"deployment, agent ya path nahi mila"},{"en":"check the name and endpoint","ro":"naam aur endpoint dekhein"}],
+        ["429",{"en":"rate limit or quota reached","ro":"rate limit ya quota khatam"},{"en":"wait (retry-after), back off, raise capacity","ro":"rukein (retry-after), backoff, capacity barhayein"}],
+        ["5xx",{"en":"temporary server error","ro":"waqti server error"},{"en":"retry with longer waits","ro":"barhte intezar ke saath dobara"}]
+      ]
+    },
+    {
+      "id": "roles", "domain": "D2", "title": "Foundry roles",
+      "head": ["Role",{"en":"Can","ro":"Kar sakta hai"},{"en":"Cannot","ro":"Nahi kar sakta"}],
+      "rows": [
+        ["Foundry Agent Consumer",{"en":"talk to agents","ro":"agents se baat"},{"en":"build","ro":"banana"}],
+        ["Foundry User",{"en":"build and call in a project","ro":"project mein banana aur call karna"},{"en":"deploy models, assign roles","ro":"models deploy, roles dena"}],
+        ["Foundry Project Manager",{"en":"build, publish agents, assign Foundry User","ro":"banana, agents publish, Foundry User dena"},{"en":"deploy models","ro":"models deploy"}],
+        ["Foundry Account Owner",{"en":"manage resources, models, projects, roles","ro":"resources, models, projects, roles sambhalna"},{"en":"build in projects","ro":"projects mein banana"}],
+        ["Foundry Owner",{"en":"all of it","ro":"sab kuch"},"-"]
+      ]
+    },
+    {
+      "id": "guardrails", "domain": "D2", "title": "Guardrail blocking levels",
+      "head": ["Level",{"en":"Blocks","ro":"Rokta hai"}],
+      "rows": [
+        ["Low",{"en":"high severity only (least strict)","ro":"sirf high severity (sab se narm)"}],
+        ["Medium",{"en":"medium and high","ro":"medium aur high"}],
+        ["High",{"en":"low, medium and high (strictest)","ro":"low, medium aur high (sab se sakht)"}]
+      ]
+    },
+    {
+      "id": "packages", "domain": "D2", "title": {"en":"Python packages and main classes","ro":"Python packages aur bari classes"},
+      "head": ["Package","Class",{"en":"For","ro":"Kis liye"}],
+      "rows": [
+        ["azure-ai-projects","AIProjectClient","project, agents, OpenAI client"],
+        ["azure-identity","DefaultAzureCredential",{"en":"sign in without keys","ro":"baghair keys sign in"}],
+        ["azure-ai-textanalytics","TextAnalyticsClient",{"en":"language, sentiment, entities, PII","ro":"zabaan, sentiment, entities, PII"}],
+        ["azure-cognitiveservices-speech","SpeechRecognizer, SpeechSynthesizer, TranslationRecognizer",{"en":"speech in, out, translated","ro":"awaaz andar, bahar, tarjuma"}],
+        ["azure-ai-vision-imageanalysis","ImageAnalysisClient","captions, tags, objects, people, text"]
+      ]
+    },
+    {
+      "id": "parts", "domain": "D2", "title": {"en":"Content parts by API","ro":"API ke content parts"},
+      "head": ["Input","Chat Completions","Responses"],
+      "rows": [
+        ["Text","text","input_text"],
+        ["Image","image_url {url, detail}","input_image"],
+        ["Audio","input_audio {data, format}",{"en":"use an audio model with Chat Completions or Realtime","ro":"audio model: Chat Completions ya Realtime"}],
+        [{"en":"Answer text","ro":"Jawab ka text"},"choices[0].message.content","output_text"]
+      ]
+    },
+    {
+      "id": "cu", "domain": "D2", "title": "Content Understanding fields",
+      "head": ["Method",{"en":"Result","ro":"Nateeja"},{"en":"For","ro":"Kis liye"}],
+      "rows": [
+        ["extract",{"en":"value exactly as printed","ro":"value bilkul jaisi chhapi hai"},{"en":"documents only","ro":"sirf documents"}],
+        ["generate",{"en":"new text or number","ro":"naya text ya number"},"documents, images, audio, video"],
+        ["classify",{"en":"one value from a list","ro":"list se ek value"},"documents, images, audio, video"],
+        ["confidence, source",{"en":"how sure, where found","ro":"kitna yaqeen, kahan mila"},"document analyzers"]
+      ]
+    }
+  ],
+  "code": [
+    {
+      "id": "cli", "domain": "D2", "title": "Azure CLI",
+      "snippets": [
+        {"title":{"en":"Sign in and choose a subscription","ro":"Sign in aur subscription"},"code":"az login\naz account set --subscription \"<name>\"\naz group create --name rg-ai901 --location eastus"},
+        {"title":{"en":"Foundry resource and project","ro":"Foundry resource aur project"},"code":"az cognitiveservices account create --name contoso-ai \\\n  --resource-group rg-ai901 --kind AIServices --sku S0 \\\n  --location eastus --custom-domain contoso-ai \\\n  --assign-identity --allow-project-management true\naz cognitiveservices account project create \\\n  --name contoso-ai --resource-group rg-ai901 \\\n  --project-name study --location eastus"},
+        {"title":{"en":"Deploy a model","ro":"Model deploy"},"code":"az cognitiveservices account deployment create \\\n  --name contoso-ai --resource-group rg-ai901 \\\n  --deployment-name chat-prod --model-name gpt-5-mini \\\n  --model-version \"2025-08-07\" --model-format OpenAI \\\n  --sku-name GlobalStandard --sku-capacity 20"},
+        {"title":{"en":"Give a role","ro":"Role dena"},"code":"az role assignment create --role \"Foundry User\" \\\n  --assignee \"user@contoso.com\" --scope $PROJECT_ID"},
+        {"title":{"en":"Clean up","ro":"Safai"},"code":"az group delete --name rg-ai901"}
+      ]
+    },
+    {
+      "id": "chat", "domain": "D2", "title": "Python: chat",
+      "snippets": [
+        {"title":"Connect","code":"# pip install \"azure-ai-projects>=2.3.0\" azure-identity\n# endpoint: https://<resource>.services.ai.azure.com\n#           /api/projects/<project>\nproject = AIProjectClient(\n    endpoint=ENDPOINT, credential=DefaultAzureCredential())\nopenai = project.get_openai_client()"},
+        {"title":{"en":"Responses API with history","ro":"Responses API, history ke saath"},"code":"r = openai.responses.create(\n    model=\"chat-prod\", instructions=\"Be brief.\", input=\"Hi\")\nr2 = openai.responses.create(\n    model=\"chat-prod\", input=\"And now?\", previous_response_id=r.id)\nprint(r2.output_text)"},
+        {"title":"Chat Completions","code":"messages = [{\"role\": \"system\", \"content\": \"Be brief.\"},\n            {\"role\": \"user\", \"content\": \"Hi\"}]\nr = openai.chat.completions.create(\n    model=\"chat-prod\", messages=messages)\nanswer = r.choices[0].message.content\nmessages.append({\"role\": \"assistant\", \"content\": answer})"},
+        {"title":"Streaming","code":"for event in openai.responses.create(\n        model=\"chat-prod\", input=text, stream=True):\n    if event.type == \"response.output_text.delta\":\n        print(event.delta, end=\"\")"},
+        {"title":{"en":"Wait after 429","ro":"429 ke baad intezar"},"code":"for attempt in range(5):\n    try:\n        return openai.responses.create(\n            model=\"chat-prod\", input=text)\n    except RateLimitError:\n        time.sleep(2 ** attempt)"},
+        {"title":"Structured output","code":"response_format={\"type\": \"json_schema\", \"json_schema\": {\n    \"name\": \"review\", \"strict\": True, \"schema\": schema}}"}
+      ]
+    },
+    {
+      "id": "agents", "domain": "D2", "title": "Python: agents",
+      "snippets": [
+        {"title":{"en":"Create a version with file search","ro":"File search wala version"},"code":"store = openai.vector_stores.create(name=\"policies\")\nopenai.vector_stores.files.upload_and_poll(\n    vector_store_id=store.id, file=open(\"policy.md\", \"rb\"))\nproject.agents.create_version(\n    agent_name=\"hr-helper\",\n    definition=PromptAgentDefinition(\n        model=\"chat-prod\", instructions=\"Answer from the files.\",\n        tools=[FileSearchTool(vector_store_ids=[store.id])]))"},
+        {"title":{"en":"Call the agent","ro":"Agent call"},"code":"openai = project.get_openai_client(agent_name=\"hr-helper\")\nconversation = openai.conversations.create()\nr = openai.responses.create(\n    conversation=conversation.id, input=\"How many holidays?\")\nprint(r.output_text)\nopenai.conversations.delete(conversation_id=conversation.id)"}
+      ]
+    },
+    {
+      "id": "text-speech", "domain": "D2", "title": {"en":"Python: text and speech","ro":"Python: text aur speech"},
+      "snippets": [
+        {"title":"Text analysis","code":"client = TextAnalyticsClient(ENDPOINT, AzureKeyCredential(KEY))\nclient.detect_language(docs)            # primary_language.name\nclient.extract_key_phrases(docs)        # key_phrases\nclient.recognize_entities(docs)         # entities\nclient.recognize_pii_entities(docs)     # redacted_text\nclient.analyze_sentiment(docs, show_opinion_mining=True)\n# check doc.is_error first"},
+        {"title":{"en":"Speech to text","ro":"Awaaz se text"},"code":"config = speechsdk.SpeechConfig(subscription=KEY, region=REGION)\nresult = speechsdk.SpeechRecognizer(\n    speech_config=config).recognize_once_async().get()\n# result.reason: RecognizedSpeech, NoMatch, Canceled"},
+        {"title":{"en":"Text to speech","ro":"Text se awaaz"},"code":"config.speech_synthesis_voice_name = \"en-US-AvaMultilingualNeural\"\nspeechsdk.SpeechSynthesizer(\n    speech_config=config).speak_text_async(\"Hello\").get()\n# SSML: speak_ssml_async(ssml)"},
+        {"title":{"en":"Translate speech","ro":"Awaaz ka tarjuma"},"code":"config = speechsdk.translation.SpeechTranslationConfig(\n    subscription=KEY, region=REGION)\nconfig.speech_recognition_language = \"en-US\"\nconfig.add_target_language(\"fr\")\n# TranslationRecognizer → result.translations[\"fr\"]"}
+      ]
+    },
+    {
+      "id": "vision", "domain": "D2", "title": "Python: images",
+      "snippets": [
+        {"title":{"en":"Ask about an image","ro":"Image par sawal"},"code":"{\"role\": \"user\", \"content\": [\n  {\"type\": \"text\", \"text\": \"What is shown?\"},\n  {\"type\": \"image_url\", \"image_url\": {\n    \"url\": \"data:image/jpeg;base64,...\", \"detail\": \"high\"}}]}"},
+        {"title":{"en":"Create an image","ro":"Image banana"},"code":"r = openai.images.generate(model=\"images-prod\", prompt=text,\n    size=\"1024x1024\", quality=\"low\", n=1)\npng = base64.b64decode(r.data[0].b64_json)\n# change a part: openai.images.edit(..., mask=...)"},
+        {"title":"Image Analysis","code":"client = ImageAnalysisClient(ENDPOINT, AzureKeyCredential(KEY))\nresult = client.analyze(\n    image_data=data,\n    visual_features=[VisualFeatures.CAPTION,\n                     VisualFeatures.READ])\nprint(result.caption.text, result.caption.confidence)"}
+      ]
+    },
+    {
+      "id": "rest", "domain": "D2", "title": "REST",
+      "snippets": [
+        {"title":"Responses API","code":"POST https://<resource>.openai.azure.com/openai/v1/responses\nAuthorization: Bearer <token>        # or  api-key: <key>\n{\"model\": \"chat-prod\", \"input\": \"Hello\"}"},
+        {"title":{"en":"Content Understanding: start","ro":"Content Understanding: shuru"},"code":"POST {endpoint}/contentunderstanding/analyzers/\n     prebuilt-invoice:analyze?api-version=2025-11-01\nOcp-Apim-Subscription-Key: {key}\n{\"inputs\": [{\"url\": \"https://...\"}]}\n→ 202, Operation-Location: .../analyzerResults/{id}"},
+        {"title":{"en":"Content Understanding: result","ro":"Content Understanding: nateeja"},"code":"GET {Operation-Location}\n→ status: NotStarted, Running, Succeeded, Failed\n→ result.contents[0].fields, .markdown"}
+      ]
+    }
+  ]
+}

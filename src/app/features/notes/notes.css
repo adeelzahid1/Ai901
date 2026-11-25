@@ -45,7 +45,17 @@
   color: var(--ok);
   font-weight: 700;
 }
-.mobile-select {
+.field input {
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+.mobile-select,
+.cheat {
   display: none;
 }
 .mobile-select select {
@@ -71,5 +81,13 @@
   }
   .mobile-select {
     display: grid;
+  }
+  .cheat {
+    display: inline-flex;
+  }
+}
+@media print {
+  .layout {
+    display: block;
   }
 }

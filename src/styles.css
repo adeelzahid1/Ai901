@@ -362,3 +362,31 @@ main {
 html:has(app-flashcards.full) {
   overflow: hidden;
 }
+
+@media print {
+  :root {
+    --bg: #fff;
+    --surface: #fff;
+    --surface-2: #fff;
+    --text: #000;
+    --muted: #333;
+    --border: #999;
+    --accent: #000;
+    --accent-soft: #fff;
+    color-scheme: light;
+  }
+
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  html,
+  body {
+    font-size: 10pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

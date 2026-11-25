@@ -71,7 +71,7 @@ describe('Notes', () => {
   it('opens the first note, lists all skills and shows the requested one', async () => {
     await fixture.whenStable();
     expect(el().querySelector('h1')?.textContent).toContain('Fairness');
-    expect(el().querySelectorAll('.sidebar a').length).toBe(SKILLS.length + 1);
+    expect(el().querySelectorAll('.sidebar a').length).toBe(SKILLS.length + 2);
     expect(el().querySelectorAll('.sidebar h3').length).toBe(SECTIONS.length);
     fixture.componentRef.setInput('n', 'genai-how');
     await fixture.whenStable();
@@ -97,10 +97,31 @@ describe('Notes', () => {
     expect(navigate).toHaveBeenCalledWith(['/notes'], { queryParams: { n: SECTIONS[0].subs[1] } });
   });
 
+  it('searches all notes and opens a result', async () => {
+    await fixture.whenStable();
+    const input = el().querySelector<HTMLInputElement>('.content input[type=search]');
+    if (!input) return fail('no search');
+    input.value = 'operation-location';
+    input.dispatchEvent(new Event('input'));
+    await fixture.whenStable();
+    const results = [...el().querySelectorAll<HTMLAnchorElement>('app-note-results a.card')];
+    expect(results[0].getAttribute('href')).toBe('/notes?n=cu-app');
+    expect(results[0].querySelector('.hit')?.textContent).toBe('Operation-Location');
+    expect(el().querySelector('app-note-view')).toBeNull();
+    results[0].click();
+    await fixture.whenStable();
+    expect(el().querySelector('app-note-results')).toBeNull();
+    // A hit inside a word stays one word.
+    input.value = 'guardrail';
+    input.dispatchEvent(new Event('input'));
+    await fixture.whenStable();
+    expect(el().querySelector('app-note-results a.card')?.textContent?.toLowerCase()).toContain('guardrails');
+  });
+
   it('filters the glossary and switches to Roman Urdu', async () => {
     fixture.componentRef.setInput('n', 'glossary');
     await fixture.whenStable();
-    const input = el().querySelector<HTMLInputElement>('input[type=search]');
+    const input = el().querySelector<HTMLInputElement>('app-glossary-view input[type=search]');
     if (!input) return fail('no filter');
     input.value = 'hallucination';
     input.dispatchEvent(new Event('input'));

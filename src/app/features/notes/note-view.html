@@ -64,14 +64,14 @@
       </ul>
     </div>
 
-    <p class="links">
+    <p class="links no-print">
       <a routerLink="/study" [queryParams]="{ s: section(), m: 'lesson' }">{{ t.lesson(section()) }}</a>
       <a routerLink="/study" [queryParams]="{ s: section() }">{{ t.questions(section()) }}</a>
       @for (ref of n.refs; track ref; let i = $index) {
         <a [href]="ref" target="_blank" rel="noopener">{{ language.ui().common.learn }}{{ n.refs.length > 1 ? ' (' + (i + 1) + ')' : '' }}</a>
       }
     </p>
-    <label class="read">
+    <label class="read no-print">
       <input type="checkbox" [checked]="progress.isRead(n.id)" (change)="progress.toggle(n.id)" />
       {{ t.read }}
     </label>

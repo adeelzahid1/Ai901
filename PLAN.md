@@ -68,5 +68,10 @@ timing and question-type tips.
 ## Phase 15 - Detailed notes (done)
 
 A note of about 350-400 words for each of the 29 official skills in English and Roman Urdu, with diagrams and a
-glossary, checked against Microsoft Learn on 2026-11-25. Later ideas that are not approved yet: cheat sheet and
-print (16), own notes and backup (17), links between questions and notes (18).
+glossary, checked against Microsoft Learn on 2026-11-25.
+
+## Phase 16 - Cheat sheet (done)
+
+One page with numbers, tables, status codes and commands, an A4 print layout, and a search over all notes.
+
+Later ideas that are not approved yet: own notes and backup (17), links between questions and notes (18).

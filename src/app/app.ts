@@ -95,6 +95,14 @@ interface NavItem {
     .page {
       padding: 24px var(--pad-x) 48px;
     }
+    @media print {
+      .topbar {
+        display: none;
+      }
+      .page {
+        padding: 0;
+      }
+    }
   `,
 })
 export class App {
