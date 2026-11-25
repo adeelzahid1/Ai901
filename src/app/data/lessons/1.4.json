@@ -7,7 +7,8 @@
     { "term": "Text analysis", "text": {"en":"Finds language, sentiment, entities, key phrases or summaries in text.","ro":"Text mein zabaan, sentiment, entities, key phrases ya khulasa dhoondta hai."} },
     { "term": "Speech", "text": {"en":"Turns speech into text, text into speech, or translates speech.","ro":"Awaaz ko text, text ko awaaz mein badalta hai, ya awaaz ka tarjuma karta hai."} },
     { "term": "Computer vision", "text": {"en":"Classifies images, detects objects, reads text in pictures, describes photos.","ro":"Images classify karta hai, objects dhoondta hai, tasveeron ka text parhta hai, photos bayan karta hai."} },
-    { "term": "Information extraction", "text": {"en":"Turns documents, images, audio or video into structured fields.","ro":"Documents, images, audio ya video ko structured fields mein badalta hai."} }
+    { "term": "Information extraction", "text": {"en":"Turns documents, images, audio or video into structured fields.","ro":"Documents, images, audio ya video ko structured fields mein badalta hai."} },
+    { "term": "Multi-agent system", "text": {"en":"Several specialized agents share a workflow; a simple task needs only one.","ro":"Kai makhsoos agents ek workflow bantte hain; sada kaam ko ek kaafi hai."} }
   ],
   "example": {
     "title": {"en":"Example: an insurance claim","ro":"Misaal: insurance claim"},

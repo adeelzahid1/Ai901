@@ -1,5 +1,5 @@
 {
-  "id": "spoken-prompts", "minutes": 5,
+  "id": "spoken-prompts", "minutes": 7,
   "main": {"en":"An audio-capable model hears a spoken question and can answer with text, audio or both.","ro":"Audio wala model bola hua sawal sunta hai aur text, audio ya dono mein jawab de sakta hai."},
   "explain": [
     {"en":"With Chat Completions and a model such as gpt-audio, you send a content part of type input_audio with base64 data and its format. modalities says what you want back; for speech you also choose a voice and a format. The answer audio is base64 again, and a transcript comes with it.","ro":"Chat Completions aur gpt-audio jaise model ke saath aap input_audio qism ka content part bhejte hain jis mein base64 data aur format hota hai. modalities batata hai ke wapas kya chahiye; awaaz ke liye voice aur format bhi chunein. Jawab ki audio bhi base64 hoti hai, aur us ke saath transcript aata hai."},
@@ -19,6 +19,21 @@
   "deep": [
     {"en":"Choose the way by three questions. Is it live? Then Realtime API. Do you need a transcript or your own text model in between? Then the chain with Speech. Is it one recording and a quick answer? Then an audio chat model. Audio tokens cost more than text tokens, so long recordings are often cheaper through transcription.","ro":"Teen sawalon se raasta chunein. Live hai? To Realtime API. Transcript ya beech mein apna text model chahiye? To Speech wala silsila. Ek recording aur jaldi jawab? To audio chat model. Audio tokens text tokens se mehnge hain, is liye lambi recordings aksar transcription se sasti parti hain."},
     {"en":"Spoken input is informal: pauses, corrections, background voices. Tell the model in the system message to ask back when it did not understand, to keep spoken answers short and to repeat numbers.","ro":"Boli hui baat ghair rasmi hoti hai: waqfe, islaah, peeche ki awaazein. System message mein model ko batayein ke samajh na aaye to dobara poochhe, bole gaye jawab chhote rakhe aur numbers dohraye."}
+  ],
+  "topics": [
+    {
+      "title": "Voice Live",
+      "text": [
+        {"en":"Voice Live in Azure Speech combines speech to text, reasoning and text to speech in one managed API for conversations. You choose a generative model and a voice, send audio and get spoken answers; it handles interruptions and can show an avatar. With proactive engagement the agent can speak first. Try it in the Foundry playground; in Python the package is azure-ai-voicelive.","ro":"Azure Speech mein Voice Live guftagu ke liye speech to text, soch aur text to speech ko ek managed API mein jorta hai. Generative model aur awaaz chunte, audio bhejte aur bole gaye jawab lete hain; ye baat kaatna sambhalta hai aur avatar dikha sakta hai. Proactive engagement ke saath agent pehle bol sakta hai. Foundry playground mein azmayein; Python mein package azure-ai-voicelive hai."}
+      ],
+      "flows": [
+        { "title": {"en":"The chain that Voice Live replaces","ro":"Woh chain jis ki jagah Voice Live leta hai"}, "steps": [
+          { "title": "Speech to text", "text": "audio → text" },
+          { "title": {"en":"Model or agent","ro":"Model ya agent"}, "text": {"en":"decides the answer","ro":"jawab tay karta hai"} },
+          { "title": "Text to speech", "text": "text → audio" }
+        ] }
+      ]
+    }
   ],
   "how": [
     {"en":"Match the format value to the real file type.","ro":"format ki value asal file ke mutabiq rakhein."},

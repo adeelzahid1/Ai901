@@ -1,0 +1,93 @@
+[
+  {
+    "id": "D1-538", "sub": "workload-scenarios", "diff": 1, "type": "mcq",
+    "q": "One agent collects market data, another analyzes it and a third writes the report and sends it. What is this kind of solution called?",
+    "opts": ["A multimodal model", "A multi-agent system", "A knowledge base", "A batch deployment"],
+    "ans": 1,
+    "exp": "In a multi-agent system, several agents with their own specialty work together on a workflow. A multimodal model accepts several media types, a knowledge base stores information for retrieval, and a batch deployment processes requests later at lower cost.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-539", "sub": "workload-scenarios", "diff": 2, "type": "match",
+    "q": "Match each part of an AI agent to its role. Each role is used once or not at all.",
+    "items": ["Large language model", "Instructions", "Knowledge tool", "Action tool"],
+    "targets": [
+      "Searches a database for facts",
+      "Understands the request and reasons about it",
+      "Sends an email or updates a calendar",
+      "Stores the training data of the model",
+      "Describe the job and the limits of the agent"
+    ],
+    "ans": [1, 4, 0, 2],
+    "exp": "The model is the brain, instructions are the job description, knowledge tools bring information and action tools change something in the world. The training data was used earlier and is not a part of an agent.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-540", "sub": "workload-scenarios", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about multi-agent systems, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Each agent can have its own instructions and tools.",
+      "Agents can pass tasks to each other through prompts.",
+      "A multi-agent system removes the need for human oversight.",
+      "A simple FAQ assistant needs several agents."
+    ],
+    "ans": [true, true, false, false],
+    "exp": "Yes for the first two: agents are specialized and communicate through prompts. No for the third: the more a system acts on its own, the more important oversight is. No for the fourth: one agent or even a plain chat app is enough for a simple task.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/"
+  },
+  {
+    "id": "D1-541", "sub": "workload-scenarios", "diff": 2, "type": "mcq",
+    "q": "Warehouse workers wear gloves and want to ask for stock levels by talking and to hear the answer. Which capability do they need?",
+    "opts": ["Batch transcription", "Optical character recognition", "Image generation", "Speech to speech"],
+    "ans": 3,
+    "exp": "Speech to speech takes spoken input and gives spoken output in a conversation. Batch transcription only creates text from stored recordings, OCR reads text in images, and image generation creates pictures.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D1-542", "sub": "model-choice", "diff": 2, "type": "mcq",
+    "q": "A bank wants models that Microsoft hosts under its own product terms with service level agreements. Which group of the Foundry model catalog should it look at?",
+    "opts": [
+      "Models from partners and the community",
+      "Models sold directly by Azure",
+      "Models with the smallest context window",
+      "Models that a user has fine-tuned"
+    ],
+    "ans": 1,
+    "exp": "Models sold directly by Azure are hosted by Microsoft under Microsoft Product Terms with strong integration and service level agreements. Models from partners and the community come from other vendors or open source. Context size and fine-tuning say nothing about the terms.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D1-543", "sub": "model-choice", "diff": 1, "type": "match",
+    "q": "Match each model family in the Foundry catalog to its provider. Each provider is used once or not at all.",
+    "items": ["GPT", "Claude", "MAI", "Llama"],
+    "targets": ["Microsoft AI", "Black Forest Labs", "OpenAI", "Meta", "Anthropic"],
+    "ans": [2, 4, 0, 3],
+    "exp": "GPT models come from OpenAI, Claude from Anthropic, MAI from Microsoft AI and Llama from Meta. Black Forest Labs makes the FLUX image models. All of them can be found in the catalog, and availability depends on region and quota.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-ai-in-azure/"
+  },
+  {
+    "id": "D1-544", "sub": "model-choice", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about the Foundry model catalog, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "It contains models from OpenAI and no other provider.",
+      "Some models are limited to certain regions.",
+      "Benchmark results can be compared before a model is deployed."
+    ],
+    "ans": [false, true, true],
+    "exp": "No for the first: the catalog has models from many providers, for example Microsoft, Anthropic, Meta and Mistral. Yes for the second: region and quota restrict some models. Yes for the third: leaderboards and model cards help you compare quality, safety and cost.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-with-generative-ai-and-agents/"
+  },
+  {
+    "id": "D1-545", "sub": "workload-scenarios", "diff": 2, "type": "mcq",
+    "q": "An agent must answer from current company policies that were not in its training data. What does it need?",
+    "opts": [
+      "A longer greeting",
+      "A higher temperature for each of its answers",
+      "A second model of the same kind and size",
+      "A connection to a knowledge source"
+    ],
+    "ans": 3,
+    "exp": "A model knows only what it learned during training, so current private information has to be retrieved from a knowledge source and added to the prompt. A higher temperature makes answers less predictable, and a second model or a greeting adds no facts.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  }
+]

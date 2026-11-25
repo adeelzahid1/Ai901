@@ -1,5 +1,5 @@
 {
-  "id": "model-choice", "minutes": 4,
+  "id": "model-choice", "minutes": 5,
   "main": {"en":"Choose the smallest and cheapest model that does the task with enough quality, speed and the right inputs and outputs.","ro":"Woh sab se chhota aur sasta model chunein jo kaam kaafi quality, raftaar aur sahi input/output ke saath kare."},
   "explain": [
     {"en":"Start with the task: what goes in and what must come out? Text to text needs a language model. Images as input need a multimodal model. New pictures need an image model. Speech in and out needs an audio model. Search by meaning needs an embedding model.","ro":"Kaam se shuru karein: kya andar jata hai aur kya bahar aana chahiye? Text se text ke liye language model. Image input ke liye multimodal model. Nayi tasveer ke liye image model. Awaaz ke liye audio model. Matlab se talash ke liye embedding model."},
@@ -18,6 +18,21 @@
   "deep": [
     {"en":"Benchmarks in the catalog compare models by quality, safety, cost and throughput. They use public test sets, so they show a direction and not your result. A small evaluation with 50 to 100 of your own cases tells more. Also check practical limits: is the model offered in your region and deployment type, does it accept your language, how large is the context window, which license applies?","ro":"Catalog ke benchmarks models ko quality, safety, kharcha aur throughput par muqabla karte hain. Woh aam test sets istemal karte hain, is liye simt batate hain, aap ka nateeja nahi. Apne 50 se 100 cases ki chhoti evaluation zyada batati hai. Amli hadein bhi dekhein: model aap ke region aur deployment type mein hai, aap ki zabaan leta hai, context window kitni hai, license kaunsa hai?"},
     {"en":"Often the best answer is not one model. A small model can sort the requests and pass only the difficult ones to a large model. This keeps quality and lowers cost.","ro":"Aksar behtareen jawab ek model nahi. Chhota model requests baant kar sirf mushkil wali bare model ko de sakta hai. Is se quality rehti hai aur kharcha kam hota hai."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"Who provides the model","ro":"Model kaun deta hai"},
+      "text": [
+        {"en":"The Foundry catalog has two groups. Models sold directly by Azure are hosted by Microsoft under Microsoft Product Terms with service level agreements. Models from partners and the community come from other vendors or open source and are good for special tasks and experiments.","ro":"Foundry catalog mein do groups hain. Models sold directly by Azure ko Microsoft apni Product Terms aur service level agreements ke saath host karta hai. Models from partners and the community doosre vendors ya open source se aate hain aur khaas kaamon aur tajurbon ke liye ache hain."}
+      ],
+      "terms": [
+        { "term": "GPT, gpt-image, Sora", "text": "OpenAI" },
+        { "term": "MAI", "text": "Microsoft AI" },
+        { "term": "Claude", "text": "Anthropic" },
+        { "term": "Llama", "text": "Meta" },
+        { "term": "FLUX", "text": "Black Forest Labs" }
+      ]
+    }
   ],
   "how": [
     {"en":"Read the model card: intended use, limits, license, languages, lifecycle.","ro":"Model card parhein: maqsad, hadein, license, zabaanein, lifecycle."},

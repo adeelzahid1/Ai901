@@ -1,0 +1,427 @@
+[
+  {
+    "id": "D2-738", "sub": "agent-portal", "diff": 1, "type": "mcq",
+    "q": "What is the Model Context Protocol (MCP)?",
+    "opts": [
+      "A way to measure the context window of a model",
+      "An open standard for connecting agents to tools and data",
+      "A format for saving the history of a conversation",
+      "A Microsoft license for using models of other companies"
+    ],
+    "ans": 1,
+    "exp": "MCP defines how an agent (client) finds and calls the tools and data that a server offers, so no special integration code is needed for each service. It does not measure context windows, save histories or license models.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-739", "sub": "agent-portal", "diff": 2, "type": "match",
+    "q": "An agent uses a weather service through MCP. Match each term to its part in this solution. Each part is used once or not at all.",
+    "items": ["MCP client", "MCP server", "Tool"],
+    "targets": [
+      "The function get_forecast that can be called",
+      "The person who asks about the weather",
+      "The agent that sends the request",
+      "The service that offers its functions to agents"
+    ],
+    "ans": [2, 3, 0],
+    "exp": "The client is the agent or the program that runs it, the server is the service that exposes capabilities, and a tool is one capability such as get_forecast. The person talks to the agent and is not a part of the protocol.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-740", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "q": "An agent must use six internal services. What is the main benefit if each service offers an MCP server?",
+    "opts": [
+      "The agent no longer needs a model",
+      "The services become free of charge",
+      "The agent connects to all of them in the same way",
+      "Permissions no longer have to be checked by the services"
+    ],
+    "ans": 2,
+    "exp": "MCP is like a universal adapter: the agent discovers and calls tools with one protocol, and no custom code is written for each service. A model is still needed, and cost and permissions do not go away.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-741", "sub": "agent-portal", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about MCP, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "An MCP server can return data as well as perform actions.",
+      "An agent can discover which tools a server offers.",
+      "Every MCP server must run on the laptop of the developer.",
+      "Several agents can use the same MCP server."
+    ],
+    "ans": [true, true, false, true],
+    "exp": "Yes, Yes, No, Yes. Servers provide data or actions, clients discover the tools, and many agents can share one server. A server can be a managed service in the cloud, for example the Azure Language MCP server.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-742", "sub": "text-app", "diff": 2, "type": "mcq",
+    "q": "An agent for support tickets must mask personal data in the same predictable way each time. What should you add to the agent?",
+    "opts": [
+      "The code interpreter with a long prompt",
+      "A web search for examples of masked text",
+      "The Azure Language MCP server",
+      "A higher temperature for the model"
+    ],
+    "ans": 2,
+    "exp": "The Azure Language MCP server gives the agent deterministic text analysis such as PII detection. A model with a long prompt can vary, web search finds pages but masks nothing, and a higher temperature increases variation.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-743", "sub": "text-app", "diff": 2, "type": "mcq",
+    "q": "You connect the Azure Language MCP server to an agent in the Foundry portal. What do you enter for the connection?",
+    "opts": [
+      "The name of the Foundry resource",
+      "The key of a separate Language resource",
+      "The full text that should be analyzed",
+      "The number of tokens for each minute"
+    ],
+    "ans": 0,
+    "exp": "The connection is configured with the name of the Foundry resource, which already includes the Language tools. A separate Language resource is not needed, the text comes later in the conversation, and tokens per minute belong to a model deployment.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-744", "sub": "agent-portal", "diff": 2, "type": "order",
+    "q": "You build an agent that uses Azure Language in the Foundry portal. Put the steps in order. Not every step is used.",
+    "items": [
+      "Connect the Azure Language MCP server as a tool",
+      "Deploy a model",
+      "Train a custom voice",
+      "Ask the agent to analyze a text in the playground",
+      "Save the model as an agent"
+    ],
+    "ans": [1, 4, 0, 3],
+    "exp": "An agent needs a deployed model, then it is saved as an agent, the MCP server is added as a tool, and a test in the playground shows whether the tool is called. A custom voice is for speech synthesis.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-text-analysis-azure/"
+  },
+  {
+    "id": "D2-745", "sub": "agent-portal", "diff": 1, "type": "mcq",
+    "q": "What is Foundry IQ?",
+    "opts": [
+      "A test that measures how intelligent a model is",
+      "A managed knowledge layer for agents",
+      "A small language model from Microsoft",
+      "A dashboard that shows the cost of all deployments"
+    ],
+    "ans": 1,
+    "exp": "Foundry IQ connects company data and the web with agents through reusable knowledge bases, and it returns relevant passages with citations. It is not a benchmark, a model or a cost report.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-746", "sub": "agent-portal", "diff": 2, "type": "match",
+    "q": "Match each part of Microsoft IQ to the knowledge that it gives to agents. Each description is used once.",
+    "items": ["Foundry IQ", "Web IQ", "Work IQ", "Fabric IQ"],
+    "targets": [
+      "Documents, messages and people in Microsoft 365",
+      "Reusable knowledge bases over company and web sources",
+      "Business meaning of data in Microsoft Fabric",
+      "Current pages, news, images and videos"
+    ],
+    "ans": [1, 3, 0, 2],
+    "exp": "Foundry IQ manages knowledge bases, Web IQ brings current web information, Work IQ gives the context of work in Microsoft 365, and Fabric IQ adds business concepts over data in Fabric.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-747", "sub": "agent-portal", "diff": 2, "type": "match",
+    "q": "Match each component of a Foundry IQ solution to its job. Each job is used once or not at all.",
+    "items": ["Knowledge source", "Knowledge base", "Agentic retrieval", "Azure AI Search"],
+    "targets": [
+      "Plans searches, ranks results and returns source references",
+      "Creates the spoken reply of an agent",
+      "Connects one place with content, such as a SharePoint site",
+      "Provides the indexing and search infrastructure",
+      "Groups related sources behind one interface"
+    ],
+    "ans": [2, 4, 0, 3],
+    "exp": "A source is a connection to content, a base groups sources for one business domain, agentic retrieval plans and ranks the search, and Azure AI Search is the infrastructure below. Spoken replies come from speech services.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-748", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "q": "Three agents need the same finance policies. Today each has its own index, and the answers differ. What solves the problem with the least upkeep?",
+    "opts": [
+      "Copy the policies into the instructions of each of the agents",
+      "Fine-tune one model for each agent",
+      "Give all three agents the same name",
+      "Connect all three to one knowledge base"
+    ],
+    "ans": 3,
+    "exp": "One knowledge base in Foundry IQ serves several agents, so a change or improvement reaches all of them. Copies in instructions get out of date, fine-tuning does not keep facts current, and a name has no effect on knowledge.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-749", "sub": "agent-portal", "diff": 3, "type": "mcq",
+    "q": "A user asks: \"Compare the travel limits of 2025 and 2026 and name who approves exceptions.\" What does agentic retrieval do with this question?",
+    "opts": [
+      "It sends the question unchanged as one keyword search",
+      "It breaks it into subqueries and searches the sources",
+      "It asks the user to write three separate questions",
+      "It answers from the training data of the model"
+    ],
+    "ans": 1,
+    "exp": "Agentic retrieval plans several searches for a complex question, runs them over the knowledge sources, ranks the results and returns them with references. A single keyword search misses parts, and the training data does not contain the private limits.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-750", "sub": "agent-portal", "diff": 2, "type": "order",
+    "q": "Put the steps to ground an agent in company documents with Foundry IQ in order. Not every step is used.",
+    "items": [
+      "Add the knowledge base to the agent as an MCP tool",
+      "Connect an Azure AI Search service",
+      "Fine-tune the model with the documents",
+      "Create a knowledge base with its sources",
+      "Test answers, citations and tool activity",
+      "Write instructions that say when to use it"
+    ],
+    "ans": [1, 3, 0, 5, 4],
+    "exp": "The search service is the base, then the knowledge base and its sources are created, the agent gets it as an MCP tool, instructions tell when and how to use it, and tests check the result. Fine-tuning is not part of grounding.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-751", "sub": "agent-portal", "diff": 3, "type": "mcq",
+    "q": "In the playground, an agent cannot read from its Foundry IQ knowledge base. Which role must the managed identity of the Foundry project have on the Azure AI Search resource?",
+    "opts": [
+      "Search Index Data Reader",
+      "Cognitive Services Speech User",
+      "Billing Reader",
+      "Virtual Machine Contributor"
+    ],
+    "ans": 0,
+    "exp": "Search Index Data Reader allows reading the content of search indexes, which retrieval needs. The speech role is for Azure Speech, Billing Reader shows costs, and Virtual Machine Contributor manages virtual machines.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-752", "sub": "agent-portal", "diff": 2, "type": "dropdown",
+    "q": "Complete the sentences about Foundry IQ.",
+    "tpl": "Foundry IQ uses {0} for indexing and retrieval.\nAn agent calls a knowledge base through {1}.\nAnswers can be checked because retrieval returns {2}.",
+    "opts": [
+      ["Azure Speech", "Azure AI Search", "Azure Vision"],
+      ["an MCP tool", "a custom voice", "SSML"],
+      ["token prices", "citations", "filters"]
+    ],
+    "ans": [1, 0, 1],
+    "exp": "Azure AI Search is the infrastructure, the knowledge base is exposed as an MCP tool, and citations point to the sources. Speech, SSML and custom voice are for audio, and prices or filters do not prove an answer.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-753", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "ctx": "An agent is connected to a knowledge base. When the knowledge base contains nothing about a question, the agent invents a policy.",
+    "q": "What should you add to the instructions?",
+    "opts": [
+      "\"Answer in a friendly and confident tone.\"",
+      "\"Use as many words as the question needs.\"",
+      "\"If the evidence is missing, say that you do not know.\"",
+      "\"Call the knowledge base two times.\""
+    ],
+    "ans": 2,
+    "exp": "Good grounding instructions say when to retrieve, how to use and cite evidence, and what to do without evidence. A confident tone makes inventions more convincing, length does not help, and a second call finds nothing either.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-754", "sub": "agent-portal", "diff": 2, "type": "multi",
+    "q": "Which TWO decisions make a knowledge base more useful? Each correct answer presents a complete solution.",
+    "opts": [
+      "Add each data source of the company, so that nothing can be missing",
+      "Limit it to sources that answer related questions",
+      "Keep old versions of the documents next to the new ones",
+      "Use the system that holds the approved content"
+    ],
+    "ans": [1, 3],
+    "exp": "A clear scope and an authoritative source make retrieval precise. Unrelated sources make it less precise, and old versions contradict the new ones. Fewer but approved sources are better.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-755", "sub": "agent-portal", "diff": 3, "type": "yesno",
+    "q": "For each of the following statements about agents with Foundry IQ, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Connecting a knowledge base guarantees that the agent uses it.",
+      "Retrieval and the final answer should be evaluated separately.",
+      "Tests should include users with different permissions.",
+      "One knowledge base can be used by one agent at most."
+    ],
+    "ans": [false, true, true, false],
+    "exp": "No for the first: instructions must say when to use it. Yes for the second and third: good evidence can still lead to a bad answer, and people must see only what they may read. No for the fourth: several agents can share a knowledge base.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-756", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "q": "Compared with writing your own RAG pipeline, which work does Foundry IQ do for you?",
+    "opts": [
+      "Deciding which documents are approved and correct",
+      "Chunking, embedding and indexing the content",
+      "Writing the tone and the limits of the agent",
+      "Training a new chat model on the company data"
+    ],
+    "ans": 1,
+    "exp": "Foundry IQ prepares indexed content with chunking, embeddings and metadata and plans the retrieval. People still choose the approved sources and write the instructions, and no new model is trained.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-iq/"
+  },
+  {
+    "id": "D2-757", "sub": "agent-portal", "diff": 1, "type": "match",
+    "q": "Match each capability of a voice agent to what it does. Each description is used once or not at all.",
+    "items": ["Listening", "Reasoning", "Speaking"],
+    "targets": [
+      "Decides how to respond with model, instructions and tools",
+      "Draws a picture of the caller",
+      "Gives the response in the selected voice",
+      "Receives audio and notices the end of a turn"
+    ],
+    "ans": [3, 0, 2],
+    "exp": "Listening receives the audio and detects turns, reasoning chooses the response, and speaking delivers it as audio. Drawing pictures is image generation and has nothing to do with a voice conversation.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/"
+  },
+  {
+    "id": "D2-758", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "q": "A voice agent uses Basic turn detection. It starts to answer while callers are still thinking in the middle of a sentence. Which change helps?",
+    "opts": [
+      "Choose a different voice",
+      "Shorten the greeting",
+      "Lower the playback speed of the replies",
+      "Increase the silence duration"
+    ],
+    "ans": 3,
+    "exp": "Basic detection ends a turn after a certain silence, so a longer silence duration gives callers time to think, at the price of a later answer. Voice, greeting and playback speed change how the agent sounds and not when a turn ends.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/"
+  },
+  {
+    "id": "D2-759", "sub": "agent-portal", "diff": 2, "type": "match",
+    "q": "Match each symptom of a voice agent to the place where you change it. Each place is used once.",
+    "items": [
+      "Answers are long and lose the topic",
+      "The agent interrupts people",
+      "Names are hard to understand",
+      "Silence while a tool is running"
+    ],
+    "targets": ["Voice selection", "Interim response", "Instructions", "Turn detection"],
+    "ans": [2, 3, 0, 1],
+    "exp": "Length and scope belong in the instructions, timing in turn detection, clarity depends on the voice, and an interim response such as \"One moment\" covers the wait for a tool. Changing only one setting at a time shows what helped.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/"
+  },
+  {
+    "id": "D2-760", "sub": "agent-portal", "diff": 2, "type": "mcq",
+    "q": "What does an interim response such as \"One moment while I check\" tell the caller?",
+    "opts": [
+      "That the action was successful",
+      "That the agent is transferring the call to a person",
+      "That work is in progress",
+      "That the caller should repeat the whole question"
+    ],
+    "ans": 2,
+    "exp": "An interim response covers a pause while a tool runs or an answer is created. It does not say that something succeeded, it is no transfer, and it does not ask for the question again.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/"
+  },
+  {
+    "id": "D2-761", "sub": "agent-portal", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about testing a voice agent, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "Typed questions also test turn detection.",
+      "A different voice makes an answer that is too long shorter.",
+      "A test should include callers who correct themselves."
+    ],
+    "ans": [false, false, true],
+    "exp": "No for the first: typed text uses no audio, so timing and pronunciation stay untested. No for the second: length is controlled by instructions. Yes for the third: interruptions and corrections are normal in a spoken conversation.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/"
+  },
+  {
+    "id": "D2-762", "sub": "agent-portal", "diff": 1, "type": "mcq",
+    "q": "Which instruction suits a voice agent best?",
+    "opts": [
+      "\"Show the prices of all rooms in a table.\"",
+      "\"Keep answers short and ask one question at a time.\"",
+      "\"Repeat the complete policy before each of your answers.\"",
+      "\"Add links to all of the pages that you mention.\""
+    ],
+    "ans": 1,
+    "exp": "Callers cannot scan a page or scroll back, so spoken answers should be short with one question at a time. Tables and links need a screen, and a repeated policy is hard to follow by ear.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/"
+  },
+  {
+    "id": "D2-763", "sub": "agent-portal", "diff": 3, "type": "mcq",
+    "q": "A voice agent without any tools tells a caller: \"Your refund has been sent.\" What is the problem?",
+    "opts": [
+      "It claims an action that it cannot perform",
+      "It should have sent the refund two times",
+      "Its voice does not fit the language",
+      "Its turn detection uses the meaning of the words"
+    ],
+    "ans": 0,
+    "exp": "Explaining a process is different from carrying it out. Without a connected tool and permission nothing was sent, so guardrails in the instructions must forbid such claims. Voice and turn detection have nothing to do with it.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/"
+  },
+  {
+    "id": "D2-764", "sub": "spoken-prompts", "diff": 2, "type": "mcq",
+    "q": "What does the Voice Live API combine in one managed service?",
+    "opts": [
+      "Image analysis, image generation and video",
+      "Speech to text, reasoning and text to speech",
+      "Billing, quotas and roles",
+      "OCR, layout analysis and field extraction for documents"
+    ],
+    "ans": 1,
+    "exp": "Voice Live takes audio in and gives spoken answers back, so you do not build and connect recognition, a model and synthesis yourself. Vision, administration and document extraction are other services.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-765", "sub": "spoken-prompts", "diff": 1, "type": "order",
+    "q": "A speech-to-speech solution with a text model answers a caller. Put the steps in order. Not every step is used.",
+    "items": [
+      "Turn the answer into speech",
+      "Turn the audio into text",
+      "Create an index of the recording",
+      "Decide what to answer"
+    ],
+    "ans": [1, 3, 0],
+    "exp": "Speech recognition creates text, the model or agent decides on the answer, and speech synthesis speaks it. An index is used in search and RAG and is not part of this pipeline. A native speech model would process the audio directly.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-766", "sub": "spoken-prompts", "diff": 1, "type": "mcq",
+    "q": "Which Python package do you install to build an app with the Voice Live API?",
+    "opts": [
+      "azure-ai-textanalytics",
+      "azure-ai-contentunderstanding",
+      "azure-ai-voicelive",
+      "azure-ai-vision-imageanalysis"
+    ],
+    "ans": 2,
+    "exp": "azure-ai-voicelive is the client library for real-time voice sessions. azure-ai-textanalytics is for Azure Language, azure-ai-contentunderstanding for analyzers, and azure-ai-vision-imageanalysis for pictures.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-767", "sub": "spoken-prompts", "diff": 2, "type": "yesno",
+    "q": "For each of the following statements about Azure Speech Voice Live, select Yes if the statement is true. Otherwise, select No.",
+    "stmts": [
+      "You choose a generative AI model for the conversation.",
+      "You have to host the speech models on your own servers.",
+      "With proactive engagement, the agent can start the conversation.",
+      "It can be tried in a playground of the Foundry portal."
+    ],
+    "ans": [true, false, true, true],
+    "exp": "Yes, No, Yes, Yes. Voice Live works with a model that you choose together with its own speech models, the playground lets you try it, and proactive engagement allows the agent to speak first. The service is fully managed by Azure.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-768", "sub": "spoken-prompts", "diff": 2, "type": "match",
+    "q": "Match each need to the speech option that fits best. Each option is used once or not at all.",
+    "items": [
+      "A live conversation in which people can interrupt",
+      "Text of 10,000 recordings in storage",
+      "Reading an article aloud"
+    ],
+    "targets": ["Image Analysis", "Text to speech", "Voice Live", "Batch transcription"],
+    "ans": [2, 3, 1],
+    "exp": "Voice Live handles real-time conversations with interruptions, batch transcription processes many stored files, and text to speech reads text aloud. Image Analysis works with pictures.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-speech-azure/"
+  },
+  {
+    "id": "D2-769", "sub": "spoken-prompts", "diff": 3, "type": "mcq",
+    "q": "A voice agent uses a native speech-to-speech model. Why is reading the transcript not enough to judge a conversation?",
+    "opts": [
+      "The transcript contains the answers in random order",
+      "The model works with the audio, and the transcript is a separate output",
+      "Transcripts are deleted when the caller ends the conversation",
+      "A transcript can be created only for calls of one minute"
+    ],
+    "ans": 1,
+    "exp": "A native speech model processes sound directly, so tone, pauses, interruptions and pronunciation are not visible in the text. Listening to recorded conversations is needed as well. Transcripts are neither random nor limited to one minute.",
+    "ref": "https://learn.microsoft.com/en-us/training/modules/get-started-foundry-voice-agents/"
+  }
+]

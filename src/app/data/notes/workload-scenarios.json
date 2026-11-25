@@ -1,5 +1,5 @@
 {
-  "id": "workload-scenarios", "minutes": 4,
+  "id": "workload-scenarios", "minutes": 5,
   "main": {"en":"Name the workload from the input and the output, then look for words about acting, speaking, seeing or extracting.","ro":"Input aur output se workload pehchanein, phir kaam karne, bolne, dekhne ya nikalne ke alfaaz dekhein."},
   "explain": [
     {"en":"The exam uses six groups: generative AI creates content, agentic AI acts with tools, text analysis finds facts in text, speech converts between audio and text, computer vision understands pictures, and information extraction turns files into fields.","ro":"Exam mein chhe group hain: generative AI content banata hai, agentic AI tools se kaam karta hai, text analysis text mein maloomat dhoondta hai, speech audio aur text badalta hai, computer vision tasveerein samajhta hai, aur information extraction files ko fields banata hai."},
@@ -18,6 +18,14 @@
   "deep": [
     {"en":"Prediction workloads also exist: regression predicts a number, classification predicts a category, clustering groups similar items. In this exam they appear mostly as wrong answers next to the generative and perception workloads, so you should recognize that a price forecast is not generative AI.","ro":"Prediction workloads bhi hote hain: regression number, classification category batata hai, clustering milti cheezein group karta hai. Is exam mein ye zyada tar ghalat jawab ke tor par aate hain, is liye pehchanein ke qeemat ki peshgoi generative AI nahi."},
     {"en":"A good way to think about an agent is a new colleague. It needs a task description (instructions), tools, limits, and somebody who checks important actions. The more it may do alone, the more you need approval steps, logs and least privilege.","ro":"Agent ko naye colleague ki tarah sochein. Usay kaam ki tafseel (instructions), tools, hadein, aur aham kaam check karne wala chahiye. Jitna woh akela kar sakta hai, utni hi manzoori, logs aur kam se kam ikhtiyar chahiye."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"Several agents together","ro":"Kai agents ek saath"},
+      "text": [
+        {"en":"In a multi-agent system each agent has its own instructions and tools: one collects data, one analyzes it, one acts. They talk through prompts. Use it for long workflows with different skills; a simple question needs one agent or only a chat model. People stay responsible and check important actions.","ro":"Multi-agent system mein har agent ki apni instructions aur tools hote hain: ek data jama karta, ek jaiza leta, ek kaam karta hai. Woh prompts se baat karte hain. Mukhtalif maharaton wale lambe workflow ke liye istemal karein; sada sawal ko ek agent ya sirf chat model kaafi hai. Log zimmedar rehte aur aham kaam check karte hain."}
+      ]
+    }
   ],
   "how": [
     {"en":"Underline the verbs: write, book, classify, transcribe, count, extract.","ro":"Fail (verbs) dekhein: likhna, book karna, classify, transcribe, ginna, nikalna."},

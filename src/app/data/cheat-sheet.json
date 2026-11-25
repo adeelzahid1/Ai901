@@ -131,6 +131,27 @@
         ["RAG","extract → chunk → embed → index; search → augment → generate"],
         ["Video job","POST → id → GET status → GET content"]
       ]
+    },
+    {
+      "id": "iq", "domain": "D2", "title": {"en":"Knowledge for agents","ro":"Agents ki maloomat"},
+      "head": [{"en":"Name","ro":"Naam"},{"en":"Gives","ro":"Kya deta hai"}],
+      "rows": [
+        ["Foundry IQ",{"en":"knowledge bases over company and web sources","ro":"company aur web sources par knowledge bases"}],
+        ["Web IQ",{"en":"current web content","ro":"web ka taza content"}],
+        ["Work IQ",{"en":"context from Microsoft 365","ro":"Microsoft 365 ka context"}],
+        ["Fabric IQ",{"en":"business meaning in Microsoft Fabric","ro":"Microsoft Fabric mein karobari matlab"}],
+        ["MCP",{"en":"the standard way to connect tools and knowledge","ro":"tools aur maloomat jorne ka standard tareeqa"}]
+      ]
+    },
+    {
+      "id": "voice-agent", "domain": "D2", "title": {"en":"Voice agent: symptom → setting","ro":"Voice agent: alamat → setting"},
+      "head": [{"en":"Symptom","ro":"Alamat"},"Setting"],
+      "rows": [
+        [{"en":"answers too long","ro":"jawab bohat lambe"},"Instructions"],
+        [{"en":"interrupts or waits too long","ro":"baat kaatta ya bohat intezar karta hai"},"Turn detection"],
+        [{"en":"hard to understand","ro":"samajhna mushkil"},{"en":"Voice, playback speed","ro":"Awaaz, playback speed"}],
+        [{"en":"silence while a tool runs","ro":"tool chalte waqt khamoshi"},"Interim response"]
+      ]
     }
   ],
   "code": [

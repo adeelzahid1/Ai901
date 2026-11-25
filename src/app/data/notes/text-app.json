@@ -1,5 +1,5 @@
 {
-  "id": "text-app", "minutes": 6,
+  "id": "text-app", "minutes": 7,
   "main": {"en":"Create a TextAnalyticsClient, send a list of documents, check each result for an error, then read its properties.","ro":"TextAnalyticsClient banayein, documents ki list bhejein, har nateeje mein error dekhein, phir us ki properties parhein."},
   "explain": [
     {"en":"The package is azure-ai-textanalytics. The client needs an endpoint and a credential (key or Entra ID). Every method takes a list and returns a list in the same order, and each item can fail on its own. So the pattern is always: call, loop, check is_error, read.","ro":"Package azure-ai-textanalytics hai. Client ko endpoint aur credential (key ya Entra ID) chahiye. Har method list leta hai aur usi tarteeb mein list deta hai, aur har item alag fail ho sakta hai. Is liye tareeqa hamesha: call, loop, is_error dekhein, parhein."},
@@ -19,6 +19,12 @@
         {"en":"Plan for changes: summarization and key phrase extraction retire from Azure Language on 31 March 2029. Microsoft sends new projects to models in Foundry.","ro":"Tabdeeliyan zehen mein rakhein: summarization aur key phrase extraction 31 March 2029 ko Azure Language se retire honge. Microsoft naye projects ko Foundry ke models ki taraf bhejta hai."}
       ],
       "code": "client = OpenAI(base_url=os.getenv(\"AZURE_OPENAI_ENDPOINT\"), api_key=os.getenv(\"API_KEY\"))\n\nr = client.responses.create(\n    model=os.getenv(\"MODEL_DEPLOYMENT_NAME\"),\n    instructions=\"Answer with one word: positive, neutral or negative.\",\n    input=\"The room was clean, but the staff was rude.\",\n)\nprint(r.output_text)"
+    },
+    {
+      "title": {"en":"Azure Language in an agent","ro":"Agent mein Azure Language"},
+      "text": [
+        {"en":"A model alone may answer a little differently each time. With the Azure Language MCP server as a tool, an agent gets predictable text analysis: language detection, entities, PII and more. In the Foundry portal: deploy a model, save it as an agent, add the tool Azure Language in Foundry Tools, enter the name of the Foundry resource, test. No separate Language resource is needed.","ro":"Akela model har dafa thora mukhtalif jawab de sakta hai. Azure Language MCP server tool ho to agent ko yaqeeni text analysis milta hai: language detection, entities, PII waghera. Foundry portal mein: model deploy karein, agent ke taur par save karein, tool Azure Language in Foundry Tools jorein, Foundry resource ka naam likhein, test karein. Alag Language resource nahi chahiye."}
+      ]
     }
   ],
   "how": [

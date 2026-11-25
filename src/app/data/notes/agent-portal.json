@@ -1,5 +1,5 @@
 {
-  "id": "agent-portal", "minutes": 6,
+  "id": "agent-portal", "minutes": 11,
   "main": {"en":"A prompt agent is a saved combination of model, instructions and tools that Foundry runs for you.","ro":"Prompt agent model, instructions aur tools ka mehfooz majmua hai jise Foundry aap ke liye chalata hai."},
   "explain": [
     {"en":"Foundry Agent Service offers three agent types. Prompt agents are configured without code, the fastest way. Voice-based prompt agents talk in real time. Hosted agents run your own code as a container. For this exam, the single prompt agent is the important one.","ro":"Foundry Agent Service mein teen qisam ke agents hain. Prompt agents baghair code ke configure hote hain, sab se tez raasta. Voice-based prompt agents real time mein baat karte hain. Hosted agents aap ka apna code container mein chalate hain. Is exam ke liye akela prompt agent aham hai."},
@@ -19,6 +19,56 @@
   },
   "deep": [
     {"en":"Instructions work best with a clear order: who you are, what you do, what you never do, when to use which tool, how to answer, what to do when you are unsure. Short sentences beat long paragraphs. If the agent picks the wrong tool, improve the description of the tool before you add more rules.","ro":"Instructions wazeh tarteeb mein behtar chalti hain: aap kaun hain, kya karte hain, kya kabhi nahi, kaunsa tool kab, jawab kaise, shak ho to kya. Chhote jumlay lambe paragraphs se behtar hain. Agent ghalat tool chune to usool barhane se pehle tool ki description behtar karein."}
+  ],
+  "topics": [
+    {
+      "title": {"en":"MCP: one way to connect tools","ro":"MCP: tools jorne ka ek tareeqa"},
+      "text": [
+        {"en":"The Model Context Protocol is an open standard. The agent is the client, a service is the server, and the server tells the client which tools it offers. You connect a server once and need no special code for each service. Permissions still count: connect only servers that you trust and ask for approval before risky actions.","ro":"Model Context Protocol open standard hai. Agent client hai, service server hai, aur server client ko batata hai kaunse tools deta hai. Server ek dafa jorte hain, har service ka khaas code nahi chahiye. Ijazatein phir bhi aham hain: sirf bharose wale servers jorein aur khatre wale kaam se pehle manzoori lein."}
+      ],
+      "flows": [
+        { "title": {"en":"A tool call over MCP","ro":"MCP par tool call"}, "steps": [
+          { "title": "User", "text": {"en":"asks a question","ro":"sawal poochta hai"} },
+          { "title": "Agent (client)", "text": {"en":"chooses a tool","ro":"tool chunta hai"} },
+          { "title": "MCP server", "text": {"en":"runs it and returns data","ro":"chala kar data deta hai"} },
+          { "title": "Agent", "text": {"en":"answers with the result","ro":"nateeje se jawab deta hai"} }
+        ] }
+      ]
+    },
+    {
+      "title": {"en":"Foundry IQ: shared knowledge for agents","ro":"Foundry IQ: agents ki mushtarka maloomat"},
+      "text": [
+        {"en":"Foundry IQ is a managed knowledge layer on top of Azure AI Search. You create a knowledge base for a business domain, add knowledge sources (Blob Storage, SharePoint, OneLake, web, a search index), and connect it to agents as an MCP tool. It does chunking, embeddings and indexing, and it respects permissions.","ro":"Foundry IQ Azure AI Search ke upar managed knowledge layer hai. Ek karobari domain ka knowledge base banate, knowledge sources (Blob Storage, SharePoint, OneLake, web, search index) jorte aur usay MCP tool ke taur par agents se jorte hain. Chunking, embeddings aur indexing woh karta hai, aur ijazatein manta hai."},
+        {"en":"Agentic retrieval breaks a complex question into subqueries, searches several sources, ranks the results and returns citations. The instructions still have to say when to use the knowledge, how to cite it and what to do when evidence is missing. The module was last updated in November 2026, so learn it after the core topics.","ro":"Agentic retrieval pecheeda sawal ko subqueries mein baantti, kai sources mein talash karti, nateeje rank karti aur citations deti hai. Instructions ko phir bhi batana hai ke maloomat kab istemal ho, kaise cite ho aur saboot na ho to kya ho. Module November 2026 mein update hua, is liye bunyadi topics ke baad seekhein."}
+      ],
+      "flows": [
+        { "title": "Setup", "steps": [
+          { "title": "Azure AI Search", "text": "role: Search Index Data Reader" },
+          { "title": "Knowledge base", "text": {"en":"with its sources","ro":"apne sources ke saath"} },
+          { "title": "Agent", "text": {"en":"knowledge base as MCP tool","ro":"knowledge base MCP tool ke taur par"} },
+          { "title": "Instructions", "text": {"en":"when, how, what if nothing","ro":"kab, kaise, kuch na ho to kya"} },
+          { "title": "Test", "text": {"en":"retrieval and answer apart","ro":"retrieval aur jawab alag"} }
+        ] }
+      ],
+      "terms": [
+        { "term": "Foundry IQ", "text": {"en":"Knowledge bases over company and web sources.","ro":"Company aur web sources par knowledge bases."} },
+        { "term": "Web IQ", "text": {"en":"Current web pages, news, images, videos.","ro":"Taza web pages, khabrein, images, videos."} },
+        { "term": "Work IQ", "text": {"en":"Work context from Microsoft 365.","ro":"Microsoft 365 ka kaam ka context."} },
+        { "term": "Fabric IQ", "text": {"en":"Business meaning of data in Microsoft Fabric.","ro":"Microsoft Fabric ke data ka karobari matlab."} }
+      ]
+    },
+    {
+      "title": "Voice agents",
+      "text": [
+        {"en":"A voice agent listens, reasons and speaks. Its instructions have five parts: personality, environment, tone, goal and guardrails. Spoken answers must be short, with one question at a time, because callers cannot scroll back.","ro":"Voice agent sunta, sochta aur bolta hai. Us ki instructions ke paanch hissay hain: personality, environment, tone, goal aur guardrails. Bole gaye jawab chhote hon aur ek waqt mein ek sawal, kyunke caller wapas scroll nahi kar sakta."},
+        {"en":"A native speech-to-speech model works with the audio itself. A text model uses a chain: recognition, answer, synthesis. Test with real speech: typed questions do not test timing and pronunciation.","ro":"Native speech-to-speech model audio par hi kaam karta hai. Text model chain istemal karta hai: recognition, jawab, synthesis. Asal awaaz se test karein: type kiye sawal timing aur talaffuz test nahi karte."}
+      ],
+      "terms": [
+        { "term": "Turn detection", "text": {"en":"Decides when the caller has finished. Azure semantic uses meaning; Basic uses volume and silence duration.","ro":"Tay karti hai caller ki baat kab khatam hui. Azure semantic matlab istemal karti hai; Basic volume aur silence duration."} },
+        { "term": "Interim response", "text": {"en":"Short words during a wait. They do not mean success.","ro":"Intezar ke dauran chhote alfaaz. Kamyabi ka matlab nahi."} },
+        { "term": {"en":"Symptom → setting","ro":"Alamat → setting"}, "text": {"en":"Too long → instructions. Interrupts → turn detection. Unclear → voice. Silence during a tool → interim response.","ro":"Bohat lamba → instructions. Baat kaatta hai → turn detection. Na-samajh → awaaz. Tool par khamoshi → interim response."} }
+      ]
+    }
   ],
   "how": [
     {"en":"Start with one tool and add more only when a test needs it.","ro":"Ek tool se shuru karein, aur tab barhayein jab test ko zaroorat ho."},

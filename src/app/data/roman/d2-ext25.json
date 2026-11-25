@@ -1,0 +1,312 @@
+{
+  "D2-738": {
+    "q": "Model Context Protocol (MCP) kya hai?",
+    "opts": [
+      "Model ki context window naapne ka tareeqa",
+      "Agents ko tools aur data se jorne ka open standard",
+      "Guftagu ki history save karne ka format",
+      "Doosri companies ke models ka Microsoft license"
+    ],
+    "exp": "MCP batata hai ke agent (client) server ke tools aur data kaise dhoonde aur call kare, is liye har service ke liye khaas code nahi chahiye. Ye context window nahi naapta, history save nahi karta aur models ka license nahi."
+  },
+  "D2-739": {
+    "q": "Ek agent MCP ke zariye weather service istemal karta hai. Har term ko is hal mein us ke hissay se milayein. Har hissa ek dafa ya bilkul istemal nahi hoga.",
+    "items": ["MCP client", "MCP server", "Tool"],
+    "targets": [
+      "Function get_forecast jise call kiya ja sakta hai",
+      "Mausam poochne wala shakhs",
+      "Request bhejne wala agent",
+      "Agents ko apne functions dene wali service"
+    ],
+    "exp": "Client agent ya usay chalane wala program hai, server woh service hai jo salahiyatein deti hai, aur tool ek salahiyat hai jaise get_forecast. Shakhs agent se baat karta hai aur protocol ka hissa nahi."
+  },
+  "D2-740": {
+    "q": "Agent ko chhe andaruni services istemal karni hain. Har service MCP server de to asal faida kya hai?",
+    "opts": [
+      "Agent ko model ki zaroorat nahi rehti",
+      "Services muft ho jati hain",
+      "Agent sab se ek hi tareeqe se jurta hai",
+      "Services ko ijazat check nahi karni parti"
+    ],
+    "exp": "MCP universal adapter ki tarah hai: agent ek protocol se tools dhoondta aur call karta hai, har service ke liye alag code nahi likha jata. Model phir bhi chahiye, aur kharcha aur ijazatein khatam nahi hotin."
+  },
+  "D2-741": {
+    "q": "MCP ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "MCP server data de sakta hai aur kaam bhi kar sakta hai.",
+      "Agent dekh sakta hai ke server kaunse tools deta hai.",
+      "Har MCP server developer ke laptop par chalna zaroori hai.",
+      "Kai agents ek hi MCP server istemal kar sakte hain."
+    ],
+    "exp": "Haan, Haan, Nahi, Haan. Servers data ya kaam dete hain, clients tools dhoondte hain, aur kai agents ek server bant sakte hain. Server cloud ki managed service ho sakta hai, jaise Azure Language MCP server."
+  },
+  "D2-742": {
+    "q": "Support tickets ke agent ko har baar ek jaise yaqeeni tareeqe se zaati data chupana hai. Agent mein kya jorna chahiye?",
+    "opts": [
+      "Lambe prompt ke saath code interpreter",
+      "Chhupe hue text ki misalon ke liye web search",
+      "Azure Language MCP server",
+      "Model ke liye zyada temperature"
+    ],
+    "exp": "Azure Language MCP server agent ko yaqeeni text analysis deta hai, jaise PII detection. Lambe prompt wala model mukhtalif jawab de sakta hai, web search pages dhoondti hai lekin chupati nahi, aur zyada temperature farq barhata hai."
+  },
+  "D2-743": {
+    "q": "Aap Foundry portal mein agent ko Azure Language MCP server se jorte hain. Connection ke liye kya likhte hain?",
+    "opts": [
+      "Foundry resource ka naam",
+      "Alag Language resource ki key",
+      "Poora text jis ka jaiza lena hai",
+      "Har minute ke tokens ki tadad"
+    ],
+    "exp": "Connection Foundry resource ke naam se banta hai, jis mein Language tools pehle se hain. Alag Language resource nahi chahiye, text baad mein guftagu mein aata hai, aur tokens per minute model deployment ka hai."
+  },
+  "D2-744": {
+    "q": "Aap Foundry portal mein Azure Language istemal karne wala agent banate hain. Qadam tarteeb se lagayein. Har qadam istemal nahi hoga.",
+    "items": [
+      "Azure Language MCP server ko tool ke taur par jorna",
+      "Model deploy karna",
+      "Custom voice train karna",
+      "Playground mein agent se text ka jaiza karwana",
+      "Model ko agent ke taur par save karna"
+    ],
+    "exp": "Agent ko deploy kiya model chahiye, phir woh agent ke taur par save hota hai, MCP server tool ke taur par jurta hai, aur playground ka test dikhata hai ke tool call hua ya nahi. Custom voice speech synthesis ke liye hai."
+  },
+  "D2-745": {
+    "q": "Foundry IQ kya hai?",
+    "opts": [
+      "Model ki zahanat naapne wala test",
+      "Agents ke liye managed knowledge layer",
+      "Microsoft ka chhota language model",
+      "Tamam deployments ka kharcha dikhane wala dashboard"
+    ],
+    "exp": "Foundry IQ company ke data aur web ko dobara istemal hone wale knowledge bases ke zariye agents se jorta hai, aur citations ke saath munasib hissay deta hai. Ye benchmark, model ya kharche ki report nahi."
+  },
+  "D2-746": {
+    "q": "Microsoft IQ ke har hissay ko us maloomat se milayein jo woh agents ko deta hai. Har description ek dafa istemal hogi.",
+    "targets": [
+      "Microsoft 365 ke documents, messages aur log",
+      "Company aur web sources par dobara istemal hone wale knowledge bases",
+      "Microsoft Fabric ke data ka karobari matlab",
+      "Taza pages, khabrein, images aur videos"
+    ],
+    "exp": "Foundry IQ knowledge bases sambhalta hai, Web IQ web ki taza maloomat lata hai, Work IQ Microsoft 365 ka kaam ka context deta hai, aur Fabric IQ Fabric ke data par karobari concepts jorta hai."
+  },
+  "D2-747": {
+    "q": "Foundry IQ hal ke har hissay ko us ke kaam se milayein. Har kaam ek dafa ya bilkul istemal nahi hoga.",
+    "targets": [
+      "Talash ka plan, nateejon ki ranking aur source ke hawalay",
+      "Agent ka bola gaya jawab banata hai",
+      "Content ki ek jagah jorta hai, jaise SharePoint site",
+      "Indexing aur talash ka infrastructure deta hai",
+      "Mutaalliq sources ko ek interface ke peeche jama karta hai"
+    ],
+    "exp": "Source content ka connection hai, base ek karobari domain ke sources jama karta hai, agentic retrieval talash ka plan aur ranking karti hai, aur Azure AI Search neeche ka infrastructure hai. Bole gaye jawab speech services se aate hain."
+  },
+  "D2-748": {
+    "q": "Teen agents ko wahi finance policies chahiyein. Aaj har ek ka apna index hai aur jawab mukhtalif hain. Kam dekh bhaal mein masla kaise hal ho?",
+    "opts": [
+      "Policies har agent ki instructions mein copy karna",
+      "Har agent ke liye ek model fine-tune karna",
+      "Teenon agents ko ek naam dena",
+      "Teenon ko ek knowledge base se jorna"
+    ],
+    "exp": "Foundry IQ ka ek knowledge base kai agents ko kaam deta hai, is liye tabdeeli sab tak pohanchti hai. Instructions ki copies purani ho jati hain, fine-tuning haqaiq taza nahi rakhti, aur naam ka maloomat par asar nahi."
+  },
+  "D2-749": {
+    "q": "User poochta hai: \"2025 aur 2026 ki travel limits ka muqabla karo aur batao exceptions kaun manzoor karta hai.\" Agentic retrieval is sawal ke saath kya karti hai?",
+    "opts": [
+      "Sawal ko bina badle ek keyword search mein bhejti hai",
+      "Usay subqueries mein baant kar sources mein talash karti hai",
+      "User se teen alag sawal likhne ko kehti hai",
+      "Model ke training data se jawab deti hai"
+    ],
+    "exp": "Agentic retrieval pecheeda sawal ke liye kai talashon ka plan banati, knowledge sources par chalati, nateeje rank karti aur hawalay ke saath deti hai. Ek keyword search kuch hissay chhor deti hai, aur training data mein andaruni limits nahi hotin."
+  },
+  "D2-750": {
+    "q": "Foundry IQ se agent ko company documents par ground karne ke qadam tarteeb se lagayein. Har qadam istemal nahi hoga.",
+    "items": [
+      "Knowledge base ko MCP tool ke taur par agent mein jorna",
+      "Azure AI Search service jorna",
+      "Documents se model fine-tune karna",
+      "Sources ke saath knowledge base banana",
+      "Jawab, citations aur tool activity test karna",
+      "Instructions likhna ke kab istemal karna hai"
+    ],
+    "exp": "Search service bunyad hai, phir knowledge base aur us ke sources bante hain, agent ko woh MCP tool ke taur par milta hai, instructions batati hain kab aur kaise istemal ho, aur tests nateeja check karte hain. Fine-tuning grounding ka hissa nahi."
+  },
+  "D2-751": {
+    "q": "Playground mein agent apne Foundry IQ knowledge base se parh nahi sakta. Foundry project ki managed identity ke paas Azure AI Search resource par kaunsa role hona chahiye?",
+    "exp": "Search Index Data Reader search indexes ka content parhne deta hai, jo retrieval ko chahiye. Speech role Azure Speech ke liye hai, Billing Reader kharcha dikhata hai, aur Virtual Machine Contributor virtual machines sambhalta hai."
+  },
+  "D2-752": {
+    "q": "Foundry IQ ke jumlay mukammal karein.",
+    "tpl": "Foundry IQ indexing aur retrieval ke liye {0} istemal karta hai.\nAgent knowledge base ko {1} se call karta hai.\nJawab check ho sakte hain kyunke retrieval {2} deti hai.",
+    "blanks": [null, null, ["token ki qeematein","citations","filters"]],
+    "exp": "Azure AI Search infrastructure hai, knowledge base MCP tool ke taur par milta hai, aur citations sources dikhati hain. Speech, SSML aur custom voice audio ke liye hain, aur qeematein ya filters jawab sabit nahi karte."
+  },
+  "D2-753": {
+    "q": "Instructions mein kya shamil karna chahiye?",
+    "ctx": "Agent knowledge base se jura hai. Jab knowledge base mein sawal ka kuch na ho to agent policy ghar leta hai.",
+    "opts": [
+      "\"Dostana aur pur-aitmaad lehje mein jawab do.\"",
+      "\"Sawal ke mutabiq jitne alfaaz chahiyein istemal karo.\"",
+      "\"Saboot na ho to kaho ke maloom nahi.\"",
+      "\"Knowledge base ko do dafa call karo.\""
+    ],
+    "exp": "Achi grounding instructions batati hain kab talash karein, saboot kaise istemal aur cite karein, aur saboot na ho to kya karein. Pur-aitmaad lehja ghari hui baat ko zyada sachcha banata hai, lambai madad nahi karti, aur doosri call bhi kuch nahi dhoondti."
+  },
+  "D2-754": {
+    "q": "Kaunse DO faislay knowledge base ko zyada mufeed banate hain? Har sahi jawab mukammal hal hai.",
+    "opts": [
+      "Company ka har data source jorna taake kuch kam na ho",
+      "Usay mutaalliq sawalon ke sources tak rakhna",
+      "Documents ke purane versions naye ke saath rakhna",
+      "Manzoor shuda content wala system istemal karna"
+    ],
+    "exp": "Wazeh scope aur mustanad source retrieval ko durust banate hain. Ghair mutaalliq sources usay kam durust karte hain, aur purane versions naye se takrate hain. Is liye kam lekin sahi sources behtar hain."
+  },
+  "D2-755": {
+    "q": "Foundry IQ wale agents ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Knowledge base jorne se agent ka usay istemal karna yaqeeni ho jata hai.",
+      "Retrieval aur aakhri jawab alag alag parakhne chahiyein.",
+      "Tests mein mukhtalif ijazat wale users hone chahiyein.",
+      "Ek knowledge base zyada se zyada ek agent istemal kar sakta hai."
+    ],
+    "exp": "Pehle ka jawab Nahi: instructions ko batana hota hai kab istemal karein. Doosre aur teesre ka Haan: ache saboot se bhi kharab jawab ban sakta hai, aur log sirf woh dekhein jis ki ijazat ho. Chauthe ka Nahi: kai agents ek knowledge base bant sakte hain."
+  },
+  "D2-756": {
+    "q": "Apni RAG pipeline likhne ke muqable mein Foundry IQ aap ke liye kaunsa kaam karta hai?",
+    "opts": [
+      "Tay karna ke kaunse documents manzoor aur sahi hain",
+      "Content ki chunking, embedding aur indexing",
+      "Agent ka lehja aur hadein likhna",
+      "Company data par naya chat model train karna"
+    ],
+    "exp": "Foundry IQ content ko chunking, embeddings aur metadata ke saath tayyar karta aur retrieval ka plan banata hai. Manzoor shuda sources log hi chunte aur instructions likhte hain, aur koi naya model train nahi hota."
+  },
+  "D2-757": {
+    "q": "Voice agent ki har salahiyat ko us ke kaam se milayein. Har description ek dafa ya bilkul istemal nahi hogi.",
+    "targets": [
+      "Model, instructions aur tools se jawab tay karti hai",
+      "Caller ki tasveer banati hai",
+      "Chuni hui awaaz mein jawab deti hai",
+      "Audio leti aur baari ka khatma pehchanti hai"
+    ],
+    "exp": "Listening audio leti aur baari pehchanti hai, reasoning jawab chunti hai, aur speaking usay awaaz mein deti hai. Tasveer banana image generation hai, voice guftagu se us ka taalluq nahi."
+  },
+  "D2-758": {
+    "q": "Voice agent Basic turn detection istemal karta hai. Callers jumlay ke beech soch rahe hon to woh jawab shuru kar deta hai. Kaunsi tabdeeli madad karti hai?",
+    "opts": [
+      "Doosri awaaz chunna",
+      "Salam chhota karna",
+      "Jawabon ki playback speed kam karna",
+      "Silence duration barhana"
+    ],
+    "exp": "Basic detection kuch khamoshi ke baad baari khatam karti hai, is liye lambi silence duration sochne ka waqt deti hai, halanke jawab der se aata hai. Awaaz, salam aur playback speed agent ki awaaz badalte hain, baari ka khatma nahi."
+  },
+  "D2-759": {
+    "q": "Voice agent ki har alamat ko us jagah se milayein jahan aap usay badalte hain. Har jagah ek dafa istemal hogi.",
+    "items": [
+      "Jawab lambe hain aur mauzoo se hat jate hain",
+      "Agent logon ki baat kaatta hai",
+      "Naam samajhna mushkil hai",
+      "Tool chalte waqt khamoshi"
+    ],
+    "targets": ["Awaaz ka intikhab", "Interim response", "Instructions", "Turn detection"],
+    "exp": "Lambai aur scope instructions mein, timing turn detection mein, wazahat awaaz par hai, aur \"ek lamha\" jaisa interim response tool ke intezar ko dhanpta hai. Ek waqt mein ek setting badalne se pata chalta hai kis ne madad ki."
+  },
+  "D2-760": {
+    "q": "\"One moment while I check\" jaisa interim response caller ko kya batata hai?",
+    "opts": [
+      "Ke kaam kamyab hua",
+      "Ke agent call kisi insan ko de raha hai",
+      "Ke kaam jari hai",
+      "Ke caller poora sawal dohraye"
+    ],
+    "exp": "Interim response tool chalne ya jawab banne ke waqfay ko dhanpta hai. Ye kamyabi nahi batata, call transfer nahi karta, aur sawal dobara nahi maangta. Kamyabi tab batayi jaye jab tool ne nateeja diya ho."
+  },
+  "D2-761": {
+    "q": "Voice agent test karne ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Type kiye hue sawal turn detection bhi test karte hain.",
+      "Doosri awaaz lambe jawab ko chhota kar deti hai.",
+      "Test mein aise callers hon jo apni baat theek karte hain."
+    ],
+    "exp": "Pehle ka jawab Nahi: type kiye text mein audio nahi, is liye timing aur talaffuz test nahi hote. Doosre ka Nahi: lambai instructions se control hoti hai. Teesre ka Haan: baat kaatna aur theek karna guftagu mein aam hai."
+  },
+  "D2-762": {
+    "q": "Voice agent ke liye kaunsi instruction sab se munasib hai?",
+    "opts": [
+      "\"Tamam kamron ki qeematein table mein dikhao.\"",
+      "\"Jawab chhote rakho aur ek waqt mein ek sawal poocho.\"",
+      "\"Har jawab se pehle poori policy dohrao.\"",
+      "\"Jin pages ka zikr karo un sab ke links do.\""
+    ],
+    "exp": "Callers page nahi dekh sakte aur wapas scroll nahi kar sakte, is liye bole gaye jawab chhote aur ek waqt mein ek sawal hon. Tables aur links ko screen chahiye, aur dohrayi hui policy sun kar samajhna mushkil hai."
+  },
+  "D2-763": {
+    "q": "Baghair tools wala voice agent caller se kehta hai: \"Aap ka refund bhej diya gaya.\" Masla kya hai?",
+    "opts": [
+      "Woh aise kaam ka dawa karta hai jo kar nahi sakta",
+      "Usay refund do dafa bhejna chahiye tha",
+      "Us ki awaaz zabaan ke mutabiq nahi",
+      "Us ki turn detection alfaaz ka matlab istemal karti hai"
+    ],
+    "exp": "Tareeqa samjhana aur kaam karna alag hain. Jure hue tool aur ijazat ke baghair kuch nahi bheja gaya, is liye instructions ke guardrails aise dawe se rokein. Awaaz aur turn detection ka is se taalluq nahi."
+  },
+  "D2-764": {
+    "q": "Voice Live API ek managed service mein kya jorta hai?",
+    "opts": [
+      "Image analysis, image generation aur video",
+      "Awaaz se text, reasoning aur text se awaaz",
+      "Billing, quota aur roles",
+      "Documents ke liye OCR, layout analysis aur field extraction"
+    ],
+    "exp": "Voice Live audio leta aur bole gaye jawab deta hai, is liye recognition, model aur synthesis khud banane aur jorne nahi parte. Vision, administration aur document extraction doosri services hain."
+  },
+  "D2-765": {
+    "q": "Text model wala speech-to-speech hal caller ko jawab deta hai. Qadam tarteeb se lagayein. Har qadam istemal nahi hoga.",
+    "items": [
+      "Jawab ko awaaz mein badalna",
+      "Audio ko text mein badalna",
+      "Recording ka index banana",
+      "Tay karna ke kya jawab dena hai"
+    ],
+    "exp": "Speech recognition text banati hai, model ya agent jawab tay karta hai, aur speech synthesis usay bolti hai. Index search aur RAG mein hota hai, is pipeline ka hissa nahi. Native speech model audio ko seedha process karta."
+  },
+  "D2-766": {
+    "q": "Voice Live API ki app banane ke liye kaunsa Python package install karte hain?",
+    "exp": "azure-ai-voicelive real-time voice sessions ki client library hai. azure-ai-textanalytics Azure Language ke liye, azure-ai-contentunderstanding analyzers ke liye, aur azure-ai-vision-imageanalysis tasveeron ke liye hai."
+  },
+  "D2-767": {
+    "q": "Azure Speech Voice Live ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Aap guftagu ke liye generative AI model chunte hain.",
+      "Speech models apne servers par host karne parte hain.",
+      "Proactive engagement ke saath agent guftagu shuru kar sakta hai.",
+      "Usay Foundry portal ke playground mein azmaya ja sakta hai."
+    ],
+    "exp": "Haan, Nahi, Haan, Haan. Voice Live aap ke chune hue model ke saath apne speech models istemal karta hai, playground mein azmaya ja sakta hai, aur proactive engagement agent ko pehle bolne deta hai. Service poori tarah Azure sambhalta hai."
+  },
+  "D2-768": {
+    "q": "Har zaroorat ko sab se munasib speech option se milayein. Har option ek dafa ya bilkul istemal nahi hoga.",
+    "items": [
+      "Zinda guftagu jis mein log baat kaat sakein",
+      "Storage ki 10,000 recordings ka text",
+      "Article bol kar sunana"
+    ],
+    "targets": ["Image Analysis", "Text to speech", "Voice Live", "Batch transcription"],
+    "exp": "Voice Live real-time guftagu aur baat kaatne ko sambhalta hai, batch transcription bohat si rakhi hui files par kaam karti hai, aur text to speech text bol kar sunata hai. Image Analysis tasveeron ke liye hai."
+  },
+  "D2-769": {
+    "q": "Voice agent native speech-to-speech model istemal karta hai. Guftagu parakhne ke liye sirf transcript parhna kaafi kyun nahi?",
+    "opts": [
+      "Transcript mein jawab be-tarteeb hote hain",
+      "Model audio par kaam karta hai, aur transcript alag output hai",
+      "Caller guftagu khatam kare to transcripts delete ho jate hain",
+      "Transcript sirf ek minute ki calls ka ban sakta hai"
+    ],
+    "exp": "Native speech model awaaz ko seedha process karta hai, is liye lehja, waqfay, baat kaatna aur talaffuz text mein nazar nahi aate. Recorded guftagu sunna bhi zaroori hai. Transcripts na be-tarteeb hain na ek minute tak mehdood."
+  }
+}

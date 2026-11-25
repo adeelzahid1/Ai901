@@ -1,6 +1,6 @@
 # Plan
 
-Phases 0-20 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
+Phases 0-21 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-18 come from
 a review of the portal from a teacher's point of view. Every step ends with validation, unit tests, a
 build, a browser check, a commit and a check of the live site.
 
@@ -94,3 +94,8 @@ text analysis, speech, vision, OCR, RAG and video generation from the inside.
 45 new questions (d2-ext24): Content Understanding SDK for Python, vision with the Responses API, speech events,
 reading Python, endpoints and Azure levels. New topics in six notes (with the Python primer), 13 glossary terms,
 two cheat sheet code groups and one new step in two labs.
+
+## Phase 21 - New Foundry topics (done)
+
+40 new questions (d1-ext18, d2-ext25) about MCP, Foundry IQ, voice agents, Voice Live, multi-agent systems and the
+groups of the model catalog, with topics in five notes, 11 glossary terms and two cheat sheet tables.

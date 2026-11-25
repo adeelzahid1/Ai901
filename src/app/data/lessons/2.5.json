@@ -9,7 +9,9 @@
     { "term": "SpeechRecognizer", "text": {"en":"recognize_once_async for one sentence; continuous recognition with events for long audio.","ro":"Ek jumlay ke liye recognize_once_async; lambi audio ke liye events wali continuous recognition."} },
     { "term": "SpeechSynthesizer", "text": {"en":"speak_text_async for plain text, speak_ssml_async for SSML.","ro":"Saade text ke liye speak_text_async, SSML ke liye speak_ssml_async."} },
     { "term": "Audio models", "text": {"en":"Chat with input_audio parts; modalities [\"text\", \"audio\"] return speech; Realtime API for live talk.","ro":"input_audio parts wala chat; modalities [\"text\", \"audio\"] awaaz deti hain; live guftagu ke liye Realtime API."} },
-    { "term": {"en":"recognizing and recognized","ro":"recognizing aur recognized"}, "text": {"en":"Partial text that can change, and the final text of a phrase.","ro":"Adhoora text jo badal sakta hai, aur phrase ka aakhri text."} }
+    { "term": {"en":"recognizing and recognized","ro":"recognizing aur recognized"}, "text": {"en":"Partial text that can change, and the final text of a phrase.","ro":"Adhoora text jo badal sakta hai, aur phrase ka aakhri text."} },
+    { "term": "Voice Live", "text": {"en":"One managed API for spoken conversations in place of three connected services.","ro":"Teen juri services ki jagah bole gaye guftagu ki ek managed API."} },
+    { "term": "Azure Language MCP server", "text": {"en":"Gives an agent predictable text analysis as a tool.","ro":"Agent ko tool ke taur par yaqeeni text analysis deta hai."} }
   ],
   "example": {
     "title": {"en":"Example: sentiment of two reviews","ro":"Misaal: do reviews ka sentiment"},

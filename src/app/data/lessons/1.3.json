@@ -9,7 +9,8 @@
     { "term": "Standard deployments", "text": {"en":"Pay per token. Global can use any Azure region, Data Zone stays in the EU, US or Asia Pacific zone, Standard stays in one Azure geography.","ro":"Fi token adaigi. Global kisi bhi Azure region mein, Data Zone EU, US ya Asia Pacific zone mein, Standard ek Azure geography mein process karta hai."} },
     { "term": "Provisioned deployments", "text": {"en":"Reserved throughput units for steady traffic and predictable latency.","ro":"Mustaqil traffic aur yaksan latency ke liye mukhtas throughput units."} },
     { "term": "Batch deployments", "text": {"en":"Large files of requests at a lower price, with results within 24 hours as the target.","ro":"Requests ki bari files kam qeemat par, jin ke nateejon ka hadaf 24 ghante hai."} },
-    { "term": "Parameters", "text": {"en":"temperature and top_p control variety, max output tokens limits length, stop sequences end the text, penalties reduce repetition.","ro":"temperature aur top_p variety, max output tokens lambai, stop sequences ikhtitam, aur penalties dohrao control karti hain."} }
+    { "term": "Parameters", "text": {"en":"temperature and top_p control variety, max output tokens limits length, stop sequences end the text, penalties reduce repetition.","ro":"temperature aur top_p variety, max output tokens lambai, stop sequences ikhtitam, aur penalties dohrao control karti hain."} },
+    { "term": {"en":"Two groups of models","ro":"Models ke do groups"}, "text": {"en":"Sold directly by Azure: Microsoft terms and service level agreements. Partners and community: other vendors and open source.","ro":"Sold directly by Azure: Microsoft ki terms aur service level agreements. Partners and community: doosre vendors aur open source."} }
   ],
   "example": {
     "title": {"en":"Example: three apps of one company","ro":"Misaal: ek company ki teen apps"},

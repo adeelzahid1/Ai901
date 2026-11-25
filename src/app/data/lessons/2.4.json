@@ -1,5 +1,5 @@
 {
-  "id": "2.4", "minutes": 8, "lab": "agent-portal",
+  "id": "2.4", "minutes": 11, "lab": "agent-portal",
   "intro": {"en":"An agent is a model with instructions and tools, saved in Foundry under a name. Client apps call it by that name.","ro":"Agent model hai jis ke saath instructions aur tools hon, Foundry mein ek naam se mehfooz. Client apps usay usi naam se call karti hain."},
   "concepts": [
     { "term": "Prompt agent", "text": {"en":"Defined by configuration: model deployment, instructions, tools. No hosting code needed.","ro":"Configuration se banta hai: model deployment, instructions, tools. Hosting code nahi chahiye."} },
@@ -8,7 +8,10 @@
     { "term": "Versions", "text": {"en":"Each saved change creates a new version of the agent.","ro":"Har mehfooz tabdeeli agent ka naya version banati hai."} },
     { "term": "Conversation", "text": {"en":"Stores the history of one chat. Use one per user session.","ro":"Ek chat ki history rakhti hai. Har user session ke liye alag."} },
     { "term": {"en":"Human approval","ro":"Insani manzoori"}, "text": {"en":"Ask a person before actions that cost money or change data.","ro":"Paise lagne ya data badalne wale kaam se pehle insan se poochein."} },
-    { "term": "Client app", "text": {"en":"Authenticates with Entra ID, opens a conversation, sends input and prints output_text.","ro":"Entra ID se authenticate hoti hai, conversation kholti hai, input bhejti hai aur output_text dikhati hai."} }
+    { "term": "Client app", "text": {"en":"Authenticates with Entra ID, opens a conversation, sends input and prints output_text.","ro":"Entra ID se authenticate hoti hai, conversation kholti hai, input bhejti hai aur output_text dikhati hai."} },
+    { "term": "MCP", "text": {"en":"Open standard between an agent (client) and services (servers) that offer tools and data.","ro":"Agent (client) aur tools aur data dene wali services (servers) ke darmiyan open standard."} },
+    { "term": "Foundry IQ", "text": {"en":"Knowledge bases on Azure AI Search that several agents use through MCP; agentic retrieval returns citations.","ro":"Azure AI Search par knowledge bases jinhein kai agents MCP se istemal karte hain; agentic retrieval citations deti hai."} },
+    { "term": "Voice agent", "text": {"en":"Listens, reasons, speaks. Turn detection decides when the caller has finished.","ro":"Sunta, sochta, bolta hai. Turn detection tay karti hai caller ki baat kab khatam hui."} }
   ],
   "example": {
     "title": {"en":"Example: client for an agent","ro":"Misaal: agent ki client app"},
@@ -35,7 +38,8 @@
   ],
   "traps": [
     {"en":"One shared conversation mixes users; one agent can serve many conversations.","ro":"Ek mushtarka conversation users ko mila deti hai; ek agent kai conversations sambhalta hai."},
-    {"en":"Code interpreter runs code in a sandbox; it does not search the web.","ro":"Code interpreter sandbox mein code chalata hai; web par talash nahi karta."}
+    {"en":"Code interpreter runs code in a sandbox; it does not search the web.","ro":"Code interpreter sandbox mein code chalata hai; web par talash nahi karta."},
+    {"en":"Connecting a knowledge base does not make the agent use it; the instructions must say when.","ro":"Knowledge base jorne se agent usay khud istemal nahi karta; instructions ko batana hota hai kab."}
   ],
   "check": ["D2-343", "D2-520", "D2-514", "D2-039", "D2-341"],
   "ref": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"

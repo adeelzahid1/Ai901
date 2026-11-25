@@ -1,0 +1,64 @@
+{
+  "D1-538": {
+    "q": "Ek agent market data jama karta hai, doosra jaiza leta hai aur teesra report likh kar bhejta hai. Is qism ke hal ko kya kehte hain?",
+    "exp": "Multi-agent system mein apni apni maharat wale kai agents mil kar workflow par kaam karte hain. Multimodal model kai qisam ke media leta hai, knowledge base maloomat rakhta hai, aur batch deployment requests ko baad mein kam kharche par chalata hai."
+  },
+  "D1-539": {
+    "q": "AI agent ke har hissay ko us ke kaam se milayein. Har kaam ek dafa ya bilkul istemal nahi hoga.",
+    "targets": [
+      "Database mein haqaiq dhoondta hai",
+      "Request samajhta aur us par sochta hai",
+      "Email bhejta ya calendar update karta hai",
+      "Model ka training data rakhta hai",
+      "Agent ka kaam aur hadein batate hain"
+    ],
+    "exp": "Model dimagh hai, instructions kaam ki tafseel, knowledge tools maloomat late hain aur action tools dunya mein kuch badalte hain. Training data pehle istemal hua aur agent ka hissa nahi."
+  },
+  "D1-540": {
+    "q": "Multi-agent systems ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Har agent ki apni instructions aur tools ho sakte hain.",
+      "Agents prompts ke zariye aik doosre ko kaam de sakte hain.",
+      "Multi-agent system insani nigrani ki zaroorat khatam kar deta hai.",
+      "Sada FAQ assistant ko kai agents chahiyein."
+    ],
+    "exp": "Pehle do ka jawab Haan: agents makhsoos hote hain aur prompts se baat karte hain. Teesre ka Nahi: system jitna khud kaam kare, nigrani utni aham hai. Chauthe ka Nahi: sada kaam ke liye ek agent ya aam chat app kaafi hai."
+  },
+  "D1-541": {
+    "q": "Warehouse ke kaam karne wale dastane pehnte hain aur bol kar stock poochna aur jawab sunna chahte hain. Unhein kaunsi salahiyat chahiye?",
+    "exp": "Speech to speech bola gaya input leta aur guftagu mein bola gaya output deta hai. Batch transcription sirf rakhi hui recordings ka text banati hai, OCR images ka text parhta hai, aur image generation tasveerein banata hai."
+  },
+  "D1-542": {
+    "q": "Bank aise models chahta hai jo Microsoft apni product terms aur service level agreements ke saath host kare. Foundry model catalog ka kaunsa group dekhe?",
+    "opts": [
+      "Models from partners and the community",
+      "Models sold directly by Azure",
+      "Sab se chhoti context window wale models",
+      "Woh models jo kisi user ne fine-tune kiye"
+    ],
+    "exp": "Azure ke directly sold models Microsoft apni Product Terms, gehri integration aur service level agreements ke saath host karta hai. Partners aur community ke models doosre vendors ya open source se aate hain. Context size aur fine-tuning terms nahi batate."
+  },
+  "D1-543": {
+    "q": "Foundry catalog ki har model family ko us ke provider se milayein. Har provider ek dafa ya bilkul istemal nahi hoga.",
+    "exp": "GPT models OpenAI ke, Claude Anthropic ke, MAI Microsoft AI ke aur Llama Meta ke hain. Black Forest Labs FLUX image models banata hai. Sab catalog mein mil sakte hain, aur dastyabi region aur quota par hai."
+  },
+  "D1-544": {
+    "q": "Foundry model catalog ke baare mein har bayan ke liye, agar bayan sach hai to Haan chunein, warna Nahi chunein.",
+    "stmts": [
+      "Us mein sirf OpenAI ke models hain, kisi aur provider ke nahi.",
+      "Kuch models khaas regions tak mehdood hain.",
+      "Model deploy karne se pehle benchmark nateeje milaye ja sakte hain."
+    ],
+    "exp": "Pehle ka jawab Nahi: catalog mein kai providers ke models hain, jaise Microsoft, Anthropic, Meta aur Mistral. Doosre ka Haan: region aur quota kuch models ko mehdood karte hain. Teesre ka Haan: leaderboards aur model cards quality, safety aur kharcha milane mein madad karte hain."
+  },
+  "D1-545": {
+    "q": "Agent ko company ki maujooda policies se jawab dena hai jo us ke training data mein nahi thin. Usay kya chahiye?",
+    "opts": [
+      "Lamba salam",
+      "Har jawab ke liye zyada temperature",
+      "Usi qism aur size ka doosra model",
+      "Knowledge source se connection"
+    ],
+    "exp": "Model sirf woh jaanta hai jo training mein seekha, is liye maujooda andaruni maloomat knowledge source se nikal kar prompt mein jorni hoti hai. Zyada temperature jawab ko kam yaqeeni banata hai, aur doosra model ya salam koi haqeeqat nahi jorta."
+  }
+}
