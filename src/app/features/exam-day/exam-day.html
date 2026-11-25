@@ -1,0 +1,58 @@
+@let t = language.ui().examDay;
+<h1>{{ t.heading }}</h1>
+<p class="lead">{{ t.lead }}</p>
+
+<div class="stack">
+  <div class="tiles">
+    @for (f of data.facts; track $index) {
+      <div class="card tile">
+        <span class="value">{{ f.value }}</span>
+        <span class="label">{{ language.pick(f.label) }}</span>
+      </div>
+    }
+  </div>
+
+  <section class="card">
+    <h2>{{ t.checklist }} <span class="chip">{{ t.progress(done().size, total) }}</span></h2>
+    @for (c of data.checklists; track c.id) {
+      <h3>{{ language.pick(c.title) }}</h3>
+      <ul class="plain">
+        @for (item of c.items; track $index) {
+          @let id = c.id + '-' + $index;
+          <li>
+            <label [class.ticked]="done().has(id)">
+              <input type="checkbox" [checked]="done().has(id)" (change)="toggle(id)" />
+              <span>{{ language.pick(item) }}</span>
+            </label>
+          </li>
+        }
+      </ul>
+    }
+  </section>
+
+  @for (s of data.sections; track $index) {
+    <section class="card">
+      <h2>{{ language.pick(s.title) }}</h2>
+      <ul>
+        @for (item of s.items; track $index) {
+          <li>{{ language.pick(item) }}</li>
+        }
+      </ul>
+    </section>
+  }
+
+  <section class="card">
+    <h2>{{ t.links }}</h2>
+    <ul>
+      @for (l of data.links; track l.url) {
+        <li><a [href]="l.url" target="_blank" rel="noopener">{{ language.pick(l.label) }}</a></li>
+      }
+    </ul>
+    <p class="muted">{{ t.checked(data.checked) }}</p>
+  </section>
+
+  <div class="actions">
+    <a class="btn primary" routerLink="/exam">{{ t.toExam }}</a>
+    <a class="btn" routerLink="/weak-areas">{{ t.toWeak }}</a>
+  </div>
+</div>

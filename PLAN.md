@@ -1,6 +1,6 @@
 # Plan
 
-Phases 0-7 (portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu) are done. Phases 8-14 come from
+Phases 0-14 are done (0-7: portal, 1,065 questions, accuracy review, CI/CD, Roman Urdu). Phases 8-14 come from
 a review of the portal from a teacher's point of view. Every step ends with validation, unit tests, a
 build, a browser check, a commit and a check of the live site.
 
@@ -60,7 +60,7 @@ clean-up, checked against Microsoft Learn.
 A lesson for each of the 14 sections in English and Roman Urdu: concepts, a small example, "remember" points,
 "which service when" tables and five check questions.
 
-## Phase 14 - Exam day
+## Phase 14 - Exam day (done)
 
 Exam sandbox, free Practice Assessment, the 30 extra minutes for candidates whose language is not offered,
 timing and question-type tips.

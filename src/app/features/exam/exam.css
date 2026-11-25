@@ -5,3 +5,8 @@
 .rules li {
   margin-bottom: 6px;
 }
+.start {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

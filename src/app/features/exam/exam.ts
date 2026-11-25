@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { EXAM_DIFF_MIX, EXAM_TYPE_MIX, freshFirst, pickQuestions } from '../../core/exam-builder';
 import { Language } from '../../core/language';
 import { ProgressService } from '../../core/progress';
@@ -13,7 +13,7 @@ import { QuizRunner } from '../../shared/quiz-runner/quiz-runner';
 /** Full exam simulation with fixed settings: 50 questions, 45 minutes, weighted like the real exam. */
 @Component({
   selector: 'app-exam',
-  imports: [QuizRunner],
+  imports: [QuizRunner, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './exam.html',
   styleUrl: './exam.css',

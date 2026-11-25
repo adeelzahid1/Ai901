@@ -27,10 +27,11 @@
       <li>{{ t.exam.noAnswers }}</li>
       <li>{{ t.exam.scoring(exam.maxScore, exam.passScore) }}</li>
     </ul>
-    <div>
+    <div class="start">
       <button type="button" class="btn primary" [disabled]="!loaded()" (click)="start()">
         {{ loaded() ? t.exam.start : t.common.loadingQuestions }}
       </button>
+      <a class="btn" routerLink="/exam-day">{{ t.examDay.open }}</a>
     </div>
   </div>
 }

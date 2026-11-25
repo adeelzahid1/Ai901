@@ -1,0 +1,95 @@
+{
+  "checked": "2026-11-25",
+  "facts": [
+    { "value": "45 min", "label": { "en": "exam time (allow 65 minutes in total)", "ro": "exam ka waqt (kul 65 minute rakhein)" } },
+    { "value": "40-60", "label": { "en": "questions in most Microsoft exams", "ro": "sawal zyada tar Microsoft exams mein" } },
+    { "value": "700 / 1000", "label": { "en": "to pass; a scaled score, not 70% of the questions", "ro": "pass ke liye; ye scaled score hai, 70% sawal nahi" } },
+    { "value": "0", "label": { "en": "points lost for a wrong answer", "ro": "number kam hote hain ghalat jawab par" } }
+  ],
+  "checklists": [
+    {
+      "id": "weeks",
+      "title": { "en": "Three weeks before", "ro": "Teen hafte pehle" },
+      "items": [
+        { "en": "Read the official study guide and check the “skills measured” date. This portal follows the version of 15 April 2026.", "ro": "Official study guide parhein aur “skills measured” ki tareekh dekhein. Ye portal 15 April 2026 wali version par hai." },
+        { "en": "If the exam is not offered in your preferred language, request 30 extra minutes. Request this and any other accommodation before you book; it can take up to 20 days.", "ro": "Agar exam aap ki pasandeeda zabaan mein nahi, to 30 izafi minute ki darkhwast dein. Ye aur koi bhi accommodation book karne se pehle maangein; is mein 20 din tak lag sakte hain." },
+        { "en": "Make sure the name in your certification profile is exactly the name on your government-issued ID.", "ro": "Dekhein ke certification profile mein naam bilkul wahi ho jo aap ki sarkari ID par hai." },
+        { "en": "Decide between a test center and an online exam. Online you need a closed room, a webcam, a microphone and a computer with administrator rights.", "ro": "Test center ya online exam mein se chunein. Online ke liye band kamra, webcam, microphone aur administrator rights wala computer chahiye." }
+      ]
+    },
+    {
+      "id": "week",
+      "title": { "en": "The last week", "ro": "Aakhri hafta" },
+      "items": [
+        { "en": "Try the exam sandbox once to learn the screens: every question type, mark for review, the review screen and the timer.", "ro": "Exam sandbox ek dafa azmayein taake screens samajh aayein: har qism ka sawal, mark for review, review screen aur timer." },
+        { "en": "Take the free Practice Assessment on Microsoft Learn and read the reason for each wrong answer.", "ro": "Microsoft Learn ka muft Practice Assessment dein aur har ghalat jawab ki wajah parhein." },
+        { "en": "Take one exam here under real conditions and study the weak areas afterwards.", "ro": "Yahan ek exam asal halaat mein dein aur baad mein kamzor hissay parhein." },
+        { "en": "Online: run the Pearson VUE system test on the same computer, in the same room and on the same network.", "ro": "Online: Pearson VUE ka system test usi computer, usi kamre aur usi network par chalayein." }
+      ]
+    },
+    {
+      "id": "before",
+      "title": { "en": "The day before", "ro": "Ek din pehle" },
+      "items": [
+        { "en": "Repeat the “which one when” tables of the lessons and your flashcards. Learn nothing new.", "ro": "Lessons ke “kab kaunsa” tables aur flashcards dohrayein. Koi nayi cheez na parhein." },
+        { "en": "Check the start time and time zone of your appointment and put your ID ready.", "ro": "Appointment ka waqt aur time zone dekhein aur ID tayyar rakhein." },
+        { "en": "Online: clear the desk, unplug extra monitors, put away books, notes, pens and watches.", "ro": "Online: mez saaf karein, izafi monitors nikalein, kitabein, notes, pens aur ghariyan hata dein." },
+        { "en": "Sleep. A rested head finds more points than one more hour of study.", "ro": "Neend poori karein. Taza dimagh ek aur ghante ki parhai se zyada number dilata hai." }
+      ]
+    },
+    {
+      "id": "day",
+      "title": { "en": "On the day", "ro": "Exam ke din" },
+      "items": [
+        { "en": "Be early. Online you take photos of your ID, your face and the room with your phone, then put the phone out of reach.", "ro": "Jaldi pohanchein. Online mein phone se ID, chehre aur kamre ki tasveerein leni hain, phir phone pohanch se door rakhein." },
+        { "en": "Close all other programs, switch off notifications and use a wired connection if you can.", "ro": "Baqi tamam programs aur notifications band karein, aur ho sake to tar wala internet istemal karein." },
+        { "en": "Only a drink in a clear, spill-proof container is allowed. No food, no chewing gum, nobody else in the room.", "ro": "Sirf shaffaf, na girne wale bartan mein peene ki cheez ki ijazat hai. Khana, chewing gum ya kamre mein koi aur nahi." },
+        { "en": "Greeter and proctor speak English, also when your exam is in another language.", "ro": "Greeter aur proctor English mein baat karte hain, chahe exam doosri zabaan mein ho." }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": { "en": "Use your 45 minutes", "ro": "45 minute ka istemal" },
+      "items": [
+        { "en": "With 50 questions you have about 54 seconds each. After 15 minutes you should be near question 17, after 30 minutes near 34.", "ro": "50 sawal hon to har sawal ke taqreeban 54 second hain. 15 minute baad sawal 17 aur 30 minute baad sawal 34 ke qareeb hon." },
+        { "en": "Answer, mark for review, move on. Do not stay longer than two minutes on one question in the first round.", "ro": "Jawab dein, mark for review karein, aage barhein. Pehle daur mein ek sawal par do minute se zyada na lagayein." },
+        { "en": "Answer every question. Nothing is deducted for a wrong answer, and you cannot see which questions are not scored.", "ro": "Har sawal ka jawab dein. Ghalat jawab par number kam nahi hote, aur pata nahi chalta ke kaunse sawal score mein nahi." },
+        { "en": "Most questions with several parts give a point for each correct part, so fill in all parts.", "ro": "Kai hisson wale zyada tar sawal har sahi hisse ka number dete hain, is liye tamam hisse bharein." },
+        { "en": "Microsoft Learn cannot be opened in a Fundamentals exam.", "ro": "Fundamentals exam mein Microsoft Learn nahi khulta." },
+        { "en": "You may take a break, but the clock continues and you cannot return to questions you saw before it. With 45 minutes it is better to avoid a break.", "ro": "Break le sakte hain, lekin ghari chalti rehti hai aur pehle dekhe hue sawalon par wapas nahi ja sakte. 45 minute mein break na lena behtar hai." }
+      ]
+    },
+    {
+      "title": { "en": "Read the question", "ro": "Sawal parhne ka tareeqa" },
+      "items": [
+        { "en": "Read the last sentence first: what exactly is asked? Then mark the requirements such as lowest cost, least code, one region, live.", "ro": "Pehle aakhri jumla parhein: asal mein kya poocha hai? Phir zarooratein dekhein, jaise sab se kam kharcha, kam code, ek region, live." },
+        { "en": "Multiple answers: choose exactly as many as the question says (TWO, THREE).", "ro": "Kai jawab: bilkul utne chunein jitne sawal kehta hai (DO, TEEN)." },
+        { "en": "Yes/No: judge each statement alone. All three can be Yes, or all three No.", "ro": "Haan/Nahi: har bayan ko alag parkhein. Teenon Haan bhi ho sakte hain aur teenon Nahi bhi." },
+        { "en": "Drop-down in code: read the lines around the blank; the variable names tell you what is needed.", "ro": "Code mein drop-down: khali jagah ke gird ki lines parhein; variables ke naam batate hain ke kya chahiye." },
+        { "en": "Matching and ordering: start with the pairs or steps you are sure about. Some choices stay unused.", "ro": "Matching aur tarteeb: jin jodon ya qadmon ka yaqeen hai un se shuru karein. Kuch options bach jate hain." },
+        { "en": "Two answers look right? Take the one that meets every requirement with the least effort.", "ro": "Do jawab sahi lagein? Woh lein jo kam se kam mehnat mein har zaroorat poori kare." },
+        { "en": "Sets that ask whether a solution meets the goal may not let you go back. Decide before you select Next.", "ro": "Jin sets mein poocha jata hai ke hal maqsad poora karta hai ya nahi, un mein wapas jana mumkin nahi ho sakta. Next se pehle faisla karein." }
+      ]
+    },
+    {
+      "title": { "en": "After the exam", "ro": "Exam ke baad" },
+      "items": [
+        { "en": "You see the result within minutes. The report shows a bar for each skill area, not the single questions.", "ro": "Nateeja chand minute mein milta hai. Report har skill area ki bar dikhati hai, alag alag sawal nahi." },
+        { "en": "Passed: your certification appears in your Microsoft Learn profile within about 24 hours. Azure AI Fundamentals does not expire.", "ro": "Pass: certification taqreeban 24 ghante mein Microsoft Learn profile mein aa jati hai. Azure AI Fundamentals expire nahi hoti." },
+        { "en": "Not passed: you can retake it after 24 hours. Each further attempt needs 14 days, with at most five attempts in 12 months.", "ro": "Fail: 24 ghante baad dobara de sakte hain. Us ke baad har koshish ke darmiyan 14 din, aur 12 mahine mein zyada se zyada paanch koshishein." },
+        { "en": "Use the shortest bar of the report as your next study section.", "ro": "Report ki sab se chhoti bar ko apna agla study section banayein." }
+      ]
+    }
+  ],
+  "links": [
+    { "label": { "en": "Study guide for AI-901", "ro": "AI-901 ki study guide" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901" },
+    { "label": { "en": "Exam sandbox", "ro": "Exam sandbox" }, "url": "https://aka.ms/examdemo" },
+    { "label": { "en": "Free Practice Assessments", "ro": "Muft Practice Assessments" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications" },
+    { "label": { "en": "Request accommodations", "ro": "Accommodations ki darkhwast" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/request-accommodations" },
+    { "label": { "en": "Online exams with Pearson VUE", "ro": "Pearson VUE ke online exams" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/online-exams" },
+    { "label": { "en": "Exam duration and experience", "ro": "Exam ka waqt aur tajurba" }, "url": "https://learn.microsoft.com/en-us/credentials/support/exam-duration-exam-experience" },
+    { "label": { "en": "Scoring and score reports", "ro": "Scoring aur score reports" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/exam-scoring-reports" },
+    { "label": { "en": "Retake policy", "ro": "Dobara exam dene ki policy" }, "url": "https://learn.microsoft.com/en-us/credentials/support/retake-policy" }
+  ]
+}

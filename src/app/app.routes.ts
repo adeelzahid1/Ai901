@@ -41,5 +41,10 @@ export const routes: Routes = [
     title: 'Labs · AI-901 Prep',
     loadComponent: () => import('./features/labs/labs').then((m) => m.Labs),
   },
+  {
+    path: 'exam-day',
+    title: 'Exam day · AI-901 Prep',
+    loadComponent: () => import('./features/exam-day/exam-day').then((m) => m.ExamDay),
+  },
   { path: '**', redirectTo: '' },
 ];
