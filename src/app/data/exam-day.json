@@ -22,7 +22,7 @@
       "title": { "en": "The last week", "ro": "Aakhri hafta" },
       "items": [
         { "en": "Try the exam sandbox once to learn the screens: every question type, mark for review, the review screen and the timer.", "ro": "Exam sandbox ek dafa azmayein taake screens samajh aayein: har qism ka sawal, mark for review, review screen aur timer." },
-        { "en": "Take the free Practice Assessment on Microsoft Learn and read the reason for each wrong answer.", "ro": "Microsoft Learn ka muft Practice Assessment dein aur har ghalat jawab ki wajah parhein." },
+        { "en": "Take the free Practice Assessment (AI Skills Navigator, started from the AI-901 certification page) and read the reason for each wrong answer.", "ro": "Muft Practice Assessment dein (AI Skills Navigator, AI-901 ke certification page se shuru hota hai) aur har ghalat jawab ki wajah parhein." },
         { "en": "Take one exam here under real conditions and study the weak areas afterwards.", "ro": "Yahan ek exam asal halaat mein dein aur baad mein kamzor hissay parhein." },
         { "en": "Online: run the Pearson VUE system test on the same computer, in the same room and on the same network.", "ro": "Online: Pearson VUE ka system test usi computer, usi kamre aur usi network par chalayein." }
       ]
@@ -85,7 +85,7 @@
   "links": [
     { "label": { "en": "Study guide for AI-901", "ro": "AI-901 ki study guide" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901" },
     { "label": { "en": "Exam sandbox", "ro": "Exam sandbox" }, "url": "https://aka.ms/examdemo" },
-    { "label": { "en": "Free Practice Assessments", "ro": "Muft Practice Assessments" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications" },
+    { "label": { "en": "Free Practice Assessment for AI-901", "ro": "AI-901 ka muft Practice Assessment" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/" },
     { "label": { "en": "Request accommodations", "ro": "Accommodations ki darkhwast" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/request-accommodations" },
     { "label": { "en": "Online exams with Pearson VUE", "ro": "Pearson VUE ke online exams" }, "url": "https://learn.microsoft.com/en-us/credentials/certifications/online-exams" },
     { "label": { "en": "Exam duration and experience", "ro": "Exam ka waqt aur tajurba" }, "url": "https://learn.microsoft.com/en-us/credentials/support/exam-duration-exam-experience" },
