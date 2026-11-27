@@ -106,3 +106,8 @@ groups of the model catalog, with topics in five notes, 11 glossary terms and tw
 the skills outline and the module list of the course with the last review (`scripts/freshness.json`). The first run
 led to: retirement dates of Language features, the model lifecycle (8 questions, d1-ext19) and the web search tool
 instead of Grounding with Bing Search. The dashboard shows the date of the last comparison.
+
+## Cheat sheet update (done)
+
+The cheat sheet became a top-bar tab with a language switch (English, Roman Urdu, both), section and keyword filters,
+presets, core concepts, exam-day tips, a glossary and tables for endpoints and the model lifecycle.

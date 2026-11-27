@@ -25,7 +25,7 @@ describe('App', () => {
     const el = fixture.nativeElement as HTMLElement;
     expect(el.querySelector('.brand')?.textContent).toContain('AI-901');
     const tabs = [...el.querySelectorAll('nav a')].map((a) => a.textContent?.trim());
-    expect(tabs).toEqual(['Dashboard', 'Study', 'Notes', 'Labs', 'Practice', 'Mock Test', 'Exam', 'Weak areas']);
+    expect(tabs).toEqual(['Dashboard', 'Study', 'Notes', 'Cheat sheet', 'Labs', 'Practice', 'Mock Test', 'Exam', 'Weak areas']);
   });
 
   it('switches the whole interface with the EN | Roman toggle', async () => {

@@ -1,85 +1,195 @@
 @let t = language.ui().cheat;
-<div class="title">
+@let v = show();
+@let mode = v.langMode;
+
+<div class="title no-print">
   <h1>{{ t.heading }}</h1>
-  <p class="lead no-print">{{ t.lead }}</p>
+  <p class="lead">{{ t.lead }}</p>
 </div>
 
 <form class="card toolbar no-print" [formGroup]="form" (submit)="$event.preventDefault()">
-  <label class="field">
-    <span>{{ t.domain }}</span>
-    <select formControlName="domain">
-      <option value="all">{{ language.ui().common.all }}</option>
-      @for (d of domains; track d.id) {
-        <option [value]="d.id">{{ d.id }} · {{ language.domainShort(d) }}</option>
-      }
-    </select>
-  </label>
+  <div class="toolbar-row">
+    <div class="field">
+      <span>{{ t.langLabel }}</span>
+      <div class="lang-switch" role="group" [attr.aria-label]="t.langLabel">
+        <button type="button" [class.on]="mode === 'both'" [attr.aria-pressed]="mode === 'both'" (click)="setLangMode('both')">
+          {{ t.langBoth }}
+        </button>
+        <button type="button" lang="en" [class.on]="mode === 'en'" [attr.aria-pressed]="mode === 'en'" (click)="setLangMode('en')">
+          {{ t.langEn }}
+        </button>
+        <button type="button" lang="ur-Latn" [class.on]="mode === 'ro'" [attr.aria-pressed]="mode === 'ro'" (click)="setLangMode('ro')">
+          {{ t.langRo }}
+        </button>
+      </div>
+    </div>
+
+    <label class="field">
+      <span>{{ t.domain }}</span>
+      <select formControlName="domain">
+        <option value="all">{{ language.ui().common.all }}</option>
+        @for (d of domains; track d.id) {
+          <option [value]="d.id">{{ d.id }} · {{ language.domainShort(d) }}</option>
+        }
+      </select>
+    </label>
+
+    <label class="field">
+      <span>{{ t.section }}</span>
+      <select formControlName="section">
+        <option value="all">{{ t.allSections }}</option>
+        @for (sec of availableSections(); track sec.id) {
+          <option [value]="sec.id">{{ sec.id }} {{ language.section(sec) }}</option>
+        }
+      </select>
+    </label>
+
+    <label class="field search-field">
+      <span>{{ t.search }}</span>
+      <input type="search" formControlName="search" [placeholder]="t.searchHint" />
+    </label>
+  </div>
+
   <fieldset>
     <legend>{{ t.parts }}</legend>
-    <label><input type="checkbox" formControlName="numbers" /> {{ t.numbers }}</label>
+    <label><input type="checkbox" formControlName="overview" /> {{ t.overview }}</label>
+    <label><input type="checkbox" formControlName="concepts" /> {{ t.concepts }}</label>
     <label><input type="checkbox" formControlName="when" /> {{ t.when }}</label>
     <label><input type="checkbox" formControlName="reference" /> {{ t.reference }}</label>
     <label><input type="checkbox" formControlName="commands" /> {{ t.commands }}</label>
     <label><input type="checkbox" formControlName="points" /> {{ t.points }}</label>
+    <label><input type="checkbox" formControlName="examTips" /> {{ t.examTips }}</label>
+    <label><input type="checkbox" formControlName="glossary" /> {{ t.glossary }}</label>
   </fieldset>
-  <div class="buttons">
-    <button type="button" class="btn primary" [disabled]="!sheet()" (click)="print()">{{ t.print }}</button>
-    <a class="btn" routerLink="/notes">{{ t.toNotes }}</a>
+
+  <div class="toolbar-actions">
+    <div class="presets">
+      <span class="muted preset-label">{{ t.presets }}:</span>
+      <button type="button" class="btn small" (click)="applyPreset('core')">{{ t.presetCore }}</button>
+      <button type="button" class="btn small" (click)="applyPreset('cram')">{{ t.presetCram }}</button>
+      <button type="button" class="btn small" (click)="applyPreset('full')">{{ t.presetFull }}</button>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="btn primary" [disabled]="!sheet()" (click)="print()">{{ t.print }}</button>
+      <a class="btn" routerLink="/notes">{{ t.toNotes }}</a>
+      <a class="btn" routerLink="/">{{ t.toDashboard }}</a>
+    </div>
   </div>
+
   <p class="muted">{{ t.printHint }}</p>
 </form>
 
 @if (sheet(); as s) {
-  @if (show().numbers) {
-    <section>
-      <h2>{{ t.numbers }}</h2>
-      <dl class="numbers">
-        @for (n of s.numbers; track n.value) {
-          <div>
-            <dt>{{ n.value }}</dt>
-            <dd>{{ language.pick(n.label) }}</dd>
-          </div>
-        }
-      </dl>
-    </section>
+  <app-cheat-overview
+    [exam]="exam"
+    [lang]="mode"
+    [langLabel]="langModeLabel()"
+    [show]="v.overview"
+    [domains]="s.blueprintDomains"
+    [numbers]="s.numbers"
+  />
+
+  @if (!hasVisibleContent()) {
+    <p class="card muted">{{ t.empty }}</p>
   }
 
-  @if (show().when) {
+  @if (v.concepts && s.conceptLessons.length) {
     <section>
-      <h2>{{ t.when }}</h2>
+      <h2>
+        <app-bilingual-text [text]="{ en: 'Core concepts by section', ro: 'Har section ke bunyadi concepts' }" [mode]="mode" [inline]="true" />
+      </h2>
       <div class="columns">
-        @for (l of s.lessons; track l.id) {
-          <article class="block">
-            <h3>{{ l.id }} {{ language.pick(l.table.title) }}</h3>
-            <app-cheat-table [head]="l.table.head" [rows]="l.table.rows" />
+        @for (l of s.conceptLessons; track l.id) {
+          <article class="block concepts-block">
+            <h3>
+              <span class="badge" [class.d2]="l.domain === 'D2'">{{ l.domain }}</span>
+              <span class="sec-num">{{ l.id }}</span>
+              <app-bilingual-text [text]="l.title" [mode]="mode" [inline]="true" />
+            </h3>
+            <dl class="concepts">
+              @for (c of l.concepts; track $index) {
+                <div class="concept-item">
+                  <dt><app-bilingual-text [text]="c.term" [mode]="mode" [inline]="true" /></dt>
+                  <dd><app-bilingual-text [text]="c.text" [mode]="mode" /></dd>
+                </div>
+              }
+            </dl>
           </article>
         }
       </div>
     </section>
   }
 
-  @if (show().reference && s.tables.length) {
+  @if (v.when && s.whenLessons.length) {
     <section>
-      <h2>{{ t.reference }}</h2>
+      <h2>
+        <app-bilingual-text [text]="{ en: 'Which one when', ro: 'Kab kaunsa' }" [mode]="mode" [inline]="true" />
+      </h2>
       <div class="columns">
-        @for (x of s.tables; track x.id) {
+        @for (l of s.whenLessons; track l.id) {
           <article class="block">
-            <h3>{{ language.pick(x.title) }}</h3>
-            <app-cheat-table [head]="x.head" [rows]="x.rows" />
+            <h3>
+              <span class="badge" [class.d2]="l.domain === 'D2'">{{ l.domain }}</span>
+              <span class="sec-num">{{ l.id }}</span>
+              <app-bilingual-text [text]="l.table.title" [mode]="mode" [inline]="true" />
+            </h3>
+            <app-cheat-table [head]="l.table.head" [rows]="l.table.rows" [lang]="mode" />
           </article>
         }
       </div>
     </section>
   }
 
-  @if (show().commands && s.code.length) {
+  @if (v.reference && (s.wideTables.length || s.compactTables.length)) {
     <section>
-      <h2>{{ t.commands }}</h2>
+      <h2>
+        <app-bilingual-text [text]="{ en: 'Reference tables', ro: 'Reference tables' }" [mode]="mode" [inline]="true" />
+      </h2>
+      @if (s.wideTables.length) {
+        <div class="wide-stack">
+          @for (x of s.wideTables; track x.id) {
+            <article class="block">
+              <h3>
+                <span class="badge" [class.d2]="x.domain === 'D2'">{{ x.domain }}</span>
+                <app-bilingual-text [text]="x.title" [mode]="mode" [inline]="true" />
+              </h3>
+              <app-cheat-table [head]="x.head" [rows]="x.rows" [lang]="mode" />
+            </article>
+          }
+        </div>
+      }
+      @if (s.compactTables.length) {
+        <div class="columns">
+          @for (x of s.compactTables; track x.id) {
+            <article class="block">
+              <h3>
+                <span class="badge" [class.d2]="x.domain === 'D2'">{{ x.domain }}</span>
+                <app-bilingual-text [text]="x.title" [mode]="mode" [inline]="true" />
+              </h3>
+              <app-cheat-table [head]="x.head" [rows]="x.rows" [lang]="mode" />
+            </article>
+          }
+        </div>
+      }
+    </section>
+  }
+
+  @if (v.commands && s.code.length) {
+    <section>
+      <h2>
+        <app-bilingual-text [text]="{ en: 'Commands and code', ro: 'Commands aur code' }" [mode]="mode" [inline]="true" />
+      </h2>
       <div class="columns">
         @for (c of s.code; track c.id) {
           @for (x of c.snippets; track $index) {
             <article class="block">
-              <h3>{{ language.pick(c.title) }} · {{ language.pick(x.title) }}</h3>
+              <h3>
+                <span class="badge" [class.d2]="c.domain === 'D2'">{{ c.domain }}</span>
+                <app-bilingual-text [text]="c.title" [mode]="mode" [inline]="true" />
+                <span aria-hidden="true"> · </span>
+                <app-bilingual-text [text]="x.title" [mode]="mode" [inline]="true" />
+              </h3>
               <pre class="code" tabindex="0">{{ x.code }}</pre>
             </article>
           }
@@ -88,25 +198,55 @@
     </section>
   }
 
-  @if (show().points) {
+  @if (v.points && s.pointLessons.length) {
     <section>
-      <h2>{{ t.points }}</h2>
+      <h2>
+        <app-bilingual-text [text]="{ en: 'Remember and exam traps', ro: 'Yaad rakhein aur exam ke dhokay' }" [mode]="mode" [inline]="true" />
+      </h2>
       <div class="columns">
-        @for (l of s.lessons; track l.id) {
+        @for (l of s.pointLessons; track l.id) {
           <article class="block points">
-            <h3>{{ l.id }} {{ l.name }}</h3>
-            <ul>
+            <h3>
+              <span class="badge" [class.d2]="l.domain === 'D2'">{{ l.domain }}</span>
+              <span class="sec-num">{{ l.id }}</span>
+              <app-bilingual-text [text]="l.title" [mode]="mode" [inline]="true" />
+            </h3>
+            <ul class="point-list">
               @for (r of l.remember; track $index) {
-                <li>{{ language.pick(r) }}</li>
+                <li class="remember"><app-bilingual-text [text]="r" [mode]="mode" /></li>
               }
-              @for (r of l.traps; track $index) {
-                <li class="trap">{{ language.pick(r) }}</li>
+              @for (tr of l.traps; track $index) {
+                <li class="trap"><app-bilingual-text [text]="tr" [mode]="mode" /></li>
               }
             </ul>
           </article>
         }
       </div>
     </section>
+  }
+
+  @if (v.examTips && s.examSections.length) {
+    <section>
+      <h2>
+        <app-bilingual-text [text]="{ en: 'Exam day strategy', ro: 'Exam ke din ki hikmat e amli' }" [mode]="mode" [inline]="true" />
+      </h2>
+      <div class="columns">
+        @for (sec of s.examSections; track $index) {
+          <article class="block">
+            <h3><app-bilingual-text [text]="sec.title" [mode]="mode" [inline]="true" /></h3>
+            <ul class="point-list">
+              @for (item of sec.items; track $index) {
+                <li><app-bilingual-text [text]="item" [mode]="mode" /></li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </section>
+  }
+
+  @if (v.glossary && s.glossary.length) {
+    <app-cheat-glossary [entries]="s.glossary" [lang]="mode" />
   }
 } @else {
   <p class="card muted">{{ t.loading }}</p>

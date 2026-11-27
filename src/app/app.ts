@@ -114,6 +114,7 @@ export class App {
       { path: '/', label: t.dashboard, exact: true },
       { path: '/study', label: t.study },
       { path: '/notes', label: t.notes },
+      { path: '/cheat-sheet', label: t.cheatSheet },
       { path: '/labs', label: t.labs },
       { path: '/practice', label: t.practice },
       { path: '/mock', label: t.mock },

@@ -1,11 +1,13 @@
 {
   "numbers": [
     {"value":"45 min","label":{"en":"exam time, 65 minutes in total","ro":"exam ka waqt, kul 65 minute"}},
+    {"value":"54 sec","label":{"en":"average pace per question (50 questions)","ro":"50 sawalon mein fi sawal ausat waqt"}},
     {"value":"40-60","label":{"en":"questions in most exams","ro":"sawal zyada tar exams mein"}},
     {"value":"700 / 1000","label":{"en":"to pass (scaled score)","ro":"pass ke liye (scaled score)"}},
     {"value":"40-45%","label":"D1: AI concepts"},
     {"value":"55-60%","label":"D2: Foundry solutions"},
     {"value":"0","label":{"en":"points lost for a wrong answer","ro":"number kam ghalat jawab par"}},
+    {"value":"+30 min","label":{"en":"you can request this if the exam is not in your language","ro":"exam aap ki zabaan mein na ho to ye waqt maang sakte hain"}},
     {"value":"24 h / 14 d / 5","label":{"en":"retake: first wait, later waits, attempts in 12 months","ro":"dobara exam: pehla intezar, baad ke intezar, 12 mahine mein koshishein"}},
     {"value":"50% / 24 h","label":{"en":"Batch: price cut and target time","ro":"Batch: kam qeemat aur hadaf ka waqt"}},
     {"value":"20 → 20,000","label":{"en":"sku-capacity to tokens per minute (most chat models)","ro":"sku-capacity se tokens per minute (zyada tar chat models)"}},
@@ -162,6 +164,28 @@
         ["Groundedness detection (guardrail preview)","30 Apr 2027",{"en":"tests in Foundry","ro":"Foundry ke tests"}],
         ["Image Analysis 4.0","25 Sep 2028",{"en":"vision-capable model","ro":"vision wala model"}],
         ["Sentiment, opinion mining, key phrases, summarization","31 Mar 2029",{"en":"model in Foundry","ro":"Foundry ka model"}]
+      ]
+    },
+    {
+      "id": "endpoints", "domain": "D2", "title": {"en":"Foundry endpoints and authentication","ro":"Foundry endpoints aur authentication"},
+      "head": [{"en":"Endpoint / Auth","ro":"Endpoint / Auth"},{"en":"Format or header","ro":"Shakal ya header"},{"en":"Used for","ro":"Kis liye"}],
+      "rows": [
+        ["Project endpoint","https://<resource>.services.ai.azure.com/api/projects/<project>",{"en":"AIProjectClient, agents, vector stores","ro":"AIProjectClient, agents, vector stores"}],
+        ["OpenAI v1 endpoint","https://<resource>.openai.azure.com/openai/v1/",{"en":"Responses, Chat Completions, images","ro":"Responses, Chat Completions, images"}],
+        ["Foundry Tools endpoint","https://<resource>.cognitiveservices.azure.com/ or https://<resource>.services.ai.azure.com/",{"en":"Language, Speech, Vision, Content Understanding","ro":"Language, Speech, Vision, Content Understanding"}],
+        ["Entra ID (DefaultAzureCredential)","Authorization: Bearer <token>",{"en":"Recommended; az login locally, managed identity in Azure","ro":"Behtar tareeqa; laptop par az login, Azure mein managed identity"}],
+        [{"en":"API key","ro":"API key"},"api-key / Ocp-Apim-Subscription-Key",{"en":"Key Vault in Azure, .env only on your laptop; never in code","ro":"Azure mein Key Vault, .env sirf laptop par; code mein kabhi nahi"}]
+      ]
+    },
+    {
+      "id": "lifecycle", "domain": "D1", "title": {"en":"Azure hierarchy and model lifecycle","ro":"Azure ke levels aur model ki zindagi"},
+      "head": [{"en":"Item / Stage","ro":"Cheez / Marhala"},{"en":"Meaning","ro":"Matlab"}],
+      "rows": [
+        [{"en":"Azure levels","ro":"Azure ke levels"},"Tenant → Subscription → Resource Group → Foundry Resource → Project"],
+        ["Preview",{"en":"Experimental; can change and may never release","ro":"Tajurbati; badal sakta hai aur shayad release na ho"}],
+        ["Generally Available (GA)",{"en":"Released and supported for production","ro":"Release shuda aur production ke liye supported"}],
+        ["Deprecated",{"en":"Closed to new customers; move before retirement","ro":"Naye customers ke liye band; retirement se pehle badlein"}],
+        ["Retired",{"en":"Removed; requests fail with HTTP 410 Gone","ro":"Hata diya gaya; requests par HTTP 410 Gone milta hai"}]
       ]
     }
   ],
