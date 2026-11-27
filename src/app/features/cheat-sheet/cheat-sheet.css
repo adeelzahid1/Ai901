@@ -71,15 +71,8 @@ fieldset {
   cursor: pointer;
 }
 
-@media (max-width: 480px) {
-  .lang-switch button {
-    flex: 1 1 0;
-    padding: 4px 8px;
-  }
-}
-
-.lang-switch button + button {
-  border-left: 1px solid var(--border);
+.field small {
+  font-size: 0.8rem;
 }
 
 .lang-switch button.on {

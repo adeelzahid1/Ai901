@@ -16,8 +16,7 @@ describe('CheatSheet', () => {
     el().querySelector<HTMLInputElement>(`input[formcontrolname=${control}]`)?.click();
     await fixture.whenStable();
   };
-  const langButton = (index: number) =>
-    el().querySelectorAll<HTMLButtonElement>('.lang-switch button')[index];
+  const bothButton = () => el().querySelectorAll<HTMLButtonElement>('.lang-switch button');
 
   beforeEach(async () => {
     localStorage.removeItem('ai901-lang');
@@ -47,7 +46,9 @@ describe('CheatSheet', () => {
     expect(data.glossary.length).toBeGreaterThanOrEqual(60);
   });
 
-  it('renders both English and Roman Urdu by default without duplicating identical strings', () => {
+  it('shows both English and Roman Urdu without duplicating identical strings', async () => {
+    bothButton()[0].click();
+    await fixture.whenStable();
     const text = el().textContent ?? '';
     expect(text).toContain('points lost for a wrong answer');
     expect(text).toContain('number kam ghalat jawab par');
@@ -64,24 +65,29 @@ describe('CheatSheet', () => {
     expect(row?.textContent?.match(/GlobalStandard/g)?.length).toBe(1);
   });
 
-  it('switches between Both, English only, and Roman Urdu only', async () => {
-    langButton(1).click();
-    await fixture.whenStable();
+  it('follows the EN | Roman switch at the top unless both languages are chosen', async () => {
+    expect(bothButton().length).toBe(1);
+    expect(bothButton()[0].getAttribute('aria-pressed')).toBe('false');
     expect(el().textContent).toContain('points lost for a wrong answer');
     expect(el().textContent).not.toContain('number kam ghalat jawab par');
     expect(headings()).toContain('Which one when');
 
-    langButton(2).click();
+    TestBed.inject(Language).set('ro');
     await fixture.whenStable();
     expect(el().querySelector('.banner-meta')?.textContent).toContain('taqreeban 50 sawal');
     expect(el().textContent).not.toContain('points lost for a wrong answer');
     expect(el().textContent).toContain('number kam ghalat jawab par');
     expect(headings()).toContain('Kab kaunsa');
 
-    langButton(0).click();
+    bothButton()[0].click();
     await fixture.whenStable();
+    expect(bothButton()[0].getAttribute('aria-pressed')).toBe('true');
     expect(el().textContent).toContain('points lost for a wrong answer');
     expect(el().textContent).toContain('number kam ghalat jawab par');
+
+    bothButton()[0].click();
+    await fixture.whenStable();
+    expect(el().textContent).not.toContain('points lost for a wrong answer');
   });
 
   it('toggles parts and applies quick presets', async () => {

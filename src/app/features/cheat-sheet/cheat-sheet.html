@@ -1,6 +1,6 @@
 @let t = language.ui().cheat;
 @let v = show();
-@let mode = v.langMode;
+@let mode = sheetLang();
 
 <div class="title no-print">
   <h1>{{ t.heading }}</h1>
@@ -11,17 +11,10 @@
   <div class="toolbar-row">
     <div class="field">
       <span>{{ t.langLabel }}</span>
-      <div class="lang-switch" role="group" [attr.aria-label]="t.langLabel">
-        <button type="button" [class.on]="mode === 'both'" [attr.aria-pressed]="mode === 'both'" (click)="setLangMode('both')">
-          {{ t.langBoth }}
-        </button>
-        <button type="button" lang="en" [class.on]="mode === 'en'" [attr.aria-pressed]="mode === 'en'" (click)="setLangMode('en')">
-          {{ t.langEn }}
-        </button>
-        <button type="button" lang="ur-Latn" [class.on]="mode === 'ro'" [attr.aria-pressed]="mode === 'ro'" (click)="setLangMode('ro')">
-          {{ t.langRo }}
-        </button>
+      <div class="lang-switch">
+        <button type="button" [class.on]="v.both" [attr.aria-pressed]="v.both" (click)="toggleBoth()">{{ t.langBoth }}</button>
       </div>
+      <small class="muted">{{ t.langHint }}</small>
     </div>
 
     <label class="field">

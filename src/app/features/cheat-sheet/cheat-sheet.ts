@@ -86,7 +86,8 @@ export class CheatSheet {
   private readonly data = signal<CheatSheetData | null>(null);
 
   protected readonly form = new FormGroup({
-    langMode: new FormControl<SheetLang>('both', { nonNullable: true }),
+    /** Both languages; otherwise the sheet uses the language of the EN | Roman switch at the top. */
+    both: on(false),
     domain: new FormControl('all', { nonNullable: true }),
     section: new FormControl('all', { nonNullable: true }),
     search: new FormControl('', { nonNullable: true }),
@@ -109,8 +110,11 @@ export class CheatSheet {
     return domain === 'all' ? SECTIONS : SECTIONS.filter((s) => s.domain === domain);
   });
 
+  /** Language of the sheet content. */
+  protected readonly sheetLang = computed<SheetLang>(() => (this.show().both ? 'both' : this.language.lang()));
+
   protected readonly langModeLabel = computed(() => {
-    const mode = this.show().langMode;
+    const mode = this.sheetLang();
     return mode === 'en' ? 'English' : mode === 'ro' ? 'Roman Urdu' : 'English + Roman Urdu';
   });
 
@@ -233,8 +237,8 @@ export class CheatSheet {
     });
   }
 
-  protected setLangMode(mode: SheetLang): void {
-    this.form.controls.langMode.setValue(mode);
+  protected toggleBoth(): void {
+    this.form.controls.both.setValue(!this.form.controls.both.value);
   }
 
   protected applyPreset(preset: 'core' | 'cram' | 'full'): void {
